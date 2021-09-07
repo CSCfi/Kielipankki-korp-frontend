@@ -210,8 +210,8 @@ settings.download_cgi_script = settings.cgi_prefix + "korp_download.cgi";
 
 // The main Korp and Korp Labs URL for the links in the cog menu
 settings.korp_url = {
-    "main": (isProductionServer ? "/" : "/korp/"),
-    "lab": (isProductionServer ? "/lab/" : "/korplab/")
+    "main": "/korp/",
+    "lab": "/korplab/",
 };
 
 settings.urnResolver = "http://urn.fi/";
