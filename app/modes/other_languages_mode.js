@@ -121,23 +121,46 @@ settings.corporafolders.oracc2021 = {
     }
 };
 
-settings.corporafolders.oracc = {
-    title: "Oracc",
-    description: "Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2019-05",
-    contents: ["oracc_adsd", "oracc_ario", "oracc_blms", "oracc_cams",
-               "oracc_caspo", "oracc_ctij", "oracc_dcclt", "oracc_dccmt",
-               "oracc_ecut", "oracc_etcsri", "oracc_hbtin", "oracc_obmc",
-               "oracc_riao", "oracc_ribo", "oracc_rimanum", "oracc_rinap", "oracc_saao", "oracc_others"],
+settings.corporafolders.oracc2021 = {
+    title: "Oracc 2021",
+    description: "Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    contents: ["oracc2021_adsd", "oracc2021_aemw", "oracc2021_akklove", "oracc2021_ario",
+               "oracc2021_atae", "oracc2021_blms", "oracc2021_btto", "oracc2021_cams",
+               "oracc2021_caspo", "oracc2021_ccpo", "oracc2021_ckst", "oracc2021_cmawro",
+               "oracc2021_ctij", "oracc2021_dcclt", "oracc2021_dccmt", "oracc2021_dsst",
+               "oracc2021_ecut", "oracc2021_epsd2", "oracc2021_etcsri", "oracc2021_glass",
+               "oracc2021_hbtin", "oracc2021_lacost", "oracc2021_obmc", "oracc2021_obta",
+               "oracc2021_riao", "oracc2021_ribo", "oracc2021_rimanum", "oracc2021_rinap",
+               "oracc2021_saao", "oracc2021_suhu"],
+    info: {
+        metadata_urn: "urn:nbn:fi:lb-2019060601",
+        urn: "urn:nbn:fi:lb-2019060602",
+        licence: settings.licenceinfo.CC_BY_SA_30,
+        iprholder: {
+            name: "Open Richly Annotated Cuneiform Corpus Project",
+            url: "http://oracc.museum.upenn.edu/doc/about/licensing/index.html",
+        },
+        cite_id: "oracc-korp-2019-05",
+        infopage_url: "https://www.kielipankki.fi/corpora/oracc/",
+    }
+};
+
+
+
+settings.corporafolders.achemenet = {
+    title: "Achemenet",
+    description: "Achemenet (beta version)"
+    contents: ["oracc_murashu"],
     info: {
 	metadata_urn: "urn:nbn:fi:lb-2019060601",
 	urn: "urn:nbn:fi:lb-2019060602",
         licence: settings.licenceinfo.CC_BY_SA_30,
 	iprholder: {
-	    name: "Open Richly Annotated Cuneiform Corpus Project",
-	    url: "http://oracc.museum.upenn.edu/doc/about/licensing/index.html",
+	    name: "Achemenet"
+	    url: "http://www.achemenet.com/",
 	},
-        cite_id: "oracc-korp-2019-05",
-	infopage_url: "https://www.kielipankki.fi/corpora/oracc/",
+        cite_id: "achemenet-korp-2021-09",
+	infopage_url: "https://www.kielipankki.fi/corpora/achemenet/",
     }
 };
 
@@ -440,6 +463,19 @@ settings.corpora.hc = {
     attributes : attrlist.hc,
     struct_attributes : sattrlist.hc
 };
+
+// ACHEMENET
+
+settings.corpora.achemenet_murashu = {
+    id : "achemenet_murashu",
+    title : "Murashu archives",
+    description : "Murashu archives",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc2021,
+    struct_attributes : sattrlist.oracc2021
+};
+
 // NEW ORACC 2021
 settings.corpora.oracc2021_adsd = {
     id : "oracc2021_adsd",
