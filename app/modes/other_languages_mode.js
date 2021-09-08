@@ -34,7 +34,7 @@ settings.spContext = {
 attrlist.oracc2021 = {
     lemma : attrs.baseform,
     //autolemma : attrs.baseform,
-    /*
+    
     msd : {
 	label : "msd"
 	},
@@ -68,11 +68,11 @@ attrlist.oracc2021 = {
 	    new_window : true,
 	    }
 	}
-*/
+
 };
 
 sattrlist.oracc2021 = {
-    /*text_cdlinumber : {
+    text_cdlinumber : {
         label : "oracc_cdlinumber",
     },
     text_provenience : {
@@ -93,7 +93,7 @@ sattrlist.oracc2021 = {
     paragraph_id : {
         label : "paragraph_id",
 	displayType : "hidden",
-    }*/
+    }
 };
 
 // Update urns later
@@ -149,14 +149,14 @@ settings.corporafolders.oracc2021 = {
 
 settings.corporafolders.achemenet = {
     title: "Achemenet",
-    description: "Achemenet (beta version)"
-    contents: ["oracc_murashu"],
+    description: "Achemenet (beta version)",
+    contents: ["achemenet_murashu"],
     info: {
 	metadata_urn: "urn:nbn:fi:lb-2019060601",
 	urn: "urn:nbn:fi:lb-2019060602",
         licence: settings.licenceinfo.CC_BY_SA_30,
 	iprholder: {
-	    name: "Achemenet"
+	    name: "Achemenet",
 	    url: "http://www.achemenet.com/",
 	},
         cite_id: "achemenet-korp-2021-09",
