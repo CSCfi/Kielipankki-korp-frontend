@@ -8327,9 +8327,7 @@ function pabivus_add_common_info(corpus) {
     for (var key in pabivus_common_corpus_info) {
 	corpus[key] = pabivus_common_corpus_info[key];
     }
-    // add RES status
-    corpus.limited_access = true;
-    corpus.licence_type = "RES";
+    corpus.licence = settings.licenceinfo.CC_BY_NC;
     corpus.metadata_urn = "urn:nbn:fi:lb-2020021121";
 };
 
@@ -8337,8 +8335,6 @@ function pabivus_s_add_common_info(corpus) {
     for (var key in pabivus_common_corpus_info) {
 	corpus[key] = pabivus_common_corpus_info[key];
     }
-    // add licence
-    corpus.licence = settings.licenceinfo.CC_BY_NC;
     // override defaults for unscrambled version
     corpus.cite_id = "pabivus-s-korp";
     corpus.struct_attributes = sattrlist.pabivus_s;
