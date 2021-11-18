@@ -22,7 +22,7 @@ var baseURL = (window.location.protocol + "//" + window.location.hostname
                + window.location.pathname);
 
 settings.autocomplete = true;
-settings.newMapEnabled = true;
+settings.mapEnabled = true;
 settings.hitsPerPageDefault = 25
 settings.hitsPerPageValues = [25,50,75,100,500,1000]
 // If settings.show_related_words is not defined, it is considered

@@ -145,9 +145,9 @@ settings.corporafolders.swahili = {
     description: "Swahilihinkielisiä tekstejä<br/>Texts in Swahili",
 };
 
-settings.corporafolders.akkadian = {
-    title: "Akkadi / Akkadian",
-    description: "Akkadinkielisiä tekstejä / Texts in Akkadian",
+settings.corporafolders.cuneiform = {
+    title: "Nuolenpääkirjoitus / Cuneiform",
+    description: "Translitteroituja nuolenpääkirjoitustekstejä<br/>Transliterated cuneiform texts",
 };
 
 
@@ -425,7 +425,7 @@ settings.corporafolders.akkadian.oracc2021 = {
 };
 
 
-settings.corporafolders.akkadian.oracc = {
+settings.corporafolders.cuneiform.oracc = {
     title: "Oracc",
     description: "Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2019-05",
     contents: [
