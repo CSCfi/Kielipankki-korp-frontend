@@ -8274,6 +8274,9 @@ settings.fn.extend_corpus_settings(
 
 var pabivus_corpora =
     ["pabivus_fin_1938",
+     "pabivus_kca_2013",
+     "pabivus_kca_2017",
+     "pabivus_kca_2018",
      "pabivus_koi_1996",
      "pabivus_koi_2019",
      "pabivus_kpv_1995",
@@ -8282,6 +8285,7 @@ var pabivus_corpora =
      "pabivus_krl_2011",
      "pabivus_mdf_1995",
      "pabivus_mdf_2016",
+     "pabivus_mns_2000",
      "pabivus_myv_1821",
      "pabivus_myv_1910",
      "pabivus_myv_1995",
@@ -8470,14 +8474,51 @@ settings.corpora.pabivus_rus_1876 = {
 };
 pabivus_add_common_info(settings.corpora.pabivus_rus_1876);
 
+settings.corpora.pabivus_kca_2013 = {
+    id: "pabivus_kca_2013",
+    title: "Pabivus: Khanty (2013)",
+    description: "Parallel Bible verses for Uralic languages: Khanty",
+    lang: "kca-2013", // year 2013 translation
+    linked_to : pabivus_linked_corpora("pabivus_kca_2013"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_kca_2013);
+
+settings.corpora.pabivus_kca_2017 = {
+    id: "pabivus_kca_2017",
+    title: "Pabivus: Khanty (2017)",
+    description: "Parallel Bible verses for Uralic languages: Khanty",
+    lang: "kca-2017", // year 2017 translation
+    linked_to : pabivus_linked_corpora("pabivus_kca_2017"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_kca_2017);
+
+settings.corpora.pabivus_kca_2018 = {
+    id: "pabivus_kca_2018",
+    title: "Pabivus: Khanty (2018)",
+    description: "Parallel Bible verses for Uralic languages: Khanty",
+    lang: "kca-2018", // year 2018 translation
+    linked_to : pabivus_linked_corpora("pabivus_kca_2018"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_kca_2018);
+
+settings.corpora.pabivus_mns_2000 = {
+    id: "pabivus_mns_2000",
+    title: "Pabivus: Mansi (2000)",
+    description: "Parallel Bible verses for Uralic languages: Mansi",
+    lang: "mns-2000", // year 2000 translation
+    linked_to : pabivus_linked_corpora("pabivus_mns_2000"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_mns_2000);
+
 settings.corpora.pabivus_fin_1938 = {
     id: "pabivus_fin_1938",
-    title: "Pabivus (fin–koi–kpv–krl–mdf–myv–olo–udm–rus)",
-    description: "Parallel Bible verses for Uralic languages<br/>The corpus contains verses from the New Testament in nine languages: Finnish (fin), Komi-Permyak (koi), Komi-Zyrian (kpv), North Karelian (krl), Moksha (mdf), Erzya (myv), Livvi-Karelian (olo) and Udmurt (udm) as well as Russian (rus).<br/>Some books have more than one translation available in the same language. The translation year is shown for each subcorpus. The Finnish translation is from 1938.",
+    title: "Pabivus (fin–kca-koi–kpv–krl–mdf–mns-myv–olo–udm–rus)",
+    description: "Parallel Bible verses for Uralic languages<br/>The corpus contains verses from the New Testament in nine languages: Finnish (fin), Khanty (kca), Komi-Permyak (koi), Komi-Zyrian (kpv), North Karelian (krl), Moksha (mdf), Mansi (mns), Erzya (myv), Livvi-Karelian (olo) and Udmurt (udm) as well as Russian (rus).<br/>Some books have more than one translation available in the same language. The translation year is shown for each subcorpus. The Finnish translation is from 1938.",
     lang: "fin",
     linked_to : pabivus_linked_corpora("pabivus_fin_1938"),
 };
 pabivus_add_common_info(settings.corpora.pabivus_fin_1938);
+settings.corpora.pabivus_fin_1938.attributes = attrlist.ud2_fi;
 settings.corpora.pabivus_fin_1938.hide = false;
 
 
