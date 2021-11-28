@@ -89,8 +89,8 @@ settings.corporafolders = {
         description: "Historiska korpusar",
     },
     learner: {
-        title: "Svenskinlärares språk",
-        description: "Korpusar av svenskinlärarens språk (svenska som andraspråk)",
+        title: "Svenskstuderandes språk",
+        description: "Korpusar av svenskstuderandes språk (svenska som andra eller främmande språk)",
     },
     literary: {
         title: "Litteraturkorpusar",
@@ -173,7 +173,7 @@ settings.corporafolders.news.ylenews_sv = {
 settings.corporafolders.news.ylenews_sv.a = {
     title: "Yle svenska webbartiklar 2012–2018 (för forskare)",
     description: "Yle svenska webbartiklar 2012–2018, Korp<br/>Variant tillgänglig för forskare: meningarna i den ursprungliga ordningen och stöd för utökad kontextvisning<br/><br/>Korpusen är indelad i delkorpusar enligt år, och artiklarna är ordnade enligt redigeringsdatumet.",
-    // Contents are added later with settings.fn.add_corpus_settings
+    // Contents are added later with funcs.add_corpus_settings
     contents: [],
     info: {
         urn: "urn:nbn:fi:lb-2019120405",
@@ -186,7 +186,7 @@ settings.corporafolders.news.ylenews_sv.a = {
 settings.corporafolders.news.ylenews_sv.s = {
     title: "Yle svenska webbartiklar 2012–2018 (för alla)",
     description: "Yle svenska webbartiklar 2012–2018, blandad, Korp<br/>Variant öppen för alla: meningarna i en blandad ordning inom varje text och ingen utökad kontextvisning<br/><br/>Korpusen är indelad i delkorpusar enligt år, och artiklarna är ordnade enligt redigeringsdatumet.",
-    // Contents are added later with settings.fn.add_corpus_settings
+    // Contents are added later with funcs.add_corpus_settings
     contents: [],
     info: {
         urn: "urn:nbn:fi:lb-2019120406",
@@ -223,19 +223,19 @@ settings.corporafolders.other.fstc_other = {
 };
 
 
-var klk_sv_parsed_years = settings.fn.make_yearlist(1771, 1948);
+var klk_sv_parsed_years = funcs.make_yearlist(1771, 1948);
 
 
 // Generate settings.corpora and settings.corporafolders for the
 // Swedish KLK corpora by using functions defined in config.js
 
-settings.fn.make_corpus_settings_by_year_decade(
+funcs.make_corpus_settings_by_year_decade(
     settings.corporafolders.news.klk_sv, "sv_{decade}", "klk_sv_{year}",
     function(decade) {
         return { title: decade.toString() + "-talet" };
     },
     function(year) {
-        return settings.fn.make_klk_corpus_settings(
+        return funcs.make_klk_corpus_settings(
             "Nationalbiblioteket svenska {year}",
             "Nationalbibliotekets svenskspråkiga tidningar och tidskrifter från {year}",
             "klk",
@@ -243,7 +243,7 @@ settings.fn.make_corpus_settings_by_year_decade(
             year,
             klk_sv_parsed_years.indexOf(year) != -1);
     },
-    settings.fn.make_yearlist(
+    funcs.make_yearlist(
         1771, 1948,
         {descending: true,
          omit: [1779, 1780, 1781, 1786, 1787, 1788, 1790]}
@@ -260,21 +260,20 @@ settings.corpora.semfinlex_asd_sv_2018 = {
     description: "Ett urval av ursprungliga författningar av Riksdagen från 1920̣–2018.",
     urn: "urn:nbn:fi:lb-2019042604",
     metadata_urn: "urn:nbn:fi:lb-2019042603",
-    context : defaultContext,
-    within : settings.defaultWithin,
-    licence : settings.licenceinfo.CC_BY,
-    attributes : attrlist.parsed_sv,
-    structAttributes : {
-        text_url : {
-            label : "URL",
-            type : "url",
-            url_opts : sattrs.link_url_opts
+    context: defaultContext,
+    within: settings.defaultWithin,
+    licence: settings.licenceinfo.CC_BY,
+    attributes: attrlist.parsed_sv,
+    structAttributes: {
+        text_url: {
+            label: "URL",
+            type: "url",
+            urlOpts: sattrs.link_url_opts
         },
         text_parl_statute_type: {
             label: "parl_statute_type",
             displayType: "select",
             opts: liteOptions,
-            translationKey: "parlstatutetype_",
             dataset: [
                 "laki",
                 "asetus",
@@ -286,7 +285,8 @@ settings.corpora.semfinlex_asd_sv_2018 = {
                 "kuulutus",
                 "kaari",
                 ""
-            ]
+            ],
+            translation: transl.parlStatuteType,
         }
     }
 }
@@ -298,15 +298,15 @@ settings.corpora.semfinlex_kko_sv_2018 = {
     description: "Ett urval av avgöranden av Högsta domstolen (KKO) från 1980̣–2018.",
     urn: "urn:nbn:fi:lb-2019042610",
     metadata_urn: "urn:nbn:fi:lb-2019042609",
-    context : defaultContext,
-    within : settings.defaultWithin,
-    licence : settings.licenceinfo.CC_BY,
-    attributes : attrlist.parsed_sv,
-    structAttributes : {
-        text_url : {
-            label : "URL",
-            type : "url",
-            url_opts : sattrs.link_url_opts
+    context: defaultContext,
+    within: settings.defaultWithin,
+    licence: settings.licenceinfo.CC_BY,
+    attributes: attrlist.parsed_sv,
+    structAttributes: {
+        text_url: {
+            label: "URL",
+            type: "url",
+            urlOpts: sattrs.link_url_opts
         },
         text_keywords: {label: "keywords"}
     }
@@ -319,15 +319,15 @@ settings.corpora.semfinlex_kho_sv_2018 = {
     description: "Ett urval av avgöranden av Högsta förvaltningsdomstolen (KHO) från 2001–2018.",
     urn: "urn:nbn:fi:lb-2019042610",
     metadata_urn: "urn:nbn:fi:lb-2019042609",
-    context : defaultContext,
-    within : settings.defaultWithin,
-    licence : settings.licenceinfo.CC_BY,
-    attributes : attrlist.parsed_sv,
-    structAttributes : {
-        text_url : {
-            label : "URL",
-            type : "url",
-            url_opts : sattrs.link_url_opts
+    context: defaultContext,
+    within: settings.defaultWithin,
+    licence: settings.licenceinfo.CC_BY,
+    attributes: attrlist.parsed_sv,
+    structAttributes: {
+        text_url: {
+            label: "URL",
+            type: "url",
+            urlOpts: sattrs.link_url_opts
         },
         text_keywords: {label: "keywords"}
     }
@@ -379,6 +379,55 @@ settings.corpora.ethesis_sv_phd = {
     structAttributes: sattrlist.ethesis
 };
 
+
+/* STUDENTSVENSKA */
+
+attrlist.studentsvenska = {
+    lemma: attrs.baseform,
+    code: {
+        label: "studentsvenska_code",
+        opts: settings.defaultOptions
+    },
+    properties: {
+        label: "studentsvenska_properties",
+        opts: settings.defaultOptions
+    }
+};
+
+sattrlist.studentsvenska = {
+    sentence_id: sattrs.sentence_id_hidden,
+    text_textnumber: {
+        label: "studentsvenska_textnumber"
+    },
+    text_gradeteacher: {
+        label: "studentsvenska_gradeteacher"
+    },
+    text_gradeexam: {
+        label: "studentsvenska_gradeexam"
+    },
+    text_gradeword: {
+        label: "studentsvenska_gradeword"
+    },
+    text_schoolnumber: {
+        label: "studentsvenska_schoolnumber"
+    },
+    text_errorother: {
+        label: "studentsvenska_errorother"
+    },
+    text_gender: {
+        label: "studentsvenska_gender"
+    },
+    text_gradegrammar: {
+        label: "studentsvenska_gradegrammar"
+    },
+    text_errorwordorder: {
+        label: "studentsvenska_errorwordorder"
+    },
+    text_subject: {
+        label: "studentsvenska_subject"
+    }
+};
+
 settings.corpora.studentsvenska = {
     id: "studentsvenska",
     title: "Studentsvenska 79/80",
@@ -413,7 +462,7 @@ settings.corpora.mulcold_sv = {
     structAttributes: sattrlist.mulcold,
 };
 
-settings.fn.extend_corpus_settings(settings.corpusinfo.mulcold,
+funcs.extend_corpus_settings(settings.corpusinfo.mulcold,
                                    ["mulcold_sv"]);
 
 funcs.addCorporaToFolder("legal", "mulcold_sv");
@@ -477,7 +526,7 @@ settings.corpora.sinebrychoff_orig = {
 funcs.addCorporaToFolder("historical", "sinebrychoff_orig");
 
 
-settings.fn.extend_corpus_settings(settings.corpusinfo.kfspc, ["kfspc_sv"]);
+funcs.extend_corpus_settings(settings.corpusinfo.kfspc, ["kfspc_sv"]);
 
 
 /* FSTC (Finland-Swedish Text Corpus) aka FISC */
@@ -544,7 +593,6 @@ settings.templ.fstc = $.extend(true, {}, settings.templ.lemmie_common, {
             // The values could be localized as in FTC, but we would
             // need to decide the translations
             localize: false,
-            translationKey: null,
             dataset: {
                 "author": "author",
                 "bibl": "bibl",
@@ -585,7 +633,7 @@ for (const [key, label] of [
     ["literary", "litteratur"],
     ["other", "andra"],
 ]) {
-    settings.fn.make_folder_hierarchy(
+    funcs.make_folder_hierarchy(
         settings.corporafolders[key]["fstc_" + key], fstc_hierarchy[key],
         {
             id_prefix: "fstc_",
@@ -916,15 +964,15 @@ sattrlist.ylenews_sv_common = {
     text_url: sattrs.link_original,
     text_datetime_published: {
         label: "datetime_published",
-        stringify: settings.fn.stringify_iso_datetime,
+        stringify: funcs.stringify_iso_datetime,
     },
     text_datetime_content_modified: {
         label: "datetime_content_modified",
-        stringify: settings.fn.stringify_iso_datetime,
+        stringify: funcs.stringify_iso_datetime,
     },
     text_datetime_json_modified: {
         label: "datetime_json_modified",
-        stringify: settings.fn.stringify_iso_datetime,
+        stringify: funcs.stringify_iso_datetime,
     },
     paragraph_id: sattrs.hidden,
     sentence_id: sattrs.hidden,
@@ -932,7 +980,6 @@ sattrlist.ylenews_sv_common = {
         label: "sentence_type",
         displayType: "select",
         opts: liteOptions,
-        translationKey: "textpart_",
         dataset: {
             "alt": "image_alt",
             "by": "byline",
@@ -942,6 +989,7 @@ sattrlist.ylenews_sv_common = {
             "heading-caption": "heading_caption",
             "text": "text",
         },
+        translation: transl.textPart,
     },
 };
 
@@ -949,7 +997,6 @@ sattrs.ylenews_sv_paragraph_type = {
     label: "paragraph_type",
     displayType: "select",
     opts: liteOptions,
-    translationKey: "textpart_",
     dataset: {
         "by": "byline",
         "heading": "heading",
@@ -961,6 +1008,7 @@ sattrs.ylenews_sv_paragraph_type = {
         "summary": "summary",
         "text": "text",
     },
+    translation: transl.textPart,
 };
 
 settings.templ.ylenews_sv_a = {
@@ -978,7 +1026,7 @@ settings.templ.ylenews_sv_a = {
         }),
 };
 
-settings.fn.add_corpus_settings(
+funcs.add_corpus_settings(
     settings.templ.ylenews_sv_a,
     [2012, 2018],
     settings.corporafolders.news.ylenews_sv.a,
@@ -1003,7 +1051,7 @@ settings.templ.ylenews_sv_s = {
         }),
 };
 
-settings.fn.add_corpus_settings(
+funcs.add_corpus_settings(
     settings.templ.ylenews_sv_s,
     [2012, 2018],
     settings.corporafolders.news.ylenews_sv.s,
@@ -1015,7 +1063,7 @@ settings.corpus_aliases["ylenews_sv_2012_2018_s"]
     = "ylenews_sv_201[2-8]_s";
 
 
-settings.fn.add_attr_extra_properties(settings.corpora);
+funcs.add_attr_extra_properties(settings.corpora);
 
 
 settings.corpusListing = new CorpusListing(settings.corpora);

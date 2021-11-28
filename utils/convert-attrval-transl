@@ -1,0 +1,89 @@
+#! /usr/bin/env python3
+
+# Convert Korp frontend attribute value translations from corpora-lg.json to
+# the format used in configuration files (JavaScript).
+#
+# Usage: convert-attrval-transl prefix_ corpora-lg1.json [corpora-lg2.json ...]
+#
+# Output translations for each key prefix_X in corpora-lgN.json in the format
+#
+# {
+#     "X": {
+#         "lg1": "transl1",
+#         "lg2": "transl2",
+#         ...
+#     },
+#     ...
+# }
+#
+# If a key is missing from a translation file, it is output as commented out
+# with the value being X.
+#
+# The script could probably be extended fairly easily to process a JavaScript
+# configuration file, find all "translationKey" properties and replace them
+# with a "translation" property with the value being the one generated for the
+# prefix that is the value of "translationKey". Adding a separate definition
+# and using it for keys that occur multiple times would be some more work.
+
+
+import argparse
+import json
+import sys
+
+from collections import defaultdict
+
+
+class AttrValueConverter:
+
+    def __init__(self, args):
+        self._jsons = {}
+        self._langs = []
+        self._transls = defaultdict(dict)
+        self._args = self._parse_args(args)
+
+    def run(self):
+        self._read_jsons(self._args.filename)
+        self._convert_transls(self._args.prefix)
+        self._output_transls()
+
+    def _parse_args(self, args):
+        argparser = argparse.ArgumentParser()
+        argparser.add_argument('prefix')
+        argparser.add_argument('filename', nargs='+')
+        return argparser.parse_args(args)
+
+    def _read_jsons(self, fnames):
+        for fname in self._args.filename:
+            lang = fname.rsplit('.', 1)[0].rsplit('-', 1)[-1]
+            self._langs.append(lang)
+            with open(fname, 'r') as f:
+                self._jsons[lang] = json.load(f)
+
+    def _convert_transls(self, prefix):
+        prefix_len = len(prefix)
+        keys_done = set()
+        for lang in self._langs:
+            for key in self._jsons[lang]:
+                if key.startswith(prefix) and key not in keys_done:
+                    new_key = key[prefix_len:]
+                    self._transls[new_key] = {}
+                    for lang in self._langs:
+                        self._transls[new_key][lang] = self._jsons[lang].get(key)
+
+    def _output_transls(self):
+        print('{')
+        for key in sorted(self._transls.keys()):
+            print(f'    "{key}": {{')
+            for lang in self._langs:
+                transl = self._transls[key][lang]
+                print('        ', end='')
+                if transl is None:
+                    print('// ', end='')
+                    transl = key
+                print(f'"{lang}": "{transl}",')
+            print('    },')
+        print('}')
+
+
+if __name__ == '__main__':
+    AttrValueConverter(sys.argv[1:]).run()

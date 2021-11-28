@@ -35,7 +35,7 @@
     "feedback_link": "<a id='feedback' class='follow_link' href='https://elomake.helsinki.fi/lomakkeet/56593/lomake.html' target='_blank'>Palaute</a>",
     "feedback_url": "https://elomake.helsinki.fi/lomakkeet/56593/lomake.html",
     "feedback_linktext": "Palaute",
-    "annotlab_multilingual": "Monikielinen<br/>annotointilaboratorio (Sparv)",
+    "annotlab_multilingual": "Monikielinen annotointilaboratorio (Sparv)",
     "annotlab_multilingual_url_params": "lang=en&language=fi",
     "search_history": "Hakuhistoria",
     "search_history_clear": "✘ Tyhjennä hakuhistoria",
@@ -146,6 +146,12 @@
 
     "sent_start": "virkkeen alussa",
     "sent_end": "virkkeen lopussa",
+    "before_token": "alkuun",
+    "after_token": "loppuun",
+    "boundary_unit": "Rajayksikkö:",
+    "add_tag_box": "Lisää raja",
+    "starts": "alkaa",
+    "ends": "loppuu",
 
     "none_selected": "&lt;ei valittuja&gt;",
 
@@ -405,6 +411,7 @@
     "map_cluster": "Ryhmittele",
 
     "no_row_selected_map": "Valitse ainakin yksi rivi kartalla näytettäväksi",
+    "select_attribute": "Valitse piirre",
 
     "global_filter": "Suodatin",
     "add_filter": "Lisää suodatin",
@@ -478,6 +485,7 @@
     "selected_words": "Valitut sanat",
     "button_done": "Valmis",
     "button_clear": "Tyhjennä",
-    "button_cancel": "Peruuta"
+    "button_cancel": "Peruuta",
 
+    "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }

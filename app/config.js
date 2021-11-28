@@ -22,11 +22,7 @@ var baseURL = (window.location.protocol + "//" + window.location.hostname
                + window.location.pathname);
 
 settings.autocomplete = true;
-// Currently always enable the old map at Kielipankki, since we do not
-// yet have data for the new map.
-settings.enableMap = true;
-settings.mapPosTag = ["PM", "NNP", "NNPS"]
-settings.newMapEnabled = false;
+settings.newMapEnabled = true;
 settings.hitsPerPageDefault = 25
 settings.hitsPerPageValues = [25,50,75,100,500,1000]
 // If settings.show_related_words is not defined, it is considered
@@ -192,15 +188,18 @@ settings.downloadFormatParamsPhysical = {
 
 
 // Korp backend URL
-settings.korpBackendURL =
-    window.location.protocol + "//" + window.location.hostname + "/korp/api8";
+// Always use the backend at korp.csc.fi
+settings.korpBackendURL = "https://korp.csc.fi/korp/api8";
+// // Alternatively, use the backend on the same site as the frontend
+// settings.korpBackendURL =
+//    window.location.protocol + "//" + window.location.hostname + "/korp/api8";
 // console.log("korpBackendURL: '" + settings.korpBackendURL + "'")
 settings.downloadCgiScript = settings.cgi_prefix + "korp_download.cgi";
 
 // The main Korp and Korp Labs URL for the links in the cog menu
-settings.korp_url = {
-    "main": (isProductionServer ? "/" : "/korp/"),
-    "lab": (isProductionServer ? "/lab/" : "/korplab/")
+settings.korpUrl = {
+    "main": (isProductionServer ? "/korp/" : "/korp/"),
+    "lab": (isProductionServer ? "/korplab/" : "/korplab/")
 };
 
 settings.urnResolver = "http://urn.fi/";
@@ -346,10 +345,10 @@ settings.corpusExtraInfo = {
 // tried.
 settings.makeCorpusExtraInfoItem = {
     subcorpus_of: function (corpusObj, label) {
-        if (corpusObj.logical_corpus
-            && corpusObj.logical_corpus.title != corpusObj.title) {
+        if (corpusObj.logicalCorpus
+            && corpusObj.logicalCorpus.title != corpusObj.title) {
             return {
-                text: corpusObj.logical_corpus.title,
+                text: corpusObj.logicalCorpus.title,
                 label: label,
             };
         }
@@ -373,24 +372,30 @@ settings.makeCorpusExtraInfoItem = {
         }
     },
     cite: function (corpusObj, label) {
-        if (corpusObj.cite_id && settings.corpus_cite_base_url) {
-            return {
-                // Using ng-href would require using Angular $compile,
-                // but how could we use it here or where should it be
-                // called?
-                // http://stackoverflow.com/questions/11771513/angularjs-jquery-how-to-get-dynamic-content-working-in-angularjs
-                // url: settings.corpus_cite_base_url + corpusObj.cite_id +
-                //      '&lang={{lang}}'
-                // This does not change the lang parameter in the
-                // corpus info popup, although it works in the sidebar.
-                //
-                // escape call is needed for a cite_id containing a &,
-                // but the escaped % then seems to be escaped again
-                // somewhere else. Where?
-                url: (settings.corpus_cite_base_url
-                      + escape(corpusObj.cite_id) + '&lang=' + window.lang),
-                text: label,
-            };
+        if (settings.corpus_cite_base_url) {
+            // Use the metadata URN as the default cite id; fall back
+            // to cite_id if no metadata URN is found
+            let citeId = (
+                (corpusObj.pid && corpusObj.pid.urn)
+                    || corpusObj.pid_urn
+                    || (corpusObj.metadata && corpusObj.metadata.urn)
+                    || corpusObj.metadata_urn
+                    || corpusObj.cite_id);
+            if (citeId) {
+                return {
+                    // Using ng-href would require using Angular $compile,
+                    // but how could we use it here or where should it be
+                    // called?
+                    // http://stackoverflow.com/questions/11771513/angularjs-jquery-how-to-get-dynamic-content-working-in-angularjs
+                    // url: settings.corpus_cite_base_url + citeId +
+                    //      '&lang={{lang}}'
+                    // This does not change the lang parameter in the
+                    // corpus info popup, although it works in the sidebar.
+                    url: (settings.corpus_cite_base_url
+                          + citeId + "&lang=" + window.lang),
+                    text: label,
+                };
+            }
         }
     },
     urn: function (corpusObj, label) {
@@ -509,8 +514,6 @@ settings.modeConfig = [
     }
 ];
 
-// Namespace for functions used in configuring corpora
-settings.fn = {};
 // Namespace for corpus configuration templates
 settings.templ = {};
 // Namespace for extra corpus info used in multiple corpora
@@ -676,195 +679,23 @@ settings.isSubfolderPropertyName = null
 // preselected, instead of preselecting all unrestricted corpora
 settings.allowNoPreselectedCorpora = true
 
+// A regular expression matching the names of positional attributes
+// with an underscore, so that they will not be handled as structural
+// attributes in statistics_config; if undefined or null, no
+// positional attribute name contains an underscore.
+// TODO: Generate the list dynamically based on corpora.
+settings.posAttrNamesWithUnderscore =
+    /^((word|lemma|pos|msd|dephead|deprel|ref)_.*|(clean|other|sketchy)_note)$/
 
-/*
- * Modify the list of corpora
- */
-
-
-// FIXME: Should the following functions be here or in common.js? They
-// probably should eventually be moved to util.coffee or somewhere.
-// (Jyrki Niemi 2017-10-24)
-
-
-// corporafolder properties that are not names of subfolders.
-// Represented as an object instead of an array, so that we can use
-// the JavaScript "in" operator.
-settings.corporafolder_properties = {
-    title: "",
-    description: "",
-    contents: "",
-    info: "",
-    unselected: ""
-};
-
-
-// Remove non-existing or irrelevant corpora (and folders) based on
-// the server from which the code is being run.
-//
-// NOTE: These functions have less use now that the corpus
-// configurations for unavailable corpora are removed by default
-// (util.removeUnavailableCorpora).
-//
-// settings.fn.remove_empty_corporafolders has been replaced by
-// util.removeEmptyCorporafolders, but there is not yet an exact
-// replacement for settings.fn.remove_matching_corpora that would
-// remove corpora based on regular expressions.
-//
-// TODO: Remove these functions from here when a replacement for
-// settings.fn.remove_matching_corpora has been implemented in util.
-
-
-// Recursively remove corpora folders in folder containing no corpora
-// (or folders) that are in settings.corpora. Returns true if folder
-// is empty.
-settings.fn.remove_empty_corporafolders = function (folder) {
-    var empty = true;
-    if ("contents" in folder) {
-        var new_contents = [];
-        for (var i = 0; i < folder.contents.length; i++) {
-            var corpname = folder.contents[i];
-            if (corpname in settings.corpora) {
-                new_contents.push(corpname);
-            }
-        }
-        if (new_contents.length == 0) {
-            delete folder.contents;
-        } else {
-            folder.contents = new_contents;
-            empty = false;
-        }
-    }
-    for (var prop in folder) {
-        if (folder.hasOwnProperty(prop)
-            && ! (prop in settings.corporafolder_properties)) {
-            if (settings.fn.remove_empty_corporafolders(folder[prop])) {
-                delete folder[prop];
-            } else {
-                empty = false;
-            }
-        }
-    }
-    return empty;
+// Formatting functions for corpus and corpus folder titles in the
+// corpus chooser
+settings.formatCorpusChooserItem = {
+    // Italicize folders that are collections of corpora, not single
+    // corpora or collections of subcorpora (as suggested by Mietta
+    // Lennes)
+    corpusCollection: (title, folder) => `<i>${title}</i>`,
+    // // Bold titles for top folders of corpora and stand-alone corpora
+    // // (corpora with no subcorpora)
+    // standaloneCorpus: (title, corpus) => `<b>${title}</b>`,
+    // corpusWithSubcorpora: (title, folder) => `<b>${title}</b>`,
 }
-
-// Remove from settings.corpora corpora whose property name (id)
-// matches one of regular expressions (as strings) in corplist. If the
-// second argument is true, remove the corpora that do *not* match any
-// of the regular expressions. After that, remove corpora folders that
-// would be empty after removing the copora.
-settings.fn.remove_matching_corpora = function (corplist) {
-    var inverse = (arguments.length > 1 && arguments[1]);
-    var corp_re = new RegExp("^(" + corplist.join ("|") + ")$");
-    for (var corpus in settings.corpora) {
-        var matches = corp_re.test (corpus);
-        if ((matches && ! inverse) || (inverse && ! matches)) {
-            delete settings.corpora[corpus];
-        }
-    }
-    settings.fn.remove_empty_corporafolders(settings.corporafolders);
-};
-
-
-// Add extra properties to corpus attributes based on other
-// properties. This is currently used to add extended_template and
-// controller to attributes with displayType "select".
-// Another approach would be to add these properties explicitly to all
-// the relevant attribute objects, as Språkbanken have done. Both
-// approaches probably have advantages and disadvantages (less
-// redundancy vs. explicitness).
-
-
-// Add the extra attibute properties in settings.attr_extra_properties
-// to the appropriate attributes of corpora.
-settings.fn.add_attr_extra_properties = function (corpora) {
-    for (var corpname in corpora) {
-        var corpus = corpora[corpname];
-        var attr_group_names = ["attributes", "struct_attributes"];
-        var attr_group_count = attr_group_names.length;
-        for (var groupnum = 0; groupnum < attr_group_count; groupnum++) {
-            if (attr_group_names[groupnum] in corpus) {
-                var attrs = corpus[attr_group_names[groupnum]];
-                var extra_props_count = settings.attr_extra_properties.length;
-                for (var attrname in attrs) {
-                    for (var i = 0; i < extra_props_count; i++) {
-                        var attr_extra_props =
-                            settings.attr_extra_properties[i];
-                        var attr = attrs[attrname];
-                        if (attr_extra_props.test(attr)) {
-                            var props = attr_extra_props.props;
-                            for (var prop in props) {
-                                if (props.hasOwnProperty(prop)
-                                    && ! attr.hasOwnProperty(prop)) {
-                                    attr[prop] = props[prop];
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-
-// Add corpus aliases that are expanded to the corpus ids matching the
-// regular expression string corpus_id_patt (actually, a
-// comma-separated list of regular expressions matching corpus ids).
-//
-// In addition to the explicitly specified corpus aliases, the
-// function also adds variants with and without a "-korp" suffix and
-// with underscores converted to dashes and dashes to underscores. If
-// the specified corpus aliases contain an alias with "-korp-" or
-// "_korp_" infix, also aliases without it are added.
-//
-// The optional third argument is an object containing options. The
-// following options are supported:
-//   override: if true, override an existing alias (default: no)
-//   add_variants: if false, do not add the alias variants (default:
-//     true)
-settings.fn.add_corpus_aliases = function (corpus_id_patt, aliases) {
-    var opts = arguments[2] || {};
-    var override = opts.override || false;
-    var add_variants = (opts.add_variants !== false);
-
-    var add_dash_underscore_variants = function (aliases, alias) {
-        if (alias.indexOf("_") > -1) {
-            aliases.push(alias.replace(/_/g, "-"));
-        }
-        if (alias.indexOf("-") > -1) {
-            aliases.push(alias.replace(/-/g, "_"));
-        }
-    }
-
-    if (! _.isArray(aliases)) {
-        aliases = [aliases];
-    }
-    for (var i = 0; i < aliases.length; i++) {
-        var alias = aliases[i]
-        var aliases2 = [alias];
-        var alias2;
-        if (add_variants) {
-            // Add alias variants:
-            // x -> x, x-korp, x_korp
-            // x-y | x_y | x-y-korp | x_y_korp -> x-y, x_y, x-y-korp, x_y_korp
-            add_dash_underscore_variants(aliases2, alias);
-            // This may add some aliases twice to alias2, but that
-            // does not matter in the end.
-            if (alias.match(/[_-]korp($|[_-])/)) {
-                alias2 = alias.replace(/[_-]korp($|[_-])/, "$1");
-                aliases2.push(alias2)
-                add_dash_underscore_variants(aliases2, alias2);
-            } else {
-                aliases2.push(alias + "-korp");
-                add_dash_underscore_variants(aliases2, alias + "-korp");
-            }
-        }
-        for (var j = 0; j < aliases2.length; j++) {
-            alias2 = aliases2[j];
-            if (override || ! (alias2 in settings.corpus_aliases)) {
-                settings.corpus_aliases[alias2] = corpus_id_patt;
-            }
-        }
-    }
-};

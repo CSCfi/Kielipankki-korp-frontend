@@ -1,0 +1,12 @@
+
+// Sidebar style modifications
+
+.sidebar p {
+    // Hanging indent for attributes (and corpus information)
+    padding-left: 1em;
+    text-indent: -1em;
+    // Slightly tighter line-spacing in multi-line values (within
+    // paragraphs) than between items (paragraphs)
+    line-height: 1.2em;
+    margin-bottom: 0.2em;
+}

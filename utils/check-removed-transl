@@ -1,0 +1,44 @@
+#! /bin/bash
+
+# check-removed-transl
+#
+# Check that translations removed from corpora-*.json correspond to
+# those of the translationKey key properties removed from mode
+# configuration files (and not yet committed to Git).
+
+cd $(git rev-parse --show-toplevel)
+
+export LC_ALL=C
+
+# translationKey properties removed from mode files
+git diff app/modes |
+    grep '^- *translationKey: "' |
+    sed -e 's/.*: "//; s/",//;' |
+    sort -u > removed-keys.txt
+
+printf "* Translations for removed prefixes remaining in corpora-*.json:\n\n"
+# Note that this is based on the translationKey prefix only: the
+# translation for an attribute label might have the same prefix
+for pfx in $(cat removed-keys.txt); do
+    grep -n "\"$pfx" app/translations/corpora-*.json
+done
+
+printf "\n* Translations removed but not apparently corresponding to any removed prefix\n\n"
+# Note that if a value contains more than one underscore, it is listed
+# here
+git diff app/translations/corpora-*.json |
+    grep '^- *"' |
+    sed -e 's/^- *//' |
+    # Prefix up to the last underscore
+    perl -pe 's/^("(.*_).*?":)/$2\t$1/' |
+    sort |
+    join -t'	' -v1 - removed-keys.txt |
+    perl -pe 's/^.*\t//' |
+    # For the remaining, try a prefix up up to the second-last underscore
+    perl -pe 's/^("(.*_).*_.*?":)/$2\t$1/' |
+    sort |
+    join -t'	' -v1 - removed-keys.txt |
+    perl -pe 's/^.*\t//' |
+    sort
+
+rm removed-keys.txt

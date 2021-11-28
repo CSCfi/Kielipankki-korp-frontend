@@ -1,0 +1,21 @@
+{
+    "docs": "Användarhandledning",
+    "docs_url": "https://www.kielipankki.fi/support/korp/",
+    "korp": "Korp",
+    "korp_lab": "Korplabbet (Korp beta)",
+    "university": "Helsingfors universitet",
+    "language_bank": "Språkbanken i Finland",
+    "language_bank_url": "https://www.kielipankki.fi/sprakbanken/",
+    "feedback_link": "<a id='feedback' class='follow_link' href='https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback_sv' target='_blank'>Feedback</a>",
+    "feedback_url": "https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback_sv",
+    "feedback_linktext": "Feedback",
+    "import_chain": "Annoteringslabbet",
+    "annotlab_multilingual": "Flerspråkiga annoteringslabbet (Sparv)",
+    "annotlab_multilingual_url_params": "lang=sv&language=sv",
+    "privacy": "Dataskyddsbeskrivning",
+    "privacy_url": "privacy-policy.html",
+    "terms_of_use": "Servicevillkor",
+    "terms_of_use_urn": "urn:nbn:fi:lb-20150304100",
+
+    "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
+}
