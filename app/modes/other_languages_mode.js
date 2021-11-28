@@ -1255,10 +1255,14 @@ attrlist.oracc = {
 
 attrlist.oracc2021 = {
     lemma : attrs.baseform,
-    autolemma : attrs.baseform,
+    autolemma : {
+        label: "autolemma",
+        opts: settings.defaultOptions
+        },
+    //attrs.baseform,
     autopos : {
-	label : "pos"
-	},
+        label : "autopos"
+        },
     msd : {
 	label : "msd"
 	},
@@ -1298,6 +1302,15 @@ attrlist.oracc2021 = {
 sattrlist.oracc2021 = {
     text_cdlinumber : {
         label : "oracc_cdlinumber",
+    },
+    text_credits : {
+        label: "oracc_credits",
+        type: "url",
+        url_opts: {
+            //in_link_section : true,
+            //hide_url : true,
+            new_window : true,
+        }
     },
     text_provenience : {
         label : "oracc_provenance",
