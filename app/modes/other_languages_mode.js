@@ -1261,7 +1261,8 @@ attrlist.oracc2021 = {
         },
     //attrs.baseform,
     autopos : {
-        label : "autopos"
+        label : "autopos",
+        extendedComponent : "structServiceAutocomplete",
         },
     msd : {
 	label : "msd"
@@ -1276,16 +1277,19 @@ attrlist.oracc2021 = {
 	label : "oracc_transcription"
 	},
     pos : {
-	label : "pos"
+	label : "pos",
+        extendedComponent : "structServiceSelect",
 	},
     oraccpos : {
-	label : "oracc_pos_subcategory"
+	label : "oracc_pos_subcategory",
+        extendedComponent : "structServiceAutocomplete",
 	},
     normname : {
 	label : "oracc_standardized"
 	},
     lang : {
-	label : "oracc_lang"
+	label : "oracc_lang",
+        extendedComponent : "structServiceSelect",
 	},
     url : {
 	label: "oracc_url",
@@ -1316,7 +1320,8 @@ sattrlist.oracc2021 = {
     },*/
     text_provenience : {
         label : "oracc_provenance",
-        extendedComponent : "structServiceAutocomplete",
+        opts: liteOptions,
+        extendedComponent: "structServiceAutocomplete",
     },
     text_language : {
         label : "oracc_textlang",
@@ -1324,39 +1329,46 @@ sattrlist.oracc2021 = {
     },
     text_genre : {
         label : "oracc_genre",
-        extendedComponent : "structServiceAutocomplete",
+        opts: liteOptions,
+        extendedComponent : "structServiceSelect",
     },
     text_period : {
         label : "oracc_period",
-	extendedComponent : "structServiceAutocomplete",
-	//structServiceSelect
+        opts: liteOptions,
+	extendedComponent : "structServiceSelect",
     },
     text_subgenre : {
         label : "oracc_subgenre",
+	extendedComponent : "structServiceAutocomplete",
     },
     text_museumno : {
 	label : "oracc_museumno",
     },
     text_photo : {
         label : "oracc_photo",
+	extendedComponent : "structServiceAutocomplete",
     },
     text_copy : {
         label : "oracc_copy",
+	extendedComponent : "structServiceAutocomplete",
     },
     text_accessionno : {
         label : "oracc_accessionno",
     },
     text_datebce : {
         label : "oracc_datebce",
+	extendedComponent : "structServiceAutocomplete",
     },
     text_primarypub : {
         label : "oracc_primarypubno",
     },
     text_excavation : {
         label : "oracc_excavation",
+	extendedComponent : "structServiceAutocomplete",
     },
     text_collection : {
         label : "oracc_collection",
+	extendedComponent : "structServiceAutocomplete",
     },
     paragraph_id : {
         label : "paragraph_id",
