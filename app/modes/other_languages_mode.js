@@ -1290,6 +1290,8 @@ attrlist.oracc2021 = {
     url : {
 	label: "oracc_url",
 	type: "url",
+        hideExtended: true,
+        hideStatistics: true,
 	url_opts: {
 	        //in_link_section : true,
 	        //hide_url : true,
