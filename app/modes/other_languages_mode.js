@@ -400,7 +400,7 @@ settings.corporafolders.swahili.hcs2 = {
     },
 };
 
-settings.corporafolders.akkadian.oracc2021 = {
+settings.corporafolders.cuneiform.oracc2021 = {
     title: "Oracc 2021",
     description: "Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
     contents: ["oracc2021_adsd", "oracc2021_aemw", "oracc2021_akklove", "oracc2021_ario",
