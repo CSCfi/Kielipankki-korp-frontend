@@ -1310,8 +1310,8 @@ sattrlist.oracc2021 = {
             //in_link_section : true,
             //hide_url : true,
             new_window : true,
-        }*/
-    },
+        }
+    },*/
     text_provenience : {
         label : "oracc_provenance",
         extendedComponent : "structServiceAutocomplete",
