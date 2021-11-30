@@ -4799,6 +4799,8 @@ attrs.baseform = {
         return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
     },
     opts: settings.defaultOptions,
+    stats_cqp: "cqpPlainWordAttr",
+    stats_stringify: "stringifyPlainWordAttr",
 };
 attrs.baseform_ordered = JSON.parse(JSON.stringify(attrs.baseform));
 attrs.baseform_ordered.order = 20;

@@ -136,18 +136,18 @@ settings.corporafolders.russian = {
 };
 
 settings.corporafolders.uralic = {
-    title: "Uralilaisia kieliä / Uralic languages",
-    description: "Uralilaisten kielten aineistoja<br/>Corpora in Uralic languages",
+    title: "Uralic languages / Uralilaisia kieliä",
+    description: "Corpora in Uralic languages<br/>Uralilaisten kielten aineistoja",
 };
 
 settings.corporafolders.swahili = {
     title: "Swahili",
-    description: "Swahilihinkielisiä tekstejä<br/>Texts in Swahili",
+    description: "Texts in Swahili<br/>Swahilihinkielisiä tekstejä",
 };
 
-settings.corporafolders.akkadian = {
-    title: "Akkadi / Akkadian",
-    description: "Akkadinkielisiä tekstejä / Texts in Akkadian",
+settings.corporafolders.cuneiform = {
+    title: "Cuneiform / Nuolenpääkirjoitus",
+    description: "Transliterated cuneiform texts<br/>Translitteroituja nuolenpääkirjoitustekstejä",
 };
 
 
@@ -425,7 +425,7 @@ settings.corporafolders.akkadian.oracc2021 = {
 };
 
 
-settings.corporafolders.akkadian.oracc = {
+settings.corporafolders.cuneiform.oracc = {
     title: "Oracc",
     description: "Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2019-05",
     contents: [

@@ -22,7 +22,7 @@ var baseURL = (window.location.protocol + "//" + window.location.hostname
                + window.location.pathname);
 
 settings.autocomplete = true;
-settings.newMapEnabled = true;
+settings.mapEnabled = true;
 settings.hitsPerPageDefault = 25
 settings.hitsPerPageValues = [25,50,75,100,500,1000]
 // If settings.show_related_words is not defined, it is considered
@@ -84,8 +84,8 @@ settings.compressBackendParamsOpts = {
     compressed_command: false,
 };
 
-settings.enableBackendKwicDownload = false
-settings.enableFrontendKwicDownload = true
+settings.enableBackendKwicDownload = true
+settings.enableFrontendKwicDownload = false
 
 // Enable passing additional information (UI language, search mode) to
 // the backend for writing the backend log. If not defined, considered
@@ -94,9 +94,13 @@ settings.addBackendLogInfo = true;
 
 settings.downloadFormats = [
     "annot",
+    "annot_xls",
     "ref",
+    "ref_xls",
     "sentences",
+    "sentences_xls",
     "sentences_kwic",
+    "sentences_kwic_xls",
     "text",
     "json",
     "nooj",
@@ -136,8 +140,20 @@ settings.downloadFormatParams = {
         match_marker: "***",
         physical_formats: physical_formats.table,
     },
+    "annot_xls": {
+        format: "tokens,xls",
+        format_suffix: ".xls",
+        attrs: "+,-lex",
+        match_marker: "***",
+        physical_formats: physical_formats.table,
+    },
     "ref": {
         format: "bibref",
+        physical_formats: physical_formats.table,
+    },
+    "ref_xls": {
+        format: "bibref,xls",
+        format_suffix: ".xls",
         physical_formats: physical_formats.table,
     },
     "sentences": {
@@ -145,10 +161,22 @@ settings.downloadFormatParams = {
         subformat: "lemmas-resultinfo",
         physical_formats: physical_formats.table,
     },
+    "sentences_xls": {
+        format: "sentences,xls",
+        format_suffix: ".xls",
+        subformat: "lemmas-resultinfo",
+        physical_formats: physical_formats.table,
+    },
     // As "sentences", but match tokens and context tokens in separate
     // columns
     "sentences_kwic": {
         format: "sentences",
+        subformat: "lemmas-resultinfo,lemmas-kwic",
+        physical_formats: physical_formats.table,
+    },
+    "sentences_kwic_xls": {
+        format: "sentences,xls",
+        format_suffix: ".xls",
         subformat: "lemmas-resultinfo,lemmas-kwic",
         physical_formats: physical_formats.table,
     },
@@ -194,7 +222,7 @@ settings.korpBackendURL = "https://korp.csc.fi/korp/api8";
 // settings.korpBackendURL =
 //    window.location.protocol + "//" + window.location.hostname + "/korp/api8";
 // console.log("korpBackendURL: '" + settings.korpBackendURL + "'")
-settings.downloadCgiScript = settings.cgi_prefix + "korp_download.cgi";
+settings.downloadCgiScript = "https://korp.csc.fi/cgi-bin/korp/korp_download.cgi";
 
 // The main Korp and Korp Labs URL for the links in the cog menu
 settings.korpUrl = {
@@ -307,6 +335,7 @@ settings.make_direct_LBR_URL = function (lbr_id) {
 // a new item X, also remember to add corresponding translations for
 // the link text to locale-??.json with the key "corpus_X".
 settings.corpusExtraInfoItems = [
+    "credits",
     "subcorpus_of",
     "pid",
     "cite",
@@ -324,6 +353,7 @@ settings.corpusExtraInfoItems = [
 settings.corpusExtraInfo = {
     infoPopup: settings.corpusExtraInfoItems,
     sidebar: [
+        "credits",
         "subcorpus_of",
         "pid",
         "cite",
@@ -373,6 +403,10 @@ settings.makeCorpusExtraInfoItem = {
     },
     cite: function (corpusObj, label) {
         if (settings.corpus_cite_base_url) {
+            // If cite_id is explicitly null or "", omit the citation link
+            if (corpusObj.cite_id === null || corpusObj.cite_id == "") {
+                return
+            }
             // Use the metadata URN as the default cite id; fall back
             // to cite_id if no metadata URN is found
             let citeId = (
@@ -630,6 +664,10 @@ settings.mapCenter = {
     lng: 25.803222,
     zoom: 4
 };
+// The function with which to calculate the initial map centre, using
+// only the "zoom" property from settings.mapCenter
+settings.calculateMapCenter = "centerPoint"
+
 
 settings.readingModeField = "sentence_id"
 
