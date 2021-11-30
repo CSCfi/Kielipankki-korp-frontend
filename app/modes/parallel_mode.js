@@ -8513,7 +8513,7 @@ pabivus_add_common_info(settings.corpora.pabivus_mns_2000);
 settings.corpora.pabivus_fin_1938 = {
     id: "pabivus_fin_1938",
     title: "Pabivus (fin–kca-koi–kpv–krl–mdf–mns-myv–olo–udm–rus)",
-    description: "Parallel Bible verses for Uralic languages<br/>The corpus contains verses from the New Testament in nine languages: Finnish (fin), Khanty (kca), Komi-Permyak (koi), Komi-Zyrian (kpv), North Karelian (krl), Moksha (mdf), Mansi (mns), Erzya (myv), Livvi-Karelian (olo) and Udmurt (udm) as well as Russian (rus).<br/>Some books have more than one translation available in the same language. The translation year is shown for each subcorpus. The Finnish translation is from 1938.",
+    description: "Parallel Bible verses for Uralic languages<br/>The corpus contains the 27 books of the New Testament in nine languages: Finnish (fin), Komi-Permyak (koi), Komi-Zyrian (kpv), North Karelian (krl), Moksha (mdf), Erzya (myv), Livvi-Karelian (olo) and Udmurt (udm) as well as Russian (rus). It also contains some books of the Bible in Mansi (mns) and Khanty (kca).<br/>Some books have more than one translation available in the same language. The translation year is shown for each subcorpus. The Finnish translation is from 1938.",
     lang: "fin",
     linked_to : pabivus_linked_corpora("pabivus_fin_1938"),
 };
