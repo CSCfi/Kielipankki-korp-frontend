@@ -1450,17 +1450,18 @@ settings.corpora.oracc2021_cams = {
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
-settings.corpora.oracc2021_caspo = {
-    id : "oracc2021_caspo",
-    title : "CASPo: Corpus of Akkadian Shuila-Prayers online",
-    description : "CASPo: Corpus of Akkadian Shuila-Prayers online",
-    credits_url : "http://www.oracc.org/caspo/",
-    cite_id : "",
-    context : spContext,
-    within : spWithin,
-    attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
-};
+// Remove CASPo temporarily
+// settings.corpora.oracc2021_caspo = {
+//     id : "oracc2021_caspo",
+//     title : "CASPo: Corpus of Akkadian Shuila-Prayers online",
+//     description : "CASPo: Corpus of Akkadian Shuila-Prayers online",
+//     credits_url : "http://www.oracc.org/caspo/",
+//     cite_id : "",
+//     context : spContext,
+//     within : spWithin,
+//     attributes: attrlist.oracc2021,
+//     structAttributes : sattrlist.oracc2021
+// };
 settings.corpora.oracc2021_ccpo = {
     id : "oracc2021_ccpo",
     title : "CCPo: Cuneiform Commentaries Project on Oracc",
