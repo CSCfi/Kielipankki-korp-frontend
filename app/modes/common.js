@@ -4419,8 +4419,7 @@ attrlist.pabivus = {
     lemma: attrs.baseform,
     lemmacomp: attrs.baseform_compound,
     pos: attrs.pos_pabivus,
-    msd: attrs.msd,
-    lex: attrs.lemgram_hidden
+    msd: attrs.msd
 };
 
 sattrlist.pabivus = {
