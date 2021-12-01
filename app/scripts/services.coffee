@@ -181,7 +181,7 @@ korpApp.factory 'backend', ($http, $q, utils, lexicons) ->
             command: "count"
             groupby: attribute.label
             cqp: cqp
-            corpus: util.encodeListParam corpora
+            corpus: util.encodeListParam attribute.corpora
             incremental: $.support.ajaxProgress
             split: attribute.label
         _.extend params, settings.corpusListing.getWithinParameters()

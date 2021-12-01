@@ -226,7 +226,7 @@
           command: "count",
           groupby: attribute.label,
           cqp: cqp,
-          corpus: util.encodeListParam(corpora),
+          corpus: util.encodeListParam(attribute.corpora),
           incremental: $.support.ajaxProgress,
           split: attribute.label
         };

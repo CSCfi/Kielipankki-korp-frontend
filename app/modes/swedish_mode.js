@@ -7,7 +7,6 @@ settings.lemgramSelect = true;
 settings.wordpicture = true;
 settings.show_related_words = true;
 
-
 // Override the default statisticsFormatting.makeGroupingValue (in
 // statistics_config.js) to group lemmas, saldo values and lemgrams in
 // the same way as Språkbanken's Korp (ignoring the possible trailing
@@ -940,6 +939,41 @@ settings.corpus_aliases["ylenews_sv_2012_2018_s"]
     = settings.corpus_aliases["ylenews-sv-2012-2018-s-korp"]
     = settings.corpus_aliases["ylenews-sv-2012-2018-s"]
     = "ylenews_sv_201[2-8]_s";
+
+
+settings.corpora.nlfcl_sv = {
+    id: "nlfcl_sv",
+    title: "Nationalbibliotekets Klassikerbibliotek (svenska)",
+    description: "Nationalbibliotekets Klassikerbiblioteks svenskspråkiga delkorpus – Kielipankki version: verk från åren 1810–1937",
+    urn: "urn:nbn:fi:lb-201804042",
+    metadata_urn: "urn:nbn:fi:lb-201804041",
+    cite_id: "nlfcl-sv-korp",
+    licence: settings.licenceinfo.CC_BY_40,
+    labels: ["beta"],
+    features: ["paragraphs"],
+    attributes : attrlist.parsed_sv_lemmaset,
+    struct_attributes: {
+        text_id: sattrs.hidden,
+        text_title: sattrs.text_title,
+        text_author: sattrs.text_author,
+        text_contributor: {
+            label: "nlfcl_contributor"
+        },
+        text_rights: sattrs.hidden,
+        text_filename: sattrs.hidden,
+        text_digitized: {
+            label: "digitization_date"
+        },
+        text_book_number: {
+            label: "book_number"
+        },
+        text_year: {
+            label: "publication_year"
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+};
 
 
 settings.fn.add_attr_extra_properties(settings.corpora);

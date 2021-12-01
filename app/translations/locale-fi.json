@@ -182,6 +182,7 @@
     "mdf": "mordva",
     "mkd": "makedonia",
     "myv": "ersä",
+    "nor": "norja",
     "pol": "puola",
     "ron": "romania",
     "sjd": "kiltinänsaame",
@@ -393,6 +394,7 @@
     "kwic_download_formatdescr_html_table": "HTML-taulukko",
 
     "privacy": "Tietosuojaseloste",
+    "privacy_url": "https://www.kielipankki.fi/tietosuojaseloste/korp-palvelun-kayttaja/",
     "terms_of_use": "Yleiset käyttöehdot",
     "terms_of_use_urn": "urn:nbn:fi:lb-20150304200",
 

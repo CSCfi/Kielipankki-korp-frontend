@@ -31,13 +31,18 @@
     "saldo": "betydelse",
     "sense": "betydelse",
     "pos": "ordklass",
+    "pos_ud1": "ordklass (UD1)",
     "posset": "homografmängd",
     "msd": "msd",
+    "msd_ud1": "msd (UD1)",
     "baseform": "grundform",
+    "baseform_ud1": "grundform (UD1)",
     "lemgram": "lemgram",
     "dalin-lemgram": "dalin-lemgram",
     "dephead": "dephead",
+    "dephead_ud1": "dephead (UD1)",
     "deprel": "dependensrelation",
+    "deprel_ud1": "dependensrelation (UD1)",
     "sentence": "mening",
     "paragraph": "stycke",
     "prefix": "förled",
@@ -52,6 +57,7 @@
     
     "lemma": "grundform",
     "baseform_compound": "grundform (sammansättningsgränser)",
+    "baseform_compound_ud1": "grundform (sammansättningsgränser) (UD1)",
     "lemmacomp": "grundform (sammansättningsgränser)",
     "func": "satsdel",
 
@@ -118,6 +124,10 @@
     "text_volume": "band",
     "subject": "ämne",
     "volume": "band",
+
+    "book_number": "bokens nummer",
+    "nlfcl_contributor": "medarbetare",
+    "publication_year": "utgivningsår",
 
     "author_name_type": "författarnamnets typ",
     "author_name_type_candidate_id": "abiturientsignum",
@@ -766,6 +776,16 @@
     "place": "plats",
 
     "facsimile_title": "faksimilupplaga",
+
+    "sentence_polarity": "meningens polaritet",
+    "polarity_pos": "positiv",
+    "polarity_neut": "neutral",
+    "polarity_neg": "negativ",
+
+    "sentence_lang_identified": "satsens språk (identifierad)",
+
+    "ner_tags": "namnklassificering",
+    "ner_tag_max": "namnklassificering (maximal)",
 
     "ne_expr": "uttryck",
     "ne_type": "namntyp",

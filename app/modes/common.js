@@ -235,6 +235,10 @@ attrs.dephead = {
     label: "dephead",
     displayType: "hidden"
 };
+attrs.dephead_ud1 = {
+    label: "dephead_ud1",
+    displayType: "hidden"
+};
 attrs.deprel = {
     label: "deprel",
     displayType: "select",
@@ -1091,6 +1095,10 @@ attrs.pos_ud_fi = {
     },
 };
 
+attrs.pos_ud_fi_ud1 = JSON.parse(JSON.stringify(attrs.pos_ud_fi));
+attrs.pos_ud_fi_ud1.label = "pos_ud1";
+attrs.pos_ud_fi_ud1.order = 13;
+
 attrs.pos_klk = {
     label: "pos",
     displayType: "select",
@@ -1112,6 +1120,8 @@ attrs.pos_klk = {
     },
     opts: settings.liteOptions
 };
+attrs.pos_klk_ordered = JSON.parse(JSON.stringify(attrs.pos_klk));
+attrs.pos_klk_ordered.order = 18;
 
 // TextMorfo parts of speech, used in FTC
 attrs.pos_textmorfo = {
@@ -1221,6 +1231,11 @@ attrs.msd = {
 	return val.replace(/\|/g, "|<wbr>");
     }
 };
+attrs.msd_ordered = JSON.parse(JSON.stringify(attrs.msd));
+attrs.msd_ordered.order = 17;
+attrs.msd_ud1 = JSON.parse(JSON.stringify(attrs.msd));
+attrs.msd_ud1.label = "msd_ud1";
+attrs.msd_ud1.order = 12;
 attrs.baseform = {
     label: "baseform",
     // type: "set",
@@ -1230,6 +1245,11 @@ attrs.baseform = {
     },
     opts: settings.defaultOptions,
 };
+attrs.baseform_ordered = JSON.parse(JSON.stringify(attrs.baseform));
+attrs.baseform_ordered.order = 20;
+attrs.baseform_ud1 = JSON.parse(JSON.stringify(attrs.baseform));
+attrs.baseform_ud1.label = "baseform_ud1";
+attrs.baseform_ud1.order = 15;
 attrs.baseform_ftb2 = {
     label: "baseform",
     // type: "set",
@@ -1248,7 +1268,18 @@ attrs.baseform_compound = {
     },
     opts: settings.defaultOptions
 };
-
+attrs.baseform_compound_ordered = JSON.parse(JSON.stringify(attrs.baseform_compound));
+attrs.baseform_compound_ordered.order = 19;
+attrs.baseform_compound_ud1_ordered = {
+    label: "baseform_compound_ud1",
+    order: 14,
+    // type: "set",
+    // displayType: "autocomplete",
+    stringify: function(baseform) {
+        return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
+    },
+    opts: settings.defaultOptions
+};
 attrs.lemgram_hidden = {
     label: "lemgram",
     type: "set",    // Seems to work only if this is "set" even if "hidden"
@@ -1343,6 +1374,8 @@ attrs.deprel_tdt = {
 	"xsubj-cop": "xsubj-cop"
     }
 };
+attrs.deprel_tdt_ordered = JSON.parse(JSON.stringify(attrs.deprel_tdt));
+attrs.deprel_tdt_ordered.order = 16;
 attrs.deprel_ud2 = {
     label: "deprel",
     displayType: "select",
@@ -1449,6 +1482,9 @@ attrs.deprel_ud_fi = {
 	"xcomp:ds": "xcomp:ds",
     }
 };
+attrs.deprel_ud_fi_ud1 = JSON.parse(JSON.stringify(attrs.deprel_ud_fi));
+attrs.deprel_ud_fi_ud1.label = "deprel_ud1";
+attrs.deprel_ud_fi_ud1.order = 11;
 attrs.deprel_uta_ru = {
     label: "deprel",
     displayType: "select",
@@ -1744,6 +1780,26 @@ attrlist.finer = {
     nerbio: attrs.ner_bio,
 };
 
+// Attributes produced by vrt-finnish-nertag (*not* FiNER version 2,
+// but Finnish NER *tags* version 2)
+attrlist.finer2 = {
+    nertag: {
+        label: "ner_tag_max",
+    },
+    nertags: {
+        label: "ner_tags",
+        type: "set",
+        opts: settings.setOptions,
+        // Hide the tags containing nesting information (a digit
+        // suffix) until it can be represented and searched for in a
+        // more user-friendly way (in Korp 9)
+        displayType: "hidden",
+    },
+    nerbio: {
+        label: "ner_bio",
+    },
+};
+
 attrlist.ud2_fi = {
     ref: attrs.ref,
     lemma: attrs.baseform,
@@ -1761,6 +1817,10 @@ attrlist.ud2_en = attrlist.ud2_fi;
 
 settings.corpus_features.finer = {
     attributes: attrlist.finer,
+};
+
+settings.corpus_features.finer2 = {
+    attributes: attrlist.finer2,
 };
 
 // An attribute not to be shown in Korp but included for documentation
@@ -1999,6 +2059,11 @@ sattrs.month = {
 sattrs.day_of_month = {
     label: "day"
 };
+
+sattrs.sentence_lang = {
+    label: "sentence_lang_identified",
+};
+
 
 /* KFSCP --- */
 
@@ -2279,8 +2344,11 @@ sattrlist.ethesis = {
     text_title: {
         label: "text_title"
     },
-    text_date: {
-        label: "text_date"
+    text_date_orig: {
+        label: "original_date"
+    },
+    text_year: {
+	label: "text_year"
     },
     text_keywords: {
         label: "text_keywords"
@@ -2449,6 +2517,23 @@ attrlist.parsed_tdt = {
     dephead: attrs.dephead,
     deprel: attrs.deprel_tdt,
     ref: attrs.ref,
+    lex: attrs.lemgram_hidden,
+};
+
+attrlist.parsed_tdt_ud1 = {
+    ref: attrs.ref,
+    lemma: attrs.baseform_ordered, // order: 20
+    lemmacomp: attrs.baseform_compound_ordered, // order: 19
+    pos: attrs.pos_klk_ordered, // order: 18
+    msd: attrs.msd_ordered, // order: 17
+    dephead: attrs.dephead,
+    deprel: attrs.deprel_tdt_ordered, // order: 16
+    lemma_ud1: attrs.baseform_ud1, // order: 15
+    lemmacomp_ud1: attrs.baseform_compound_ud1_ordered, // order: 14
+    pos_ud1: attrs.pos_ud_fi_ud1, // order: 13
+    msd_ud1: attrs.msd_ud1, // order: 12
+    dephead_ud1: attrs.dephead_ud1,
+    deprel_ud1: attrs.deprel_ud_fi_ud1, // order: 11
     lex: attrs.lemgram_hidden,
 };
 
@@ -4469,8 +4554,8 @@ settings.fn.extend_corpus_settings = function (props, corpus_ids) {
 // Generate a declaration for an attribute with Boolean values.
 // Arguments:
 // - label: attribute translation label
-// - yes_no: an array of two items: the corpus values for "yes" and
-//   "no"; if omitted, use "y" and "n".
+// - yes_no: an array of two or three items: the corpus values for
+//   "yes", "no" and optionally "unknown"; if omitted, use "y" and "n".
 settings.fn.make_bool_attr = function (label, yes_no) {
     var dataset = {};
     if (arguments.length < 2) {
@@ -4481,6 +4566,9 @@ settings.fn.make_bool_attr = function (label, yes_no) {
     } else {
 	dataset[yes_no[0]] = "yes";
 	dataset[yes_no[1]] = "no";
+        if (yes_no.length > 2) {
+            dataset[yes_no[2]] = "unknown";
+        }
     }
     return {
 	label: label,
@@ -4627,6 +4715,22 @@ settings.fn.make_folder_hierarchy = function (parent_folder, subfolder_tree,
 		= parent_folder.contents.concat([corpus_info.id]);
 	    settings.corpora[corpus_info.id] = corpus_info.data;
 	}
+    }
+};
+
+
+// Add "order" properties to the attribute definitions in attrstruct
+// for setting the order of attributes. attrnamelist lists the names
+// of the attribute in the desired order: it can be either an array of
+// strings or a single string of names separated by spaces (or tabs).
+settings.fn.set_attr_order = function (attrstruct, attrnamelist) {
+    if (typeof attrnamelist == "string") {
+	attrnamelist = attrnamelist.split(/[ \t]+/);
+    }
+    var attrnamecount = attrnamelist.length;
+    for (var i = 0; i < attrnamelist.length; i++) {
+	// The attribute with the largest order value is shown first
+	attrstruct[attrnamelist[i]].order = attrnamecount - i;
     }
 };
 
