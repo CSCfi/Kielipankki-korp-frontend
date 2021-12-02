@@ -849,6 +849,8 @@
     "oracc_textlang": "tekstin kielet",
     "oracc_lang": "kielimuoto",
 
+    "text__geo_provenience": "löytöpaikka",
+
     "main_section": "pääosasto",
     "sections": "osastot",
     "datetime_published": "julkaisuajankohta",

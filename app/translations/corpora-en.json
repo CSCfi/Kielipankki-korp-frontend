@@ -656,6 +656,8 @@
     "oracc_textlang": "text languages",
     "oracc_lang": "language/dialect",
 
+    "text__geo_provenience": "find location",
+
     "main_section": "main section",
     "sections": "sections",
     "datetime_published": "publication date and time",
