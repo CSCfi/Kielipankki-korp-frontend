@@ -8339,9 +8339,12 @@ var pabivus_corpora =
      "pabivus_myv_1996",
      "pabivus_myv_1998",
      "pabivus_myv_2006",
+     "pabivus_myv_2011",
+     "pabivus_myv_2020",
      "pabivus_olo_2003",
      "pabivus_rus_1876",
-     "pabivus_udm_1997"];
+     "pabivus_udm_1997",
+     "pabivus_vep_2013"];
 
 // return all corpora except the one defined as argument
 function pabivus_linked_corpora(corpus) {
@@ -8421,6 +8424,24 @@ settings.corpora.pabivus_myv_1998 = {
     linked_to : pabivus_linked_corpora("pabivus_myv_1998"),
 };
 pabivus_add_common_info(settings.corpora.pabivus_myv_1998);
+
+settings.corpora.pabivus_myv_2011 = {
+    id: "pabivus_myv_2011",
+    title: "Pabivus: Erzya (2011)",
+    description: "Parallel Bible verses for Uralic languages: Erzya",
+    lang: "myv-2011", // year 2011 translation
+    linked_to : pabivus_linked_corpora("pabivus_myv_2011"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_myv_2011);
+
+settings.corpora.pabivus_myv_2020 = {
+    id: "pabivus_myv_2020",
+    title: "Pabivus: Erzya (2020)",
+    description: "Parallel Bible verses for Uralic languages: Erzya",
+    lang: "myv-2020", // year 2020 translation
+    linked_to : pabivus_linked_corpora("pabivus_myv_2020"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_myv_2020);
 
 settings.corpora.pabivus_myv_1910 = {
     id: "pabivus_myv_1910",
@@ -8516,10 +8537,19 @@ settings.corpora.pabivus_rus_1876 = {
     id: "pabivus_rus_1876",
     title: "Pabivus: Russian (1876)",
     description: "Parallel Bible verses for Uralic languages: Russian",
-    lang: "rus-1876", // year 1996 translation
+    lang: "rus-1876", // year 1876 translation
     linked_to : pabivus_linked_corpora("pabivus_rus_1876"),
 };
 pabivus_add_common_info(settings.corpora.pabivus_rus_1876);
+
+settings.corpora.pabivus_vep_2013 = {
+    id: "pabivus_vep_2013",
+    title: "Pabivus: Veps (2013)",
+    description: "Parallel Bible verses for Uralic languages: Veps",
+    lang: "vep-2013", // year 2013 translation
+    linked_to : pabivus_linked_corpora("pabivus_vep_2013"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_vep_2013);
 
 settings.corpora.pabivus_kca_2013 = {
     id: "pabivus_kca_2013",
@@ -8559,8 +8589,8 @@ pabivus_add_common_info(settings.corpora.pabivus_mns_2000);
 
 settings.corpora.pabivus_fin_1938 = {
     id: "pabivus_fin_1938",
-    title: "Pabivus (fin–kca-koi–kpv–krl–mdf–mns-myv–olo–udm–rus)",
-    description: "Parallel Bible verses for Uralic languages<br/>The corpus contains the 27 books of the New Testament in nine languages: Finnish (fin), Komi-Permyak (koi), Komi-Zyrian (kpv), North Karelian (krl), Moksha (mdf), Erzya (myv), Livvi-Karelian (olo) and Udmurt (udm) as well as Russian (rus). It also contains some books of the Bible in Mansi (mns) and Khanty (kca).<br/>Some books have more than one translation available in the same language. The translation year is shown for each subcorpus. The Finnish translation is from 1938.",
+    title: "Pabivus (fin–kca-koi–kpv–krl–mdf–mns-myv–olo–udm–vep-rus)",
+    description: "Parallel Bible verses for Uralic languages<br/>The corpus contains the 27 books of the New Testament in ten languages: Finnish (fin), Komi-Permyak (koi), Komi-Zyrian (kpv), North Karelian (krl), Moksha (mdf), Erzya (myv), Livvi-Karelian (olo), Udmurt (udm) and Veps (vep) as well as Russian (rus). It also contains some books of the Bible in Mansi (mns) and Khanty (kca).<br/>Some books have more than one translation available in the same language. The translation year is shown for each subcorpus. The Finnish translation is from 1938.",
     lang: "fin",
     linked_to : pabivus_linked_corpora("pabivus_fin_1938"),
 };
