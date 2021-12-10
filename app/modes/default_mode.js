@@ -15251,14 +15251,41 @@ settings.corpusAliases["topling-fi"] = "topling_fi";
 
 /* DMA – Digitaalinen muoto-opin arkisto (Digital Morphology Archives) */
 
-// Return a stringify function for a dataset attribute attrname in the
-// DMA corpus. The stringify function returns the value as mapped
-// through the dataset, without localization.
-funcs.dma_stringify_dataset_value = function (attrname) {
-    return function (value) {
-        return settings.corpora.dma.structAttributes[attrname].dataset[value];
-    };
+// Return value mapped throught the dataset of the structural
+// attribute attrname in the DMA corpus. This is actually not needed
+// if attribute values are already mapped through the dataset.
+funcs.dmaStringifyDatasetValue = function (attrname, value) {
+    return settings.corpora.dma.structAttributes[attrname].dataset[value] || value;
 };
+
+// Stringify DMA PDF link attribute: filename is the value of the
+// attribute (list of file names separated by spaces), label is the
+// attribute label and htmlAttrs is a string containing HTML
+// attributes to be added to the <a> tag in addition to href.
+funcs.dmaStringifyPdfLink = function (filename, label, htmlAttrs) {
+    if (! filename) {
+        return "";
+    }
+    const fnames = filename.split(" ");
+    let output = `<span rel="localize[${label}]"></span> [RES]:`;
+    for (let fname of fnames) {
+        fname = (fname
+                 .replace(/ä/g, 'a')
+                 .replace(/Ä/g, 'A')
+                 .replace(/ö/g, 'o'))
+        let url = ("/dma/pdf/"
+                   + fname.slice(0, fname.lastIndexOf("_"))
+                   + "/" + fname);
+        output += `<br/><a href="${url}" ${htmlAttrs}>${fname}</a>`;
+    }
+    return output;
+}
+
+// Return n zero-width space characters; used to add invisible
+// characters that affect sort order (ord(n) < ord(n+1)).
+var ord = function (n) {
+    return "\u200B".repeat(n)
+}
 
 settings.corpora.dma = {
     title: "DMA – Digitaalinen muoto-opin arkisto",
@@ -15267,7 +15294,7 @@ settings.corpora.dma = {
     urn: "urn:nbn:fi:lb-2016032102",
     metadata_urn: "urn:nbn:fi:lb-201403261",
     homepage_url: "http://www.helsinki.fi/fus/research/ma.html",
-    // TODO (util.coffee): Allow an array of values for licence.
+    // TODO (plugin corpusinfo_formatter?): Allow an array of values for licence.
     licence: {
         name: "CC BY 4.0 (teksti) / CLARIN RES +PRIV +ND (PDF-sanaliput)",
         // Explicit PUB licence category for the Korp data; otherwise
@@ -15288,11 +15315,11 @@ settings.corpora.dma = {
         text_dialect_region: {
             label: "dialect_region",
             extendedComponent: "datasetSelect",
-            localize: false,
             // The values of the dataset are shown for the keys
             // without localization.
-            stringify: funcs.dma_stringify_dataset_value(
-                "text_dialect_region"),
+            // Use the following pattern if values are not mapped
+            // through the dataset in sidebar
+            // pattern: "<%= funcs.dmaStringifyDatasetValue('text_dialect_region', val) %>",
             dataset: {
                 "1": "1 Lounaismurteet",
                 "2": "2 Lounaiset välimurteet",
@@ -15308,231 +15335,75 @@ settings.corpora.dma = {
         text_dialect_group: {
             label: "dialect_group",
             extendedComponent: "datasetSelect",
-            localize: false,
-            stringify: function (value) {
-                return (settings.corpora.dma.structAttributes
-                        .text_dialect_group.dataset[value]
-                        .replace(/[\x00-\x1F ]+/g, ""));
-            },
+            pattern: "<%= val.replace(/[\x00-\x1F \u200B]+/g, '') %>",
+            // Use the following pattern if values are not mapped
+            // through the dataset in sidebar
+            // pattern: "<%= funcs.dmaStringifyDatasetValue('text_dialect_group', val).replace(/[\x00-\x1F \u200B]+/g, '') %>",
+            escape: false,
             dataset: {
-                // The control characters \x01–\x08 are used to get
-                // the desired sorting order. They are invisible in
-                // the output, but could they cause problems in some
-                // cases?
-                // FIXME: Yes: the control characters seem to be shown
-                // as symbols in the extended search selection list in
-                // Chromium on Linux, even though they are invisible
-                // in Firefox on Linux.
-                "[1-6].?": "\x011–6 Länsimurteet",
-                "1.": "\x01  1 Lounaismurteet",
-                "1a": "\x01    1a pohjoisryhmä",
-                "1b": "\x01    1b itäryhmä",
-                "2.": "\x02  2 Lounaiset välimurteet",
-                "2a": "\x02    2a Porin seudun murteet",
-                "2b": "\x02    2b Ala-Satakunnan murteet",
-                "2c": "\x02    2c Turun ylämaan murteet",
-                "2d": "\x02    2d Someron murre",
-                "2e": "\x02    2e Länsi-Uudenmaan murteet",
-                "3.": "\x03  3 Hämäläismurteet",
-                "3a": "\x03    3a Ylä-Satakunnan murteet",
-                "3b": "\x03    3b perihämäläiset murteet",
-                "3c": "\x03    3c etelähämäläiset murteet",
-                "3[d-f]": "\x03    3d–f kaakkoishämäläiset murteet",
-                "3d": "\x03      3d Hollolan ryhmä",
-                "3e": "\x03      3e Porvoon ryhmä",
-                "3f": "\x03      3f Kymenlaakson ryhmä",
-                "4": "\x04  4 Etelä-Pohjanmaan murteet",
-                "5.": "\x05  5 Keski- ja Pohjois-Pohjanmaan murteet",
-                "5a": "\x05    5a Keski-Pohjanmaan murteet",
-                "5b": "\x05    5b Pohjois-Pohjanmaan murteet",
-                "6.": "\x06  6 Peräpohjolan murteet",
-                "6a": "\x06    6a Tornion murre",
-                "6b": "\x06    6b Jällivaaran murre",
-                "6c": "\x06    6c Kemin murre",
-                "6d": "\x06    6d Kemijärven murre",
-                "6e": "\x06    6e Ruijan murre",
-                "[7-8].": "\x077–8 Itämurteet",
-                "7.": "\x07  7 Savolaismurteet",
-                "7a": "\x07    7a Päijät-Hämeen murteet",
-                "7b": "\x07    7b Etelä-Savon murteet",
-                "7c": "\x07    7c Säämingin–Kerimäen ryhmä",
-                "7d": "\x07    7d itäiset savolaismurteet",
-                "7e": "\x07    7e Pohjois-Savon murteet",
-                "7f": "\x07    7f Keski-Suomen murteet",
-                "7g": "\x07    7g savolaiskiilan murteet",
-                "7h": "\x07    7h Kainuun murteet",
-                "7i": "\x07    7i Vermlannin murteet",
-                "8.": "\x08  8 Kaakkoismurteet",
-                "8[a–b]": "\x08    \x018a–b varsinaiset kaakkoismurteet",
-                "8a": "\x08    \x01  8a Länsi-Kannaksen murteet",
-                "8b": "\x08    \x01  8b Itä-Kannaksen murteet",
-                "8c": "\x08    8c Inkerin suomalaismurteet",
-                "8d": "\x08    8d Lemin murre",
-                "8e": "\x08    8e Sortavalan seudun murteet",
+                // ord(1)–ord(8) is used to get the desired sorting
+                // order by adding n zero-width spaces. They are
+                // invisible in the output, but could they cause
+                // problems in some cases?
+                "[1-6].?": `${ord(1)}1–6 Länsimurteet`,
+                "1.": `${ord(1)}  1 Lounaismurteet`,
+                "1a": `${ord(1)}    1a pohjoisryhmä`,
+                "1b": `${ord(1)}    1b itäryhmä`,
+                "2.": `${ord(2)}  2 Lounaiset välimurteet`,
+                "2a": `${ord(2)}    2a Porin seudun murteet`,
+                "2b": `${ord(2)}    2b Ala-Satakunnan murteet`,
+                "2c": `${ord(2)}    2c Turun ylämaan murteet`,
+                "2d": `${ord(2)}    2d Someron murre`,
+                "2e": `${ord(2)}    2e Länsi-Uudenmaan murteet`,
+                "3.": `${ord(3)}  3 Hämäläismurteet`,
+                "3a": `${ord(3)}    3a Ylä-Satakunnan murteet`,
+                "3b": `${ord(3)}    3b perihämäläiset murteet`,
+                "3c": `${ord(3)}    3c etelähämäläiset murteet`,
+                "3[d-f]": `${ord(3)}    3d–f kaakkoishämäläiset murteet`,
+                "3d": `${ord(3)}      3d Hollolan ryhmä`,
+                "3e": `${ord(3)}      3e Porvoon ryhmä`,
+                "3f": `${ord(3)}      3f Kymenlaakson ryhmä`,
+                "4": `${ord(4)}  4 Etelä-Pohjanmaan murteet`,
+                "5.": `${ord(5)}  5 Keski- ja Pohjois-Pohjanmaan murteet`,
+                "5a": `${ord(5)}    5a Keski-Pohjanmaan murteet`,
+                "5b": `${ord(5)}    5b Pohjois-Pohjanmaan murteet`,
+                "6.": `${ord(6)}  6 Peräpohjolan murteet`,
+                "6a": `${ord(6)}    6a Tornion murre`,
+                "6b": `${ord(6)}    6b Jällivaaran murre`,
+                "6c": `${ord(6)}    6c Kemin murre`,
+                "6d": `${ord(6)}    6d Kemijärven murre`,
+                "6e": `${ord(6)}    6e Ruijan murre`,
+                "[7-8].": `${ord(7)}7–8 Itämurteet`,
+                "7.": `${ord(7)}  7 Savolaismurteet`,
+                "7a": `${ord(7)}    7a Päijät-Hämeen murteet`,
+                "7b": `${ord(7)}    7b Etelä-Savon murteet`,
+                "7c": `${ord(7)}    7c Säämingin–Kerimäen ryhmä`,
+                "7d": `${ord(7)}    7d itäiset savolaismurteet`,
+                "7e": `${ord(7)}    7e Pohjois-Savon murteet`,
+                "7f": `${ord(7)}    7f Keski-Suomen murteet`,
+                "7g": `${ord(7)}    7g savolaiskiilan murteet`,
+                "7h": `${ord(7)}    7h Kainuun murteet`,
+                "7i": `${ord(7)}    7i Vermlannin murteet`,
+                "8.": `${ord(8)}  8 Kaakkoismurteet`,
+                "8[a–b]": `${ord(8)}    ${ord(1)}8a–b varsinaiset kaakkoismurteet`,
+                "8a": `${ord(8)}    ${ord(1)}  8a Länsi-Kannaksen murteet`,
+                "8b": `${ord(8)}    ${ord(1)}  8b Itä-Kannaksen murteet`,
+                "8c": `${ord(8)}    8c Inkerin suomalaismurteet`,
+                "8d": `${ord(8)}    8d Lemin murre`,
+                "8e": `${ord(8)}    8e Sortavalan seudun murteet`,
             },
             opts: liteOptions,
         },
         text_parish_name: {
             label: "parish",
-            extendedComponent: "datasetSelect",
+            extendedComponent: "structServiceSelect",
             localize: false,
-            dataset: [
-                "Artjärvi",
-                "Asikkala",
-                "Askola",
-                "Eurajoki",
-                "Haapavesi",
-                "Halikko",
-                "Halsua",
-                "Hausjärvi",
-                "Heinjoki",
-                "Heinävesi",
-                "Himanka",
-                "Hinnerjoki",
-                "Hirvensalmi",
-                "Honkajoki",
-                "Honkilahti",
-                "Ilmajoki",
-                "Ilomantsi",
-                "Isojoki",
-                "Itä-Ruija",
-                "Jalasjärvi",
-                "Joutsa",
-                "Joutseno",
-                "Juupajoki",
-                "Jällivaara",
-                "Järvisaari",
-                "Kaarina",
-                "Kajaani",
-                "Kalajoki",
-                "Kalvola",
-                "Kangasala",
-                "Kankaanpää",
-                "Kannonkoski",
-                "Karstula",
-                "Karttula",
-                "Kauhava",
-                "Kaustinen",
-                "Kemijärvi",
-                "Keminmlk",
-                "Kerimäki",
-                "Kesälahti",
-                "Keuruu",
-                "Kiikka",
-                "Kitee",
-                "Kittilä",
-                "Kiuruvesi",
-                "Kivennapa",
-                "Koivisto",
-                "Kolari",
-                "Kontiolahti",
-                "Korpilahti",
-                "Kuhmoinen",
-                "Kuivaniemi",
-                "Kurikka",
-                "Kuru",
-                "Kymi",
-                "Käkisalmi",
-                "Kälviä",
-                "Kärsämäki",
-                "Laihia",
-                "Laitila",
-                "Lapinlahti",
-                "Lappajärvi",
-                "Lappee",
-                "Laukaa",
-                "Lavansaari",
-                "Lemi",
-                "Leppävirta",
-                "Liperi",
-                "Loimaa",
-                "Luhanka",
-                "Lumivaara",
-                "Luumäki",
-                "Markkova",
-                "Masku",
-                "Merikarvia",
-                "Merimasku",
-                "Miehikkälä",
-                "Mietoinen",
-                "Mikkelinmlk",
-                "Myrskylä",
-                "Mäntyharju",
-                "Nivala",
-                "Nousiainen",
-                "Nummi",
-                "Nurmes",
-                "Orimattila",
-                "Oulujoki",
-                "Paavola",
-                "Parkano",
-                "Pattijoki",
-                "Perho",
-                "Pieksämäki",
-                "Pielisjärvi",
-                "Pihtipudas",
-                "Polvijärvi",
-                "Pori",
-                "Pornainen",
-                "Pudasjärvi",
-                "Pyhäjoki",
-                "Pyhäjärvi Ol.",
-                "Pöytyä",
-                "Raisi",
-                "Rauma",
-                "Rautio",
-                "Reisjärvi",
-                "Ristiina",
-                "Ruokolahti",
-                "Ruovesi",
-                "Rymättylä",
-                "Saarijärvi",
-                "Salla",
-                "Sauvo",
-                "Savitaipale",
-                "Siilinjärvi",
-                "Simo",
-                "Sodankylä",
-                "Somero",
-                "Sonkajärvi",
-                "Sortavala",
-                "Sumiainen",
-                "Suomusjärvi",
-                "Suomussalmi",
-                "Sysmä",
-                "Sääksmäki",
-                "Sääminki",
-                "Taivassalo",
-                "Tammela",
-                "Teisko",
-                "Tuulos",
-                "Tuusniemi",
-                "Tuutari",
-                "Töysä",
-                "Uukuniemi",
-                "Uurainen",
-                "Uusikirkko Vpl.",
-                "Valkeala",
-                "Vehkalahti",
-                "Vehmersalmi",
-                "Vermlanti",
-                "Vesanto",
-                "Veteli",
-                "Vihti",
-                "Viipurin mlk.",
-                "Virolahti",
-                "Virrat",
-                "Vähäkyrö",
-                "Yli-Ii",
-                "Ylihärmä",
-                "Ylitornio",
-                "Ypäjä",
-                "Ähtäri",
-            ],
             opts: liteOptions,
         },
         text_village: {
             label: "village",
+            extendedComponent: "structServiceSelect",
+            opts: liteOptions,
         },
         text_parish: {
             // Should we have this separately? The attribute parish
@@ -15561,6 +15432,7 @@ settings.corpora.dma = {
         },
         sentence_informant_birthyear: {
             label: "informant_birthyear",
+            extendedComponent: "structServiceAutocomplete",
         },
         sentence_signum: {
             label: "signum",
@@ -15568,38 +15440,8 @@ settings.corpora.dma = {
             opts: setOptions,
             // This URL is in the sidebar (i) link
             sidebarInfoUrl: "markup/dma_signumlist.html",
-            // The input field also has an (i) link opening a list of
-            // signums as links from which one can select. This has
-            // been copied and modified from the code for the the
-            // Swedish msd attribute.
-            extended_template: '<input class="arg_value" ng-model="model">' +
-                '<span ng-click="onIconClick()" class="fa fa-info-circle"></span>',
-            controller: function($scope, $uibModal) {
-                var modal = null;
-                $scope.onIconClick = function() {
-                    modal = $uibModal.open({
-                        template: '<div>' +
-                            '<div class="modal-header">' +
-                            '<h3 class="modal-title">{{\'signum_long\' | loc:lang}}</h3>' +
-                            '<span ng-click="clickX()" class="close-x">×</span>' +
-                            '</div>' +
-                            '<div class="modal-body" ng-click="handleClick($event)" ng-include="\'markup/dma_signumlist_links.html\'" style="font-size: 80%;"></div>' +
-                            '</div>',
-                        scope: $scope
-                    })
-                }
-                $scope.clickX = function(event) {
-                    modal.close()
-                }
-                $scope.handleClick = function(event) {
-                    val = $(event.target).parents("td").data("value");
-                    // c.log ("signum selected:", val);
-                    if(!val) return;
-                    $scope.model = val;
-                    // c.log ("signum updated $scope:", $scope);
-                    modal.close();
-                }
-            },
+            // Extended component has an (i) link to open a selection popup
+            extendedComponent: "dmaSignum",
         },
         sentence_signumlist: {
             label: "signum_list",
@@ -15615,49 +15457,43 @@ settings.corpora.dma = {
         sentence_text_words: {
             label: "clause_any_wordform",
             type: "set",
-            // This would benefit from having also other options than
-            // "is" and "is not" for a set-valued attribute, but that
-            // is not (yet) possible.
-            opts: setOptions,
-            displayOnly: "search",
+            opts: fullSetOptions,
+            hideSidebar: true,
+            hideStatistics: true,
+            hideCompare: true,
         },
         sentence_search_words: {
             label: "clause_any_search_word",
             type: "set",
-            // The same applies here as in sentence_text_words.
-            opts: setOptions,
-            displayOnly: "search",
+            opts: fullSetOptions,
+            hideSidebar: true,
+            hideStatistics: true,
+            hideCompare: true,
         },
         sentence_pdf: {
-            label: "show_wordnote",
+            // The label comes from the pattern, so do not duplicate
+            label: "",
             opts: settings.defaultOptions,
-            type: "url",
-            urlOpts: $.extend({}, sattrs.link_url_opts, {
-                stringify_link: function (key, filename, attrs, html_attrs) {
-                    if (! filename) {
-                        return "";
-                    }
-                    var fnames = filename.split(" ");
-                    var output = ("<span rel='localize[" + attrs.label + "]'>"
-                                  + key + "</span> [RES]:");
-                    for (var i = 0; i < fnames.length; i++) {
-                        var fname = (fnames[i]
-                                     .replace(/ä/g, 'a')
-                                     .replace(/Ä/g, 'A')
-                                     .replace(/ö/g, 'o'));
-                        var url = ("/dma/pdf/"
-                                   + fname.slice(0, fname.lastIndexOf("_"))
-                                   + "/" + fname);
-                        output += ("<br/><a href='" + url + "' " + html_attrs
-                                   + ">" + fname + "</a>");
-                    }
-                    return output;
-                }
-            }),
+            // URLs are handled before pattern in sidebar, so do not
+            // use type: "url"
+            urlOpts: sattrs.link_url_opts,
+            pattern: "<%= funcs.dmaStringifyPdfLink(val, 'show_wordnote', 'target=\"blank\", class=\"exturl sidebar_link\"') %>",
         },
         sentence_id: sattrs.sentence_id,
-    }
+    },
+    // TODO: It might be nice to be able to filter by
+    // text_dialect_region and text_dialect_group also, but their
+    // values are only numbers and letters. Would it be possible to
+    // map also filter values through the dataset, or would we need
+    // separate attributes in the data because of this? Moreover,
+    // filtering by text_parish instead of text_parish_name would sort
+    // the list by the dialect group, as the parish name is prefixed
+    // by the group, but text_parish also contains village, which
+    // might or might not be desired.
+    defaultFilters: ["text_parish_name"],
 };
+
+delete ord;
 
 
 settings.corpora.ylilauta = {

@@ -218,5 +218,48 @@ export default {
                 })
             }
         ]
-    }
+    },
+
+    // Extended component for the signum of the DMA corpus. The input
+    // field also has an (i) link opening a list of signums as links
+    // from which one can select. This has been copied and modified
+    // from the "msd" component for the Swedish msd attribute.
+    dmaSignum: {
+        template: `
+            <input ng-model="model" class="arg_value" escaper ng-model-options='{debounce : {default : 300, blur : 0}, updateOn: "default blur"}'>
+            <span ng-click="onIconClick()" class="fa fa-info-circle"></span>
+        `,
+        controller: ["$scope", "$uibModal", function ($scope, $uibModal) {
+            let modal = null
+            const template = `
+                <div>
+                    <div class="modal-header">
+                        <h3 class="modal-title">{{'signum_long' | loc:lang}}</h3>
+                        <span ng-click="clickX()" class="close-x">×</span>
+                    </div>
+                    <div class="modal-body" ng-click="handleClick($event)" ng-include="'markup/dma_signumlist_links.html'" style="font-size: 80%;"></div>
+                </div>`
+
+            $scope.onIconClick = () => {
+                modal = $uibModal.open({
+                    template: template,
+                    scope: $scope
+                })
+            }
+
+            $scope.clickX = () => modal.close()
+
+            $scope.handleClick = function(event) {
+                const val = $(event.target).parents("td").data("value")
+                // c.log ("signum selected:", val)
+                if (! val) {
+                    return;
+                }
+                $scope.model = val
+                // c.log ("signum updated $scope:", $scope)
+                modal.close()
+            }
+        }]
+    },
+
 }
