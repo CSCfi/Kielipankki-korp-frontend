@@ -957,7 +957,9 @@ attrlist.oracc = {
     },
     sense: {
         // Contextual sense
-        label: "oracc_sense"
+        label: "oracc_sense",
+        stats_cqp: "cqpPlainWordAttr",
+        stats_stringify: "stringifyPlainWordAttr",
     },
     pos: {
         label: "pos",
@@ -1271,8 +1273,10 @@ attrlist.oracc2021 = {
 	label : "oracc_lemmatrans"
 	},
     sense : {
-	label : "oracc_sense"
-	},
+	label : "oracc_sense",
+        stats_cqp: "cqpPlainWordAttr",
+        stats_stringify: "stringifyPlainWordAttr",
+        },
     transcription : {
 	label : "oracc_transcription"
 	},
