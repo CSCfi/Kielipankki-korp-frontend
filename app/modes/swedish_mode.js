@@ -272,7 +272,7 @@ settings.corpora.semfinlex_asd_sv_2018 = {
         },
         text_parl_statute_type: {
             label: "parl_statute_type",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: [
                 "laki",
@@ -491,7 +491,7 @@ settings.corpora.topling_sv = {
 
 funcs.addCorporaToFolder("learner", "topling_sv");
 
-settings.corpus_aliases["topling-sv"] = "topling_sv";
+settings.corpusAliases["topling-sv"] = "topling_sv";
 
 
 settings.corpora.kfspc_sv = {
@@ -647,7 +647,7 @@ for (const [key, label] of [
 delete fstc_hierarchy;
 
 // TODO: Add aliases for subcorpora, such as fstc_fnb
-settings.corpus_aliases.fstc = "fstc_.*";
+settings.corpusAliases.fstc = "fstc_.*";
 
 
 /* Svenska Parole */
@@ -681,7 +681,7 @@ funcs.addCorporaToFolder("other", "parole_sv");
 sattrlist.ylenews_sv_common = {
     text_main_department: {
         label: "main_section",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         dataset: [
             "#NiVetIngenting",
@@ -802,7 +802,7 @@ sattrlist.ylenews_sv_common = {
         label: "sections",
         type: "set",
         opts: setOptions,
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         dataset: [
             "#NiVetIngenting",
             "Abimix",
@@ -978,7 +978,7 @@ sattrlist.ylenews_sv_common = {
     sentence_id: sattrs.hidden,
     sentence_type: {
         label: "sentence_type",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         dataset: {
             "alt": "image_alt",
@@ -995,7 +995,7 @@ sattrlist.ylenews_sv_common = {
 
 sattrs.ylenews_sv_paragraph_type = {
     label: "paragraph_type",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     opts: liteOptions,
     dataset: {
         "by": "byline",
@@ -1032,9 +1032,9 @@ funcs.add_corpus_settings(
     settings.corporafolders.news.ylenews_sv.a,
     "ylenews_sv_{}_a");
 
-settings.corpus_aliases["ylenews_sv_2012_2018_a"]
-    = settings.corpus_aliases["ylenews-sv-2012-2018-korp"]
-    = settings.corpus_aliases["ylenews-sv-2012-2018"]
+settings.corpusAliases["ylenews_sv_2012_2018_a"]
+    = settings.corpusAliases["ylenews-sv-2012-2018-korp"]
+    = settings.corpusAliases["ylenews-sv-2012-2018"]
     = "ylenews_sv_201[2-8]_a";
 
 settings.templ.ylenews_sv_s = {
@@ -1057,10 +1057,46 @@ funcs.add_corpus_settings(
     settings.corporafolders.news.ylenews_sv.s,
     "ylenews_sv_{}_s");
 
-settings.corpus_aliases["ylenews_sv_2012_2018_s"]
-    = settings.corpus_aliases["ylenews-sv-2012-2018-s-korp"]
-    = settings.corpus_aliases["ylenews-sv-2012-2018-s"]
+settings.corpusAliases["ylenews_sv_2012_2018_s"]
+    = settings.corpusAliases["ylenews-sv-2012-2018-s-korp"]
+    = settings.corpusAliases["ylenews-sv-2012-2018-s"]
     = "ylenews_sv_201[2-8]_s";
+
+
+settings.corpora.nlfcl_sv = {
+    id: "nlfcl_sv",
+    title: "Nationalbibliotekets Klassikerbibliotek (svenska)",
+    description: "Nationalbibliotekets Klassikerbiblioteks svenskspråkiga delkorpus – Kielipankki version: verk från åren 1810–1937",
+    urn: "urn:nbn:fi:lb-201804042",
+    metadata_urn: "urn:nbn:fi:lb-201804041",
+    cite_id: "nlfcl-sv-korp",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs"],
+    attributes : attrlist.parsed_sv_lemmaset,
+    structAttributes: {
+        text_id: sattrs.hidden,
+        text_title: sattrs.text_title,
+        text_author: sattrs.text_author,
+        text_contributor: {
+            label: "nlfcl_contributor"
+        },
+        text_rights: sattrs.hidden,
+        text_filename: sattrs.hidden,
+        text_digitized: {
+            label: "digitization_date"
+        },
+        text_book_number: {
+            label: "book_number"
+        },
+        text_year: {
+            label: "publication_year"
+        },
+        paragraph_id: sattrs.paragraph_id_hidden,
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+};
+
+funcs.addCorporaToFolder("literary", "nlfcl_sv");
 
 
 funcs.add_attr_extra_properties(settings.corpora);

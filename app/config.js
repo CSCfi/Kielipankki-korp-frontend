@@ -93,13 +93,17 @@ settings.enableFrontendKwicDownload = false
 settings.addBackendLogInfo = true;
 
 settings.downloadFormats = [
-    "annot",
+    "annot_csv",
+    "annot_tsv",
     "annot_xls",
-    "ref",
+    "ref_csv",
+    "ref_tsv",
     "ref_xls",
-    "sentences",
+    "sentences_csv",
+    "sentences_tsv",
     "sentences_xls",
-    "sentences_kwic",
+    "sentences_kwic_csv",
+    "sentences_kwic_tsv",
     "sentences_kwic_xls",
     "text",
     "json",
@@ -140,6 +144,20 @@ settings.downloadFormatParams = {
         match_marker: "***",
         physical_formats: physical_formats.table,
     },
+    "annot_csv": {
+        format: "tokens,csv",
+        format_suffix: ".csv",
+        attrs: "+,-lex",
+        match_marker: "***",
+        physical_formats: physical_formats.table,
+    },
+    "annot_tsv": {
+        format: "tokens,tsv",
+        format_suffix: ".tsv",
+        attrs: "+,-lex",
+        match_marker: "***",
+        physical_formats: physical_formats.table,
+    },
     "annot_xls": {
         format: "tokens,xls",
         format_suffix: ".xls",
@@ -151,6 +169,16 @@ settings.downloadFormatParams = {
         format: "bibref",
         physical_formats: physical_formats.table,
     },
+    "ref_csv": {
+        format: "bibref,csv",
+        format_suffix: ".csv",
+        physical_formats: physical_formats.table,
+    },
+    "ref_tsv": {
+        format: "bibref,tsv",
+        format_suffix: ".tsv",
+        physical_formats: physical_formats.table,
+    },
     "ref_xls": {
         format: "bibref,xls",
         format_suffix: ".xls",
@@ -158,6 +186,18 @@ settings.downloadFormatParams = {
     },
     "sentences": {
         format: "sentences",
+        subformat: "lemmas-resultinfo",
+        physical_formats: physical_formats.table,
+    },
+    "sentences_csv": {
+        format: "sentences,csv",
+        format_suffix: ".csv",
+        subformat: "lemmas-resultinfo",
+        physical_formats: physical_formats.table,
+    },
+    "sentences_tsv": {
+        format: "sentences,tsv",
+        format_suffix: ".tsv",
         subformat: "lemmas-resultinfo",
         physical_formats: physical_formats.table,
     },
@@ -171,6 +211,18 @@ settings.downloadFormatParams = {
     // columns
     "sentences_kwic": {
         format: "sentences",
+        subformat: "lemmas-resultinfo,lemmas-kwic",
+        physical_formats: physical_formats.table,
+    },
+    "sentences_kwic_csv": {
+        format: "sentences,csv",
+        format_suffix: ".csv",
+        subformat: "lemmas-resultinfo,lemmas-kwic",
+        physical_formats: physical_formats.table,
+    },
+    "sentences_kwic_tsv": {
+        format: "sentences,tsv",
+        format_suffix: ".tsv",
         subformat: "lemmas-resultinfo,lemmas-kwic",
         physical_formats: physical_formats.table,
     },
@@ -224,10 +276,11 @@ settings.korpBackendURL = "https://korp.csc.fi/korp/api8";
 // console.log("korpBackendURL: '" + settings.korpBackendURL + "'")
 settings.downloadCgiScript = "https://korp.csc.fi/cgi-bin/korp/korp_download.cgi";
 
-// The main Korp and Korp Labs URL for the links in the cog menu
+// The main Korp, Korp Labs and old Korp URLs for the links in the cog menu
 settings.korpUrl = {
     "main": (isProductionServer ? "/korp/" : "/korp/"),
-    "lab": (isProductionServer ? "/korplab/" : "/korplab/")
+    "lab": (isProductionServer ? "/korplab/" : "/korplab/"),
+    "old": (isProductionServer ? "/korp-old/" : "/korp-old/"),
 };
 
 settings.urnResolver = "http://urn.fi/";
@@ -277,8 +330,7 @@ settings.filterSelection = "intersection"
 
 settings.newsDeskUrl =
     window.location.protocol + "//" + window.location.hostname + "/"
-    + window.location.pathname + "news/json/korp"
-    + ((isProductionServerBeta || isLab) ? "beta" : "") + "news.json";
+    + window.location.pathname + "news/json/korpnews.json";
 
 // authenticationType: "basic", "shibboleth" or "none"
 settings.authenticationType = (isProductionServer ? "shibboleth" : "basic");
@@ -592,7 +644,7 @@ settings.sentLinkWithin = {
 
 // Corpus id alias mapping: aliases as property keys and actual corpus
 // ids as values. (Jyrki Niemi 2015-04-23)
-settings.corpus_aliases = {};
+settings.corpusAliases = {};
 
 // Functions to configure "short URLs": if the function
 // settings.short_url_config[shorturl] exists, it is executed whenever

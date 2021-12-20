@@ -10,6 +10,15 @@ var setOptions = {
     "is": "contains",
     "is_not": "not contains"
 };
+var fullSetOptions = {
+    "is": "contains",
+    "is_not": "not contains",
+    "starts_with": "starts_with_contains",
+    "contains": "incontains_contains",
+    "ends_with": "ends_with_contains",
+    "matches": "regexp_contains",
+    "matches_not": "not_regexp_contains",
+};
 var probabilitySetOptions = {
     "is": "highest_rank",
     "is_not": "not_highest_rank",
@@ -136,6 +145,11 @@ transl.yesno = {
         "en": "no",
         "fi": "ei",
         "sv": "nej",
+    },
+    "unknown": {
+        "en": "unknown",
+        "fi": "ei tiedossa",
+        "sv": "okänd",
     },
 };
 
@@ -4063,7 +4077,7 @@ var sattrlist = {};  // List of structural attributes
 
 attrs.pos_ftb2 = {
     label: "pos",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     opts: liteOptions,
     // TODO: Map to generic keys for PoS translations
     dataset: {
@@ -4087,7 +4101,7 @@ attrs.pos_ftb2 = {
 
 attrs.ner_tags = {
     label: "ner_tags",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     opts: liteOptions,
     dataset: {
         "_": "_",
@@ -4346,7 +4360,7 @@ attrs.ner_tags = {
 attrs.namecat_omorfi = {
     label: "name_category_omorfi",
     type: "set",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     opts: setOptions,
     dataset: [
         "ARTWORK",
@@ -4415,7 +4429,7 @@ attrs.namecat_omorfi = {
 
 attrs.pos_ftb31 = {
     label: "pos",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     opts: liteOptions,
     // TODO: Map to generic keys for PoS translations
     dataset: {
@@ -4444,7 +4458,7 @@ attrs.pos_ftb31 = {
 
 attrs.pos_kotus = {
     label: "pos",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     opts: liteOptions,
     // TODO: Map to generic keys for PoS translations
     dataset: {
@@ -4492,7 +4506,7 @@ attrs.pos_kotus = {
 
 attrs.pos_mulcold_fi = {
     label: "pos",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     opts: liteOptions,
     // TODO: Map to generic keys for PoS translations
     dataset: {
@@ -4517,7 +4531,7 @@ attrs.pos_mulcold_fi = {
 
 attrs.pos_mulcold_ru = {
     label: "pos",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     opts: liteOptions,
     // TODO: Map to generic keys for PoS translations
     dataset: {
@@ -4542,7 +4556,7 @@ attrs.pos_mulcold_ru = {
 
 attrs.pos_mulcold_en = {
     label: "pos",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     opts: liteOptions,
     // TODO: Map to generic keys for PoS translations
     dataset: {
@@ -4571,7 +4585,7 @@ attrs.pos_mulcold_en = {
 
 attrs.pos_mulcold_sv = {
     label: "pos",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     opts: liteOptions,
     // TODO: Map to generic keys for PoS translations
     dataset: {
@@ -4593,7 +4607,7 @@ attrs.pos_mulcold_sv = {
 
 attrs.pos_uta_ru = {
     label: "pos",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     opts: liteOptions,
     dataset: {
         "-": "Punct",
@@ -4617,7 +4631,7 @@ attrs.pos_uta_ru = {
 
 attrs.pos_ud2_universal = {
     label: "pos",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     dataset: {
         "ADJ": "A",
         "ADP": "Adp",
@@ -4642,7 +4656,7 @@ attrs.pos_ud2_universal = {
 
 attrs.pos_ud2_fi = {
     label: "pos",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     dataset: {
         "A": "A",
         "Adp": "Adp",
@@ -4662,7 +4676,7 @@ attrs.pos_ud2_fi = {
 
 attrs.pos_ud_fi = {
     label: "pos",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     opts: liteOptions,
     dataset: {
         "ADJ": "A",
@@ -4690,7 +4704,7 @@ attrs.pos_ud_fi_ud1.order = 13;
 
 attrs.pos_klk = {
     label: "pos",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     extendedComponent: "datasetSelect",
     escape: false,
     opts: liteOptions,
@@ -4717,7 +4731,7 @@ attrs.pos_klk_ordered.order = 18;
 // TextMorfo parts of speech, used in FTC
 attrs.pos_textmorfo = {
     label: "pos",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     opts: liteOptions,
     dataset: {
         "-|null": "Unknown",
@@ -4744,7 +4758,7 @@ attrs.pos_textmorfo = {
 // SWECG parts of speech, used in FSTC and Svenska Parole
 attrs.pos_swecg = {
     label: "pos",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     opts: liteOptions,
     localize: false,
     dataset: [
@@ -4784,9 +4798,7 @@ attrs.msd = {
     // line there in the sidebar, while retaining the ability to copy
     // and paste to a further search expression (unlike if we added a
     // zero-width space U+200B).
-    stringify: function(val) {
-        return val.replace(/\|/g, "|<wbr>");
-    }
+    pattern: "<%= val.replace(/\\|/g, '|<wbr>') %>",
 };
 attrs.msd_ordered = JSON.parse(JSON.stringify(attrs.msd));
 attrs.msd_ordered.order = 17;
@@ -4838,7 +4850,7 @@ attrs.lemgram_hidden = {
 };
 attrs.deprel_ftb2 = {
     label: "deprel",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     opts: liteOptions,
     dataset: {
         "advl": "advl",
@@ -4862,7 +4874,7 @@ attrs.deprel_ftb2 = {
 };
 attrs.deprel_tdt = {
     label: "deprel",
-    // displayType: "select",
+    // extendedComponent: "datasetSelect",
     extendedComponent: "datasetSelect",
     opts: liteOptions,
     dataset: {
@@ -4928,7 +4940,7 @@ attrs.deprel_tdt_ordered = JSON.parse(JSON.stringify(attrs.deprel_tdt));
 attrs.deprel_tdt_ordered.order = 16;
 attrs.deprel_ud2 = {
     label: "deprel",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     opts: liteOptions,
     dataset: {
         "acl": "acl",
@@ -4981,7 +4993,7 @@ attrs.deprel_ud2 = {
 };
 attrs.deprel_ud_fi = {
     label: "deprel",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     opts: liteOptions,
     dataset: {
         "_": "_",
@@ -5037,7 +5049,7 @@ attrs.deprel_ud_fi_ud1.label = "deprel_ud1";
 attrs.deprel_ud_fi_ud1.order = 11;
 attrs.deprel_uta_ru = {
     label: "deprel",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     localize: false,
     opts: liteOptions,
     dataset: [
@@ -5165,7 +5177,7 @@ for (var i = 0; i < mulcold_pos_langs.length; i++) {
 
 attrs.wordtype = {
     label: "type",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     opts: liteOptions,
     dataset: {
         "text": "text",
@@ -5214,7 +5226,7 @@ attrs.wordtype = {
 // FiNER name types
 attrs.ne_type_fi = {
     label: "ne_type",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     isStructAttr: true,
     dataset: [
         "LOC",
@@ -5232,7 +5244,7 @@ attrs.ne_type_fi = {
 // FiNER name subtypes
 attrs.ne_subtype_fi = {
     label: "ne_subtype",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     isStructAttr: true,
     dataset: [
         "ANM",
@@ -5261,7 +5273,7 @@ attrs.ne_subtype_fi = {
 // FiNER full name types: expression category, type, subtype
 attrs.ne_fulltype_fi = {
     label: "ne_fulltype",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     isStructAttr: true,
     dataset: [
         "EnamexEvtXxx",
@@ -5471,7 +5483,7 @@ attrs.ne_placename = {
 // The source of the place name information.
 attrs.ne_placename_source = {
     label: "ne_placename_source",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     isStructAttr: true,
     dataset: [
         "ner",
@@ -5505,7 +5517,7 @@ attrs.ner_rawtag = {
 // name, Inside a name and Outside a name
 attrs.ner_bio = {
     label: "ner_bio",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     dataset: [
         "B",
         "I",
@@ -5554,6 +5566,39 @@ attrlist.finer = {
     nerbio: attrs.ner_bio,
 };
 
+// TDT + FiNER attributes
+attrlist.parsed_tdt_finer = $.extend(
+    true, {},
+    attrlist.parsed_tdt,
+    attrlist.finer);
+
+
+// Attributes produced by vrt-finnish-nertag (*not* FiNER version 2,
+// but Finnish NER *tags* version 2)
+attrlist.finer2 = {
+    nertag: {
+        label: "ner_tag_max",
+    },
+    nertags: {
+        label: "ner_tags",
+        type: "set",
+        opts: setOptions,
+        // Hide the tags containing nesting information (a digit
+        // suffix) until it can be represented and searched for in a
+        // more user-friendly way (in Korp 9)
+        displayType: "hidden",
+    },
+    nerbio: {
+        label: "ner_bio",
+    },
+};
+
+attrlist.parsed_tdt_finer2 = $.extend(
+    true, {},
+    attrlist.parsed_tdt,
+    attrlist.finer);
+
+
 attrlist.ud2_fi = {
     ref: attrs.ref,
     lemma: attrs.baseform,
@@ -5573,6 +5618,10 @@ settings.corpusFeatures.finer = {
     attributes: attrlist.finer,
 };
 
+settings.corpusFeatures.finer2 = {
+    attributes: attrlist.finer2,
+};
+
 // An attribute not to be shown in Korp but included for documentation
 // purposes.
 attrs.hidden = {
@@ -5581,7 +5630,8 @@ attrs.hidden = {
 sattrs.hidden = attrs.hidden;
 
 sattrs.text_title = {
-    label: "title"
+    label: "title",
+    extendedComponent: "structServiceAutocomplete",
 };
 sattrs.title = sattrs.text_title;
 sattrs.text_distributor = {
@@ -5596,23 +5646,27 @@ sattrs.text_published = {
     label: "text_pubdate2"
 };
 sattrs.publisher = {
-    label: "publisher"
+    label: "publisher",
+    extendedComponent: "structServiceAutocomplete",
 };
 
 sattrs.author = {
-    label: "author"
+    label: "author",
+    extendedComponent: "structServiceAutocomplete",
 };
 sattrs.author_birthyear = {
-    label: "author_birthyear"
+    label: "author_birthyear",
+    extendedComponent: "structServiceAutocomplete",
 };
 sattrs.author_deathyear = {
-    label: "author_deathyear"
+    label: "author_deathyear",
+    extendedComponent: "structServiceAutocomplete",
 };
 
 
 sattrs.sex = {
     label: "sex",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     opts: liteOptions,
     dataset: {
         "f": "female",
@@ -5625,7 +5679,7 @@ sattrs.sex = {
 
 sattrs.author_name_type = {
     label: "author_name_type",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     opts: liteOptions,
     dataset: {
         "candidate id": "candidate_id",
@@ -5641,7 +5695,8 @@ sattrs.author_name_type = {
 
 
 sattrs.publ_year = {
-    label: "year_published"
+    label: "year_published",
+    extendedComponent: "structServiceAutocomplete",
 };
 
 sattrs.fulltext_url = {
@@ -5713,7 +5768,7 @@ sattrs.text_link_gutenberg = {
 
 sattrs.sentence_type = {
     label: "sentence_type",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     // No translations for this key (2021-09-15)
     // translationKey: "klassikot_",
     dataset: {
@@ -5764,7 +5819,7 @@ sattrs.part_num = {
 // corpora (MULCOLD, FiRuLex, ParFin, ParRus)
 sattrs.mikhailov_text_genre = {
     label: "text_genre",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     opts: liteOptions,
     dataset: {
         "fiction": "fiction",
@@ -5828,6 +5883,39 @@ sattrs.month = {
 sattrs.day_of_month = {
     label: "day"
 };
+
+sattrs.sentence_lang = {
+    label: "sentence_lang_identified",
+};
+
+sattrs.sentence_polarity = {
+    label: "sentence_polarity",
+    extendedComponent: "datasetSelect",
+    opts: liteOptions,
+    dataset: [
+        "pos",
+        "neut",
+        "neg",
+    ],
+    translation: {
+        "neg": {
+            "en": "negative",
+            "fi": "kielteinen",
+            "sv": "negativ",
+        },
+        "neut": {
+            "en": "neutral",
+            "fi": "neutraali",
+            "sv": "neutral",
+        },
+        "pos": {
+            "en": "positive",
+            "fi": "myönteinen",
+            "sv": "positiv",
+        },
+    },
+};
+
 
 /* KFSCP --- */
 
@@ -5947,14 +6035,23 @@ attrlist.parsed_tdt_ner =
         nertag: attrs.ner_tags
     });
 
+// Attribute spaces prodcued by the UDPipe tokenizer
+attrs.spaces = {
+    label: "whitespace_related_to_token",
+};
 
 settings.corpusFeatures.spaces = {
     attributes: {
-        spaces: {
-            label: "whitespace_related_to_token",
-        },
+        spaces: attrs.spaces,
     },
 };
+
+attrlist.parsed_tdt_spaces = $.extend(
+    true, {},
+    attrlist.parsed_tdt,
+    {
+        spaces: attrs.spaces,
+    });
 
 
 // KLK structural attributes, for both Finnish and Swedish
@@ -5966,6 +6063,7 @@ sattrlist.klk = {
     },
     text_publ_title: {
         label: "publication",
+        extendedComponent: "structServiceAutocomplete",
     },
     /*
     text_publ_part: {
@@ -5983,6 +6081,7 @@ sattrlist.klk = {
     },
     text_issue_title: {
         label: "issue_title",
+        extendedComponent: "structServiceAutocomplete",
     },
     /*
     text_part_name: {
@@ -5994,7 +6093,7 @@ sattrlist.klk = {
     },
     text_language: {
         label: "lang",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         extendedComponent: "datasetSelect",
         escape: false,
         opts: liteOptions,
@@ -6029,7 +6128,7 @@ sattrlist.klk = {
     },
     text_publ_type: {
         label: "publication_type",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         extendedComponent: "datasetSelect",
         escape: false,
         opts: liteOptions,
@@ -6070,7 +6169,7 @@ sattrlist.klk2 = $.extend(
         },
         text_add_version: {
             label: "added_in_version",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: [
                 "1",
@@ -6271,7 +6370,7 @@ sattrlist.parfin_fi = $.extend(
     {
         link_text_author: {
             label: "author",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "Haahtela Joel",
                 "Hotakainen Kari",
@@ -6291,7 +6390,7 @@ sattrlist.parfin_fi = $.extend(
         },
         link_text_translator: {
             label: "translator",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "Djafarova Taissia",
                 "Džafarova-Viitala Taisja",
@@ -6312,7 +6411,7 @@ sattrlist.parfin_fi = $.extend(
         },
         link_text_title: {
             label: "title",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "Ennen päivänlaskua ei voi",
                 "Ensimmäinen murhani",
@@ -6335,7 +6434,7 @@ sattrlist.parfin_fi = $.extend(
         },
         link_text_publisher: {
             label: "publisher",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: {
                 "Kansa": "Kansa",
                 "Otava": "Otava",
@@ -6354,7 +6453,7 @@ sattrlist.parfin_ru = $.extend(
     {
         link_text_title: {
             label: "title",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "Бесстрашный Пекка  В одежде человека",
                 "В одежде человека",
@@ -6377,7 +6476,7 @@ sattrlist.parfin_ru = $.extend(
         },
         link_text_publisher: {
             label: "publisher",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "Азбука-классика",
                 "Амфора",
@@ -6416,7 +6515,7 @@ sattrlist.parrus_fi = $.extend(
     {
         link_text_author: {
             label: "author",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "Бабель И.",
                 "Бакланов Г.",
@@ -6444,7 +6543,7 @@ sattrlist.parrus_fi = $.extend(
         },
         link_text_translator: {
             label: "translator",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "Adrian E.",
                 "Adrian, Esa",
@@ -6475,7 +6574,7 @@ sattrlist.parrus_fi = $.extend(
         },
         link_text_title: {
             label: "title",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "Aateliskoti",
                 "Aatelisneiti talonpoikaistyttönä / Laukaus ja y. m. kertomuksia.",
@@ -6574,7 +6673,7 @@ sattrlist.parrus_fi = $.extend(
         },
         link_text_publisher: {
             label: "publisher",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "Gummerus",
                 "Helsinki",
@@ -6597,7 +6696,7 @@ sattrlist.parrus_ru = $.extend(
     {
         link_text_author: {
             label: "author",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "Бабель И.",
                 "Бакланов Г.",
@@ -6625,7 +6724,7 @@ sattrlist.parrus_ru = $.extend(
         },
         link_text_translator: {
             label: "translator",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "Adrian, Esa",
                 "Ahava Juho, Hämeen-Anttila Väinö",
@@ -6649,7 +6748,7 @@ sattrlist.parrus_ru = $.extend(
         },
         link_text_title: {
             label: "title",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "Агафья / Собр. соч. в 15 тт.",
                 "Актерская гибель / Собр. соч. в 15 тт.",
@@ -6747,7 +6846,7 @@ sattrlist.parrus_ru = $.extend(
         },
         link_text_publisher: {
             label: "publisher",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "АСТ, 1997",
                 "АСТ, 1998",
@@ -6832,7 +6931,7 @@ sattrlist.parfin_2016_fi = $.extend(
     {
         link_text_author: {
             label: "author",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "Haahtela Joel",
                 "Hotakainen Kari",
@@ -6858,7 +6957,7 @@ sattrlist.parfin_2016_fi = $.extend(
         },
         link_text_title: {
             label: "title",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "Ei-kuori",
                 "Ennen päivänlaskua ei voi",
@@ -6884,7 +6983,7 @@ sattrlist.parfin_2016_fi = $.extend(
         },
         link_text_publisher: {
             label: "publisher",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "Kansa",
                 "Otava",
@@ -6906,7 +7005,7 @@ sattrlist.parfin_2016_ru = $.extend(
     {
         link_text_title: {
             label: "title",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "Бесстрашный Пекка",
                 "В одежде человека",
@@ -6932,7 +7031,7 @@ sattrlist.parfin_2016_ru = $.extend(
         },
         link_text_translator: {
             label: "translator",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "Виролайнен, Лаура and Иоффе, Элеонора",
                 "Джафарова-Виитала, Таисья",
@@ -6954,7 +7053,7 @@ sattrlist.parfin_2016_ru = $.extend(
         },
         link_text_publisher: {
             label: "publisher",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "Азбука-классика",
                 "Амфора",
@@ -7011,7 +7110,7 @@ sattrlist.parrus_2016_ru = $.extend(
     {
         link_text_author: {
             label: "author",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "Бабель И.",
                 "Булгаков М.А.",
@@ -7040,7 +7139,7 @@ sattrlist.parrus_2016_ru = $.extend(
         },
         link_text_title: {
             label: "title",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "Агафья",
                 "Актерская гибель",
@@ -7146,7 +7245,7 @@ sattrlist.parrus_2016_ru = $.extend(
         },
         link_text_publisher: {
             label: "publisher",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "",
                 "Эксмо",
@@ -7162,7 +7261,7 @@ sattrlist.parrus_2016_fi = $.extend(
     {
         link_text_author: {
             label: "author",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "Аксенов В.",
                 "Бабель И.",
@@ -7201,7 +7300,7 @@ sattrlist.parrus_2016_fi = $.extend(
         },
         link_text_translator: {
             label: "translator",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "A.W--",
                 "Aarto A.",
@@ -7253,7 +7352,7 @@ sattrlist.parrus_2016_fi = $.extend(
         },
         link_text_title: {
             label: "title",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "Aateliskoti",
                 "Aatelisneiti talonpoikaistyttönä",
@@ -7403,7 +7502,7 @@ sattrlist.parrus_2016_fi = $.extend(
         },
         link_text_publisher: {
             label: "publisher",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "Churberg",
                 "Edlund",
@@ -7465,7 +7564,7 @@ sattrlist.europarl_v7 = {
 
     sentence_type: {
         label: "sentence_type",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         dataset: {
             "meta": "meta",
@@ -7507,7 +7606,7 @@ sattrlist.europarl_v7 = {
     },
     speaker_aff: {
         label: 'speaker_affiliation',
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         // No translations for this key (2021-09-15)
         // translationKey: "europarl_v7_aff_",
         dataset: {
@@ -7516,7 +7615,7 @@ sattrlist.europarl_v7 = {
     },
     speaker_lang: {
         label: "speech_language",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         dataset: {
             "BG": "bg",
@@ -7831,7 +7930,7 @@ funcs.add_attr_extra_properties = function (corpora) {
 //   override: if true, override an existing alias (default: no)
 //   add_variants: if false, do not add the alias variants (default:
 //     true)
-funcs.add_corpus_aliases = function (corpus_id_patt, aliases) {
+funcs.addCorpusAliases = function (corpus_id_patt, aliases) {
     var opts = arguments[2] || {};
     var override = opts.override || false;
     var add_variants = (opts.add_variants !== false);
@@ -7870,8 +7969,8 @@ funcs.add_corpus_aliases = function (corpus_id_patt, aliases) {
         }
         for (var j = 0; j < aliases2.length; j++) {
             alias2 = aliases2[j];
-            if (override || ! (alias2 in settings.corpus_aliases)) {
-                settings.corpus_aliases[alias2] = corpus_id_patt;
+            if (override || ! (alias2 in settings.corpusAliases)) {
+                settings.corpusAliases[alias2] = corpus_id_patt;
             }
         }
     }
@@ -7958,8 +8057,8 @@ funcs.extend_corpus_settings = function (props, corpus_ids) {
 // Generate a declaration for an attribute with Boolean values.
 // Arguments:
 // - label: attribute translation label
-// - yes_no: an array of two items: the corpus values for "yes" and
-//   "no"; if omitted, use "y" and "n".
+// - yes_no: an array of two or three items: the corpus values for
+//   "yes", "no" and optionally "unknown"; if omitted, use "y" and "n".
 funcs.make_bool_attr = function (label, yes_no) {
     var dataset = {};
     if (arguments.length < 2) {
@@ -7968,12 +8067,15 @@ funcs.make_bool_attr = function (label, yes_no) {
             "n": "no",
         };
     } else {
-        dataset[yes_no[0]] = "yes";
-        dataset[yes_no[1]] = "no";
+	dataset[yes_no[0]] = "yes";
+	dataset[yes_no[1]] = "no";
+        if (yes_no.length > 2) {
+            dataset[yes_no[2]] = "unknown";
+        }
     }
     return {
         label: label,
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         dataset: dataset,
         translation: transl.yesno,
@@ -8135,6 +8237,12 @@ funcs.set_attr_order = function (attrstruct, attrnamelist) {
         attrstruct[attrnamelist[i]].order = i;
     }
 };
+
+
+// Create a pattern for a link with the label as the link text
+funcs.makeLinkPattern = function (label, url) {
+    return `<a href="${url}" class="exturl sidebar_link" target="_blank"><span rel="localize[${label}]"></span></a>`
+}
 
 
 // Functions for the video page
@@ -8454,7 +8562,7 @@ settings.templ.lemmie_common = {
         },
         text_lang: {
             label: "lang",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: [
                 "fin",
@@ -8475,7 +8583,7 @@ settings.templ.lemmie_common = {
         },
         text_source: {
             label: "source",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             localize: false,
             opts: liteOptions,
         },
@@ -8491,7 +8599,7 @@ settings.templ.lemmie_common = {
         },
         paragraph_type: {
             label: "paragraph_type",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: {},
             translation: transl.paragraphType,
@@ -8589,6 +8697,7 @@ module.exports = {
     funcs,
     transl,
     setOptions,
+    fullSetOptions,
     liteOptions,
     makeVideoAttr,
 }

@@ -98,6 +98,10 @@
     "subject": "ämne",
     "volume": "band",
 
+    "book_number": "bokens nummer",
+    "nlfcl_contributor": "medarbetare",
+    "publication_year": "utgivningsår",
+
     "author_name_type": "författarnamnets typ",
     "sex": "kön",
     "grade": "vitsord",
@@ -381,6 +385,11 @@
     "facsimile_title": "faksimilupplaga",
 
     "sentence_polarity": "meningens polaritet",
+
+    "sentence_lang_identified": "satsens språk (identifierad)",
+
+    "ner_tags": "namnklassificering",
+    "ner_tag_max": "namnklassificering (maximal)",
 
     "ne_expr": "uttryck",
     "ne_type": "namntyp",

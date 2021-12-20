@@ -73,8 +73,8 @@ settings.corporafolders.parliament.europarl = {
     }
 };
 
-settings.corpus_aliases.europarl_v7 = "europarl_v7_.*_fi";
-settings.corpus_aliases.europarl = settings.corpus_aliases.europarl_v7;
+settings.corpusAliases.europarl_v7 = "europarl_v7_.*_fi";
+settings.corpusAliases.europarl = settings.corpusAliases.europarl_v7;
 
 settings.corporafolders.legal.jrc = {
     title: "HeKo-JRC-Acquis",
@@ -98,7 +98,7 @@ settings.corporafolders.legal.jrc = {
     }
 };
 
-settings.corpus_aliases.jrc_acquis = "jrc_acquis_.*fi";
+settings.corpusAliases.jrc_acquis = "jrc_acquis_.*fi";
 
 settings.corporafolders.other.opus = {
     title: "OPUS",
@@ -131,8 +131,8 @@ settings.corporafolders.other.opus.enfi = {
     ]
 };
 
-settings.corpus_aliases.opus_enfi = "opus_.*enfi_fi";
-settings.corpus_aliases.opus_fien = "opus_.*enfi_fi";
+settings.corpusAliases.opus_enfi = "opus_.*enfi_fi";
+settings.corpusAliases.opus_fien = "opus_.*enfi_fi";
 
 settings.corporafolders.other.opus.firu = {
     title: "OPUS Finnish–Russian",
@@ -149,7 +149,7 @@ settings.corporafolders.other.opus.firu = {
     ]
 };
 
-settings.corpus_aliases.opus_firu = "opus_.*firu_fi";
+settings.corpusAliases.opus_firu = "opus_.*firu_fi";
 
 settings.corporafolders.other.opus.fisv = {
     title: "OPUS Finnish–Swedish",
@@ -170,7 +170,7 @@ settings.corporafolders.other.opus.fisv = {
     ]
 };
 
-settings.corpus_aliases.opus_fisv = "opus_.*fisv_fi";
+settings.corpusAliases.opus_fisv = "opus_.*fisv_fi";
 
 settings.corporafolders.other.opus.defi = {
     title: "OPUS Finnish–German",
@@ -192,8 +192,8 @@ settings.corporafolders.other.opus.defi = {
     ]
 };
 
-settings.corpus_aliases.opus_defi = "opus_.*defi_fi";
-settings.corpus_aliases.opus_fide = "opus_.*defi_fi";
+settings.corpusAliases.opus_defi = "opus_.*defi_fi";
+settings.corpusAliases.opus_fide = "opus_.*defi_fi";
 
 settings.corporafolders.other.opus.fifr = {
     title: "OPUS Finnish–French",
@@ -216,7 +216,7 @@ settings.corporafolders.other.opus.fifr = {
     ]
 };
 
-settings.corpus_aliases.opus_fifr = "opus_.*fifr_fi";
+settings.corpusAliases.opus_fifr = "opus_.*fifr_fi";
 
 settings.corporafolders.other.opus.dafi = {
     title: "OPUS Finnish–Danish",
@@ -230,8 +230,8 @@ settings.corporafolders.other.opus.dafi = {
     ]
 };
 
-settings.corpus_aliases.opus_dafi = "opus_.*dafi_fi";
-settings.corpus_aliases.opus_fida = "opus_.*dafi_fi";
+settings.corpusAliases.opus_dafi = "opus_.*dafi_fi";
+settings.corpusAliases.opus_fida = "opus_.*dafi_fi";
 
 settings.corporafolders.other.opus.fipl = {
     title: "OPUS Finnish–Polish",
@@ -245,7 +245,7 @@ settings.corporafolders.other.opus.fipl = {
     ]
 };
 
-settings.corpus_aliases.opus_fipl = "opus_.*fipl_fi";
+settings.corpusAliases.opus_fipl = "opus_.*fipl_fi";
 
 settings.corporafolders.other.opus.esfi = {
     title: "OPUS Finnish–Spanish",
@@ -268,8 +268,8 @@ settings.corporafolders.other.opus.esfi = {
     ]
 };
 
-settings.corpus_aliases.opus_esfi = "opus_.*esfi_fi";
-settings.corpus_aliases.opus_fies = "opus_.*esfi_fi";
+settings.corpusAliases.opus_esfi = "opus_.*esfi_fi";
+settings.corpusAliases.opus_fies = "opus_.*esfi_fi";
 
 settings.corporafolders.other.opus.fipt = {
     title: "OPUS Finnish–Portuguese",
@@ -284,7 +284,7 @@ settings.corporafolders.other.opus.fipt = {
     ]
 };
 
-settings.corpus_aliases.opus_fipt = "opus_.*fipt_fi";
+settings.corpusAliases.opus_fipt = "opus_.*fipt_fi";
 
 settings.corporafolders.other.opus.etfi = {
     title: "OPUS Finnish–Estonian",
@@ -298,8 +298,8 @@ settings.corporafolders.other.opus.etfi = {
     ]
 };
 
-settings.corpus_aliases.opus_etfi = "opus_.*etfi_fi";
-settings.corpus_aliases.opus_fiet = "opus_.*etfi_fi";
+settings.corpusAliases.opus_etfi = "opus_.*etfi_fi";
+settings.corpusAliases.opus_fiet = "opus_.*etfi_fi";
 
 settings.corporafolders.other.opus.fiit = {
     title: "OPUS Finnish–Italian",
@@ -314,7 +314,7 @@ settings.corporafolders.other.opus.fiit = {
     ]
 };
 
-settings.corpus_aliases.opus_fiit = "opus_.*fiit_fi";
+settings.corpusAliases.opus_fiit = "opus_.*fiit_fi";
 
 settings.corporafolders.other.opus.fihu = {
     title: "OPUS Finnish–Hungarian",
@@ -330,7 +330,7 @@ settings.corporafolders.other.opus.fihu = {
     ]
 };
 
-settings.corpus_aliases.opus_fihu = "opus_.*fihu_fi";
+settings.corpusAliases.opus_fihu = "opus_.*fihu_fi";
 
 settings.corporafolders.other.opus.finl = {
     title: "OPUS Finnish–Dutch",
@@ -351,7 +351,7 @@ settings.corporafolders.other.opus.finl = {
     ]
 };
 
-settings.corpus_aliases.opus_finl = "opus_.*finl_fi";
+settings.corpusAliases.opus_finl = "opus_.*finl_fi";
 
 settings.corporafolders.other.opus.fitrl = {
     title: "OPUS Finnish–Turkish",
@@ -367,7 +367,7 @@ settings.corporafolders.other.opus.fitrl = {
     ]
 };
 
-settings.corpus_aliases.opus_fitr = "opus_.*fitr_fi";
+settings.corpusAliases.opus_fitr = "opus_.*fitr_fi";
 
 settings.corporafolders.other.opus.csfi = {
     title: "OPUS Finnish–Czech",
@@ -389,8 +389,8 @@ settings.corporafolders.other.opus.csfi = {
     ]
 };
 
-settings.corpus_aliases.opus_csfi = "opus_.*csfi_fi";
-settings.corpus_aliases.opus_fics = "opus_.*csfi_fi";
+settings.corpusAliases.opus_csfi = "opus_.*csfi_fi";
+settings.corpusAliases.opus_fics = "opus_.*csfi_fi";
 
 settings.corporafolders.other.opus.elfi = {
     title: "OPUS Finnish–Greek",
@@ -411,8 +411,8 @@ settings.corporafolders.other.opus.elfi = {
     ]
 };
 
-settings.corpus_aliases.opus_elfi = "opus_.*elfi_fi";
-settings.corpus_aliases.opus_fiel = "opus_.*elfi_fi";
+settings.corpusAliases.opus_elfi = "opus_.*elfi_fi";
+settings.corpusAliases.opus_fiel = "opus_.*elfi_fi";
 
 
 settings.corporafolders.literary.parfin_parrus = {
@@ -451,6 +451,7 @@ settings.corporafolders.literary.ceal = {
     },
     contents: [
         "ceal_s_fi",
+        "ceal_o_fi",
     ]
 };
 
@@ -458,7 +459,7 @@ sattrlist.ceal_common = {
     text_year: sattrs.year,
     text_author: {
         label: "author",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         localize: false,
         opts: liteOptions,
         dataset: [
@@ -483,6 +484,7 @@ sattrlist.ceal_common = {
 
 var ceal_work_list = "Korpus sisältää seuraavat teokset Kersti Juvan käännöksinä sekä alkuperäisinä:<br/>The corpus contains the following works as translated by Kersti Juva and as original:<ul><li>Jane Austen: Ylpeys ja ennakkoluulo (Teos 2013) (Pride and Prejudice)</li><li>Charles Dickens: Kolea talo (Otava 2003) (Bleak House)</li><li>Henry James: Washingtonin aukio (Tammi 2006) (Washington Square)</li>";
 
+// scrambled ceal
 settings.corpora.ceal_s_fi = {
     title: "CEAL (sekoitettu)",
     description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita Kersti Juvan suomentamina, englanti–suomi-rinnakkaiskorpus, sekoitetut kappaleet<br/>ceal-par-s: Classics of English and American Literature as translated by Kersti Juva, English–Finnish parallel corpus, scrambled paragraphs<br/><br/>" + ceal_work_list,
@@ -528,6 +530,53 @@ settings.corpora.ceal_s_en = {
     hide: true
 };
 
+// original ceal
+settings.corpora.ceal_o_fi = {
+    title: "CEAL (alkuperäinen)",
+    description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita Kersti Juvan suomentamina, englanti-suomi-rinnakkaiskorpus<br/>ceal-par-korp: Classics of English and American Literature as translated by Kersti Juva, English-Finnish parallel corpus, Korp<br/><br/>" + ceal_work_list,
+    context: context.linkAligned,
+    within: settings.linkWithin,
+    id: "ceal_o_fi",
+    shortname: "ceal-par-korp",
+    lang: "fin",
+    urn: "urn:nbn:fi:lb-2019121808",
+    metadata_urn: "urn:nbn:fi:lb-2019121805",
+    licence: {
+	name: "CLARIN RES +NC 1.0",
+	urn: "urn:nbn:fi:lb-2019121806",
+    },
+    cite_id: "ceal-par-korp",
+    limitedAccess: true,
+    licenceType: "RES",
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.ceal_common,
+    linkedTo: ["ceal_o_en"]
+};
+
+settings.corpora.ceal_o_en = {
+    title: "CEAL (alkuperäinen)",
+    description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita Kersti Juvan suomentamina, englanti-suomi-rinnakkaiskorpus, Korp<br/>ceal-par-korp: Classics of English and American Literature as translated by Kersti Juva, English-Finnish parallel corpus<br/><br/>" + ceal_work_list,
+    context: context.linkAligned,
+    within: settings.linkWithin,
+    id: "ceal_o_en",
+    shortname: "ceal-par-korp",
+    lang: "eng",
+    urn: "urn:nbn:fi:lb-2019121808",
+    metadata_urn: "urn:nbn:fi:lb-2019121805",
+    licence: {
+	name: "CLARIN RES +NC 1.0",
+	urn: "urn:nbn:fi:lb-2019121806",
+    },
+    cite_id: "ceal-par-korp",
+    limitedAccess: true,
+    licenceType: "RES",
+    attributes: attrlist.ud2_en,
+    structAttributes: sattrlist.ceal_common,
+    linkedTo: ["ceal_o_fi"],
+    hide: true
+};
+
+
 delete ceal_work_list;
 
 
@@ -550,7 +599,7 @@ settings.corpora.semfinlex_asd_par_2018_fi = {
         },
         text_parl_statute_type: {
             label: "parl_statute_type",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: [
                 "laki",
@@ -590,7 +639,7 @@ settings.corpora.semfinlex_asd_par_2018_sv = {
         },
         text_parl_statute_type: {
             label: "parl_statute_type",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: [
                 "laki",
@@ -619,7 +668,7 @@ funcs.addCorporaToFolder("legal", "semfinlex_asd_par_2018_fi");
 
 /* OPUS – Open Source Paraller Corpus */
 
-settings.corpus_aliases.opus = "opus_.*_fi";
+settings.corpusAliases.opus = "opus_.*_fi";
 
 settings.corpora.opus_opensubtitles2011_fitr_tr = {
     title: "OpenSubtitles2011",

@@ -83,6 +83,10 @@
     "text_volume": "nide",
     "subject": "aihe",
 
+    "book_number": "kirjan numero",
+
+    "nlfcl_contributor": "muu tekijä",
+
     "digitized": "digitoitu",
     "modified": "muunnettu",
     "wordcount": "sanamäärä",
@@ -607,6 +611,7 @@
     "parent_comment_id": "kommentin vanhemman tunniste",
     "quoted_comment_id": "lainatun kommentin tunniste",
     "parent_timestamp": "kommentin vanhemman aikaleima",
+    "thread_closed": "keskusteluketju suljettu",
 
     "thread_start_message": "ketjun aloitusviesti",
     "no_quotation": "ei lainausta",
@@ -666,6 +671,8 @@
 
     "sentence_polarity": "virkkeen polaarisuus",
 
+    "sentence_lang_identified": "virkkeen kieli (tunnistettu)",
+
     "publication_type": "julkaisutyyppi",
 
     "show_page_image": "Näytä sivun kuva",
@@ -673,6 +680,7 @@
     "download_publ_pdf": "Lataa julkaisu PDF-tiedostona",
 
     "ner_tags": "nimiluokitus",
+    "ner_tag_max": "nimiluokitus (pisin)",
 
     "name_category_omorfi": "nimen tyyppi (Omorfi)",
 
