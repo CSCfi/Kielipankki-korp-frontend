@@ -1820,7 +1820,7 @@ attrlist.ud2_uralic.misc = { label: "misc", opts: settings.defaultOptions };
 sattrlist.ud2_uralic = {
     text_name : { label: "" },
     text_lang : { label: "" },
-    sentence_id : { label: "" }
+    sentence_id : { label: "" },
     sentence_text : { label: "" }
 };
 
