@@ -2746,7 +2746,7 @@ settings.corporafolders.uralic_ud_v29 = {
     description: "The corpus contains Universal Dependencies version 2.9 for the following Uralic languages: Erzya, Estonian, Finnish, Hungarian, Karelian, Komi-Permyak, Komi-Zyrian, Livvi, Moksha, North Sami and Skolt Sami.",
     info: {
 	metadata_urn: "http://urn.fi/urn:nbn:fi:lb-2022011301",
-	cite_id: "uralic-ud-v2.9",
+	cite_id: "uralic-ud-v2-9",
     },
     contents: [ "uralic_ud_v29_myv_jr" ]
 /*		"uralic_ud_v29_et_edt",
@@ -2771,7 +2771,7 @@ settings.corpora.uralic_ud_v29_myv_jr = {
     title: "Uralic UD v2.9 for Erzya (JR)",
     description: "Universal Dependencies version 2.9 for Erzya (JR)",
     lang: "myv",
-    cite_id: "uralic-ud-v2.9-korp",
+    cite_id: "uralic-ud-v2-9-korp",
     within: settings.spWithin,
     context: settings.spContext,
     attributes: attrlist.ud2_uralic,
