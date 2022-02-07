@@ -2776,8 +2776,8 @@ settings.corpora.uralic_ud_v29_myv_jr = {
     context: settings.spContext,
     attributes: attrlist.ud2_uralic,
     struct_attributes: sattrlist.ud2_uralic,
-    licence = settings.licenceinfo.CC_BY_SA_40,
-    metadata_urn = "urn:nbn:fi:lb-2022011301"
+    licence: settings.licenceinfo.CC_BY_SA_40,
+    metadata_urn: "urn:nbn:fi:lb-2022011301"
 };
 
 // "uralic_ud_v29_et_edt", "Estonian", "et", CC_BY_NC_SA_40
