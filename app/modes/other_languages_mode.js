@@ -2776,7 +2776,7 @@ settings.corpora.uralic_ud_v29_myv_jr = {
     context: settings.spContext,
     attributes: attrlist.ud2_uralic,
     struct_attributes: sattrlist.ud2_uralic,
-    corpus.licence = settings.licenceinfo.CC_BY_SA_40;
+    corpus.licence = settings.licenceinfo.CC_BY_SA_40,
     corpus.metadata_urn = "urn:nbn:fi:lb-2022011301";
 };
 
