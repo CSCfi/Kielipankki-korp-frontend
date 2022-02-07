@@ -1814,7 +1814,7 @@ attrlist.ud2_fi = {
 };
 
 attrlist.ud2_en = attrlist.ud2_fi;
-attrlist.ud2_uralic = attrlist_ud2_fi;
+attrlist.ud2_uralic = attrlist.ud2_fi;
 attrlist.ud2_uralic.misc = { label: "misc", opts: settings.defaultOptions };
 
 sattrlist.ud2_uralic = {
