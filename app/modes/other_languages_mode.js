@@ -2748,8 +2748,8 @@ settings.corporafolders.uralic_ud_v29 = {
 	metadata_urn: "http://urn.fi/urn:nbn:fi:lb-2022011301",
 	cite_id: "uralic-ud-v2.9",
     },
-    contents: [ "uralic_ud_v29_myv_jr",
-		"uralic_ud_v29_et_edt",
+    contents: [ "uralic_ud_v29_myv_jr" ]
+/*		"uralic_ud_v29_et_edt",
 		"uralic_ud_v29_et_ewt",
 		"uralic_ud_v29_fi_ftb",
 		"uralic_ud_v29_fi_ood",
@@ -2763,7 +2763,7 @@ settings.corporafolders.uralic_ud_v29 = {
 		"uralic_ud_v29_olo_kkpp",
 		"uralic_ud_v29_mdf_jr",
 		"uralic_ud_v29_sme_giella",
-		"uralic_ud_v29_sms_giellagas" ]
+		"uralic_ud_v29_sms_giellagas" ]*/
 };
 
 settings.corpora.uralic_ud_v29_myv_jr = {
