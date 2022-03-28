@@ -9620,15 +9620,12 @@ settings.corpora.reittidemo = {
     metadata_urn: "urn:nbn:fi:lb-2014101401",
     cite_id: "Reittidemo-korp",
     licence: settings.licenceinfo.CC0,
-    features: ["paragraphs"],
-    attributes: attrlist.parsed_tdt,
-    attributes: $.extend(
-        true, {},
-        attrlist.parsed_tdt,
-        {
-            spoken: attrs.spoken,
-        }
-    ),
+    // Use feature "parsed_tdt", as the corpus has an extra attribute,
+    // so attrlist.parsed_tdt could not be used directly
+    features: ["paragraphs", "parsed_tdt"],
+    attributes: {
+        spoken: attrs.spoken,
+    },
     structAttributes: {
         text_author: sattrs.author,
         text_title: sattrs.title,
@@ -12245,8 +12242,9 @@ settings.corpora.sks_kivi_fi = {
     licence: settings.licenceinfo.CC_BY_NC,
     cite_id: "Kivi",
     homepage_url: "http://www.edith.fi/kivikorpus/index.htm",
-    features: ["paragraphs"],
-    attributes: attrlist.parsed_tdt_finer,
+    // Use features "parsed_tdt" and "finer", as the corpus has extra
+    // attributes, so attrlist.parsed_tdt_finer could not be used
+    features: ["paragraphs", "parsed_tdt", "finer"],
     attributes: {
         sketchyword: {
             label: "sketchyword",
@@ -12267,7 +12265,7 @@ settings.corpora.sks_kivi_fi = {
         wtype: {
             label: "wtype",
             opts: options.default,
-        }
+        },
     },
     structAttributes: {
         text_idno: {
@@ -12958,8 +12956,9 @@ settings.corpora.yoaineet = {
     cite_id: "ylioppilasaineet",
     limitedAccess: true,
     licenceType: "RES",
-    features: ["paragraphs"],
-    attributes: attrlist.parsed_tdt_finer,
+    // Use feature "parsed_tdt" and "finer", as the corpus has an
+    // extra attribute, so attrlist.parsed_tdt_finer could not be used
+    features: ["paragraphs", "parsed_tdt", "finer"],
     attributes: {
         namecat_omorfi: attrs.namecat_omorfi,
     },
@@ -14750,8 +14749,9 @@ settings.corpora.skn = {
     metadata_urn: "urn:nbn:fi:lb-201407141",
     licence: settings.licenceinfo.CC_BY_40,
     cite_id: "SKN-korp",
-    features: ["paragraphs"],
-    attributes: attrlist.parsed_tdt_finer,
+    // Use features "parsed_tdt" and "finer", as the corpus has extra
+    // attributes, so attrlist.parsed_tdt_finer could not be used
+    features: ["paragraphs", "parsed_tdt", "finer"],
     attributes: {
         original: attrs.origword,
         normalized: {
@@ -14848,8 +14848,9 @@ settings.corpora.topling_fi = {
     cite_id: "topling-fi",
     limitedAccess: true,
     licenceType: "RES",
-    features: ["paragraphs"],
-    attributes: attrlist.parsed_tdt_finer,
+    // Use features "parsed_tdt" and "finer", as the corpus has extra
+    // attributes, so attrlist.parsed_tdt_finer could not be used
+    features: ["paragraphs", "parsed_tdt", "finer"],
     attributes: attrlist.topling,
     structAttributes: sattrlist.topling
 };
