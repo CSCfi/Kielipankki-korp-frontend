@@ -17177,9 +17177,8 @@ var make_ylenews_fi_s_templ_fill = function (year1, year2, version) {
             description: (
                 "Ylen suomenkielinen uutisarkisto " + year_range + ", Korp"
                     + version + ": "
-                    + ystr
-                    + "<br/>vuosi "
-                    + ystr
+                    + "vuosi " + ystr
+                    + "<br/>"
                     + "Kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea."),
             id: ystr,
         });
@@ -17191,32 +17190,31 @@ funcs.addCorpusSettings(
     settings.templ.ylenews_fi_s_2011_2018,
     make_ylenews_fi_s_templ_fill(2011, 2018, ""),
     settings.corporafolders.news.ylenews_fi.s,
-    "ylenews_fi_s_");
-);
+    "ylenews_fi_{}_s");
+
 
 
 funcs.addCorpusSettings(
     settings.templ.ylenews_fi_s_2019_2021,
     make_ylenews_fi_s_templ_fill(2019, 2021, ""),
     settings.corporafolders.news.ylenews_fi.s,
-    "ylenews_fi_s_");
-);
+    "ylenews_fi_{}_s");
 
 
 funcs.addCorpusAliases(
-    "ylenews_fi_s_20(1[1-8])",
+    "ylenews_fi_20(1[1-8])_s",
     [
         "ylenews-fi-2011-2018-s-korp",
     ]);
 
 funcs.addCorpusAliases(
-    "ylenews_fi_s_20(19|2[0-1])",
+    "ylenews_fi_20(19|2[0-1])_s",
     [
         "ylenews-fi-2019-2021-s-korp",
     ]);
     
     
-settings.corpusAliases["ylenews_fi_s_2011_2018"]
+/*settings.corpusAliases["ylenews_fi_s_2011_2018"]
     = settings.corpusAliases["ylenews-fi-2011-2018-s-korp"]
     = settings.corpusAliases["ylenews-fi-2011-2018-s"]
     = "ylenews_fi_201[1-8]_s";
@@ -17226,7 +17224,7 @@ settings.corpusAliases["ylenews_fi_s_2019_2021"]
     = settings.corpusAliases["ylenews-fi-2019-2021-s-korp"]
     = settings.corpusAliases["ylenews-fi-2019-2021-s"]
     = "ylenews_fi_20(19|2[0-1])_s";
-
+*/
 
 /* YLE Finnish Easy-to-read*/
 
