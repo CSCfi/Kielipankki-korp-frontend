@@ -928,11 +928,11 @@ settings.corporafolders.news.ylenews_fi = {
 
 settings.corporafolders.news.ylenews_fi.a = {
     title: "Ylen suomenkielinen uutisarkisto 2011–2021 (tutkijoille)",
-    description: "Ylen suomenkielinen uutisarkisto 2011–2021, Korp<br/>Tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
+    description: "Ylen suomenkielinen uutisarkisto 2011–2021, Korp<br/>Tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Tämä kokoelma sisältää aineistot <a href='http://urn.fi/urn:nbn:fi:lb-2019121003' target='_blank' title='Kuvailutiedot'><i>Ylen suomenkielinen uutisarkisto 2011-2018, Korp</i></a> ja <a href='http://urn.fi/urn:nbn:fi:lb-2022031701' target='_blank' title='Kuvailutiedot'><i>Ylen suomenkielinen uutisarkisto 2019-2021, Korp</i></a>.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
     // Contents are added later with funcs.addCorpusSettings
     contents: [],
     info: {
-        urn: "urn:nbn:fi:lb-2019121005",
+        urn: "urn:nbn:fi:lb-2022032204",
         metadata_urn: "urn:nbn:fi:lb-2022032203",
         licence: {
             name: "CLARIN ACA +NC 1.0",
@@ -944,11 +944,11 @@ settings.corporafolders.news.ylenews_fi.a = {
 
 settings.corporafolders.news.ylenews_fi.s = {
     title: "Ylen suomenkielinen uutisarkisto 2011–2021 (kaikille)",
-    description: "Ylen suomenkielinen uutisarkisto 2011–2021, sekoitettu, Korp<br/>Kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Tämä kokoelma sisältää aineistot <a href='http://urn.fi/urn:nbn:fi:lb-2019121003' target='_blank' title='Kuvailutiedot'><i>Ylen suomenkielinen uutisarkisto 2011-2018, Korp</i></a> ja <a href='http://urn.fi/urn:nbn:fi:lb-2022031701' target='_blank' title='Kuvailutiedot'><i>Ylen suomenkielinen uutisarkisto 2019-2021, Korp</i></a>.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
+    description: "Ylen suomenkielinen uutisarkisto 2011–2021, sekoitettu, Korp<br/>Kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Tämä kokoelma sisältää aineistot <a href='http://urn.fi/urn:nbn:fi:lb-2019121004' target='_blank' title='Kuvailutiedot'><i>Ylen suomenkielinen uutisarkisto 2011-2018, sekoitettu, Korp</i></a> ja <a href='http://urn.fi/urn:nbn:fi:lb-2022032201' target='_blank' title='Kuvailutiedot'><i>Ylen suomenkielinen uutisarkisto 2019-2021, sekoitettu, Korp</i></a>.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
     // Contents are added later with funcs.addCorpusSettings
     contents: [],
     info: {
-        urn: "",
+        urn: "urn:nbn:fi:lb-2022032206",
         metadata_urn: "urn:nbn:fi:lb-2022032205",
         licence: settings.licenceinfo.CC_BY,
         cite_id: "ylenews-fi-2011-2021-s-korp",
