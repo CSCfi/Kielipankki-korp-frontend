@@ -175,7 +175,7 @@ settings.corporafolders.news.klk_fi = {
     description: "Kansalliskirjaston sanoma- ja aikakauslehtikokoelma, Kielipankki-versio, suomenkieliset lehdet",
     info: {
         urn: "urn:nbn:fi:lb-201405275",
-        metadata_urn: "urn:nbn:fi:lb-201405276",
+        metadata_urn: "urn:nbn:fi:lb-2016050302",
         licence: settings.licenceinfo.CC_BY,
         cite_id: "KLK-fi",
     }

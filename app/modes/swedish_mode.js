@@ -158,7 +158,7 @@ settings.corporafolders.news.klk_sv = {
     description: "Svenskspråkiga tidningar och tidskrifter i Nationalbibliotekets digitala samlingar, Kielipankki-version",
     info: {
         urn: "urn:nbn:fi:lb-2014091901",
-        metadata_urn: "urn:nbn:fi:lb-201405276",
+        metadata_urn: "urn:nbn:fi:lb-2016050301",
         licence: settings.licenceinfo.CC_BY,
         cite_id: "KLK-sv",
     }
