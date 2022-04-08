@@ -94,9 +94,17 @@ new branch based on
 [`config/master`](https://github.com/CSCfi/Kielipankki-korp-frontend/tree/config/master)
 (the current production
 configuration) and check it out (make it the current working branch)
-with the Git command:
+with the following Git commands:
 
-    git checkout -b config/corpus config/master
+    git checkout config/master
+    git checkout -b config/corpus
+
+When pushing `config/corpus` to the Korp frontend repository for the
+first time, use
+
+    git push --set-upstream origin config/corpus
+
+Later, you can simply do `git push`.
 
 When the corpus is to be deployed into production, the corpus-specific
 configuration branch is merged to the `config/master` branch of the
