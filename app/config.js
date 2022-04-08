@@ -827,3 +827,19 @@ settings.simpleSearchGetLemgramCQP = function (lemgram, opts) {
     }
     return val + "]"
 }
+
+// Corpus (and folder) configuration properties based on which the
+// corpus (folder) title and description are augmented. This requires
+// plugin config_augment_info.
+settings.augmentCorpusInfoProperties = {
+    // Corpus status: beta or test
+    status: {
+        property: "status",
+        valueType: "stringlist",
+        values: [
+            "beta",
+            "test",
+        ],
+        localizeDescription: true,
+    },
+}

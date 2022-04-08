@@ -21,5 +21,8 @@
     "about_body": "Korp is the concordance search tool of Språkbanken (The Swedish Language Bank), adapted to the Language Bank of Finland. For more information, comments, suggestions, bug reports or other feedback, please fill in the <a id='feedback' class='follow_link' href='https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback' target='_blank'>feedback form</a> or send email to <i>fin-clarin (at) helsinki.fi</i>.",
     "about_adapt": "Adapting Korp to the Language Bank of Finland",
 
+    "corpusinfo_descr_status_beta": "<strong>Please note</strong> that the corpus is in beta testing, so it may change without notice.",
+    "corpusinfo_descr_status_test": "<strong>Please note</strong> that the corpus is still in the test stage, so it may change significantly without notice.",
+
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }
