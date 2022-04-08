@@ -93,3 +93,10 @@ folders correspond to CLARIN resource families.
 Functions used in corpus configurations are contained in object
 `funcs` (previously, `settings.fn`). The names of the functions
 defined in `app/modes/common.js` have been converted to camel case.
+
+## Beta and test status in `status`
+
+The beta and test status for a corpus are specified by adding the
+property `status: "beta"` (or `"test"`) to the corpus configuration
+(or to the `info` object of a corpus folder), instead of `labels:
+["beta"]`.

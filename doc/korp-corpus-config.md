@@ -32,6 +32,7 @@
   - [Defining often-used attributes and other configuration properties](#defining-often-used-attributes-and-other-configuration-properties)
   - [Special features of corpus settings](#special-features-of-corpus-settings)
     - [Attribute value filters](#attribute-value-filters)
+    - [Corpus status](#corpus-status)
   - [Generating subcorpus configurations with JavaScript](#generating-subcorpus-configurations-with-javascript)
     - [`funcs.addCorpusSettings`](#funcsaddcorpussettings)
     - [`funcs.extendCorpusSettings`](#funcsextendcorpussettings)
@@ -943,6 +944,23 @@ configuration:
 ```javascript
     defaultFilters: ["text_parish_name"],
 ```
+
+
+### Corpus status
+
+**\[Korp 9\]** When a corpus is in the beta test stage or in an
+earlier testing stage, you should add the property `status` with the
+value `"beta"` or `"test"` to the corpus configuration or to the
+`info` object of the configuration of a corpus folder whose all
+corpora have the same status:
+
+```javascript
+    status: "beta",
+```
+
+This appends the string “_(beta)_” or “_(test)_” to the corpus title
+and an appropriate localized disclaimer to the description.
+
 
 <!--
 #### Ignore tokens between CQP token conditions
