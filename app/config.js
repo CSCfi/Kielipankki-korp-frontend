@@ -509,6 +509,16 @@ settings.makeCorpusExtraInfoItem = {
             };
         }
     },
+    licence: {
+        postprocess: function (corpusObj, html) {
+            // Show restricted licence information in boldface
+            return (corpusObj.limitedAccess ||
+                    (corpusObj.licence && ["ACA", "ACA-Fi", "RES"].includes(
+                        corpusObj.licence.category))
+                    ? `<strong>${html}</strong>`
+                    : html)
+        },
+    },
 };
 
 
