@@ -935,7 +935,7 @@ settings.corporafolders.news.ylenews_fi.a = {
         urn: "urn:nbn:fi:lb-2022032204",
         metadata_urn: "urn:nbn:fi:lb-2022032203",
         licence: {
-            name: "CLARIN ACA +NC 1.0",
+            name: "CLARIN ACA +NC 2.0",
             urn: "urn:nbn:fi:lb-2019121002",
         },
         cite_id: "ylenews-fi-2011-2021-korp",
@@ -17083,8 +17083,8 @@ settings.templ.ylenews_fi_a_2011_2018 = {
     id: "",
     urn: "urn:nbn:fi:lb-2019121005",
     metadata_urn: "urn:nbn:fi:lb-2019121003",
-    context: context.default,
-    within: within.default,
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.parsed_tdt,
     structAttributes: $.extend(
         {}, sattrlist.ylenews_fi_common,
@@ -17100,8 +17100,8 @@ settings.templ.ylenews_fi_a_2019_2021 = {
     urn: "urn:nbn:fi:lb-2022031702",
     metadata_urn: "urn:nbn:fi:lb-2022031701",
     status: "beta",
-    context: context.default,
-    within: within.default,
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.parsed_tdt,
     structAttributes: $.extend(
         {}, sattrlist.ylenews_fi_common,
