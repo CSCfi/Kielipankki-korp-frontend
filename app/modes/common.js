@@ -104,12 +104,14 @@ settings.licenceinfo = {
     CC0: {
         name: "CC ZERO (CC0) (CLARIN PUB)",
         description: "Public Domain Dedication",
-        url: "http://creativecommons.org/publicdomain/zero/1.0/",
+        // URN to the English version (the same for all CC licences)
+        // TODO: Allow different URNs based on the UI language
+        urn: "urn:nbn:fi:lb-2021120221",
     },
     CC_BY: {
         name: "CC BY (CLARIN PUB)",
         description: "Creative Commons Attribution",
-        url: "https://creativecommons.org/licenses/by/4.0/",
+        urn: "urn:nbn:fi:lb-2021120223",
     },
     CC_BY_30: {
         name: "CC BY 3.0 (CLARIN PUB)",
@@ -119,22 +121,22 @@ settings.licenceinfo = {
     CC_BY_40: {
         name: "CC BY 4.0 (CLARIN PUB)",
         description: "Creative Commons Attribution",
-        url: "https://creativecommons.org/licenses/by/4.0/",
+        urn: "urn:nbn:fi:lb-2021120223",
     },
     CC_BY_NC: {
         name: "CC BY-NC (CLARIN PUB)",
         description: "Creative Commons Attribution-NonCommercial",
-        url: "https://creativecommons.org/licenses/by-nc/4.0/",
+        urn: "urn:nbn:fi:lb-2021120227",
     },
     CC_BY_ND: {
         name: "CC BY-ND (CLARIN PUB)",
         description: "Creative Commons Attribution-NoDerivatives",
-        url: "https://creativecommons.org/licenses/by-nd/4.0/",
+        urn: "urn:nbn:fi:lb-2021120231",
     },
     CC_BY_ND_40: {
         name: "CC BY-ND 4.0 (CLARIN PUB)",
         description: "Creative Commons Attribution-NoDerivatives 4.0",
-        url: "https://creativecommons.org/licenses/by-nd/4.0/",
+        urn: "urn:nbn:fi:lb-2021120231",
     },
     CC_BY_NC_ND: {
         name: "CC BY-NC-ND (CLARIN PUB)",
@@ -166,10 +168,15 @@ settings.licenceinfo = {
         name: "CLARIN RES +NC +INF +ND 1.0",
         urn: "urn:nbn:fi:lb-2017020612",
     },
+    // TODO: Check if ACA_NC is needed, as it is not currently used
+    // directly anywhere,only when augmented with a URN (in
+    // ScotsCorr). There does not seem to be a URN for a generic
+    // ACA+NC licence, as the idea probably is that each such corpus
+    // should have a licence page of its own.
     ACA_NC: {
         name: "CLARIN ACA +NC",
         description: "CLARIN ACA (Academic) End-User License 1.0, Non-commercial",
-        url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/ClarinEulaAca?NC=1",
+        // url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/ClarinEulaAca?NC=1",
     },
     Ylenews_sv_en: {
         name: "CLARIN ACA +NC 1.0",
