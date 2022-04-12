@@ -168,10 +168,15 @@ settings.licenceinfo = {
         name: "CLARIN RES +NC +INF +ND 1.0",
         urn: "urn:nbn:fi:lb-2017020612",
     },
+    // TODO: Check if ACA_NC is needed, as it is not currently used
+    // directly anywhere,only when augmented with a URN (in
+    // ScotsCorr). There does not seem to be a URN for a generic
+    // ACA+NC licence, as the idea probably is that each such corpus
+    // should have a licence page of its own.
     ACA_NC: {
         name: "CLARIN ACA +NC",
         description: "CLARIN ACA (Academic) End-User License 1.0, Non-commercial",
-        url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/ClarinEulaAca?NC=1",
+        // url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/ClarinEulaAca?NC=1",
     },
     Ylenews_sv_en: {
         name: "CLARIN ACA +NC 1.0",
