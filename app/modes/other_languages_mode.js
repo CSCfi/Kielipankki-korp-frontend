@@ -4876,6 +4876,71 @@ delete glowbe_countries;
 settings.corpusAliases.glowbe = "glowbe_.*";
 settings.corpusAliases["glowbe-2017h1"] = "glowbe_.*";
 
+// Uralic UD
+attrlist.ud2_uralic = attrlist.ud2_fi;
+attrlist.ud2_uralic.misc = { label: "misc", opts: options.default };
+
+sattrlist.ud2_uralic = {
+    text_name : { label: "" },
+    text_lang : { label: "" },
+    sentence_id : { label: "" },
+    sentence_text : { label: "" }
+};
+
+settings.corporafolders.uralic.uralic_ud_v29 = {
+    title: "Uralic UD v2.9",
+    description: "The corpus contains Universal Dependencies version 2.9 for the following Uralic languages: Erzya, Estonian, Finnish, Hungarian, Karelian, Komi-Permyak, Komi-Zyrian, Livvi, Moksha, North Sami and Skolt Sami.",
+    info: {
+       metadata_urn: "http://urn.fi/urn:nbn:fi:lb-2022011301",
+       cite_id: "uralic-ud-v2-9",
+    },
+    contents: [ "uralic_ud_v29_myv_jr" ]
+/*             "uralic_ud_v29_et_edt",
+               "uralic_ud_v29_et_ewt",
+               "uralic_ud_v29_fi_ftb",
+               "uralic_ud_v29_fi_ood",
+               "uralic_ud_v29_fi_pud",
+               "uralic_ud_v29_fi_tdt",
+               "uralic_ud_v29_hu_szeged",
+               "uralic_ud_v29_krl_kkpp",
+               "uralic_ud_v29_koi_uh",
+               "uralic_ud_v29_kpv_ikdp",
+               "uralic_ud_v29_kpv_lattice",
+               "uralic_ud_v29_olo_kkpp",
+               "uralic_ud_v29_mdf_jr",
+               "uralic_ud_v29_sme_giella",
+               "uralic_ud_v29_sms_giellagas" ]*/
+};
+
+settings.corpora.uralic_ud_v29_myv_jr = {
+    id: "uralic_ud_v29_myv_jr",
+    title: "Uralic UD v2.9 for Erzya (JR)",
+    description: "Universal Dependencies version 2.9 for Erzya (JR)",
+    lang: "myv",
+    within: within.sp,
+    context: context.sp,
+    attributes: attrlist.ud2_uralic,
+    structAttributes: sattrlist.ud2_uralic,
+    licence: settings.licenceinfo.CC_BY_SA_40,
+    metadata_urn: "urn:nbn:fi:lb-2022011301",
+    status: "beta"
+};
+
+// "uralic_ud_v29_et_edt", "Estonian", "et", CC_BY_NC_SA_40
+// "uralic_ud_v29_et_ewt", "Estonian", "et", CC_BY_NC_SA_40
+// "uralic_ud_v29_fi_ftb", "Finnish", "fi", CC_BY_40
+// "uralic_ud_v29_fi_ood", "Finnish", "fi", CC_BY_SA_40
+// "uralic_ud_v29_fi_pud", "Finnish", "fi", CC_BY_SA_40
+// "uralic_ud_v29_fi_tdt", "Finnish", "fi", CC_BY_SA_40
+// "uralic_ud_v29_hu_szeged", "Hungarian", "hu", CC_BY_NC_SA_30
+// "uralic_ud_v29_krl_kkpp", "Dvina-Karelian", "krl", CC_BY_SA_40
+// "uralic_ud_v29_koi_uh", "Komi-Permyak", "koi", CC_BY_SA_40
+// "uralic_ud_v29_kpv_ikdp," "Komi-Zyrian", "kpv", CC_BY_SA_40
+// "uralic_ud_v29_kpv_lattice", "Komi-Zyrian", "kpv", CC_BY_SA_40
+// "uralic_ud_v29_olo_kkpp", "Olonets-Karelian", "olo", CC_BY_SA_40
+// "uralic_ud_v29_mdf_jr", "Moksha", "mdf", CC_BY_SA_40
+// "uralic_ud_v29_sme_giella", "North Sami", "sme", CC_BY_SA_40
+// "uralic_ud_v29_sms_giellagas", "Skolt Sami", "sms", CC_BY_SA_40
 
 
 funcs.addAttrExtraProperties(settings.corpora);
