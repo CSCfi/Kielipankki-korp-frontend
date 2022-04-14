@@ -18,3 +18,13 @@
         width: 95%;
     }
 }
+
+// Reduce the line spacing of the corpus title in the sidebar, so that
+// long titles divided onto multiple lines look better.
+// FIXME: Class text-lg is currently used only for the corpus title in
+// the sidebar, but it is more general class for large text. It would
+// probably be better to add separate class to the sidebar corpus
+// title.
+div.text-lg {
+    line-height: 120%;
+}
