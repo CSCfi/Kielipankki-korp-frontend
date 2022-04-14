@@ -395,7 +395,7 @@ settings.make_direct_LBR_URL = function (lbr_id) {
 settings.corpusExtraInfoItems = [
     "credits",
     "subcorpus_of",
-    "pid",
+    "metadata",
     "cite",
     "licence",
     "infopage",
@@ -404,6 +404,7 @@ settings.corpusExtraInfoItems = [
     "iprholder",
     "compiler",
     "download",
+    "pid",
 ];
 
 // The extra info (usually links) to be shown in the corpus info popup
@@ -413,14 +414,23 @@ settings.corpusExtraInfo = {
     sidebar: [
         "credits",
         "subcorpus_of",
-        "pid",
+        "metadata",
         "cite",
         "licence",
         "infopage",
         "urn",
         "download",
+        "pid",
     ]
 };
+
+// Get the PID from corpus configuration corpusObj
+let getPid = function (corpusObj) {
+    return ((corpusObj.pid ? corpusObj.pid.urn : null)
+            || corpusObj.pid_urn
+            || (corpusObj.metadata ? corpusObj.metadata.urn : null)
+            || corpusObj.metadata_urn)
+}
 
 // Special handling for specified corpus extra info items: property
 // names refer to info item names (keys) and their values are
@@ -444,10 +454,7 @@ settings.makeCorpusExtraInfoItem = {
     pid: function (corpusObj, label) {
         // If the PID of a corpus is not specified explicitly, use
         // the metadata URN.
-        var pid = ((corpusObj.pid ? corpusObj.pid.urn : null)
-                   || corpusObj.pid_urn
-                   || (corpusObj.metadata ? corpusObj.metadata.urn : null)
-                   || corpusObj.metadata_urn);
+        var pid = getPid(corpusObj);
         if (pid) {
             return {
                 url: util.makeUrnUrl(pid),
@@ -456,7 +463,18 @@ settings.makeCorpusExtraInfoItem = {
                 text: ('<span style="white-space: nowrap;">' + pid +
                        '</span>'),
                 label: label,
-            };
+            }
+        }
+    },
+    metadata: function (corpusObj, label) {
+        // This is the same link as for "pid", but presented as a link
+        // text only (the actual URN is not shown).
+        let pid = getPid(corpusObj)
+        if (pid) {
+            return {
+                url: util.makeUrnUrl(pid),
+                text: label,
+            }
         }
     },
     cite: function (corpusObj, label) {
