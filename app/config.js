@@ -397,7 +397,6 @@ settings.corpusExtraInfoItems = [
     "subcorpus_of",
     "metadata",
     "cite",
-    "licence",
     "infopage",
     "urn",
     "homepage",
@@ -405,6 +404,7 @@ settings.corpusExtraInfoItems = [
     "compiler",
     "download",
     "pid",
+    "licence",
 ];
 
 // The extra info (usually links) to be shown in the corpus info popup
@@ -416,11 +416,11 @@ settings.corpusExtraInfo = {
         "subcorpus_of",
         "metadata",
         "cite",
-        "licence",
         "infopage",
         "urn",
         "download",
         "pid",
+        "licence",
     ]
 };
 
