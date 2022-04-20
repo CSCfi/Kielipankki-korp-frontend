@@ -17156,7 +17156,6 @@ funcs.addCorpusAliases(
     "ylenews_fi_20(1[1-8])_a",
     [
         "ylenews-fi-2011-2018-korp",
-	"ylenews-fi-2011-2021-korp",
     ]);
 
 
@@ -17164,10 +17163,14 @@ funcs.addCorpusAliases(
     "ylenews_fi_20(19|2[0-1])_a",
     [
         "ylenews-fi-2019-2021-korp",
-	"ylenews-fi-2011-2021-korp",
     ]);
 
 
+funcs.addCorpusAliases(
+    "ylenews_fi_20(1[1-9]|2[01])_a",
+    [
+	"ylenews-fi-2011-2021-korp",
+    ]);
 
 
 settings.templ.ylenews_fi_s_2011_2018 = {
@@ -17244,17 +17247,20 @@ funcs.addCorpusAliases(
     "ylenews_fi_20(1[1-8])_s",
     [
         "ylenews-fi-2011-2018-s-korp",
-	"ylenews-fi-2011-2021-s-korp",
     ]);
 
 funcs.addCorpusAliases(
     "ylenews_fi_20(19|2[0-1])_s",
     [
         "ylenews-fi-2019-2021-s-korp",
-	"ylenews-fi-2011-2021-s-korp",
     ]);
     
     
+funcs.addCorpusAliases(
+    "ylenews_fi_20(1[1-9]|2[01])_s",
+    [
+	"ylenews-fi-2011-2021-s-korp",
+    ]);
 
 
 /* YLE Finnish Easy-to-read*/
