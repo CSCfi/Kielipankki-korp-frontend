@@ -301,13 +301,11 @@ settings.languageNames = {
 }
 settings.defaultLanguage = "fi";
 
-// If a localization key does not have a translation in some language,
-// use the translation in the first language in
-// settings.defaultTranslations that has a translation, or the
-// localization key itself if the language is "KEY" (makes sense only
-// as the last element of the list, since the key is always present).
-// (Jyrki Niemi 2016-04-28)
-settings.defaultTranslations = ["en", "KEY"];
+// If a localization key does not have a translation in the UI
+// language, use the translation in the first language in
+// settings.defaultTranslationLanguages that has a translation, before
+// defaulting to the localization key itself.
+settings.defaultTranslationLanguages = ["en"];
 
 // Locales corresponding to languages (Jyrki Niemi 2016-02-16)
 settings.locales = {
