@@ -17166,6 +17166,11 @@ funcs.addCorpusAliases(
     ]);
 
 
+funcs.addCorpusAliases(
+    "ylenews_fi_20(1[1-9]|2[01])_a",
+    [
+	"ylenews-fi-2011-2021-korp",
+    ]);
 
 
 settings.templ.ylenews_fi_s_2011_2018 = {
@@ -17251,6 +17256,11 @@ funcs.addCorpusAliases(
     ]);
     
     
+funcs.addCorpusAliases(
+    "ylenews_fi_20(1[1-9]|2[01])_s",
+    [
+	"ylenews-fi-2011-2021-s-korp",
+    ]);
 
 
 /* YLE Finnish Easy-to-read*/
