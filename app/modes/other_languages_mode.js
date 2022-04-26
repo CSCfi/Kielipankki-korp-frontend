@@ -4880,37 +4880,203 @@ settings.corpusAliases["glowbe-2017h1"] = "glowbe_.*";
 attrlist.ud2_uralic = attrlist.ud2_fi;
 attrlist.ud2_uralic.misc = { label: "misc", opts: options.default };
 
-sattrlist.ud2_uralic = {
-    text_name : { label: "" },
-    text_lang : { label: "" },
-    sentence_id : { label: "" },
-    sentence_text : { label: "" }
-};
-
 settings.corporafolders.uralic.uralic_ud_v29 = {
     title: "Uralic UD v2.9",
-    description: "The corpus contains Universal Dependencies version 2.9 for the following Uralic languages: Erzya, Estonian, Finnish, Hungarian, Karelian, Komi-Permyak, Komi-Zyrian, Livvi, Moksha, North Sami and Skolt Sami.",
+    description: "The corpus contains Universal Dependencies version 2.9 for the following Uralic languages: Erzya, Estonian, (Finnish), Hungarian, Karelian, Komi-Permyak, Komi-Zyrian, Livvi, Moksha, North Sami and Skolt Sami.",
     info: {
        metadata_urn: "http://urn.fi/urn:nbn:fi:lb-2022011301",
        cite_id: "uralic-ud-v2-9",
     },
-    contents: [ "uralic_ud_v29_myv_jr" ]
-/*             "uralic_ud_v29_et_edt",
-               "uralic_ud_v29_et_ewt",
-               "uralic_ud_v29_fi_ftb",
-               "uralic_ud_v29_fi_ood",
-               "uralic_ud_v29_fi_pud",
-               "uralic_ud_v29_fi_tdt",
-               "uralic_ud_v29_hu_szeged",
-               "uralic_ud_v29_krl_kkpp",
-               "uralic_ud_v29_koi_uh",
-               "uralic_ud_v29_kpv_ikdp",
-               "uralic_ud_v29_kpv_lattice",
-               "uralic_ud_v29_olo_kkpp",
-               "uralic_ud_v29_mdf_jr",
-               "uralic_ud_v29_sme_giella",
-               "uralic_ud_v29_sms_giellagas" ]*/
+    contents: [ "uralic_ud_v29_et_edt",
+		"uralic_ud_v29_et_ewt",
+		"uralic_ud_v29_hu_szeged",
+		"uralic_ud_v29_krl_kkpp",
+		"uralic_ud_v29_koi_uh",
+		"uralic_ud_v29_kpv_ikdp",
+		"uralic_ud_v29_kpv_lattice",
+		"uralic_ud_v29_mdf_jr",
+		"uralic_ud_v29_myv_jr",
+		"uralic_ud_v29_olo_kkpp",
+		"uralic_ud_v29_sme_giella",
+		"uralic_ud_v29_sms_giellagas" ]
 };
+
+settings.corporafolders.uralic.uralic_ud_v28 = {
+    title: "Uralic UD v2.8",
+    description: "The corpus contains Universal Dependencies version 2.8 for the following Uralic languages: Erzya, Estonian, (Finnish), Hungarian, Karelian, Komi-Permyak, Komi-Zyrian, Livvi, Moksha, North Sami and Skolt Sami.",
+    info: {
+       metadata_urn: "http://urn.fi/urn:nbn:fi:lb-2022011201",
+       cite_id: "uralic-ud-v2-8",
+    },
+    contents: [ "uralic_ud_v28_et_edt",
+		"uralic_ud_v28_et_ewt",
+		"uralic_ud_v28_hu_szeged",
+		"uralic_ud_v28_krl_kkpp",
+		"uralic_ud_v28_koi_uh",
+		"uralic_ud_v28_kpv_ikdp",
+		"uralic_ud_v28_kpv_lattice",
+		"uralic_ud_v28_mdf_jr",
+		"uralic_ud_v28_myv_jr",
+		"uralic_ud_v28_olo_kkpp",
+		"uralic_ud_v28_sme_giella",
+                "uralic_ud_v28_sms_giellagas" ]
+};
+
+function create_ud2_sattrlist(sentence_attribute_names) {
+    retval = {};
+    retval.text_name = { label: "uralic_ud_text_name" };
+    retval.text_lang = { label: "uralic_ud_text_lang" };
+    retval.sentence_id = { label: "uralic_ud_sentence_id" };
+    retval.sentence_text = { label: "uralic_ud_sentence_text" };
+    for (var i = 0; i < sentence_attribute_names.length; i++) {
+	retval[ "sentence_" + sentence_attribute_names[i] ] = { label: "uralic_ud_sentence_" + sentence_attribute_names[i] };
+    };
+    return retval;
+};
+
+function uralic_ud_v29_to_v28(corpus) {
+    retval = {};
+    retval.id = corpus.id.replace('_v29_', '_v28_');
+    retval.title = corpus.title.replace(' v2.9 ', ' v2.8 ');
+    retval.description = corpus.description.replace(' version 2.9 ', ' version 2.8 ');
+    retval.lang = corpus.lang;
+    retval.within = corpus.within;
+    retval.context = corpus.context;
+    retval.attributes = corpus.attributes;
+    retval.structAttributes = corpus.structAttributes;
+    retval.licence = corpus.licence;
+    retval.metadata_urn = "http://urn.fi/urn:nbn:fi:lb-2022011201";
+    retval.status = corpus.status;
+    return retval;
+};
+
+settings.corpora.uralic_ud_v29_et_edt = {
+    id: "uralic_ud_v29_et_edt",
+    title: "Uralic UD v2.9 for Estonian (EDT)",
+    description: "Universal Dependencies version 2.9 for Estonian (EDT)",
+    lang: "et",
+    within: within.sp,
+    context: context.sp,
+    attributes: attrlist.ud2_uralic,
+    structAttributes: create_ud2_sattrlist(["newdoc_id"]),
+    licence: settings.licenceinfo.CC_BY_NC_SA_40,
+    metadata_urn: "urn:nbn:fi:lb-2022011301",
+    status: "beta"
+};
+
+settings.corpora.uralic_ud_v28_et_edt = uralic_ud_v29_to_v28(settings.corpora.uralic_ud_v29_et_edt);
+
+settings.corpora.uralic_ud_v29_et_ewt = {
+    id: "uralic_ud_v29_et_ewt",
+    title: "Uralic UD v2.9 for Estonian (EWT)",
+    description: "Universal Dependencies version 2.9 for Estonian (EWT)",
+    lang: "et",
+    within: within.sp,
+    context: context.sp,
+    attributes: attrlist.ud2_uralic,
+    structAttributes: create_ud2_sattrlist(["newdoc_id"]),
+    licence: settings.licenceinfo.CC_BY_NC_SA_40,
+    metadata_urn: "urn:nbn:fi:lb-2022011301",
+    status: "beta"
+};
+
+settings.corpora.uralic_ud_v28_et_ewt = uralic_ud_v29_to_v28(settings.corpora.uralic_ud_v29_et_ewt);
+
+settings.corpora.uralic_ud_v29_hu_szeged = {
+    id: "uralic_ud_v29_hu_szeged",
+    title: "Uralic UD v2.9 for Hungarian (Szeged)",
+    description: "Universal Dependencies version 2.9 for Hungarian (Szeged)",
+    lang: "hu",
+    within: within.sp,
+    context: context.sp,
+    attributes: attrlist.ud2_uralic,
+    structAttributes: create_ud2_sattrlist([]),
+    licence: settings.licenceinfo.CC_BY_NC_SA_30,
+    metadata_urn: "urn:nbn:fi:lb-2022011301",
+    status: "beta"
+};
+
+settings.corpora.uralic_ud_v28_hu_szeged = uralic_ud_v29_to_v28(settings.corpora.uralic_ud_v29_hu_szeged);
+
+settings.corpora.uralic_ud_v29_krl_kkpp = {
+    id: "uralic_ud_v29_krl_kkpp",
+    title: "Uralic UD v2.9 for Dvina-Karelian (KKPP)",
+    description: "Universal Dependencies version 2.9 for Dvina-Karelian (KKPP)",
+    lang: "krl",
+    within: within.sp,
+    context: context.sp,
+    attributes: attrlist.ud2_uralic,
+    structAttributes: create_ud2_sattrlist(["comment"]),
+    licence: settings.licenceinfo.CC_BY_SA_40,
+    metadata_urn: "urn:nbn:fi:lb-2022011301",
+    status: "beta"
+};
+
+settings.corpora.uralic_ud_v28_krl_kkpp = uralic_ud_v29_to_v28(settings.corpora.uralic_ud_v29_krl_kkpp);
+
+settings.corpora.uralic_ud_v29_koi_uh = {
+    id: "uralic_ud_v29_koi_uh",
+    title: "Uralic UD v2.9 for Komi-Permyak (UH)",
+    description: "Universal Dependencies version 2.9 for Komi-Permyak (UH)",
+    lang: "koi",
+    within: within.sp,
+    context: context.sp,
+    attributes: attrlist.ud2_uralic,
+    structAttributes: create_ud2_sattrlist(["text_sms", "text_mdf", "text_fi", "text_olo", "text_kpv", "text_ru", "text_orig", "gloss_ru", "comment", "text_rus"]),
+    licence: settings.licenceinfo.CC_BY_SA_40,
+    metadata_urn: "urn:nbn:fi:lb-2022011301",
+    status: "beta"
+};
+
+settings.corpora.uralic_ud_v28_koi_uh = uralic_ud_v29_to_v28(settings.corpora.uralic_ud_v29_koi_uh);
+
+settings.corpora.uralic_ud_v29_kpv_ikdp = {
+    id: "uralic_ud_v29_kpv_ikdp",
+    title: "Uralic UD v2.9 for Komi-Zyrian (IKDP)",
+    description: "Universal Dependencies version 2.9 for Komi-Zyrian (IKDP)",
+    lang: "kpv",
+    within: within.sp,
+    context: context.sp,
+    attributes: attrlist.ud2_uralic,
+    structAttributes: create_ud2_sattrlist(["text_en", "text_ru", "comment", "corpus_version", "text_end", "label"]),
+    licence: settings.licenceinfo.CC_BY_SA_40,
+    metadata_urn: "urn:nbn:fi:lb-2022011301",
+    status: "beta"
+};
+
+settings.corpora.uralic_ud_v28_kpv_ikdp = uralic_ud_v29_to_v28(settings.corpora.uralic_ud_v29_kpv_ikdp);
+
+settings.corpora.uralic_ud_v29_kpv_lattice = {
+    id: "uralic_ud_v29_kpv_lattice",
+    title: "Uralic UD v2.9 for Komi-Zyrian (Lattice)",
+    description: "Universal Dependencies version 2.9 for Komi-Zyrian (Lattice)",
+    lang: "kpv",
+    within: within.sp,
+    context: context.sp,
+    attributes: attrlist.ud2_uralic,
+    structAttributes: create_ud2_sattrlist(["text_ru", "text_rus", "text_koi", "text_orig", "comment", "text_en", "questions"]),
+    licence: settings.licenceinfo.CC_BY_SA_40,
+    metadata_urn: "urn:nbn:fi:lb-2022011301",
+    status: "beta"
+};
+
+settings.corpora.uralic_ud_v28_kpv_lattice = uralic_ud_v29_to_v28(settings.corpora.uralic_ud_v29_kpv_lattice);
+
+settings.corpora.uralic_ud_v29_mdf_jr = {
+    id: "uralic_ud_v29_mdf_jr",
+    title: "Uralic UD v2.9 for Moksha (JR)",
+    description: "Universal Dependencies version 2.9 for Moksha (JR)",
+    lang: "mdf",
+    within: within.sp,
+    context: context.sp,
+    attributes: attrlist.ud2_uralic,
+    structAttributes: create_ud2_sattrlist(["text_en", "comment", "text_orig", "gloss_en", "text_sms", "text_kpv", "text_fi"]),
+    licence: settings.licenceinfo.CC_BY_SA_40,
+    metadata_urn: "urn:nbn:fi:lb-2022011301",
+    status: "beta"
+};
+
+settings.corpora.uralic_ud_v28_mdf_jr = uralic_ud_v29_to_v28(settings.corpora.uralic_ud_v29_mdf_jr);
 
 settings.corpora.uralic_ud_v29_myv_jr = {
     id: "uralic_ud_v29_myv_jr",
@@ -4920,28 +5086,61 @@ settings.corpora.uralic_ud_v29_myv_jr = {
     within: within.sp,
     context: context.sp,
     attributes: attrlist.ud2_uralic,
-    structAttributes: sattrlist.ud2_uralic,
+    structAttributes: create_ud2_sattrlist(["text_en", "text_fi", "story_id", "comment", "text_ru", "text_orig"]),
     licence: settings.licenceinfo.CC_BY_SA_40,
     metadata_urn: "urn:nbn:fi:lb-2022011301",
     status: "beta"
 };
 
-// "uralic_ud_v29_et_edt", "Estonian", "et", CC_BY_NC_SA_40
-// "uralic_ud_v29_et_ewt", "Estonian", "et", CC_BY_NC_SA_40
-// "uralic_ud_v29_fi_ftb", "Finnish", "fi", CC_BY_40
-// "uralic_ud_v29_fi_ood", "Finnish", "fi", CC_BY_SA_40
-// "uralic_ud_v29_fi_pud", "Finnish", "fi", CC_BY_SA_40
-// "uralic_ud_v29_fi_tdt", "Finnish", "fi", CC_BY_SA_40
-// "uralic_ud_v29_hu_szeged", "Hungarian", "hu", CC_BY_NC_SA_30
-// "uralic_ud_v29_krl_kkpp", "Dvina-Karelian", "krl", CC_BY_SA_40
-// "uralic_ud_v29_koi_uh", "Komi-Permyak", "koi", CC_BY_SA_40
-// "uralic_ud_v29_kpv_ikdp," "Komi-Zyrian", "kpv", CC_BY_SA_40
-// "uralic_ud_v29_kpv_lattice", "Komi-Zyrian", "kpv", CC_BY_SA_40
-// "uralic_ud_v29_olo_kkpp", "Olonets-Karelian", "olo", CC_BY_SA_40
-// "uralic_ud_v29_mdf_jr", "Moksha", "mdf", CC_BY_SA_40
-// "uralic_ud_v29_sme_giella", "North Sami", "sme", CC_BY_SA_40
-// "uralic_ud_v29_sms_giellagas", "Skolt Sami", "sms", CC_BY_SA_40
+settings.corpora.uralic_ud_v28_myv_jr = uralic_ud_v29_to_v28(settings.corpora.uralic_ud_v29_myv_jr);
 
+settings.corpora.uralic_ud_v29_olo_kkpp = {
+    id: "uralic_ud_v29_olo_kkpp",
+    title: "Uralic UD v2.9 for Olonets-Karelian (KKPP)",
+    description: "Universal Dependencies version 2.9 for Olonets-Karelian (KKPP)",
+    lang: "olo",
+    within: within.sp,
+    context: context.sp,
+    attributes: attrlist.ud2_uralic,
+    structAttributes: create_ud2_sattrlist(["text_sms", "text_mdf", "text_fi", "text_en"]),
+    licence: settings.licenceinfo.CC_BY_SA_40,
+    metadata_urn: "urn:nbn:fi:lb-2022011301",
+    status: "beta"
+};
+
+settings.corpora.uralic_ud_v28_olo_kkpp = uralic_ud_v29_to_v28(settings.corpora.uralic_ud_v29_olo_kkpp);
+
+settings.corpora.uralic_ud_v29_sme_giella = {
+    id: "uralic_ud_v29_sme_giella",
+    title: "Uralic UD v2.9 for North Sami (Giella)",
+    description: "Universal Dependencies version 2.9 for North Sami (Giella)",
+    lang: "sme",
+    within: within.sp,
+    context: context.sp,
+    attributes: attrlist.ud2_uralic,
+    structAttributes: create_ud2_sattrlist([]),
+    licence: settings.licenceinfo.CC_BY_SA_40,
+    metadata_urn: "urn:nbn:fi:lb-2022011301",
+    status: "beta"
+};
+
+settings.corpora.uralic_ud_v28_sme_giella = uralic_ud_v29_to_v28(settings.corpora.uralic_ud_v29_sme_giella);
+
+settings.corpora.uralic_ud_v29_sms_giellagas = {
+    id: "uralic_ud_v29_sms_giellagas",
+    title: "Uralic UD v2.9 for Skolt Sami (Giellagas)",
+    description: "Universal Dependencies version 2.9 for Skolt Sami (Giellagas)",
+    lang: "sms",
+    within: within.sp,
+    context: context.sp,
+    attributes: attrlist.ud2_uralic,
+    structAttributes: create_ud2_sattrlist(["story_id", "text_fi", "text_mdf", "text_olo", "begintime", "endtime"]),
+    licence: settings.licenceinfo.CC_BY_SA_40,
+    metadata_urn: "urn:nbn:fi:lb-2022011301",
+    status: "beta"
+};
+
+settings.corpora.uralic_ud_v28_sms_giellagas = uralic_ud_v29_to_v28(settings.corpora.uralic_ud_v29_sms_giellagas);
 
 funcs.addAttrExtraProperties(settings.corpora);
 
