@@ -441,8 +441,14 @@ let getPid = function (corpusObj) {
 // tried.
 settings.makeCorpusExtraInfoItem = {
     subcorpus_of: function (corpusObj, label) {
+        // For folders, corpusObj is folder.info, which does not
+        // contain title, so also check that corpusObj.folderType does
+        // not begin with "corpus" ("corpusCollection" or
+        // "corpusWithSubcorpora")
         if (corpusObj.logicalCorpus
-            && corpusObj.logicalCorpus.title != corpusObj.title) {
+            && corpusObj.logicalCorpus.title != corpusObj.title
+            && ! (corpusObj.folderType
+                  && corpusObj.folderType.startsWith("corpus"))) {
             return {
                 text: corpusObj.logicalCorpus.title,
                 label: label,
