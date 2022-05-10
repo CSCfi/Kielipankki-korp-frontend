@@ -1060,16 +1060,34 @@ funcs.addCorpusSettings(
 ```
 
 `funcs.addCorpusSettings` takes the following arguments:
-1.  a template containing the common properties for the configurations
-    of all the subcorpora;
-2.  a list (an array) of objects containing for each subcorpus the
-    variable parts to be combined with the properties of the template;
-    each item in the list must contain the property `id` that is used
-    as the variable part of the corpus id;
-3.  the folder (subtree) of the corpus selector to which the
-    subcorpora are to be added; and
-4.  a corpus id prefix to be prepended to the values of the `id`
-    property in the array elements.
+1.  `template`: An object containing the common properties for the
+    configurations of all the subcorpora.
+2.  `infolist`: One of the following:
+    1.  a list (an array) of objects containing for each subcorpus the
+        variable parts to be combined with the properties of the
+        template (each item in the list must contain the property `id`
+        that is used as the variable part of the corpus id);
+    2.  an array of strings treated as (the variable parts of) corpus
+        ids;
+    3.  an array of arrays `[`_id_, _title_, _description_`]` with
+        which to extend the template (if _title_ or _description_ is
+        omitted, they are replaced with _id_); or
+    4.  an array of two integers (typically years), which denote the
+        start and end values (inclusive) for the variable parts of the
+        ids (converted to strings).
+3.  `folder`: The folder (subtree) of the corpus selector to which the
+    subcorpora are to be added; if `null` or omitted, the subcorpora
+    should be added to a folder elsewhere.
+4.  `id_templ`: A template for the corpus id: `{}` is replaced with
+    the variable part of the `id` value taken from the `infolist`
+    item; if the values does not contain `{}`, it is treated as a
+    prefix to the id; if undefined or null, use `template.id` if
+    defined, otherwise `""`.
+
+Occurrences of `{}` in the properties `id`, `title` and `description`
+of `template` are replaced with the corresponding property value in
+the `infolist` item, or if that is missing, the variable part of the
+id specified in the `infolist` item.
 
 
 #### `funcs.extendCorpusSettings`
