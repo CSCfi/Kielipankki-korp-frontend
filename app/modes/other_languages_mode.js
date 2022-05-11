@@ -170,8 +170,13 @@ settings.corporafolders.english.academic.ethesis = {
         cite_id: "e-thesis-en-korp-v1-1",
         urn: "urn:nbn:fi:lb-2020031302",
         metadata_urn: "urn:nbn:fi:lb-2020031301",
+        shortname: "e-thesis-en-korp-v1-1",
         licence: settings.licenceinfo.CC_BY,
-        homepage_url: "https://ethesis.helsinki.fi/",
+        homepage: {
+            url: "https://ethesis.helsinki.fi/en/",
+            name: "Digital dissertations and theses at the University of Helsinki",
+            // no_label: true,
+        },
     }
 };
 
@@ -1403,49 +1408,74 @@ settings.corpora.ethesis_ru = {
     title: "E-thesis",
     description: "E-thesis. Corpus of theses and dissertations (2005–2016)",
     id: "ethesis_ru",
-    cite_id: "e-thesis-ru",
     within: within.default,
     context: context.default,
     attributes: {
     },
     structAttributes: sattrlist.ethesis
+    metadata_urn: "urn:nbn:fi:lb-2016102808",
+    urn: "urn:nbn:fi:lb-2016102805",
+    shortname: "ethesis-ru",
 };
 
 settings.corpora.ethesis_es = {
     title: "E-thesis",
     description: "E-thesis. Corpus of theses and dissertations (2003–2015)",
     id: "ethesis_es",
-    cite_id: "e-thesis-es",
     within: within.default,
     context: context.default,
     attributes: {
     },
     structAttributes: sattrlist.ethesis
+    metadata_urn: "urn:nbn:fi:lb-2016102809",
+    urn: "urn:nbn:fi:lb-2016102804",
+    shortname: "e-thesis-es",
 };
 
 settings.corpora.ethesis_fr = {
     title: "E-thesis",
     description: "E-thesis. Corpus of theses and dissertations (2000–2016)",
     id: "ethesis_fr",
-    cite_id: "e-thesis-fr",
     within: within.default,
     context: context.default,
     attributes: {
     },
     structAttributes: sattrlist.ethesis
+    metadata_urn: "urn:nbn:fi:lb-2016102806",
+    urn: "urn:nbn:fi:lb-2016102803",
+    shortname: "e-thesis-fr",
 };
 
 settings.corpora.ethesis_de = {
     title: "E-thesis",
     description: "E-thesis. Corpus of theses and dissertations (1997–2016)",
     id: "ethesis_de",
-    cite_id: "e-thesis-de",
     within: within.default,
     context: context.default,
     attributes: {
     },
     structAttributes: sattrlist.ethesis
+    metadata_urn: "urn:nbn:fi:lb-2016102807",
+    urn: "urn:nbn:fi:lb-2016102802",
+    shortname: "e-thesis-de",
 };
+
+// Add common properties to E-thesis corpora
+funcs.extendCorpusSettings(
+    {
+        licence: settings.licenceinfo.CC_BY,
+        homepage: {
+            url: "https://ethesis.helsinki.fi/en/",
+            name: "Digital dissertations and theses at the University of Helsinki",
+            // no_label: true,
+        },
+    },
+    [
+        "ethesis_ru",
+        "ethesis_es",
+        "ethesis_fr",
+        "ethesis_de",
+    ]);
 
 
 sattrlist.sust_common = {

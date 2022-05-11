@@ -126,7 +126,15 @@ settings.corporafolders.academic.ethesis = {
         "ethesis_sv_ma",
     ],
     info: {
-        cite_id: "e-thesis-sv",
+        metadata_urn: "urn:nbn:fi:lb-2016102810",
+        urn: "urn:nbn:fi:lb-2016102801",
+        shortname: "e-thesis-sv",
+        licence: settings.licenceinfo.CC_BY,
+        homepage: {
+            url: "https://ethesis.helsinki.fi/sv/",
+            name: "Digitala avhandlingar vid Helsingfors universitet",
+            // no_label: true,
+        },
     }
 };
 

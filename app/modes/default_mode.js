@@ -107,7 +107,15 @@ settings.corporafolders.academic.ethesis = {
         "ethesis_dissabs",
     ],
     info: {
-        cite_id: "e-thesis-fi",
+        metadata_urn: "urn:nbn:fi:lb-2016090601",
+        urn: "urn:nbn:fi:lb-2016101801",
+        shortname: "e-thesis-fi",
+        licence: settings.licenceinfo.CC_BY,
+        homepage: {
+            url: "https://ethesis.helsinki.fi/",
+            name: "Helsingin yliopiston digitaaliset väitöskirjat ja opinnäytteet",
+            // no_label: true,
+        },
     }
 };
 
