@@ -118,7 +118,8 @@ settings.corporafolders = {
 
 
 settings.corporafolders.academic.ethesis = {
-    title: "E-thesis",
+    title: "E-thesis (svenska)",
+    description: "Helsingfors universitets svenska E-thesis, Korp-version",
     contents: [
         "ethesis_sv_dissabs",
         "ethesis_sv_maabs",
@@ -349,49 +350,27 @@ settings.corpora.semfinlex_kho_sv_2018 = {
 
 
 /*ETHESIS*/
-settings.corpora.ethesis_sv_ma = {
-    title: "Masteruppsatser",
-    description: "Masteruppsatser (1997–2016)",
-    id: "ethesis_sv_ma",
+
+settings.templ.ethesis_sv = {
+    title: "E-thesis: {}",
+    description: "Helsingfors universitets svenska E-thesis, Korp-version: {}",
+    id: "ethesis_sv_{}",
     within: within.default,
     context: context.default,
-    attributes: {
-    },
-    structAttributes: sattrlist.ethesis
+    attributes: {},
+    structAttributes: sattrlist.ethesis,
 };
 
-settings.corpora.ethesis_sv_maabs = {
-    title: "Masteruppsatser (abstrakt)",
-    description: "Masteruppsatser (abstrakt) (1999–2016)",
-    id: "ethesis_sv_maabs",
-    within: within.default,
-    context: context.default,
-    attributes: {
-    },
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_sv_dissabs = {
-    title: "Doktorsavhandlingar (abstrakt)",
-    description: "Doktorsavhandlingar (abstrakt) (2006–2016)",
-    id: "ethesis_sv_dissabs",
-    within: within.default,
-    context: context.default,
-    attributes: {
-    },
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_sv_phd = {
-    title: "Doktorsavhandlingar",
-    description: "Doktorsavhandlingar (2000–2016)",
-    id: "ethesis_sv_phd",
-    within: within.default,
-    context: context.default,
-    attributes: {
-    },
-    structAttributes: sattrlist.ethesis
-};
+funcs.addCorpusSettings(
+    settings.templ.ethesis_sv,
+    [
+        ["ma", "Masteruppsatser", "Masteruppsatser (1997–2016)"],
+        ["maabs", "Masteruppsatser (abstrakt)",
+         "Masteruppsatser (abstrakt) (1999–2016)"],
+        ["dissabs", "Doktorsavhandlingar (abstrakt)",
+         "Doktorsavhandlingar (abstrakt) (2006–2016)"],
+        ["phd", "Doktorsavhandlingar", "Doktorsavhandlingar (2000–2016)"],
+    ]);
 
 
 /* STUDENTSVENSKA */
