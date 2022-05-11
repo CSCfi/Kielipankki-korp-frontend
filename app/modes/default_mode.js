@@ -9992,8 +9992,8 @@ settings.corpora.ethesis_phd_el = {
 };
 
 settings.corpora.ethesis_phd_mm = {
-    title: "Maa- ja metsätieteellinen tiedekunta",
-    description: "Väitöskirjat: Maa- ja metsätieteellinen tiedekunta (2000, 2006, 2008–2010, 2012–2014, 2016)",
+    title: "Maatalous-metsätieteellinen",
+    description: "Väitöskirjat: Maatalous-metsätieteellinen tiedekunta (2000, 2006, 2008–2010, 2012–2014, 2016)",
     id: "ethesis_phd_mm",
     within: within.default,
     context: context.default,
@@ -10113,8 +10113,8 @@ settings.corpora.ethesis_ma_el = {
 };
 
 settings.corpora.ethesis_ma_mm = {
-    title: "Maa- ja metsätieteellinen tiedekunta",
-    description: "Gradut: Maa- ja metsätieteellinen tiedekunta (2003–2016)",
+    title: "Maatalous-metsätieteellinen",
+    description: "Gradut: Maatalous-metsätieteellinen tiedekunta (2003–2016)",
     id: "ethesis_ma_mm",
     within: within.default,
     context: context.default,
