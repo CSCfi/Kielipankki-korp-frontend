@@ -444,9 +444,14 @@ settings.makeCorpusExtraInfoItem = {
         // For folders, corpusObj is folder.info, which does not
         // contain title, so also check that corpusObj.folderType does
         // not begin with "corpus" ("corpusCollection" or
-        // "corpusWithSubcorpora")
+        // "corpusWithSubcorpora").
+        // Also remove from corpus titles a possible trailing licence
+        // type label within square brackets, as that is added after
+        // the logical corpus title is set.
         if (corpusObj.logicalCorpus
-            && corpusObj.logicalCorpus.title != corpusObj.title
+            && (! corpusObj.title
+                || (corpusObj.logicalCorpus.title
+                    != corpusObj.title.replace(/\s*\[.+?\]$/, "")))
             && ! (corpusObj.folderType
                   && corpusObj.folderType.startsWith("corpus"))) {
             return {
