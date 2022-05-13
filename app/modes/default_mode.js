@@ -16309,7 +16309,6 @@ settings.templ.s24_2018_2020 = {
     shortname: "suomi24-2018-2020-korp",
     features: ["paragraphs"],
     attributes: attrlist.parsed_tdt_spaces,
-    labels: ["beta"],
     attributes: attrlist.parsed_tdt,
     structAttributes: sattrlist.s24_2018_2020,
     customAttributes: sattrlist.s24_2001_2017_custom,
