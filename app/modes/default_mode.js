@@ -16236,51 +16236,43 @@ sattrlist.s24_2001_2017_custom = {
     },
 };
 
-settings.templ.s24_2001_2017 = {
-    title: "",
-    description: "",
-    id: "",
-    urn: "urn:nbn:fi:lb-2020021804",
-    metadata_urn: "urn:nbn:fi:lb-2020021803",
-    cite_id: "suomi24-2001-2017-korp-v1-2",
-    shortname: "suomi24-2001-2017-korp-v1-2",
+// Common settings for Suomi24 2001–2017 and 2018–2020
+settings.templ.s24_base = {
+    // {} is replaced with the year
+    id: "s24_{}",
     features: ["paragraphs"],
     attributes: attrlist.parsed_tdt_spaces,
-    structAttributes: sattrlist.s24_2001_2017,
     customAttributes: sattrlist.s24_2001_2017_custom,
     defaultFilters: ["text_topic_name_top", "text_topic_names"],
 };
 
 
-var make_s24_templ_fill = function (year1, year2, version) {
-    var result = [];
-    var year_range = year1.toString() + "–" + year2.toString();
-    if (version) {
-        version = " " + version;
-    }
-    for (var y = year1; y <= year2; y++) {
-        var ystr = y.toString();
-        result.push({
-            title: "Suomi24 " + year_range + ": " + ystr,
-            description: (
-                "Suomi24 virkkeet -korpus " + year_range + ", Korp-versio"
-                    + version + ": "
-                    + ystr
-                    + "<br/>Suomi24-keskustelujen viestit vuodelta "
-                    + ystr),
-            id: ystr,
-        });
-    }
-    return result;
-};
+// Suomi24 2001–2017
 
-funcs.addCorpusSettings(
-    settings.templ.s24_2001_2017,
-    make_s24_templ_fill(2001, 2017, "1.2"),
-    settings.corporafolders.cmc.s24_accruing,
-    "s24_"
+// Settings template for Suomi24 2001–2017
+settings.templ.s24_2001_2017 = $.extend(
+    {}, settings.templ.s24_base,
+    {
+        // {} in title and description is replaced with the year
+        title: "Suomi24 2001–2017: {}",
+        description: ("Suomi24 virkkeet -korpus 2001–2017, Korp-versio 1.2: {}"
+                      + "<br/>Suomi24-keskustelujen viestit vuodelta {}"),
+        urn: "urn:nbn:fi:lb-2020021804",
+        metadata_urn: "urn:nbn:fi:lb-2020021803",
+        cite_id: "suomi24-2001-2017-korp-v1-2",
+        shortname: "suomi24-2001-2017-korp-v1-2",
+        structAttributes: sattrlist.s24_2001_2017,
+    }
 );
 
+// Actually generate the corpus settings
+funcs.addCorpusSettings(
+    settings.templ.s24_2001_2017,
+    [2001, 2017],
+    settings.corporafolders.cmc.s24_accruing
+);
+
+// Add corpus aliases
 funcs.addCorpusAliases(
     "s24_20(0[1-9]|1[0-7])",
     [
@@ -16289,6 +16281,9 @@ funcs.addCorpusAliases(
         "suomi24-2001-2017-korp-v1-1",
         "suomi24-2001-2017-korp-v1-2",
     ]);
+
+
+// Suomi24 2018–2020
 
 sattrlist.s24_2018_2020 = $.extend(
     {}, sattrlist.s24_2001_2017,
@@ -16299,26 +16294,24 @@ sattrlist.s24_2018_2020 = $.extend(
     }
 );
 
-settings.templ.s24_2018_2020 = {
-    title: "",
-    description: "",
-    id: "",
-    urn: "urn:nbn:fi:lb-2021101522",
-    metadata_urn: "urn:nbn:fi:lb-2021101521",
-    cite_id: "urn:nbn:fi:lb-2021101522",
-    shortname: "suomi24-2018-2020-korp",
-    features: ["paragraphs"],
-    attributes: attrlist.parsed_tdt_spaces,
-    structAttributes: sattrlist.s24_2018_2020,
-    customAttributes: sattrlist.s24_2001_2017_custom,
-    defaultFilters: ["text_topic_name_top", "text_topic_names"],
-};
+settings.templ.s24_2018_2020 = $.extend(
+    {}, settings.templ.s24_base,
+    {
+        title: "Suomi24 2018–2020: {}",
+        description: ("Suomi24 virkkeet -korpus 2018–2020, Korp-versio: {}"
+                      + "<br/>Suomi24-keskustelujen viestit vuodelta {}"),
+        urn: "urn:nbn:fi:lb-2021101522",
+        metadata_urn: "urn:nbn:fi:lb-2021101521",
+        cite_id: "urn:nbn:fi:lb-2021101522",
+        shortname: "suomi24-2018-2020-korp",
+        structAttributes: sattrlist.s24_2018_2020,
+    },
+);
 
 funcs.addCorpusSettings(
     settings.templ.s24_2018_2020,
-    make_s24_templ_fill(2018, 2020, ""),
-    settings.corporafolders.cmc.s24_accruing,
-    "s24_"
+    [2018, 2020],
+    settings.corporafolders.cmc.s24_accruing
 );
 
 funcs.addCorpusAliases(
