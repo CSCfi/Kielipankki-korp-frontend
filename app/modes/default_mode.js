@@ -16259,7 +16259,6 @@ settings.templ.s24_2001_2017 = $.extend(
                       + "<br/>Suomi24-keskustelujen viestit vuodelta {}"),
         urn: "urn:nbn:fi:lb-2020021804",
         metadata_urn: "urn:nbn:fi:lb-2020021803",
-        cite_id: "suomi24-2001-2017-korp-v1-2",
         shortname: "suomi24-2001-2017-korp-v1-2",
         structAttributes: sattrlist.s24_2001_2017,
     }
@@ -16302,7 +16301,6 @@ settings.templ.s24_2018_2020 = $.extend(
                       + "<br/>Suomi24-keskustelujen viestit vuodelta {}"),
         urn: "urn:nbn:fi:lb-2021101522",
         metadata_urn: "urn:nbn:fi:lb-2021101521",
-        cite_id: "urn:nbn:fi:lb-2021101522",
         shortname: "suomi24-2018-2020-korp",
         structAttributes: sattrlist.s24_2018_2020,
     },
