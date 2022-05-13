@@ -16246,20 +16246,27 @@ settings.templ.s24_base = {
     defaultFilters: ["text_topic_name_top", "text_topic_names"],
 };
 
+// Partial template to be filled using funcs.fillYearsVersion
+settings.templ.s24_title_descr_shortname = {
+    // {} in title and description is replaced with the year (by
+    // funcs.addCorpusSettings)
+    title: "Suomi24 {y1}–{y2}: {}",
+    description: ("Suomi24 virkkeet -korpus {y1}–{y2}, Korp-versio{ver}: {}"
+                  + "<br/>Suomi24-keskustelujen viestit vuodelta {}"),
+    shortname: "suomi24-{y1}-{y2}-korp{versuff}",
+};
+
 
 // Suomi24 2001–2017
 
 // Settings template for Suomi24 2001–2017
 settings.templ.s24_2001_2017 = $.extend(
     {}, settings.templ.s24_base,
+    funcs.fillYearsVersion(settings.templ.s24_title_descr_shortname,
+                           2001, 2017, "1.2"),
     {
-        // {} in title and description is replaced with the year
-        title: "Suomi24 2001–2017: {}",
-        description: ("Suomi24 virkkeet -korpus 2001–2017, Korp-versio 1.2: {}"
-                      + "<br/>Suomi24-keskustelujen viestit vuodelta {}"),
         urn: "urn:nbn:fi:lb-2020021804",
         metadata_urn: "urn:nbn:fi:lb-2020021803",
-        shortname: "suomi24-2001-2017-korp-v1-2",
         structAttributes: sattrlist.s24_2001_2017,
     }
 );
@@ -16295,13 +16302,11 @@ sattrlist.s24_2018_2020 = $.extend(
 
 settings.templ.s24_2018_2020 = $.extend(
     {}, settings.templ.s24_base,
+    funcs.fillYearsVersion(settings.templ.s24_title_descr_shortname,
+                           2018, 2020),
     {
-        title: "Suomi24 2018–2020: {}",
-        description: ("Suomi24 virkkeet -korpus 2018–2020, Korp-versio: {}"
-                      + "<br/>Suomi24-keskustelujen viestit vuodelta {}"),
         urn: "urn:nbn:fi:lb-2021101522",
         metadata_urn: "urn:nbn:fi:lb-2021101521",
-        shortname: "suomi24-2018-2020-korp",
         structAttributes: sattrlist.s24_2018_2020,
     },
 );
