@@ -8313,6 +8313,48 @@ funcs.setAttrOrder = function (attrstruct, attrnamelist) {
 };
 
 
+// Return a shallow copy of object templates substrings "{x}" in the
+// string-valued properties of templates replaced with the value of
+// values.x. Other than string-valued properties in templates are
+// copied as such. If a templates property contains "{y}" but values
+// has no property y, "{y}" is kept intact.
+funcs.fillTemplates = function (templates, values) {
+    var result = {}
+    for (var templKey in templates) {
+        var filledTempl = templates[templKey];
+        if (_.isString(filledTempl)) {
+            for (var valKey in values) {
+                filledTempl = filledTempl.replace("{" + valKey + "}",
+                                                  values[valKey]);
+            }
+        }
+        result[templKey] = filledTempl;
+    }
+    return result;
+}
+
+// Return a copy of object templates with the following replacements
+// in string values:
+//   {y1} -> year1 (stringified)
+//   {y2} -> year2 (stringified)
+//   {ver} -> version preceded by space; empty if version empty or undefined
+//   {versuff} -> version prefixed by "-v" and points converted to dashes
+//
+// This function can be used to generate titles, descriptions and
+// short names for corpora with multiple subcorpora with different
+// year ranges and versions.
+funcs.fillYearsVersion = function (templates, year1, year2, version) {
+    return funcs.fillTemplates(
+        templates,
+        {
+            y1: year1.toString(),
+            y2: year2.toString(),
+            ver: (version ? " " + version : ""),
+            versuff: (version ? "-v" + version.replace(".", "-") : ""),
+        });
+}
+
+
 // Functions for the video page
 
 // Return the milliseconds value ms0 formatted as hh:mm:ss.xxx
