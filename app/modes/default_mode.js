@@ -17072,78 +17072,71 @@ sattrs.ylenews_fi_paragraph_type = {
 };
 
 
-settings.templ.ylenews_fi_a_2011_2018 = {
-    title: "",
-    description: "",
-    id: "",
-    urn: "urn:nbn:fi:lb-2019121005",
-    metadata_urn: "urn:nbn:fi:lb-2019121003",
-    context: context.sp,
-    within: within.sp,
-    attributes: attrlist.parsed_tdt,
-    structAttributes: $.extend(
-        {}, sattrlist.ylenews_fi_common,
+// Function to make a partial template for the title and description,
+// to be filled using funcs.fillYearsVersion
+funcs.ylenews_fi_make_title_descr_templ = function (type, descrExtra) {
+    return funcs.fillTemplates(
         {
-            paragraph_type: sattrs.ylenews_fi_paragraph_type,
-        }),
-};
-
-settings.templ.ylenews_fi_a_2019_2021 = {
-    title: "",
-    description: "",
-    id: "",
-    urn: "urn:nbn:fi:lb-2022031702",
-    metadata_urn: "urn:nbn:fi:lb-2022031701",
-    context: context.sp,
-    within: within.sp,
-    attributes: attrlist.parsed_tdt,
-    structAttributes: $.extend(
-        {}, sattrlist.ylenews_fi_common,
-        {
-            paragraph_type: sattrs.ylenews_fi_paragraph_type,
-        }),
-};
-
-var make_ylenews_fi_a_templ_fill = function (year1, year2, version) {
-    var result = [];
-    var year_range = year1.toString() + "–" + year2.toString();
-    if (version) {
-        version = " " + version;
-    }
-    for (var y = year1; y <= year2; y++) {
-        var ystr = y.toString();
-        result.push({
-            title: "Ylen suomenkielinen uutisarkisto " + year_range + " (tutkijoille)" + ": " + ystr,
+            title: "Ylen suomenkielinen uutisarkisto {y1}–{y2} ({type}): {}",
             description: (
-                "Ylen suomenkielinen uutisarkisto " + year_range + ", Korp"
-                    + version + ": "
-                    + "vuosi " + ystr
-                    + "<br/>"
-                    + "Tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille."),
-            id: ystr,
-        });
-    }
-    return result;
+                "Ylen suomenkielinen uutisarkisto {y1}–{y2}, Korp: vuosi {}"
+                    + "<br/>{extra}"),
+        },
+        {
+            type: type,
+            extra: descrExtra,
+        }
+    );
 };
 
+
+// Partial template to be filled using funcs.fillYearsVersion
+settings.templ.ylenews_fi_a_base = $.extend(
+    {},
+    funcs.ylenews_fi_make_title_descr_templ(
+        "tutkijoille",
+        "Tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille."),
+    {
+        id: "ylenews_fi_{}_a",
+        context: context.sp,
+        within: within.sp,
+        attributes: attrlist.parsed_tdt,
+        structAttributes: $.extend(
+            {}, sattrlist.ylenews_fi_common,
+            {
+                paragraph_type: sattrs.ylenews_fi_paragraph_type,
+            }),
+    }
+);
+
+settings.templ.ylenews_fi_a_2011_2018 = $.extend(
+    {},
+    funcs.fillYearsVersion(settings.templ.ylenews_fi_a_base, 2011, 2018),
+    {
+        urn: "urn:nbn:fi:lb-2019121005",
+        metadata_urn: "urn:nbn:fi:lb-2019121003",
+    }
+);
+
+settings.templ.ylenews_fi_a_2019_2021 = $.extend(
+    {},
+    funcs.fillYearsVersion(settings.templ.ylenews_fi_a_base, 2019, 2021),
+    {
+        urn: "urn:nbn:fi:lb-2022031702",
+        metadata_urn: "urn:nbn:fi:lb-2022031701",
+    }
+);
 
 
 funcs.addCorpusSettings(
     settings.templ.ylenews_fi_a_2011_2018,
-    make_ylenews_fi_a_templ_fill(2011, 2018, ""),
-    settings.corporafolders.news.ylenews_fi.a,
-    "ylenews_fi_{}_a");
-
-
-
+    [2011, 2018],
+    settings.corporafolders.news.ylenews_fi.a);
 
 funcs.addCorpusSettings(
     settings.templ.ylenews_fi_a_2019_2021,
-    make_ylenews_fi_a_templ_fill(2019, 2021, ""),
-    settings.corporafolders.news.ylenews_fi.a,
-    "ylenews_fi_{}_a");
-
-
+    [2019, 2021],
+    settings.corporafolders.news.ylenews_fi.a);
 
 
 funcs.addCorpusAliases(
@@ -17152,13 +17145,11 @@ funcs.addCorpusAliases(
         "ylenews-fi-2011-2018-korp",
     ]);
 
-
 funcs.addCorpusAliases(
     "ylenews_fi_20(19|2[0-1])_a",
     [
         "ylenews-fi-2019-2021-korp",
     ]);
-
 
 funcs.addCorpusAliases(
     "ylenews_fi_20(1[1-9]|2[01])_a",
@@ -17167,73 +17158,53 @@ funcs.addCorpusAliases(
     ]);
 
 
-settings.templ.ylenews_fi_s_2011_2018 = {
-    title: "",
-    description: "",
-    id: "",
-    urn: "urn:nbn:fi:lb-2019121006",
-    metadata_urn: "urn:nbn:fi:lb-2019121004",
-    context: context.default,
-    within: within.default,
-    attributes: attrlist.parsed_tdt,
-    structAttributes: $.extend(
-        {}, sattrlist.ylenews_fi_common,
-        {
-            sentence_paragraph_type: sattrs.ylenews_fi_paragraph_type,
-        }),
-};
-
-settings.templ.ylenews_fi_s_2019_2021 = {
-    title: "",
-    description: "",
-    id: "",
-    urn: "urn:nbn:fi:lb-2022032202",
-    metadata_urn: "urn:nbn:fi:lb-2022032201",
-    context: context.default,
-    within: within.default,
-    attributes: attrlist.parsed_tdt,
-    structAttributes: $.extend(
-        {}, sattrlist.ylenews_fi_common,
-        {
-            sentence_paragraph_type: sattrs.ylenews_fi_paragraph_type,
-        }),
-};
-
-var make_ylenews_fi_s_templ_fill = function (year1, year2, version) {
-    var result = [];
-    var year_range = year1.toString() + "–" + year2.toString();
-    if (version) {
-        version = " " + version;
+// Partial template to be filled using funcs.fillYearsVersion
+settings.templ.ylenews_fi_s_base = $.extend(
+    {},
+    funcs.ylenews_fi_make_title_descr_templ(
+        "kaikille",
+        "Kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea."),
+    {
+        id: "ylenews_fi_{}_s",
+        context: context.default,
+        within: within.default,
+        attributes: attrlist.parsed_tdt,
+        structAttributes: $.extend(
+            {}, sattrlist.ylenews_fi_common,
+            {
+                sentence_paragraph_type: sattrs.ylenews_fi_paragraph_type,
+            }),
     }
-    for (var y = year1; y <= year2; y++) {
-        var ystr = y.toString();
-        result.push({
-            title: "Ylen suomenkielinen uutisarkisto " + year_range + " (kaikille)" + ": " + ystr,
-            description: (
-                "Ylen suomenkielinen uutisarkisto " + year_range + ", Korp"
-                    + version + ": "
-                    + "vuosi " + ystr
-                    + "<br/>"
-                    + "Kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea."),
-            id: ystr,
-        });
+);
+
+settings.templ.ylenews_fi_s_2011_2018 = $.extend(
+    {},
+    funcs.fillYearsVersion(settings.templ.ylenews_fi_s_base, 2011, 2018),
+    {
+        urn: "urn:nbn:fi:lb-2019121006",
+        metadata_urn: "urn:nbn:fi:lb-2019121004",
     }
-    return result;
-};
+);
+
+settings.templ.ylenews_fi_s_2019_2021 = $.extend(
+    {},
+    funcs.fillYearsVersion(settings.templ.ylenews_fi_s_base, 2019, 2021),
+    {
+        urn: "urn:nbn:fi:lb-2022032202",
+        metadata_urn: "urn:nbn:fi:lb-2022032201",
+    }
+);
+
 
 funcs.addCorpusSettings(
     settings.templ.ylenews_fi_s_2011_2018,
-    make_ylenews_fi_s_templ_fill(2011, 2018, ""),
-    settings.corporafolders.news.ylenews_fi.s,
-    "ylenews_fi_{}_s");
-
-
+    [2011, 2018],
+    settings.corporafolders.news.ylenews_fi.s);
 
 funcs.addCorpusSettings(
     settings.templ.ylenews_fi_s_2019_2021,
-    make_ylenews_fi_s_templ_fill(2019, 2021, ""),
-    settings.corporafolders.news.ylenews_fi.s,
-    "ylenews_fi_{}_s");
+    [2019, 2021],
+    settings.corporafolders.news.ylenews_fi.s);
 
 
 funcs.addCorpusAliases(
@@ -17247,7 +17218,6 @@ funcs.addCorpusAliases(
     [
         "ylenews-fi-2019-2021-s-korp",
     ]);
-    
     
 funcs.addCorpusAliases(
     "ylenews_fi_20(1[1-9]|2[01])_s",
