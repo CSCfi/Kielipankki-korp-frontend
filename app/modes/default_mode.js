@@ -16063,11 +16063,8 @@ settings.corpora.s24 = {
     title: "Suomi24 2001–2014 (näyte)",
     description: "Suomi24-keskusteluja 2001–2014 (näyte).<br/>Tämä korpus sisältää osan <a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskusteluista vuosilta 2001–2014; kaikki keskustelut (myös tämän korpuksen sisältämät) sisältyvät korpukseen <i>Suomi24</i>.<br/>(Tämä korpus näkyi aiemmin nimellä <i>Suomi24</i>.)",
     id: "s24",
-    // URN information also in the corpus .info file; if you need to
-    // update the URNs, you should also check it.
-    // TODO: Update the URNs when the new URNs are available. (2015-12-01)
-    // urn: "urn:nbn:fi:lb-2015040102",
-    // metadata_urn: "urn:nbn:fi:lb-2015091701",
+    urn: "urn:nbn:fi:lb-2015113001",
+    metadata_urn: "urn:nbn:fi:lb-2016050901",
     licence: settings.licenceinfo.CC_BY_NC,
     homepage_url: "http://keskustelu.suomi24.fi",
     cite_id: "Suomi24-2001-2014-korp",
