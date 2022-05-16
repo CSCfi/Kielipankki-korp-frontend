@@ -17084,7 +17084,7 @@ settings.templ.ylenews_fi_a_2011_2018 = {
     structAttributes: $.extend(
         {}, sattrlist.ylenews_fi_common,
         {
-            sentence_paragraph_type: sattrs.ylenews_fi_paragraph_type,
+            paragraph_type: sattrs.ylenews_fi_paragraph_type,
         }),
 };
 
@@ -17100,7 +17100,7 @@ settings.templ.ylenews_fi_a_2019_2021 = {
     structAttributes: $.extend(
         {}, sattrlist.ylenews_fi_common,
         {
-            sentence_paragraph_type: sattrs.ylenews_fi_paragraph_type,
+            paragraph_type: sattrs.ylenews_fi_paragraph_type,
         }),
 };
 
