@@ -15945,6 +15945,8 @@ settings.corpora.ylilauta = {
         text_clock: sattrs.text_time,
         text_sec: {
             label: "suomi24fi_sect",
+            extendedComponent: "structServiceSelect",
+            opts: options.lite,
         }
     }
 };
