@@ -5994,16 +5994,21 @@ sattrlist.ethesis = {
         label: "text_year"
     },
     text_keywords: {
-        label: "text_keywords"
+        label: "text_keywords",
+        extendedComponent: "structServiceAutocomplete",
     },
     text_faculty: {
-        label: "text_faculty"
+        label: "text_faculty",
+        extendedComponent: "structServiceAutocomplete",
     },
     text_subject: {
-        label: "text_subject"
+        label: "text_subject",
+        extendedComponent: "structServiceAutocomplete",
     },
     text_type: {
-        label: "text_dissertationtype"
+        label: "text_dissertationtype",
+        extendedComponent: "structServiceSelect",
+        opts: options.lite,
     },
     text_url: {
         label: "text_abslink",

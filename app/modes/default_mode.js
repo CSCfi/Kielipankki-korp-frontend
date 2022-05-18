@@ -101,18 +101,28 @@ settings.corporafolders.historical.agricola = {
 
 
 settings.corporafolders.academic.ethesis = {
-    title: "E-thesis",
+    title: "E-thesis (suomi)",
+    description: "Helsingin yliopiston suomenkielisen E-thesiksen Korp-versio<br/>Helsingin yliopiston digitaaliset väitöskirjat ja opinnäytteet<br/><br/>Aineisto kattaa ajanjakson 1.1.1999–30.9.2016",
     contents: [
         "ethesis_maabs",
         "ethesis_dissabs",
     ],
     info: {
-        cite_id: "e-thesis-fi",
+        metadata_urn: "urn:nbn:fi:lb-2016090601",
+        urn: "urn:nbn:fi:lb-2016101801",
+        shortname: "e-thesis-fi",
+        licence: settings.licenceinfo.CC_BY,
+        homepage: {
+            url: "https://ethesis.helsinki.fi/",
+            name: "Helsingin yliopiston digitaaliset väitöskirjat ja opinnäytteet",
+            // no_label: true,
+        },
     }
 };
 
 settings.corporafolders.academic.ethesis.matheses = {
     title: "Pro gradu -tutkielmat",
+    description: "Helsingin yliopiston suomenkielisen E-thesiksen Korp-versio: Pro gradu -tutkielmat",
     contents: [
         "ethesis_ma_ai",
         "ethesis_ma_bio",
@@ -131,6 +141,7 @@ settings.corporafolders.academic.ethesis.matheses = {
 
 settings.corporafolders.academic.ethesis.phdtheses = {
     title: "Väitöskirjat",
+    description: "Helsingin yliopiston suomenkielisen E-thesiksen Korp-versio: Väitöskirjat",
     contents: [
         "ethesis_phd_bio",
         "ethesis_phd_el",
@@ -9889,248 +9900,113 @@ settings.corpora.skk_sodergran = {
     }
 };
 
-settings.corpora.ethesis_maabs = {
-    title: "Gradutiivistelmät",
-    description: "Pro gradu -tutkielmien suomenkielisiä abstrakteja 1999–2016",
-    id: "ethesis_maabs",
+
+// E-thesis
+
+settings.templ.ethesis_base = {
+    title: "E-thesis: {}",
+    description: "Helsingin yliopiston suomenkielisen E-thesiksen Korp-versio: {}",
+    id: "ethesis_{}",
     within: within.default,
     context: context.default,
     attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis,
 };
 
-settings.corpora.ethesis_dissabs = {
-    title: "Väitöstiivistelmät",
-    description: "Väitöskirjojen suomenkielisiä abstrakteja 2006–2016",
-    id: "ethesis_dissabs",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
+funcs.addCorpusSettings(
+    settings.templ.ethesis_base,
+    [
+        ["maabs", "Gradutiivistelmät",
+         "Pro gradu -tutkielmien suomenkielisiä abstrakteja 1999–2016"],
+        ["dissabs", "Väitöstiivistelmät",
+         "Väitöskirjojen suomenkielisiä abstrakteja 2006–2016"],
+    ]);
+
+settings.templ.ethesis_phd = $.extend(
+    {}, settings.templ.ethesis_base,
+    {
+        id: "ethesis_phd_{}",
+        title: "E-thesis: Väitöskirjat: {}",
+        description: "Helsingin yliopiston suomenkielisen E-thesiksen Korp-versio: väitöskirjat: {}",
+    });
+
+funcs.addCorpusSettings(
+    settings.templ.ethesis_phd,
+    [
+        ["far", "Farmasia", "Farmasian tiedekunta (2005, 2013)"],
+        ["teo", "Teologinen", "Teologinen tiedekunta (2000–2016)"],
+        ["beh", "Käyttäytymistieteellinen",
+         "Käyttäytymistieteellinen tiedekunta (1996, 2000–2016)"],
+        ["valt", "Valtiotieteellinen",
+         "Valtiotieteellinen tiedekunta (1999–2016)"],
+        ["oik", "Oikeustieteellinen",
+         "Oikeustieteellinen tiedekunta (2001, 2004–2010, 2012, 2014–2016)"],
+        ["hum", "Humanistinen", "Humanistinen tiedekunta (2000–2016)"],
+        ["bio", "Bio- ja ympäristötieteellinen",
+         "Bio- ja ympäristötieteellinen tiedekunta (2005)"],
+        ["el", "Eläinlääketieteellinen",
+         "Eläinlääketieteellinen tiedekunta (2008)"],
+        // FIXME: Maatalous-metsätieteellinen
+        ["mm", "Maatalous-metsätieteellinen",
+         "Maatalous-metsätieteellinen tiedekunta (2000, 2006, 2008–2010, 2012–2014, 2016)"],
+        ["med", "Lääketieteellinen",
+         "Lääketieteellinen tiedekunta (2000, 2003–2004, 2006–2010, 2012, 2014)"],
+    ]);
+
+settings.templ.ethesis_ma = $.extend(
+    {}, settings.templ.ethesis_base,
+    {
+        id: "ethesis_ma_{}",
+        title: "E-thesis: {}",
+        description: "Helsingin yliopiston suomenkielisen E-thesiksen Korp-versio: {}",
+    });
+
+// Prefix the thesis type, as the medicine and veterinary medicine
+// have a different type than the others. (This is probably an
+// overkill for avoiding repeating the thesis type in the values
+// below, but this allows changing the values easily.)
+funcs.prefixThesisType = function (infoitems) {
+    var result = [];
+    for (var i = 0; i < infoitems.length; i++) {
+        var infoitem = infoitems[i]
+        if (infoitem[0] == "el" || infoitem[0] == "med") {
+            titlePrefix = "Lisensiaatintyöt";
+            descrPrefix = "Lisensiaatintyöt";
+        } else {
+            titlePrefix = "Gradut";
+            descrPrefix = "Pro gradu -tutkielmat";
+        }
+        result.push([infoitem[0],
+                     titlePrefix + ": " + infoitem[1],
+                     descrPrefix + ": " + infoitem[2]]);
+    }
+    return result;
 };
 
-
-
-settings.corpora.ethesis_phd_far = {
-    title: "Farmasia",
-    description: "Väitöskirjat: Farmasian tiedekunta (2005, 2013)",
-    id: "ethesis_phd_far",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_phd_teo = {
-    title: "Teologinen",
-    description: "Väitöskirjat: Teologinen tiedekunta (2000–2016)",
-    id: "ethesis_phd_teo",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_phd_beh = {
-    title: "Käyttäytymistieteellinen",
-    description: "Väitöskirjat: Käyttäytymistieteellinen tiedekunta (1996, 2000–2016)",
-    id: "ethesis_phd_beh",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_phd_valt = {
-    title: "Valtiotieteellinen",
-    description: "Väitöskirjat: Valtiotieteellinen tiedekunta (1999–2016)",
-    id: "ethesis_phd_valt",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_phd_ot = {
-    title: "Oikeustieteellinen",
-    description: "Väitöskirjat: Oikeustieteellinen tiedekunta (2001, 2004–2010, 2012, 2014–2016)",
-    id: "ethesis_phd_ot",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_phd_hum = {
-    title: "Humanistinen",
-    description: "Väitöskirjat: Humanistinen tiedekunta (2000–2016)",
-    id: "ethesis_phd_hum",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_phd_bio = {
-    title: "Bio- ja ympäristötieteellinen",
-    description: "Väitöskirjat: Bio- ja ympäristötieteellinen tiedekunta (2005)",
-    id: "ethesis_phd_bio",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_phd_el = {
-    title: "Eläinlääketieteellinen",
-    description: "Väitöskirjat: Eläinlääketieteellinen tiedekunta (2008)",
-    id: "ethesis_phd_el",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_phd_mm = {
-    title: "Maa- ja metsätieteellinen tiedekunta",
-    description: "Väitöskirjat: Maa- ja metsätieteellinen tiedekunta (2000, 2006, 2008–2010, 2012–2014, 2016)",
-    id: "ethesis_phd_mm",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_phd_med = {
-    title: "Lääketieteellinen",
-    description: "Väitöskirjat: Lääketieteellinen tiedekunta (2000, 2003–2004, 2006–2010, 2012, 2014)",
-    id: "ethesis_phd_med",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_ma_far = {
-    title: "Farmasia",
-    description: "Gradut: Farmasian tiedekunta 2010–2016",
-    id: "ethesis_ma_far",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_ma_teo = {
-    title: "Teologinen",
-    description: "Gradut: Teologinen tiedekunta 2000–2016",
-    id: "ethesis_ma_teo",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_ma_beh = {
-    title: "Käyttäytymistieteellinen",
-    description: "Gradut: Käyttäytymistieteellinen tiedekunta 1998–2016",
-    id: "ethesis_ma_beh",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_ma_valt = {
-    title: "Valtiotieteellinen",
-    description: "Gradut: Valtiotieteellinen tiedekunta 1996–2016",
-    id: "ethesis_ma_valt",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_ma_ot = {
-    title: "Oikeustieteellinen",
-    description: "Gradut: Oikeustieteellinen tiedekunta 2001–2016",
-    id: "ethesis_ma_ot",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_ma_hum = {
-    title: "Humanistinen",
-    description: "Gradut: Humanistinen tiedekunta 1998–2016",
-    id: "ethesis_ma_hum",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_ma_sci = {
-    title: "Matemaattis-luonnontieteellinen",
-    description: "Gradut: Matemaattis-luonnontieteellinen tiedekunta 1996–2016",
-    id: "ethesis_ma_sci",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_ma_ai = {
-    title: "Aleksanteri-instituutti",
-    description: "Gradut: Aleksanteri-instituutti 2001–2016",
-    id: "ethesis_ma_ai",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_ma_bio = {
-    title: "Bio- ja ympäristötieteellinen",
-    description: "Gradut: Bio- ja ympäristötieteellinen tiedekunta 2003–2016",
-    id: "ethesis_ma_bio",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-
-settings.corpora.ethesis_ma_el = {
-    title: "Lisensiaatintyöt: Eläinlääketieteellinen",
-    description: "Lisensiaatintyöt: Eläinlääketieteellinen tiedekunta (2003–2016)",
-    id: "ethesis_ma_el",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_ma_mm = {
-    title: "Maa- ja metsätieteellinen tiedekunta",
-    description: "Gradut: Maa- ja metsätieteellinen tiedekunta (2003–2016)",
-    id: "ethesis_ma_mm",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_ma_med = {
-    title: "Lisensiaatintyöt: Lääketieteellinen",
-    description: "Lisensiaatintyöt: Lääketieteellinen tiedekunta (2010–2016)",
-    id: "ethesis_ma_med",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
+funcs.addCorpusSettings(
+    settings.templ.ethesis_ma,
+    funcs.prefixThesisType([
+        ["far", "Farmasia", "Farmasian tiedekunta 2010–2016"],
+        ["teo", "Teologinen", "Teologinen tiedekunta 2000–2016"],
+        ["beh", "Käyttäytymistieteellinen",
+         "Käyttäytymistieteellinen tiedekunta 1998–2016"],
+        ["valt", "Valtiotieteellinen",
+         "Valtiotieteellinen tiedekunta 1996–2016"],
+        ["ot", "Oikeustieteellinen", "Oikeustieteellinen tiedekunta 2001–2016"],
+        ["hum", "Humanistinen", "Humanistinen tiedekunta 1998–2016"],
+        ["sci", "Matemaattis-luonnontieteellinen",
+         "Matemaattis-luonnontieteellinen tiedekunta 1996–2016"],
+        ["ai", "Aleksanteri-instituutti", "Aleksanteri-instituutti 2001–2016"],
+        ["bio", "Bio- ja ympäristötieteellinen",
+         "Bio- ja ympäristötieteellinen tiedekunta 2003–2016"],
+        ["el", "Eläinlääketieteellinen",
+         "Eläinlääketieteellinen tiedekunta (2003–2016)"],
+        // FIXME
+        ["mm", "Maatalous-metsätieteellinen",
+         "Maatalous-metsätieteellinen tiedekunta (2003–2016)"],
+        ["med", "Lääketieteellinen",
+         "Lääketieteellinen tiedekunta (2010–2016)"],
+    ]));
 
 
 /* FTC (Finnish Text Collection) aka SKTP */
