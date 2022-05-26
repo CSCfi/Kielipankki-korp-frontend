@@ -7313,9 +7313,12 @@ var pabivus_common_corpus_info = {
     hide: true
 };
 
-function pabivus_add_common_info(corpus) {
+function pabivus_add_common_info(corpus, attrs = "") {
     for (var key in pabivus_common_corpus_info) {
 	corpus[key] = pabivus_common_corpus_info[key];
+    }
+    if (attrs == "UD") {
+	corpus["attributes"] = attrlist.ud2_fi;
     }
     corpus.licence = settings.licenceinfo.CC_BY_NC;
     corpus.metadata_urn = "urn:nbn:fi:lb-2020021121";
@@ -7347,7 +7350,7 @@ settings.corpora.pabivus_myv_2006 = {
     lang: "myv-2006", // year 2006 translation (some books available from 1996, 1998, 1995, 1910 and 1821)
     linkedTo: pabivus_linked_corpora("pabivus_myv_2006"),
 };
-pabivus_add_common_info(settings.corpora.pabivus_myv_2006);
+pabivus_add_common_info(settings.corpora.pabivus_myv_2006, "UD");
 
 settings.corpora.pabivus_myv_1995 = {
     id: "pabivus_myv_1995",
@@ -7356,7 +7359,7 @@ settings.corpora.pabivus_myv_1995 = {
     lang: "myv-1995", // year 1996 translation
     linkedTo: pabivus_linked_corpora("pabivus_myv_1995"),
 };
-pabivus_add_common_info(settings.corpora.pabivus_myv_1995);
+pabivus_add_common_info(settings.corpora.pabivus_myv_1995, "UD");
 
 settings.corpora.pabivus_myv_1996 = {
     id: "pabivus_myv_1996",
@@ -7365,7 +7368,7 @@ settings.corpora.pabivus_myv_1996 = {
     lang: "myv-1996", // year 1996 translation
     linkedTo: pabivus_linked_corpora("pabivus_myv_1996"),
 };
-pabivus_add_common_info(settings.corpora.pabivus_myv_1996);
+pabivus_add_common_info(settings.corpora.pabivus_myv_1996, "UD");
 
 settings.corpora.pabivus_myv_1998 = {
     id: "pabivus_myv_1998",
@@ -7374,7 +7377,7 @@ settings.corpora.pabivus_myv_1998 = {
     lang: "myv-1998", // year 1996 translation
     linkedTo: pabivus_linked_corpora("pabivus_myv_1998"),
 };
-pabivus_add_common_info(settings.corpora.pabivus_myv_1998);
+pabivus_add_common_info(settings.corpora.pabivus_myv_1998, "UD");
 
 settings.corpora.pabivus_myv_2011 = {
     id: "pabivus_myv_2011",
@@ -7383,7 +7386,7 @@ settings.corpora.pabivus_myv_2011 = {
     lang: "myv-2011", // year 2011 translation
     linkedTo: pabivus_linked_corpora("pabivus_myv_2011"),
 };
-pabivus_add_common_info(settings.corpora.pabivus_myv_2011);
+pabivus_add_common_info(settings.corpora.pabivus_myv_2011, "UD");
 
 settings.corpora.pabivus_myv_2020 = {
     id: "pabivus_myv_2020",
@@ -7392,7 +7395,7 @@ settings.corpora.pabivus_myv_2020 = {
     lang: "myv-2020", // year 2020 translation
     linkedTo: pabivus_linked_corpora("pabivus_myv_2020"),
 };
-pabivus_add_common_info(settings.corpora.pabivus_myv_2020);
+pabivus_add_common_info(settings.corpora.pabivus_myv_2020, "UD");
 
 settings.corpora.pabivus_myv_1910 = {
     id: "pabivus_myv_1910",
@@ -7401,7 +7404,7 @@ settings.corpora.pabivus_myv_1910 = {
     lang: "myv-1910", // year 1996 translation
     linkedTo: pabivus_linked_corpora("pabivus_myv_1910"),
 };
-pabivus_add_common_info(settings.corpora.pabivus_myv_1910);
+pabivus_add_common_info(settings.corpora.pabivus_myv_1910, "UD");
 
 settings.corpora.pabivus_myv_1821 = {
     id: "pabivus_myv_1821",
@@ -7410,7 +7413,7 @@ settings.corpora.pabivus_myv_1821 = {
     lang: "myv-1821", // year 1996 translation
     linkedTo: pabivus_linked_corpora("pabivus_myv_1821"),
 };
-pabivus_add_common_info(settings.corpora.pabivus_myv_1821);
+pabivus_add_common_info(settings.corpora.pabivus_myv_1821, "UD");
 
 settings.corpora.pabivus_mdf_2016 = {
     id: "pabivus_mdf_2016",
@@ -7419,7 +7422,7 @@ settings.corpora.pabivus_mdf_2016 = {
     lang: "mdf-2016", // year 2016 translation (some books available from 1995)
     linkedTo: pabivus_linked_corpora("pabivus_mdf_2016"),
 };
-pabivus_add_common_info(settings.corpora.pabivus_mdf_2016);
+pabivus_add_common_info(settings.corpora.pabivus_mdf_2016, "UD");
 
 settings.corpora.pabivus_mdf_1995 = {
     id: "pabivus_mdf_1995",
@@ -7428,7 +7431,7 @@ settings.corpora.pabivus_mdf_1995 = {
     lang: "mdf-1995", // year 1995 translation
     linkedTo: pabivus_linked_corpora("pabivus_mdf_1995"),
 };
-pabivus_add_common_info(settings.corpora.pabivus_mdf_1995);
+pabivus_add_common_info(settings.corpora.pabivus_mdf_1995, "UD");
 
 settings.corpora.pabivus_krl_2011 = {
     id: "pabivus_krl_2011",
@@ -7546,8 +7549,7 @@ settings.corpora.pabivus_fin_1938 = {
     linkedTo: pabivus_linked_corpora("pabivus_fin_1938"),
 };
 
-pabivus_add_common_info(settings.corpora.pabivus_fin_1938);
-settings.corpora.pabivus_fin_1938.attributes = attrlist.ud2_fi;
+pabivus_add_common_info(settings.corpora.pabivus_fin_1938, "UD");
 settings.corpora.pabivus_fin_1938.hide = false;
 
 funcs.extendCorpusSettings(settings.corpusinfo.pabivus_fin_1938,
