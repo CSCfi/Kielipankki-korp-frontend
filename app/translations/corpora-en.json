@@ -693,8 +693,8 @@
     "opensub_text_lang_orig": "original language",
     "opensub_text_genre": "genre",
 
-    "uralic_ud_text_name": "name",
-    "uralic_ud_text_lang": "language",
+    "uralic_ud_text_id": "name",
+    "uralic_ud_text_iso_lang": "language",
     "uralic_ud_sentence_id": "sentence identifier",
     "uralic_ud_sentence_text": "text",
     "uralic_ud_sentence_text_en": "text in English",
@@ -721,6 +721,8 @@
     "uralic_ud_sentence_gloss_en": "gloss (en)",
     "uralic_ud_sentence_endtime": "end time",
     "uralic_ud_sentence_begintime": "begin time",
+    "uralic_ud_sentence_source": "source",
+    "uralic_ud_sentence_newpar_id": "new paragraph id",
 
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }

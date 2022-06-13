@@ -884,8 +884,8 @@
     "opensub_text_lang_orig": "alkuperäiskieli",
     "opensub_text_genre": "lajityyppi",
 
-    "uralic_ud_text_name": "nimi",
-    "uralic_ud_text_lang": "kieli",
+    "uralic_ud_text_id": "nimi",
+    "uralic_ud_text_iso_lang": "kieli",
     "uralic_ud_sentence_id": "virkkeen tunniste",
     "uralic_ud_sentence_text": "virke",
     "uralic_ud_sentence_text_en": "virke englanniksi",
@@ -912,6 +912,8 @@
     "uralic_ud_sentence_gloss_en": "glossi (en)",
     "uralic_ud_sentence_endtime": "päättymisaika",
     "uralic_ud_sentence_begintime": "alkamisaika",
+    "uralic_ud_sentence_source": "lähde",
+    "uralic_ud_sentence_newpar_id": "uuden kappaleen tunniste",
 
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }

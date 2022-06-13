@@ -17245,138 +17245,41 @@ attrlist.ud2_uralic = attrlist.ud2_fi;
 attrlist.ud2_uralic.misc = { label: "misc", opts: options.default };
 
 sattrlist.ud2_uralic_fi = {
-    text_name : { label: "uralic_ud_text_name" },
-    text_lang : { label: "uralic_ud_text_lang" },
+    text_id : { label: "uralic_ud_text_id" },
+    text_iso_lang : { label: "uralic_ud_text_iso_lang" },
     sentence_id : { label: "uralic_ud_sentence_id" },
     sentence_text : { label: "uralic_ud_sentence_text" },
-};
-
-sattrlist.ud2_uralic_fi_ftb = sattrlist.ud2_uralic_fi;
-sattrlist.ud2_uralic_fi_tdt = sattrlist.ud2_uralic_fi;
-sattrlist.ud2_uralic_fi_ood = {
-    text_name : { label: "uralic_ud_text_name" },
-    text_lang : { label: "uralic_ud_text_lang" },
-    sentence_id : { label: "uralic_ud_sentence_id" },
-    sentence_text : { label: "uralic_ud_sentence_text" },
+    sentence_text_en : { label: "uralic_ud_sentence_text_en" },
     sentence_doc_id : { label: "uralic_ud_sentence_doc_id" },
     sentence_newdoc_id : { label: "uralic_ud_sentence_newdoc_id" },
     sentence_thread_id : { label: "uralic_ud_sentence_thread_id" },
-    sentence_comment_id : { label: "uralic_ud_sentence_comment_id" }
-};
-sattrlist.ud2_uralic_fi_pud = {
-    text_name : { label: "uralic_ud_text_name" },
-    text_lang : { label: "uralic_ud_text_lang" },
-    sentence_id : { label: "uralic_ud_sentence_id" },
-    sentence_text : { label: "uralic_ud_sentence_text" },
-    sentence_newdoc_id : { label: "uralic_ud_sentence_newdoc_id" },
-    sentence_text_en : { label: "uralic_ud_sentence_text_en" }
+    sentence_comment_id : { label: "uralic_ud_sentence_comment_id" },
+    sentence_newpar_id : { label: "uralic_ud_sentence_newpar_id" }
 };
 
-settings.corporafolders.other.uralic_ud_v29 = {
-    title: "Uralic UD v2.9",
-    description: "The corpus contains Universal Dependencies version 2.9 for the following Uralic languages: (Erzya, Estonian) Finnish (Hungarian, Karelian, Komi-Permyak, Komi-Zyrian, Livvi, Moksha, North Sami and Skolt Sami).",
+settings.corporafolders.other.uralic_ud_v210 = {
+    title: "Uralic UD v2.10",
+    description: "The corpus contains Universal Dependencies version 2.10 for the following Uralic languages: (Erzya, Estonian) Finnish (Hungarian, Karelian, Komi-Permyak, Komi-Zyrian, Livvi, Moksha, North Sami and Skolt Sami).",
     info: {
-       metadata_urn: "http://urn.fi/urn:nbn:fi:lb-2022011301",
-       cite_id: "uralic-ud-v2-9",
+       metadata_urn: "http://urn.fi/urn:nbn:fi:lb-2022061001",
+       cite_id: "uralic-ud-v2-10",
     },
-    contents: [ "uralic_ud_v29_fi_ftb",
-                "uralic_ud_v29_fi_ood",
-                "uralic_ud_v29_fi_pud",
-                "uralic_ud_v29_fi_tdt" ]
+    contents: [ "uralic_ud_v210_fi" ]
 };
 
-settings.corporafolders.other.uralic_ud_v28 = {
-    title: "Uralic UD v2.8",
-    description: "The corpus contains Universal Dependencies version 2.8 for the following Uralic languages: (Erzya, Estonian) Finnish (Hungarian, Karelian, Komi-Permyak, Komi-Zyrian, Livvi, Moksha, North Sami and Skolt Sami).",
-    info: {
-       metadata_urn: "http://urn.fi/urn:nbn:fi:lb-2022011201",
-       cite_id: "uralic-ud-v2-8",
-    },
-    contents: [ "uralic_ud_v28_fi_ftb",
-                "uralic_ud_v28_fi_ood",
-                "uralic_ud_v28_fi_pud",
-                "uralic_ud_v28_fi_tdt" ]
-};
-
-function uralic_ud_v29_to_v28(corpus) {
-    retval = {};
-    retval.id = corpus.id.replace('_v29_', '_v28_');
-    retval.title = corpus.title.replace(' v2.9 ', ' v2.8 ');
-    retval.description = corpus.description.replace(' version 2.9 ', ' version 2.8 ');
-    retval.lang = corpus.lang;
-    retval.within = corpus.within;
-    retval.context = corpus.context;
-    retval.attributes = corpus.attributes;
-    retval.structAttributes = corpus.structAttributes;
-    retval.licence = corpus.licence;
-    retval.metadata_urn = "http://urn.fi/urn:nbn:fi:lb-2022011201";
-    retval.status = corpus.status;
-    return retval;
-};
-
-settings.corpora.uralic_ud_v29_fi_ftb = {
-    id: "uralic_ud_v29_fi_ftb",
-    title: "Uralic UD v2.9 for Finnish (FTB)",
-    description: "Universal Dependencies version 2.9 for Finnish (FTB)",
+settings.corpora.uralic_ud_v210_fi = {
+    id: "uralic_ud_v210_fi",
+    title: "Uralic UD v2.10 for Finnish",
+    description: "Universal Dependencies version 2.10 for Finnish",
     lang: "fi",
     within: within.sp,
     context: context.sp,
     attributes: attrlist.ud2_uralic,
-    structAttributes: sattrlist.ud2_uralic_fi_ftb,
+    structAttributes: sattrlist.ud2_uralic_fi,
     licence: settings.licenceinfo.CC_BY_40,
-    metadata_urn: "urn:nbn:fi:lb-2022011301",
+    metadata_urn: "urn:nbn:fi:lb-2022061001",
     status: "beta"
 };
-
-settings.corpora.uralic_ud_v28_fi_ftb = uralic_ud_v29_to_v28(settings.corpora.uralic_ud_v29_fi_ftb);
-
-settings.corpora.uralic_ud_v29_fi_ood = {
-    id: "uralic_ud_v29_fi_ood",
-    title: "Uralic UD v2.9 for Finnish (OOD)",
-    description: "Universal Dependencies version 2.9 for Finnish (OOD)",
-    lang: "fi",
-    within: within.sp,
-    context: context.sp,
-    attributes: attrlist.ud2_uralic,
-    structAttributes: sattrlist.ud2_uralic_fi_ood,
-    licence: settings.licenceinfo.CC_BY_SA_40,
-    metadata_urn: "urn:nbn:fi:lb-2022011301",
-    status: "beta"
-};
-
-settings.corpora.uralic_ud_v28_fi_ood = uralic_ud_v29_to_v28(settings.corpora.uralic_ud_v29_fi_ood);
-
-settings.corpora.uralic_ud_v29_fi_pud = {
-    id: "uralic_ud_v29_fi_pud",
-    title: "Uralic UD v2.9 for Finnish (PUD)",
-    description: "Universal Dependencies version 2.9 for Finnish (PUD)",
-    lang: "fi",
-    within: within.sp,
-    context: context.sp,
-    attributes: attrlist.ud2_uralic,
-    structAttributes: sattrlist.ud2_uralic_fi_pud,
-    licence: settings.licenceinfo.CC_BY_SA_40,
-    metadata_urn: "urn:nbn:fi:lb-2022011301",
-    status: "beta"
-};
-
-settings.corpora.uralic_ud_v28_fi_pud = uralic_ud_v29_to_v28(settings.corpora.uralic_ud_v29_fi_pud);
-
-settings.corpora.uralic_ud_v29_fi_tdt = {
-    id: "uralic_ud_v29_fi_tdt",
-    title: "Uralic UD v2.9 for Finnish (TDT)",
-    description: "Universal Dependencies version 2.9 for Finnish (TDT)",
-    lang: "fi",
-    within: within.sp,
-    context: context.sp,
-    attributes: attrlist.ud2_uralic,
-    structAttributes: sattrlist.ud2_uralic_fi_tdt,
-    licence: settings.licenceinfo.CC_BY_SA_40,
-    metadata_urn: "urn:nbn:fi:lb-2022011301",
-    status: "beta"
-};
-
-settings.corpora.uralic_ud_v28_fi_tdt = uralic_ud_v29_to_v28(settings.corpora.uralic_ud_v29_fi_tdt);
 
 // Add the extra properties to corpora
 //
