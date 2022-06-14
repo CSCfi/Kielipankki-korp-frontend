@@ -4714,6 +4714,72 @@ delete glowbe_countries;
 settings.corpusAliases.glowbe = "glowbe_.*";
 settings.corpusAliases["glowbe-2017h1"] = "glowbe_.*";
 
+// SUS fieldwork
+attrlist.sus_fieldwork = attrlist.ud2_fi;
+attrlist.sus_fieldwork.misc = { label: "misc", opts: options.default };
+
+sattrlist.sus_fieldwork = {
+    sentence_text_orig: { label: "sus_fieldwork_text_orig" },
+    sentence_text: { label: "sus_fieldwork_sentence_text" },
+    sentence_sent_no: { label: "sus_fieldwork_sentence_sent_no" },
+    sentence_sent_id: { label: "sus_fieldwork_sentence_sent_id" },
+    sentence_pgno: { label: "sus_fieldwork_sentence_pgno" },
+    sentence_text_deu: { label: "sus_fieldwork_sentence_text_deu" },
+    sentence_text_de: { label: "sus_fieldwork_sentence_text_de" },
+    chapter_text_number: { label: "sus_fieldwork_chapter_text_number" },
+    chapter_page_range: { label: "sus_fieldwork_chapter_page_range" },
+    chapter_interviewer: { label: "sus_fieldwork_chapter_interviewer" },
+    chapter_genre_deu: { label: "sus_fieldwork_chapter_genre_deu" },
+    chapter_dateto: { label: "sus_fieldwork_chapter_dateto" },
+    chapter_datefrom: { label: "sus_fieldwork_chapter_datefrom" },
+    chapter_comment_deu: { label: "sus_fieldwork_chapter_comment_deu" },
+    chapter_author_geo: { label: "sus_fieldwork_chapter_author_geo" },
+    chapter_author: { label: "sus_fieldwork_chapter_author" },
+    chapter_title_myv: { label: "sus_fieldwork_chapter_title_myv" },
+    chapter_title_deu: { label: "sus_fieldwork_chapter_title_deu" },
+    chapter_translator_deu: { label: "sus_fieldwork_chapter_translator_deu" },
+    chapter_editor: { label: "sus_fieldwork_chapter_editor" },
+    chapter_id_myv: { label: "sus_fieldwork_chapter_id_myv" },
+    chapter_id_deu: { label: "sus_fieldwork_chapter_id_deu" },
+    text_status_eng: { label: "sus_fieldwork_text_status_eng" },
+    text_publisher: { label: "sus_fieldwork_text_publisher" },
+    text_publication_place: { label: "sus_fieldwork_text_publication_place" },
+    text_name_of_publication: { label: "sus_fieldwork_text_name_of_publication" },
+    text_license: { label: "sus_fieldwork_text_license" },
+    text_issue_number: { label: "sus_fieldwork_text_issue_number" },
+    text_iso_lang: { label: "sus_fieldwork_text_iso_lang" },
+    text_collection: { label: "sus_fieldwork_text_collection" },
+    text_e_corrector: { label: "sus_fieldwork_text_e_corrector" },
+    text_e_correction_year: { label: "sus_fieldwork_text_e_correction_year" },
+    text_correction_year: { label: "sus_fieldwork_text_correction_year" },
+    text_translator_deu: { label: "sus_fieldwork_text_translator_deu" },
+    text_editor: { label: "sus_fieldwork_text_editor" },
+    text_corrector : { label: "sus_fieldwork_text_corrector " }
+};
+
+settings.corporafolders.uralic.sus_fieldwork = {
+    title: "SUS fieldwork",
+    description: "The Finno-Ugrian Society Fieldwork Corpus",
+    info: {
+       metadata_urn: "http://urn.fi/urn:nbn:fi:lb-2016092001",
+       cite_id: "sus-fieldwork",
+    },
+    contents: [ "sus_fieldwork_myv" ]
+};
+
+settings.corpora.sus_fieldwork_myv = {
+    id: "sus_fieldwork_myv",
+    title: "SUS fieldwork",
+    description: "The Finno-Ugrian Society Fieldwork Corpus (Erzya)",
+    lang: "myv",
+    within: within.sp,
+    context: context.sp,
+    attributes: attrlist.sus_fieldwork,
+    structAttributes: sattrlist.sus_fieldwork,
+    licence: settings.licenceinfo.CC_BY_NC_40,
+    metadata_urn: "urn:nbn:fi:lb-2016092001",
+    status: "beta"
+};
 
 
 funcs.addAttrExtraProperties(settings.corpora);
