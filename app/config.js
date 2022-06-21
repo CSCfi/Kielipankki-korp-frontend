@@ -301,13 +301,11 @@ settings.languageNames = {
 }
 settings.defaultLanguage = "fi";
 
-// If a localization key does not have a translation in some language,
-// use the translation in the first language in
-// settings.defaultTranslations that has a translation, or the
-// localization key itself if the language is "KEY" (makes sense only
-// as the last element of the list, since the key is always present).
-// (Jyrki Niemi 2016-04-28)
-settings.defaultTranslations = ["en", "KEY"];
+// If a localization key does not have a translation in the UI
+// language, use the translation in the first language in
+// settings.defaultTranslationLanguages that has a translation, before
+// defaulting to the localization key itself.
+settings.defaultTranslationLanguages = ["en"];
 
 // Locales corresponding to languages (Jyrki Niemi 2016-02-16)
 settings.locales = {
@@ -443,8 +441,19 @@ let getPid = function (corpusObj) {
 // tried.
 settings.makeCorpusExtraInfoItem = {
     subcorpus_of: function (corpusObj, label) {
+        // For folders, corpusObj is folder.info, which does not
+        // contain title, so also check that corpusObj.folderType does
+        // not begin with "corpus" ("corpusCollection" or
+        // "corpusWithSubcorpora").
+        // Also remove from corpus titles a possible trailing licence
+        // type label within square brackets, as that is added after
+        // the logical corpus title is set.
         if (corpusObj.logicalCorpus
-            && corpusObj.logicalCorpus.title != corpusObj.title) {
+            && (! corpusObj.title
+                || (corpusObj.logicalCorpus.title
+                    != corpusObj.title.replace(/\s*\[.+?\]$/, "")))
+            && ! (corpusObj.folderType
+                  && corpusObj.folderType.startsWith("corpus"))) {
             return {
                 text: corpusObj.logicalCorpus.title,
                 label: label,

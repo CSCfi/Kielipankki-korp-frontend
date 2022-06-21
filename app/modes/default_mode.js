@@ -101,18 +101,28 @@ settings.corporafolders.historical.agricola = {
 
 
 settings.corporafolders.academic.ethesis = {
-    title: "E-thesis",
+    title: "E-thesis (suomi)",
+    description: "Helsingin yliopiston suomenkielisen E-thesiksen Korp-versio<br/>Helsingin yliopiston digitaaliset väitöskirjat ja opinnäytteet<br/><br/>Aineisto kattaa ajanjakson 1.1.1999–30.9.2016",
     contents: [
         "ethesis_maabs",
         "ethesis_dissabs",
     ],
     info: {
-        cite_id: "e-thesis-fi",
+        metadata_urn: "urn:nbn:fi:lb-2016090601",
+        urn: "urn:nbn:fi:lb-2016101801",
+        shortname: "e-thesis-fi",
+        licence: settings.licenceinfo.CC_BY,
+        homepage: {
+            url: "https://ethesis.helsinki.fi/",
+            name: "Helsingin yliopiston digitaaliset väitöskirjat ja opinnäytteet",
+            // no_label: true,
+        },
     }
 };
 
 settings.corporafolders.academic.ethesis.matheses = {
     title: "Pro gradu -tutkielmat",
+    description: "Helsingin yliopiston suomenkielisen E-thesiksen Korp-versio: Pro gradu -tutkielmat",
     contents: [
         "ethesis_ma_ai",
         "ethesis_ma_bio",
@@ -131,6 +141,7 @@ settings.corporafolders.academic.ethesis.matheses = {
 
 settings.corporafolders.academic.ethesis.phdtheses = {
     title: "Väitöskirjat",
+    description: "Helsingin yliopiston suomenkielisen E-thesiksen Korp-versio: Väitöskirjat",
     contents: [
         "ethesis_phd_bio",
         "ethesis_phd_el",
@@ -927,31 +938,31 @@ settings.corporafolders.news.ylenews_fi = {
 };
 
 settings.corporafolders.news.ylenews_fi.a = {
-    title: "Ylen suomenkielinen uutisarkisto 2011–2018 (tutkijoille)",
-    description: "Ylen suomenkielinen uutisarkisto 2011–2018, Korp<br/>Tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
+    title: "Ylen suomenkielinen uutisarkisto 2011–2021 (tutkijoille)",
+    description: "Ylen suomenkielinen uutisarkisto 2011–2021, Korp<br/>Tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Tämä kokoelma sisältää aineistot <a href='http://urn.fi/urn:nbn:fi:lb-2019121003' target='_blank' title='Kuvailutiedot'><i>Ylen suomenkielinen uutisarkisto 2011-2018, Korp</i></a> ja <a href='http://urn.fi/urn:nbn:fi:lb-2022031701' target='_blank' title='Kuvailutiedot'><i>Ylen suomenkielinen uutisarkisto 2019-2021, Korp</i></a>.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
     // Contents are added later with funcs.addCorpusSettings
     contents: [],
     info: {
-        urn: "urn:nbn:fi:lb-2019121005",
-        metadata_urn: "urn:nbn:fi:lb-2019121003",
+        urn: "urn:nbn:fi:lb-2022032204",
+        metadata_urn: "urn:nbn:fi:lb-2022032203",
         licence: {
-            name: "CLARIN ACA +NC 1.0",
+            name: "CLARIN ACA +NC 2.0",
             urn: "urn:nbn:fi:lb-2019121002",
         },
-        cite_id: "ylenews-fi-2011-2018-korp",
+        cite_id: "ylenews-fi-2011-2021-korp",
     }
 };
 
 settings.corporafolders.news.ylenews_fi.s = {
-    title: "Ylen suomenkielinen uutisarkisto 2011–2018 (kaikille)",
-    description: "Ylen suomenkielinen uutisarkisto 2011–2018, sekoitettu, Korp<br/>Kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
+    title: "Ylen suomenkielinen uutisarkisto 2011–2021 (kaikille)",
+    description: "Ylen suomenkielinen uutisarkisto 2011–2021, sekoitettu, Korp<br/>Kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Tämä kokoelma sisältää aineistot <a href='http://urn.fi/urn:nbn:fi:lb-2019121004' target='_blank' title='Kuvailutiedot'><i>Ylen suomenkielinen uutisarkisto 2011-2018, sekoitettu, Korp</i></a> ja <a href='http://urn.fi/urn:nbn:fi:lb-2022032201' target='_blank' title='Kuvailutiedot'><i>Ylen suomenkielinen uutisarkisto 2019-2021, sekoitettu, Korp</i></a>.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
     // Contents are added later with funcs.addCorpusSettings
     contents: [],
     info: {
-        urn: "urn:nbn:fi:lb-2019121006",
-        metadata_urn: "urn:nbn:fi:lb-2019121004",
+        urn: "urn:nbn:fi:lb-2022032206",
+        metadata_urn: "urn:nbn:fi:lb-2022032205",
         licence: settings.licenceinfo.CC_BY,
-        cite_id: "ylenews-fi-2011-2018-s-korp",
+        cite_id: "ylenews-fi-2011-2021-s-korp",
     }
 };
 
@@ -9889,248 +9900,113 @@ settings.corpora.skk_sodergran = {
     }
 };
 
-settings.corpora.ethesis_maabs = {
-    title: "Gradutiivistelmät",
-    description: "Pro gradu -tutkielmien suomenkielisiä abstrakteja 1999–2016",
-    id: "ethesis_maabs",
+
+// E-thesis
+
+settings.templ.ethesis_base = {
+    title: "E-thesis: {}",
+    description: "Helsingin yliopiston suomenkielisen E-thesiksen Korp-versio: {}",
+    id: "ethesis_{}",
     within: within.default,
     context: context.default,
     attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis,
 };
 
-settings.corpora.ethesis_dissabs = {
-    title: "Väitöstiivistelmät",
-    description: "Väitöskirjojen suomenkielisiä abstrakteja 2006–2016",
-    id: "ethesis_dissabs",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
+funcs.addCorpusSettings(
+    settings.templ.ethesis_base,
+    [
+        ["maabs", "Gradutiivistelmät",
+         "Pro gradu -tutkielmien suomenkielisiä abstrakteja 1999–2016"],
+        ["dissabs", "Väitöstiivistelmät",
+         "Väitöskirjojen suomenkielisiä abstrakteja 2006–2016"],
+    ]);
+
+settings.templ.ethesis_phd = $.extend(
+    {}, settings.templ.ethesis_base,
+    {
+        id: "ethesis_phd_{}",
+        title: "E-thesis: Väitöskirjat: {}",
+        description: "Helsingin yliopiston suomenkielisen E-thesiksen Korp-versio: väitöskirjat: {}",
+    });
+
+funcs.addCorpusSettings(
+    settings.templ.ethesis_phd,
+    [
+        ["far", "Farmasia", "Farmasian tiedekunta (2005, 2013)"],
+        ["teo", "Teologinen", "Teologinen tiedekunta (2000–2016)"],
+        ["beh", "Käyttäytymistieteellinen",
+         "Käyttäytymistieteellinen tiedekunta (1996, 2000–2016)"],
+        ["valt", "Valtiotieteellinen",
+         "Valtiotieteellinen tiedekunta (1999–2016)"],
+        ["oik", "Oikeustieteellinen",
+         "Oikeustieteellinen tiedekunta (2001, 2004–2010, 2012, 2014–2016)"],
+        ["hum", "Humanistinen", "Humanistinen tiedekunta (2000–2016)"],
+        ["bio", "Bio- ja ympäristötieteellinen",
+         "Bio- ja ympäristötieteellinen tiedekunta (2005)"],
+        ["el", "Eläinlääketieteellinen",
+         "Eläinlääketieteellinen tiedekunta (2008)"],
+        // FIXME: Maatalous-metsätieteellinen
+        ["mm", "Maatalous-metsätieteellinen",
+         "Maatalous-metsätieteellinen tiedekunta (2000, 2006, 2008–2010, 2012–2014, 2016)"],
+        ["med", "Lääketieteellinen",
+         "Lääketieteellinen tiedekunta (2000, 2003–2004, 2006–2010, 2012, 2014)"],
+    ]);
+
+settings.templ.ethesis_ma = $.extend(
+    {}, settings.templ.ethesis_base,
+    {
+        id: "ethesis_ma_{}",
+        title: "E-thesis: {}",
+        description: "Helsingin yliopiston suomenkielisen E-thesiksen Korp-versio: {}",
+    });
+
+// Prefix the thesis type, as the medicine and veterinary medicine
+// have a different type than the others. (This is probably an
+// overkill for avoiding repeating the thesis type in the values
+// below, but this allows changing the values easily.)
+funcs.prefixThesisType = function (infoitems) {
+    var result = [];
+    for (var i = 0; i < infoitems.length; i++) {
+        var infoitem = infoitems[i]
+        if (infoitem[0] == "el" || infoitem[0] == "med") {
+            titlePrefix = "Lisensiaatintyöt";
+            descrPrefix = "Lisensiaatintyöt";
+        } else {
+            titlePrefix = "Gradut";
+            descrPrefix = "Pro gradu -tutkielmat";
+        }
+        result.push([infoitem[0],
+                     titlePrefix + ": " + infoitem[1],
+                     descrPrefix + ": " + infoitem[2]]);
+    }
+    return result;
 };
 
-
-
-settings.corpora.ethesis_phd_far = {
-    title: "Farmasia",
-    description: "Väitöskirjat: Farmasian tiedekunta (2005, 2013)",
-    id: "ethesis_phd_far",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_phd_teo = {
-    title: "Teologinen",
-    description: "Väitöskirjat: Teologinen tiedekunta (2000–2016)",
-    id: "ethesis_phd_teo",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_phd_beh = {
-    title: "Käyttäytymistieteellinen",
-    description: "Väitöskirjat: Käyttäytymistieteellinen tiedekunta (1996, 2000–2016)",
-    id: "ethesis_phd_beh",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_phd_valt = {
-    title: "Valtiotieteellinen",
-    description: "Väitöskirjat: Valtiotieteellinen tiedekunta (1999–2016)",
-    id: "ethesis_phd_valt",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_phd_ot = {
-    title: "Oikeustieteellinen",
-    description: "Väitöskirjat: Oikeustieteellinen tiedekunta (2001, 2004–2010, 2012, 2014–2016)",
-    id: "ethesis_phd_ot",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_phd_hum = {
-    title: "Humanistinen",
-    description: "Väitöskirjat: Humanistinen tiedekunta (2000–2016)",
-    id: "ethesis_phd_hum",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_phd_bio = {
-    title: "Bio- ja ympäristötieteellinen",
-    description: "Väitöskirjat: Bio- ja ympäristötieteellinen tiedekunta (2005)",
-    id: "ethesis_phd_bio",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_phd_el = {
-    title: "Eläinlääketieteellinen",
-    description: "Väitöskirjat: Eläinlääketieteellinen tiedekunta (2008)",
-    id: "ethesis_phd_el",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_phd_mm = {
-    title: "Maa- ja metsätieteellinen tiedekunta",
-    description: "Väitöskirjat: Maa- ja metsätieteellinen tiedekunta (2000, 2006, 2008–2010, 2012–2014, 2016)",
-    id: "ethesis_phd_mm",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_phd_med = {
-    title: "Lääketieteellinen",
-    description: "Väitöskirjat: Lääketieteellinen tiedekunta (2000, 2003–2004, 2006–2010, 2012, 2014)",
-    id: "ethesis_phd_med",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_ma_far = {
-    title: "Farmasia",
-    description: "Gradut: Farmasian tiedekunta 2010–2016",
-    id: "ethesis_ma_far",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_ma_teo = {
-    title: "Teologinen",
-    description: "Gradut: Teologinen tiedekunta 2000–2016",
-    id: "ethesis_ma_teo",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_ma_beh = {
-    title: "Käyttäytymistieteellinen",
-    description: "Gradut: Käyttäytymistieteellinen tiedekunta 1998–2016",
-    id: "ethesis_ma_beh",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_ma_valt = {
-    title: "Valtiotieteellinen",
-    description: "Gradut: Valtiotieteellinen tiedekunta 1996–2016",
-    id: "ethesis_ma_valt",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_ma_ot = {
-    title: "Oikeustieteellinen",
-    description: "Gradut: Oikeustieteellinen tiedekunta 2001–2016",
-    id: "ethesis_ma_ot",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_ma_hum = {
-    title: "Humanistinen",
-    description: "Gradut: Humanistinen tiedekunta 1998–2016",
-    id: "ethesis_ma_hum",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_ma_sci = {
-    title: "Matemaattis-luonnontieteellinen",
-    description: "Gradut: Matemaattis-luonnontieteellinen tiedekunta 1996–2016",
-    id: "ethesis_ma_sci",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_ma_ai = {
-    title: "Aleksanteri-instituutti",
-    description: "Gradut: Aleksanteri-instituutti 2001–2016",
-    id: "ethesis_ma_ai",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_ma_bio = {
-    title: "Bio- ja ympäristötieteellinen",
-    description: "Gradut: Bio- ja ympäristötieteellinen tiedekunta 2003–2016",
-    id: "ethesis_ma_bio",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-
-settings.corpora.ethesis_ma_el = {
-    title: "Lisensiaatintyöt: Eläinlääketieteellinen",
-    description: "Lisensiaatintyöt: Eläinlääketieteellinen tiedekunta (2003–2016)",
-    id: "ethesis_ma_el",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_ma_mm = {
-    title: "Maa- ja metsätieteellinen tiedekunta",
-    description: "Gradut: Maa- ja metsätieteellinen tiedekunta (2003–2016)",
-    id: "ethesis_ma_mm",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_ma_med = {
-    title: "Lisensiaatintyöt: Lääketieteellinen",
-    description: "Lisensiaatintyöt: Lääketieteellinen tiedekunta (2010–2016)",
-    id: "ethesis_ma_med",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.standard,
-    structAttributes: sattrlist.ethesis
-};
+funcs.addCorpusSettings(
+    settings.templ.ethesis_ma,
+    funcs.prefixThesisType([
+        ["far", "Farmasia", "Farmasian tiedekunta 2010–2016"],
+        ["teo", "Teologinen", "Teologinen tiedekunta 2000–2016"],
+        ["beh", "Käyttäytymistieteellinen",
+         "Käyttäytymistieteellinen tiedekunta 1998–2016"],
+        ["valt", "Valtiotieteellinen",
+         "Valtiotieteellinen tiedekunta 1996–2016"],
+        ["ot", "Oikeustieteellinen", "Oikeustieteellinen tiedekunta 2001–2016"],
+        ["hum", "Humanistinen", "Humanistinen tiedekunta 1998–2016"],
+        ["sci", "Matemaattis-luonnontieteellinen",
+         "Matemaattis-luonnontieteellinen tiedekunta 1996–2016"],
+        ["ai", "Aleksanteri-instituutti", "Aleksanteri-instituutti 2001–2016"],
+        ["bio", "Bio- ja ympäristötieteellinen",
+         "Bio- ja ympäristötieteellinen tiedekunta 2003–2016"],
+        ["el", "Eläinlääketieteellinen",
+         "Eläinlääketieteellinen tiedekunta (2003–2016)"],
+        // FIXME
+        ["mm", "Maatalous-metsätieteellinen",
+         "Maatalous-metsätieteellinen tiedekunta (2003–2016)"],
+        ["med", "Lääketieteellinen",
+         "Lääketieteellinen tiedekunta (2010–2016)"],
+    ]));
 
 
 /* FTC (Finnish Text Collection) aka SKTP */
@@ -15945,6 +15821,8 @@ settings.corpora.ylilauta = {
         text_clock: sattrs.text_time,
         text_sec: {
             label: "suomi24fi_sect",
+            extendedComponent: "structServiceSelect",
+            opts: options.lite,
         }
     }
 };
@@ -16063,11 +15941,8 @@ settings.corpora.s24 = {
     title: "Suomi24 2001–2014 (näyte)",
     description: "Suomi24-keskusteluja 2001–2014 (näyte).<br/>Tämä korpus sisältää osan <a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskusteluista vuosilta 2001–2014; kaikki keskustelut (myös tämän korpuksen sisältämät) sisältyvät korpukseen <i>Suomi24</i>.<br/>(Tämä korpus näkyi aiemmin nimellä <i>Suomi24</i>.)",
     id: "s24",
-    // URN information also in the corpus .info file; if you need to
-    // update the URNs, you should also check it.
-    // TODO: Update the URNs when the new URNs are available. (2015-12-01)
-    // urn: "urn:nbn:fi:lb-2015040102",
-    // metadata_urn: "urn:nbn:fi:lb-2015091701",
+    urn: "urn:nbn:fi:lb-2015113001",
+    metadata_urn: "urn:nbn:fi:lb-2016050901",
     licence: settings.licenceinfo.CC_BY_NC,
     homepage_url: "http://keskustelu.suomi24.fi",
     cite_id: "Suomi24-2001-2014-korp",
@@ -16236,51 +16111,49 @@ sattrlist.s24_2001_2017_custom = {
     },
 };
 
-settings.templ.s24_2001_2017 = {
-    title: "",
-    description: "",
-    id: "",
-    urn: "urn:nbn:fi:lb-2020021804",
-    metadata_urn: "urn:nbn:fi:lb-2020021803",
-    cite_id: "suomi24-2001-2017-korp-v1-2",
-    shortname: "suomi24-2001-2017-korp-v1-2",
+// Common settings for Suomi24 2001–2017 and 2018–2020
+settings.templ.s24_base = {
+    // {} is replaced with the year
+    id: "s24_{}",
     features: ["paragraphs"],
     attributes: attrlist.parsed_tdt_spaces,
-    structAttributes: sattrlist.s24_2001_2017,
     customAttributes: sattrlist.s24_2001_2017_custom,
     defaultFilters: ["text_topic_name_top", "text_topic_names"],
 };
 
-
-var make_s24_templ_fill = function (year1, year2, version) {
-    var result = [];
-    var year_range = year1.toString() + "–" + year2.toString();
-    if (version) {
-        version = " " + version;
-    }
-    for (var y = year1; y <= year2; y++) {
-        var ystr = y.toString();
-        result.push({
-            title: "Suomi24 " + year_range + ": " + ystr,
-            description: (
-                "Suomi24 virkkeet -korpus " + year_range + ", Korp-versio"
-                    + version + ": "
-                    + ystr
-                    + "<br/>Suomi24-keskustelujen viestit vuodelta "
-                    + ystr),
-            id: ystr,
-        });
-    }
-    return result;
+// Partial template to be filled using funcs.fillYearsVersion
+settings.templ.s24_title_descr_shortname = {
+    // {} in title and description is replaced with the year (by
+    // funcs.addCorpusSettings)
+    title: "Suomi24 {y1}–{y2}: {}",
+    description: ("Suomi24 virkkeet -korpus {y1}–{y2}, Korp-versio{ver}: {}"
+                  + "<br/>Suomi24-keskustelujen viestit vuodelta {}"),
+    shortname: "suomi24-{y1}-{y2}-korp{versuff}",
 };
 
-funcs.addCorpusSettings(
-    settings.templ.s24_2001_2017,
-    make_s24_templ_fill(2001, 2017, "1.2"),
-    settings.corporafolders.cmc.s24_accruing,
-    "s24_"
+
+// Suomi24 2001–2017
+
+// Settings template for Suomi24 2001–2017
+settings.templ.s24_2001_2017 = $.extend(
+    {}, settings.templ.s24_base,
+    funcs.fillYearsVersion(settings.templ.s24_title_descr_shortname,
+                           2001, 2017, "1.2"),
+    {
+        urn: "urn:nbn:fi:lb-2020021804",
+        metadata_urn: "urn:nbn:fi:lb-2020021803",
+        structAttributes: sattrlist.s24_2001_2017,
+    }
 );
 
+// Actually generate the corpus settings
+funcs.addCorpusSettings(
+    settings.templ.s24_2001_2017,
+    [2001, 2017],
+    settings.corporafolders.cmc.s24_accruing
+);
+
+// Add corpus aliases
 funcs.addCorpusAliases(
     "s24_20(0[1-9]|1[0-7])",
     [
@@ -16289,6 +16162,9 @@ funcs.addCorpusAliases(
         "suomi24-2001-2017-korp-v1-1",
         "suomi24-2001-2017-korp-v1-2",
     ]);
+
+
+// Suomi24 2018–2020
 
 sattrlist.s24_2018_2020 = $.extend(
     {}, sattrlist.s24_2001_2017,
@@ -16299,27 +16175,21 @@ sattrlist.s24_2018_2020 = $.extend(
     }
 );
 
-settings.templ.s24_2018_2020 = {
-    title: "",
-    description: "",
-    id: "",
-    urn: "urn:nbn:fi:lb-2021101522",
-    metadata_urn: "urn:nbn:fi:lb-2021101521",
-    cite_id: "urn:nbn:fi:lb-2021101522",
-    shortname: "suomi24-2018-2020-korp",
-    features: ["paragraphs"],
-    attributes: attrlist.parsed_tdt_spaces,
-    labels: ["beta"],
-    attributes: attrlist.parsed_tdt,
-    structAttributes: sattrlist.s24_2018_2020,
-    customAttributes: sattrlist.s24_2001_2017_custom,
-};
+settings.templ.s24_2018_2020 = $.extend(
+    {}, settings.templ.s24_base,
+    funcs.fillYearsVersion(settings.templ.s24_title_descr_shortname,
+                           2018, 2020),
+    {
+        urn: "urn:nbn:fi:lb-2021101522",
+        metadata_urn: "urn:nbn:fi:lb-2021101521",
+        structAttributes: sattrlist.s24_2018_2020,
+    },
+);
 
 funcs.addCorpusSettings(
     settings.templ.s24_2018_2020,
-    make_s24_templ_fill(2018, 2020, ""),
-    settings.corporafolders.cmc.s24_accruing,
-    "s24_"
+    [2018, 2020],
+    settings.corporafolders.cmc.s24_accruing
 );
 
 funcs.addCorpusAliases(
@@ -16456,588 +16326,40 @@ settings.corpora.iclfi = {
 sattrlist.ylenews_fi_common = {
     text_main_department: {
         label: "main_section",
-        extendedComponent: "datasetSelect",
-        opts: options.lite,
-        dataset: [
-                  "100 päivää",
-                  "1917",
-                  "8 myyttiä työstä",
-                  "Abitreenit",
-                  "aihe",
-                  "Akuutti",
-                  "Au pairit",
-                  "Battle",
-                  "Blogit",
-                  "Digitalsummit",
-                  "Digitreenit ",
-                  "Docventures",
-                  "Dokumentit",
-                  "Dox@net",
-                  "Draama",
-                  "Egenland",
-                  "Elektroninen urheilu",
-                  "Elokuvat",
-                  "Elossa 24h",
-                  "Eläinsairaala",
-                  "Eläkesäätiö",
-                  "Elämä",
-                  "Elämä pelissä",
-                  "Elävä arkisto",
-                  "Erikoiset",
-                  "Etusivu",
-                  "E-urheilu",
-                  "Euroviisut 2014",
-                  "Euroviisut 2015",
-                  "Euroviisut 2016",
-                  "Euroviisut 2017",
-                  "Euroviisut 2018",
-                  "Flinkkilä & Tastula",
-                  "FOMO",
-                  "FTW",
-                  "Futisvanhemmat",
-                  "Galaxi",
-                  "Goals-sarja",
-                  "Hasbeen",
-                  "Helsinki Script",
-                  "Historia",
-                  "Hulahulasuomi",
-                  "Huono ystävä",
-                  "Huumori",
-                  "Hyvät katsojat",
-                  "Ihmeelliset aivot",
-                  "Imettäjät",
-                  "Itämeren heinäkuu",
-                  "Janna Rantala",
-                  "Jenny+",
-                  "Kadonnut",
-                  "Kandit",
-                  "Kansainvälinen Paulon sellokilpailu 2018",
-                  "Kekkonen",
-                  "Kids@docs",
-                  "Kirjat",
-                  "Kirjojen Suomi",
-                  "Klassinen",
-                  "Klassinen Suomi",
-                  "Klassisen juttuarkisto",
-                  "Koti",
-                  "Kulttuuri",
-                  "Kulttuuricocktail",
-                  "Kulttuurin välikysymys",
-                  "Kuningaskuluttaja",
-                  "Kuusijuhla",
-                  "Lapset",
-                  "Lovemilla",
-                  "Luonto",
-                  "Luontovuosi",
-                  "Lupa välittää",
-                  "Lähiö",
-                  "Marja Hintikka Live",
-                  "Meidän luokka",
-                  "Mennään metsään",
-                  "Meri Louhos",
-                  "Miljoona linnunpönttöä",
-                  "MOT",
-                  "Musiikki",
-                  "Muumilaakso",
-                  "Muuttopäiväkirjat",
-                  "Naurun tasapaino",
-                  "Nettiä ikä kaikki",
-                  "Noin viikon uutiset",
-                  "Nuoret",
-                  "Nuorille. Nyt!",
-                  "Nyt",
-                  "Nyt tai ei koskaan",
-                  "Näkökulmat",
-                  "Ohjelmat",
-                  "Oi maamme",
-                  "Olen jossain",
-                  "Olivia18",
-                  "Operaatio Alaska",
-                  "Operaatio Mannerheim",
-                  "Oppiminen",
-                  "Orkesterikone",
-                  "Oscar-gaala",
-                  "Parasta nyt",
-                  "Pasila",
-                  "Perjantai",
-                  "Podcastit",
-                  "Presidentti",
-                  "Prophecy",
-                  "Puoli seitsemän",
-                  "Putkiremontti",
-                  "Rikos ja oikeus",
-                  "Robomestarit",
-                  "RSO",
-                  "Ruoka",
-                  "Sadan vuoden talo",
-                  "Satuhäät",
-                  "Sekasin",
-                  "Seksi-Suomen Historia",
-                  "Shortdox",
-                  "Sinun tarinasi",
-                  "Sisujengi",
-                  "Slush",
-                  "Strömsö",
-                  "Summeri",
-                  "Suomi",
-                  "SuomiLOVE",
-                  "Suomi on venäläinen",
-                  "Syke",
-                  "Tangomarkkinat 2014",
-                  "Tangomarkkinat 2015",
-                  "Tangomarkkinat 2016",
-                  "Tartu mikkiin",
-                  "Teiniäidit",
-                  "Tekijänä",
-                  "Tellus",
-                  "Terveys",
-                  "The Heroes of The Baltic Sea",
-                  "Tiede",
-                  "Tietoa ohjelmista",
-                  "To Nightwish With Love",
-                  "Tove Jansson 100v",
-                  "Tuhkimotarinoita",
-                  "Tyyli",
-                  "UMK17",
-                  "UMK18",
-                  "UMK18 Saara Aalto",
-                  "UMK19",
-                  "UMK2014",
-                  "UMK 2015",
-                  "UMK 2016",
-                  "Urheilu",
-                  "Urheilusuomi",
-                  "Uusi päivä",
-                  "Vaakakapina",
-                  "Vaiheessa - 10 erilaista elämänvalintaa",
-                  "Valmennuskoulu",
-                  "Valokuvan voimaa",
-                  "Vanhemmuus",
-                  "Vapaa-aika",
-                  "Vihreät Valot",
-                  "Viihde",
-                  "Ville 30 päivässä",
-                  "Villi kortti",
-                  "Väärät bileet",
-                  "We want more",
-                  "Y",
-                  "Yhteiskunta",
-                  "Yle Beta",
-                  "Yle Forum",
-                  "Yleisradio",
-                  "Yle kilpailutukset",
-                  "Yle Kipinä",
-                  "Yle Klassinen",
-                  "Yle Puhe",
-                  "Yle Radio 1",
-                  "Yle Radio Suomi",
-                  "Yle Teema",
-                  "Yle TV1",
-                  "Yle TV2",
-                  "YleX",
-                  ],
+        extendedComponent: "structServiceAutocomplete",
+        opts: options.default,
     },
     text_departments: {
         label: "sections",
         type: "set",
-        opts: options.set,
-        extendedComponent: "datasetSelect",
-        dataset: [
-                  "100 päivää",
-                  "101 kirjaa",
-                  "1917",
-                  "8 myyttiä työstä",
-                  "Aalto",
-                  "Abitreenit",
-                  "AFK",
-                  "Äidinkieli",
-                  "aihe",
-                  "Aikaleima",
-                  "Ajankohtainen kolmonen",
-                  "Akuutti",
-                  "Arkkitehtuuri",
-                  "Artikkelit",
-                  "Askartelu ja käsityöt",
-                  "Atte Blom",
-                  "Au pairit",
-                  "Battle",
-                  "Biologia",
-                  "Blog",
-                  "Blogit",
-                  "Digitalsummit",
-                  "Digitreenit ",
-                  "Docventures",
-                  "Docventures-yhteisö muuttaa maailmaa",
-                  "Dokumentit",
-                  "Draama",
-                  "Egenland",
-                  "Eläinsairaala",
-                  "Eläkesäätiö",
-                  "Elämä",
-                  "Elämänkatsomustieto",
-                  "Elämäntaidot",
-                  "Elämä pelissä",
-                  "Elävä arkisto",
-                  "Elävän arkiston blogi",
-                  "Elektroninen urheilu",
-                  "Elokuvat",
-                  "Elossa 24h",
-                  "Englanti",
-                  "Eränkävijät",
-                  "Espanja",
-                  "Etusivu",
-                  "E-urheilu",
-                  "Euroviisut 2014",
-                  "Euroviisut 2015",
-                  "Euroviisut 2016",
-                  "Euroviisut 2017",
-                  "Euroviisut 2018",
-                  "Even myshörna",
-                  "Filosofia",
-                  "Flinkkilä & Tastula",
-                  "FOLK",
-                  "FOMO",
-                  "FTW",
-                  "Futisvanhemmat",
-                  "Fysiikka",
-                  "Galaxi",
-                  "Gambatte! − vuosi Japanissa",
-                  "Goals-sarja",
-                  "Hahmot",
-                  "HD",
-                  "Helsinki Script",
-                  "Henkilöt",
-                  "Hetkiä Kalliossa",
-                  "Hetki New Yorkissa",
-                  "Historia",
-                  "Hulahulasuomi",
-                  "Hullujenhautausmaa",
-                  "Hulluus kylässä",
-                  "Huono ystävä",
-                  "Huume-Suomi",
-                  "Huumori",
-                  "Huumorivirkkaajan päiväkirja",
-                  "Hyvät katsojat",
-                  "Ihmeelliset aivot",
-                  "Ihminen ja yhteiskunta",
-                  "Imettäjät",
-                  "In English",
-                  "Interaktiiviset",
-                  "Isä, äiti ja media",
-                  "Italia",
-                  "Itämeren heinäkuu",
-                  "Itämeren merirosvot",
-                  "Janna Rantala",
-                  "Jante redux",
-                  "Jatkuu",
-                  "Jean Sibelius 150v",
-                  "Jean Sibelius -viulukilpailu",
-                  "Jenny+",
-                  "Jenny ja läskimyytinmurtajat",
-                  "Juice goes Nenäpäivä",
-                  "#junapummit",
-                  "Jutut",
-                  "Kadonnut",
-                  "Kahden polven treffit",
-                  "Kaikkien aikojen tangokuninkaalliset",
-                  "Kaikki kilpailutyöt",
-                  "Kandit",
-                  "Kansainvälinen Paulon sellokilpailu 2018",
-                  "Kare Eskolan blogi",
-                  "Kasvatusviisautta kiireisille",
-                  "Katoava Pohjola",
-                  "Kehitys kehittyy",
-                  "Kekkonen",
-                  "Kemia",
-                  "Kesärannan linnut: Lokit ja Tiirat",
-                  "Kesärannan linnut: Vesilintuja",
-                  "Kevät",
-                  "Kids@docs",
-                  "Kielet",
-                  "Kieltolaki",
-                  "Kirjat",
-                  "Kirjojen Suomi",
-                  "Klassinen",
-                  "Klassinen Suomi",
-                  "Klassisen juttuarkisto",
-                  "Konsertit, kausi 2011-2012",
-                  "Konsertit, kausi 2012-2013",
-                  "Konsertit, kausi 2013-2014",
-                  "Konsertit, kausi 2014-2015",
-                  "Konsertit, kausi 2015-2016",
-                  "Konsertit, kausi 2016-2017",
-                  "Konsertit, kausi 2017-2018",
-                  "Konsertit, kausi 2018-2019",
-                  "Koodauksen MM",
-                  "Koti",
-                  "Koulutus",
-                  "Kuka lintulaudallani ruokailee: opas talvilintujen tunnistamiseen",
-                  "Kulttuuri",
-                  "Kulttuuricocktail",
-                  "Kulttuurin välikysymys",
-                  "Kulttuuriosasto",
-                  "Kuluttajakysymykset",
-                  "Kuningaskuluttaja",
-                  "Kuningaskuluttajan näkökulmat",
-                  "Kuningaskuluttajan testit",
-                  "Kuningas Matti ja ysäristit",
-                  "Kuusijuhla",
-                  "Kuvia",
-                  "Lähetykset",
-                  "Lähiö",
-                  "Lahjapaketit",
-                  "Laitakaupungin kanat",
-                  "Läpimurto",
-                  "Lappeenrannan laulukilpailut 2016",
-                  "Lapset",
-                  "Latina",
-                  "Lomamatka 80-luvulle",
-                  "Lovemilla",
-                  "Luonto",
-                  "Luontovuosi",
-                  "Lupa välittää",
-                  "Maantiede",
-                  "Maatuskan mitoissa",
-                  "Mannerheimit",
-                  "Marja Hintikka Live",
-                  "Markus Kajo",
-                  "Matematiikka",
-                  "Media- ja digitaidot",
-                  "Medialle",
-                  "Meidän luokka",
-                  "Meille töihin?",
-                  "Mennään metsään",
-                  "Menneisyyden metsästäjät",
-                  "Meri Louhos",
-                  "Metsien kätkemä",
-                  "Miljoona linnunpönttöä",
-                  "Minä",
-                  "Mirjam Helin -laulukilpailu 2014",
-                  "MMM",
-                  "Mokasiko media?",
-                  "MOT",
-                  "Muksun mukana",
-                  "Musiikin kevät 1918",
-                  "Musiikki",
-                  "Musiikkineuvola",
-                  "Muuttolintujen matkassa: opas syysmuuttajien tunnistamiseen",
-                  "Muuttopäiväkirjat",
-                  "Näkökulma",
-                  "Näkökulmat",
-                  "Nappituntuma",
-                  "Naurun tasapaino",
-                  "Näyttelijät",
-                  "Neljäs kansainvälinen Maj Lind -pianokilpailu 2017",
-                  "Nettiä ikä kaikki",
-                  "Noin viikon uutiset",
-                  "Nosteessa",
-                  "Nuoret",
-                  "Nuorille. Nyt!",
-                  "Nyt",
-                  "Nyt tai ei koskaan",
-                  "Ohjelmat",
-                  "Oi maamme",
-                  "Olen jossain",
-                  "Olivia",
-                  "Olivia18",
-                  "Olotila",
-                  "Omalääkäri",
-                  "Onnenongintaa",
-                  "Operaatio Alaska",
-                  "Operaatio Mannerheim",
-                  "Opettajalle",
-                  "Oppiaineet ja yo-kokeet",
-                  "Oppiminen",
-                  "Oppimistaidot",
-                  "Orkesteri",
-                  "Oscar-gaala",
-                  "Paineessa",
-                  "Päivikin ryhtihaaste",
-                  "Parasta aikaa",
-                  "Parasta nyt",
-                  "Parhaat palat",
-                  "Pasila",
-                  "Pasi Toiviainen",
-                  "Peltsin kova vuosi",
-                  "Perjantai",
-                  "Pertti Kurikan Nimipäivät",
-                  "Peter von Bagh",
-                  "Pikku Kakkonen",
-                  "Pimeä historia",
-                  "Pizzastipendi",
-                  "Podcastit",
-                  "Polkupyörämatkalla - joka päivä",
-                  "Polvillaan",
-                  "Portugali",
-                  "Presidentti",
-                  "Prisma Studio",
-                  "Prophecy",
-                  "Psykologia",
-                  "Pulloposti",
-                  "Puoli seitsemän",
-                  "Putkiremontti",
-                  "Puutarha",
-                  "Rakenna soitin!",
-                  "Rakkautta ensikuulemalla",
-                  "Ranska",
-                  "Rauhassa",
-                  "rekryle",
-                  "Rikos ja oikeus",
-                  "Robomestarit",
-                  "RSO",
-                  "RSO in English",
-                  "Ruoka",
-                  "Ruoka ja juoma",
-                  "Ruokamuistoja",
-                  "Ruotsi",
-                  "Saame",
-                  "Sadan vuoden talo",
-                  "Saksa",
-                  "Saksaa uusin silmin",
-                  "Satuhäät",
-                  "Sekasin",
-                  "Seksi-Suomen Historia",
-                  "Seniorin seurassa",
-                  "Shortdox",
-                  "Sideways 2018",
-                  "Sielukoulu",
-                  "Silkkiä ja säveliä",
-                  "SILTA-yleisötyö ",
-                  "Sinun tarinasi",
-                  "Sisujengi",
-                  "Sivuraiteilla",
-                  "Slush",
-                  "#sota39",
-                  "Sound Tracker",
-                  "Strömsö",
-                  "Summeri",
-                  "Suomeksi",
-                  "Suomen kielen alkeet",
-                  "Suomi",
-                  "SuomiLOVE",
-                  "Suomi on venäläinen",
-                  "Suosikkimusavideot",
-                  "Syke",
-                  "Syötävä kaupunki",
-                  "Tangomarkkinakilpailijat 2014: miehet",
-                  "Tangomarkkinakilpailijat 2014: naiset",
-                  "Tangomarkkinakilpailijat 2015: miehet",
-                  "Tangomarkkinakilpailijat 2015: naiset",
-                  "Tangomarkkinat 2014",
-                  "Tangomarkkinat 2015",
-                  "Tangomarkkinat 2016",
-                  "Tangomarkkinat juttuarkisto 2015",
-                  "Tanssiva karhu",
-                  "Tapio Wirkkala 100v",
-                  "Tarinanmetsästäjät",
-                  "Tartu mikkiin",
-                  "tech.yle.fi",
-                  "Teeman elokuvafestivaali",
-                  "Teeman elokuvafestivaali 2016",
-                  "Teemat",
-                  "Teiniäidit",
-                  "Tekijänä",
-                  "Tellus",
-                  "Terveiset musiikkimatkalta",
-                  "Terveys",
-                  "Terveystieto",
-                  "Testi",
-                  "The Heroes of The Baltic Sea",
-                  "Tiede",
-                  "Tiedeblogi",
-                  "Tiedotteet",
-                  "Tien päällä",
-                  "Tietoa ohjelmista",
-                  "Titanicilla",
-                  "Tohtori Raimo",
-                  "To Nightwish With Love",
-                  "Tove Jansson 100v",
-                  "Tuhkimotarinoita",
-                  "Tulevaisuuden tusina",
-                  "Tuotantoyhtiöille",
-                  "Tyhmyreille",
-                  "Tyttärenä tässä",
-                  "Tyyli",
-                  "Ulkomaiset sarjat",
-                  "UMK17",
-                  "UMK18",
-                  "UMK18 Saara Aalto",
-                  "UMK2014",
-                  "UMK 2015",
-                  "UMK 2016",
-                  "UPplus",
-                  "Ura 30 sekunnissa",
-                  "Urheilu",
-                  "Urheilusuomi",
-                  "Usein kysyttyä",
-                  "Uskonto",
-                  "Uuden Päivän musiikki",
-                  "Uusi päivä",
-                  "Vaakakapina",
-                  "#vaalit56",
-                  "Väärät bileet",
-                  "Vaiheessa - 10 erilaista elämänvalintaa",
-                  "Valmennuskoulu",
-                  "Valokuvan voimaa",
-                  "Vanhemmuus",
-                  "Vanhempien seksikoulu",
-                  "Vapaa-aika",
-                  "Vastaukset",
-                  "Vastuullisuus",
-                  "Venäjä",
-                  "Vieraskynä",
-                  "Vihreät Valot",
-                  "Viihde",
-                  "Viikko koulussa",
-                  "Viikonloppulista",
-                  "Vikasietotila",
-                  "Ville 30 päivässä",
-                  "Villein matkavideo",
-                  "Villen keittiö 30 minuutissa",
-                  "Villi kortti",
-                  "We want more",
-                  "Y",
-                  "Yhteiskunta",
-                  "Yhteiskuntaoppi",
-                  "Yle Areena",
-                  "Yle Beta",
-                  "Yle Beta Challenge",
-                  "yle.fi/aihe/uusimmat",
-                  "Yle Forum",
-                  "Yleisradio",
-                  "Yle kilpailutukset",
-                  "Yle Kipinä",
-                  "Yle Klassinen",
-                  "Yle Live",
-                  "Ylen siisti kesäduuni",
-                  "Ylen talous",
-                  "Yle Puhe",
-                  "Yle Radio 1",
-                  "Yle Radio Suomi",
-                  "Yle Teema",
-                  "Yle TV1",
-                  "Yle TV2",
-                  "YleX",
-                  "Y:n blogi",
-                  "Ystäväni hevonen",
-                  ],
+        opts: options.fullSet,
+        extendedComponent: "structServiceAutocomplete",
     },
     text_id: {
         label: "text_id",
     },
-    text_publisher: sattrs.text_publisher,
+    text_publisher: $.extend(
+        {}, sattrs.text_publisher,
+        {
+            opts: options.lite,
+            extendedComponent: "structServiceSelect",
+        }
+    ),
     text_url: sattrs.link_original,
     text_datetime_published: {
         label: "datetime_published",
-        stringify: funcs.stringifyIsoDatetime,
+        // The datetime values look better when kept on the same line,
+        // so do not use funcs.stringifyIsoDatetime that would add a
+        // <wbr> break tag
+        // pattern: "<%= funcs.stringifyIsoDatetime(val) %>",
     },
     text_datetime_content_modified: {
         label: "datetime_content_modified",
-        stringify: funcs.stringifyIsoDatetime,
+        // pattern: "<%= funcs.stringifyIsoDatetime(val) %>",
     },
     text_datetime_json_modified: {
         label: "datetime_json_modified",
-        stringify: funcs.stringifyIsoDatetime,
+        // pattern: "<%= funcs.stringifyIsoDatetime(val) %>",
     },
     paragraph_id: sattrs.hidden,
     sentence_id: sattrs.hidden,
@@ -17077,58 +16399,158 @@ sattrs.ylenews_fi_paragraph_type = {
 };
 
 
-settings.templ.ylenews_fi_a = {
-    title: "Ylen suomenkielinen uutisarkisto {} (tutkijoille)",
-    description: "Ylen suomenkielinen uutisarkisto 2011–2018, Korp: vuosi {}<br/>Tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille.",
-    id: "ylenews_fi_{}_a",
-    limitedAccess: true,
-    licenceType: "ACA",
-    features: ["paragraphs"],
-    attributes: attrlist.parsed_tdt,
-    structAttributes: $.extend(
-        {}, sattrlist.ylenews_fi_common,
+// Function to make a partial template for the title and description,
+// to be filled using funcs.fillYearsVersion
+funcs.ylenews_fi_make_title_descr_templ = function (type, descrExtra) {
+    return funcs.fillTemplates(
         {
-            paragraph_type: sattrs.ylenews_fi_paragraph_type,
-        }),
-};
-
-funcs.addCorpusSettings(
-    settings.templ.ylenews_fi_a,
-    [2011, 2018],
-    settings.corporafolders.news.ylenews_fi.a,
-    "ylenews_fi_{}_a");
-
-settings.corpusAliases["ylenews_fi_2011_2018_a"]
-    = settings.corpusAliases["ylenews-fi-2011-2018-korp"]
-    = settings.corpusAliases["ylenews-fi-2011-2018"]
-    = "ylenews_fi_201[1-8]_a";
-
-
-settings.templ.ylenews_fi_s = {
-    title: "Ylen suomenkielinen uutisarkisto {} (kaikille)",
-    description: "Ylen suomenkielinen uutisarkisto 2011–2018, Korp: vuosi {}<br/>Kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea",
-    id: "ylenews_fi_2011_2018_s",
-    context: context.default,
-    within: within.default,
-    attributes: attrlist.parsed_tdt,
-    structAttributes: $.extend(
-        {}, sattrlist.ylenews_fi_common,
+            title: "Ylen suomenkielinen uutisarkisto {y1}–{y2} ({type}): {}",
+            description: (
+                "Ylen suomenkielinen uutisarkisto {y1}–{y2}, Korp: vuosi {}"
+                    + "<br/>{extra}"),
+        },
         {
-            sentence_paragraph_type: sattrs.ylenews_fi_paragraph_type,
-        }),
+            type: type,
+            extra: descrExtra,
+        }
+    );
 };
 
 
-funcs.addCorpusSettings(
-    settings.templ.ylenews_fi_s,
-    [2011, 2018],
-    settings.corporafolders.news.ylenews_fi.s,
-    "ylenews_fi_{}_s");
+// Partial template to be filled using funcs.fillYearsVersion
+settings.templ.ylenews_fi_a_base = $.extend(
+    {},
+    funcs.ylenews_fi_make_title_descr_templ(
+        "tutkijoille",
+        "Tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille."),
+    {
+        id: "ylenews_fi_{}_a",
+        context: context.sp,
+        within: within.sp,
+        attributes: attrlist.parsed_tdt,
+        structAttributes: $.extend(
+            {}, sattrlist.ylenews_fi_common,
+            {
+                paragraph_type: sattrs.ylenews_fi_paragraph_type,
+            }),
+    }
+);
 
-settings.corpusAliases["ylenews_fi_2011_2018_s"]
-    = settings.corpusAliases["ylenews-fi-2011-2018-s-korp"]
-    = settings.corpusAliases["ylenews-fi-2011-2018-s"]
-    = "ylenews_fi_201[1-8]_s";
+settings.templ.ylenews_fi_a_2011_2018 = $.extend(
+    {},
+    funcs.fillYearsVersion(settings.templ.ylenews_fi_a_base, 2011, 2018),
+    {
+        urn: "urn:nbn:fi:lb-2019121005",
+        metadata_urn: "urn:nbn:fi:lb-2019121003",
+    }
+);
+
+settings.templ.ylenews_fi_a_2019_2021 = $.extend(
+    {},
+    funcs.fillYearsVersion(settings.templ.ylenews_fi_a_base, 2019, 2021),
+    {
+        urn: "urn:nbn:fi:lb-2022031702",
+        metadata_urn: "urn:nbn:fi:lb-2022031701",
+    }
+);
+
+
+funcs.addCorpusSettings(
+    settings.templ.ylenews_fi_a_2011_2018,
+    [2011, 2018],
+    settings.corporafolders.news.ylenews_fi.a);
+
+funcs.addCorpusSettings(
+    settings.templ.ylenews_fi_a_2019_2021,
+    [2019, 2021],
+    settings.corporafolders.news.ylenews_fi.a);
+
+
+funcs.addCorpusAliases(
+    "ylenews_fi_20(1[1-8])_a",
+    [
+        "ylenews-fi-2011-2018-korp",
+    ]);
+
+funcs.addCorpusAliases(
+    "ylenews_fi_20(19|2[0-1])_a",
+    [
+        "ylenews-fi-2019-2021-korp",
+    ]);
+
+funcs.addCorpusAliases(
+    "ylenews_fi_20(1[1-9]|2[01])_a",
+    [
+	"ylenews-fi-2011-2021-korp",
+    ]);
+
+
+// Partial template to be filled using funcs.fillYearsVersion
+settings.templ.ylenews_fi_s_base = $.extend(
+    {},
+    funcs.ylenews_fi_make_title_descr_templ(
+        "kaikille",
+        "Kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea."),
+    {
+        id: "ylenews_fi_{}_s",
+        context: context.default,
+        within: within.default,
+        attributes: attrlist.parsed_tdt,
+        structAttributes: $.extend(
+            {}, sattrlist.ylenews_fi_common,
+            {
+                sentence_paragraph_type: sattrs.ylenews_fi_paragraph_type,
+            }),
+    }
+);
+
+settings.templ.ylenews_fi_s_2011_2018 = $.extend(
+    {},
+    funcs.fillYearsVersion(settings.templ.ylenews_fi_s_base, 2011, 2018),
+    {
+        urn: "urn:nbn:fi:lb-2019121006",
+        metadata_urn: "urn:nbn:fi:lb-2019121004",
+    }
+);
+
+settings.templ.ylenews_fi_s_2019_2021 = $.extend(
+    {},
+    funcs.fillYearsVersion(settings.templ.ylenews_fi_s_base, 2019, 2021),
+    {
+        urn: "urn:nbn:fi:lb-2022032202",
+        metadata_urn: "urn:nbn:fi:lb-2022032201",
+    }
+);
+
+
+funcs.addCorpusSettings(
+    settings.templ.ylenews_fi_s_2011_2018,
+    [2011, 2018],
+    settings.corporafolders.news.ylenews_fi.s);
+
+funcs.addCorpusSettings(
+    settings.templ.ylenews_fi_s_2019_2021,
+    [2019, 2021],
+    settings.corporafolders.news.ylenews_fi.s);
+
+
+funcs.addCorpusAliases(
+    "ylenews_fi_20(1[1-8])_s",
+    [
+        "ylenews-fi-2011-2018-s-korp",
+    ]);
+
+funcs.addCorpusAliases(
+    "ylenews_fi_20(19|2[0-1])_s",
+    [
+        "ylenews-fi-2019-2021-s-korp",
+    ]);
+    
+funcs.addCorpusAliases(
+    "ylenews_fi_20(1[1-9]|2[01])_s",
+    [
+	"ylenews-fi-2011-2021-s-korp",
+    ]);
 
 
 /* YLE Finnish Easy-to-read*/

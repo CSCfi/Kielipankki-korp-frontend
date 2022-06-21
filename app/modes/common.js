@@ -5994,16 +5994,21 @@ sattrlist.ethesis = {
         label: "text_year"
     },
     text_keywords: {
-        label: "text_keywords"
+        label: "text_keywords",
+        extendedComponent: "structServiceAutocomplete",
     },
     text_faculty: {
-        label: "text_faculty"
+        label: "text_faculty",
+        extendedComponent: "structServiceAutocomplete",
     },
     text_subject: {
-        label: "text_subject"
+        label: "text_subject",
+        extendedComponent: "structServiceAutocomplete",
     },
     text_type: {
-        label: "text_dissertationtype"
+        label: "text_dissertationtype",
+        extendedComponent: "structServiceSelect",
+        opts: options.lite,
     },
     text_url: {
         label: "text_abslink",
@@ -8038,26 +8043,35 @@ funcs.addCorpusAliases = function (corpus_id_patt, aliases) {
 // - infolist: one of the following:
 //   1. an array of objects with properties with which to extend the
 //      template (should contain the property "id", which is treated
-//      as the variable part of the corpus id),
+//      as the variable part of the corpus id);
 //   2. an array of strings treated as (the variable parts of) corpus
-//      ids, or
-//   3. an array of two integers (typically years), which denote the
+//      ids;
+//   3. an array of arrays [id, title, description] with which to
+//      extend the template (if title or description is omitted, they
+//      are replaced with the id); or
+//   4. an array of two integers (typically years), which denote the
 //      start and end values (inclusive) for the variable parts of the
 //      ids (converted to strings).
 // - folder: the corpus folder to whose "contents" property the
 //   corpora are added
 // - id_templ: a template for the corpus id: "{}" is replaced with the
 //   variable part of the id value taken from the infolist item; if no
-//   "{}", treated as a prefix to the id
+//   "{}", treated as a prefix to the id; if undefined or null, use
+//   template.id if defined, otherwise ""
 //
-// Occurrences of "{}" in the title, description and id_templ are
-// replaced with the variable part of the id specified in the infolist
-// item.
+// Occurrences of "{}" in the id, title, description of template are
+// replaced with the corresponding property value in the infolist
+// item, or if that is missing, the variable part of the id specified
+// in the infolist item.
 
 funcs.addCorpusSettings = function (template, infolist, folder, id_templ) {
     var ids = [];
-    // Replace {} with the id in infolist in these properties:
-    var id_subst_props = ["title", "description"];
+    // Replace {} with the value in the infolist item in these
+    // properties ("id" is treated separately):
+    var subst_props = ["title", "description"];
+    if (id_templ == null) {
+        id_templ = (template.id != null ? template.id : "")
+    }
 
     var add_info = function (info) {
         var info_is_string = (typeof info == "string");
@@ -8073,9 +8087,13 @@ funcs.addCorpusSettings = function (template, infolist, folder, id_templ) {
             $.extend(config, info);
         }
         config.id = id;
-        for (var j = 0; j < id_subst_props.length; j++) {
-            var propname = id_subst_props[j];
-            config[propname] = config[propname].replace(/{}/g, id_varpart);
+        for (var j = 0; j < subst_props.length; j++) {
+            var propname = subst_props[j];
+            if (template[propname]) {
+                config[propname] = template[propname].replace(
+                    /{}/g,
+                    info_is_string ? id_varpart : info[propname] || id_varpart);
+            }
         }
         ids.push(id);
     };
@@ -8086,7 +8104,16 @@ funcs.addCorpusSettings = function (template, infolist, folder, id_templ) {
         }
     } else {
         for (var i = 0; i < infolist.length; i++) {
-            add_info(infolist[i]);
+            if (_.isArray(infolist[i])) {
+                var id = infolist[i][0];
+                add_info({
+                    id: id,
+                    title: infolist[i][1] || id,
+                    description: infolist[i][2] || id,
+                });
+            } else {
+                add_info(infolist[i]);
+            }
         }
     }
     if (folder != null) {
@@ -8289,6 +8316,48 @@ funcs.setAttrOrder = function (attrstruct, attrnamelist) {
         attrstruct[attrnamelist[i]].order = i;
     }
 };
+
+
+// Return a shallow copy of object templates substrings "{x}" in the
+// string-valued properties of templates replaced with the value of
+// values.x. Other than string-valued properties in templates are
+// copied as such. If a templates property contains "{y}" but values
+// has no property y, "{y}" is kept intact.
+funcs.fillTemplates = function (templates, values) {
+    var result = {}
+    for (var templKey in templates) {
+        var filledTempl = templates[templKey];
+        if (_.isString(filledTempl)) {
+            for (var valKey in values) {
+                filledTempl = filledTempl.replace("{" + valKey + "}",
+                                                  values[valKey]);
+            }
+        }
+        result[templKey] = filledTempl;
+    }
+    return result;
+}
+
+// Return a copy of object templates with the following replacements
+// in string values:
+//   {y1} -> year1 (stringified)
+//   {y2} -> year2 (stringified)
+//   {ver} -> version preceded by space; empty if version empty or undefined
+//   {versuff} -> version prefixed by "-v" and points converted to dashes
+//
+// This function can be used to generate titles, descriptions and
+// short names for corpora with multiple subcorpora with different
+// year ranges and versions.
+funcs.fillYearsVersion = function (templates, year1, year2, version) {
+    return funcs.fillTemplates(
+        templates,
+        {
+            y1: year1.toString(),
+            y2: year2.toString(),
+            ver: (version ? " " + version : ""),
+            versuff: (version ? "-v" + version.replace(".", "-") : ""),
+        });
+}
 
 
 // Functions for the video page

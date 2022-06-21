@@ -160,8 +160,8 @@ settings.corporafolders.cuneiform = {
 
 
 settings.corporafolders.english.academic.ethesis = {
-    title: "E-thesis",
-    description: "Corpus of University of Helsinki theses and dissertations<br/><a href='https://ethesis.helsinki.fi/'>https://ethesis.helsinki.fi/</a>",
+    title: "E-thesis (English)",
+    description: "The University of Helsinki’s English E-thesis 1999-2016, Korp version 1.1<br/><br/>Corpus of University of Helsinki theses and dissertations<br/><a href='https://ethesis.helsinki.fi/en/'>https://ethesis.helsinki.fi/</a>",
     contents: [
         "ethesis_en_dissabs",
         "ethesis_en_maabs",
@@ -170,13 +170,19 @@ settings.corporafolders.english.academic.ethesis = {
         cite_id: "e-thesis-en-korp-v1-1",
         urn: "urn:nbn:fi:lb-2020031302",
         metadata_urn: "urn:nbn:fi:lb-2020031301",
+        shortname: "e-thesis-en-korp-v1-1",
         licence: settings.licenceinfo.CC_BY,
-        homepage_url: "https://ethesis.helsinki.fi/",
+        homepage: {
+            url: "https://ethesis.helsinki.fi/en/",
+            name: "Digital dissertations and theses at the University of Helsinki",
+            // no_label: true,
+        },
     }
 };
 
 settings.corporafolders.english.academic.ethesis.phdtheses = {
     title: "Doctoral dissertations",
+    description: "The University of Helsinki’s English E-thesis 1999-2016, Korp version 1.1: Doctoral dissertations",
     contents: [
         "ethesis_en_phd_mm",
         "ethesis_en_phd_hum",
@@ -193,7 +199,8 @@ settings.corporafolders.english.academic.ethesis.phdtheses = {
 };
 
 settings.corporafolders.english.academic.ethesis.matheses = {
-    title: "Master's theses",
+    title: "Master’s theses",
+    description: "The University of Helsinki’s English E-thesis 1999-2016, Korp version 1.1: Master’s theses",
     contents: [
         "ethesis_en_ma_mm",
         "ethesis_en_ma_ai",
@@ -1400,52 +1407,61 @@ settings.corpora.oracc_saao = {
 
 
 settings.corpora.ethesis_ru = {
-    title: "E-thesis",
-    description: "E-thesis. Corpus of theses and dissertations (2005–2016)",
+    title: "E-thesis (русский)",
+    description: "The University of Helsinki’s Russian E-thesis, Korp Version<br/>Corpus of theses and dissertations (2005–2016)",
     id: "ethesis_ru",
-    cite_id: "e-thesis-ru",
-    within: within.default,
-    context: context.default,
-    attributes: {
-    },
-    structAttributes: sattrlist.ethesis
+    metadata_urn: "urn:nbn:fi:lb-2016102808",
+    urn: "urn:nbn:fi:lb-2016102805",
+    shortname: "ethesis-ru",
 };
 
 settings.corpora.ethesis_es = {
-    title: "E-thesis",
-    description: "E-thesis. Corpus of theses and dissertations (2003–2015)",
+    title: "E-thesis (español)",
+    description: "The University of Helsinki’s Spanish E-thesis, Korp Version<br/>Corpus of theses and dissertations (2003–2015)",
     id: "ethesis_es",
-    cite_id: "e-thesis-es",
-    within: within.default,
-    context: context.default,
-    attributes: {
-    },
-    structAttributes: sattrlist.ethesis
+    metadata_urn: "urn:nbn:fi:lb-2016102809",
+    urn: "urn:nbn:fi:lb-2016102804",
+    shortname: "e-thesis-es",
 };
 
 settings.corpora.ethesis_fr = {
-    title: "E-thesis",
-    description: "E-thesis. Corpus of theses and dissertations (2000–2016)",
+    title: "E-thesis (français)",
+    description: "The University of Helsinki’s French E-thesis, Korp Version<br/>Corpus of theses and dissertations (2000–2016)",
     id: "ethesis_fr",
-    cite_id: "e-thesis-fr",
-    within: within.default,
-    context: context.default,
-    attributes: {
-    },
-    structAttributes: sattrlist.ethesis
+    metadata_urn: "urn:nbn:fi:lb-2016102806",
+    urn: "urn:nbn:fi:lb-2016102803",
+    shortname: "e-thesis-fr",
 };
 
 settings.corpora.ethesis_de = {
-    title: "E-thesis",
-    description: "E-thesis. Corpus of theses and dissertations (1997–2016)",
+    title: "E-thesis (Deutsch)",
+    description: "The University of Helsinki’s German E-thesis, Korp Version<br/>Corpus of theses and dissertations (1997–2016)",
     id: "ethesis_de",
-    cite_id: "e-thesis-de",
-    within: within.default,
-    context: context.default,
-    attributes: {
-    },
-    structAttributes: sattrlist.ethesis
+    metadata_urn: "urn:nbn:fi:lb-2016102807",
+    urn: "urn:nbn:fi:lb-2016102802",
+    shortname: "e-thesis-de",
 };
+
+// Add common properties to E-thesis corpora
+funcs.extendCorpusSettings(
+    {
+        licence: settings.licenceinfo.CC_BY,
+        homepage: {
+            url: "https://ethesis.helsinki.fi/en/",
+            name: "Digital dissertations and theses at the University of Helsinki",
+            // no_label: true,
+        },
+        within: within.default,
+        context: context.default,
+        attributes: {},
+        structAttributes: sattrlist.ethesis
+    },
+    [
+        "ethesis_ru",
+        "ethesis_es",
+        "ethesis_fr",
+        "ethesis_de",
+    ]);
 
 
 sattrlist.sust_common = {
@@ -2215,259 +2231,81 @@ funcs.extendCorpusSettings(settings.corpusinfo.firulex,
 
 /* E-thesis en */
 
-settings.corpora.ethesis_en_ma_ot = {
-    title: "E-thesis: Master’s theses: Law",
-    description: "E-thesis: Master’s theses: Faculty of Law (2010–2015)",
-    id: "ethesis_en_ma_ot",
+settings.templ.ethesis_en_base = {
+    title: "E-thesis: {}",
+    description: "The University of Helsinki's English E-thesis 1999-2016, Korp version 1.1: Master’s theses: {}",
+    id: "ethesis_en_{}",
     within: within.default,
     context: context.default,
     attributes: attrlist.ud2_en,
-    structAttributes: sattrlist.ethesis
+    structAttributes: sattrlist.ethesis,
 };
 
-settings.corpora.ethesis_en_ma_med = {
-    title: "E-thesis: Master’s theses: Medicine",
-    description: "E-thesis: Master’s theses: Faculty of Medicine (2009–2015)",
-    id: "ethesis_en_ma_med",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.ud2_en,
-    structAttributes: sattrlist.ethesis
-};
+funcs.addCorpusSettings(
+    settings.templ.ethesis_en_base,
+    [
+        ["maabs", "Master’s thesis abstracts",
+         "Master’s thesis abstracts (1999–2016)"],
+        ["dissabs", "Doctoral dissertation abstracts",
+         "Doctoral disseration abstracts (2006–2016)"],
+    ]);
 
-settings.corpora.ethesis_en_ma_el = {
-    title: "E-thesis: Master’s theses: Veterinary Medicine",
-    description: "E-thesis: Master’s theses: Faculty of Veterinary Medicine (2003–2016)",
-    id: "ethesis_en_ma_el",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.ud2_en,
-    structAttributes: sattrlist.ethesis
-};
+settings.templ.ethesis_en_ma = $.extend(
+    {}, settings.templ.ethesis_en_base,
+    {
+        id: "ethesis_en_ma_{}",
+        title: "E-thesis: Master’s theses: {}",
+        description: "The University of Helsinki's English E-thesis 1999-2016, Korp version 1.1: Master’s theses: {}",
+    });
 
+funcs.addCorpusSettings(
+    settings.templ.ethesis_en_ma,
+    [
+        ["ot", "Law", "Faculty of Law (2010–2015)"],
+        ["med", "Medicine", "Faculty of Medicine (2009–2015)"],
+        ["el", "Veterinary Medicine",
+         "Faculty of Veterinary Medicine (2003–2016)"],
+        ["hum", "Arts", "Faculty of Arts (1997–2016)"],
+        ["beh", "Behavioural Sciences",
+         "Faculty of Behavioural Sciences (2000–2016)"],
+        ["bio", "Biological and Environmental Sciences",
+         "Faculty of Biological and Environmental Sciences (2006–2015)"],
+        ["far", "Pharmacy", "Faculty of Pharmacy (2003, 2010–2016)"],
+        ["mm", "Agriculture and Forestry",
+         "Agriculture and Forestry (2002–2016)"],
+        ["sci", "Science", "Faculty of Science (1999–2016)"],
+        ["teo", "Theology", "Faculty of Theology (2006–2016)"],
+        ["valt", "Social Sciences", "Faculty of Social Sciences (1999–2016)"],
+        ["ai", "Aleksanteri Institute", "Aleksanteri Institute (2009–2015)"],
+    ]);
 
-settings.corpora.ethesis_en_ma_hum = {
-    title: "E-thesis: Master’s theses: Arts",
-    description: "E-thesis: Master’s theses: Faculty of Arts (1997–2016)",
-    id: "ethesis_en_ma_hum",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.ud2_en,
-    structAttributes: sattrlist.ethesis
-};
+settings.templ.ethesis_en_phd = $.extend(
+    {}, settings.templ.ethesis_en_base,
+    {
+        id: "ethesis_en_phd_{}",
+        title: "E-thesis: Doctoral dissertations: {}",
+        description: "The University of Helsinki's English E-thesis 1999-2016, Korp version 1.1: Doctoral dissertations: {}",
+    });
 
-
-settings.corpora.ethesis_en_ma_beh = {
-    title: "E-thesis: Master’s theses: Behavioural Sciences",
-    description: "E-thesis: Master’s theses: Faculty of Behavioural Sciences (2000–2016)",
-    id: "ethesis_en_ma_beh",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.ud2_en,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_en_ma_bio = {
-    title: "E-thesis: Master’s theses: Biological and Environmental Sciences",
-    description: "E-thesis: Master’s theses: Faculty of Biological and Environmental Sciences (2006–2015)",
-    id: "ethesis_en_ma_bio",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.ud2_en,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_en_ma_far = {
-    title: "E-thesis: Master’s theses: Pharmacy",
-    description: "E-thesis: Master’s theses: Faculty of Pharmacy (2003, 2010–2016)",
-    id: "ethesis_en_ma_far",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.ud2_en,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_en_ma_mm = {
-    title: "E-thesis: Master’s theses: Agriculture and Forestry",
-    description: "E-thesis: Master’s theses: Agriculture and Forestry (2002–2016)",
-    id: "ethesis_en_ma_mm",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.ud2_en,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_en_ma_sci = {
-    title: "E-thesis: Master’s theses: Science",
-    description: "E-thesis: Master’s theses: Faculty of Science (1999–2016)",
-    id: "ethesis_en_ma_sci",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.ud2_en,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_en_ma_teo = {
-    title: "E-thesis: Master’s theses: Theology",
-    description: "E-thesis: Master’s theses: Faculty of Theology (2006–2016)",
-    id: "ethesis_en_ma_teo",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.ud2_en,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_en_ma_valt = {
-    title: "E-thesis: Master’s theses: Social Sciences",
-    description: "E-thesis: Master’s theses: Faculty of Social Sciences (1999–2016)",
-    id: "ethesis_en_ma_valt",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.ud2_en,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_en_ma_ai = {
-    title: "E-thesis: Master’s theses: Aleksanteri Institute",
-    description: "E-thesis: Master’s theses: Aleksanteri Institute (2009–2015)",
-    id: "ethesis_en_ma_ai",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.ud2_en,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_en_maabs = {
-    title: "Master's thesis abstracts",
-    description: "Master's thesis abstracts (1999–2016)",
-    id: "ethesis_en_maabs",
-    within: within.default,
-    context: context.default,
-    attributes: {
-    },
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_en_dissabs = {
-    title: "Doctoral dissertation abstracts",
-    description: "Doctoral disseration abstracts (2006–2016)",
-    id: "ethesis_en_dissabs",
-    within: within.default,
-    context: context.default,
-    attributes: {
-    },
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_en_phd_beh = {
-    title: "E-thesis: Doctoral dissertations: Behavioural Sciences",
-    description: "E-thesis: Doctoral dissertations: Faculty of Behavioural Sciences (1999–2016)",
-    id: "ethesis_en_phd_beh",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.ud2_en,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_en_phd_bio = {
-    title: "E-thesis: Doctoral dissertations: Biological and Environmental Sciences",
-    description: "E-thesis: Doctoral dissertations: Faculty of Biological and Environmental Sciences (1997–2016)",
-    id: "ethesis_en_phd_bio",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.ud2_en,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_en_phd_el = {
-    title: "E-thesis: Doctoral dissertations: Veterinary Medicine",
-    description: "E-thesis: Doctoral dissertations: Faculty of Veterinary Medicine (1999–2016)",
-    id: "ethesis_en_phd_el",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.ud2_en,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_en_phd_far = {
-    title: "E-thesis: Doctoral dissertations: Pharmacy",
-    description: "E-thesis: Doctoral dissertations: Faculty of Pharmacy (1999–2016)",
-    id: "ethesis_en_phd_far",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.ud2_en,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_en_phd_mm = {
-    title: "E-thesis: Doctoral dissertations: Agriculture and Forestry",
-    description: "E-thesis: Doctoral dissertations: Agriculture and Forestry (1999–2016)",
-    id: "ethesis_en_phd_mm",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.ud2_en,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_en_phd_hum = {
-    title: "E-thesis: Doctoral dissertations: Arts",
-    description: "E-thesis: Doctoral dissertations: Faculty of Arts (1989, 1998–2016)",
-    id: "ethesis_en_phd_hum",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.ud2_en,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_en_phd_sci = {
-    title: "E-thesis: Doctoral dissertations: Science",
-    description: "E-thesis: Doctoral dissertations: Faculty of Science (1992, 1995–2016)",
-    id: "ethesis_en_phd_sci",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.ud2_en,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_en_phd_ot = {
-    title: "E-thesis: Doctoral dissertations: Law",
-    description: "E-thesis: Doctoral dissertations: Faculty of Law (2002, 2004–2016)",
-    id: "ethesis_en_phd_ot",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.ud2_en,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_en_phd_teo = {
-    title: "E-thesis: Doctoral dissertations: Theology",
-    description: "E-thesis: Doctoral dissertations: Faculty of Theology (2002–2016)",
-    id: "ethesis_en_phd_teo",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.ud2_en,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_en_phd_med = {
-    title: "E-thesis: Doctoral dissertations: Medicine",
-    description: "E-thesis: Doctoral dissertations: Faculty of Medicine (1998–2016)",
-    id: "ethesis_en_phd_med",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.ud2_en,
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_en_phd_valt = {
-    title: "E-thesis: Doctoral dissertations: Social Sciences",
-    description: "E-thesis: Doctoral dissertations: Faculty Social Sciences (1999–2016)",
-    id: "ethesis_en_phd_valt",
-    within: within.default,
-    context: context.default,
-    attributes: attrlist.ud2_en,
-    structAttributes: sattrlist.ethesis
-};
+funcs.addCorpusSettings(
+    settings.templ.ethesis_en_phd,
+    [
+        ["beh", "Behavioural Sciences",
+         "Faculty of Behavioural Sciences (1999–2016)"],
+        ["bio", "Biological and Environmental Sciences",
+         "Faculty of Biological and Environmental Sciences (1997–2016)"],
+        ["el", "Veterinary Medicine",
+         "Faculty of Veterinary Medicine (1999–2016)"],
+        ["far", "Pharmacy", "Faculty of Pharmacy (1999–2016)"],
+        ["mm", "Agriculture and Forestry",
+         "Agriculture and Forestry (1999–2016)"],
+        ["hum", "Arts", "Faculty of Arts (1989, 1998–2016)"],
+        ["sci", "Science", "Faculty of Science (1992, 1995–2016)"],
+        ["ot", "Law", "Faculty of Law (2002, 2004–2016)"],
+        ["teo", "Theology", "Faculty of Theology (2002–2016)"],
+        ["med", "Medicine", "Faculty of Medicine (1998–2016)"],
+        ["valt", "Social Sciences", "Faculty Social Sciences (1999–2016)"],
+    ]);
 
 
 /* ParRus 2016 ru */
