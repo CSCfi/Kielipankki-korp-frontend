@@ -17276,7 +17276,7 @@ settings.corpora.uralic_ud_v210_fi = {
     context: context.sp,
     attributes: attrlist.ud2_uralic,
     structAttributes: sattrlist.ud2_uralic_fi,
-    licence: settings.licenceinfo.CC_BY_40,
+    licence: settings.licenceinfo.CC_BY_SA_40,
     metadata_urn: "urn:nbn:fi:lb-2022061001",
     status: "beta"
 };

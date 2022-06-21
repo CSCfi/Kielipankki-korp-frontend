@@ -4925,7 +4925,7 @@ settings.corpora.uralic_ud_v210_et = {
     status: "beta"
 };
 
-settings.corpora.uralic_ud_v210_hu_szeged = {
+settings.corpora.uralic_ud_v210_hu = {
     id: "uralic_ud_v210_hu",
     title: "Uralic UD v2.10 for Hungarian",
     description: "Universal Dependencies version 2.10 for Hungarian",
