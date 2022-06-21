@@ -16662,46 +16662,6 @@ settings.corpusAliases["ylenews-fi-2011-2018-selko-s-korp"]
     = settings.corpusAliases["ylenews-fi-2011-2018-selko-s"]
     = "ylenews_fi_2011_2018_selko_s";
 
-// Uralic UD
-attrlist.ud2_uralic = attrlist.ud2_fi;
-attrlist.ud2_uralic.misc = { label: "misc", opts: options.default };
-
-sattrlist.ud2_uralic_fi = {
-    text_id : { label: "uralic_ud_text_id" },
-    text_iso_lang : { label: "uralic_ud_text_iso_lang" },
-    sentence_id : { label: "uralic_ud_sentence_id" },
-    sentence_text : { label: "uralic_ud_sentence_text" },
-    sentence_text_en : { label: "uralic_ud_sentence_text_en" },
-    sentence_doc_id : { label: "uralic_ud_sentence_doc_id" },
-    sentence_newdoc_id : { label: "uralic_ud_sentence_newdoc_id" },
-    sentence_thread_id : { label: "uralic_ud_sentence_thread_id" },
-    sentence_comment_id : { label: "uralic_ud_sentence_comment_id" },
-    sentence_newpar_id : { label: "uralic_ud_sentence_newpar_id" }
-};
-
-settings.corporafolders.other.uralic_ud_v210 = {
-    title: "Uralic UD v2.10",
-    description: "The corpus contains Universal Dependencies version 2.10 for the following Uralic languages: (Erzya, Estonian) Finnish (Hungarian, Karelian, Komi-Permyak, Komi-Zyrian, Livvi, Moksha, North Sami and Skolt Sami).",
-    info: {
-       metadata_urn: "http://urn.fi/urn:nbn:fi:lb-2022061001",
-       cite_id: "uralic-ud-v2-10",
-    },
-    contents: [ "uralic_ud_v210_fi" ]
-};
-
-settings.corpora.uralic_ud_v210_fi = {
-    id: "uralic_ud_v210_fi",
-    title: "Uralic UD v2.10 for Finnish",
-    description: "Universal Dependencies version 2.10 for Finnish",
-    lang: "fi",
-    within: within.sp,
-    context: context.sp,
-    attributes: attrlist.ud2_uralic,
-    structAttributes: sattrlist.ud2_uralic_fi,
-    licence: settings.licenceinfo.CC_BY_SA_40,
-    metadata_urn: "urn:nbn:fi:lb-2022061001",
-    status: "beta"
-};
 
 // Add the extra properties to corpora
 //
