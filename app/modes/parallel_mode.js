@@ -7322,7 +7322,6 @@ function pabivus_add_common_info(corpus, attrs = "") {
     }
     corpus.licence = settings.licenceinfo.CC_BY_NC;
     corpus.metadata_urn = "urn:nbn:fi:lb-2020021121";
-    corpus.status = "beta";
 };
 
 settings.corpora.pabivus_udm_1997 = {
