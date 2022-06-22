@@ -4763,6 +4763,22 @@ function create_ud2_sattrlist(sentence_attribute_names) {
     return retval;
 };
 
+settings.licenceinfo.CC_BY_SA_40 = {
+    name: "CC BY-SA 4.0 (CLARIN PUB)",
+    description: "Creative Commons Attribution-ShareAlike",
+    url: "https://creativecommons.org/licenses/by-sa/4.0/",
+};
+settings.licenceinfo.CC_BY_NC_SA_30 = {
+    name: "CC BY-NC-SA 3.0 (CLARIN PUB)",
+    description: "Creative Commons Attribution-NonCommercial-ShareAlike",
+    url: "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+};
+settings.licenceinfo.CC_BY_NC_SA_40 = {
+    name: "CC BY-NC-SA 4.0 (CLARIN PUB)",
+    description: "Creative Commons Attribution-NonCommercial-ShareAlike",
+    url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+};
+
 settings.corpora.uralic_ud_v210_et = {
     id: "uralic_ud_v210_et",
     title: "Uralic UD v2.10 for Estonian",
@@ -4780,7 +4796,7 @@ settings.corpora.uralic_ud_v210_et = {
 settings.corpora.uralic_ud_v210_fi = {
     id: "uralic_ud_v210_fi",
     title: "Uralic UD v2.10 for Finnish",
-    description: "Universal Dependencies version 2.10 for Finnish",
+    description: "Universal Dependencies version 2.10 for Finnish<br/>(Note: treebanks OOD, PUD and TDT are licensed as CC BY-SA 4.0, but FTB is licensed as CC BY 4.0)",
     lang: "fi",
     within: within.sp,
     context: context.sp,
