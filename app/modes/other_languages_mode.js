@@ -4790,7 +4790,6 @@ settings.corpora.uralic_ud_v210_et = {
     structAttributes: create_ud2_sattrlist(["newdoc_id"]),
     licence: settings.licenceinfo.CC_BY_NC_SA_40,
     metadata_urn: "urn:nbn:fi:lb-2022061001",
-    status: "beta"
 };
 
 settings.corpora.uralic_ud_v210_fi = {
@@ -4804,7 +4803,6 @@ settings.corpora.uralic_ud_v210_fi = {
     structAttributes: sattrlist.ud2_uralic_fi,
     licence: settings.licenceinfo.CC_BY_SA_40,
     metadata_urn: "urn:nbn:fi:lb-2022061001",
-    status: "beta"
 };
 
 settings.corpora.uralic_ud_v210_hu = {
@@ -4818,7 +4816,6 @@ settings.corpora.uralic_ud_v210_hu = {
     structAttributes: create_ud2_sattrlist([]),
     licence: settings.licenceinfo.CC_BY_NC_SA_30,
     metadata_urn: "urn:nbn:fi:lb-2022061001",
-    status: "beta"
 };
 
 settings.corpora.uralic_ud_v210_krl = {
@@ -4832,7 +4829,6 @@ settings.corpora.uralic_ud_v210_krl = {
     structAttributes: create_ud2_sattrlist(["comment"]),
     licence: settings.licenceinfo.CC_BY_SA_40,
     metadata_urn: "urn:nbn:fi:lb-2022061001",
-    status: "beta"
 };
 
 settings.corpora.uralic_ud_v210_koi = {
@@ -4846,7 +4842,6 @@ settings.corpora.uralic_ud_v210_koi = {
     structAttributes: create_ud2_sattrlist(["text_sms", "text_mdf", "text_fi", "text_olo", "text_kpv", "text_ru", "text_orig", "source", "gloss_ru"]),
     licence: settings.licenceinfo.CC_BY_SA_40,
     metadata_urn: "urn:nbn:fi:lb-2022061001",
-    status: "beta"
 };
 
 settings.corpora.uralic_ud_v210_kpv = {
@@ -4860,7 +4855,6 @@ settings.corpora.uralic_ud_v210_kpv = {
     structAttributes: create_ud2_sattrlist(["text_ru", "text_en", "comment", "text_koi", "text_orig", "corpus_version", "text_end", "questions", "label"]),
     licence: settings.licenceinfo.CC_BY_SA_40,
     metadata_urn: "urn:nbn:fi:lb-2022061001",
-    status: "beta"
 };
 
 settings.corpora.uralic_ud_v210_mdf = {
@@ -4874,7 +4868,6 @@ settings.corpora.uralic_ud_v210_mdf = {
     structAttributes: create_ud2_sattrlist(["text_en", "source", "text_orig", "gloss_en", "text_sms", "text_kpv", "text_fi"]),
     licence: settings.licenceinfo.CC_BY_SA_40,
     metadata_urn: "urn:nbn:fi:lb-2022061001",
-    status: "beta"
 };
 
 settings.corpora.uralic_ud_v210_myv = {
@@ -4888,7 +4881,6 @@ settings.corpora.uralic_ud_v210_myv = {
     structAttributes: create_ud2_sattrlist(["text_en", "text_fi", "story_id", "source", "text_ru", "text_orig"]),
     licence: settings.licenceinfo.CC_BY_SA_40,
     metadata_urn: "urn:nbn:fi:lb-2022061001",
-    status: "beta"
 };
 
 settings.corpora.uralic_ud_v210_olo = {
@@ -4902,7 +4894,6 @@ settings.corpora.uralic_ud_v210_olo = {
     structAttributes: create_ud2_sattrlist(["text_sms", "text_mdf", "text_fi", "text_en"]),
     licence: settings.licenceinfo.CC_BY_SA_40,
     metadata_urn: "urn:nbn:fi:lb-2022061001",
-    status: "beta"
 };
 
 settings.corpora.uralic_ud_v210_sme = {
@@ -4916,7 +4907,6 @@ settings.corpora.uralic_ud_v210_sme = {
     structAttributes: create_ud2_sattrlist([]),
     licence: settings.licenceinfo.CC_BY_SA_40,
     metadata_urn: "urn:nbn:fi:lb-2022061001",
-    status: "beta"
 };
 
 settings.corpora.uralic_ud_v210_sms = {
@@ -4930,7 +4920,6 @@ settings.corpora.uralic_ud_v210_sms = {
     structAttributes: create_ud2_sattrlist(["story_id", "text_fi", "text_mdf", "text_olo", "comment"]),
     licence: settings.licenceinfo.CC_BY_SA_40,
     metadata_urn: "urn:nbn:fi:lb-2022061001",
-    status: "beta"
 };
 
 funcs.addAttrExtraProperties(settings.corpora);
