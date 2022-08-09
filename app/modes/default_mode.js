@@ -14588,7 +14588,7 @@ settings.corpora.nlfcl_fi = {
     cite_id: "nlfcl-fi-korp",
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs"],
-    attributes: attrs.parsed_tdt_finer2,
+    attributes: attrlist.parsed_tdt_finer2,
     structAttributes: {
         text_id: sattrs.hidden,
 	text_title: sattrs.text_title,
