@@ -4795,7 +4795,7 @@ settings.corpora.uralic_ud_v210_et = {
 settings.corpora.uralic_ud_v210_fi = {
     id: "uralic_ud_v210_fi",
     title: "Uralic UD v2.10 for Finnish",
-    description: "Universal Dependencies version 2.10 for Finnish<br/>(Note: treebanks OOD, PUD and TDT are licensed as CC BY-SA 4.0, but FTB is licensed as CC BY 4.0)",
+    description: "Universal Dependencies version 2.10 for Finnish<br/>(Note: the treebanks OOD, PUD and TDT are licensed as CC BY-SA 4.0, but FTB is licensed as CC BY 4.0)",
     lang: "fi",
     within: within.sp,
     context: context.sp,
