@@ -69,7 +69,9 @@ settings.corporafolders.legal.jrc = {
         "jrc_acquis_svfi_fi",
         "jrc_acquis_defi_fi",
         "jrc_acquis_esfi_fi",
-        "jrc_acquis_etfi_fi",
+        // jrc_acquis_etfi_et is empty in practice, probably due to an
+        // error in the import process
+        // "jrc_acquis_etfi_fi",
         "jrc_acquis_frfi_fi",
         "jrc_acquis_itfi_fi",
         "jrc_acquis_hufi_fi",
@@ -6805,40 +6807,43 @@ settings.corpora.jrc_acquis_esfi_fi = {
     structAttributes: sattrlist.jrc_acquis
 };
 
-settings.corpora.jrc_acquis_etfi_et = {
-    title: "JRC-Acquis viro",
-    description: "jrc_acquis_etfi_et",
-    id: "jrc_acquis_etfi_et",
-    urn: "urn:nbn:fi:lb-2015062306",
-    metadata_urn: "urn:nbn:fi:lb-2015061202",
-    lang: "est",
-    linkedTo: ["jrc_acquis_etfi_fi"],
-    context: context.alignAligned,
-    within: within.sentence,
-    within: within.sp,
-    context: context.sp,
-    attributes: {
-    },
-    structAttributes: sattrlist.jrc_acquis,
-    hide: true
-};
+// jrc_acquis_etfi_et is empty in practice, probably due to an error
+// in the import process
 
-settings.corpora.jrc_acquis_etfi_fi = {
-    title: "JRC-Acquis suomi–viro",
-    description: "JRC-Acquis suomi–viro",
-    id: "jrc_acquis_etfi_fi",
-    urn: "urn:nbn:fi:lb-2015062306",
-    metadata_urn: "urn:nbn:fi:lb-2015061202",
-    lang: "fin",
-    linkedTo: ["jrc_acquis_etfi_et"],
-    context: context.alignAligned,
-    within: within.sentence,
-    within: within.sp,
-    context: context.sp,
-    attributes: {
-    },
-    structAttributes: sattrlist.jrc_acquis
-};
+// settings.corpora.jrc_acquis_etfi_et = {
+//     title: "JRC-Acquis viro",
+//     description: "jrc_acquis_etfi_et",
+//     id: "jrc_acquis_etfi_et",
+//     urn: "urn:nbn:fi:lb-2015062306",
+//     metadata_urn: "urn:nbn:fi:lb-2015061202",
+//     lang: "est",
+//     linkedTo: ["jrc_acquis_etfi_fi"],
+//     context: context.alignAligned,
+//     within: within.sentence,
+//     within: within.sp,
+//     context: context.sp,
+//     attributes: {
+//     },
+//     structAttributes: sattrlist.jrc_acquis,
+//     hide: true
+// };
+
+// settings.corpora.jrc_acquis_etfi_fi = {
+//     title: "JRC-Acquis suomi–viro",
+//     description: "JRC-Acquis suomi–viro",
+//     id: "jrc_acquis_etfi_fi",
+//     urn: "urn:nbn:fi:lb-2015062306",
+//     metadata_urn: "urn:nbn:fi:lb-2015061202",
+//     lang: "fin",
+//     linkedTo: ["jrc_acquis_etfi_et"],
+//     context: context.alignAligned,
+//     within: within.sentence,
+//     within: within.sp,
+//     context: context.sp,
+//     attributes: {
+//     },
+//     structAttributes: sattrlist.jrc_acquis
+// };
 
 settings.corpora.jrc_acquis_defi_de = {
     title: "JRC-Acquis saksa",
