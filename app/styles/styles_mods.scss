@@ -1,0 +1,30 @@
+
+// Generic style modifications for the Korp of the Language Bank of
+// Finland
+
+// Make the statistics attribute selection list wider, to accommodate
+// longer attribute labels
+// TODO: Try to make this depend on the length of the labels
+.reduce-attr-select {
+    width: 250px;
+}
+
+// Full-width text in context view
+.results_table.reading {
+    margin-left: initial;
+    p {
+        // FIXME: 100% would add a scrollbar, which should be fixed
+        // somewhere else
+        width: 95%;
+    }
+}
+
+// Reduce the line spacing of the corpus title in the sidebar, so that
+// long titles divided onto multiple lines look better.
+// FIXME: Class text-lg is currently used only for the corpus title in
+// the sidebar, but it is more general class for large text. It would
+// probably be better to add separate class to the sidebar corpus
+// title.
+div.text-lg {
+    line-height: 120%;
+}

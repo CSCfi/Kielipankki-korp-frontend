@@ -427,6 +427,9 @@
     "speakerregion": "talarregion",
     "speakergender": "talarkön",
     "participants": "deltagare",
+
+    "show_video_page": "Visa video på en separat sida",
+    "show_video_korp": "Visa video i Korp",
     "video": "video",
     "video_restart": "Starta om",
     "video_continue": "Fortsätt",
@@ -475,6 +478,35 @@
     "datetime_json_modified": "JSONs redigeringsdatum",
 
     "klk_img_url": "Se dokument i Revizor",
+
+    "iso_639_code": "ISO 639 -kod",
+    "pabivus_chapter": "kapitel",
+    "pabivus_verse": "vers",
+
+    "koi-2019": "komi-permjak (2019)",
+    "kpv-2008": "komi-syrjänska (2008)",
+    "krl-2011": "nordkarelsk (2011)",
+    "mdf-2016": "moksja (2016)",
+    "myv-2006": "erzya (2006)",
+    "olo-2003": "livvi-karelsk (2003)",
+    "udm-1997": "udmurtiska (1997)",
+    "myv-2020": "erzya (2020)",
+    "myv-2011": "erzya (2011)",
+    "myv-1996": "erzya (1996)",
+    "myv-1998": "erzya (1998)",
+    "myv-1995": "erzya (1995)",
+    "myv-1910": "erzya (1910)",
+    "myv-1821": "erzya (1821)",
+    "mdf-1995": "moksja (1995)",
+    "kpv-1995": "komi-syrjänska (1995)",
+    "kpv-1997": "komi-syrjänska (1997)",
+    "koi-1996": "komi-permjak (1996)",
+    "rus-1876": "ryska (1876)",
+    "vep-2013": "vepsiska (2013)",
+    "mns-2000": "mansi (2003)",
+    "kca-2013": "khanty (2013)",
+    "kca-2017": "khanty (2017)",
+    "kca-2018": "khanty (2018)",
 
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }

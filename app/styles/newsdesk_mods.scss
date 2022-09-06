@@ -1,0 +1,15 @@
+
+// Wider newsdesk
+.newsdesk-popover {
+    // width seems to be overridden by max-width in .popover
+    max-width: 440px;
+}
+
+// Show bullets in lists
+.newsdesk-news-item {
+    ul {
+        list-style: initial;
+        // Bullet approximately justified with non-list text
+        margin-left: 1.2em;
+    }
+}

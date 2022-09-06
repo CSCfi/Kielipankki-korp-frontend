@@ -301,13 +301,11 @@ settings.languageNames = {
 }
 settings.defaultLanguage = "fi";
 
-// If a localization key does not have a translation in some language,
-// use the translation in the first language in
-// settings.defaultTranslations that has a translation, or the
-// localization key itself if the language is "KEY" (makes sense only
-// as the last element of the list, since the key is always present).
-// (Jyrki Niemi 2016-04-28)
-settings.defaultTranslations = ["en", "KEY"];
+// If a localization key does not have a translation in the UI
+// language, use the translation in the first language in
+// settings.defaultTranslationLanguages that has a translation, before
+// defaulting to the localization key itself.
+settings.defaultTranslationLanguages = ["en"];
 
 // Locales corresponding to languages (Jyrki Niemi 2016-02-16)
 settings.locales = {
@@ -331,6 +329,12 @@ settings.filterSelection = "intersection"
 settings.newsDeskUrl =
     window.location.protocol + "//" + window.location.hostname + "/"
     + window.location.pathname + "news/json/korpnews.json";
+
+settings.newsBannerUrl = (
+    isProductionServer
+    ? settings.newsDeskUrl.replace("korpnews.json", "korpbannernews.json")
+    : "http://localhost/korp9/news/json/korpbannernews.json")
+
 
 // authenticationType: "basic", "shibboleth" or "none"
 settings.authenticationType = (isProductionServer ? "shibboleth" : "basic");
@@ -389,15 +393,16 @@ settings.make_direct_LBR_URL = function (lbr_id) {
 settings.corpusExtraInfoItems = [
     "credits",
     "subcorpus_of",
-    "pid",
+    "metadata",
     "cite",
-    "licence",
     "infopage",
     "urn",
     "homepage",
     "iprholder",
     "compiler",
     "download",
+    "pid",
+    "licence",
 ];
 
 // The extra info (usually links) to be shown in the corpus info popup
@@ -407,14 +412,23 @@ settings.corpusExtraInfo = {
     sidebar: [
         "credits",
         "subcorpus_of",
-        "pid",
+        "metadata",
         "cite",
-        "licence",
         "infopage",
         "urn",
         "download",
+        "pid",
+        "licence",
     ]
 };
+
+// Get the PID from corpus configuration corpusObj
+let getPid = function (corpusObj) {
+    return ((corpusObj.pid ? corpusObj.pid.urn : null)
+            || corpusObj.pid_urn
+            || (corpusObj.metadata ? corpusObj.metadata.urn : null)
+            || corpusObj.metadata_urn)
+}
 
 // Special handling for specified corpus extra info items: property
 // names refer to info item names (keys) and their values are
@@ -427,8 +441,19 @@ settings.corpusExtraInfo = {
 // tried.
 settings.makeCorpusExtraInfoItem = {
     subcorpus_of: function (corpusObj, label) {
+        // For folders, corpusObj is folder.info, which does not
+        // contain title, so also check that corpusObj.folderType does
+        // not begin with "corpus" ("corpusCollection" or
+        // "corpusWithSubcorpora").
+        // Also remove from corpus titles a possible trailing licence
+        // type label within square brackets, as that is added after
+        // the logical corpus title is set.
         if (corpusObj.logicalCorpus
-            && corpusObj.logicalCorpus.title != corpusObj.title) {
+            && (! corpusObj.title
+                || (corpusObj.logicalCorpus.title
+                    != corpusObj.title.replace(/\s*\[.+?\]$/, "")))
+            && ! (corpusObj.folderType
+                  && corpusObj.folderType.startsWith("corpus"))) {
             return {
                 text: corpusObj.logicalCorpus.title,
                 label: label,
@@ -438,10 +463,7 @@ settings.makeCorpusExtraInfoItem = {
     pid: function (corpusObj, label) {
         // If the PID of a corpus is not specified explicitly, use
         // the metadata URN.
-        var pid = ((corpusObj.pid ? corpusObj.pid.urn : null)
-                   || corpusObj.pid_urn
-                   || (corpusObj.metadata ? corpusObj.metadata.urn : null)
-                   || corpusObj.metadata_urn);
+        var pid = getPid(corpusObj);
         if (pid) {
             return {
                 url: util.makeUrnUrl(pid),
@@ -450,7 +472,18 @@ settings.makeCorpusExtraInfoItem = {
                 text: ('<span style="white-space: nowrap;">' + pid +
                        '</span>'),
                 label: label,
-            };
+            }
+        }
+    },
+    metadata: function (corpusObj, label) {
+        // This is the same link as for "pid", but presented as a link
+        // text only (the actual URN is not shown).
+        let pid = getPid(corpusObj)
+        if (pid) {
+            return {
+                url: util.makeUrnUrl(pid),
+                text: label,
+            }
         }
     },
     cite: function (corpusObj, label) {
@@ -502,6 +535,16 @@ settings.makeCorpusExtraInfoItem = {
                 text: label,
             };
         }
+    },
+    licence: {
+        postprocess: function (corpusObj, html) {
+            // Show restricted licence information in boldface
+            return (corpusObj.limitedAccess ||
+                    (corpusObj.licence && ["ACA", "ACA-Fi", "RES"].includes(
+                        corpusObj.licence.category))
+                    ? `<strong>${html}</strong>`
+                    : html)
+        },
     },
 };
 
@@ -619,28 +662,6 @@ settings.defaultReadingContext = "1 paragraph"
 settings.defaultWithin = {
     "sentence": "sentence"
 };
-// TODO: Move these to modes/common.js
-settings.spWithin = {
-    "sentence": "sentence",
-    "paragraph": "paragraph"
-};
-settings.spcWithin = {
-    "sentence": "sentence",
-    "paragraph": "paragraph",
-    "clause": "clause",
-};
-settings.scWithin = {
-    "sentence": "sentence",
-    "clause": "clause",
-};
-settings.sentLinkContext = {
-    "1 sentence": "1 sentence",
-    "1 link": "1 link"
-};
-settings.sentLinkWithin = {
-    "sentence": "sentence",
-    "link": "link"
-};
 
 // Corpus id alias mapping: aliases as property keys and actual corpus
 // ids as values. (Jyrki Niemi 2015-04-23)
@@ -662,14 +683,14 @@ settings.short_url_config = {};
 // specifications may also be regular expressions: the matching
 // attributes are shown in the JavaScript property iteration order.
 // The defaults can be overridden in the property
-// sidebar_display_order of corpus settings. (Jyrki Niemi 2015-08-27)
+// sidebarDisplayOrder of corpus settings. (Jyrki Niemi 2015-08-27)
 //
 // As of version 5.0.6, Språkbanken's Korp has similar functionality
 // implemented via the property "order" of attribute definitions. The
 // orders here are converted to "order" properties, but maybe we
 // should eventually migrate to having the "order" properties in the
 // attribute definitions. (Jyrki Niemi 2017-10-20)
-settings.default_sidebar_display_order = {
+settings.defaultSidebarDisplayOrder = {
     attributes: [
         "lemma",
         "lemmacomp",
@@ -681,7 +702,7 @@ settings.default_sidebar_display_order = {
         "msd",
         "deprel",
     ],
-    struct_attributes: [
+    structAttributes: [
         /^text_/,
         /^chapter_/,
         /^speech_/,
@@ -788,4 +809,74 @@ settings.formatCorpusChooserItem = {
     // // (corpora with no subcorpora)
     // standaloneCorpus: (title, corpus) => `<b>${title}</b>`,
     // corpusWithSubcorpora: (title, folder) => `<b>${title}</b>`,
+}
+
+// Restore saved parameters when switching modes
+settings.modeSwitchRestoreParams = true
+// But keep the active "lang" (UI language)
+settings.modeSwitchRestoreParamsExclude = ["lang"]
+
+// Add information specific to the Language Bank of Finland to the
+// "about Korp" modal
+settings.aboutTemplateModifier = function (template) {
+    // The value of lbfExtension is the name of a file containing the
+    // HTML generated from markup/about_lbf.pug; this is determined by
+    // the loaders for Pug files in webpack.common.js of the main Korp
+    // codebase
+    const lbfExtension = require("./markup/about_lbf.pug")
+    // Include the content of the file to the template using
+    // ng-include
+    return template.replace(
+        /(<\/div>\s*<\/div>\s*)/,
+        `<ng-include src="'${lbfExtension}'"></ng-include> $1`)
+}
+
+// Run as Korp Labs if the path contain "korplab" or "-test"
+settings.isKorpLabsURL = function (location) {
+    return location.pathname.split("/")[1].match(/korplabb?|-test/)
+}
+
+// The Korp version shown in the Korp logo: "v9" also in Korp Labs
+settings.logoKorpVersion = "v9"
+
+// Construct a CQP query for a lemgram in the simple search, taking
+// into account possible prefix, middle part and suffix searches. This
+// overrides the default of using complemgram if available for the
+// affix searches.
+settings.simpleSearchGetLemgramCQP = function (lemgram, opts) {
+    let val = `[lex contains "${regescape(lemgram)}"`
+    if (opts.prefix || opts.mid_comp || opts.suffix) {
+        const matches = lemgram.match(/^(.+)(\.\.\w+\.\d+(?::.*)?)$/)
+        // c.log("simpleSearchGetLemgramCQP", lemgram, lemgram, opts, matches)
+        if (matches) {
+            const base = regescape(matches[1])
+            const suffix = regescape(matches[2])
+            if (opts.prefix) {
+                val += ` | lex contains "${base}.+${suffix}"`
+            }
+            if (opts.mid_comp) {
+                val += ` | lex contains ".+${base}.+${suffix}"`
+            }
+            if (opts.suffix) {
+                val += ` | lex contains ".+${base}${suffix}"`
+            }
+        }
+    }
+    return val + "]"
+}
+
+// Corpus (and folder) configuration properties based on which the
+// corpus (folder) title and description are augmented. This requires
+// plugin config_augment_info.
+settings.augmentCorpusInfoProperties = {
+    // Corpus status: beta or test
+    status: {
+        property: "status",
+        valueType: "stringlist",
+        values: [
+            "beta",
+            "test",
+        ],
+        localizeDescription: true,
+    },
 }

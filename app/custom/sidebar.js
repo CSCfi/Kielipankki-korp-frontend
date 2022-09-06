@@ -49,50 +49,98 @@ export default {
             }
         }]
     },
-    ivipVideo: (options) => ({
+
+    // Video player link for for showing the video popup, to show a
+    // video based on attribute values
+    //
+    // options is an object containing (some of) the following
+    // properties:
+    // - label: localizable label for the video link; default: "show_video_korp"
+    // - baseURL: base URL for the video
+    // - startTime: start time of the video in milliseconds
+    // - endTime: end time of the video in milliseconds
+    // - path: path of the video file, appended to baseURL
+    // - file: filename of the video file, appended to baseURL + path
+    // - ext: extension of the video file (without the leading dot)
+    // - height: video height (percentage or "auto"); default: "auto"
+    // - width: video width (percentage or "auto"); default: "auto"
+    // - videoType: video type (appended to "video/"); default: "mp4"
+    //
+    // If file and ext are empty, path is considered to contain them;
+    // if path is also empty, baseURL is considered to contain them.
+    //
+    // If the value of some of these options (except label) begins
+    // with an "@", the rest of the value is the name of the
+    // (structural) attribute from which to get the actual value;
+    // otherwise, the value is used as a constant value as such.
+    //
+    // Adapted and generalized from Språkbanken's ivipVideo
+    videoPlayer: (options) => ({
         template: String.raw`
-            <span class="link" ng-click="showVideoModal()">visa inspelning</span>
+            <span class="link" ng-click="showVideoModal()">{{label | loc:lang}}</span>
             <div id="video-modal" ng-controller="VideoCtrl"></div>
         `,
         controller: ["$scope", function($scope) {
-            const startTime = $scope.sentenceData["sentence_start"]
-            const endTime = $scope.sentenceData["sentence_end"]
-            const path = $scope.sentenceData["text_mediafilepath"]
-            const file = $scope.sentenceData["text_mediafile"]
-            const ext = $scope.sentenceData["text_mediafileext"]
+            // Get a value: if value begins with an "@", return the
+            // value of the structural attribute whose name follows
+            // the "@"; otherwise, return value as is ("" for
+            // undefined)
+            const getValue = function (value) {
+                return ((value || "").startsWith("@")
+                        ? $scope.sentenceData[value.slice(1)]
+                        : value || "")
+            };
+            const baseURL = getValue(options.baseURL)
+            const startTime = getValue(options.startTime)
+            const endTime = getValue(options.endTime)
+            const path = getValue(options.path)
+            const file = getValue(options.file)
+            const ext = getValue(options.ext)
+            const videoType = getValue(options.videoType) || "mp4"
+            const height = getValue(options.height) || "auto"
+            const width = getValue(options.width) || "auto"
+            $scope.label = getValue(options.label) || "show_video_korp"
+            // console.log("videoPlayer controller", $scope.sentenceData,
+            //             baseURL, startTime, endTime, path, file, ext)
 
             $scope.showVideoModal = function () {
-                const url = options.baseURL + path +  file + "." + ext
-
+                const url = baseURL + path + file + (ext ? "." + ext : "")
                 const modalScope = angular.element("#video-modal").scope()
-                modalScope.videos = [{"url": url, "type": "video/mp4"}]
-                modalScope.fileName = file + "." + ext
+                modalScope.videos = [{"url": url, "type": "video/" + videoType}]
+                modalScope.fileName = (file
+                                       ? file + "." + ext
+                                       : url.split("/").slice(-1)[0])
                 modalScope.startTime = startTime / 1000
                 modalScope.endTime = endTime / 1000
-
+                modalScope.height = height
+                modalScope.width = width
+                // console.log("videoLink", modalScope.videos,
+                //             modalScope.fileName, modalScope.startTime,
+                //             modalScope.endTime)
                 // find start of sentence
                 let startIdx = 0
-                for(let i = $scope.wordData.position; i >= 0; i--) {
-                    if(_.includes($scope.tokens[i]._open, "sentence")) {
+                for (let i = $scope.wordData.position; i >= 0; i--) {
+                    if (_.includes($scope.tokens[i]._open, "sentence")) {
                         startIdx = i
                         break
                     }
                 }
-
                 // find end of sentence
                 let endIdx = $scope.tokens.length - 1
-                for(let i = $scope.wordData.position; i < $scope.tokens.length; i++) {
-                    if(_.includes($scope.tokens[i]._close, "sentence")) {
+                for (let i = $scope.wordData.position; i <= endIdx; i++) {
+                    if (_.includes($scope.tokens[i]._close, "sentence")) {
                         endIdx = i
                         break
                     }
                 }
-
-                modalScope.sentence = _.map($scope.tokens.slice(startIdx, endIdx + 1), "word").join(" ")
+                modalScope.sentence =
+                    _.map($scope.tokens.slice(startIdx, endIdx + 1),
+                          "word").join(" ")
                 modalScope.open()
             }
         }]
     }),
+
     lsiImage: {
         template: String.raw`
             <div>
@@ -168,4 +216,4 @@ export default {
             }     
        }]
     })
-}   
+}

@@ -48,10 +48,12 @@ sattrlist.klk_sv_parsed = $.extend(
 sattrlist.klk_sv_parsed_pagelinks = $.extend(
     {}, sattrlist.klk_sv_parsed, sattrlist.klk_pagelinks);
 
+sattrlist.klk_sv_parsed_pagelinks_custom = sattrlist.klk_pagelinks_custom;
+
 attrlist.klk_sv = {
     ocr: {
         label: "OCR",
-        opts: settings.defaultOptions,
+        opts: options.default,
     }
 };
 
@@ -100,6 +102,10 @@ settings.corporafolders = {
         title: "Tidnings-, tidskrifts- och nyhetskorpusar",
         description: "Tidnings-, tidskrifts- och nyhetskorpusar",
     },
+    reference: {
+        title: "Referenskorpusar",
+        description: "Referenskorpusar",
+    },
     legal: {
         title: "Juridiska korpusar",
         description: "Juridiska korpusar",
@@ -112,7 +118,8 @@ settings.corporafolders = {
 
 
 settings.corporafolders.academic.ethesis = {
-    title: "E-thesis",
+    title: "E-thesis (svenska)",
+    description: "Helsingfors universitets svenska E-thesis, Korp-version",
     contents: [
         "ethesis_sv_dissabs",
         "ethesis_sv_maabs",
@@ -120,7 +127,15 @@ settings.corporafolders.academic.ethesis = {
         "ethesis_sv_ma",
     ],
     info: {
-        cite_id: "e-thesis-sv",
+        metadata_urn: "urn:nbn:fi:lb-2016102810",
+        urn: "urn:nbn:fi:lb-2016102801",
+        shortname: "e-thesis-sv",
+        licence: settings.licenceinfo.CC_BY,
+        homepage: {
+            url: "https://ethesis.helsinki.fi/sv/",
+            name: "Digitala avhandlingar vid Helsingfors universitet",
+            // no_label: true,
+        },
     }
 };
 
@@ -152,7 +167,7 @@ settings.corporafolders.news.klk_sv = {
     description: "Svenskspråkiga tidningar och tidskrifter i Nationalbibliotekets digitala samlingar, Kielipankki-version",
     info: {
         urn: "urn:nbn:fi:lb-2014091901",
-        metadata_urn: "urn:nbn:fi:lb-201405276",
+        metadata_urn: "urn:nbn:fi:lb-2016050301",
         licence: settings.licenceinfo.CC_BY,
         cite_id: "KLK-sv",
     }
@@ -173,7 +188,7 @@ settings.corporafolders.news.ylenews_sv = {
 settings.corporafolders.news.ylenews_sv.a = {
     title: "Yle svenska webbartiklar 2012–2018 (för forskare)",
     description: "Yle svenska webbartiklar 2012–2018, Korp<br/>Variant tillgänglig för forskare: meningarna i den ursprungliga ordningen och stöd för utökad kontextvisning<br/><br/>Korpusen är indelad i delkorpusar enligt år, och artiklarna är ordnade enligt redigeringsdatumet.",
-    // Contents are added later with funcs.add_corpus_settings
+    // Contents are added later with funcs.addCorpusSettings
     contents: [],
     info: {
         urn: "urn:nbn:fi:lb-2019120405",
@@ -186,7 +201,7 @@ settings.corporafolders.news.ylenews_sv.a = {
 settings.corporafolders.news.ylenews_sv.s = {
     title: "Yle svenska webbartiklar 2012–2018 (för alla)",
     description: "Yle svenska webbartiklar 2012–2018, blandad, Korp<br/>Variant öppen för alla: meningarna i en blandad ordning inom varje text och ingen utökad kontextvisning<br/><br/>Korpusen är indelad i delkorpusar enligt år, och artiklarna är ordnade enligt redigeringsdatumet.",
-    // Contents are added later with funcs.add_corpus_settings
+    // Contents are added later with funcs.addCorpusSettings
     contents: [],
     info: {
         urn: "urn:nbn:fi:lb-2019120406",
@@ -223,19 +238,19 @@ settings.corporafolders.other.fstc_other = {
 };
 
 
-var klk_sv_parsed_years = funcs.make_yearlist(1771, 1948);
+var klk_sv_parsed_years = funcs.makeYearlist(1771, 1948);
 
 
 // Generate settings.corpora and settings.corporafolders for the
 // Swedish KLK corpora by using functions defined in config.js
 
-funcs.make_corpus_settings_by_year_decade(
+funcs.makeCorpusSettingsByYearDecade(
     settings.corporafolders.news.klk_sv, "sv_{decade}", "klk_sv_{year}",
     function(decade) {
         return { title: decade.toString() + "-talet" };
     },
     function(year) {
-        return funcs.make_klk_corpus_settings(
+        return funcs.makeKlkCorpusSettings(
             "Nationalbiblioteket svenska {year}",
             "Nationalbibliotekets svenskspråkiga tidningar och tidskrifter från {year}",
             "klk",
@@ -243,7 +258,7 @@ funcs.make_corpus_settings_by_year_decade(
             year,
             klk_sv_parsed_years.indexOf(year) != -1);
     },
-    funcs.make_yearlist(
+    funcs.makeYearlist(
         1771, 1948,
         {descending: true,
          omit: [1779, 1780, 1781, 1786, 1787, 1788, 1790]}
@@ -260,8 +275,8 @@ settings.corpora.semfinlex_asd_sv_2018 = {
     description: "Ett urval av ursprungliga författningar av Riksdagen från 1920̣–2018.",
     urn: "urn:nbn:fi:lb-2019042604",
     metadata_urn: "urn:nbn:fi:lb-2019042603",
-    context: defaultContext,
-    within: settings.defaultWithin,
+    context: context.default,
+    within: within.default,
     licence: settings.licenceinfo.CC_BY,
     attributes: attrlist.parsed_sv,
     structAttributes: {
@@ -273,7 +288,7 @@ settings.corpora.semfinlex_asd_sv_2018 = {
         text_parl_statute_type: {
             label: "parl_statute_type",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: [
                 "laki",
                 "asetus",
@@ -298,8 +313,8 @@ settings.corpora.semfinlex_kko_sv_2018 = {
     description: "Ett urval av avgöranden av Högsta domstolen (KKO) från 1980̣–2018.",
     urn: "urn:nbn:fi:lb-2019042610",
     metadata_urn: "urn:nbn:fi:lb-2019042609",
-    context: defaultContext,
-    within: settings.defaultWithin,
+    context: context.default,
+    within: within.default,
     licence: settings.licenceinfo.CC_BY,
     attributes: attrlist.parsed_sv,
     structAttributes: {
@@ -319,8 +334,8 @@ settings.corpora.semfinlex_kho_sv_2018 = {
     description: "Ett urval av avgöranden av Högsta förvaltningsdomstolen (KHO) från 2001–2018.",
     urn: "urn:nbn:fi:lb-2019042610",
     metadata_urn: "urn:nbn:fi:lb-2019042609",
-    context: defaultContext,
-    within: settings.defaultWithin,
+    context: context.default,
+    within: within.default,
     licence: settings.licenceinfo.CC_BY,
     attributes: attrlist.parsed_sv,
     structAttributes: {
@@ -335,49 +350,27 @@ settings.corpora.semfinlex_kho_sv_2018 = {
 
 
 /*ETHESIS*/
-settings.corpora.ethesis_sv_ma = {
-    title: "Masteruppsatser",
-    description: "Masteruppsatser (1997–2016)",
-    id: "ethesis_sv_ma",
-    within: settings.defaultWithin,
-    context: defaultContext,
-    attributes: {
-    },
-    structAttributes: sattrlist.ethesis
+
+settings.templ.ethesis_sv = {
+    title: "E-thesis: {}",
+    description: "Helsingfors universitets svenska E-thesis, Korp-version: {}",
+    id: "ethesis_sv_{}",
+    within: within.default,
+    context: context.default,
+    attributes: {},
+    structAttributes: sattrlist.ethesis,
 };
 
-settings.corpora.ethesis_sv_maabs = {
-    title: "Masteruppsatser (abstrakt)",
-    description: "Masteruppsatser (abstrakt) (1999–2016)",
-    id: "ethesis_sv_maabs",
-    within: settings.defaultWithin,
-    context: defaultContext,
-    attributes: {
-    },
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_sv_dissabs = {
-    title: "Doktorsavhandlingar (abstrakt)",
-    description: "Doktorsavhandlingar (abstrakt) (2006–2016)",
-    id: "ethesis_sv_dissabs",
-    within: settings.defaultWithin,
-    context: defaultContext,
-    attributes: {
-    },
-    structAttributes: sattrlist.ethesis
-};
-
-settings.corpora.ethesis_sv_phd = {
-    title: "Doktorsavhandlingar",
-    description: "Doktorsavhandlingar (2000–2016)",
-    id: "ethesis_sv_phd",
-    within: settings.defaultWithin,
-    context: defaultContext,
-    attributes: {
-    },
-    structAttributes: sattrlist.ethesis
-};
+funcs.addCorpusSettings(
+    settings.templ.ethesis_sv,
+    [
+        ["ma", "Masteruppsatser", "Masteruppsatser (1997–2016)"],
+        ["maabs", "Masteruppsatser (abstrakt)",
+         "Masteruppsatser (abstrakt) (1999–2016)"],
+        ["dissabs", "Doktorsavhandlingar (abstrakt)",
+         "Doktorsavhandlingar (abstrakt) (2006–2016)"],
+        ["phd", "Doktorsavhandlingar", "Doktorsavhandlingar (2000–2016)"],
+    ]);
 
 
 /* STUDENTSVENSKA */
@@ -386,11 +379,11 @@ attrlist.studentsvenska = {
     lemma: attrs.baseform,
     code: {
         label: "studentsvenska_code",
-        opts: settings.defaultOptions
+        opts: options.default
     },
     properties: {
         label: "studentsvenska_properties",
-        opts: settings.defaultOptions
+        opts: options.default
     }
 };
 
@@ -440,8 +433,8 @@ settings.corpora.studentsvenska = {
         urn: "urn:nbn:fi:lb-2016040410",
     },
     cite_id: "Studentsvenska",
-    context: defaultContext,
-    within: settings.defaultWithin,
+    context: context.default,
+    within: within.default,
     limitedAccess: true,
     licenceType: "RES",
     attributes: attrlist.studentsvenska,
@@ -456,14 +449,14 @@ settings.corpora.mulcold_sv = {
     title: "MULCOLD svenska",
     description: "Multilingual Corpus of Legal Documents, svenskspråkiga delen",
     cite_id: "MULCOLD",
-    context: defaultContext,
-    within: settings.defaultWithin,
+    context: context.default,
+    within: within.default,
     attributes: attrlist.mulcold_sv,
     structAttributes: sattrlist.mulcold,
 };
 
-funcs.extend_corpus_settings(settings.corpusinfo.mulcold,
-                                   ["mulcold_sv"]);
+funcs.extendCorpusSettings(settings.corpusinfo.mulcold,
+                           ["mulcold_sv"]);
 
 funcs.addCorporaToFolder("legal", "mulcold_sv");
 
@@ -481,8 +474,8 @@ settings.corpora.topling_sv = {
     },
     homepage_url: "https://www.jyu.fi/topling",
     cite_id: "topling-sv",
-    context: spContext,
-    within: spWithin,
+    context: context.sp,
+    within: within.sp,
     limitedAccess: true,
     licenceType: "RES",
     attributes: attrlist.topling,
@@ -500,8 +493,8 @@ settings.corpora.kfspc_sv = {
     id: "kfspc_sv",
     cite_id: "kfspc-korp-sv",
     lang: "swe",
-    context: defaultContext,
-    within: settings.defaultWithin,
+    context: context.default,
+    within: within.default,
     attributes: {
     },
     structAttributes: sattrlist.kfspc,
@@ -517,8 +510,8 @@ settings.corpora.sinebrychoff_orig = {
     metadata_urn: "urn:nbn:fi:lb-201407303",
     licence: settings.licenceinfo.CC_BY_30,
     cite_id: "sinebrychoff-sv",
-    context: spContext,
-    within: spWithin,
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.sinebrychoff,
     structAttributes: sattrlist.sinebrychoff
 };
@@ -526,7 +519,7 @@ settings.corpora.sinebrychoff_orig = {
 funcs.addCorporaToFolder("historical", "sinebrychoff_orig");
 
 
-funcs.extend_corpus_settings(settings.corpusinfo.kfspc, ["kfspc_sv"]);
+funcs.extendCorpusSettings(settings.corpusinfo.kfspc, ["kfspc_sv"]);
 
 
 /* FSTC (Finland-Swedish Text Corpus) aka FISC */
@@ -633,7 +626,7 @@ for (const [key, label] of [
     ["literary", "litteratur"],
     ["other", "andra"],
 ]) {
-    funcs.make_folder_hierarchy(
+    funcs.makeFolderHierarchy(
         settings.corporafolders[key]["fstc_" + key], fstc_hierarchy[key],
         {
             id_prefix: "fstc_",
@@ -673,7 +666,7 @@ settings.corpora.parole_sv = $.extend(true, {}, settings.templ.fstc, {
     },
 });
 
-funcs.addCorporaToFolder("other", "parole_sv");
+funcs.addCorporaToFolder("reference", "parole_sv");
 
 
 /* Svenska YLE */
@@ -681,305 +674,47 @@ funcs.addCorporaToFolder("other", "parole_sv");
 sattrlist.ylenews_sv_common = {
     text_main_department: {
         label: "main_section",
-        extendedComponent: "datasetSelect",
-        opts: liteOptions,
-        dataset: [
-            "#NiVetIngenting",
-            "Abimix",
-            "Använd hjärtat – Lupa välittää",
-            "Arkivet",
-            "Bakom parabolen",
-            "Barn",
-            "Bildkonst och design",
-            "Blogg: Koivukangas kognition",
-            "Bloggar",
-            "Bolaget",
-            "Bygga och bo",
-            "Datajournalistik",
-            "Debatt",
-            "Efterlysningen",
-            "Egenland",
-            "Ekonomi",
-            "Enkelbiljett till Europa",
-            "Eurovision 2012",
-            "Eurovision",
-            "Familj",
-            "Fart på Finland",
-            "Film och tv",
-            "Finlandssvenska hemlisar",
-            "Firarsvängen",
-            "Fixa högskolan",
-            "Fixa mobbningen I #tadetpåallvar",
-            "Fixa skärgården",
-            "Fotbolls-EM 2012",
-            "Frågor & svar",
-            "Hajbo",
-            "Historia",
-            "Hobby och hantverk",
-            "Huvudstadsregionen",
-            "Hälsa",
-            "Inrikes",
-            "Ishockey-VM 2012",
-            "Just nu",
-            "Klimat",
-            "Konst",
-            "Kontakta Sporten",
-            "Kontakta Yle Österbotten",
-            "Kontakta samhällsprogrammen",
-            "Kultur och nöje",
-            "Kulturhistoria",
-            "Ligaresultat",
-            "Litteratur",
-            "Lucia",
-            "Lyssna på Radio Vega Västnyland!",
-            "Lyssna på Radio Vega Åboland!",
-            "Lyssna på Radio Vega Österbotten!",
-            "Mat och dryck",
-            "Mat och fritid",
-            "Metallväktarna",
-            "Mitt Yle",
-            "Mitt jobb",
-            "Mitt. Ditt. Vårt. - Yle 90 år",
-            "Mumindalen",
-            "Musik",
-            "Må bra",
-            "Måndagssnack",
-            "Natur",
-            "Nyhetsskolan",
-            "OS i London 2012",
-            "Om Strömsö",
-            "Pekka Poutanens blogg",
-            "Pensionsstiftelsen",
-            "Poddar",
-            "Politik",
-            "På gång inom bolaget",
-            "Recensioner",
-            "Recept",
-            "Regioner",
-            "Resa",
-            "Samhälle",
-            "Sex & sånt",
-            "Slottsbalen",
-            "Sluta panta",
-            "Sommarjobb",
-            "Spel",
-            "Sport",
-            "Sportbloggen",
-            "Sportens sändningar",
-            "Stafettkarnevalen",
-            "Strömsö",
-            "Strömsös trädgård",
-            "Svenska.yle.fi",
-            "Syrien",
-            "Så träffades vi ...",
-            "Tala om knarket",
-            "Teknik",
-            "Titta och lyssna",
-            "Tro",
-            "Trädgård",
-            "Twitterbloggen",
-            "Unga. Nu!",
-            "Utrikes",
-            "Val",
-            "Valet i Västnyland",
-            "Valet i huvudstadsregionen",
-            "Valet i Åboland",
-            "Vardagsäventyr",
-            "Vega",
-            "Vetamix",
-            "Vetenskap",
-            "Västnyland",
-            "X3M",
-            "X3M ¦ De bästa intervjuerna",
-            "Yle Fem",
-            "svenska.yle.fi",
-            "Åboland",
-            "Österbotten",
-            "Östnyland",
-        ],
+        extendedComponent: "structServiceAutocomplete",
+        opts: options.default,
     },
     text_departments: {
         label: "sections",
         type: "set",
-        opts: setOptions,
-        extendedComponent: "datasetSelect",
-        dataset: [
-            "#NiVetIngenting",
-            "Abimix",
-            "Alexandras örtagård",
-            "Använd hjärtat – Lupa välittää",
-            "Arkivet",
-            "Bakom kulisserna",
-            "Bakom parabolen",
-            "Barn",
-            "Bastuliv",
-            "Belle epoque",
-            "Bildkonst och design",
-            "Bilen som passion",
-            "Blogg: Koivukangas kognition",
-            "Bloggar",
-            "Bolaget",
-            "Borgåbygdens Lucia",
-            "Bygga bastu",
-            "Bygga och bo",
-            "Datajournalistik",
-            "Debatt",
-            "Dåtid nu - en kulturhistorisk tidsresa",
-            "Efterlysningen",
-            "Egenland",
-            "Ekonomi",
-            "Enkelbiljett till Europa",
-            "Eurovision 2012",
-            "Eurovision",
-            "Eurovisionen 60 år",
-            "Familj",
-            "Fart på Finland",
-            "Film och tv",
-            "Film",
-            "Finlandssvenska hemlisar",
-            "Firarsvängen",
-            "Fixa högskolan",
-            "Fixa mobbningen I #tadetpåallvar",
-            "Fixa skärgården",
-            "Fotbolls-EM 2012",
-            "Frågor & svar",
-            "Frågor och svar",
-            "För media",
-            "Gör din egen konst",
-            "Hajbo",
-            "Hannas eurovisionsblogg",
-            "Hermans medicinska anekdoter",
-            "Historia",
-            "Hobby och hantverk",
-            "Huvudstadsregionen",
-            "Hälsa",
-            "Inrikes",
-            "Ishockey-VM 2012",
-            "Jobba hos oss!",
-            "Jobba hos oss?",
-            "Jord- & skogsbruk",
-            "Just nu",
-            "Klimat",
-            "Konst",
-            "Kontakta Första sidan",
-            "Kontakta Sporten",
-            "Kontakta Yle Huvudstadsregionen",
-            "Kontakta Yle Västnyland",
-            "Kontakta Yle Österbotten",
-            "Kontakta samhällsprogrammen",
-            "Kultur och nöje",
-            "Kulturhistoria",
-            "Ligaresultat",
-            "Litteratur",
-            "Lucia",
-            "Lyssna på Radio Vega Västnyland!",
-            "Lyssna på Radio Vega Åboland!",
-            "Lyssna på Radio Vega Österbotten!",
-            "Mat och dryck",
-            "Mat och fritid",
-            "Metallväktarna",
-            "Mitt Yle",
-            "Mitt jobb",
-            "Mitt. Ditt. Vårt. - Yle 90 år",
-            "Mumindalen",
-            "Musik",
-            "Må bra",
-            "Måndagssnack",
-            "Nationalparkerna i Finland",
-            "Natur",
-            "Nordiska brev",
-            "Nyhetsskolan",
-            "OS i London 2012",
-            "Om Strömsö",
-            "Om Svenska Yle",
-            "Pekka Poutanens blogg",
-            "Pensionsstiftelsen",
-            "Poddar",
-            "Politik",
-            "Pressmeddelanden",
-            "På gång inom bolaget",
-            "Recensioner",
-            "Recept",
-            "Regioner",
-            "Resa",
-            "Samhälle",
-            "Scenkonst",
-            "Sex & sånt",
-            "Slottsbalen",
-            "Sluta panta",
-            "Sommarjobb",
-            "Spel",
-            "Sport i Radio och TV",
-            "Sport",
-            "Sport i Radio och TV",
-            "Sportbloggen",
-            "Sportens sändningar",
-            "Spotlight 2.0",
-            "Stafettkarnevalen",
-            "Strömsö",
-            "Strömsö i Sameland",
-            "Strömsös trädgård",
-            "Svar",
-            "Svenska.yle.fi",
-            "Synpunkten",
-            "Syrien",
-            "Så träffades vi ...",
-            "Tala om knarket",
-            "Teknik",
-            "Titta och lyssna",
-            "Tove100",
-            "Tro",
-            "Trädgård",
-            "Twitterbloggen",
-            "Unga. Nu!",
-            "Utrikes",
-            "Val",
-            "Valet i Västnyland",
-            "Valet i huvudstadsregionen",
-            "Valet i Åboland",
-            "Valet i Österbotten",
-            "Valet i Östnyland",
-            "Vardagsäventyr",
-            "Vega",
-            "Verkstad",
-            "Vetamix",
-            "Vetenskap",
-            "Västnyland",
-            "Webbdoktorn",
-            "X3M",
-            "X3M ¦ De bästa intervjuerna",
-            "Yle Fem",
-            "Yle-konto",
-            "Yles ansvar",
-            "svenska.yle.fi",
-            "Åboland",
-            "Österbotten",
-            "Östnyland",
-        ],
+        opts: options.fullSet,
+        extendedComponent: "structServiceAutocomplete",
     },
     text_id: {
         label: "text_id",
     },
-    text_publisher: sattrs.text_publisher,
+    text_publisher: $.extend(
+        {}, sattrs.text_publisher,
+        {
+            opts: options.lite,
+            extendedComponent: "structServiceSelect",
+        }
+    ),
     text_url: sattrs.link_original,
     text_datetime_published: {
         label: "datetime_published",
-        stringify: funcs.stringify_iso_datetime,
+        // The datetime values look better when kept on the same line,
+        // so do not use funcs.stringifyIsoDatetime that would add a
+        // <wbr> break tag
+        // pattern: "<%= funcs.stringifyIsoDatetime(val) %>",
     },
     text_datetime_content_modified: {
         label: "datetime_content_modified",
-        stringify: funcs.stringify_iso_datetime,
+        // pattern: "<%= funcs.stringifyIsoDatetime(val) %>",
     },
     text_datetime_json_modified: {
         label: "datetime_json_modified",
-        stringify: funcs.stringify_iso_datetime,
+        // pattern: "<%= funcs.stringifyIsoDatetime(val) %>",
     },
     paragraph_id: sattrs.hidden,
     sentence_id: sattrs.hidden,
     sentence_type: {
         label: "sentence_type",
         extendedComponent: "datasetSelect",
-        opts: liteOptions,
+        opts: options.lite,
         dataset: {
             "alt": "image_alt",
             "by": "byline",
@@ -996,7 +731,7 @@ sattrlist.ylenews_sv_common = {
 sattrs.ylenews_sv_paragraph_type = {
     label: "paragraph_type",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     dataset: {
         "by": "byline",
         "heading": "heading",
@@ -1026,7 +761,7 @@ settings.templ.ylenews_sv_a = {
         }),
 };
 
-funcs.add_corpus_settings(
+funcs.addCorpusSettings(
     settings.templ.ylenews_sv_a,
     [2012, 2018],
     settings.corporafolders.news.ylenews_sv.a,
@@ -1041,8 +776,8 @@ settings.templ.ylenews_sv_s = {
     title: "Yle svenska webbartiklar {} (för alla)",
     description: "Yle svenska webbartiklar 2012–2018, blandad, Korp: år {}<br/>Variant öppen för alla: meningarna i en blandad ordning inom varje text och ingen utökad kontextvisning",
     id: "ylenews_sv_{}_s",
-    context: defaultContext,
-    within: settings.defaultWithin,
+    context: context.default,
+    within: within.default,
     attributes: attrlist.parsed_sv_lemmaset,
     structAttributes: $.extend(
         {}, sattrlist.ylenews_sv_common,
@@ -1051,7 +786,7 @@ settings.templ.ylenews_sv_s = {
         }),
 };
 
-funcs.add_corpus_settings(
+funcs.addCorpusSettings(
     settings.templ.ylenews_sv_s,
     [2012, 2018],
     settings.corporafolders.news.ylenews_sv.s,
@@ -1099,7 +834,7 @@ settings.corpora.nlfcl_sv = {
 funcs.addCorporaToFolder("literary", "nlfcl_sv");
 
 
-funcs.add_attr_extra_properties(settings.corpora);
+funcs.addAttrExtraProperties(settings.corpora);
 
 
 settings.corpusListing = new CorpusListing(settings.corpora);

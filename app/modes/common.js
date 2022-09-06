@@ -26,6 +26,14 @@ var probabilitySetOptions = {
     "contains_not": "not_rank_contains",
 };
 
+var options = {
+    "default": settings.defaultOptions,
+    "lite": liteOptions,
+    "set": setOptions,
+    "fullSet": fullSetOptions,
+    "probabilitySet": probabilitySetOptions,
+};
+
 var defaultContext = {
     "1 sentence": "1 sentence"
 };
@@ -34,6 +42,25 @@ var spContext = {
     "1 sentence": "1 sentence",
     "1 paragraph": "1 paragraph"
 };
+
+var context = {
+    "default": defaultContext,
+    "sp": spContext,
+    "sentLink": {
+        "1 sentence": "1 sentence",
+        "1 link": "1 link",
+    },
+    "defaultAligned": {
+        "1 sentence": "1 sentence"
+    },
+    "linkAligned": {
+        "1 link": "1 link"
+    },
+    "alignAligned": {
+        "1 align": "1 align"
+    },
+};
+
 var spWithin = {
     "sentence": "sentence",
     "paragraph": "paragraph"
@@ -45,10 +72,30 @@ var spcWithin = {
     "paragraph": "paragraph"
 };
 
+var within = {
+    "default": settings.defaultWithin,
+    "sentence": {
+        "sentence": "sentence",
+    },
+    "sp": spWithin,
+    "spc": spcWithin,
+    "sc": {
+        "sentence": "sentence",
+        "clause": "clause",
+    },
+    "sentLink": {
+        "sentence": "sentence",
+        "link": "link",
+    },
+    "link": {
+        "link": "link",
+    },
+};
+
 
 settings.corpusFeatures.paragraphs = {
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
 };
 
 
@@ -57,12 +104,14 @@ settings.licenceinfo = {
     CC0: {
         name: "CC ZERO (CC0) (CLARIN PUB)",
         description: "Public Domain Dedication",
-        url: "http://creativecommons.org/publicdomain/zero/1.0/",
+        // URN to the English version (the same for all CC licences)
+        // TODO: Allow different URNs based on the UI language
+        urn: "urn:nbn:fi:lb-2021120221",
     },
     CC_BY: {
         name: "CC BY (CLARIN PUB)",
         description: "Creative Commons Attribution",
-        url: "https://creativecommons.org/licenses/by/4.0/",
+        urn: "urn:nbn:fi:lb-2021120223",
     },
     CC_BY_30: {
         name: "CC BY 3.0 (CLARIN PUB)",
@@ -72,22 +121,22 @@ settings.licenceinfo = {
     CC_BY_40: {
         name: "CC BY 4.0 (CLARIN PUB)",
         description: "Creative Commons Attribution",
-        url: "https://creativecommons.org/licenses/by/4.0/",
+        urn: "urn:nbn:fi:lb-2021120223",
     },
     CC_BY_NC: {
         name: "CC BY-NC (CLARIN PUB)",
         description: "Creative Commons Attribution-NonCommercial",
-        url: "https://creativecommons.org/licenses/by-nc/4.0/",
+        urn: "urn:nbn:fi:lb-2021120227",
     },
     CC_BY_ND: {
         name: "CC BY-ND (CLARIN PUB)",
         description: "Creative Commons Attribution-NoDerivatives",
-        url: "https://creativecommons.org/licenses/by-nd/4.0/",
+        urn: "urn:nbn:fi:lb-2021120231",
     },
     CC_BY_ND_40: {
         name: "CC BY-ND 4.0 (CLARIN PUB)",
         description: "Creative Commons Attribution-NoDerivatives 4.0",
-        url: "https://creativecommons.org/licenses/by-nd/4.0/",
+        urn: "urn:nbn:fi:lb-2021120231",
     },
     CC_BY_NC_ND: {
         name: "CC BY-NC-ND (CLARIN PUB)",
@@ -119,10 +168,15 @@ settings.licenceinfo = {
         name: "CLARIN RES +NC +INF +ND 1.0",
         urn: "urn:nbn:fi:lb-2017020612",
     },
+    // TODO: Check if ACA_NC is needed, as it is not currently used
+    // directly anywhere,only when augmented with a URN (in
+    // ScotsCorr). There does not seem to be a URN for a generic
+    // ACA+NC licence, as the idea probably is that each such corpus
+    // should have a licence page of its own.
     ACA_NC: {
         name: "CLARIN ACA +NC",
         description: "CLARIN ACA (Academic) End-User License 1.0, Non-commercial",
-        url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/ClarinEulaAca?NC=1",
+        // url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/ClarinEulaAca?NC=1",
     },
     Ylenews_sv_en: {
         name: "CLARIN ACA +NC 1.0",
@@ -3674,7 +3728,7 @@ attrs.pos = {
         "VB": "VB"
     },
     translation: transl.pos,
-    opts: liteOptions,
+    opts: options.lite,
     extendedComponent: "datasetSelect",
     escape: false,
     order: 0,
@@ -3682,7 +3736,7 @@ attrs.pos = {
 
 attrs.msd_sv = {
     label: "msd",
-    opts: settings.defaultOptions,
+    opts: options.default,
     extendedTemplate: '<input ng-model="input" class="arg_value" escaper ng-model-options=\'{debounce : {default : 300, blur : 0}, updateOn: "default blur"}\'>' +
     '<span ng-click="onIconClick()" class="fa fa-info-circle"></span>',
     extendedController: function($scope, $uibModal) {
@@ -3715,14 +3769,14 @@ attrs.msd_sv = {
 attrs.baseform_sv = {
     label: "baseform",
     type: "set",
-    opts: settings.defaultOptions,
+    opts: options.default,
     extendedTemplate: "<input ng-model='model' >",
     order: 1
 };
 attrs.lemgram = {
     label: "lemgram",
     type: "set",
-    opts: setOptions,
+    opts: options.set,
     stringify: function(lemgram) {
         // TODO: what if we're getting more than one consequtive lemgram back?
         return util.lemgramToString(_.trim(lemgram), true);
@@ -3743,7 +3797,7 @@ attrs.lemgram = {
 attrs.saldo = {
     label: "saldo",
     type: "set",
-    opts: setOptions,
+    opts: options.set,
     stringify: function(saldo) {
         return util.saldoToString(saldo, true);
     },
@@ -3832,12 +3886,12 @@ attrs.deprel = {
         "ROOT": "ROOT"
     },
     translation: transl.deprel,
-    opts: liteOptions
+    opts: options.lite
 };
 attrs.prefix = {
     label: "prefix",
     type: "set",
-    opts: setOptions,
+    opts: options.set,
     stringify: function(lemgram) {
         return util.lemgramToString(lemgram, true);
     },
@@ -3848,7 +3902,7 @@ attrs.prefix = {
 attrs.suffix = {
     label: "suffix",
     type: "set",
-    opts: setOptions,
+    opts: options.set,
     stringify: function(lemgram) {
         return util.lemgramToString(lemgram, true);
     },
@@ -4070,6 +4124,16 @@ settings.commonStructTypes = {
 var attrlist = {};   // List of positional attributes
 var sattrlist = {};  // List of structural attributes
 
+// Functions used in corpus configurations
+funcs = {};
+
+
+// Create a pattern for a link with the label as the link text
+funcs.makeLinkPattern = function (label, url) {
+    return `<a href="${url}" class="exturl sidebar_link" target="_blank"><span rel="localize[${label}]"></span></a>`
+}
+
+
 // TODO: Replace the corpus- or annotation-specific translationKeys in
 // pos and deprel attributes with the generic pos_ and deprel_, so
 // that the translations need not be specified twice in the
@@ -4078,7 +4142,7 @@ var sattrlist = {};  // List of structural attributes
 attrs.pos_ftb2 = {
     label: "pos",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     // TODO: Map to generic keys for PoS translations
     dataset: {
         "A": "A",
@@ -4102,7 +4166,7 @@ attrs.pos_ftb2 = {
 attrs.ner_tags = {
     label: "ner_tags",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     dataset: {
         "_": "_",
         // CQP gave an error if the values ended in /? instead of
@@ -4361,7 +4425,7 @@ attrs.namecat_omorfi = {
     label: "name_category_omorfi",
     type: "set",
     extendedComponent: "datasetSelect",
-    opts: setOptions,
+    opts: options.set,
     dataset: [
         "ARTWORK",
         "CULTGRP",
@@ -4430,7 +4494,7 @@ attrs.namecat_omorfi = {
 attrs.pos_ftb31 = {
     label: "pos",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     // TODO: Map to generic keys for PoS translations
     dataset: {
         "A": "A",
@@ -4459,7 +4523,7 @@ attrs.pos_ftb31 = {
 attrs.pos_kotus = {
     label: "pos",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     // TODO: Map to generic keys for PoS translations
     dataset: {
         // Some of the following POS codes might be coding errors in
@@ -4507,7 +4571,7 @@ attrs.pos_kotus = {
 attrs.pos_mulcold_fi = {
     label: "pos",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     // TODO: Map to generic keys for PoS translations
     dataset: {
         "A": "A",
@@ -4532,7 +4596,7 @@ attrs.pos_mulcold_fi = {
 attrs.pos_mulcold_ru = {
     label: "pos",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     // TODO: Map to generic keys for PoS translations
     dataset: {
         "Adj": "Adj",
@@ -4557,7 +4621,7 @@ attrs.pos_mulcold_ru = {
 attrs.pos_mulcold_en = {
     label: "pos",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     // TODO: Map to generic keys for PoS translations
     dataset: {
         "A": "A",
@@ -4586,7 +4650,7 @@ attrs.pos_mulcold_en = {
 attrs.pos_mulcold_sv = {
     label: "pos",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     // TODO: Map to generic keys for PoS translations
     dataset: {
         "A": "A",
@@ -4608,7 +4672,7 @@ attrs.pos_mulcold_sv = {
 attrs.pos_uta_ru = {
     label: "pos",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     dataset: {
         "-": "Punct",
         ",": "Punct",
@@ -4677,7 +4741,7 @@ attrs.pos_ud2_fi = {
 attrs.pos_ud_fi = {
     label: "pos",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     dataset: {
         "ADJ": "A",
         "ADP": "Adp",
@@ -4705,9 +4769,8 @@ attrs.pos_ud_fi_ud1.order = 13;
 attrs.pos_klk = {
     label: "pos",
     extendedComponent: "datasetSelect",
-    extendedComponent: "datasetSelect",
     escape: false,
-    opts: liteOptions,
+    opts: options.lite,
     dataset: {
         "": "",
         "A": "A",
@@ -4732,7 +4795,7 @@ attrs.pos_klk_ordered.order = 18;
 attrs.pos_textmorfo = {
     label: "pos",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     dataset: {
         "-|null": "Unknown",
         "Abbrev": "Abbr",
@@ -4759,7 +4822,7 @@ attrs.pos_textmorfo = {
 attrs.pos_swecg = {
     label: "pos",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     localize: false,
     dataset: [
         "A",
@@ -4793,7 +4856,7 @@ attrs.pos_swecg = {
 
 attrs.msd = {
     label: "msd",
-    opts: settings.defaultOptions,
+    opts: options.default,
     // Add a <wbr> tag after each vertical bar to allow breaking the
     // line there in the sidebar, while retaining the ability to copy
     // and paste to a further search expression (unlike if we added a
@@ -4810,7 +4873,7 @@ attrs.baseform = {
     stringify: function(baseform) {
         return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
     },
-    opts: settings.defaultOptions,
+    opts: options.default,
     stats_cqp: "cqpPlainWordAttr",
     stats_stringify: "stringifyPlainWordAttr",
 };
@@ -4824,14 +4887,14 @@ attrs.baseform_ftb2 = {
     stringify: function(baseform) {
         return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
     },
-    opts: settings.defaultOptions
+    opts: options.default
 };
 attrs.baseform_compound = {
     label: "baseform_compound",
     stringify: function(baseform) {
         return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
     },
-    opts: settings.defaultOptions
+    opts: options.default
 };
 attrs.baseform_compound_ordered = JSON.parse(JSON.stringify(attrs.baseform_compound));
 attrs.baseform_compound_ordered.order = 19;
@@ -4841,7 +4904,7 @@ attrs.baseform_compound_ud1_ordered = {
     stringify: function(baseform) {
         return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
     },
-    opts: settings.defaultOptions
+    opts: options.default
 };
 attrs.lemgram_hidden = {
     label: "lemgram",
@@ -4851,7 +4914,7 @@ attrs.lemgram_hidden = {
 attrs.deprel_ftb2 = {
     label: "deprel",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     dataset: {
         "advl": "advl",
         "attr": "attr",
@@ -4874,9 +4937,8 @@ attrs.deprel_ftb2 = {
 };
 attrs.deprel_tdt = {
     label: "deprel",
-    // extendedComponent: "datasetSelect",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     dataset: {
         "_": "_",
         "acomp": "acomp",
@@ -4941,7 +5003,7 @@ attrs.deprel_tdt_ordered.order = 16;
 attrs.deprel_ud2 = {
     label: "deprel",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     dataset: {
         "acl": "acl",
         "acl:relcl": "acl:relcl",
@@ -4994,7 +5056,7 @@ attrs.deprel_ud2 = {
 attrs.deprel_ud_fi = {
     label: "deprel",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     dataset: {
         "_": "_",
         "acl": "acl",
@@ -5051,7 +5113,7 @@ attrs.deprel_uta_ru = {
     label: "deprel",
     extendedComponent: "datasetSelect",
     localize: false,
-    opts: liteOptions,
+    opts: options.lite,
     dataset: [
         "1-компл",
         "1-несобст-компл",
@@ -5132,39 +5194,39 @@ attrs.text = {
 };
 attrs.spoken = {
     label: "spoken",
-    opts: settings.defaultOptions
+    opts: options.default
 };
 attrs.origword = {
     label: "word_orig",
-    opts: settings.defaultOptions
+    opts: options.default
 };
 attrs.tildeword = {
     label: "word_tilde",
-    opts: settings.defaultOptions
+    opts: options.default
 };
 attrs.complword = {
     label: "word_completed",
-    opts: settings.defaultOptions
+    opts: options.default
 };
 attrs.id_hidden = {
     label: "id",
     displayType: "hidden",
-    opts: settings.defaultOptions
+    opts: options.default
 };
 attrs.ambiguous_lemma = {
     label: "ambiguous_lemma",
     type: "set",
-    opts: setOptions
+    opts: options.set
 };
 attrs.ambiguous_pos = {
     label: "ambiguous_pos",
     type: "set",
-    opts: setOptions
+    opts: options.set
 };
 attrs.ambiguous_msd = {
     label: "ambiguous_msd",
     type: "set",
-    opts: setOptions
+    opts: options.set
 };
 
 var mulcold_pos_langs = ["fi", "ru", "en", "sv"];
@@ -5178,7 +5240,7 @@ for (var i = 0; i < mulcold_pos_langs.length; i++) {
 attrs.wordtype = {
     label: "type",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     dataset: {
         "text": "text",
         "to": "to",
@@ -5566,13 +5628,6 @@ attrlist.finer = {
     nerbio: attrs.ner_bio,
 };
 
-// TDT + FiNER attributes
-attrlist.parsed_tdt_finer = $.extend(
-    true, {},
-    attrlist.parsed_tdt,
-    attrlist.finer);
-
-
 // Attributes produced by vrt-finnish-nertag (*not* FiNER version 2,
 // but Finnish NER *tags* version 2)
 attrlist.finer2 = {
@@ -5582,7 +5637,7 @@ attrlist.finer2 = {
     nertags: {
         label: "ner_tags",
         type: "set",
-        opts: setOptions,
+        opts: options.set,
         // Hide the tags containing nesting information (a digit
         // suffix) until it can be represented and searched for in a
         // more user-friendly way (in Korp 9)
@@ -5592,11 +5647,6 @@ attrlist.finer2 = {
         label: "ner_bio",
     },
 };
-
-attrlist.parsed_tdt_finer2 = $.extend(
-    true, {},
-    attrlist.parsed_tdt,
-    attrlist.finer);
 
 
 attrlist.ud2_fi = {
@@ -5667,7 +5717,7 @@ sattrs.author_deathyear = {
 sattrs.sex = {
     label: "sex",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     dataset: {
         "f": "female",
         "m": "male",
@@ -5680,7 +5730,7 @@ sattrs.sex = {
 sattrs.author_name_type = {
     label: "author_name_type",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     dataset: {
         "candidate id": "candidate_id",
     },
@@ -5744,7 +5794,7 @@ sattrs.link_prefixed = function (label, url_prefix) {
         label: label,
         type: "url",
         urlOpts: sattrs.link_url_opts,
-        url_prefix: url_prefix
+        urlPrefix: url_prefix
     };
 };
 sattrs.link_show_video_prefixed = function (url_prefix) {
@@ -5820,7 +5870,7 @@ sattrs.part_num = {
 sattrs.mikhailov_text_genre = {
     label: "text_genre",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     dataset: {
         "fiction": "fiction",
         "law": "law",
@@ -5891,7 +5941,7 @@ sattrs.sentence_lang = {
 sattrs.sentence_polarity = {
     label: "sentence_polarity",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     dataset: [
         "pos",
         "neut",
@@ -5944,16 +5994,21 @@ sattrlist.ethesis = {
         label: "text_year"
     },
     text_keywords: {
-        label: "text_keywords"
+        label: "text_keywords",
+        extendedComponent: "structServiceAutocomplete",
     },
     text_faculty: {
-        label: "text_faculty"
+        label: "text_faculty",
+        extendedComponent: "structServiceAutocomplete",
     },
     text_subject: {
-        label: "text_subject"
+        label: "text_subject",
+        extendedComponent: "structServiceAutocomplete",
     },
     text_type: {
-        label: "text_dissertationtype"
+        label: "text_dissertationtype",
+        extendedComponent: "structServiceSelect",
+        opts: options.lite,
     },
     text_url: {
         label: "text_abslink",
@@ -6053,6 +6108,18 @@ attrlist.parsed_tdt_spaces = $.extend(
         spaces: attrs.spaces,
     });
 
+// TDT + FiNER attributes
+attrlist.parsed_tdt_finer = $.extend(
+    true, {},
+    attrlist.parsed_tdt,
+    attrlist.finer);
+
+// TDT + new FiNER attributes
+attrlist.parsed_tdt_finer2 = $.extend(
+    true, {},
+    attrlist.parsed_tdt,
+    attrlist.finer2);
+
 
 // KLK structural attributes, for both Finnish and Swedish
 sattrlist.klk = {
@@ -6094,9 +6161,8 @@ sattrlist.klk = {
     text_language: {
         label: "lang",
         extendedComponent: "datasetSelect",
-        extendedComponent: "datasetSelect",
         escape: false,
-        opts: liteOptions,
+        opts: options.lite,
         dataset: {
             "fi": "fin",
             "sv": "swe",
@@ -6107,7 +6173,7 @@ sattrlist.klk = {
     /*
     text_page_id: {
         label: "page_id",
-        opts: settings.defaultOptions,
+        opts: options.default,
     },
     */
     text_page_no: {
@@ -6129,9 +6195,8 @@ sattrlist.klk = {
     text_publ_type: {
         label: "publication_type",
         extendedComponent: "datasetSelect",
-        extendedComponent: "datasetSelect",
         escape: false,
-        opts: liteOptions,
+        opts: options.lite,
         dataset: {
             "aikakausi": "journal",
             "sanomalehti": "newspaper"
@@ -6170,12 +6235,11 @@ sattrlist.klk2 = $.extend(
         text_add_version: {
             label: "added_in_version",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: [
                 "1",
                 "2",
             ],
-            extendedComponent: "datasetSelect",
             escape: false,
         },
     }
@@ -6189,32 +6253,29 @@ sattrlist.klk_pagelinks = {
     text_binding_id: {
         displayType: "hidden"
     },
+};
+
+sattrlist.klk_pagelinks_custom = {
     text_page_image_url: {
-        label: "show_page_image",
-        type: "url",
+        pattern: funcs.makeLinkPattern(
+            "show_page_image",
+            "<%= funcs.makeKlkPageImageUrl({struct_attrs, pos_attrs, tokens}, 0) %>"),
+        customType: "struct",
         urlOpts: sattrs.link_url_opts,
-        synthetic: true,
-        stringify_synthetic: function (token_data) {
-            return funcs.make_klk_page_image_url(token_data, 0);
-        }
     },
     text_page_image_context_url: {
-        label: "show_page_image_context",
-        type: "url",
+        pattern: funcs.makeLinkPattern(
+            "show_page_image_context",
+            "<%= funcs.makeKlkPageImageUrl({struct_attrs, pos_attrs, tokens}, 2) %>"),
+        customType: "struct",
         urlOpts: sattrs.link_url_opts,
-        synthetic: true,
-        stringify_synthetic: function (token_data) {
-            return funcs.make_klk_page_image_url(token_data, 2);
-        }
     },
     text_download_pdf_url: {
-        label: "download_publ_pdf",
-        type: "url",
+        pattern: funcs.makeLinkPattern(
+            "download_publ_pdf",
+            "<%= funcs.makeKlkUrlBase({struct_attrs, pos_attrs, tokens}) %>/pdf"),
+        customType: "struct",
         urlOpts: sattrs.link_url_opts,
-        synthetic: true,
-        stringify_synthetic: function (token_data) {
-            return funcs.make_klk_url_base(token_data) + "/pdf";
-        }
     },
 };
 
@@ -6386,7 +6447,7 @@ sattrlist.parfin_fi = $.extend(
                 "Tuuri Antti",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_translator: {
             label: "translator",
@@ -6407,7 +6468,7 @@ sattrlist.parfin_fi = $.extend(
                 "Zoštšenko Mihail",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_title: {
             label: "title",
@@ -6430,7 +6491,7 @@ sattrlist.parfin_fi = $.extend(
                 "Tulitikkuja lainaamassa",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_publisher: {
             label: "publisher",
@@ -6443,7 +6504,7 @@ sattrlist.parfin_fi = $.extend(
                 "WSOY": "WSOY",
             },
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
     }
 );
@@ -6472,7 +6533,7 @@ sattrlist.parfin_ru = $.extend(
                 "Улица окопная",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_publisher: {
             label: "publisher",
@@ -6490,7 +6551,7 @@ sattrlist.parfin_ru = $.extend(
                 "Художественная литература",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
     }
 );
@@ -6539,7 +6600,7 @@ sattrlist.parrus_fi = $.extend(
                 "Шолохов М.А.",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_translator: {
             label: "translator",
@@ -6570,7 +6631,7 @@ sattrlist.parrus_fi = $.extend(
                 "null",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_title: {
             label: "title",
@@ -6669,7 +6730,7 @@ sattrlist.parrus_fi = $.extend(
                 "Yö hautausmaalla / Valitut novellit 1.",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_publisher: {
             label: "publisher",
@@ -6686,7 +6747,7 @@ sattrlist.parrus_fi = $.extend(
                 "null",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
     }
 );
@@ -6720,7 +6781,7 @@ sattrlist.parrus_ru = $.extend(
                 "Шолохов М.А.",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_translator: {
             label: "translator",
@@ -6744,7 +6805,7 @@ sattrlist.parrus_ru = $.extend(
                 "null",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_title: {
             label: "title",
@@ -6842,7 +6903,7 @@ sattrlist.parrus_ru = $.extend(
                 "Шинель",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_publisher: {
             label: "publisher",
@@ -6875,7 +6936,7 @@ sattrlist.parrus_ru = $.extend(
                 "Эксо, 2008",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
     }
 );
@@ -6950,7 +7011,7 @@ sattrlist.parfin_2016_fi = $.extend(
                 "Tuuri Antti",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_translator: {
             label: "translator",
@@ -6979,7 +7040,7 @@ sattrlist.parfin_2016_fi = $.extend(
                 "Tuntematon sotilas",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_publisher: {
             label: "publisher",
@@ -6992,7 +7053,7 @@ sattrlist.parfin_2016_fi = $.extend(
                 "WSOY",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_year_orig: {
             label: "year",
@@ -7027,7 +7088,7 @@ sattrlist.parfin_2016_ru = $.extend(
                 "Улица окопная",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_translator: {
             label: "translator",
@@ -7049,7 +7110,7 @@ sattrlist.parfin_2016_ru = $.extend(
                 "Урецкий, Илья",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_publisher: {
             label: "publisher",
@@ -7069,7 +7130,7 @@ sattrlist.parfin_2016_ru = $.extend(
                 "Художественная литература",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
     }
 );
@@ -7135,7 +7196,7 @@ sattrlist.parrus_2016_ru = $.extend(
                 "Шукшин В.М.",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_title: {
             label: "title",
@@ -7241,7 +7302,7 @@ sattrlist.parrus_2016_ru = $.extend(
                 "Явление природы / Сквозная линия",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_publisher: {
             label: "publisher",
@@ -7251,7 +7312,7 @@ sattrlist.parrus_2016_ru = $.extend(
                 "Эксмо",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
     }
 );
@@ -7296,7 +7357,7 @@ sattrlist.parrus_2016_fi = $.extend(
                 "Шукшин В.М.",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_translator: {
             label: "translator",
@@ -7348,7 +7409,7 @@ sattrlist.parrus_2016_fi = $.extend(
                 "c.-s.",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_title: {
             label: "title",
@@ -7498,7 +7559,7 @@ sattrlist.parrus_2016_fi = $.extend(
                 "Äidin sydän",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_publisher: {
             label: "publisher",
@@ -7527,7 +7588,7 @@ sattrlist.parrus_2016_fi = $.extend(
                 "null",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
     }
 );
@@ -7565,7 +7626,7 @@ sattrlist.europarl_v7 = {
     sentence_type: {
         label: "sentence_type",
         extendedComponent: "datasetSelect",
-        opts: liteOptions,
+        opts: options.lite,
         dataset: {
             "meta": "meta",
             "speech": "speech"
@@ -7616,7 +7677,7 @@ sattrlist.europarl_v7 = {
     speaker_lang: {
         label: "speech_language",
         extendedComponent: "datasetSelect",
-        opts: liteOptions,
+        opts: options.lite,
         dataset: {
             "BG": "bg",
             "CS": "cs",
@@ -7718,10 +7779,6 @@ sattrlist.topling = {
 /* --------- */
 
 
-// Functions used in corpus configurations
-funcs = {};
-
-
 // Add corpusIds to the "contents" array of corpusfolder folderName.
 // Arguments:
 // - folderName: a string that is a property (folder) in
@@ -7757,7 +7814,7 @@ funcs.addCorporaToFolder = function (folderName, corpusIds, options = {}) {
 
 
 // Homepage in Kotus's Kaino service
-funcs.kaino_homepage = function(urlbase) {
+funcs.kainoHomepage = function(urlbase) {
     return {
         name: "Kokoelman etusivu",
         url: "http://kaino.kotus.fi/korpus/" + urlbase + "_coll_rdf.xml",
@@ -7813,19 +7870,19 @@ settings.corporafolder_properties = {
 // configurations for unavailable corpora are removed by default
 // (util.removeUnavailableCorpora).
 //
-// funcs.remove_empty_corporafolders has been replaced by
+// funcs.removeEmptyCorporafolders has been replaced by
 // util.removeEmptyCorporafolders, but there is not yet an exact
-// replacement for funcs.remove_matching_corpora that would
+// replacement for funcs.removeMatchingCorpora that would
 // remove corpora based on regular expressions.
 //
 // TODO: Remove these functions from here when a replacement for
-// funcs.remove_matching_corpora has been implemented in util.
+// funcs.removeMatchingCorpora has been implemented in util.
 
 
 // Recursively remove corpora folders in folder containing no corpora
 // (or folders) that are in settings.corpora. Returns true if folder
 // is empty.
-funcs.remove_empty_corporafolders = function (folder) {
+funcs.removeEmptyCorporafolders = function (folder) {
     var empty = true;
     if ("contents" in folder) {
         var new_contents = [];
@@ -7845,7 +7902,7 @@ funcs.remove_empty_corporafolders = function (folder) {
     for (var prop in folder) {
         if (folder.hasOwnProperty(prop)
             && ! (prop in settings.corporafolder_properties)) {
-            if (funcs.remove_empty_corporafolders(folder[prop])) {
+            if (funcs.removeEmptyCorporafolders(folder[prop])) {
                 delete folder[prop];
             } else {
                 empty = false;
@@ -7860,7 +7917,7 @@ funcs.remove_empty_corporafolders = function (folder) {
 // second argument is true, remove the corpora that do *not* match any
 // of the regular expressions. After that, remove corpora folders that
 // would be empty after removing the copora.
-funcs.remove_matching_corpora = function (corplist) {
+funcs.removeMatchingCorpora = function (corplist) {
     var inverse = (arguments.length > 1 && arguments[1]);
     var corp_re = new RegExp("^(" + corplist.join ("|") + ")$");
     for (var corpus in settings.corpora) {
@@ -7869,7 +7926,7 @@ funcs.remove_matching_corpora = function (corplist) {
             delete settings.corpora[corpus];
         }
     }
-    funcs.remove_empty_corporafolders(settings.corporafolders);
+    funcs.removeEmptyCorporafolders(settings.corporafolders);
 };
 
 
@@ -7884,7 +7941,7 @@ funcs.remove_matching_corpora = function (corplist) {
 
 // Add the extra attibute properties in settings.attr_extra_properties
 // to the appropriate attributes of corpora.
-funcs.add_attr_extra_properties = function (corpora) {
+funcs.addAttrExtraProperties = function (corpora) {
     for (var corpname in corpora) {
         var corpus = corpora[corpname];
         var attr_group_names = ["attributes", "struct_attributes"];
@@ -7986,26 +8043,35 @@ funcs.addCorpusAliases = function (corpus_id_patt, aliases) {
 // - infolist: one of the following:
 //   1. an array of objects with properties with which to extend the
 //      template (should contain the property "id", which is treated
-//      as the variable part of the corpus id),
+//      as the variable part of the corpus id);
 //   2. an array of strings treated as (the variable parts of) corpus
-//      ids, or
-//   3. an array of two integers (typically years), which denote the
+//      ids;
+//   3. an array of arrays [id, title, description] with which to
+//      extend the template (if title or description is omitted, they
+//      are replaced with the id); or
+//   4. an array of two integers (typically years), which denote the
 //      start and end values (inclusive) for the variable parts of the
 //      ids (converted to strings).
 // - folder: the corpus folder to whose "contents" property the
 //   corpora are added
 // - id_templ: a template for the corpus id: "{}" is replaced with the
 //   variable part of the id value taken from the infolist item; if no
-//   "{}", treated as a prefix to the id
+//   "{}", treated as a prefix to the id; if undefined or null, use
+//   template.id if defined, otherwise ""
 //
-// Occurrences of "{}" in the title, description and id_templ are
-// replaced with the variable part of the id specified in the infolist
-// item.
+// Occurrences of "{}" in the id, title, description of template are
+// replaced with the corresponding property value in the infolist
+// item, or if that is missing, the variable part of the id specified
+// in the infolist item.
 
-funcs.add_corpus_settings = function (template, infolist, folder, id_templ) {
+funcs.addCorpusSettings = function (template, infolist, folder, id_templ) {
     var ids = [];
-    // Replace {} with the id in infolist in these properties:
-    var id_subst_props = ["title", "description"];
+    // Replace {} with the value in the infolist item in these
+    // properties ("id" is treated separately):
+    var subst_props = ["title", "description"];
+    if (id_templ == null) {
+        id_templ = (template.id != null ? template.id : "")
+    }
 
     var add_info = function (info) {
         var info_is_string = (typeof info == "string");
@@ -8021,9 +8087,13 @@ funcs.add_corpus_settings = function (template, infolist, folder, id_templ) {
             $.extend(config, info);
         }
         config.id = id;
-        for (var j = 0; j < id_subst_props.length; j++) {
-            var propname = id_subst_props[j];
-            config[propname] = config[propname].replace(/{}/g, id_varpart);
+        for (var j = 0; j < subst_props.length; j++) {
+            var propname = subst_props[j];
+            if (template[propname]) {
+                config[propname] = template[propname].replace(
+                    /{}/g,
+                    info_is_string ? id_varpart : info[propname] || id_varpart);
+            }
         }
         ids.push(id);
     };
@@ -8034,7 +8104,16 @@ funcs.add_corpus_settings = function (template, infolist, folder, id_templ) {
         }
     } else {
         for (var i = 0; i < infolist.length; i++) {
-            add_info(infolist[i]);
+            if (_.isArray(infolist[i])) {
+                var id = infolist[i][0];
+                add_info({
+                    id: id,
+                    title: infolist[i][1] || id,
+                    description: infolist[i][2] || id,
+                });
+            } else {
+                add_info(infolist[i]);
+            }
         }
     }
     if (folder != null) {
@@ -8047,7 +8126,7 @@ funcs.add_corpus_settings = function (template, infolist, folder, id_templ) {
 
 
 // Add properties to the settings of the listed corpora.
-funcs.extend_corpus_settings = function (props, corpus_ids) {
+funcs.extendCorpusSettings = function (props, corpus_ids) {
     for (var i = 0; i < corpus_ids.length; i++) {
         $.extend(true, settings.corpora[corpus_ids[i]], props);
     }
@@ -8059,7 +8138,7 @@ funcs.extend_corpus_settings = function (props, corpus_ids) {
 // - label: attribute translation label
 // - yes_no: an array of two or three items: the corpus values for
 //   "yes", "no" and optionally "unknown"; if omitted, use "y" and "n".
-funcs.make_bool_attr = function (label, yes_no) {
+funcs.makeBoolAttr = function (label, yes_no) {
     var dataset = {};
     if (arguments.length < 2) {
         dataset = {
@@ -8076,7 +8155,7 @@ funcs.make_bool_attr = function (label, yes_no) {
     return {
         label: label,
         extendedComponent: "datasetSelect",
-        opts: liteOptions,
+        opts: options.lite,
         dataset: dataset,
         translation: transl.yesno,
     };
@@ -8093,8 +8172,8 @@ funcs.make_bool_attr = function (label, yes_no) {
 //   explained and their values are the explanations of the attribute
 //   values corresponding to the keys
 // Example:
-//   pattern: "<%=funcs.make_explained_value(val, {'0': 'no_quote'})%>",
-funcs.make_explained_value = function (value, value_map) {
+//   pattern: "<%=funcs.makeExplainedValue(val, {'0': 'no_quote'})%>",
+funcs.makeExplainedValue = function (value, value_map) {
     if (value in value_map) {
         value += (" <i style=\"color: grey;\">[<span rel=\"localize["
                   + value_map[value] + "]\"></span>]</i>");
@@ -8105,7 +8184,7 @@ funcs.make_explained_value = function (value, value_map) {
 
 // Add a zero-width space before "T" to allow more logical
 // line-breaking of an ISO datetime value.
-funcs.stringify_iso_datetime = function (val) {
+funcs.stringifyIsoDatetime = function (val) {
     return val.replace(/T/g, "<wbr>T");
 };
 
@@ -8149,7 +8228,7 @@ funcs.stringify_iso_datetime = function (val) {
 // TODO: Would this function be better in the util module? Or maybe a
 // separate util_config?
 
-funcs.make_folder_hierarchy = function (parent_folder, subfolder_tree,
+funcs.makeFolderHierarchy = function (parent_folder, subfolder_tree,
                                         options) {
 
     // Return a function for making the folder or corpus (depending on
@@ -8204,7 +8283,7 @@ funcs.make_folder_hierarchy = function (parent_folder, subfolder_tree,
                                              parent_folder, ancestor_ids)
             var subfolder = folder_info.data;
             parent_folder[folder_info.id] = subfolder;
-            funcs.make_folder_hierarchy(
+            funcs.makeFolderHierarchy(
                 subfolder, subsubfolders, options,
                 ancestor_ids.concat([folder_info.id]));
         } else {
@@ -8226,7 +8305,7 @@ funcs.make_folder_hierarchy = function (parent_folder, subfolder_tree,
 // for setting the order of attributes. attrnamelist lists the names
 // of the attribute in the desired order: it can be either an array of
 // strings or a single string of names separated by spaces (or tabs).
-funcs.set_attr_order = function (attrstruct, attrnamelist) {
+funcs.setAttrOrder = function (attrstruct, attrnamelist) {
     if (typeof attrnamelist == "string") {
         attrnamelist = attrnamelist.split(/[ \t]+/);
     }
@@ -8239,16 +8318,52 @@ funcs.set_attr_order = function (attrstruct, attrnamelist) {
 };
 
 
-// Create a pattern for a link with the label as the link text
-funcs.makeLinkPattern = function (label, url) {
-    return `<a href="${url}" class="exturl sidebar_link" target="_blank"><span rel="localize[${label}]"></span></a>`
+// Return a shallow copy of object templates substrings "{x}" in the
+// string-valued properties of templates replaced with the value of
+// values.x. Other than string-valued properties in templates are
+// copied as such. If a templates property contains "{y}" but values
+// has no property y, "{y}" is kept intact.
+funcs.fillTemplates = function (templates, values) {
+    var result = {}
+    for (var templKey in templates) {
+        var filledTempl = templates[templKey];
+        if (_.isString(filledTempl)) {
+            for (var valKey in values) {
+                filledTempl = filledTempl.replace("{" + valKey + "}",
+                                                  values[valKey]);
+            }
+        }
+        result[templKey] = filledTempl;
+    }
+    return result;
+}
+
+// Return a copy of object templates with the following replacements
+// in string values:
+//   {y1} -> year1 (stringified)
+//   {y2} -> year2 (stringified)
+//   {ver} -> version preceded by space; empty if version empty or undefined
+//   {versuff} -> version prefixed by "-v" and points converted to dashes
+//
+// This function can be used to generate titles, descriptions and
+// short names for corpora with multiple subcorpora with different
+// year ranges and versions.
+funcs.fillYearsVersion = function (templates, year1, year2, version) {
+    return funcs.fillTemplates(
+        templates,
+        {
+            y1: year1.toString(),
+            y2: year2.toString(),
+            ver: (version ? " " + version : ""),
+            versuff: (version ? "-v" + version.replace(".", "-") : ""),
+        });
 }
 
 
 // Functions for the video page
 
 // Return the milliseconds value ms0 formatted as hh:mm:ss.xxx
-funcs.ms_to_hms = function (ms0) {
+funcs.msToHms = function (ms0) {
     // Adapted from https://stackoverflow.com/a/2998822
     var pad = function (num, len) {
         var s = "000" + Math.floor(num).toString();
@@ -8267,23 +8382,23 @@ funcs.ms_to_hms = function (ms0) {
 // Make the URL to the video page with information encoded in
 // parameters.
 //
-// This function is tailored to generate the value for a synthetic
+// This function is tailored to generate the value for a custom
 // attribute. This function was developed for the Eduskunta corpus,
 // but it aims to be more general-purpose. However, it might need to
 // be modified (generalized further) when used for other corpora.
 //
 // Arguments:
 // - corpus_id: the id of the corpus linking to the video page
-// - token_data: the token data passed to the stringify_synthetic
-//   function
+// - token_data: the token data passed to the pattern of a custom
+//   attribute
 // - video_url: the URL of the original video shown on the video page
 // - msec2sec_attrs: ids of structural attributes whose values should
 //   be converted from milliseconds to seconds
 // - omit_attrs: the structural attributes not to be passed to the
 //   video page
-funcs.make_videopage_url = function (corpus_id, token_data, video_url,
+funcs.makeVideopageUrl = function (corpus_id, token_data, video_url,
                                      msec2sec_attrs, omit_attrs) {
-    // console.log("funcs.make_videopage_url", token_data);
+    // console.log("funcs.makeVideopageUrl", token_data);
     var msec_to_sec = function (sec) {
         return (parseInt(sec) / 1000).toString();
     };
@@ -8293,10 +8408,14 @@ funcs.make_videopage_url = function (corpus_id, token_data, video_url,
         if (name) {
             if (msec2sec_attrs.includes(key)) {
                 val = msec_to_sec(val);
-            } else if (attrdef.renderItem) {
-                val = attrdef.renderItem(
-                    key, val, attrdef, token_data.pos_attrs,
-                    token_data.struct_attrs, token_data.tokens);
+            } else if (attrdef.pattern) {
+                val = _.template(attrdef.pattern)({
+                    key,
+                    val,
+                    pos_attrs: token_data.pos_attrs,
+                    struct_attrs: token_data.struct_attrs,
+                    tokens: token_data.tokens,
+                });
             } else if (attrdef.translation != null) {
                 val = util.translateAttribute(null, attrdef.translation, val);
             } else if (val == "") {
@@ -8310,14 +8429,20 @@ funcs.make_videopage_url = function (corpus_id, token_data, video_url,
         // change single quotes to double ones. FIXME: This assumes
         // that single quotes are used only to delimit attribute
         // values.
-        var licence_text = util.formatCorpusExtraInfo(
+        // FIXME: Avoid calling the method _formatCorpusExtraInfo
+        // internal to the corpusinfo_formatter plugin
+        var corpusinfoFormatter = plugins.getPlugin("corpusinfo_formatter");
+        if (! corpusinfoFormatter) {
+            return "";
+        }
+        var licence_text = corpusinfoFormatter._formatCorpusExtraInfo(
             corpus_conf, { info_items: ["licence"],
                            static_localization: true })
             .replace(/'/g, "\"");
         // A kludge to put the video licence first: assumes that its
         // localized label contains the string "video"
         return licence_text.replace(
-            /^(.*?)(<br\s*\/?>)(Li.*?video.*)$/, "$3$2$1");
+            /^(.*?)(<br\s*\/?>)(.*Li.*?video.*)$/, "$3$2$1");
     };
     // Would it be better to declare the base URL (prefix) somewhere
     // else?
@@ -8388,7 +8513,7 @@ funcs.make_videopage_url = function (corpus_id, token_data, video_url,
 
 // Construct a list of years from start to end, years in opts.omit
 // omitted, descending if opts.descending
-funcs.make_yearlist = function(start, end, opts)
+funcs.makeYearlist = function(start, end, opts)
 {
     var omit = [];
     var descending = false;
@@ -8414,7 +8539,7 @@ funcs.make_yearlist = function(start, end, opts)
 
 // Construct corpus settings by year and corpus folder settings by
 // decade
-funcs.make_corpus_settings_by_year_decade = function(
+funcs.makeCorpusSettingsByYearDecade = function(
     folder_parent, folder_name_format, corpus_name_format,
     make_folder_settings_fn, make_corpus_settings_fn, yearlist)
 {
@@ -8451,7 +8576,7 @@ funcs.make_corpus_settings_by_year_decade = function(
 
 
 // Construct settings contents for a single KLK corpus
-funcs.make_klk_corpus_settings = function(
+funcs.makeKlkCorpusSettings = function(
     title_format, descr_format, key_prefix, lang, year, parsed)
 {
     var year_str = year.toString();
@@ -8461,20 +8586,19 @@ funcs.make_klk_corpus_settings = function(
     return {
         title: title_format.replace("{year}", year_str),
         description: descr_format.replace("{year}", year_str),
-        // Korp 9 has window.spWithin but settings.defaultWithin
-        within: (ctx_type == "sp"
-                 ? window[ctx_type + "Within"]
-                 : settings[ctx_type + "Within"]),
-        context: window[ctx_type + "Context"],
+        within: within[ctx_type],
+        context: context[ctx_type],
         attributes: attrlist[attrs_key],
-        structAttributes: sattrlist[attrs_key]
+        structAttributes: sattrlist[attrs_key],
+        customAttributes: sattrlist[attrs_key + "_custom"] || undefined,
+        defaultFilters: ["text_publ_title"],
     };
 }
 
 
 // Functions used to make page URL attribute values
 
-funcs.make_klk_url_base = function (data) {
+funcs.makeKlkUrlBase = function (data) {
     return ("http://digi.kansalliskirjasto.fi/"
             + data.struct_attrs.text_publ_type
             + "/binding/"
@@ -8482,7 +8606,7 @@ funcs.make_klk_url_base = function (data) {
 };
 
 // Return the argument word with non-word characters removed
-funcs.remove_non_word_chars = function (word) {
+funcs.removeNonWordChars = function (word) {
     // Modified from
     // http://stackoverflow.com/questions/11598786/how-to-replace-non-printable-unicode-characters-javascript,
     // which was from
@@ -8497,9 +8621,9 @@ funcs.remove_non_word_chars = function (word) {
 
 // Return the string of context_size words before and after
 // token_data.pos_attrs.word.
-funcs.find_context_words = function (token_data, context_size) {
+funcs.findContextWords = function (token_data, context_size) {
     var main_word =
-        funcs.remove_non_word_chars(token_data.pos_attrs.word);
+        funcs.removeNonWordChars(token_data.pos_attrs.word);
     if (context_size == 0) {
         return main_word;
     }
@@ -8510,7 +8634,7 @@ funcs.find_context_words = function (token_data, context_size) {
     }
     var numwords = 0;
     for (var i = wordnum - 1; i >= 0 && numwords < context_size; i--) {
-        var word = funcs.remove_non_word_chars(token_data.tokens[i].word);
+        var word = funcs.removeNonWordChars(token_data.tokens[i].word);
         if (word) {
             words.unshift(word);
             numwords++;
@@ -8519,7 +8643,7 @@ funcs.find_context_words = function (token_data, context_size) {
     var numtokens = token_data.tokens.length;
     numwords = 0;
     for (var i = wordnum + 1; i < numtokens && numwords < context_size; i++) {
-        var word = funcs.remove_non_word_chars(token_data.tokens[i].word);
+        var word = funcs.removeNonWordChars(token_data.tokens[i].word);
         if (word) {
             words.push(word);
             numwords++;
@@ -8530,9 +8654,9 @@ funcs.find_context_words = function (token_data, context_size) {
 
 // Return a KLK page image URL for a token, with the specified context
 // size.
-funcs.make_klk_page_image_url = function (token_data, context_size) {
-    var words = funcs.find_context_words(token_data, context_size);
-    return (funcs.make_klk_url_base(token_data)
+funcs.makeKlkPageImageUrl = function (token_data, context_size) {
+    var words = funcs.findContextWords(token_data, context_size);
+    return (funcs.makeKlkUrlBase(token_data)
             + "?page=" + token_data.struct_attrs.text_page_no)
             + (words ? "&term=" + words : "");
 }
@@ -8544,8 +8668,8 @@ settings.templ.lemmie_common = {
     title: "",
     description: "",
     id: "",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     limitedAccess: true,
     licenceType: "RES",
     attributes: {
@@ -8563,7 +8687,7 @@ settings.templ.lemmie_common = {
         text_lang: {
             label: "lang",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: [
                 "fin",
                 "eng",
@@ -8585,7 +8709,7 @@ settings.templ.lemmie_common = {
             label: "source",
             extendedComponent: "datasetSelect",
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         text_lemmie_corpus: {
             label: "lemmie_corpus",
@@ -8600,7 +8724,7 @@ settings.templ.lemmie_common = {
         paragraph_type: {
             label: "paragraph_type",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: {},
             translation: transl.paragraphType,
         },
@@ -8615,77 +8739,32 @@ settings.templ.lemmie_common = {
 // Make a custom (structural) attribute for showing the video popup,
 // based on other attribute values.
 //
-// If the values of (some of) the arguments baseURL, path, file, ext,
-// startTime and endTime begin with an "@", the rest of the value is
-// the name of the (structural) attribute from which to get the actual
-// value; otherwise, the value is used as a constant value as such.
-// The seventh argument is optional videoType: if not specified, its
-// value defaults to "mp4".
+// Arguments:
+// - options: an options object to be passed to the videoPlayer
+//   sidebar component; see app/custom/sidebar.js for more information
+//   on the options
+// - attrProps: properties of the attribute definition object,
+//   possibly overriding the defaults (urlOpts: sattrs.link_url_opts,
+//   customType: "struct")
 //
-// Generalized from ivipVideo in Språkbankens default_mode.js
+// Adapted and generalized from ivipVideo in Språkbankens default_mode.js
 
-var makeVideoAttr = function (baseURL0, path0, file0, ext0, startTime0, endTime0) {
-    var videoType = (arguments[6] || "mp4");
-    console.log("makeVideoAttr", startTime0, endTime0);
-    return {
-        label: "video",
-        renderItem: function (key, value, attrs, wordData, sentenceData,
-                              tokens) {
-            var getValue = function (value) {
-                return (value.startsWith("@")
-                        ? sentenceData[value.slice(1)]
-                        : value);
-            };
-            var baseURL = getValue(baseURL0);
-            var startTime = getValue(startTime0);
-            var endTime = getValue(endTime0);
-            var path = getValue(path0);
-            var file = getValue(file0);
-            var ext = getValue(ext0);
-            console.log("video renderItem", sentenceData, baseURL, startTime,
-                        endTime, path, file, ext);
-            var videoLink
-                = $('<span class="link" rel="localize[show_video]"></span>');
-            videoLink.click(function () {
-                var url = baseURL + path + file + (ext ? "." + ext : "");
-                var scope = angular.element("#video-modal").scope();
-                scope.videos = [{"url": url, "type": "video/" + videoType}];
-                scope.fileName = (file
-                                  ? file + "." + ext
-                                  : url.split("/").slice(-1)[0]);
-                scope.startTime = startTime / 1000;
-                scope.endTime = endTime / 1000;
-                console.log("videoLink", scope.videos, scope.fileName,
-                            scope.startTime, scope.endTime);
-                // find start of sentence
-                var startIdx = 0
-                for (var i = wordData.position; i >= 0; i--) {
-                    if (_.includes(tokens[i]._open, "sentence")) {
-                        startIdx = i;
-                        break;
-                    }
-                }
-                // find end of sentence
-                var endIdx = tokens.length - 1
-                for (var i = wordData.position; i < tokens.length; i++) {
-                    if (_.includes(tokens[i]._close, "sentence")) {
-                        endIdx = i;
-                        break;
-                    }
-                }
-                scope.sentence =
-                    _.map(tokens.slice(startIdx, endIdx + 1), "word").join(" ")
-                scope.open();
-                scope.$apply();
-            });
-            return videoLink;
+funcs.makeVideoAttr = function (options, attrProps) {
+    const attrDefaults = {
+        sidebarComponent: {
+            name: "videoPlayer",
+            options: options,
         },
+        urlOpts: sattrs.link_url_opts,
         customType: "struct",
-    }
+    };
+    return $.extend({}, attrDefaults, attrProps || {});
 };
 
 
 module.exports = {
+    within,
+    context,
     spWithin,
     spContext,
     spcWithin,
@@ -8696,8 +8775,8 @@ module.exports = {
     sattrlist,
     funcs,
     transl,
+    options,
     setOptions,
     fullSetOptions,
     liteOptions,
-    makeVideoAttr,
 }
