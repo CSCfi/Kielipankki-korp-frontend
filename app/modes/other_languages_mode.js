@@ -1274,7 +1274,7 @@ attrlist.oracc2021 = {
     lemma : attrs.baseform,
     autolemma : {
         label: "autolemma",
-        opts: settings.defaultOptions
+        opts: options.default
         },
     //attrs.baseform,
     autopos : {
@@ -1339,7 +1339,7 @@ sattrlist.oracc2021 = {
     },*/
     text_provenience : {
         label : "oracc_provenance",
-        opts: liteOptions,
+        opts: options.lite,
         extendedComponent: "structServiceAutocomplete",
     },
     text_language : {
@@ -1348,12 +1348,12 @@ sattrlist.oracc2021 = {
     },
     text_genre : {
         label : "oracc_genre",
-        opts: liteOptions,
+        opts: options.lite,
         extendedComponent : "structServiceSelect",
     },
     text_period : {
         label : "oracc_period",
-        opts: liteOptions,
+        opts: options.lite,
 	extendedComponent : "structServiceSelect",
     },
     text_subgenre : {
@@ -1401,8 +1401,8 @@ settings.corpora.oracc2021_adsd = {
     description : "ADsD: Astronomical Diaries Digital",
     credits_url : "http://www.oracc.org/adsd/",
     cite_id : "",
-    context : spContext,
-    within : spWithin,
+    context : context.sp,
+    within : within.sp,
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
@@ -1412,8 +1412,8 @@ settings.corpora.oracc2021_aemw = {
     description : "AEMW: Akkadian in the Eastern Mediterranean World",
     credits_url : "http://www.oracc.org/aemw/",
     cite_id : "",
-    context : spContext,
-    within : spWithin,
+    context : context.sp,
+    within : within.sp,
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
@@ -1423,8 +1423,8 @@ settings.corpora.oracc2021_akklove = {
     description : "Akkadian Love Literature",
     credits_url : "http://www.oracc.org/akklove/participants/",
     cite_id : "",
-    context : spContext,
-    within : spWithin,
+    context : context.sp,
+    within : within.sp,
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
@@ -1434,8 +1434,8 @@ settings.corpora.oracc2021_ario = {
     description : "ARIo: Achaemenid Royal Inscriptions online",
     credits_url : "http://www.oracc.org/ario/abouttheproject/",
     cite_id : "",
-    context : spContext,
-    within : spWithin,
+    context : context.sp,
+    within : within.sp,
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
@@ -1445,8 +1445,8 @@ settings.corpora.oracc2021_atae = {
     description : "ATAE: Archival Texts of the Assyrian Empire",
     credits_url : "http://www.oracc.org/atae/abouttheproject/",
     cite_id : "",
-    context : spContext,
-    within : spWithin,
+    context : context.sp,
+    within : within.sp,
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
@@ -1456,8 +1456,8 @@ settings.corpora.oracc2021_blms = {
     description : "blms: Bilinguals in Late Mesopotamian Scholarship",
     credits_url : "http://www.oracc.org/blms/",
     cite_id : "",
-    context : spContext,
-    within : spWithin,
+    context : context.sp,
+    within : within.sp,
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
@@ -1467,8 +1467,8 @@ settings.corpora.oracc2021_btto = {
     description : "BTTo: Babylonian Topographical Texts Online",
     credits_url : "http://www.oracc.org/btto/abouttheproject/",
     cite_id : "",
-    context : spContext,
-    within : spWithin,
+    context : context.sp,
+    within : within.sp,
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
@@ -1478,8 +1478,8 @@ settings.corpora.oracc2021_cams = {
     description : "CAMS: Corpus of Ancient Mesopotamian Scholarship",
     credits_url : "http://www.oracc.org/cams/",
     cite_id : "",
-    context : spContext,
-    within : spWithin,
+    context : context.sp,
+    within : within.sp,
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
@@ -1490,8 +1490,8 @@ settings.corpora.oracc2021_cams = {
 //     description : "CASPo: Corpus of Akkadian Shuila-Prayers online",
 //     credits_url : "http://www.oracc.org/caspo/",
 //     cite_id : "",
-//     context : spContext,
-//     within : spWithin,
+//     context : context.sp,
+//     within : within.sp,
 //     attributes: attrlist.oracc2021,
 //     structAttributes : sattrlist.oracc2021
 // };
@@ -1501,8 +1501,8 @@ settings.corpora.oracc2021_ccpo = {
     description : "CCPo: Cuneiform Commentaries Project on Oracc",
     credits_url : "http://www.oracc.org/ccpo/",
     cite_id : "",
-    context : spContext,
-    within : spWithin,
+    context : context.sp,
+    within : within.sp,
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
@@ -1512,8 +1512,8 @@ settings.corpora.oracc2021_ckst = {
     description : "CKST: Corpus of Kassite Sumerian Texts",
     credits_url : "http://www.oracc.org/ckst/",
     cite_id : "",
-    context : spContext,
-    within : spWithin,
+    context : context.sp,
+    within : within.sp,
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
@@ -1523,8 +1523,8 @@ settings.corpora.oracc2021_cmawro = {
     description : "CMAwRo: Corpus of Mesopotamian Anti-witchcraft Rituals",
     credits_url : "http://www.oracc.org/cmawro/",
     cite_id : "",
-    context : spContext,
-    within : spWithin,
+    context : context.sp,
+    within : within.sp,
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
@@ -1534,8 +1534,8 @@ settings.corpora.oracc2021_ctij = {
     description : "CTIJ: Cuneiform Texts Mentioning Israelites, Judeans, and Other Related Groups",
     credits_url : "http://www.oracc.org/ctij/",
     cite_id : "",
-    context : spContext,
-    within : spWithin,
+    context : context.sp,
+    within : within.sp,
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
@@ -1545,8 +1545,8 @@ settings.corpora.oracc2021_dcclt = {
     description : "DCCLT: Digital Corpus of Cuneiform Lexical Texts",
     credits_url : "http://www.oracc.org/dcclt/aboutdcclt/",
     cite_id : "",
-    context : spContext,
-    within : spWithin,
+    context : context.sp,
+    within : within.sp,
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
@@ -1556,8 +1556,8 @@ settings.corpora.oracc2021_dccmt = {
     description : "DCCMT: Digital Corpus of Cuneiform Mathematical Texts",
     credits_url : "http://www.oracc.org/dccmt/",
     cite_id : "",
-    context : spContext,
-    within : spWithin,
+    context : context.sp,
+    within : within.sp,
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
@@ -1567,8 +1567,8 @@ settings.corpora.oracc2021_dsst = {
     description : "DSSt: Datenbank sumerischer Streitliteratur",
     credits_url : "http://www.oracc.org/dsst/staff/",
     cite_id : "",
-    context : spContext,
-    within : spWithin,
+    context : context.sp,
+    within : within.sp,
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
@@ -1578,8 +1578,8 @@ settings.corpora.oracc2021_ecut = {
     description : "eCUT: Electronic Corpus of Urartian Texts",
     credits_url : "http://www.oracc.org/ecut/abouttheproject/",
     cite_id : "",
-    context : spContext,
-    within : spWithin,
+    context : context.sp,
+    within : within.sp,
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
@@ -1589,8 +1589,8 @@ settings.corpora.oracc2021_epsd2 = {
     description : "EPSD2: Electronic Pennsylvania Sumerian Dictionary 2",
     credits_url : "http://www.oracc.org/epsd2/about/",
     cite_id : "",
-    context : spContext,
-    within : spWithin,
+    context : context.sp,
+    within : within.sp,
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
@@ -1600,8 +1600,8 @@ settings.corpora.oracc2021_etcsri = {
     description : "ETCSRI: Electronic Text Corpus of Sumerian Royal Inscriptions",
     credits_url : "http://www.oracc.org/etcsri/staff/",
     cite_id : "",
-    context : spContext,
-    within : spWithin,
+    context : context.sp,
+    within : within.sp,
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
@@ -1611,8 +1611,8 @@ settings.corpora.oracc2021_glass = {
     description : "Glass: Corpus of Glass Technological Texts",
     credits_url : "http://www.oracc.org/glass/",
     cite_id : "",
-    context : spContext,
-    within : spWithin,
+    context : context.sp,
+    within : within.sp,
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
@@ -1622,8 +1622,8 @@ settings.corpora.oracc2021_hbtin = {
     description : "HBTIN: Hellenistic Babylonia: Texts, Iconography, Names",
     credits_url : "http://www.oracc.org/hbtin/staff.html",
     cite_id : "",
-    context : spContext,
-    within : spWithin,
+    context : context.sp,
+    within : within.sp,
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
@@ -1633,8 +1633,8 @@ settings.corpora.oracc2021_lacost = {
     description : "LaOCOST: Law and Order: Cuneiform Online Sustainable Tool",
     credits_url : "http://www.oracc.org/lacost/",
     cite_id : "",
-    context : spContext,
-    within : spWithin,
+    context : context.sp,
+    within : within.sp,
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
@@ -1644,8 +1644,8 @@ settings.corpora.oracc2021_obmc = {
     description : "OBMC: Old Babylonian Model Contracts",
     credits_url : "http://www.oracc.org/obmc/aboutobmc/",
     cite_id : "",
-    context : spContext,
-    within : spWithin,
+    context : context.sp,
+    within : within.sp,
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
@@ -1655,8 +1655,8 @@ settings.corpora.oracc2021_obta = {
     description : "OBTA: Old Babylonian Tabular Accounts",
     credits_url : "http://www.oracc.org/obta/",
     cite_id : "",
-    context : spContext,
-    within : spWithin,
+    context : context.sp,
+    within : within.sp,
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
@@ -1666,8 +1666,8 @@ settings.corpora.oracc2021_riao = {
     description : "RIAo: Royal Inscriptions of Assyria online",
     credits_url : "http://www.oracc.org/riao/abouttheproject/",
     cite_id : "",
-    context : spContext,
-    within : spWithin,
+    context : context.sp,
+    within : within.sp,
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
@@ -1677,8 +1677,8 @@ settings.corpora.oracc2021_ribo = {
     description : "RIBo: Royal Inscriptions of Babylonia online",
     credits_url : "http://www.oracc.org/ribo/abouttheproject/",
     cite_id : "",
-    context : spContext,
-    within : spWithin,
+    context : context.sp,
+    within : within.sp,
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
@@ -1688,8 +1688,8 @@ settings.corpora.oracc2021_rimanum = {
     description : "Rīm-Anum: The House of Prisoners",
     credits_url : "http://www.oracc.org/rimanum/",
     cite_id : "",
-    context : spContext,
-    within : spWithin,
+    context : context.sp,
+    within : within.sp,
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
@@ -1699,8 +1699,8 @@ settings.corpora.oracc2021_rinap = {
     description : "RINAP: Royal Inscriptions of the Neo-Assyrian Period",
     credits_url : "http://www.oracc.org/rinap/abouttheproject/",
     cite_id : "",
-    context : spContext,
-    within : spWithin,
+    context : context.sp,
+    within : within.sp,
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
@@ -1710,8 +1710,8 @@ settings.corpora.oracc2021_saao = {
     description : "SAAo: State Archives of Assyria Online",
     credits_url : "http://www.oracc.org/saao/abouttheproject/",
     cite_id : "",
-    context : spContext,
-    within : spWithin,
+    context : context.sp,
+    within : within.sp,
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
@@ -1721,8 +1721,8 @@ settings.corpora.oracc2021_suhu = {
     description : "Suhu: The Inscriptions of Suhu online",
     credits_url : "http://www.oracc.org/suhu/abouttheproject/",
     cite_id : "",
-    context : spContext,
-    within : spWithin,
+    context : context.sp,
+    within : within.sp,
     attributes: attrlist.oracc2021,
     structAttributes : sattrlist.oracc2021
 };
