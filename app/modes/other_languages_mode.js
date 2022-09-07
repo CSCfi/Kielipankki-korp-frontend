@@ -427,14 +427,14 @@ settings.corporafolders.cuneiform.oracc2021 = {
 	              "oracc2021_riao", "oracc2021_ribo", "oracc2021_rimanum", "oracc2021_rinap",
 	              "oracc2021_saao", "oracc2021_suhu"], //oracc2021_caspo is removed temporarily
     info: {
-        metadata_urn: "urn:nbn:fi:lb-2019060601",
-        urn: "urn:nbn:fi:lb-2019060602",
+        metadata_urn: "urn:nbn:fi:lb-2022031705",
+        urn: "urn:nbn:fi:lb-2022031706",
         licence: settings.licenceinfo.CC_BY_SA_30,
         iprholder: {
             name: "Open Richly Annotated Cuneiform Corpus Project",
             url: "http://oracc.museum.upenn.edu/doc/about/licensing/index.html",
         },
-        cite_id: "oracc-korp-2019-05",
+        cite_id: "oracc-korp-2021-06",
         infopage_url: "https://www.kielipankki.fi/corpora/oracc/",
     }
 };
