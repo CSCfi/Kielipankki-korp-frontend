@@ -439,6 +439,11 @@ settings.corporafolders.cuneiform.oracc2021 = {
     }
 };
 
+// Add corpus aliases containing all Oracc 2021 subcorpora
+funcs.addCorpusAliases(
+    settings.corporafolders.cuneiform.oracc2021.contents.join(","),
+    ["oracc-korp-2021-06", "oracc-korp-2021"]);
+
 
 settings.corporafolders.cuneiform.oracc = {
     title: "Oracc",
