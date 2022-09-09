@@ -828,6 +828,17 @@
 
     "country": "maa",
 
+    "oracc_credits" : "kiitokset",
+    "oracc_museumno" : "museonumero",
+    "oracc_accessionno" : "acc. numero",
+    "oracc_photo" : "valokuva",
+    "oracc_datebce" : "päiväys BCE",
+    "oracc_excavation" : "kaivaus",
+    "oracc_collection" : "kokoelma",
+    "oracc_primarypubno" : "julkaisu",
+    "oracc_copy" : "kopio",
+    "oracc_morph" : "morfologia",
+
     "oracc_cdlinumber": "CDLI-tunniste",
     "oracc_lemmatrans": "merkitys (lemma)",
     "oracc_transcription": "transkriptio",
@@ -847,6 +858,8 @@
     "oracc_textlang": "tekstin kielet",
     "oracc_textlang": "tekstin kielet",
     "oracc_lang": "kielimuoto",
+
+    "text__geo_provenience": "löytöpaikka",
 
     "main_section": "pääosasto",
     "sections": "osastot",

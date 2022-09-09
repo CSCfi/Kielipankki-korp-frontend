@@ -640,6 +640,16 @@
 
     "country": "country",
 
+    "oracc_credits" : "acknowledgements",
+    "oracc_museumno" : "museum number",
+    "oracc_accessionno" : "accession number",
+    "oracc_photo" : "photo",
+    "oracc_datebce" : "date BCE",
+    "oracc_excavation" : "excavation",
+    "oracc_collection" : "collection",
+    "oracc_primarypubno" : "primary publication",
+    "oracc_copy" : "copy",
+    "oracc_morph" : "morphology",
     "oracc_cdlinumber": "CDLI number",
     "oracc_lemmatrans": "translation (base form)",
     "oracc_transcription": "transcription",
@@ -657,6 +667,8 @@
     "oracc_standardized": "standardized",
     "oracc_textlang": "text languages",
     "oracc_lang": "language/dialect",
+
+    "text__geo_provenience": "find location",
 
     "main_section": "main section",
     "sections": "sections",

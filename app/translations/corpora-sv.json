@@ -469,6 +469,8 @@
     "studentsvenska_errorwordorder": "antal ordföljdsfel",
     "studentsvenska_subject": "uppsatsämne",
 
+    "text__geo_provenience": "fyndort",
+
     "main_section": "huvudavdelning",
     "sections": "avdelningar",
     "datetime_published": "utgivningsdatum",
