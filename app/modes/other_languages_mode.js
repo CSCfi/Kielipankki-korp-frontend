@@ -417,7 +417,7 @@ settings.corporafolders.swahili.hcs2 = {
 
 settings.corporafolders.cuneiform.oracc2021 = {
     title: "Oracc 2021",
-    description: "Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, June 2021",
+    description: "Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, June 2021<br/><br/>Note that the subcorpora CAMS, CTIJ, DCCLT and HBTIN contain less data than their counterparts in <a href=\"http://urn.fi/urn:nbn:fi:lb-2019060601\" target=\"_blank\">Oracc, Korp version, May 2019</a>. This version is based on the JSON data that was available in <a href=\"http://oracc.museum.upenn.edu/\" target=\"_blank\">Oracc</a> in June 2021.",
     contents: [
         "oracc2021_adsd",
         "oracc2021_aemw",
@@ -1504,7 +1504,7 @@ settings.corpora.oracc2021_btto = {
 settings.corpora.oracc2021_cams = {
     id: "oracc2021_cams",
     title: "CAMS: Corpus of Ancient Mesopotamian Scholarship (Oracc 2021)",
-    description: "CAMS: Corpus of Ancient Mesopotamian Scholarship<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, June 2021",
+    description: "CAMS: Corpus of Ancient Mesopotamian Scholarship<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, June 2021<br/><br/>Note that this subcorpus contains less data than its counterpart in <a href=\"http://urn.fi/urn:nbn:fi:lb-2019060601\" target=\"_blank\">Oracc, Korp version, May 2019</a>. This version is based on the JSON data that was available in <a href=\"http://oracc.museum.upenn.edu/\" target=\"_blank\">Oracc</a> in June 2021.",
     credits_url: "http://www.oracc.org/cams/",
     cite_id: "",
     context: context.sp,
@@ -1516,7 +1516,7 @@ settings.corpora.oracc2021_cams = {
 // settings.corpora.oracc2021_caspo = {
 //     id: "oracc2021_caspo",
 //     title: "CASPo: Corpus of Akkadian Shuila-Prayers online (Oracc 2021)",
-//     description: "CASPo: Corpus of Akkadian Shuila-Prayers online<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, June 2021",
+//     description: "CASPo: Corpus of Akkadian Shuila-Prayers online<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, June 2021<br/><br/>Note that this subcorpus contains less data than its counterpart in <a href=\"http://urn.fi/urn:nbn:fi:lb-2019060601\" target=\"_blank\">Oracc, Korp version, May 2019</a>. This version is based on the JSON data that was available in <a href=\"http://oracc.museum.upenn.edu/\" target=\"_blank\">Oracc</a> in June 2021.",
 //     credits_url: "http://www.oracc.org/caspo/",
 //     cite_id: "",
 //     context: context.sp,
@@ -1560,7 +1560,7 @@ settings.corpora.oracc2021_cmawro = {
 settings.corpora.oracc2021_ctij = {
     id: "oracc2021_ctij",
     title: "CTIJ: Cuneiform Texts Mentioning Israelites, Judeans, and Other Related Groups (Oracc 2021)",
-    description: "CTIJ: Cuneiform Texts Mentioning Israelites, Judeans, and Other Related Groups<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, June 2021",
+    description: "CTIJ: Cuneiform Texts Mentioning Israelites, Judeans, and Other Related Groups<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, June 2021<br/><br/>Note that this subcorpus contains less data than its counterpart in <a href=\"http://urn.fi/urn:nbn:fi:lb-2019060601\" target=\"_blank\">Oracc, Korp version, May 2019</a>. This version is based on the JSON data that was available in <a href=\"http://oracc.museum.upenn.edu/\" target=\"_blank\">Oracc</a> in June 2021.",
     credits_url: "http://www.oracc.org/ctij/",
     cite_id: "",
     context: context.sp,
@@ -1571,7 +1571,7 @@ settings.corpora.oracc2021_ctij = {
 settings.corpora.oracc2021_dcclt = {
     id: "oracc2021_dcclt",
     title: "DCCLT: Digital Corpus of Cuneiform Lexical Texts (Oracc 2021)",
-    description: "DCCLT: Digital Corpus of Cuneiform Lexical Texts<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, June 2021",
+    description: "DCCLT: Digital Corpus of Cuneiform Lexical Texts<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, June 2021<br/><br/>Note that this subcorpus contains less data than its counterpart in <a href=\"http://urn.fi/urn:nbn:fi:lb-2019060601\" target=\"_blank\">Oracc, Korp version, May 2019</a>. This version is based on the JSON data that was available in <a href=\"http://oracc.museum.upenn.edu/\" target=\"_blank\">Oracc</a> in June 2021.",
     credits_url: "http://www.oracc.org/dcclt/aboutdcclt/",
     cite_id: "",
     context: context.sp,
@@ -1648,7 +1648,7 @@ settings.corpora.oracc2021_glass = {
 settings.corpora.oracc2021_hbtin = {
     id: "oracc2021_hbtin",
     title: "HBTIN: Hellenistic Babylonia: Texts, Iconography, Names (Oracc 2021)",
-    description: "HBTIN: Hellenistic Babylonia: Texts, Iconography, Names<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, June 2021",
+    description: "HBTIN: Hellenistic Babylonia: Texts, Iconography, Names<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, June 2021<br/><br/>Note that this subcorpus contains less data than its counterpart in <a href=\"http://urn.fi/urn:nbn:fi:lb-2019060601\" target=\"_blank\">Oracc, Korp version, May 2019</a>. This version is based on the JSON data that was available in <a href=\"http://oracc.museum.upenn.edu/\" target=\"_blank\">Oracc</a> in June 2021.",
     credits_url: "http://www.oracc.org/hbtin/staff.html",
     cite_id: "",
     context: context.sp,
