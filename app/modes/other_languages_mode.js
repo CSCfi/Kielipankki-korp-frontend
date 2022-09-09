@@ -418,14 +418,38 @@ settings.corporafolders.swahili.hcs2 = {
 settings.corporafolders.cuneiform.oracc2021 = {
     title: "Oracc 2021",
     description: "Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    contents: ["oracc2021_adsd", "oracc2021_aemw", "oracc2021_akklove", "oracc2021_ario",
-	              "oracc2021_atae", "oracc2021_blms", "oracc2021_btto", "oracc2021_cams",
-	              "oracc2021_ccpo", "oracc2021_ckst", "oracc2021_cmawro",
-	              "oracc2021_ctij", "oracc2021_dcclt", "oracc2021_dccmt", "oracc2021_dsst",
-	              "oracc2021_ecut", "oracc2021_epsd2", "oracc2021_etcsri", "oracc2021_glass",
-	              "oracc2021_hbtin", "oracc2021_lacost", "oracc2021_obmc", "oracc2021_obta",
-	              "oracc2021_riao", "oracc2021_ribo", "oracc2021_rimanum", "oracc2021_rinap",
-	              "oracc2021_saao", "oracc2021_suhu"], //oracc2021_caspo is removed temporarily
+    contents: [
+        "oracc2021_adsd",
+        "oracc2021_aemw",
+        "oracc2021_akklove",
+        "oracc2021_ario",
+	"oracc2021_atae",
+        "oracc2021_blms",
+        "oracc2021_btto",
+        "oracc2021_cams",
+        // "oracc2021_caspo", // removed temporarily
+	"oracc2021_ccpo",
+        "oracc2021_ckst",
+        "oracc2021_cmawro",
+	"oracc2021_ctij",
+        "oracc2021_dcclt",
+        "oracc2021_dccmt",
+        "oracc2021_dsst",
+	"oracc2021_ecut",
+        "oracc2021_epsd2",
+        "oracc2021_etcsri",
+        "oracc2021_glass",
+	"oracc2021_hbtin",
+        "oracc2021_lacost",
+        "oracc2021_obmc",
+        "oracc2021_obta",
+	"oracc2021_riao",
+        "oracc2021_ribo",
+        "oracc2021_rimanum",
+        "oracc2021_rinap",
+	"oracc2021_saao",
+        "oracc2021_suhu",
+    ],
     info: {
         metadata_urn: "urn:nbn:fi:lb-2022031705",
         urn: "urn:nbn:fi:lb-2022031706",
@@ -1276,460 +1300,460 @@ attrlist.oracc = {
 // Oracc 2021
 
 attrlist.oracc2021 = {
-    lemma : attrs.baseform,
-    autolemma : {
+    lemma: attrs.baseform,
+    autolemma: {
         label: "autolemma",
         opts: options.default
-        },
+    },
     //attrs.baseform,
-    autopos : {
-        label : "autopos",
-        extendedComponent : "structServiceAutocomplete",
-        },
-    msd : {
-	label : "msd"
-	},
-    translation : {
-	label : "oracc_lemmatrans"
-	},
-    sense : {
-	label : "oracc_sense",
+    autopos: {
+        label: "autopos",
+        extendedComponent: "structServiceAutocomplete",
+    },
+    msd: {
+	label: "msd"
+    },
+    translation: {
+	label: "oracc_lemmatrans"
+    },
+    sense: {
+	label: "oracc_sense",
         stats_cqp: "cqpPlainWordAttr",
         stats_stringify: "stringifyPlainWordAttr",
-        },
-    transcription : {
-	label : "oracc_transcription"
-	},
-    pos : {
-	label : "pos",
-        extendedComponent : "structServiceSelect",
-	},
-    oraccpos : {
-	label : "oracc_pos_subcategory",
-        extendedComponent : "structServiceAutocomplete",
-	},
-    normname : {
-	label : "oracc_standardized"
-	},
-    lang : {
-	label : "oracc_lang",
-        extendedComponent : "structServiceSelect",
-	},
-    url : {
+    },
+    transcription: {
+	label: "oracc_transcription"
+    },
+    pos: {
+	label: "pos",
+        extendedComponent: "structServiceSelect",
+    },
+    oraccpos: {
+	label: "oracc_pos_subcategory",
+        extendedComponent: "structServiceAutocomplete",
+    },
+    normname: {
+	label: "oracc_standardized"
+    },
+    lang: {
+	label: "oracc_lang",
+        extendedComponent: "structServiceSelect",
+    },
+    url: {
 	label: "oracc_url",
 	type: "url",
         hideExtended: true,
         hideStatistics: true,
 	url_opts: {
-	        //in_link_section : true,
-	        //hide_url : true,
-	        new_window : true,
-	        }
+	    //in_link_section: true,
+	    //hide_url: true,
+	    new_window: true,
 	}
+    }
 };
 
 
 sattrlist.oracc2021 = {
-    text_cdlinumber : {
-        label : "oracc_cdlinumber",
+    text_cdlinumber: {
+        label: "oracc_cdlinumber",
     },
-    /*text_credits : {
+    /*text_credits: {
         label: "oracc_credits",
         type: "url",
         url_opts: {
-            //in_link_section : true,
-            //hide_url : true,
-            new_window : true,
+            //in_link_section: true,
+            //hide_url: true,
+            new_window: true,
         }
     },*/
-    text_provenience : {
-        label : "oracc_provenance",
+    text_provenience: {
+        label: "oracc_provenance",
         opts: options.lite,
         extendedComponent: "structServiceAutocomplete",
     },
-    text_language : {
-        label : "oracc_textlang",
-        extendedComponent : "structServiceAutocomplete",
+    text_language: {
+        label: "oracc_textlang",
+        extendedComponent: "structServiceAutocomplete",
     },
-    text_genre : {
-        label : "oracc_genre",
+    text_genre: {
+        label: "oracc_genre",
         opts: options.lite,
-        extendedComponent : "structServiceSelect",
+        extendedComponent: "structServiceSelect",
     },
-    text_period : {
-        label : "oracc_period",
+    text_period: {
+        label: "oracc_period",
         opts: options.lite,
-	extendedComponent : "structServiceSelect",
+	extendedComponent: "structServiceSelect",
     },
-    text_subgenre : {
-        label : "oracc_subgenre",
-	extendedComponent : "structServiceAutocomplete",
+    text_subgenre: {
+        label: "oracc_subgenre",
+	extendedComponent: "structServiceAutocomplete",
     },
-    text_museumno : {
-	label : "oracc_museumno",
+    text_museumno: {
+	label: "oracc_museumno",
     },
-    text_photo : {
-        label : "oracc_photo",
-	extendedComponent : "structServiceAutocomplete",
+    text_photo: {
+        label: "oracc_photo",
+	extendedComponent: "structServiceAutocomplete",
     },
-    text_copy : {
-        label : "oracc_copy",
-	extendedComponent : "structServiceAutocomplete",
+    text_copy: {
+        label: "oracc_copy",
+	extendedComponent: "structServiceAutocomplete",
     },
-    text_accessionno : {
-        label : "oracc_accessionno",
+    text_accessionno: {
+        label: "oracc_accessionno",
     },
-    text_datebce : {
-        label : "oracc_datebce",
-	extendedComponent : "structServiceAutocomplete",
+    text_datebce: {
+        label: "oracc_datebce",
+	extendedComponent: "structServiceAutocomplete",
     },
-    text_primarypub : {
-        label : "oracc_primarypubno",
+    text_primarypub: {
+        label: "oracc_primarypubno",
     },
-    text_excavation : {
-        label : "oracc_excavation",
-	extendedComponent : "structServiceAutocomplete",
+    text_excavation: {
+        label: "oracc_excavation",
+	extendedComponent: "structServiceAutocomplete",
     },
-    text_collection : {
-        label : "oracc_collection",
-	extendedComponent : "structServiceAutocomplete",
+    text_collection: {
+        label: "oracc_collection",
+	extendedComponent: "structServiceAutocomplete",
     },
-    paragraph_id : {
-        label : "paragraph_id",
-	displayType : "hidden",
+    paragraph_id: {
+        label: "paragraph_id",
+	displayType: "hidden",
     }
 };
 
 settings.corpora.oracc2021_adsd = {
-    id : "oracc2021_adsd",
-    title : "ADsD: Astronomical Diaries Digital (Oracc 2021)",
-    description : "ADsD: Astronomical Diaries Digital<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    credits_url : "http://www.oracc.org/adsd/",
-    cite_id : "",
-    context : context.sp,
-    within : within.sp,
+    id: "oracc2021_adsd",
+    title: "ADsD: Astronomical Diaries Digital (Oracc 2021)",
+    description: "ADsD: Astronomical Diaries Digital<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    credits_url: "http://www.oracc.org/adsd/",
+    cite_id: "",
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
+    structAttributes: sattrlist.oracc2021
 };
 settings.corpora.oracc2021_aemw = {
-    id : "oracc2021_aemw",
-    title : "AEMW: Akkadian in the Eastern Mediterranean World (Oracc 2021)",
-    description : "AEMW: Akkadian in the Eastern Mediterranean World<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    credits_url : "http://www.oracc.org/aemw/",
-    cite_id : "",
-    context : context.sp,
-    within : within.sp,
+    id: "oracc2021_aemw",
+    title: "AEMW: Akkadian in the Eastern Mediterranean World (Oracc 2021)",
+    description: "AEMW: Akkadian in the Eastern Mediterranean World<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    credits_url: "http://www.oracc.org/aemw/",
+    cite_id: "",
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
+    structAttributes: sattrlist.oracc2021
 };
 settings.corpora.oracc2021_akklove = {
-    id : "oracc2021_akklove",
-    title : "Akkadian Love Literature (Oracc 2021)",
-    description : "Akkadian Love Literature<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    credits_url : "http://www.oracc.org/akklove/participants/",
-    cite_id : "",
-    context : context.sp,
-    within : within.sp,
+    id: "oracc2021_akklove",
+    title: "Akkadian Love Literature (Oracc 2021)",
+    description: "Akkadian Love Literature<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    credits_url: "http://www.oracc.org/akklove/participants/",
+    cite_id: "",
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
+    structAttributes: sattrlist.oracc2021
 };
 settings.corpora.oracc2021_ario = {
-    id : "oracc2021_ario",
-    title : "ARIo: Achaemenid Royal Inscriptions online (Oracc 2021)",
-    description : "ARIo: Achaemenid Royal Inscriptions online<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    credits_url : "http://www.oracc.org/ario/abouttheproject/",
-    cite_id : "",
-    context : context.sp,
-    within : within.sp,
+    id: "oracc2021_ario",
+    title: "ARIo: Achaemenid Royal Inscriptions online (Oracc 2021)",
+    description: "ARIo: Achaemenid Royal Inscriptions online<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    credits_url: "http://www.oracc.org/ario/abouttheproject/",
+    cite_id: "",
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
+    structAttributes: sattrlist.oracc2021
 };
 settings.corpora.oracc2021_atae = {
-    id : "oracc2021_atae",
-    title : "ATAE: Archival Texts of the Assyrian Empire (Oracc 2021)",
-    description : "ATAE: Archival Texts of the Assyrian Empire<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    credits_url : "http://www.oracc.org/atae/abouttheproject/",
-    cite_id : "",
-    context : context.sp,
-    within : within.sp,
+    id: "oracc2021_atae",
+    title: "ATAE: Archival Texts of the Assyrian Empire (Oracc 2021)",
+    description: "ATAE: Archival Texts of the Assyrian Empire<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    credits_url: "http://www.oracc.org/atae/abouttheproject/",
+    cite_id: "",
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
+    structAttributes: sattrlist.oracc2021
 };
 settings.corpora.oracc2021_blms = {
-    id : "oracc2021_blms",
-    title : "blms: Bilinguals in Late Mesopotamian Scholarship (Oracc 2021)",
-    description : "blms: Bilinguals in Late Mesopotamian Scholarship<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    credits_url : "http://www.oracc.org/blms/",
-    cite_id : "",
-    context : context.sp,
-    within : within.sp,
+    id: "oracc2021_blms",
+    title: "blms: Bilinguals in Late Mesopotamian Scholarship (Oracc 2021)",
+    description: "blms: Bilinguals in Late Mesopotamian Scholarship<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    credits_url: "http://www.oracc.org/blms/",
+    cite_id: "",
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
+    structAttributes: sattrlist.oracc2021
 };
 settings.corpora.oracc2021_btto = {
-    id : "oracc2021_btto",
-    title : "BTTo: Babylonian Topographical Texts Online (Oracc 2021)",
-    description : "BTTo: Babylonian Topographical Texts Online<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    credits_url : "http://www.oracc.org/btto/abouttheproject/",
-    cite_id : "",
-    context : context.sp,
-    within : within.sp,
+    id: "oracc2021_btto",
+    title: "BTTo: Babylonian Topographical Texts Online (Oracc 2021)",
+    description: "BTTo: Babylonian Topographical Texts Online<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    credits_url: "http://www.oracc.org/btto/abouttheproject/",
+    cite_id: "",
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
+    structAttributes: sattrlist.oracc2021
 };
 settings.corpora.oracc2021_cams = {
-    id : "oracc2021_cams",
-    title : "CAMS: Corpus of Ancient Mesopotamian Scholarship (Oracc 2021)",
-    description : "CAMS: Corpus of Ancient Mesopotamian Scholarship<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    credits_url : "http://www.oracc.org/cams/",
-    cite_id : "",
-    context : context.sp,
-    within : within.sp,
+    id: "oracc2021_cams",
+    title: "CAMS: Corpus of Ancient Mesopotamian Scholarship (Oracc 2021)",
+    description: "CAMS: Corpus of Ancient Mesopotamian Scholarship<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    credits_url: "http://www.oracc.org/cams/",
+    cite_id: "",
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
+    structAttributes: sattrlist.oracc2021
 };
 // Remove CASPo temporarily
 // settings.corpora.oracc2021_caspo = {
-//     id : "oracc2021_caspo",
-//     title : "CASPo: Corpus of Akkadian Shuila-Prayers online (Oracc 2021)",
-//     description : "CASPo: Corpus of Akkadian Shuila-Prayers online<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-//     credits_url : "http://www.oracc.org/caspo/",
-//     cite_id : "",
-//     context : context.sp,
-//     within : within.sp,
+//     id: "oracc2021_caspo",
+//     title: "CASPo: Corpus of Akkadian Shuila-Prayers online (Oracc 2021)",
+//     description: "CASPo: Corpus of Akkadian Shuila-Prayers online<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+//     credits_url: "http://www.oracc.org/caspo/",
+//     cite_id: "",
+//     context: context.sp,
+//     within: within.sp,
 //     attributes: attrlist.oracc2021,
-//     structAttributes : sattrlist.oracc2021
+//     structAttributes: sattrlist.oracc2021
 // };
 settings.corpora.oracc2021_ccpo = {
-    id : "oracc2021_ccpo",
-    title : "CCPo: Cuneiform Commentaries Project on Oracc (Oracc 2021)",
-    description : "CCPo: Cuneiform Commentaries Project on Oracc<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    credits_url : "http://www.oracc.org/ccpo/",
-    cite_id : "",
-    context : context.sp,
-    within : within.sp,
+    id: "oracc2021_ccpo",
+    title: "CCPo: Cuneiform Commentaries Project on Oracc (Oracc 2021)",
+    description: "CCPo: Cuneiform Commentaries Project on Oracc<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    credits_url: "http://www.oracc.org/ccpo/",
+    cite_id: "",
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
+    structAttributes: sattrlist.oracc2021
 };
 settings.corpora.oracc2021_ckst = {
-    id : "oracc2021_ckst",
-    title : "CKST: Corpus of Kassite Sumerian Texts (Oracc 2021)",
-    description : "CKST: Corpus of Kassite Sumerian Texts<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    credits_url : "http://www.oracc.org/ckst/",
-    cite_id : "",
-    context : context.sp,
-    within : within.sp,
+    id: "oracc2021_ckst",
+    title: "CKST: Corpus of Kassite Sumerian Texts (Oracc 2021)",
+    description: "CKST: Corpus of Kassite Sumerian Texts<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    credits_url: "http://www.oracc.org/ckst/",
+    cite_id: "",
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
+    structAttributes: sattrlist.oracc2021
 };
 settings.corpora.oracc2021_cmawro = {
-    id : "oracc2021_cmawro",
-    title : "CMAwRo: Corpus of Mesopotamian Anti-witchcraft Rituals (Oracc 2021)",
-    description : "CMAwRo: Corpus of Mesopotamian Anti-witchcraft Rituals<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    credits_url : "http://www.oracc.org/cmawro/",
-    cite_id : "",
-    context : context.sp,
-    within : within.sp,
+    id: "oracc2021_cmawro",
+    title: "CMAwRo: Corpus of Mesopotamian Anti-witchcraft Rituals (Oracc 2021)",
+    description: "CMAwRo: Corpus of Mesopotamian Anti-witchcraft Rituals<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    credits_url: "http://www.oracc.org/cmawro/",
+    cite_id: "",
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
+    structAttributes: sattrlist.oracc2021
 };
 settings.corpora.oracc2021_ctij = {
-    id : "oracc2021_ctij",
-    title : "CTIJ: Cuneiform Texts Mentioning Israelites, Judeans, and Other Related Groups (Oracc 2021)",
-    description : "CTIJ: Cuneiform Texts Mentioning Israelites, Judeans, and Other Related Groups<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    credits_url : "http://www.oracc.org/ctij/",
-    cite_id : "",
-    context : context.sp,
-    within : within.sp,
+    id: "oracc2021_ctij",
+    title: "CTIJ: Cuneiform Texts Mentioning Israelites, Judeans, and Other Related Groups (Oracc 2021)",
+    description: "CTIJ: Cuneiform Texts Mentioning Israelites, Judeans, and Other Related Groups<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    credits_url: "http://www.oracc.org/ctij/",
+    cite_id: "",
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
+    structAttributes: sattrlist.oracc2021
 };
 settings.corpora.oracc2021_dcclt = {
-    id : "oracc2021_dcclt",
-    title : "DCCLT: Digital Corpus of Cuneiform Lexical Texts (Oracc 2021)",
-    description : "DCCLT: Digital Corpus of Cuneiform Lexical Texts<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    credits_url : "http://www.oracc.org/dcclt/aboutdcclt/",
-    cite_id : "",
-    context : context.sp,
-    within : within.sp,
+    id: "oracc2021_dcclt",
+    title: "DCCLT: Digital Corpus of Cuneiform Lexical Texts (Oracc 2021)",
+    description: "DCCLT: Digital Corpus of Cuneiform Lexical Texts<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    credits_url: "http://www.oracc.org/dcclt/aboutdcclt/",
+    cite_id: "",
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
+    structAttributes: sattrlist.oracc2021
 };
 settings.corpora.oracc2021_dccmt = {
-    id : "oracc2021_dccmt",
-    title : "DCCMT: Digital Corpus of Cuneiform Mathematical Texts (Oracc 2021)",
-    description : "DCCMT: Digital Corpus of Cuneiform Mathematical Texts<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    credits_url : "http://www.oracc.org/dccmt/",
-    cite_id : "",
-    context : context.sp,
-    within : within.sp,
+    id: "oracc2021_dccmt",
+    title: "DCCMT: Digital Corpus of Cuneiform Mathematical Texts (Oracc 2021)",
+    description: "DCCMT: Digital Corpus of Cuneiform Mathematical Texts<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    credits_url: "http://www.oracc.org/dccmt/",
+    cite_id: "",
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
+    structAttributes: sattrlist.oracc2021
 };
 settings.corpora.oracc2021_dsst = {
-    id : "oracc2021_dsst",
-    title : "DSSt: Datenbank sumerischer Streitliteratur (Oracc 2021)",
-    description : "DSSt: Datenbank sumerischer Streitliteratur<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    credits_url : "http://www.oracc.org/dsst/staff/",
-    cite_id : "",
-    context : context.sp,
-    within : within.sp,
+    id: "oracc2021_dsst",
+    title: "DSSt: Datenbank sumerischer Streitliteratur (Oracc 2021)",
+    description: "DSSt: Datenbank sumerischer Streitliteratur<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    credits_url: "http://www.oracc.org/dsst/staff/",
+    cite_id: "",
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
+    structAttributes: sattrlist.oracc2021
 };
 settings.corpora.oracc2021_ecut = {
-    id : "oracc2021_ecut",
-    title : "eCUT: Electronic Corpus of Urartian Texts (Oracc 2021)",
-    description : "eCUT: Electronic Corpus of Urartian Texts<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    credits_url : "http://www.oracc.org/ecut/abouttheproject/",
-    cite_id : "",
-    context : context.sp,
-    within : within.sp,
+    id: "oracc2021_ecut",
+    title: "eCUT: Electronic Corpus of Urartian Texts (Oracc 2021)",
+    description: "eCUT: Electronic Corpus of Urartian Texts<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    credits_url: "http://www.oracc.org/ecut/abouttheproject/",
+    cite_id: "",
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
+    structAttributes: sattrlist.oracc2021
 };
 settings.corpora.oracc2021_epsd2 = {
-    id : "oracc2021_epsd2",
-    title : "EPSD2: Electronic Pennsylvania Sumerian Dictionary 2 (Oracc 2021)",
-    description : "EPSD2: Electronic Pennsylvania Sumerian Dictionary 2<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    credits_url : "http://www.oracc.org/epsd2/about/",
-    cite_id : "",
-    context : context.sp,
-    within : within.sp,
+    id: "oracc2021_epsd2",
+    title: "EPSD2: Electronic Pennsylvania Sumerian Dictionary 2 (Oracc 2021)",
+    description: "EPSD2: Electronic Pennsylvania Sumerian Dictionary 2<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    credits_url: "http://www.oracc.org/epsd2/about/",
+    cite_id: "",
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
+    structAttributes: sattrlist.oracc2021
 };
 settings.corpora.oracc2021_etcsri = {
-    id : "oracc2021_etcsri",
-    title : "ETCSRI: Electronic Text Corpus of Sumerian Royal Inscriptions (Oracc 2021)",
-    description : "ETCSRI: Electronic Text Corpus of Sumerian Royal Inscriptions<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    credits_url : "http://www.oracc.org/etcsri/staff/",
-    cite_id : "",
-    context : context.sp,
-    within : within.sp,
+    id: "oracc2021_etcsri",
+    title: "ETCSRI: Electronic Text Corpus of Sumerian Royal Inscriptions (Oracc 2021)",
+    description: "ETCSRI: Electronic Text Corpus of Sumerian Royal Inscriptions<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    credits_url: "http://www.oracc.org/etcsri/staff/",
+    cite_id: "",
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
+    structAttributes: sattrlist.oracc2021
 };
 settings.corpora.oracc2021_glass = {
-    id : "oracc2021_glass",
-    title : "Glass: Corpus of Glass Technological Texts (Oracc 2021)",
-    description : "Glass: Corpus of Glass Technological Texts<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    credits_url : "http://www.oracc.org/glass/",
-    cite_id : "",
-    context : context.sp,
-    within : within.sp,
+    id: "oracc2021_glass",
+    title: "Glass: Corpus of Glass Technological Texts (Oracc 2021)",
+    description: "Glass: Corpus of Glass Technological Texts<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    credits_url: "http://www.oracc.org/glass/",
+    cite_id: "",
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
+    structAttributes: sattrlist.oracc2021
 };
 settings.corpora.oracc2021_hbtin = {
-    id : "oracc2021_hbtin",
-    title : "HBTIN: Hellenistic Babylonia: Texts, Iconography, Names (Oracc 2021)",
-    description : "HBTIN: Hellenistic Babylonia: Texts, Iconography, Names<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    credits_url : "http://www.oracc.org/hbtin/staff.html",
-    cite_id : "",
-    context : context.sp,
-    within : within.sp,
+    id: "oracc2021_hbtin",
+    title: "HBTIN: Hellenistic Babylonia: Texts, Iconography, Names (Oracc 2021)",
+    description: "HBTIN: Hellenistic Babylonia: Texts, Iconography, Names<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    credits_url: "http://www.oracc.org/hbtin/staff.html",
+    cite_id: "",
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
+    structAttributes: sattrlist.oracc2021
 };
 settings.corpora.oracc2021_lacost = {
-    id : "oracc2021_lacost",
-    title : "LaOCOST: Law and Order: Cuneiform Online Sustainable Tool (Oracc 2021)",
-    description : "LaOCOST: Law and Order: Cuneiform Online Sustainable Tool<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    credits_url : "http://www.oracc.org/lacost/",
-    cite_id : "",
-    context : context.sp,
-    within : within.sp,
+    id: "oracc2021_lacost",
+    title: "LaOCOST: Law and Order: Cuneiform Online Sustainable Tool (Oracc 2021)",
+    description: "LaOCOST: Law and Order: Cuneiform Online Sustainable Tool<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    credits_url: "http://www.oracc.org/lacost/",
+    cite_id: "",
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
+    structAttributes: sattrlist.oracc2021
 };
 settings.corpora.oracc2021_obmc = {
-    id : "oracc2021_obmc",
-    title : "OBMC: Old Babylonian Model Contracts (Oracc 2021)",
-    description : "OBMC: Old Babylonian Model Contracts<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    credits_url : "http://www.oracc.org/obmc/aboutobmc/",
-    cite_id : "",
-    context : context.sp,
-    within : within.sp,
+    id: "oracc2021_obmc",
+    title: "OBMC: Old Babylonian Model Contracts (Oracc 2021)",
+    description: "OBMC: Old Babylonian Model Contracts<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    credits_url: "http://www.oracc.org/obmc/aboutobmc/",
+    cite_id: "",
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
+    structAttributes: sattrlist.oracc2021
 };
 settings.corpora.oracc2021_obta = {
-    id : "oracc2021_obta",
-    title : "OBTA: Old Babylonian Tabular Accounts (Oracc 2021)",
-    description : "OBTA: Old Babylonian Tabular Accounts<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    credits_url : "http://www.oracc.org/obta/",
-    cite_id : "",
-    context : context.sp,
-    within : within.sp,
+    id: "oracc2021_obta",
+    title: "OBTA: Old Babylonian Tabular Accounts (Oracc 2021)",
+    description: "OBTA: Old Babylonian Tabular Accounts<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    credits_url: "http://www.oracc.org/obta/",
+    cite_id: "",
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
+    structAttributes: sattrlist.oracc2021
 };
 settings.corpora.oracc2021_riao = {
-    id : "oracc2021_riao",
-    title : "RIAo: Royal Inscriptions of Assyria online (Oracc 2021)",
-    description : "RIAo: Royal Inscriptions of Assyria online<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    credits_url : "http://www.oracc.org/riao/abouttheproject/",
-    cite_id : "",
-    context : context.sp,
-    within : within.sp,
+    id: "oracc2021_riao",
+    title: "RIAo: Royal Inscriptions of Assyria online (Oracc 2021)",
+    description: "RIAo: Royal Inscriptions of Assyria online<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    credits_url: "http://www.oracc.org/riao/abouttheproject/",
+    cite_id: "",
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
+    structAttributes: sattrlist.oracc2021
 };
 settings.corpora.oracc2021_ribo = {
-    id : "oracc2021_ribo",
-    title : "RIBo: Royal Inscriptions of Babylonia online (Oracc 2021)",
-    description : "RIBo: Royal Inscriptions of Babylonia online<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    credits_url : "http://www.oracc.org/ribo/abouttheproject/",
-    cite_id : "",
-    context : context.sp,
-    within : within.sp,
+    id: "oracc2021_ribo",
+    title: "RIBo: Royal Inscriptions of Babylonia online (Oracc 2021)",
+    description: "RIBo: Royal Inscriptions of Babylonia online<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    credits_url: "http://www.oracc.org/ribo/abouttheproject/",
+    cite_id: "",
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
+    structAttributes: sattrlist.oracc2021
 };
 settings.corpora.oracc2021_rimanum = {
-    id : "oracc2021_rimanum",
-    title : "Rīm-Anum: The House of Prisoners (Oracc 2021)",
-    description : "Rīm-Anum: The House of Prisoners<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    credits_url : "http://www.oracc.org/rimanum/",
-    cite_id : "",
-    context : context.sp,
-    within : within.sp,
+    id: "oracc2021_rimanum",
+    title: "Rīm-Anum: The House of Prisoners (Oracc 2021)",
+    description: "Rīm-Anum: The House of Prisoners<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    credits_url: "http://www.oracc.org/rimanum/",
+    cite_id: "",
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
+    structAttributes: sattrlist.oracc2021
 };
 settings.corpora.oracc2021_rinap = {
-    id : "oracc2021_rinap",
-    title : "RINAP: Royal Inscriptions of the Neo-Assyrian Period (Oracc 2021)",
-    description : "RINAP: Royal Inscriptions of the Neo-Assyrian Period<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    credits_url : "http://www.oracc.org/rinap/abouttheproject/",
-    cite_id : "",
-    context : context.sp,
-    within : within.sp,
+    id: "oracc2021_rinap",
+    title: "RINAP: Royal Inscriptions of the Neo-Assyrian Period (Oracc 2021)",
+    description: "RINAP: Royal Inscriptions of the Neo-Assyrian Period<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    credits_url: "http://www.oracc.org/rinap/abouttheproject/",
+    cite_id: "",
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
+    structAttributes: sattrlist.oracc2021
 };
 settings.corpora.oracc2021_saao = {
-    id : "oracc2021_saao",
-    title : "SAAo: State Archives of Assyria Online (Oracc 2021)",
-    description : "SAAo: State Archives of Assyria Online<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    credits_url : "http://www.oracc.org/saao/abouttheproject/",
-    cite_id : "",
-    context : context.sp,
-    within : within.sp,
+    id: "oracc2021_saao",
+    title: "SAAo: State Archives of Assyria Online (Oracc 2021)",
+    description: "SAAo: State Archives of Assyria Online<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    credits_url: "http://www.oracc.org/saao/abouttheproject/",
+    cite_id: "",
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
+    structAttributes: sattrlist.oracc2021
 };
 settings.corpora.oracc2021_suhu = {
-    id : "oracc2021_suhu",
-    title : "Suhu: The Inscriptions of Suhu online (Oracc 2021)",
-    description : "Suhu: The Inscriptions of Suhu online<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
-    credits_url : "http://www.oracc.org/suhu/abouttheproject/",
-    cite_id : "",
-    context : context.sp,
-    within : within.sp,
+    id: "oracc2021_suhu",
+    title: "Suhu: The Inscriptions of Suhu online (Oracc 2021)",
+    description: "Suhu: The Inscriptions of Suhu online<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, 2021-06",
+    credits_url: "http://www.oracc.org/suhu/abouttheproject/",
+    cite_id: "",
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc2021,
-    structAttributes : sattrlist.oracc2021
+    structAttributes: sattrlist.oracc2021
 };
 
 // Oracc 2019
