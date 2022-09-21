@@ -506,7 +506,7 @@ settings.corporafolders.cuneiform.oracc = {
 };
 
 settings.corpusAliases["oracc-2019-05"] = "oracc_adsd,oracc_ario,oracc_blms,oracc_cams,oracc_caspo,oracc_ctij,oracc_dcclt,oracc_dccmt,oracc_ecut,oracc_etcsri,oracc_hbtin,oracc_obmc,oracc_riao,oracc_ribo,oracc_rimanum,oracc_rinap,oracc_saao,oracc_others";
-settings.corpusAliases.oracc_2919_05
+settings.corpusAliases.oracc_2019_05
     = settings.corpusAliases["oracc-2019-05"];
 
 
