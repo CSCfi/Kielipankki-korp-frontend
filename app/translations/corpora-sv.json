@@ -508,5 +508,16 @@
     "kca-2017": "khanty (2017)",
     "kca-2018": "khanty (2018)",
 
+    "whitespace_related_to_token": "mellanslag i samband med ord",
+
+    "signum": "signum",
+    "object_title": "objekttitel",
+    "heading": "rubrik",
+    "collection": "samling",
+    "word_explanation": "ordförklaring",
+    "explanation_number": "förklaringsnummer",
+    "after": "efter",
+    "original": "original",
+
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }

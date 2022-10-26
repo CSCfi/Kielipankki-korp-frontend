@@ -106,6 +106,10 @@ settings.corporafolders = {
         title: "Referenskorpusar",
         description: "Referenskorpusar",
     },
+    spoken: {
+        title: "Talkorpusar",
+        description: "Korpusar som innehåller taltranskriptioner",
+    },
     legal: {
         title: "Juridiska korpusar",
         description: "Juridiska korpusar",
@@ -215,6 +219,18 @@ settings.corporafolders.news.fstc_news = {
     title: "Finlandssvensk textkorpus (UHLCS) (FISC/FSTC): tidningar och nyheter",
     description: "Finlandssvensk textcorpus (UHLCS): tidningar och nyheter: delkorpusar som var i Lemmie-servicen, morfosyntaktiskt analyserade med SWECG<br/><br/><strong>Observera</strong> att delkorpusar av FSTC finns också under <i>Litteraturkorpusar</i> och <i>Andra korpusar</i>.",
     info: fstc_info,
+};
+
+settings.corporafolders.spoken.slsdemo22 = {
+    title: "SLS demokorpus 2022",
+    description: "Demokorpus från Svenska litteratursällskapet i Finland",
+    info: {
+        licence: settings.licenceinfo.CC_BY,
+        iprholder: {
+            name: "Svenska litteratursällskapet i Finland",
+            url: "https://www.sls.fi",
+        },
+    },
 };
 
 settings.corporafolders.legal.semfinlex = {
@@ -832,6 +848,132 @@ settings.corpora.nlfcl_sv = {
 };
 
 funcs.addCorporaToFolder("literary", "nlfcl_sv");
+
+
+// SLS demo corpus 2022
+
+attrlist.sls = {
+    spaces: attrs.spaces,
+    expr_explanation: {
+        label: "word_explanation",
+        isStructAttr: true,
+    },
+    expr_expl_num: {
+        label: "explanation_number",
+        isStructAttr: true,
+    },
+};
+
+sattrlist.sls = {
+    text_signum: {
+        label: "signum",
+    },
+    text_object: {
+        label: "object_title",
+    },
+    text_filename: sattrs.filename,
+    text_headline: {
+        label: "heading",
+    },
+    text_title: sattrs.title,
+    text_collection: {
+        label: "collection",
+    },
+    paragraph_speaker: {
+        label: "speaker",
+    },
+};
+
+attrs.after = {
+    label: "after",
+};
+
+attrs.original = {
+    label: "original",
+};
+
+settings.corpora.slsdemo22_983 = {
+    id: "slsdemo22_983",
+    title: "SLS 983 Traditionsundersökning",
+    description: "SLS 983 Traditionsundersökning (1969)",
+    homepage: "https://sls.finna.fi/Collection/sls.SLS+983",
+    context: context.sp,
+    within: within.sp,
+    attributes: attrlist.sls,
+    structAttributes: sattrlist.sls,
+};
+
+settings.corpora.slsdemo22_1859 = {
+    id: "slsdemo22_1859",
+    title: "SLS 1859 Amerikaexpeditionen",
+    description: "SLS 1859 Amerikaexpeditionen 1971",
+    homepage: "https://sls.finna.fi/Collection/sls.SLS+1859",
+    context: context.sp,
+    within: within.sp,
+    attributes: attrlist.sls,
+    structAttributes: $.extend(
+        {},
+        sattrlist.sls,
+        {
+            paragraph_after: attrs.after,
+        }
+    ),
+};
+
+settings.corpora.slsdemo22_2098 = {
+    id: "slsdemo22_2098",
+    title: "SLS 2098 Spara talet",
+    description: "SLS 2098 Spara det finlandssvenska talet (2005–2008)",
+    homepage: "https://sls.finna.fi/Collection/sls.SLS+2098",
+    context: context.sp,
+    within: within.sp,
+    attributes: attrlist.sls,
+    structAttributes: $.extend(
+        {},
+        sattrlist.sls,
+        {
+            paragraph_original: attrs.original,
+        }
+    ),
+};
+
+settings.corpora.slsdemo22_2262 = {
+    id: "slsdemo22_2262",
+    title: "SLS 2262",
+    description: "SLS 2262",
+    context: context.sp,
+    within: within.sp,
+    attributes: attrlist.sls,
+    structAttributes: $.extend(
+        {},
+        sattrlist.sls,
+        {
+            paragraph_original: attrs.original,
+        }
+    ),
+};
+
+settings.corpora.slsdemo22_2269 = {
+    id: "slsdemo22_2269",
+    title: "SLS 2269 Äldre arkivinspelningar",
+    description: "SLS 2269 Äldre arkivinspelningar 1952–1986",
+    homepage: "https://sls.finna.fi/Collection/sls.SLS+2269",
+    context: context.sp,
+    within: within.sp,
+    attributes: attrlist.sls,
+    structAttributes: sattrlist.sls,
+};
+
+funcs.addCorporaToFolder(
+    "spoken.slsdemo22", [
+        "slsdemo22_983",
+        "slsdemo22_1859",
+        "slsdemo22_2098",
+        "slsdemo22_2262",
+        "slsdemo22_2269",
+    ]);
+
+funcs.addCorpusAliases("slsdemo22_.*", ["slsdemo22", "sls-demo-2022"]);
 
 
 funcs.addAttrExtraProperties(settings.corpora);

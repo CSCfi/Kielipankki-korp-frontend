@@ -957,5 +957,14 @@
     "kca-2018": "hanti (2018)",
     "vep-2013": "vepsä (2013)",
 
+    "signum": "signumi",
+    "object_title": "kohteen nimeke",
+    "heading": "otsikko",
+    "collection": "kokoelma",
+    "word_explanation": "sanan selitys",
+    "explanation_number": "selityksen numero",
+    "after": "jälkeen",
+    "original": "alkuperäinen",
+
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }

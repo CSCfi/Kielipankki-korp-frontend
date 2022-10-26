@@ -765,5 +765,14 @@
     "kca-2017": "Khanty (2017)",
     "kca-2018": "Khanty (2018)",
 
+    "signum": "sign",
+    "object_title": "object title",
+    "heading": "heading",
+    "collection": "collection",
+    "word_explanation": "explanation",
+    "explanation_number": "explanation number",
+    "after": "after",
+    "original": "original",
+
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }
