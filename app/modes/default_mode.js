@@ -278,7 +278,7 @@ settings.corporafolders.literary.ceal = {
 
 
 var ftc_info = {
-    urn: "urn:nbn:fi:lb-2014052719",
+    urn: "urn:nbn:fi:lb-2016112317",
     metadata_urn: "urn:nbn:fi:lb-2016050207",
     lbr_id: "urn:nbn:fi:lb-201403268",
     licence: {
