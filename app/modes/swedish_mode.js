@@ -985,7 +985,7 @@ funcs.addCorporaToFolder(
         "slsdemo22_2269",
     ]);
 
-funcs.addCorpusAliases("slsdemo22_.*", ["slsdemo22", "sls-demo-2022"]);
+funcs.addCorpusAliases("slsdemo22_[0-9].*", ["slsdemo22", "sls-demo-2022"]);
 
 
 settings.corpora.slsdemo22_edelfelt = {
