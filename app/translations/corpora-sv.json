@@ -519,5 +519,8 @@
     "after": "efter",
     "original": "original",
 
+    "letter_number": "brevets nummer",
+    "letter_in_finna": "Brevet i Finna",
+
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }

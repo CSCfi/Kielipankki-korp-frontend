@@ -774,5 +774,8 @@
     "after": "after",
     "original": "original",
 
+    "letter_number": "letter number",
+    "letter_in_finna": "Letter in Finna",
+
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }

@@ -988,6 +988,51 @@ funcs.addCorporaToFolder(
 funcs.addCorpusAliases("slsdemo22_.*", ["slsdemo22", "sls-demo-2022"]);
 
 
+settings.corpora.slsdemo22_edelfelt = {
+    id: "slsdemo22_edelfelt",
+    title: "Albert Edelfelts brev (SLS demokorpus 2022)",
+    description: "Albert Edelfelts brev till sin mor Alexandra Edelfelt 1867−1901 (SLS demokorpus 2022)",
+    homepage: {
+        url: "https://edelfelt.sls.fi/",
+        name: "Albert Edelfelts brev. Elektronisk brev- och konstutgåva",
+    },
+    licence: settings.licenceinfo.CC_BY,
+    iprholder: {
+        name: "Svenska litteratursällskapet i Finland",
+        url: "https://www.sls.fi",
+    },
+    context: context.default,
+    within: within.default,
+    attributes: {
+        spaces: attrs.spaces,
+    },
+    structAttributes: {
+        text_signum: {
+            label: "signum",
+        },
+        text_year: sattrs.year,
+        text_letternum: {
+            label: "letter_number",
+        },
+        text_title: sattrs.title,
+        page_n: {
+            label: "page_num",
+        },
+    },
+    customAttributes: {
+        text_link_finna: {
+            pattern: funcs.makeLinkPattern(
+                "letter_in_finna",
+                "https://sls.finna.fi/Record/sls.SLSA+367_<%= struct_attrs.text_signum.replaceAll(' ', '+') %>"),
+            customType: "struct",
+            urlOpts: sattrs.link_url_opts,
+        },
+    },
+};
+
+funcs.addCorporaToFolder("historical", ["slsdemo22_edelfelt"]);
+
+
 funcs.addAttrExtraProperties(settings.corpora);
 
 

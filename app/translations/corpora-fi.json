@@ -966,5 +966,8 @@
     "after": "jälkeen",
     "original": "alkuperäinen",
 
+    "letter_number": "kirjeen numero",
+    "letter_in_finna": "Kirje Finnassa",
+
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }
