@@ -4598,7 +4598,7 @@ attrlist.byu = {
         type: "set",
         extendedComponent: "datasetSelect",
         opts: options.set,
-        order: 49,
+        order: 51,
         // TODO: Map the UD2 PoS codes below to existing PoS keys
         dataset: {
             "ADJ": "ADJ",
@@ -4625,7 +4625,7 @@ attrlist.byu = {
         type: "set",
         extendedComponent: "datasetSelect",
         opts: options.set,
-        order: 48,
+        order: 52,
         // PoS tags from http://ucrel.lancs.ac.uk/claws7tags.html,
         // with some additions of BYU.
         dataset: {
@@ -4797,11 +4797,11 @@ attrlist.byu = {
     },
     posorig: {
         label: "pos_orig",
-        order: 47,
+        order: 53,
     },
     msd_ambig: {
         label: "ambiguous_msd",
-        order: 46,
+        order: 54,
         transform: function(val) {
             return val.replace(/(.)\|(.)/g, "$1\n|$2");
         },
