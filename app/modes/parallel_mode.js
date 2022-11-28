@@ -370,7 +370,6 @@ settings.corporafolders.other.opus.csfi = {
         "opus_opensubtitles2012_csfi_fi",
         "opus_opensubtitles2013_csfi_fi",
         "opus_php_csfi_fi",
-        "opus_tatoeba_csfi_fi",
         "opus_ubuntu_csfi_fi",
         "opus_europarl_csfi_fi",
     ]
@@ -392,7 +391,6 @@ settings.corporafolders.other.opus.elfi = {
         "opus_opensubtitles2011_elfi_fi",
         "opus_opensubtitles2012_elfi_fi",
         "opus_opensubtitles2013_elfi_fi",
-        "opus_php_elfi_fi",
         "opus_opensubtitles_elfi_fi",
         "opus_ubuntu_elfi_fi",
     ]
@@ -5303,6 +5301,76 @@ settings.corpora.opus_opensubtitles2013_esfi_es = {
     metadata_urn: "urn:nbn:fi:lb-2015102201",
     lang: "spa",
     linkedTo: ["opus_opensubtitles2013_esfi_fi"],
+    context: context.alignAligned,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
+    attributes: {
+    },
+    structAttributes: sattrlist.opus,
+    hide: true
+};
+
+settings.corpora.opus_ecb_esfi_fi = {
+    title: "ECB",
+    description: "ECB – European Central Bank corpus",
+    id: "opus_ecb_esfi_fi",
+    urn: "urn_placeholder",
+    metadata_urn: "urn:nbn:fi:lb-2015102201",
+    lang: "fin",
+    linkedTo: ["opus_ecb_esfi_es"],
+    context: context.alignAligned,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
+    attributes: {
+    },
+    structAttributes: sattrlist.opus
+};
+
+settings.corpora.opus_ecb_esfi_es = {
+    title: "ECB",
+    description: "ECB – European Central Bank corpus",
+    id: "opus_ecb_esfi_es",
+    urn: "urn_placeholder",
+    metadata_urn: "urn:nbn:fi:lb-2015102201",
+    lang: "spa",
+    linkedTo: ["opus_ecb_esfi_fi"],
+    context: context.alignAligned,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
+    attributes: {
+    },
+    structAttributes: sattrlist.opus,
+    hide: true
+};
+
+settings.corpora.opus_emea_esfi_fi = {
+    title: "EMEA",
+    description: "EMEA – European Medicines Agency documents",
+    id: "opus_emea_esfi_fi",
+    urn: "urn_placeholder",
+    metadata_urn: "urn:nbn:fi:lb-2015102201",
+    lang: "fin",
+    linkedTo: ["opus_emea_esfi_es"],
+    context: context.alignAligned,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
+    attributes: {
+    },
+    structAttributes: sattrlist.opus
+};
+
+settings.corpora.opus_emea_esfi_es = {
+    title: "EMEA",
+    description: "EMEA – European Medicines Agency documents",
+    id: "opus_emea_esfi_es",
+    urn: "urn_placeholder",
+    metadata_urn: "urn:nbn:fi:lb-2015102201",
+    lang: "spa",
+    linkedTo: ["opus_emea_esfi_fi"],
     context: context.alignAligned,
     within: within.sentence,
     within: within.sp,
