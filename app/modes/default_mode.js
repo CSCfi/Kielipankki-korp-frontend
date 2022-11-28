@@ -13517,6 +13517,17 @@ settings.corpora.vnsk_cannelin = {
     structAttributes: sattrlist.vnsk
 };
 
+settings.corpora.vnsk_canth = {
+    title: "Canth",
+    description: "Canth",
+    id: "vnsk_canth",
+    within: within.default,
+    context: context.default,
+    attributes: {
+    },
+    structAttributes: sattrlist.vnsk
+};
+
 settings.corpora.vnsk_aminoff = {
     title: "Aminoff",
     description: "Aminoff",
