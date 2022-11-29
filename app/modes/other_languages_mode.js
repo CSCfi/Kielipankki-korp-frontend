@@ -220,6 +220,12 @@ settings.corporafolders.english.academic.ethesis.matheses = {
 
 var byu_fulltext_note = "<br/><br/><strong>Note:</strong> To follow the US Fair Use Law, every 200 words, ten words have been removed and replaced with “@” (<a href='http://corpus.byu.edu/full-text/limitations.asp' target='_blank'>more information</a>).";
 
+var byu_homepage_url = "http://corpus.byu.edu/full-text/intro.asp";
+var byu_compiler = {
+    name: "Prof. Mark Davies, Brigham Young University",
+    url: "http://davies-linguistics.byu.edu/personal/",
+};
+
 settings.corporafolders.english.reference.coca = {
     title: "COCA: Corpus of Contemporary American English",
     description: "COCA: Corpus of Contemporary American English – Kielipankki Korp version 2017H1<br/><br/>The COCA corpus contains about 520 million words in 220,000 texts of US English from the years 1990–2015. The corpus is evenly divided into spoken, fiction, magazine, newspaper and academic genres." + byu_fulltext_note,
@@ -232,11 +238,8 @@ settings.corporafolders.english.reference.coca = {
             url: "https://www.kielipankki.fi/lic/coca-korp/?lang=en",
         },
         cite_id: "coca-korp-2017H1",
-        homepage_url: "http://corpus.byu.edu/full-text/intro.asp",
-        compiler: {
-            name: "Prof. Mark Davies, Brigham Young University",
-            url: "http://davies-linguistics.byu.edu/personal/",
-        },
+        homepage_url: byu_homepage_url,
+        compiler: byu_compiler,
     },
 };
 
@@ -252,11 +255,8 @@ settings.corporafolders.english.historical.coha = {
             url: "https://www.kielipankki.fi/lic/coha-korp/?lang=en",
         },
         cite_id: "coha-korp-2017H1",
-        homepage_url: "http://corpus.byu.edu/full-text/intro.asp",
-        compiler: {
-            name: "Prof. Mark Davies, Brigham Young University",
-            url: "http://davies-linguistics.byu.edu/personal/",
-        },
+        homepage_url: byu_homepage_url,
+        compiler: byu_compiler,
     },
 };
 
@@ -272,11 +272,8 @@ settings.corporafolders.english.cmc.glowbe = {
             url: "https://www.kielipankki.fi/lic/glowbe-korp/?lang=en",
         },
         cite_id: "glowbe-korp-2017H1",
-        homepage_url: "http://corpus.byu.edu/full-text/intro.asp",
-        compiler: {
-            name: "Prof. Mark Davies, Brigham Young University",
-            url: "http://davies-linguistics.byu.edu/personal/",
-        },
+        homepage_url: byu_homepage_url,
+        compiler: byu_compiler,
     },
 };
 
