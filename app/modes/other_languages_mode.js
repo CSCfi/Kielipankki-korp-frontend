@@ -235,7 +235,7 @@ settings.corporafolders.english.reference.coca = {
         metadata_urn: "urn:nbn:fi:lb-2017061922",
         licence: {
             name: "ACA-Fi (Academic users in Finland)",
-            url: "https://www.kielipankki.fi/lic/coca-korp/?lang=en",
+            urn: "urn:nbn:fi:lb-2017072501",
         },
         cite_id: "coca-korp-2017H1",
         homepage_url: byu_homepage_url,
@@ -252,7 +252,7 @@ settings.corporafolders.english.historical.coha = {
         metadata_urn: "urn:nbn:fi:lb-2017061925",
         licence: {
             name: "ACA-Fi (Academic users in Finland)",
-            url: "https://www.kielipankki.fi/lic/coha-korp/?lang=en",
+            urn: "urn:nbn:fi:lb-2017072505",
         },
         cite_id: "coha-korp-2017H1",
         homepage_url: byu_homepage_url,
@@ -269,7 +269,7 @@ settings.corporafolders.english.cmc.glowbe = {
         metadata_urn: "urn:nbn:fi:lb-2017061928",
         licence: {
             name: "ACA-Fi (Academic users in Finland)",
-            url: "https://www.kielipankki.fi/lic/glowbe-korp/?lang=en",
+            urn: "urn:nbn:fi:lb-2017072509",
         },
         cite_id: "glowbe-korp-2017H1",
         homepage_url: byu_homepage_url,
