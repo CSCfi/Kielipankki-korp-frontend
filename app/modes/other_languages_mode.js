@@ -218,12 +218,12 @@ settings.corporafolders.english.academic.ethesis.matheses = {
 };
 
 
-var byu_fulltext_note = "<br/><br/><strong>Note:</strong> To follow the US Fair Use Law, every 200 words, ten words have been removed and replaced with “@” (<a href='http://corpus.byu.edu/full-text/limitations.asp' target='_blank'>more information</a>).";
+var byu_fulltext_note = "<br/><br/><strong>Note:</strong> To follow the US Fair Use Law, every 200 words, ten words have been removed and replaced with “@” (<a href='https://www.corpusdata.org/limitations.asp' target='_blank'>more information</a>).";
 
-var byu_homepage_url = "http://corpus.byu.edu/full-text/intro.asp";
+var byu_homepage_url = "https://www.corpusdata.org/intro.asp";
 var byu_compiler = {
     name: "Prof. Mark Davies, Brigham Young University",
-    url: "http://davies-linguistics.byu.edu/personal/",
+    url: "https://www.mark-davies.org/",
 };
 
 settings.corporafolders.english.reference.coca = {
