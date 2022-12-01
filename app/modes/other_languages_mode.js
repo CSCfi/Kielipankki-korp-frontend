@@ -236,7 +236,7 @@ settings.corporafolders.english.reference.coca2020 = {
         metadata_urn: "urn:nbn:fi:lb-2022111501",
         licence: {
             name: "ACA-Fi (Academic users in Finland)",
-            url: "urn:nbn:fi:lb-2017072501",
+            urn: "urn:nbn:fi:lb-2017072501",
         },
         homepage_url: byu_homepage_url,
         compiler: {
