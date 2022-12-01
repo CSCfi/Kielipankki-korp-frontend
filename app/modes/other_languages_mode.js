@@ -226,6 +226,27 @@ var byu_compiler = {
     url: "https://www.mark-davies.org/",
 };
 
+settings.corporafolders.english.reference.coca2020 = {
+    title: "COCA 2020: Corpus of Contemporary American English",
+    description: "COCA: Corpus of Contemporary American English – Kielipankki Korp version 2020<br/><br/>The COCA corpus contains about 1,000 million words in 485,000 texts of US English from the years 1990–2019. The corpus is evenly divided into the following genres: spoken, fiction, magazine, newspaper, academic, blogs, other web and TV / movies (<a href='https://www.corpusdata.org/coca2020.asp' target='_blank'>more information</a>)." + byu_fulltext_note,
+    // contents will be added further below
+    info: {
+        // Uncomment location URN at the end of beta period
+        // urn: "urn:nbn:fi:lb-2022111502",
+        metadata_urn: "urn:nbn:fi:lb-2022111501",
+        licence: {
+            name: "ACA-Fi (Academic users in Finland)",
+            url: "urn:nbn:fi:lb-2017072501",
+        },
+        homepage_url: byu_homepage_url,
+        compiler: {
+            name: "Prof. Mark Davies",
+            url: "https://www.mark-davies.org/",
+        },
+        status: "beta",
+    },
+};
+
 settings.corporafolders.english.reference.coca = {
     title: "COCA: Corpus of Contemporary American English",
     description: "COCA: Corpus of Contemporary American English – Kielipankki Korp version 2017H1<br/><br/>The COCA corpus contains about 520 million words in 220,000 texts of US English from the years 1990–2015. The corpus is evenly divided into spoken, fiction, magazine, newspaper and academic genres." + byu_fulltext_note,
@@ -4848,6 +4869,31 @@ sattrlist.byu_common = {
 };
 
 
+// Common attributes for BYU corpora 2020/2021
+
+// Use the older attributes as the basis
+attrlist.byu2020 = $.extend(true, {}, attrlist.byu);
+// pos has a few additional values (at least for COCA)
+$.extend(
+    attrlist.byu2020.pos.dataset,
+    {
+        "1": "byu_1",    // Not in CLAWS7
+        "u": "byu_u",    // Not in CLAWS7
+    }
+);
+// posorig has been renamed to pos_orig
+attrlist.byu2020.pos_orig = attrlist.byu.posorig;
+delete attrlist.byu2020.posorig;
+// msd_ambig has been replaced with an actually feature-set-valued msd
+delete attrlist.byu2020.msd_ambig;
+attrlist.byu2020.msd = {
+    label: "msd",
+    type: "set",
+    opts: options.fullSet,
+    order: 54,
+};
+
+
 // COCA
 
 sattrlist.coca = $.extend(
@@ -4902,10 +4948,44 @@ funcs.makeFolderHierarchy(
         corpus_template: settings.templ.coca_common,
     });
 
-delete coca_hierarchy;
-
 settings.corpusAliases.coca = "coca_.*";
 settings.corpusAliases["coca-2017h1"] = "coca_.*";
+
+
+// COCA 2020
+
+// Structural attributes based on COCA 2017H1
+sattrlist.coca2020 = $.extend(true, {}, sattrlist.coca);
+// Delete structural attributes in COCA 2017H1 but not in COCA 2020
+delete sattrlist.coca2020.text_publ_info;
+delete sattrlist.coca2020.text_wordcount;
+
+settings.templ.coca2020_common = {
+    within: within.sp,
+    context: context.sp,
+    attributes: attrlist.byu2020,
+    structAttributes: sattrlist.coca2020,
+};
+
+coca_hierarchy = coca_hierarchy.concat([
+    ["blog", "Blogs"],
+    ["web", "Other Web"],
+    ["tvm", "TV / Movies"],
+]);
+
+funcs.makeFolderHierarchy(
+    settings.corporafolders.english.reference.coca2020, coca_hierarchy,
+    {
+        id_prefix: "coca2020_",
+        title_prefix: "COCA 2020: ",
+        description_prefix: "COCA 2020: Corpus of Contemporary American English (genre: ",
+        description_suffix: ") – Kielipankki Korp version 2020",
+        corpus_template: settings.templ.coca2020_common,
+    });
+
+funcs.addCorpusAliases("coca2020_.*", ["coca-2020", "coca2020"]);
+
+delete coca_hierarchy;
 
 
 // COHA
