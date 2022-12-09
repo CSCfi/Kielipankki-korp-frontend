@@ -547,8 +547,8 @@ settings.corpusAliases.oracc_2019_05
 
 settings.corporafolders.achemenet = {
     title: "Achemenet",
-    description: "Achemenet (beta version)",
-    contents: ["achemenet_murashu"],
+    description: "Achemenet (beta 2.0)",
+    contents: ["achemenet_ct", "achemenet_jursa", "achemenet_yos", "achemenet_murashu", "achemenet_strassmaier"],
     info: {
 	metadata_urn: "urn:nbn:fi:lb-2019060601",
 	urn: "urn:nbn:fi:lb-2019060602",
@@ -644,6 +644,46 @@ settings.corpora.achemenet_murashu = {
     id : "achemenet_murashu",
     title : "Murashu archives",
     description : "Murashu archives",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc2021,
+    struct_attributes : sattrlist.oracc2021
+};
+
+settings.corpora.achemenet_yos = {
+    id : "achemenet_yos",
+    title : "YOS",
+    description : "YOS",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc2021,
+    struct_attributes : sattrlist.oracc2021
+};
+
+settings.corpora.achemenet_jursa = {
+    id : "achemenet_jursa",
+    title : "Jursa",
+    description : "Jursa",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc2021,
+    struct_attributes : sattrlist.oracc2021
+};
+
+settings.corpora.achemenet_ct = {
+    id : "achemenet_ct",
+    title : "CT",
+    description : "CT",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc2021,
+    struct_attributes : sattrlist.oracc2021
+};
+
+settings.corpora.achemenet_strassmaier = {
+    id : "achemenet_strassmaier",
+    title : "Strassmaier",
+    description : "Strassmaier",
     context : settings.spContext,
     within : settings.spWithin,
     attributes: attrlist.oracc2021,
