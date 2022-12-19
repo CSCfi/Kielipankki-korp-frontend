@@ -493,6 +493,11 @@ transl.langEuroParl = {
 };
 
 transl.pos = {
+    "_": {
+        "en": "[empty]",
+        "fi": "[tyhjä]",
+        "sv": "[tom]",
+    },
     "A": {
         "en": "adjective",
         "fi": "adjektiivi",
