@@ -4810,6 +4810,7 @@ attrlist.byu = {
             "zzq": "byu_zzq",   // Not in CLAWS7
             "GAP": "byu_GAP",   // Not in CLAWS7
             "UNKNOWN": "Unknown",   // Not in CLAWS7
+            "_": "_",           // Empty value
         },
         translation: transl.pos,
     },
