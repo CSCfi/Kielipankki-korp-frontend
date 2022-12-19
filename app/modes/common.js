@@ -493,6 +493,11 @@ transl.langEuroParl = {
 };
 
 transl.pos = {
+    "_": {
+        "en": "[empty]",
+        "fi": "[tyhjä]",
+        "sv": "[tom]",
+    },
     "A": {
         "en": "adjective",
         "fi": "adjektiivi",
@@ -1148,6 +1153,11 @@ transl.pos = {
         "fi": "adverbi: paljon-tyyppi",
         // "sv": "adv:q",
     },
+    "byu_1": {
+        "en": "non-verbal communication",
+        // "fi": "byu_1",
+        // "sv": "byu_1",
+    },
     "byu_GAP": {
         "en": "deleted",
         // "fi": "byu_GAP",
@@ -1732,6 +1742,11 @@ transl.pos = {
         "en": "infinitive marker",
         // "fi": "byu_to",
         // "sv": "byu_to",
+    },
+    "byu_u": {
+        "en": "interjection: “bam”, “dang”, “hmm”, “whew”, “yup”",
+        // "fi": "byu_u",
+        // "sv": "byu_u",
     },
     "byu_uh": {
         "en": "interjection",
