@@ -6002,9 +6002,6 @@ sattrlist.ethesis = {
     text_title: {
         label: "text_title"
     },
-    text_date_orig: {
-        label: "original_date"
-    },
     text_year: {
         label: "text_year"
     },
