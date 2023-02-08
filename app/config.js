@@ -724,8 +724,8 @@ settings.cqpPrio = [
     "msd",
     "suffix",
     "prefix",
-    "grundform",
-    "lemgram",
+    "lemma",
+    "lex",
     "saldo",
     "word",
 ];
