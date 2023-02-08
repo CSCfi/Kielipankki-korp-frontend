@@ -718,16 +718,36 @@ settings.defaultSidebarDisplayOrder = {
 settings.corpusFeatures = {};
 
 // for optimization purposes
+// TODO: Add more attributes and try to find a reasonably good order
 settings.cqpPrio = [
+    "nerbio",
+    "cow",
+    "lang",
+    "nertag",
     "deprel",
+    "func",
+    "fun",
+    "spaces",
+    "pos_major",
     "pos",
+    "pos_orig",
+    "posorig",
+    "autopos",
+    "ocr",
     "msd",
+    "msd_ambig",
+    "mrp",
     "suffix",
     "prefix",
     "lemma",
+    "lemmacomp",
+    "autolemma",
     "lex",
     "saldo",
+    "sense",
+    "cleanword",
     "word",
+    "spoken",
 ];
 
 settings.defaultOptions = {
