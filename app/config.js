@@ -718,7 +718,17 @@ settings.defaultSidebarDisplayOrder = {
 settings.corpusFeatures = {};
 
 // for optimization purposes
-settings.cqpPrio = ['deprel', 'pos', 'msd', 'suffix', 'prefix', 'grundform', 'lemgram', 'saldo', 'word'];
+settings.cqpPrio = [
+    "deprel",
+    "pos",
+    "msd",
+    "suffix",
+    "prefix",
+    "grundform",
+    "lemgram",
+    "saldo",
+    "word",
+];
 
 settings.defaultOptions = {
     "is": "=",
