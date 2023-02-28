@@ -1025,6 +1025,74 @@ settings.corporafolders.news.kal.kal_ydin = {
 };
 
 
+settings.corporafolders.news.stt = {
+    title: "STT:n uutisarkisto 1992-2018",
+    description: "STT:n uutisarkisto 1992-2018, Kielipankki-versio",
+    contents: [
+	"stt_1992",
+	"stt_1993",
+	"stt_2018",
+    ]
+    info: {
+        urn: "urn:nbn:fi:lb-2018121002",
+        metadata_urn: "urn:nbn:fi:lb-2019111201",
+    	licence: {
+            name: "CC BY NC",
+            urn: "urn:nbn:fi:lb-2023022703"
+    	},
+        cite_id: "stt",
+    }
+};
+
+settings.corpora.stt_1992 = {
+    title: "STT:n uutisarkisto 1992-2018: 1992",
+    description: "STT:n uutisarkisto 1992-2018, vuosi 1992",
+    id: "stt_1992",
+    features: ["paragraphs"],
+    attributes: attrlist.parsed_tdt,
+    structAttributes: sattrlist.stt
+};
+
+settings.corpora.stt_1993 = {
+    title: "STT:n uutisarkisto 1992-2018: 1993",
+    description: "STT:n uutisarkisto 1992-2018, vuosi 1993",
+    id: "stt_1993",
+    features: ["paragraphs"],
+    attributes: attrlist.parsed_tdt,
+    structAttributes: sattrlist.stt
+};
+
+settings.corpora.stt_2018 = {
+    title: "STT:n uutisarkisto 1992-2018: 2018",
+    description: "STT:n uutisarkisto 1992-2018, vuosi 2018",
+    id: "stt_2018",
+    features: ["paragraphs"],
+    attributes: attrlist.parsed_tdt,
+    structAttributes: sattrlist.stt
+};
+
+settings.corpusAliases.stt = "stt_.*";
+settings.corpusAliases["stt-korp"] = "stt_.*";
+
+
+sattrlist.stt = {
+    text_title: {
+        label: "text_title",
+    },
+    text_dateto: {
+        displayType: "hidden",
+    },
+    text_datefrom: {
+        displayType: "hidden",
+    },
+    text_timeto: {
+        displayType: "hidden",
+    },
+    text_timefrom: {
+        displayType: "hidden",
+    },
+};
+
 // settings.corporafolders.other_texts = {
 //     title: "Muita tekstejä",
 //     contents: [
