@@ -1077,6 +1077,8 @@ settings.templ.stt = {
     description: "STT:n uutisarkisto 1992-2018, Kielipankki-versio: vuosi {}",
     id: "stt_{}",
     licenceType: "CC BY NC",
+    within: within.default,
+    context: context.default,
     attributes: attrlist.parsed_tdt,
     structAttributes: sattrlist.stt
 };
@@ -1089,11 +1091,13 @@ funcs.addCorpusSettings(
     "stt_{}");
 
 
-settings.corpusAliases["stt_fi_1992_2018_korp"]
-    = settings.corpusAliases["stt_korp"]
-    = "stt_199[2-9]";
-    = "stt_200[0-9]";
-    = "stt_201[0-8]";
+funcs.addCorpusAliases(
+    "stt_(199[2-9]|200[0-9]|201[0-8])",
+    [
+        "stt_fi_1992_2018_korp",
+        "stt_korp",
+    ]);
+
 
 
 
