@@ -1028,11 +1028,8 @@ settings.corporafolders.news.kal.kal_ydin = {
 settings.corporafolders.news.stt = {
     title: "STT:n uutisarkisto 1992-2018",
     description: "STT:n uutisarkisto 1992-2018, Kielipankki-versio",
-    contents: [
-	"stt_1992",
-	"stt_1993",
-	"stt_2018",
-    ]
+    //Contents are added later with funcs.add.CorpusSettings
+    contents: [],
     info: {
         urn: "urn:nbn:fi:lb-2018121002",
         metadata_urn: "urn:nbn:fi:lb-2019111201",
@@ -1040,58 +1037,66 @@ settings.corporafolders.news.stt = {
             name: "CC BY NC",
             urn: "urn:nbn:fi:lb-2023022703"
     	},
-        cite_id: "stt",
+        cite_id: "stt-fi-1992-2018-korp",
     }
 };
 
-settings.corpora.stt_1992 = {
-    title: "STT:n uutisarkisto 1992-2018: 1992",
-    description: "STT:n uutisarkisto 1992-2018, vuosi 1992",
-    id: "stt_1992",
-    features: ["paragraphs"],
-    attributes: attrlist.parsed_tdt,
-    structAttributes: sattrlist.stt
-};
-
-settings.corpora.stt_1993 = {
-    title: "STT:n uutisarkisto 1992-2018: 1993",
-    description: "STT:n uutisarkisto 1992-2018, vuosi 1993",
-    id: "stt_1993",
-    features: ["paragraphs"],
-    attributes: attrlist.parsed_tdt,
-    structAttributes: sattrlist.stt
-};
-
-settings.corpora.stt_2018 = {
-    title: "STT:n uutisarkisto 1992-2018: 2018",
-    description: "STT:n uutisarkisto 1992-2018, vuosi 2018",
-    id: "stt_2018",
-    features: ["paragraphs"],
-    attributes: attrlist.parsed_tdt,
-    structAttributes: sattrlist.stt
-};
-
-settings.corpusAliases.stt = "stt_.*";
-settings.corpusAliases["stt-korp"] = "stt_.*";
-
-
 sattrlist.stt = {
-    text_title: {
-        label: "text_title",
+    text_filename: {
+	label: "text_filename",
     },
-    text_dateto: {
-        displayType: "hidden",
+    text_id: {
+        label: "text_id",
     },
-    text_datefrom: {
-        displayType: "hidden",
+    text_lang: {
+        label: "text_lang",
     },
-    text_timeto: {
-        displayType: "hidden",
+    text_provider: {
+        label: "text_provider",
     },
-    text_timefrom: {
-        displayType: "hidden",
+    text_text_embargoed_datetime: {
+        label: "text_embargoed_datetime",
+    },
+    text_text_publication_status: {
+        label: "text_publication_status",
+    },
+    text_text_editor_note: {
+        label: "text_editor_note",
+    },
+    text_headline: {
+        label: "text_headline",
+    },
+    text_creditline: {
+        label: "text_creditline",
     },
 };
+
+
+settings.templ.stt = {
+    title: "STT:n uutisarkisto 1992-2018: {}",
+    description: "STT:n uutisarkisto 1992-2018, Kielipankki-versio: vuosi {}",
+    id: "stt_{}",
+    licenceType: "CC BY NC",
+    attributes: attrlist.parsed_tdt,
+    structAttributes: sattrlist.stt
+};
+
+
+funcs.addCorpusSettings(
+    settings.templ.stt,
+    [1992, 2018],
+    settings.corporafolders.news.stt,
+    "stt_{}");
+
+
+settings.corpusAliases["stt_fi_1992_2018_korp"]
+    = settings.corpusAliases["stt_korp"]
+    = "stt_199[2-9]";
+    = "stt_200[0-9]";
+    = "stt_201[0-8]";
+
+
+
 
 // settings.corporafolders.other_texts = {
 //     title: "Muita tekstejä",
