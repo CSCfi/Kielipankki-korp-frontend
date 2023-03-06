@@ -1044,24 +1044,105 @@ settings.corporafolders.news.stt = {
 sattrlist.stt = {
     text_filename: {
 	label: "text_filename",
+	displayType: "hidden",
     },
     text_id: {
         label: "text_id",
+	displayType: "hidden",
     },
     text_lang: {
         label: "text_lang",
+	displayType: "hidden",
     },
     text_provider: {
         label: "text_provider",
     },
-    text_text_embargoed_datetime: {
+    text_embargoed_datetime: {
         label: "text_embargoed_datetime",
     },
-    text_text_publication_status: {
+    text_publication_status: {
         label: "text_publication_status",
     },
-    text_text_editor_note: {
+    text_editor_note: {
         label: "text_editor_note",
+    },
+    text_news_urgency: {
+        label: "text_news_urgency",
+    },
+    text_datetime_orig: {
+        label: "text_datetime_orig",
+    },
+    text_date: {
+        label: "text_date",
+    },
+    text_datetime_created: {
+        label: "text_datetime_created",
+    },
+    text_location: {
+        label: "text_location",
+    },
+    text_geo_latitude: {
+        label: "text_geo_latitude",
+    },
+    text_geo_longitude: {
+        label: "text_geo_longitude",
+    },
+    text_loc_address: {
+        label: "text_loc_address",
+    },
+    text_loc_postal_code: {
+        label: "text_loc_postal_code",
+    },
+    text_loc_city: {
+        label: "text_loc_city",
+    },
+    text_loc_state: {
+        label: "text_loc_state",
+    },
+    text_loc_country: {
+        label: "text_loc_country",
+    },
+    text_loc_world_region: {
+        label: "text_loc_world_region",
+    },
+    text_news_department: {
+        label: "text_news_department",
+    },
+    text_news_department_code: {
+        label: "text_news_department_code",
+    },
+    text_subjects_full: {
+        label: "text_subjects_full",
+    },
+    text_subjects_codes: {
+        label: "text_subjects_codes",
+    },
+    text_subjects_level1: {
+        label: "text_subjects_level1",
+    },
+    text_subjects_level1_codes: {
+        label: "text_subjects_level1_codes",
+    },
+    text_subjects_level2: {
+        label: "text_subjects_level2",
+    },
+    text_subjects_level2_codes: {
+        label: "text_subjects_level2_codes",
+    },
+    text_subjects_level3: {
+        label: "text_subjects_level3",
+    },
+    text_subjects_level3_codes: {
+        label: "text_subjects_level3_codes",
+    },
+    text_author: {
+        label: "text_author",
+    },
+    text_author_orig: {
+        label: "text_author_orig",
+    },
+    text_author_name_type: {
+        label: "text_author_name_type",
     },
     text_headline: {
         label: "text_headline",
@@ -1069,6 +1150,30 @@ sattrlist.stt = {
     text_creditline: {
         label: "text_creditline",
     },
+    text_creditline_orig: {
+        label: "text_creditline_orig",
+    },
+    text_genre: {
+        label: "text_genre",
+    },
+    text_news_genre: {
+        label: "text_news_genre",
+    },
+    text_news_genre_code: {
+        label: "text_news_genre_code",
+    },
+    text_version: {
+        label: "text_version",
+    },
+    text_version_code: {
+        label: "text_version_code",
+    },
+    text_keywords: {
+        label: "text_keywords",
+    },
+    text_charcount_orig: {
+        label: "text_charcount_orig",
+    }
 };
 
 
