@@ -1056,123 +1056,158 @@ sattrlist.stt = {
     },
     text_provider: {
         label: "text_provider",
+	displayType: "hidden",
     },
     text_embargoed_datetime: {
         label: "text_embargoed_datetime",
+	displayType: "hidden",
     },
     text_publication_status: {
         label: "text_publication_status",
+	displayType: "hidden",
     },
     text_editor_note: {
         label: "text_editor_note",
+	displayType: "hidden",
     },
     text_news_urgency: {
-        label: "text_news_urgency",
+        label: "news_urgency",
+	hideSidebar: true,
     },
     text_datetime_orig: {
         label: "text_datetime_orig",
+	displayType: "hidden",
     },
     text_date: {
-        label: "text_date",
+        label: "date",
     },
     text_datetime_created: {
         label: "text_datetime_created",
+	displayType: "hidden",
     },
     text_location: {
-        label: "text_location",
+        label: "location",
+	extendedComponent: "structServiceAutocomplete",
     },
     text_geo_latitude: {
-        label: "text_geo_latitude",
+        label: "geo_latitude",
+	extendedComponent: "structServiceAutocomplete",
     },
     text_geo_longitude: {
-        label: "text_geo_longitude",
+        label: "geo_longitude",
+	extendedComponent: "structServiceAutocomplete",
     },
     text_loc_address: {
-        label: "text_loc_address",
+        label: "loc_address",
     },
     text_loc_postal_code: {
-        label: "text_loc_postal_code",
+        label: "loc_postal_code",
+	extendedComponent: "structServiceSelect",
+	opts: options.lite,
     },
     text_loc_city: {
-        label: "text_loc_city",
+        label: "loc_city",
+	extendedComponent: "structServiceAutocomplete",
     },
     text_loc_state: {
-        label: "text_loc_state",
+        label: "loc_state",
+	extendedComponent: "structServiceSelect",
+	opts: options.lite,
     },
     text_loc_country: {
-        label: "text_loc_country",
+        label: "loc_country",
+	extendedComponent: "structServiceSelect",
+	opts: options.lite,
     },
     text_loc_world_region: {
-        label: "text_loc_world_region",
+        label: "loc_world_region",
+	extendedComponent: "structServiceSelect",
+	opts: options.lite,
     },
     text_news_department: {
-        label: "text_news_department",
+        label: "news_department",
     },
     text_news_department_code: {
         label: "text_news_department_code",
+	displayType: "hidden",
     },
     text_subjects_full: {
-        label: "text_subjects_full",
+        label: "subjects_full",
+	hideSidebar: true,
     },
     text_subjects_codes: {
         label: "text_subjects_codes",
+	displayType: "hidden",
     },
     text_subjects_level1: {
-        label: "text_subjects_level1",
+        label: "subjects_level1",
+	extendedComponent: "structServiceAutocomplete",
     },
     text_subjects_level1_codes: {
         label: "text_subjects_level1_codes",
+	displayType: "hidden",
     },
     text_subjects_level2: {
-        label: "text_subjects_level2",
+        label: "subjects_level2",
+	extendedComponent: "structServiceAutocomplete",
     },
     text_subjects_level2_codes: {
         label: "text_subjects_level2_codes",
+	displayType: "hidden",
     },
     text_subjects_level3: {
-        label: "text_subjects_level3",
+        label: "subjects_level3",
+	extendedComponent: "structServiceAutocomplete",
     },
     text_subjects_level3_codes: {
         label: "text_subjects_level3_codes",
+	displayType: "hidden",
     },
     text_author: {
         label: "text_author",
+	displayType: "hidden",
     },
     text_author_orig: {
         label: "text_author_orig",
+	displayType: "hidden",
     },
     text_author_name_type: {
         label: "text_author_name_type",
+	displayType: "hidden",
     },
     text_headline: {
-        label: "text_headline",
+        label: "headline",
     },
     text_creditline: {
         label: "text_creditline",
+	displayType: "hidden",
     },
     text_creditline_orig: {
         label: "text_creditline_orig",
+	displayType: "hidden",
     },
     text_genre: {
-        label: "text_genre",
+        label: "genre",
     },
     text_news_genre: {
         label: "text_news_genre",
     },
     text_news_genre_code: {
         label: "text_news_genre_code",
+	displayType: "hidden",
     },
     text_version: {
-        label: "text_version",
+        label: "version",
     },
     text_version_code: {
         label: "text_version_code",
+	displayType: "hidden",
     },
     text_keywords: {
-        label: "text_keywords",
+        label: "keywords",
     },
     text_charcount_orig: {
-        label: "text_charcount_orig",
+        label: "charcount_orig",
     }
 };
 
