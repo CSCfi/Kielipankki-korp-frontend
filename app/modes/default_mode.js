@@ -1044,11 +1044,11 @@ settings.corporafolders.news.stt = {
 sattrlist.stt = {
     text_filename: {
 	label: "text_filename",
-	displayType: "hidden",
+	hideSidebar: true,
     },
     text_id: {
         label: "text_id",
-	displayType: "hidden",
+	hideSidebar: true,
     },
     text_lang: {
         label: "text_lang",
@@ -1059,31 +1059,30 @@ sattrlist.stt = {
 	displayType: "hidden",
     },
     text_embargoed_datetime: {
-        label: "text_embargoed_datetime",
-	displayType: "hidden",
+        label: "embargoed_datetime",
+	hideSidebar: true,
     },
     text_publication_status: {
-        label: "text_publication_status",
-	displayType: "hidden",
+        label: "publication_status",
+	hideSidebar: true,
     },
     text_editor_note: {
-        label: "text_editor_note",
-	displayType: "hidden",
+        label: "editor_note",
+	hideSidebar: true,
     },
     text_news_urgency: {
         label: "news_urgency",
-	hideSidebar: true,
     },
     text_datetime_orig: {
-        label: "text_datetime_orig",
-	displayType: "hidden",
+        label: "datetime_orig",
+	hideSidebar: true,
     },
     text_date: {
         label: "date",
     },
     text_datetime_created: {
-        label: "text_datetime_created",
-	displayType: "hidden",
+        label: "datetime_created",
+	hideSidebar: true,
     },
     text_location: {
         label: "location",
@@ -1098,109 +1097,124 @@ sattrlist.stt = {
 	extendedComponent: "structServiceAutocomplete",
     },
     text_loc_address: {
-        label: "loc_address",
+        label: "address",
     },
     text_loc_postal_code: {
-        label: "loc_postal_code",
+        label: "postal_code",
 	extendedComponent: "structServiceSelect",
 	opts: options.lite,
     },
     text_loc_city: {
-        label: "loc_city",
-	extendedComponent: "structServiceAutocomplete",
+        label: "city",
+	extendedComponent: "structServiceSelect",
+	opts: options.lite,
     },
     text_loc_state: {
-        label: "loc_state",
+        label: "state",
 	extendedComponent: "structServiceSelect",
 	opts: options.lite,
     },
     text_loc_country: {
-        label: "loc_country",
+        label: "country",
 	extendedComponent: "structServiceSelect",
 	opts: options.lite,
     },
     text_loc_world_region: {
-        label: "loc_world_region",
+        label: "world_region",
 	extendedComponent: "structServiceSelect",
 	opts: options.lite,
     },
     text_news_department: {
         label: "news_department",
+	extendedComponent: "structServiceSelect",
+        opts: options.lite,
     },
     text_news_department_code: {
-        label: "text_news_department_code",
+        label: "news_department_code",
 	displayType: "hidden",
     },
     text_subjects_full: {
         label: "subjects_full",
+	type: "set",
+	opts: options.set,
 	hideSidebar: true,
     },
     text_subjects_codes: {
-        label: "text_subjects_codes",
+        label: "subjects_codes",
 	displayType: "hidden",
     },
     text_subjects_level1: {
         label: "subjects_level1",
+	type: "set",
+	opts: options.set,
 	extendedComponent: "structServiceAutocomplete",
     },
     text_subjects_level1_codes: {
-        label: "text_subjects_level1_codes",
+        label: "subjects_level1_codes",
 	displayType: "hidden",
     },
     text_subjects_level2: {
         label: "subjects_level2",
+	type: "set",
+	opts: options.set,
 	extendedComponent: "structServiceAutocomplete",
     },
     text_subjects_level2_codes: {
-        label: "text_subjects_level2_codes",
+        label: "subjects_level2_codes",
 	displayType: "hidden",
     },
     text_subjects_level3: {
         label: "subjects_level3",
+	type: "set",
+	opts: options.set,
 	extendedComponent: "structServiceAutocomplete",
     },
     text_subjects_level3_codes: {
-        label: "text_subjects_level3_codes",
+        label: "subjects_level3_codes",
 	displayType: "hidden",
     },
     text_author: {
-        label: "text_author",
-	displayType: "hidden",
+        label: "author",
+	hideSidebar: true,
     },
     text_author_orig: {
         label: "text_author_orig",
-	displayType: "hidden",
+	hideSidebar: true,
     },
     text_author_name_type: {
-        label: "text_author_name_type",
+        label: "author_name_type",
 	displayType: "hidden",
     },
     text_headline: {
         label: "headline",
     },
     text_creditline: {
-        label: "text_creditline",
-	displayType: "hidden",
+        label: "creditline",
+	hideSidebar: true,
     },
     text_creditline_orig: {
-        label: "text_creditline_orig",
-	displayType: "hidden",
+        label: "creditline_orig",
+	hideSidebar: true,
     },
     text_genre: {
         label: "genre",
     },
     text_news_genre: {
-        label: "text_news_genre",
+        label: "news_genre",
+	extendedComponent: "structServiceSelect",
+	opts: options.lite,
     },
     text_news_genre_code: {
-        label: "text_news_genre_code",
+        label: "news_genre_code",
 	displayType: "hidden",
     },
     text_version: {
         label: "version",
+	extendedComponent: "structServiceSelect",
+	opts: options.lite,
     },
     text_version_code: {
-        label: "text_version_code",
+        label: "version_code",
 	displayType: "hidden",
     },
     text_keywords: {
