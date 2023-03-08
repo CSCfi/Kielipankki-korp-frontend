@@ -1043,12 +1043,10 @@ settings.corporafolders.news.stt = {
 
 sattrlist.stt = {
     text_filename: {
-	label: "text_filename",
-	hideSidebar: true,
+	label: "file_name",
     },
     text_id: {
         label: "text_id",
-	hideSidebar: true,
     },
     text_lang: {
         label: "text_lang",
@@ -1060,29 +1058,26 @@ sattrlist.stt = {
     },
     text_embargoed_datetime: {
         label: "embargoed_datetime",
-	hideSidebar: true,
     },
     text_publication_status: {
         label: "publication_status",
-	hideSidebar: true,
     },
     text_editor_note: {
         label: "editor_note",
-	hideSidebar: true,
     },
     text_news_urgency: {
         label: "news_urgency",
+	extendedComponent: "structServiceSelect",
+	opts: options.lite,
     },
     text_datetime_orig: {
         label: "datetime_orig",
-	hideSidebar: true,
     },
     text_date: {
         label: "date",
     },
     text_datetime_created: {
         label: "datetime_created",
-	hideSidebar: true,
     },
     text_location: {
         label: "location",
@@ -1136,7 +1131,8 @@ sattrlist.stt = {
     text_subjects_full: {
         label: "subjects_full",
 	type: "set",
-	opts: options.set,
+	opts: options.fullSet,
+	extendedComponent: "structServiceAutocomplete",
 	hideSidebar: true,
     },
     text_subjects_codes: {
@@ -1147,7 +1143,7 @@ sattrlist.stt = {
         label: "subjects_level1",
 	type: "set",
 	opts: options.set,
-	extendedComponent: "structServiceAutocomplete",
+	extendedComponent: "structServiceSelect",
     },
     text_subjects_level1_codes: {
         label: "subjects_level1_codes",
@@ -1156,7 +1152,7 @@ sattrlist.stt = {
     text_subjects_level2: {
         label: "subjects_level2",
 	type: "set",
-	opts: options.set,
+	opts: options.fullSet,
 	extendedComponent: "structServiceAutocomplete",
     },
     text_subjects_level2_codes: {
@@ -1166,7 +1162,7 @@ sattrlist.stt = {
     text_subjects_level3: {
         label: "subjects_level3",
 	type: "set",
-	opts: options.set,
+	opts: options.fullSet,
 	extendedComponent: "structServiceAutocomplete",
     },
     text_subjects_level3_codes: {
@@ -1175,11 +1171,9 @@ sattrlist.stt = {
     },
     text_author: {
         label: "author",
-	hideSidebar: true,
     },
     text_author_orig: {
-        label: "text_author_orig",
-	hideSidebar: true,
+        label: "author_orig",
     },
     text_author_name_type: {
         label: "author_name_type",
@@ -1190,11 +1184,9 @@ sattrlist.stt = {
     },
     text_creditline: {
         label: "creditline",
-	hideSidebar: true,
     },
     text_creditline_orig: {
         label: "creditline_orig",
-	hideSidebar: true,
     },
     text_genre: {
         label: "genre",
@@ -1222,6 +1214,17 @@ sattrlist.stt = {
     },
     text_charcount_orig: {
         label: "charcount_orig",
+    },
+    sentence_id: {
+	label: "sentence_id",
+	displayType: "hidden",
+    },
+    sentence_paragraph_type: {
+	label: "sentence_paragraph_type",
+    },
+    sentence_paragraph_type_orig: {
+	label: "sentence_paragraph_type_orig",
+	displayType: "hidden",
     }
 };
 
