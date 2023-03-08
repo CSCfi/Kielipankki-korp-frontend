@@ -957,5 +957,25 @@
     "kca-2018": "hanti (2018)",
     "vep-2013": "vepsä (2013)",
 
+    "num_chars": "merkkimäärä",
+    "chapter_id": "luvun tunniste",
+    "story_id": "tarinan tunniste",
+    "paragraph_story_id": "kappaleen tarinan tunniste",
+    "paragraph_pid": "kappaleen PID",
+    "paragraph_chapter_id": "kappaleen luvun tunniste",
+    "paragraph_class": "kappaleen luokka",
+    "paragraph_lang": "kappaleen kieli",
+    "isbn": "ISBN",
+    "publication_bibliography": "julkaisun bibliografia",
+    "bibliography": "bibliografia",
+    "text_e_corrector": "editoija (e)",
+    "numberofpages": "sivumäärä",
+    "sentence_pid": "virkkeen PID",
+    "sentence_chapter_id": "virkkeen luvun tunniste",
+    "sentence_storyid": "virkkeen tarinan tunniste",
+    "sentence_sent_no": "virkkeen tunniste",
+    "sentence_text_eng": "virkkeen teksti englanniksi",
+    "sentence_text_orig": "virkkeen teksti alkukielellä",
+
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }

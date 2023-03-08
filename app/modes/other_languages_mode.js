@@ -402,6 +402,24 @@ settings.corporafolders.uralic.erme = {
     ]
 };
 
+settings.corporafolders.uralic.erme_v2 = {
+    title: "ERME version 2",
+    description: "ERME: Erzya and Moksha Extended Corpora version 2",
+    info: {
+      metadata_urn: "urn:nbn:fi:lb-2023021601",
+        licence: {
+            name: "CC BY (CLARIN PUB)",
+            urn: "urn:nbn:fi:lb-2022020106",
+        },
+        status: "beta"
+    },
+    contents: [
+        "erme_v2_mdf",
+        "erme_v2_myv",
+    ]
+};
+
+
 settings.corporafolders.uralic.sust = {
     title: "SUS-kenttätyö (näyte)",
     description: "Suomalais-Ugrilaisen Seuran kenttätyökorpus (näyte)",
@@ -4142,6 +4160,46 @@ sattrlist.erme = {
     }
 };
 
+sattrlist.erme_v2 = {
+    text_iso_lang: { label: "uralic_ud_text_iso_lang" },
+    text_genre: { label: "text_genre" },
+    text_author: { label: "text_author" },
+    text_page_range: { label: "text_page_range" },
+    text_title: { label: "text_title" },
+    text_wc: { label: "num_words" },
+    text_id: { label: "text_id" },
+    text_corrector: { label: "text_corrector" },
+    text_charc: { label: "num_chars" },
+    text_isbn: { label: "isbn" },
+    text_year: { label: "text_year" },
+    text_publisher: { label: "publisher" },
+    text_e_corrector: { label: "text_e_corrector" },
+    text_publication: { label: "publication_name" },
+    text_no_of_pages: { label: "numberofpages" },
+    text_publication_bibliog: { label: "publication_bibliography" },
+    text_author_geo: { label: "text_author_geo" },
+    text_bibliog: { label: "bibliography" },
+    text_pages: { label: "text_pages" },
+    chapter_storyid: { label: "story_id" },
+    chapter_chapid: { label: "chapter_id" },
+    paragraph_storyid: { label: "paragraph_story_id" },
+    paragraph_pid: { label: "paragraph_pid" },
+    paragraph_chapid: { label: "paragraph_chapter_id" },
+    paragraph_class: { label: "paragraph_class" },
+    paragraph_lang: { label: "paragraph_lang" },
+    sentence_text: { label: "text" },
+    sentence_pgno: { label: "page_num" },
+    sentence_id: { label: "sentence_id" },
+    sentence_storyid: { label: "sentence_storyid" },
+    sentence_sent_no: { label: "sentence_sent_no" },
+    sentence_pid: { label: "sentence_pid" },
+    sentence_chapid: { label: "sentence_chapter_id" },
+    sentence_text_eng: { label: "sentence_text_eng" },
+    sentence_text_orig: { label: "sentence_text_orig" },
+    sentence_source: { label: "sentence_source" }
+};
+
+
 sattrlist.testerzya = {
     text_author: {
         label: "text_author"
@@ -4214,6 +4272,36 @@ settings.corpora.erme_mdf = {
     context: context.sp,
     attributes: attrlist.testerzya,
     structAttributes: sattrlist.erme,
+    unselected: true
+};
+
+settings.corpora.erme_v2_myv = {
+    id: "erme_v2_myv",
+    title: "ERME version 2: Ersä/Erzya",
+    description: "ERME version 2: Ersä/Erzya",
+    licence: {
+        name: "CC BY (CLARIN PUB)",
+        urn: "urn:nbn:fi:lb-2022020106",
+    },
+    within: within.sp,
+    context: context.sp,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.erme_v2,
+    unselected: true
+};
+
+settings.corpora.erme_v2_mdf = {
+    id: "erme_v2_mdf",
+    title: "ERME version 2: Mokša/Moksha",
+    description: "ERME version 2: Mokša/Moksha",
+    licence: {
+        name:"CC BY (CLARIN PUB)",
+        urn: "urn:nbn:fi:lb-2022020106",
+    },
+    within: within.sp,
+    context: context.sp,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.erme_v2,
     unselected: true
 };
 

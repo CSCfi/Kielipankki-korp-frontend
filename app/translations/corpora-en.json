@@ -765,5 +765,26 @@
     "kca-2017": "Khanty (2017)",
     "kca-2018": "Khanty (2018)",
 
+    "num_chars": "number of characters",
+    "text_author": "author",
+    "chapter_id": "chapter id",
+    "story_id": "story id",
+    "paragraph_story_id": "paragraph story id",
+    "paragraph_pid": "paragraph PID",
+    "paragraph_chapter_id": "paragraph chapter id",
+    "paragraph_class": "paragraph class",
+    "paragraph_lang": "language of paragraph",
+    "isbn": "ISBN",
+    "bibliography": "bibliography",
+    "publication_bibliography": "publication bibliography",
+    "text_e_corrector": "text corrector (e)",
+    "sentence_pid": "sentence PID",
+    "sentence_chapter_id": "sentence chapter id",
+    "sentence_storyid": "sentence story id",
+    "sentence_sent_no": "sentence number",
+    "sentence_text_eng": "sentence in English",
+    "sentence_text_orig": "sentence in original language",
+    "sentence_source": "source",
+
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }
