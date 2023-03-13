@@ -1187,6 +1187,7 @@ sattrlist.stt = {
     },
     text_creditline_orig: {
         label: "creditline_orig",
+	displayType: "hidden",
     },
     text_genre: {
         label: "genre",
@@ -1233,7 +1234,6 @@ settings.templ.stt = {
     title: "STT:n uutisarkisto 1992-2018: {}",
     description: "STT:n uutisarkisto 1992-2018, Kielipankki-versio: vuosi {}",
     id: "stt_{}",
-    licenceType: "CC BY NC",
     within: within.default,
     context: context.default,
     attributes: attrlist.parsed_tdt,
