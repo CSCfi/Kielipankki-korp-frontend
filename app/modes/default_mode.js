@@ -1034,7 +1034,7 @@ settings.corporafolders.news.stt = {
         urn: "urn:nbn:fi:lb-2018121002",
         metadata_urn: "urn:nbn:fi:lb-2019111201",
     	licence: {
-            name: "CC BY NC",
+            name: "CC BY NC (CLARIN PUB)",
             urn: "urn:nbn:fi:lb-2023022703"
     	},
         cite_id: "stt-fi-1992-2018-korp",
@@ -1221,10 +1221,10 @@ sattrlist.stt = {
 	displayType: "hidden",
     },
     sentence_paragraph_type: {
-	label: "sentence_paragraph_type",
+	label: "paragraph_type",
     },
     sentence_paragraph_type_orig: {
-	label: "sentence_paragraph_type_orig",
+	label: "paragraph_type_orig",
 	displayType: "hidden",
     }
 };
