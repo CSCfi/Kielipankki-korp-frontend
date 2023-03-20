@@ -969,6 +969,8 @@
     "publication_bibliography": "julkaisun bibliografia",
     "bibliography": "bibliografia",
     "text_e_corrector": "editoija (e)",
+    "text_author_geo": "tekijän syntymäpaikka",
+    "text_pages": "sivuja",
     "numberofpages": "sivumäärä",
     "sentence_pid": "virkkeen PID",
     "sentence_chapter_id": "virkkeen luvun tunniste",
