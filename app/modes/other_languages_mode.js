@@ -410,8 +410,7 @@ settings.corporafolders.uralic.erme_v2 = {
         licence: {
             name: "CC BY (CLARIN PUB)",
             urn: "urn:nbn:fi:lb-2022020106",
-        },
-        status: "beta"
+        }
     },
     contents: [
         "erme_v2_mdf",
@@ -5398,7 +5397,7 @@ settings.corpusAliases["glowbe-2017h1"] = "glowbe_.*";
 
 // Uralic UD
 attrlist.ud2_uralic = attrlist.ud2_fi;
-attrlist.ud2_uralic.misc = { label: "misc", opts: options.default };
+attrlist.ud2_uralic.misc = { label: "misc", opts: options.default, pattern: "<%= val.replace(/\\|/g, '|<wbr>') %>" };
 
 sattrlist.ud2_uralic_fi = {
     text_id : { label: "uralic_ud_text_id" },
