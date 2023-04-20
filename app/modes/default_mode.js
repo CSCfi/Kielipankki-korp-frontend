@@ -1038,6 +1038,7 @@ settings.corporafolders.news.stt = {
             urn: "urn:nbn:fi:lb-2023022703"
     	},
         cite_id: "stt-fi-1992-2018-korp",
+        status: "beta",
     }
 };
 
