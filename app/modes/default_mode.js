@@ -1026,8 +1026,8 @@ settings.corporafolders.news.kal.kal_ydin = {
 
 
 settings.corporafolders.news.stt = {
-    title: "STT:n uutisarkisto 1992-2018",
-    description: "STT:n uutisarkisto 1992-2018, Kielipankki-versio",
+    title: "STT:n uutisarkisto 1992–2018",
+    description: "STT:n uutisarkisto 1992–2018, Kielipankki-versio",
     //Contents are added later with funcs.add.CorpusSettings
     contents: [],
     info: {
@@ -1232,8 +1232,8 @@ sattrlist.stt = {
 
 
 settings.templ.stt = {
-    title: "STT:n uutisarkisto 1992-2018: {}",
-    description: "STT:n uutisarkisto 1992-2018, Kielipankki-versio: vuosi {}",
+    title: "STT:n uutisarkisto 1992–2018: {}",
+    description: "STT:n uutisarkisto 1992–2018, Kielipankki-versio: vuosi {}",
     id: "stt_{}",
     within: within.default,
     context: context.default,
