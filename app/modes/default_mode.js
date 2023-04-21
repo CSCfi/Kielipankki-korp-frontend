@@ -1025,6 +1025,295 @@ settings.corporafolders.news.kal.kal_ydin = {
 };
 
 
+settings.corporafolders.news.stt = {
+    title: "STT:n uutisarkisto 1992–2018",
+    description: "STT:n uutisarkisto 1992–2018, Kielipankki-versio",
+    //Contents are added later with funcs.add.CorpusSettings
+    contents: [],
+    info: {
+        urn: "urn:nbn:fi:lb-2018121002",
+        metadata_urn: "urn:nbn:fi:lb-2019111201",
+    	licence: {
+            name: "CC BY NC (CLARIN PUB)",
+            urn: "urn:nbn:fi:lb-2023022703"
+    	},
+        cite_id: "stt-fi-1992-2018-korp",
+        status: "beta",
+    }
+};
+
+sattrlist.stt = {
+    text_filename: {
+	label: "file_name",
+    },
+    text_id: {
+        label: "text_id",
+    },
+    text_lang: {
+        label: "text_lang",
+	displayType: "hidden",
+    },
+    text_provider: {
+        label: "text_provider",
+	displayType: "hidden",
+    },
+    text_embargoed_datetime: {
+        label: "embargoed_datetime",
+    },
+    text_publication_status: {
+        label: "publication_status",
+        opts: options.lite,
+        extendedComponent: "datasetSelect",
+        dataset: [
+            "stat:usable",
+            "stat:canceled",
+        ],
+        translation: {
+            "stat:usable": {
+                "en": "usable",
+                "fi": "käytettävissä",
+                // "sv": "usable",
+            },
+            "stat:canceled": {
+                "en": "cancelled",
+                "fi": "peruttu",
+                // "sv": "cancelled",
+            },
+        },
+    },
+    text_editor_note: {
+        label: "editor_note",
+    },
+    text_news_urgency: {
+        label: "news_urgency",
+	extendedComponent: "datasetSelect",
+	opts: options.lite,
+        dataset: [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+        ],
+    },
+    text_datetime_orig: {
+        label: "datetime_orig",
+    },
+    text_date: {
+        label: "date",
+    },
+    text_datetime_created: {
+        label: "datetime_created",
+    },
+    text_location: {
+        label: "location",
+	extendedComponent: "structServiceAutocomplete",
+    },
+    text_geo_latitude: {
+        label: "geo_latitude",
+	extendedComponent: "structServiceAutocomplete",
+    },
+    text_geo_longitude: {
+        label: "geo_longitude",
+	extendedComponent: "structServiceAutocomplete",
+    },
+    text_loc_address: {
+        label: "address",
+    },
+    text_loc_postal_code: {
+        label: "postal_code",
+	extendedComponent: "structServiceSelect",
+	opts: options.lite,
+    },
+    text_loc_city: {
+        label: "city",
+	extendedComponent: "structServiceSelect",
+	opts: options.lite,
+    },
+    text_loc_state: {
+        label: "state",
+	extendedComponent: "structServiceSelect",
+	opts: options.lite,
+    },
+    text_loc_country: {
+        label: "country",
+	extendedComponent: "structServiceSelect",
+	opts: options.lite,
+    },
+    text_loc_world_region: {
+        label: "world_region",
+	extendedComponent: "structServiceSelect",
+	opts: options.lite,
+    },
+    text_news_department: {
+        label: "news_department",
+	extendedComponent: "structServiceSelect",
+        opts: options.lite,
+    },
+    text_news_department_code: {
+        label: "news_department_code",
+	displayType: "hidden",
+    },
+    text_subjects_full: {
+        label: "subjects_full",
+	type: "set",
+	opts: options.fullSet,
+	extendedComponent: "structServiceAutocomplete",
+	hideSidebar: true,
+    },
+    text_subjects_codes: {
+        label: "subjects_codes",
+	displayType: "hidden",
+    },
+    text_subjects_level1: {
+        label: "subjects_level1",
+	type: "set",
+	opts: options.set,
+	extendedComponent: "structServiceSelect",
+    },
+    text_subjects_level1_codes: {
+        label: "subjects_level1_codes",
+	displayType: "hidden",
+    },
+    text_subjects_level2: {
+        label: "subjects_level2",
+	type: "set",
+	opts: options.fullSet,
+	extendedComponent: "structServiceAutocomplete",
+    },
+    text_subjects_level2_codes: {
+        label: "subjects_level2_codes",
+	displayType: "hidden",
+    },
+    text_subjects_level3: {
+        label: "subjects_level3",
+	type: "set",
+	opts: options.fullSet,
+	extendedComponent: "structServiceAutocomplete",
+    },
+    text_subjects_level3_codes: {
+        label: "subjects_level3_codes",
+	displayType: "hidden",
+    },
+    text_author: {
+        label: "author",
+    },
+    text_author_orig: {
+        label: "author_orig",
+    },
+    text_author_name_type: {
+        label: "author_name_type",
+	displayType: "hidden",
+    },
+    text_headline: {
+        label: "headline",
+    },
+    text_creditline: {
+        label: "creditline",
+    },
+    text_creditline_orig: {
+        label: "creditline_orig",
+	displayType: "hidden",
+    },
+    text_genre: {
+        label: "genre",
+        // As this has only a single value, would it be better to hide
+        // this from the list of search attributes in the extended
+        // search? How would that affect cases in which the user
+        // searches from multiple corpora having different text_genre?
+        extendedComponent: "datasetSelect",
+        dataset: [
+            "news",
+        ],
+        // TODO: It would be better to specify this in transl.genre in
+        // common.js
+        translation: {
+            "news": {
+                "en": "news",
+                "fi": "uutinen",
+                "sv": "nyhet",
+            },
+        },
+    },
+    text_news_genre: {
+        label: "news_genre",
+	extendedComponent: "structServiceSelect",
+	opts: options.lite,
+    },
+    text_news_genre_code: {
+        label: "news_genre_code",
+	displayType: "hidden",
+    },
+    text_version: {
+        label: "version",
+	extendedComponent: "structServiceSelect",
+	opts: options.lite,
+    },
+    text_version_code: {
+        label: "version_code",
+	displayType: "hidden",
+    },
+    text_keywords: {
+        label: "keywords",
+    },
+    text_charcount_orig: {
+        label: "charcount_orig",
+    },
+    sentence_id: {
+	label: "sentence_id",
+	displayType: "hidden",
+    },
+    sentence_paragraph_type: {
+	label: "paragraph_type",
+        extendedComponent: "datasetSelect",
+        dataset: [
+            "heading",
+            "text",
+        ],
+        // In principle, transl.paragraphType would be more
+        // appropriate, but it does not contain a translation for
+        // "text", whereas transl.textPart does, and the two should
+        // eventually be combined anyway
+        translation: transl.textPart,
+    },
+    sentence_paragraph_type_orig: {
+	label: "paragraph_type_orig",
+	displayType: "hidden",
+    }
+};
+
+
+settings.templ.stt = {
+    title: "STT:n uutisarkisto 1992–2018: {}",
+    description: "STT:n uutisarkisto 1992–2018, Kielipankki-versio: vuosi {}",
+    id: "stt_{}",
+    within: within.default,
+    context: context.default,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.stt
+};
+
+
+funcs.addCorpusSettings(
+    settings.templ.stt,
+    [1992, 2018],
+    settings.corporafolders.news.stt,
+    "stt_{}");
+
+
+funcs.addCorpusAliases(
+    "stt_(199[2-9]|200[0-9]|201[0-8])",
+    [
+        "stt_fi_1992_2018_korp",
+        "stt_korp",
+    ]);
+
+
+
+
+
 // settings.corporafolders.other_texts = {
 //     title: "Muita tekstejä",
 //     contents: [
