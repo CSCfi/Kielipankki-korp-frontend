@@ -1062,14 +1062,41 @@ sattrlist.stt = {
     },
     text_publication_status: {
         label: "publication_status",
+        opts: options.lite,
+        extendedComponent: "datasetSelect",
+        dataset: [
+            "stat:usable",
+            "stat:canceled",
+        ],
+        translation: {
+            "stat:usable": {
+                "en": "usable",
+                "fi": "käytettävissä",
+                // "sv": "usable",
+            },
+            "stat:canceled": {
+                "en": "cancelled",
+                "fi": "peruttu",
+                // "sv": "cancelled",
+            },
+        },
     },
     text_editor_note: {
         label: "editor_note",
     },
     text_news_urgency: {
         label: "news_urgency",
-	extendedComponent: "structServiceSelect",
+	extendedComponent: "datasetSelect",
 	opts: options.lite,
+        dataset: [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+        ],
     },
     text_datetime_orig: {
         label: "datetime_orig",
@@ -1192,6 +1219,23 @@ sattrlist.stt = {
     },
     text_genre: {
         label: "genre",
+        // As this has only a single value, would it be better to hide
+        // this from the list of search attributes in the extended
+        // search? How would that affect cases in which the user
+        // searches from multiple corpora having different text_genre?
+        extendedComponent: "datasetSelect",
+        dataset: [
+            "news",
+        ],
+        // TODO: It would be better to specify this in transl.genre in
+        // common.js
+        translation: {
+            "news": {
+                "en": "news",
+                "fi": "uutinen",
+                "sv": "nyhet",
+            },
+        },
     },
     text_news_genre: {
         label: "news_genre",
@@ -1223,6 +1267,16 @@ sattrlist.stt = {
     },
     sentence_paragraph_type: {
 	label: "paragraph_type",
+        extendedComponent: "datasetSelect",
+        dataset: [
+            "heading",
+            "text",
+        ],
+        // In principle, transl.paragraphType would be more
+        // appropriate, but it does not contain a translation for
+        // "text", whereas transl.textPart does, and the two should
+        // eventually be combined anyway
+        translation: transl.textPart,
     },
     sentence_paragraph_type_orig: {
 	label: "paragraph_type_orig",
