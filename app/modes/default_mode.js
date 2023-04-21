@@ -1291,7 +1291,7 @@ settings.templ.stt = {
     id: "stt_{}",
     within: within.default,
     context: context.default,
-    attributes: attrlist.parsed_tdt,
+    attributes: attrlist.ud2_fi,
     structAttributes: sattrlist.stt
 };
 
