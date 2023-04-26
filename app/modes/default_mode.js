@@ -192,9 +192,9 @@ settings.corporafolders.news.klk_fi = {
     }
 };
 
-settings.corporafolders.news.klk2_fi = {
     title: "Kansalliskirjaston lehtikokoelma, versio 2 (KLK2), suomenkieliset lehdet",
     description: "Kansalliskirjaston sanoma- ja aikakauslehtikokoelma, Kielipankki-versio 2, suomenkieliset lehdet",
+settings.corporafolders.news.klk_fi_v2 = {
     info: {
         // urn: "urn:nbn:fi:lb-201405275",
         // metadata_urn: "urn:nbn:fi:lb-201405276",
@@ -13288,17 +13288,17 @@ funcs.makeCorpusSettingsByYearDecade(
 
 // KLK version 2
 
-sattrlist.klk2_fi = $.extend(
+sattrlist.klk_fi_v2 = $.extend(
     {},
-    sattrlist.klk2,
+    sattrlist.klk_v2
 );
 
-sattrlist.klk2_fi_pagelinks = $.extend(
+sattrlist.klk_fi_v2_pagelinks = $.extend(
     {},
-    sattrlist.klk2_fi,
+    sattrlist.klk_fi_v2,
     sattrlist.klk_pagelinks);
 
-attrlist.klk2_fi_extra = {
+attrlist.klk_fi_v2_extra = {
     hyph: {
         label: "divided_in_lines",
     },
@@ -13313,20 +13313,20 @@ attrlist.klk2_fi_extra = {
     },
 };
 
-attrlist.klk2_fi =
+attrlist.klk_fi_v2 =
     $.extend(
         {},
         attrlist.parsed_tdt,
-        attrlist.klk2_fi_extra);
+        attrlist.klk_fi_v2_extra);
 
 funcs.setAttrOrder(
-    attrlist.klk2_fi,
+    attrlist.klk_fi_v2,
     "lemma lemmacomp pos msd dephead deprel hyph ocr cc vpos");
 
-attrlist.klk2_fi_pagelinks = attrlist.klk2_fi;
+attrlist.klk_fi_v2_pagelinks = attrlist.klk_fi_v2;
 
 funcs.makeCorpusSettingsByYearDecade(
-    settings.corporafolders.news.klk2_fi,
+    settings.corporafolders.news.klk_fi_v2,
     "fi_{decade}",
     "klk2test_fi_{year}",
     function(decade) {
@@ -13338,7 +13338,7 @@ funcs.makeCorpusSettingsByYearDecade(
         return funcs.makeKlkCorpusSettings(
             "KLK2 suomi {year}",
             "Kansalliskirjaston suomenkielisiä sanoma- ja aikakauslehtiä vuodelta {year} (versio 2)",
-            "klk2_fi",
+            "klk_fi_v2",
             year);
     },
     [2009, 2008, 2007, 2006, 2005, 2003, 2002, 1941, 1940, 1874, 1776, 1775]

@@ -6236,7 +6236,7 @@ sattrlist.klk = {
     sentence_id: sattrs.sentence_id_hidden
 };
 
-sattrlist.klk2 = $.extend(
+sattrlist.klk_v2 = $.extend(
     {},
     sattrlist.klk,
     {
@@ -6260,7 +6260,7 @@ sattrlist.klk2 = $.extend(
     }
 );
 // Change the label of text_issue_date, as text_date is in ISO format
-sattrlist.klk2.text_issue_date.label = "issue_date";
+sattrlist.klk_v2.text_issue_date.label = "issue_date";
 
 
 // KLK page image links used for both Finnish and Swedish
