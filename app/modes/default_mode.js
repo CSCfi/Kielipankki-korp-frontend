@@ -13235,49 +13235,13 @@ funcs.extendCorpusSettings(settings.corpusinfo.parrus_2016,
 
 
 sattrlist.klk_fi = $.extend({}, sattrlist.klk);
-sattrlist.klk_fi_parsed = $.extend(
-    {}, sattrlist.klk_fi,
-    {
-        sentence_parse_state: {
-            label: "parse_state",
-            extendedComponent: "datasetSelect",
-            opts: options.lite,
-            dataset: {
-                "parsed": "parsed",
-                "tagged": "tagged"
-            },
-            translation: {
-                "parsed": {
-                    "en": "parsed",
-                    "fi": "jäsennetty",
-                    "sv": "parsad",
-                },
-                "tagged": {
-                    "en": "tagged",
-                    "fi": "tagattu",
-                    "sv": "taggad",
-                },
-            },
-        },
-        sentence_local_id: {
-            label: "local_id",
-            displayType: "hidden"
-        }
-    });
 
-sattrlist.klk_fi_parsed_pagelinks = $.extend(
-    {}, sattrlist.klk_fi_parsed, sattrlist.klk_pagelinks);
+sattrlist.klk_fi_pagelinks = $.extend(
+    {}, sattrlist.klk_fi, sattrlist.klk_pagelinks);
 
-sattrlist.klk_fi_parsed_pagelinks_custom = sattrlist.klk_pagelinks_custom;
+sattrlist.klk_fi_pagelinks_custom = sattrlist.klk_pagelinks_custom;
 
-attrlist.klk_fi = {
-    ocr: {
-        label: "OCR",
-        opts: options.default
-    }
-};
-
-attrlist.klk_fi_parsed =
+attrlist.klk_fi =
     $.extend(
         {
             lemma: attrs.baseform,
@@ -13287,15 +13251,16 @@ attrlist.klk_fi_parsed =
             dephead: attrs.dephead,
             deprel: attrs.deprel_tdt,
             ref: attrs.ref,
-            lex: attrs.lemgram_hidden
+            lex: attrs.lemgram_hidden,
+            ocr: {
+                label: "OCR",
+                opts: options.default
+            },
         },
-        attrlist.klk_fi,
         attrlist.finer);
 
-attrlist.klk_fi_parsed_pagelinks = attrlist.klk_fi_parsed;
+attrlist.klk_fi_pagelinks = attrlist.klk_fi;
 
-
-var klk_fi_parsed_years = funcs.makeYearlist(1820, 2000);
 
 // Generate settings.corpora and settings.corporafolders for the
 // Finnish KLK corpora by using the above functions
@@ -13312,32 +13277,28 @@ funcs.makeCorpusSettingsByYearDecade(
         return funcs.makeKlkCorpusSettings(
             "KLK suomi {year}",
             "Kansalliskirjaston suomenkielisiä sanoma- ja aikakauslehtiä vuodelta {year}",
-            "klk",
-            "fi",
-            year,
-            klk_fi_parsed_years.indexOf(year) != -1);
+            "klk_fi",
+            year);
     },
     funcs.makeYearlist(1820, 2000,
                        {descending: true,
                         omit: [1828, 1843]})
 );
 
-delete klk_fi_parsed_years;
-
 
 // KLK version 2
 
-sattrlist.klk2_fi_parsed = $.extend(
+sattrlist.klk2_fi = $.extend(
     {},
     sattrlist.klk2,
 );
 
-sattrlist.klk2_fi_parsed_pagelinks = $.extend(
+sattrlist.klk2_fi_pagelinks = $.extend(
     {},
-    sattrlist.klk2_fi_parsed,
+    sattrlist.klk2_fi,
     sattrlist.klk_pagelinks);
 
-attrlist.klk2_fi = {
+attrlist.klk2_fi_extra = {
     hyph: {
         label: "divided_in_lines",
     },
@@ -13352,17 +13313,17 @@ attrlist.klk2_fi = {
     },
 };
 
-attrlist.klk2_fi_parsed =
+attrlist.klk2_fi =
     $.extend(
         {},
         attrlist.parsed_tdt,
-        attrlist.klk2_fi);
+        attrlist.klk2_fi_extra);
 
 funcs.setAttrOrder(
-    attrlist.klk2_fi_parsed,
+    attrlist.klk2_fi,
     "lemma lemmacomp pos msd dephead deprel hyph ocr cc vpos");
 
-attrlist.klk2_fi_parsed_pagelinks = attrlist.klk2_fi_parsed;
+attrlist.klk2_fi_pagelinks = attrlist.klk2_fi;
 
 funcs.makeCorpusSettingsByYearDecade(
     settings.corporafolders.news.klk2_fi,
@@ -13377,10 +13338,8 @@ funcs.makeCorpusSettingsByYearDecade(
         return funcs.makeKlkCorpusSettings(
             "KLK2 suomi {year}",
             "Kansalliskirjaston suomenkielisiä sanoma- ja aikakauslehtiä vuodelta {year} (versio 2)",
-            "klk2",
-            "fi",
-            year,
-            true);
+            "klk2_fi",
+            year);
     },
     [2009, 2008, 2007, 2006, 2005, 2003, 2002, 1941, 1940, 1874, 1776, 1775]
 );

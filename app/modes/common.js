@@ -8592,12 +8592,11 @@ funcs.makeCorpusSettingsByYearDecade = function(
 
 // Construct settings contents for a single KLK corpus
 funcs.makeKlkCorpusSettings = function(
-    title_format, descr_format, key_prefix, lang, year, parsed)
+    title_format, descr_format, key_prefix, year)
 {
     var year_str = year.toString();
     var ctx_type = (year <= 1911 ? "sp" : "default");
-    var attrs_key = (key_prefix + "_" + lang + (parsed ? "_parsed" : "")
-                     + (year <= 1910 ? "_pagelinks" : ""));
+    var attrs_key = key_prefix + (year <= 1910 ? "_pagelinks" : "");
     return {
         title: title_format.replace("{year}", year_str),
         description: descr_format.replace("{year}", year_str),
