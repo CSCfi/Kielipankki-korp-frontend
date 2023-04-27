@@ -674,7 +674,7 @@
 
     "ocr_word_confidence": "sanan tunnistamisen luotettavuus",
     "ocr_char_confidence": "merkkien tunnistamisen luotettavuus",
-    "divided_in_lines": "sana jaettu riveille",
+    "word_divided_into_lines": "sana jaettuna riville",
     "vertical_position": "kohta pystysuunnassa",
 
     "date_iso": "päiväys (ISO)",

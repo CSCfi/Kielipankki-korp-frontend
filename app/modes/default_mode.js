@@ -13300,7 +13300,7 @@ sattrlist.klk_fi_v2_pagelinks = $.extend(
 
 attrlist.klk_fi_v2_extra = {
     hyph: {
-        label: "divided_in_lines",
+        label: "word_divided_into_lines",
     },
     ocr: {
         label: "ocr_word_confidence",
