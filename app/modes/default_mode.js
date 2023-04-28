@@ -192,15 +192,14 @@ settings.corporafolders.news.klk_fi = {
     }
 };
 
-    title: "Kansalliskirjaston lehtikokoelma, versio 2 (KLK2), suomenkieliset lehdet",
-    description: "Kansalliskirjaston sanoma- ja aikakauslehtikokoelma, Kielipankki-versio 2, suomenkieliset lehdet",
 settings.corporafolders.news.klk_fi_v2 = {
+    title: "Kansalliskirjaston lehtikokoelman (KLK) suomenkieliset lehdet, versio 2",
+    description: "Kansalliskirjaston sanoma- ja aikakauslehtikokoelman suomenkielinen osakorpus versio 2, Korp (klk-fi-v2-korp)",
     info: {
         // urn: "urn:nbn:fi:lb-201405275",
-        // metadata_urn: "urn:nbn:fi:lb-201405276",
-        licence: settings.licenceinfo.CC_BY,
-        cite_id: "KLK2-fi",
-        labels: ["test"],
+        metadata_urn: "urn:nbn:fi:lb-202009152",
+        licence: settings.licenceinfo.KLK_en,
+        status: "test",
     }
 };
 
@@ -13313,6 +13312,8 @@ attrlist.klk_fi_v2_extra = {
     },
 };
 
+sattrlist.klk_fi_v2_pagelinks_custom = sattrlist.klk_pagelinks_custom;
+
 attrlist.klk_fi_v2 =
     $.extend(
         {},
@@ -13328,21 +13329,33 @@ attrlist.klk_fi_v2_pagelinks = attrlist.klk_fi_v2;
 funcs.makeCorpusSettingsByYearDecade(
     settings.corporafolders.news.klk_fi_v2,
     "fi_{decade}",
-    "klk2test_fi_{year}",
+    "klk_fi_v2_{year}",
     function(decade) {
         return {
             title: decade.toString() + "-luku",
+            description: "Kansalliskirjaston suomenkielisiä sanoma- ja aikakauslehtiä " + decade.toString() + "-luvulta (versio 2)"
         };
     },
     function(year) {
         return funcs.makeKlkCorpusSettings(
-            "KLK2 suomi {year}",
+            "KLK suomi v2: {year}",
             "Kansalliskirjaston suomenkielisiä sanoma- ja aikakauslehtiä vuodelta {year} (versio 2)",
             "klk_fi_v2",
             year);
     },
-    [2009, 2008, 2007, 2006, 2005, 2003, 2002, 1941, 1940, 1874, 1776, 1775]
+    funcs.makeYearlist(
+        1771, 2021,
+        {
+            descending: true,
+            omit: [].concat(
+                [1773, 1774],
+                funcs.makeYearlist(1777, 1788),
+                [1790, 1791, 1794, 1795, 1796, 1797, 1798,
+                 1802, 1803, 1806, 1807, 1809]),
+        })
 );
+
+funcs.addCorpusAliases("klk_fi_v2_[0-9]+", "klk-fi-v2");
 
 
 sattrs.vks_sentence_id = {

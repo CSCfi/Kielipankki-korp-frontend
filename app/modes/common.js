@@ -182,6 +182,10 @@ settings.licenceinfo = {
         name: "CLARIN ACA +NC 1.0",
         urn: "urn:nbn:fi:lb-2019120401",
     },
+    KLK_en: {
+        name: "CC BY 4.0 (CLARIN PUB)",
+        urn: "urn:nbn:fi:lb-2023032704",
+    },
 };
 
 
@@ -6284,17 +6288,18 @@ sattrlist.klk_v2 = $.extend(
         text_filename_metadata: {
             label: "filename_metadata",
         },
-        text_add_version: {
+        text_version_added: {
             label: "added_in_version",
-            extendedComponent: "datasetSelect",
             opts: options.lite,
+            extendedComponent: "datasetSelect",
             dataset: [
-                "1",
-                "2",
+                "KLK-fi-2014",
+                "KLK-sv-2014",
+                "KLK-2021",
             ],
-            escape: false,
         },
-    }
+    },
+    sattrlist.lang_text_sentence
 );
 // Change the label of text_issue_date, as text_date is in ISO format
 sattrlist.klk_v2.text_issue_date.label = "issue_date";
