@@ -449,6 +449,9 @@
     "sentence_polarity": "sentence polarity",
 
     "sentence_lang_identified": "sentence language (identified)",
+    "sentence_lang_identified_confidence": "sentence language identification confidence",
+    "text_lang_identified_counts": "identified languages in text sentences",
+    "paragraph_lang_identified_counts": "identified languages in paragraph sentences",
 
     "locality": "locality",
     "locality_orig": "locality in original language",

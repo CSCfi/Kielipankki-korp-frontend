@@ -355,6 +355,11 @@ transl.lang = {
         "fi": "vepsä",
         // "sv": "vep",
     },
+    "xxx": {
+        "en": "unidentified",
+        "fi": "tunnistamaton",
+        "sv": "oidentifierat",
+    },
     "yrk": {
         // "en": "yrk",
         "fi": "tundranenetsi",
@@ -5951,6 +5956,38 @@ sattrs.day_of_month = {
 
 sattrs.sentence_lang = {
     label: "sentence_lang_identified",
+    translation: transl.lang,
+};
+
+sattrs.sentence_lang_conf = {
+    label: "sentence_lang_identified_confidence",
+};
+
+sattrs.paragraph_sum_lang = {
+    label: "paragraph_lang_identified_counts",
+    type: "set",
+    opts: options.fullSet,
+    pattern: '<span data-key="<%= key %>"><%= util.translateAttribute(null, transl.lang, val.split(":")[0]) + ": " + val.split(":")[1] %></span>',
+};
+
+sattrs.text_sum_lang = {
+    label: "text_lang_identified_counts",
+    type: "set",
+    opts: options.fullSet,
+    pattern: sattrs.paragraph_sum_lang.pattern,
+};
+
+sattrlist.lang_text_sentence = {
+    text_sum_lang: sattrs.text_sum_lang,
+    sentence_lang: sattrs.sentence_lang,
+    sentence_lang_conf: sattrs.sentence_lang_conf,
+};
+
+sattrlist.lang_text_paragraph_sentence = {
+    text_sum_lang: sattrs.text_sum_lang,
+    paragraph_sum_lang: sattrs.paragraph_sum_lang,
+    sentence_lang: sattrs.sentence_lang,
+    sentence_lang_conf: sattrs.sentence_lang_conf,
 };
 
 sattrs.sentence_polarity = {
