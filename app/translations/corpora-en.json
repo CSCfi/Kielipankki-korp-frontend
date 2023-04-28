@@ -436,6 +436,17 @@
 
     "name_category_omorfi": "name category (Omorfi)",
 
+    "ocr_word_confidence": "OCR word confidence",
+    "ocr_char_confidence": "OCR character confidence",
+    "word_divided_into_lines": "word divided into lines",
+    "vertical_position": "vertical position",
+
+    "date_iso": "date (ISO)",
+    "issue_date": "issue date",
+    "filename_orig": "original filename",
+    "filename_metadata": "metadata filename",
+    "added_in_version": "added in version",
+
     "suomi24fi_user": "username",
     "suomi24fi_user_lemmas": "username word lemmas",
     "suomi24fi_sub": "subsection",
