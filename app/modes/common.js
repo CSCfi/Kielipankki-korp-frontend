@@ -8636,9 +8636,17 @@ funcs.makeCorpusSettingsByYearDecade = function(
 funcs.makeKlkCorpusSettings = function(
     title_format, descr_format, key_prefix, year)
 {
+    // The fifth argument opts may contain the following keys:
+    // - attrsKeyFunc: A function with argument year returning the
+    //   suffix to be appended to key_prefix to get a property name
+    //   for attrlist and sattrlist to be used for the year
+    var opts = arguments[4] || {};
+    var attrsKeyFunc = opts.attrsKeyFunc || function (year) {
+        return year <= 1910 ? "_pagelinks" : "";
+    };
     var year_str = year.toString();
     var ctx_type = (year <= 1911 ? "sp" : "default");
-    var attrs_key = key_prefix + (year <= 1910 ? "_pagelinks" : "");
+    var attrs_key = key_prefix + attrsKeyFunc(year);
     return {
         title: title_format.replace("{year}", year_str),
         description: descr_format.replace("{year}", year_str),
