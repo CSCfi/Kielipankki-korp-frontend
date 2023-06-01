@@ -652,6 +652,179 @@ settings.corpora.semfinlex_asd_par_2018_sv = {
 
 funcs.addCorporaToFolder("legal", "semfinlex_asd_par_2018_fi");
 
+sattrlist.uspenskij = {
+    text_translators: { label: "text_translator" },
+    text_publisher: { label: "publisher" },
+    text_publication_year: { label: "publication_year" },
+    text_publication_place: { label: "publication_place" },
+    text_publication: { label: "publication_name" },
+    text_page_range: { label: "text_page_range" },
+    text_original_lang: { label: "origlang" },
+    text_no_of_pages: { label: "numberofpages" },
+    text_medium: { label: "medium" },
+    text_iso_lang: { label: "uralic_ud_text_iso_lang" },
+    text_id: { label: "text_id" },
+    text__geo_translator_origin: { label: "" }, // ???
+    text_genre: { label: "text_genre" },
+    text_e_corrector: { label: "text_e_corrector" },
+    text_corrector: { label: "text_corrector" },
+    text_comment: { label: "comment" },
+    text_bibliog: { label: "bibliography" },
+    text_author: { label: "text_author" },
+    text_word_count: { label: "num_words" },
+    text_character_count: { label: "num_chars" },
+    chapter_storyid: { label: "story_id" },
+    chapter_chapid: { label: "chapter_id" },
+    paragraph_pid: { label: "paragraph_pid" },
+    sentence_text: { label: "text" },
+    sentence_id: { label: "sentence_id" },
+    sentence_text_mhr: { label: "sentence_text_mhr" },
+    sentence_text_mns: { label: "sentence_text_mns" },
+    sentence_text_rus: { label: "sentence_text_rus" }
+}
+
+settings.corporafolders.other.uspenskij_4bat = {
+    title: "Uspenskij 4 battles",
+    description: "Parallel Corpus of the book 'Four Battles', written by L. Uspenskij",
+    info: {
+        metadata_urn: "urn:nbn:fi:lb-2023042426",
+	licence: {
+	    name: "CC-BY (CLARIN PUB)",
+	    urn: "urn:nbn:fi:lb-2023042428",
+	},
+	status: "beta"
+    },
+    contents: [ "uspenskij_a_4bat_mns", "uspenskij_4bat_koi" ]
+}
+
+settings.corpora.uspenskij_a_4bat_mns = {
+    id: "uspenskij_a_4bat_mns",
+    lang: "mns",
+    title : "Uspenskij 4 battles (mns-rus)",
+    description: "Uspenskij 4 battles (mns-rus)",
+    context: context.linkAligned,
+    within: within.link,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.uspenskij,
+    linkedTo: ["uspenskij_a_4bat_rus"]
+}
+
+settings.corpora.uspenskij_a_4bat_rus = {
+    id: "uspenskij_a_4bat_rus",
+    lang: "rus",
+    title : "Uspenskij 4 battles (mns-rus)",
+    description: "Uspenskij 4 battles (mns-rus)",
+    context: context.linkAligned,
+    within: within.link,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.uspenskij,
+    linkedTo: ["uspenskij_a_4bat_mns"],
+    hide: true
+}
+
+
+settings.corpora.uspenskij_4bat_koi = {
+    id: "uspenskij_4bat_koi",
+    lang: "koi",
+    title : "Uspenskij 4 battles (koi-kpv-mdf-mhr-mrj-myv-rus-udm)",
+    description: "Uspenskij 4 battles (koi-kpv-mdf-mhr-mrj-myv-rus-udm)",
+    context: context.linkAligned,
+    within: within.link,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.uspenskij,
+    linkedTo: [ "uspenskij_4bat_kpv", "uspenskij_4bat_mdf", "uspenskij_4bat_mhr", "uspenskij_4bat_mrj", "uspenskij_4bat_myv", "uspenskij_4bat_rus", "uspenskij_4bat_udm" ]
+}
+
+settings.corpora.uspenskij_4bat_kpv = {
+    id: "uspenskij_4bat_kpv",
+    lang: "kpv",
+    title : "Uspenskij 4 battles: kpv",
+    description: "Uspenskij 4 battles: kpv",
+    context: context.linkAligned,
+    within: within.link,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.uspenskij,
+    linkedTo: [ "uspenskij_4bat_koi", "uspenskij_4bat_mdf", "uspenskij_4bat_mhr", "uspenskij_4bat_mrj", "uspenskij_4bat_myv", "uspenskij_4bat_rus", "uspenskij_4bat_udm" ],
+    hide: true
+}
+
+settings.corpora.uspenskij_4bat_mdf = {
+    id: "uspenskij_4bat_mdf",
+    lang: "mdf",
+    title : "Uspenskij 4 battles: mdf",
+    description: "Uspenskij 4 battles: mdf",
+    context: context.linkAligned,
+    within: within.link,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.uspenskij,
+    linkedTo: [ "uspenskij_4bat_koi", "uspenskij_4bat_kpv", "uspenskij_4bat_mhr", "uspenskij_4bat_mrj", "uspenskij_4bat_myv", "uspenskij_4bat_rus", "uspenskij_4bat_udm" ],
+    hide: true
+}
+
+settings.corpora.uspenskij_4bat_mhr = {
+    id: "uspenskij_4bat_mhr",
+    lang: "mhr",
+    title : "Uspenskij 4 battles: mhr",
+    description: "Uspenskij 4 battles: mhr",
+    context: context.linkAligned,
+    within: within.link,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.uspenskij,
+    linkedTo: [ "uspenskij_4bat_koi", "uspenskij_4bat_kpv", "uspenskij_4bat_mdf", "uspenskij_4bat_mrj", "uspenskij_4bat_myv", "uspenskij_4bat_rus", "uspenskij_4bat_udm" ],
+    hide: true
+}
+
+settings.corpora.uspenskij_4bat_mrj = {
+    id: "uspenskij_4bat_mrj",
+    lang: "mrj",
+    title : "Uspenskij 4 battles: mrj",
+    description: "Uspenskij 4 battles: mrj",
+    context: context.linkAligned,
+    within: within.link,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.uspenskij,
+    linkedTo: [ "uspenskij_4bat_koi", "uspenskij_4bat_kpv", "uspenskij_4bat_mdf", "uspenskij_4bat_mhr", "uspenskij_4bat_myv", "uspenskij_4bat_rus", "uspenskij_4bat_udm" ],
+    hide: true
+}
+settings.corpora.uspenskij_4bat_myv = {
+    id: "uspenskij_4bat_myv",
+    lang: "myv",
+    title : "Uspenskij 4 battles: myv",
+    description: "Uspenskij 4 battles: myv",
+    context: context.linkAligned,
+    within: within.link,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.uspenskij,
+    linkedTo: [ "uspenskij_4bat_koi", "uspenskij_4bat_kpv", "uspenskij_4bat_mdf", "uspenskij_4bat_mhr", "uspenskij_4bat_mrj", "uspenskij_4bat_rus", "uspenskij_4bat_udm" ],
+    hide: true
+}
+
+settings.corpora.uspenskij_4bat_rus = {
+    id: "uspenskij_4bat_rus",
+    lang: "rus",
+    title : "Uspenskij 4 battles: rus",
+    description: "Uspenskij 4 battles: rus",
+    context: context.linkAligned,
+    within: within.link,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.uspenskij,
+    linkedTo: [ "uspenskij_4bat_koi", "uspenskij_4bat_kpv", "uspenskij_4bat_mdf", "uspenskij_4bat_mhr", "uspenskij_4bat_mrj", "uspenskij_4bat_myv", "uspenskij_4bat_udm" ],
+    hide: true
+}
+
+settings.corpora.uspenskij_4bat_udm = {
+    id: "uspenskij_4bat_udm",
+    lang: "udm",
+    title : "Uspenskij 4 battles: udm",
+    description: "Uspenskij 4 battles: udm",
+    context: context.linkAligned,
+    within: within.link,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.uspenskij,
+    linkedTo: [ "uspenskij_4bat_koi", "uspenskij_4bat_kpv", "uspenskij_4bat_mdf", "uspenskij_4bat_mhr", "uspenskij_4bat_mrj", "uspenskij_4bat_myv", "uspenskij_4bat_rus" ],
+    hide: true
+}
+
 
 /* OPUS – Open Source Paraller Corpus */
 
