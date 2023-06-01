@@ -443,6 +443,95 @@ settings.corpora.studentsvenska = {
 
 funcs.addCorporaToFolder("learner", "studentsvenska");
 
+attrlist.digisvenska = {
+    ref: attrs.ref,
+    lemma_stanza: attrs.baseform_sv,
+    lemma: attrs.saldo,
+    lemmacomp: attrs.baseform_compound,
+    pos: attrs.pos,
+    msd: attrs.msd,
+    dephead: attrs.dephead,
+    deprel: attrs.deprel,
+    lex: attrs.lemgram
+};
+
+sattrlist.digisvenska = {
+    text_id: { label: "digisvenska_text_id" },
+    text_round: {
+	label: "digisvenska_round",
+	extendedComponent: "datasetSelect",
+	opts: options.lite,
+	dataset: [ "2018K", "2018S", "2019K", "2019S", "2020K", "2020S", "2021K", "2021S" ]
+    },
+    text_question_id: { label: "digisvenska_question_id" },
+    text_assignment_id: {
+	label: "digisvenska_assignment_id",
+	extendedComponent: "datasetSelect",
+        opts: options.lite,
+	dataset: [ "2018K-20a", "2018K-20b", "2018K-21a", "2018K-21b",
+		   "2018S-19a", "2018S-19b", "2018S-20a", "2018S-20b",
+		   "2019K-20a", "2019K-20b", "2019K-21a", "2019K-21b",
+		   "2019S-17a", "2019S-17b", "2019S-18a", "2019S-18b",
+		   "2020K-18.1", "2020K-18.2", "2020K-19.1", "2020K-19.2",
+		   "2020S-18.1", "2020S-18.2", "2020S-19.1", "2020S-19.2",
+		   "2021K-17.1", "2021K-17.2", "2021K-18.1", "2021K-18.2",
+		   "2021S-18.1", "2021S-18.2", "2021S-19.1", "2021S-19.2" ]
+    },
+    text_assignment_type: {
+	label: "digisvenska_assignment_type",
+	extendedComponent: "datasetSelect",
+        opts: options.lite,
+	dataset: [ "short", "long" ]
+    },
+    //text_assignment_topic: { label: "digisvenska_assignment_topic" },
+    text_assignment_link: {
+        label: "digisvenska_assignment_url",
+        type: "url",
+        urlOpts: sattrs.link_url_opts
+    },
+    text_county: {
+	label: "digisvenska_county",
+	extendedComponent: "datasetSelect",
+        opts: options.lite,
+	dataset: [ "1", "2", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19" ]
+    },
+    text_gender: {
+	label: "digisvenska_gender",
+	extendedComponent: "datasetSelect",
+        opts: options.lite,
+	dataset: [ "10", "20" ]
+    },
+    text_grade: {
+	label: "digisvenska_grade",
+	extendedComponent: "datasetSelect",
+	opts: options.lite,
+	dataset: [ "L", "E", "M", "C", "B", "A", "I+", "I", "I-", "I=" ]
+    },
+    text_score: { label: "digisvenska_score" },
+    text_score_value: { label: "digisvenska_score_value" }
+};
+
+settings.corpora.digisvenska_test = {
+    id: "digisvenska_test",
+    title: "Digisvenska (test version)",
+    description: "Digisvenska corpus (test version)",
+    urn: "",
+    metadata_urn: "",
+    licence: {
+        name: "CLARIN RES",
+        description: "CLARIN RES end-user licence",
+        urn: "",
+    },
+    cite_id: "",
+    context: context.default,
+    within: within.default,
+    limitedAccess: true,
+    licenceType: "RES",
+    attributes: attrlist.digisvenska,
+    structAttributes: sattrlist.digisvenska
+};
+
+funcs.addCorporaToFolder("learner", "digisvenska_test");
 
 settings.corpora.mulcold_sv = {
     id: "mulcold_sv",

@@ -508,5 +508,18 @@
     "kca-2017": "khanty (2017)",
     "kca-2018": "khanty (2018)",
 
+    "digisvenska_text_id" : "text-ID",
+    "digisvenska_round" : "provomgång",
+    "digisvenska_question_id" : "fråge-ID",
+    "digisvenska_assignment_id" : "uppgifts-ID",
+    "digisvenska_assignment_type" : "uppgiftstyp",
+    "digisvenska_assignment_topic" : "assignment topic",
+    "digisvenska_assignment_url" : "Uppgift (instruktioner)",
+    "digisvenska_county" : "landskap",
+    "digisvenska_gender" : "kön",
+    "digisvenska_grade" : "studentbetyg",
+    "digisvenska_score" : "totala studentprovspoäng",
+    "digisvenska_score_value" : "uppgiftspoäng",
+
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }
