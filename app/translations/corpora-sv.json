@@ -469,6 +469,12 @@
     "studentsvenska_errorwordorder": "antal ordföljdsfel",
     "studentsvenska_subject": "uppsatsämne",
 
+    "studex_school": "gymnasium",
+    "studex_round": "tidpunkt",
+    "studex_topic": "rubrik",
+    "studex_filename": "filnamn",
+    "studex_grade": "vitsord",
+
     "text__geo_provenience": "fyndort",
 
     "main_section": "huvudavdelning",

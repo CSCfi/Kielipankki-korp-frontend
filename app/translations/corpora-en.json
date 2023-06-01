@@ -814,5 +814,11 @@
     "sentence_text_orig": "sentence in original language",
     "sentence_source": "source",
 
+    "studex_school": "school",
+    "studex_round": "round",
+    "studex_topic": "topic",
+    "studex_filename": "filename",
+    "studex_grade": "grade",
+
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }

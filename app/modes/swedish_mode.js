@@ -443,6 +443,86 @@ settings.corpora.studentsvenska = {
 
 funcs.addCorporaToFolder("learner", "studentsvenska");
 
+attrlist.studex = {
+    ref: attrs.ref,
+    lemma: attrs.saldo,
+    lemma_stanza: attrs.baseform_sv,
+    lemmacomp: attrs.baseform_compound,
+    pos: attrs.pos,
+    msd: attrs.msd,
+    dephead: attrs.dephead,
+    deprel: attrs.deprel,
+    lex: attrs.lemgram
+};
+
+sattrlist.studex_08 = {
+    text_filename: { label: "studex_filename" },
+    text_grade: {
+	label: "studex_grade",
+	extendedComponent: "datasetSelect",
+        opts: options.lite,
+	dataset: [ "svag", "stark" ] },
+};
+
+// TODO: rename to studex_08
+settings.corpora.studentprov_test = {
+    id: "studentprov_test",
+    title: "Studex-08 (test version)",
+    description: "Studentexamensprovsvar i modersmål och litteratur (svenska). Essäprovet våren 2008.",
+    urn: "",
+    metadata_urn: "",
+    licence: {
+        name: "CLARIN RES",
+        description: "CLARIN RES end-user licence",
+        urn: "",
+    },
+    cite_id: "",
+    context: context.default,
+    within: within.default,
+    limitedAccess: true,
+    licenceType: "RES",
+    attributes: attrlist.studex,
+    structAttributes: sattrlist.studex_08
+};
+
+funcs.addCorporaToFolder("other", "studentprov_test");
+
+sattrlist.studex_21_22 = {
+    text_school: { label: "studex_school" },
+    text_round: {
+	label: "studex_round",
+	extendedComponent: "datasetSelect",
+        opts: options.lite,
+	dataset: [ "Våren 2021", "Våren 2022" ] },
+    text_topic: {
+	label: "studex_topic",
+	extendedComponent: "datasetSelect",
+        opts: options.lite,
+	dataset: [ "Rubrik 1", "Rubrik 2", "Rubrik 3", "Rubrik 4", "Rubrik 5" ] },
+};
+
+// TODO: rename to studex_21_22
+settings.corpora.studentprov_21_22 = {
+    id: "studentprov_21_22",
+    title: "Studex-21-22 (test version)",
+    description: "Studentexamensprovsvar i modersmål och litteratur (svenska). Provet i skrivkompetens våren 2021 och våren 2022.",
+    urn: "",
+    metadata_urn: "",
+    licence: {
+        name: "CLARIN RES",
+        description: "CLARIN RES end-user licence",
+        urn: "",
+    },
+    cite_id: "",
+    context: context.default,
+    within: within.default,
+    limitedAccess: true,
+    licenceType: "RES",
+    attributes: attrlist.studex,
+    structAttributes: sattrlist.studex_21_22
+};
+
+funcs.addCorporaToFolder("other", "studentprov_21_22");
 
 settings.corpora.mulcold_sv = {
     id: "mulcold_sv",

@@ -1004,5 +1004,11 @@
     "sentence_text_eng": "virkkeen teksti englanniksi",
     "sentence_text_orig": "virkkeen teksti alkukielellä",
 
+    "studex_school": "lukio",
+     "studex_round": "kirjoitusten ajankohta",
+     "studex_topic": "otsikko",
+     "studex_filename": "tiedostonnimi",
+     "studex_grade": "arvosana",
+
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }
