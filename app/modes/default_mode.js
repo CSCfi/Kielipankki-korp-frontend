@@ -13287,15 +13287,8 @@ funcs.makeCorpusSettingsByYearDecade(
 
 // KLK version 2
 
-sattrlist.klk_fi_v2 = $.extend(
-    {},
-    sattrlist.klk_v2
-);
-
-sattrlist.klk_fi_v2_pagelinks = $.extend(
-    {},
-    sattrlist.klk_fi_v2,
-    sattrlist.klk_pagelinks);
+sattrlist.klk_fi_v2 = sattrlist.klk_v2;
+sattrlist.klk_fi_v2_paragraphs = sattrlist.klk_v2_paragraphs;
 
 attrlist.klk_fi_v2_extra = {
     hyph: {
@@ -13312,7 +13305,8 @@ attrlist.klk_fi_v2_extra = {
     },
 };
 
-sattrlist.klk_fi_v2_pagelinks_custom = sattrlist.klk_pagelinks_custom;
+sattrlist.klk_fi_v2_custom = sattrlist.klk_pagelinks_custom;
+sattrlist.klk_fi_v2_paragraphs_custom = sattrlist.klk_pagelinks_custom;
 
 attrlist.klk_fi_v2 =
     $.extend(
@@ -13320,11 +13314,11 @@ attrlist.klk_fi_v2 =
         attrlist.parsed_tdt,
         attrlist.klk_fi_v2_extra);
 
+attrlist.klk_fi_v2_paragraphs = attrlist.klk_fi_v2;
+
 funcs.setAttrOrder(
     attrlist.klk_fi_v2,
     "lemma lemmacomp pos msd dephead deprel hyph ocr cc vpos");
-
-attrlist.klk_fi_v2_pagelinks = attrlist.klk_fi_v2;
 
 funcs.makeCorpusSettingsByYearDecade(
     settings.corporafolders.news.klk_fi_v2,
@@ -13341,7 +13335,12 @@ funcs.makeCorpusSettingsByYearDecade(
             "KLK suomi v2: {year}",
             "Kansalliskirjaston suomenkielisiä sanoma- ja aikakauslehtiä vuodelta {year} (versio 2)",
             "klk_fi_v2",
-            year);
+            year,
+            {
+                attrsKeyFunc: function (year) {
+                    return year <= 1911 ? "_paragraphs" : "";
+                },
+            });
     },
     funcs.makeYearlist(
         1771, 2021,

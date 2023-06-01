@@ -6277,7 +6277,13 @@ sattrlist.klk = {
     sentence_id: sattrs.sentence_id_hidden
 };
 
-sattrlist.klk_v2 = $.extend(
+sattrlist.klk_pagelinks = {
+    text_binding_id: {
+        displayType: "hidden"
+    },
+};
+
+sattrlist.klk_v2_base = $.extend(
     {},
     sattrlist.klk,
     {
@@ -6299,19 +6305,26 @@ sattrlist.klk_v2 = $.extend(
             ],
         },
     },
-    sattrlist.lang_text_sentence
+    // Page links for all years
+    sattrlist.klk_pagelinks
 );
 // Change the label of text_issue_date, as text_date is in ISO format
-sattrlist.klk_v2.text_issue_date.label = "issue_date";
+sattrlist.klk_v2_base.text_issue_date.label = "issue_date";
+
+sattrlist.klk_v2 = $.extend(
+    {},
+    sattrlist.klk_v2_base,
+    sattrlist.lang_text_sentence
+);
+
+sattrlist.klk_v2_paragraphs = $.extend(
+    {},
+    sattrlist.klk_v2_base,
+    sattrlist.lang_text_paragraph_sentence
+);
 
 
 // KLK page image links used for both Finnish and Swedish
-sattrlist.klk_pagelinks = {
-    text_binding_id: {
-        displayType: "hidden"
-    },
-};
-
 sattrlist.klk_pagelinks_custom = {
     text_page_image_url: {
         pattern: funcs.makeLinkPattern(
