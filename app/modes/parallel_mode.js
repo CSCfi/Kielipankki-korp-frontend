@@ -664,7 +664,7 @@ sattrlist.uspenskij = {
     text_medium: { label: "medium" },
     text_iso_lang: { label: "uralic_ud_text_iso_lang" },
     text_id: { label: "text_id" },
-    text__geo_translator_origin: { label: "" }, // ???
+    /*text__geo_translator_origin: { label: "" }, */
     text_genre: { label: "text_genre" },
     text_e_corrector: { label: "text_e_corrector" },
     text_corrector: { label: "text_corrector" },
