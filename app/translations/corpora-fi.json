@@ -982,6 +982,15 @@
     "kca-2018": "hanti (2018)",
     "vep-2013": "vepsä (2013)",
 
+    "rus": "venäjä",
+    "mns": "mansi",
+    "koi": "komi-permjakki",
+    "kpv": "komi-syrjääni",
+    "mdf": "mokša",
+    "mhr": "niittymari",
+    "mrj": "vuorimari",
+    "udm": "udmurtti",
+
     "num_chars": "merkkimäärä",
     "chapter_id": "luvun tunniste",
     "story_id": "tarinan tunniste",
@@ -1003,6 +1012,9 @@
     "sentence_sent_no": "virkkeen tunniste",
     "sentence_text_eng": "virkkeen teksti englanniksi",
     "sentence_text_orig": "virkkeen teksti alkukielellä",
+    "sentence_text_mhr": "virkkeen teksti (mhr)",
+    "sentence_text_mns": "virkkeen teksti (mns)",
+    "sentence_text_rus": "virkkeen teksti (rus)",
 
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }

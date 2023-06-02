@@ -790,6 +790,16 @@
     "kca-2017": "Khanty (2017)",
     "kca-2018": "Khanty (2018)",
 
+    "rus": "Russian",
+    "mns": "Mansi",
+    "koi": "Komi-Permyak",
+    "kpv": "Komi-Zyrian",
+    "mdf": "Moksha",
+    "mhr": "Meadow Mari",
+    "mrj": "Hill Mari",
+    "udm": "Udmurt",
+    "myv": "Erzya",
+
     "num_chars": "number of characters",
     "text_author": "author",
     "chapter_id": "chapter id",
@@ -813,6 +823,10 @@
     "sentence_text_eng": "sentence in English",
     "sentence_text_orig": "sentence in original language",
     "sentence_source": "source",
+    "sentence_text_mhr": "sentence (mhr)",
+    "sentence_text_mns": "sentence (mns)",
+    "sentence_text_rus": "sentence (rus)",
+
 
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }
