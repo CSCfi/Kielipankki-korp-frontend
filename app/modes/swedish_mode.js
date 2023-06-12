@@ -511,27 +511,28 @@ sattrlist.digisvenska = {
     text_score_value: { label: "digisvenska_score_value" }
 };
 
-settings.corpora.digisvenska_test = {
-    id: "digisvenska_test",
-    title: "Digisvenska (test version)",
-    description: "Digisvenska corpus (test version)",
-    urn: "",
-    metadata_urn: "",
+settings.corpora.digisvenska = {
+    id: "digisvenska",
+    title: "Digisvenska",
+    description: "Digisvenska-korpusen – En inlärarkorpus baserad på studentprovet i B-svenska",
+    urn: "urn:nbn:fi:lb-2023051702",
+    metadata_urn: "urn:nbn:fi:lb-2023051701",
     licence: {
         name: "CLARIN RES",
         description: "CLARIN RES end-user licence",
-        urn: "",
+        urn: "urn:nbn:fi:lb-2023051703",
     },
-    cite_id: "",
+    cite_id: "digisvenska",
     context: context.default,
     within: within.default,
     limitedAccess: true,
     licenceType: "RES",
     attributes: attrlist.digisvenska,
-    structAttributes: sattrlist.digisvenska
+    structAttributes: sattrlist.digisvenska,
+    status: "beta"
 };
 
-funcs.addCorporaToFolder("learner", "digisvenska_test");
+funcs.addCorporaToFolder("learner", "digisvenska");
 
 settings.corpora.mulcold_sv = {
     id: "mulcold_sv",
