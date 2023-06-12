@@ -464,19 +464,33 @@ sattrlist.studex_08 = {
 	dataset: [ "svag", "stark" ] },
 };
 
-// TODO: rename to studex_08
-settings.corpora.studentprov_test = {
-    id: "studentprov_test",
-    title: "Studex-08 (test version)",
-    description: "Studentexamensprovsvar i modersmål och litteratur (svenska). Essäprovet våren 2008.",
-    urn: "",
-    metadata_urn: "",
-    licence: {
-        name: "CLARIN RES",
-        description: "CLARIN RES end-user licence",
+settings.corporafolders.other.studex = {
+    title: "Studex",
+    description: "Studentexamensprovsvar i modersmål och litteratur (svenska).",
+    contents: [
+        "studex_08",
+        "studex_21_22",
+    ],
+    info: {
+        metadata_urn: "urn:nbn:fi:lb-2023051605",
         urn: "",
-    },
-    cite_id: "",
+        shortname: "",
+        licence: {
+	    name: "CLARIN RES",
+	    description: "CLARIN RES end-user licence",
+	    urn: "urn:nbn:fi:lb-2023051606",
+	},
+	status: "beta"
+    }
+};
+
+settings.corpora.studex_08 = {
+    id: "studex_08",
+    title: "Studex-08",
+    description: "Studentexamensprovsvar i modersmål och litteratur (svenska). Essäprovet våren 2008.",
+    urn: "urn:nbn:fi:lb-2023051602",
+    metadata_urn: "urn:nbn:fi:lb-2023051601",
+    cite_id: "studex-08",
     context: context.default,
     within: within.default,
     limitedAccess: true,
@@ -484,8 +498,6 @@ settings.corpora.studentprov_test = {
     attributes: attrlist.studex,
     structAttributes: sattrlist.studex_08
 };
-
-funcs.addCorporaToFolder("other", "studentprov_test");
 
 sattrlist.studex_21_22 = {
     text_school: { label: "studex_school" },
@@ -501,19 +513,13 @@ sattrlist.studex_21_22 = {
 	dataset: [ "Rubrik 1", "Rubrik 2", "Rubrik 3", "Rubrik 4", "Rubrik 5" ] },
 };
 
-// TODO: rename to studex_21_22
-settings.corpora.studentprov_21_22 = {
-    id: "studentprov_21_22",
-    title: "Studex-21-22 (test version)",
+settings.corpora.studex_21_22 = {
+    id: "studex_21_22",
+    title: "Studex-21-22",
     description: "Studentexamensprovsvar i modersmål och litteratur (svenska). Provet i skrivkompetens våren 2021 och våren 2022.",
-    urn: "",
-    metadata_urn: "",
-    licence: {
-        name: "CLARIN RES",
-        description: "CLARIN RES end-user licence",
-        urn: "",
-    },
-    cite_id: "",
+    urn: "urn:nbn:fi:lb-2023051604",
+    metadata_urn: "urn:nbn:fi:lb-2023051603",
+    cite_id: "studex-21-22",
     context: context.default,
     within: within.default,
     limitedAccess: true,
@@ -521,8 +527,6 @@ settings.corpora.studentprov_21_22 = {
     attributes: attrlist.studex,
     structAttributes: sattrlist.studex_21_22
 };
-
-funcs.addCorporaToFolder("other", "studentprov_21_22");
 
 settings.corpora.mulcold_sv = {
     id: "mulcold_sv",
