@@ -1255,8 +1255,14 @@ sattrlist.stt = {
         label: "version_code",
 	displayType: "hidden",
     },
-    text_keywords: {
+    text_keywords_set: {
         label: "keywords",
+	type: "set",
+        opts: options.fullSet,
+        extendedComponent: "structServiceAutocomplete",
+    },
+    text_keywords: {
+        label: "keywords_orig",
     },
     text_charcount_orig: {
         label: "charcount_orig",

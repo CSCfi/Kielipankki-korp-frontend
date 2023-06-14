@@ -271,6 +271,7 @@
     "news_genre": "news genre",
     "version": "version",
     "keywords": "keywords",
+    "keywords_orig": "keywords (original)",
     "charcount_orig": "original number of characters",
     
     "variants": "similar lemgram",

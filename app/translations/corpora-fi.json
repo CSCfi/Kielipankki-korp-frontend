@@ -107,6 +107,7 @@
     "news_genre": "uutislaji",
     "version": "versio",
     "keywords": "avainsanat",
+    "keywords_orig": "avainsanat (alkuperäinen)",
     "charcount_orig": "alkuperäinen merkkimäärä",
     
     "book_number": "kirjan numero",
