@@ -1037,8 +1037,6 @@ settings.corporafolders.news.stt = {
             name: "CC BY NC (CLARIN PUB)",
             urn: "urn:nbn:fi:lb-2023022703"
     	},
-        cite_id: "stt-fi-1992-2018-korp",
-        status: "beta",
     }
 };
 
