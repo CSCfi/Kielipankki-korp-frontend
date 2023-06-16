@@ -675,7 +675,7 @@
 
     "ocr_word_confidence": "sanan tunnistamisen luotettavuus",
     "ocr_char_confidence": "merkkien tunnistamisen luotettavuus",
-    "divided_in_lines": "sana jaettu riveille",
+    "word_divided_into_lines": "sana jaettuna riville",
     "vertical_position": "kohta pystysuunnassa",
 
     "date_iso": "päiväys (ISO)",
@@ -700,6 +700,9 @@
     "sentence_polarity": "virkkeen polaarisuus",
 
     "sentence_lang_identified": "virkkeen kieli (tunnistettu)",
+    "sentence_lang_identified_confidence": "virkkeen kielentunnistuksen luotettavuus",
+    "text_lang_identified_counts": "tekstin virkkeiden tunnistetut kielet",
+    "paragraph_lang_identified_counts": "kappaleen virkkeiden tunnistetut kielet",
 
     "publication_type": "julkaisutyyppi",
 

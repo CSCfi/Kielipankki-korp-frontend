@@ -31,9 +31,8 @@ settings.preselectedCorpora = [
 $("#lemgram_list_item").remove();
 $("#results-lemgram").remove();
 
-sattrlist.klk_sv = $.extend({}, sattrlist.klk);
-sattrlist.klk_sv_parsed = $.extend(
-    {}, sattrlist.klk_sv,
+sattrlist.klk_sv = $.extend(
+    {}, sattrlist.klk,
     {
         paragraph_n: {
             label: "sentence_n",
@@ -45,35 +44,29 @@ sattrlist.klk_sv_parsed = $.extend(
         }
     });
 
-sattrlist.klk_sv_parsed_pagelinks = $.extend(
-    {}, sattrlist.klk_sv_parsed, sattrlist.klk_pagelinks);
+sattrlist.klk_sv_pagelinks = $.extend(
+    {}, sattrlist.klk_sv, sattrlist.klk_pagelinks);
 
-sattrlist.klk_sv_parsed_pagelinks_custom = sattrlist.klk_pagelinks_custom;
+sattrlist.klk_sv_pagelinks_custom = sattrlist.klk_pagelinks_custom;
 
 attrlist.klk_sv = {
+    pos: attrs.pos,
+    msd: attrs.msd,
+    lemma: attrs.baseform_sv,
+    lex: attrs.lemgram,
+    saldo: attrs.saldo,
+    dephead: attrs.dephead,
+    deprel: attrs.deprel,
+    ref: attrs.ref,
+    prefix: attrs.prefix,
+    suffix: attrs.suffix,
     ocr: {
         label: "OCR",
         opts: options.default,
-    }
+    },
 };
 
-attrlist.klk_sv_parsed =
-    $.extend(
-        {
-            pos: attrs.pos,
-            msd: attrs.msd,
-            lemma: attrs.baseform_sv,
-            lex: attrs.lemgram,
-            saldo: attrs.saldo,
-            dephead: attrs.dephead,
-            deprel: attrs.deprel,
-            ref: attrs.ref,
-            prefix: attrs.prefix,
-            suffix: attrs.suffix
-        },
-        attrlist.klk_sv);
-
-attrlist.klk_sv_parsed_pagelinks = attrlist.klk_sv_parsed;
+attrlist.klk_sv_pagelinks = attrlist.klk_sv;
 
 
 settings.corpora = {};
@@ -238,9 +231,6 @@ settings.corporafolders.other.fstc_other = {
 };
 
 
-var klk_sv_parsed_years = funcs.makeYearlist(1771, 1948);
-
-
 // Generate settings.corpora and settings.corporafolders for the
 // Swedish KLK corpora by using functions defined in config.js
 
@@ -253,10 +243,8 @@ funcs.makeCorpusSettingsByYearDecade(
         return funcs.makeKlkCorpusSettings(
             "Nationalbiblioteket svenska {year}",
             "Nationalbibliotekets svenskspråkiga tidningar och tidskrifter från {year}",
-            "klk",
-            "sv",
-            year,
-            klk_sv_parsed_years.indexOf(year) != -1);
+            "klk_sv",
+            year);
     },
     funcs.makeYearlist(
         1771, 1948,
@@ -265,8 +253,6 @@ funcs.makeCorpusSettingsByYearDecade(
     )
 );
 
-
-delete klk_sv_parsed_years;
 
 settings.corpora.semfinlex_asd_sv_2018 = {
     id: "semfinlex_asd_sv_2018",
