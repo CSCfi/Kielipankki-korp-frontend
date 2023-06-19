@@ -559,6 +559,7 @@ settings.corporafolders.cuneiform.achemenet = {
 	},
         cite_id: "achemenet-korp-2021-09",
 	infopage_url: "https://www.kielipankki.fi/corpora/achemenet/",
+        status: "beta",
     }
 };
 
