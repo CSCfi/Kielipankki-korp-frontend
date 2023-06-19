@@ -545,7 +545,7 @@ settings.corpusAliases.oracc_2019_05
     = settings.corpusAliases["oracc-2019-05"];
 
 
-settings.corporafolders.achemenet = {
+settings.corporafolders.cuneiform.achemenet = {
     title: "Achemenet",
     description: "Achemenet (beta 2.0)",
     contents: ["achemenet_ct", "achemenet_jursa", "achemenet_yos", "achemenet_murashu", "achemenet_strassmaier"],
