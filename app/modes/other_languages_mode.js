@@ -545,6 +545,24 @@ settings.corpusAliases.oracc_2019_05
     = settings.corpusAliases["oracc-2019-05"];
 
 
+settings.corporafolders.achemenet = {
+    title: "Achemenet",
+    description: "Achemenet (beta version)",
+    contents: ["achemenet_murashu"],
+    info: {
+	metadata_urn: "urn:nbn:fi:lb-2019060601",
+	urn: "urn:nbn:fi:lb-2019060602",
+        licence: settings.licenceinfo.CC_BY_SA_30,
+	iprholder: {
+	    name: "Achemenet",
+	    url: "http://www.achemenet.com/",
+	},
+        cite_id: "achemenet-korp-2021-09",
+	infopage_url: "https://www.kielipankki.fi/corpora/achemenet/",
+    }
+};
+
+
 /* Helsinki Corpus */
 
 sattrlist.hc = {
@@ -617,6 +635,19 @@ settings.corpora.hc = {
     within: within.sp,
     attributes: attrlist.hc,
     structAttributes: sattrlist.hc
+};
+
+
+// ACHEMENET
+
+settings.corpora.achemenet_murashu = {
+    id : "achemenet_murashu",
+    title : "Murashu archives",
+    description : "Murashu archives",
+    context : settings.spContext,
+    within : settings.spWithin,
+    attributes: attrlist.oracc2021,
+    struct_attributes : sattrlist.oracc2021
 };
 
 
