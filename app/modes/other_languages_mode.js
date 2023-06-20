@@ -550,15 +550,17 @@ settings.corporafolders.cuneiform.achemenet = {
     description: "Achemenet (beta 2.0)",
     contents: ["achemenet_ct55", "achemenet_belremanni", "achemenet_yos7", "achemenet_murashu", "achemenet_strassmaier"],
     info: {
-	metadata_urn: "urn:nbn:fi:lb-2019060601",
-	urn: "urn:nbn:fi:lb-2019060602",
+        // TODO: Change the URNs and links to point to Achemenet
+        // information when available
+	// metadata_urn: "urn:nbn:fi:lb-2019060601",
+	// urn: "urn:nbn:fi:lb-2019060602",
         licence: settings.licenceinfo.CC_BY_SA_30,
 	iprholder: {
 	    name: "Achemenet",
 	    url: "http://www.achemenet.com/",
 	},
-        cite_id: "achemenet-korp-2021-09",
-	infopage_url: "https://www.kielipankki.fi/corpora/achemenet/",
+        // cite_id: "achemenet-korp-2021-09",
+	// infopage_url: "https://www.kielipankki.fi/corpora/achemenet/",
         status: "beta",
     }
 };
