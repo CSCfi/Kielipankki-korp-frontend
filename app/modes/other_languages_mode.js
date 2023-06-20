@@ -548,7 +548,7 @@ settings.corpusAliases.oracc_2019_05
 settings.corporafolders.cuneiform.achemenet = {
     title: "Achemenet",
     description: "Achemenet (beta 2.0)",
-    contents: ["achemenet_ct", "achemenet_jursa", "achemenet_yos", "achemenet_murashu", "achemenet_strassmaier"],
+    contents: ["achemenet_ct55", "achemenet_belremanni", "achemenet_yos7", "achemenet_murashu", "achemenet_strassmaier"],
     info: {
 	metadata_urn: "urn:nbn:fi:lb-2019060601",
 	urn: "urn:nbn:fi:lb-2019060602",
@@ -1988,30 +1988,30 @@ settings.corpora.achemenet_murashu = {
     structAttributes: sattrlist.oracc2021
 };
 
-settings.corpora.achemenet_yos = {
-    id: "achemenet_yos",
-    title: "YOS",
-    description: "YOS",
+settings.corpora.achemenet_yos7 = {
+    id: "achemenet_yos7",
+    title: "YOS 7",
+    description: "YOS 7",
     context: context.sp,
     within: within.sp,
     attributes: attrlist.oracc2021,
     structAttributes: sattrlist.oracc2021
 };
 
-settings.corpora.achemenet_jursa = {
-    id: "achemenet_jursa",
-    title: "Jursa",
-    description: "Jursa",
+settings.corpora.achemenet_belremanni = {
+    id: "achemenet_belremanni",
+    title: "Bel-remanni",
+    description: "Bel-remanni",
     context: context.sp,
     within: within.sp,
     attributes: attrlist.oracc2021,
     structAttributes: sattrlist.oracc2021
 };
 
-settings.corpora.achemenet_ct = {
-    id: "achemenet_ct",
-    title: "CT",
-    description: "CT",
+settings.corpora.achemenet_ct55 = {
+    id: "achemenet_ct55",
+    title: "CT 55",
+    description: "CT 55",
     context: context.sp,
     within: within.sp,
     attributes: attrlist.oracc2021,
