@@ -1396,7 +1396,7 @@ attrlist.oracc2021 = {
         extendedComponent: "structServiceSelect",
     },
     url: {
-	label: "oracc_url",
+	label: "link_to_original",
 	type: "url",
         hideExtended: true,
         hideStatistics: true,
