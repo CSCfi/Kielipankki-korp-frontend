@@ -705,6 +705,7 @@
     "oracc_subgenre": "subgenre",
     "oracc_period": "period",
     "oracc_standardized": "standardized",
+    "oracc_pos_subcategory": "part of speech subcategory",
     "oracc_textlang": "text languages",
     "oracc_lang": "language/dialect",
 
