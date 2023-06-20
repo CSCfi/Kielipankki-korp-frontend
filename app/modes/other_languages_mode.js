@@ -1982,8 +1982,8 @@ settings.corpora.oracc_saao = {
 
 settings.corpora.achemenet_murashu = {
     id: "achemenet_murashu",
-    title: "Murashu archives",
-    description: "Murashu archives",
+    title: "Murashu archives (Achemenet)",
+    description: "Murashu archives (Achemenet)",
     context: context.sp,
     within: within.sp,
     attributes: attrlist.oracc2021,
@@ -1992,8 +1992,8 @@ settings.corpora.achemenet_murashu = {
 
 settings.corpora.achemenet_yos7 = {
     id: "achemenet_yos7",
-    title: "YOS 7",
-    description: "YOS 7",
+    title: "YOS 7 (Achemenet)",
+    description: "YOS 7 (Achemenet)",
     context: context.sp,
     within: within.sp,
     attributes: attrlist.oracc2021,
@@ -2002,8 +2002,8 @@ settings.corpora.achemenet_yos7 = {
 
 settings.corpora.achemenet_belremanni = {
     id: "achemenet_belremanni",
-    title: "Bel-remanni",
-    description: "Bel-remanni",
+    title: "Bel-remanni (Achemenet)",
+    description: "Bel-remanni (Achemenet)",
     context: context.sp,
     within: within.sp,
     attributes: attrlist.oracc2021,
@@ -2012,8 +2012,8 @@ settings.corpora.achemenet_belremanni = {
 
 settings.corpora.achemenet_ct55 = {
     id: "achemenet_ct55",
-    title: "CT 55",
-    description: "CT 55",
+    title: "CT 55 (Achemenet)",
+    description: "CT 55 (Achemenet)",
     context: context.sp,
     within: within.sp,
     attributes: attrlist.oracc2021,
@@ -2022,8 +2022,8 @@ settings.corpora.achemenet_ct55 = {
 
 settings.corpora.achemenet_strassmaier = {
     id: "achemenet_strassmaier",
-    title: "Strassmaier",
-    description: "Strassmaier",
+    title: "Strassmaier (Achemenet)",
+    description: "Strassmaier (Achemenet)",
     context: context.sp,
     within: within.sp,
     attributes: attrlist.oracc2021,
