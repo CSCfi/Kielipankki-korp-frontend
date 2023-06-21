@@ -271,6 +271,7 @@
     "news_genre": "news genre",
     "version": "version",
     "keywords": "keywords",
+    "keywords_orig": "keywords (original)",
     "charcount_orig": "original number of characters",
     
     "variants": "similar lemgram",
@@ -436,6 +437,17 @@
 
     "name_category_omorfi": "name category (Omorfi)",
 
+    "ocr_word_confidence": "OCR word confidence",
+    "ocr_char_confidence": "OCR character confidence",
+    "word_divided_into_lines": "word divided into lines",
+    "vertical_position": "vertical position",
+
+    "date_iso": "date (ISO)",
+    "issue_date": "issue date",
+    "filename_orig": "original filename",
+    "filename_metadata": "metadata filename",
+    "added_in_version": "added in version",
+
     "suomi24fi_user": "username",
     "suomi24fi_user_lemmas": "username word lemmas",
     "suomi24fi_sub": "subsection",
@@ -449,6 +461,9 @@
     "sentence_polarity": "sentence polarity",
 
     "sentence_lang_identified": "sentence language (identified)",
+    "sentence_lang_identified_confidence": "sentence language identification confidence",
+    "text_lang_identified_counts": "identified languages in text sentences",
+    "paragraph_lang_identified_counts": "identified languages in paragraph sentences",
 
     "locality": "locality",
     "locality_orig": "locality in original language",
@@ -790,6 +805,16 @@
     "kca-2017": "Khanty (2017)",
     "kca-2018": "Khanty (2018)",
 
+    "rus": "Russian",
+    "mns": "Mansi",
+    "koi": "Komi-Permyak",
+    "kpv": "Komi-Zyrian",
+    "mdf": "Moksha",
+    "mhr": "Meadow Mari",
+    "mrj": "Hill Mari",
+    "udm": "Udmurt",
+    "myv": "Erzya",
+
     "num_chars": "number of characters",
     "text_author": "author",
     "chapter_id": "chapter id",
@@ -813,6 +838,10 @@
     "sentence_text_eng": "sentence in English",
     "sentence_text_orig": "sentence in original language",
     "sentence_source": "source",
+    "sentence_text_mhr": "sentence (mhr)",
+    "sentence_text_mns": "sentence (mns)",
+    "sentence_text_rus": "sentence (rus)",
+
 
     "digisvenska_text_id" : "text id",
     "digisvenska_round" : "round",

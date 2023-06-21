@@ -107,6 +107,7 @@
     "news_genre": "uutislaji",
     "version": "versio",
     "keywords": "avainsanat",
+    "keywords_orig": "avainsanat (alkuperäinen)",
     "charcount_orig": "alkuperäinen merkkimäärä",
     
     "book_number": "kirjan numero",
@@ -674,7 +675,7 @@
 
     "ocr_word_confidence": "sanan tunnistamisen luotettavuus",
     "ocr_char_confidence": "merkkien tunnistamisen luotettavuus",
-    "divided_in_lines": "sana jaettu riveille",
+    "word_divided_into_lines": "sana jaettuna riville",
     "vertical_position": "kohta pystysuunnassa",
 
     "date_iso": "päiväys (ISO)",
@@ -699,6 +700,9 @@
     "sentence_polarity": "virkkeen polaarisuus",
 
     "sentence_lang_identified": "virkkeen kieli (tunnistettu)",
+    "sentence_lang_identified_confidence": "virkkeen kielentunnistuksen luotettavuus",
+    "text_lang_identified_counts": "tekstin virkkeiden tunnistetut kielet",
+    "paragraph_lang_identified_counts": "kappaleen virkkeiden tunnistetut kielet",
 
     "publication_type": "julkaisutyyppi",
 
@@ -971,7 +975,7 @@
     "myv-1995": "ersä (1995)",
     "myv-1910": "ersä (1910)",
     "myv-1821": "ersä (1821)",
-    "mdf-1995": "mokša(1995)",
+    "mdf-1995": "mokša (1995)",
     "kpv-1995": "komisyrjääni (1995)",
     "kpv-1997": "komisyrjääni (1997)",
     "koi-1996": "komipermjakki (1996)",
@@ -981,6 +985,15 @@
     "kca-2017": "hanti (2017)",
     "kca-2018": "hanti (2018)",
     "vep-2013": "vepsä (2013)",
+
+    "rus": "venäjä",
+    "mns": "mansi",
+    "koi": "komi-permjakki",
+    "kpv": "komi-syrjääni",
+    "mdf": "mokša",
+    "mhr": "niittymari",
+    "mrj": "vuorimari",
+    "udm": "udmurtti",
 
     "num_chars": "merkkimäärä",
     "chapter_id": "luvun tunniste",
@@ -1003,6 +1016,9 @@
     "sentence_sent_no": "virkkeen tunniste",
     "sentence_text_eng": "virkkeen teksti englanniksi",
     "sentence_text_orig": "virkkeen teksti alkukielellä",
+    "sentence_text_mhr": "virkkeen teksti (mhr)",
+    "sentence_text_mns": "virkkeen teksti (mns)",
+    "sentence_text_rus": "virkkeen teksti (rus)",
 
     "digisvenska_text_id" : "tekstin tunniste",
     "digisvenska_round" : "kirjoitusten ajankohta",

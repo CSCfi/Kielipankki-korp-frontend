@@ -182,6 +182,10 @@ settings.licenceinfo = {
         name: "CLARIN ACA +NC 1.0",
         urn: "urn:nbn:fi:lb-2019120401",
     },
+    KLK_en: {
+        name: "CC BY 4.0 (CLARIN PUB)",
+        urn: "urn:nbn:fi:lb-2023032704",
+    },
 };
 
 
@@ -354,6 +358,11 @@ transl.lang = {
         // "en": "vep",
         "fi": "vepsä",
         // "sv": "vep",
+    },
+    "xxx": {
+        "en": "unidentified",
+        "fi": "tunnistamaton",
+        "sv": "oidentifierat",
     },
     "yrk": {
         // "en": "yrk",
@@ -5951,6 +5960,38 @@ sattrs.day_of_month = {
 
 sattrs.sentence_lang = {
     label: "sentence_lang_identified",
+    translation: transl.lang,
+};
+
+sattrs.sentence_lang_conf = {
+    label: "sentence_lang_identified_confidence",
+};
+
+sattrs.paragraph_sum_lang = {
+    label: "paragraph_lang_identified_counts",
+    type: "set",
+    opts: options.fullSet,
+    pattern: '<span data-key="<%= key %>"><%= util.translateAttribute(null, transl.lang, val.split(":")[0]) + ": " + val.split(":")[1] %></span>',
+};
+
+sattrs.text_sum_lang = {
+    label: "text_lang_identified_counts",
+    type: "set",
+    opts: options.fullSet,
+    pattern: sattrs.paragraph_sum_lang.pattern,
+};
+
+sattrlist.lang_text_sentence = {
+    text_sum_lang: sattrs.text_sum_lang,
+    sentence_lang: sattrs.sentence_lang,
+    sentence_lang_conf: sattrs.sentence_lang_conf,
+};
+
+sattrlist.lang_text_paragraph_sentence = {
+    text_sum_lang: sattrs.text_sum_lang,
+    paragraph_sum_lang: sattrs.paragraph_sum_lang,
+    sentence_lang: sattrs.sentence_lang,
+    sentence_lang_conf: sattrs.sentence_lang_conf,
 };
 
 sattrs.sentence_polarity = {
@@ -6236,7 +6277,13 @@ sattrlist.klk = {
     sentence_id: sattrs.sentence_id_hidden
 };
 
-sattrlist.klk2 = $.extend(
+sattrlist.klk_pagelinks = {
+    text_binding_id: {
+        displayType: "hidden"
+    },
+};
+
+sattrlist.klk_v2_base = $.extend(
     {},
     sattrlist.klk,
     {
@@ -6247,29 +6294,37 @@ sattrlist.klk2 = $.extend(
         text_filename_metadata: {
             label: "filename_metadata",
         },
-        text_add_version: {
+        text_version_added: {
             label: "added_in_version",
-            extendedComponent: "datasetSelect",
             opts: options.lite,
+            extendedComponent: "datasetSelect",
             dataset: [
-                "1",
-                "2",
+                "KLK-fi-2014",
+                "KLK-sv-2014",
+                "KLK-2021",
             ],
-            escape: false,
         },
-    }
+    },
+    // Page links for all years
+    sattrlist.klk_pagelinks
 );
 // Change the label of text_issue_date, as text_date is in ISO format
-sattrlist.klk2.text_issue_date.label = "issue_date";
+sattrlist.klk_v2_base.text_issue_date.label = "issue_date";
+
+sattrlist.klk_v2 = $.extend(
+    {},
+    sattrlist.klk_v2_base,
+    sattrlist.lang_text_sentence
+);
+
+sattrlist.klk_v2_paragraphs = $.extend(
+    {},
+    sattrlist.klk_v2_base,
+    sattrlist.lang_text_paragraph_sentence
+);
 
 
 // KLK page image links used for both Finnish and Swedish
-sattrlist.klk_pagelinks = {
-    text_binding_id: {
-        displayType: "hidden"
-    },
-};
-
 sattrlist.klk_pagelinks_custom = {
     text_page_image_url: {
         pattern: funcs.makeLinkPattern(
@@ -8592,12 +8647,19 @@ funcs.makeCorpusSettingsByYearDecade = function(
 
 // Construct settings contents for a single KLK corpus
 funcs.makeKlkCorpusSettings = function(
-    title_format, descr_format, key_prefix, lang, year, parsed)
+    title_format, descr_format, key_prefix, year)
 {
+    // The fifth argument opts may contain the following keys:
+    // - attrsKeyFunc: A function with argument year returning the
+    //   suffix to be appended to key_prefix to get a property name
+    //   for attrlist and sattrlist to be used for the year
+    var opts = arguments[4] || {};
+    var attrsKeyFunc = opts.attrsKeyFunc || function (year) {
+        return year <= 1910 ? "_pagelinks" : "";
+    };
     var year_str = year.toString();
     var ctx_type = (year <= 1911 ? "sp" : "default");
-    var attrs_key = (key_prefix + "_" + lang + (parsed ? "_parsed" : "")
-                     + (year <= 1910 ? "_pagelinks" : ""));
+    var attrs_key = key_prefix + attrsKeyFunc(year);
     return {
         title: title_format.replace("{year}", year_str),
         description: descr_format.replace("{year}", year_str),
