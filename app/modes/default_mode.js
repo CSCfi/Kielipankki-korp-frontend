@@ -192,15 +192,14 @@ settings.corporafolders.news.klk_fi = {
     }
 };
 
-settings.corporafolders.news.klk2_fi = {
-    title: "Kansalliskirjaston lehtikokoelma, versio 2 (KLK2), suomenkieliset lehdet",
-    description: "Kansalliskirjaston sanoma- ja aikakauslehtikokoelma, Kielipankki-versio 2, suomenkieliset lehdet",
+settings.corporafolders.news.klk_fi_v2 = {
+    title: "Kansalliskirjaston lehtikokoelman (KLK) suomenkieliset lehdet, versio 2",
+    description: "Kansalliskirjaston sanoma- ja aikakauslehtikokoelman suomenkielinen osakorpus versio 2, Korp (klk-fi-v2-korp)<br/><br/>Aineistossa olevat linkit sivun kuviin ja PDF-tiedostoihin vievät <a href=\"https://digi.kansalliskirjasto.fi\" target=\"_blank\">Kansalliskirjaston digitaalisten aineistojen verkkosivuille</a>. Useimmille vuotta 1939 uudemmille lehdille sivun kuvien ja PDF-tiedostojen käyttö on sallittu vain tutkimustarkoituksiin ja edellyttää kirjautumista ja käyttölupalomakkeen täyttämistä Kansalliskirjaston palvelussa.",
     info: {
-        // urn: "urn:nbn:fi:lb-201405275",
-        // metadata_urn: "urn:nbn:fi:lb-201405276",
-        licence: settings.licenceinfo.CC_BY,
-        cite_id: "KLK2-fi",
-        labels: ["test"],
+        urn: "urn:nbn:fi:lb-202009151",
+        metadata_urn: "urn:nbn:fi:lb-202009152",
+        licence: settings.licenceinfo.KLK_en,
+        status: "beta",
     }
 };
 
@@ -1037,8 +1036,6 @@ settings.corporafolders.news.stt = {
             name: "CC BY NC (CLARIN PUB)",
             urn: "urn:nbn:fi:lb-2023022703"
     	},
-        cite_id: "stt-fi-1992-2018-korp",
-        status: "beta",
     }
 };
 
@@ -1255,8 +1252,14 @@ sattrlist.stt = {
         label: "version_code",
 	displayType: "hidden",
     },
-    text_keywords: {
+    text_keywords_set: {
         label: "keywords",
+	type: "set",
+        opts: options.fullSet,
+        extendedComponent: "structServiceAutocomplete",
+    },
+    text_keywords: {
+        label: "keywords_orig",
     },
     text_charcount_orig: {
         label: "charcount_orig",
@@ -13235,49 +13238,13 @@ funcs.extendCorpusSettings(settings.corpusinfo.parrus_2016,
 
 
 sattrlist.klk_fi = $.extend({}, sattrlist.klk);
-sattrlist.klk_fi_parsed = $.extend(
-    {}, sattrlist.klk_fi,
-    {
-        sentence_parse_state: {
-            label: "parse_state",
-            extendedComponent: "datasetSelect",
-            opts: options.lite,
-            dataset: {
-                "parsed": "parsed",
-                "tagged": "tagged"
-            },
-            translation: {
-                "parsed": {
-                    "en": "parsed",
-                    "fi": "jäsennetty",
-                    "sv": "parsad",
-                },
-                "tagged": {
-                    "en": "tagged",
-                    "fi": "tagattu",
-                    "sv": "taggad",
-                },
-            },
-        },
-        sentence_local_id: {
-            label: "local_id",
-            displayType: "hidden"
-        }
-    });
 
-sattrlist.klk_fi_parsed_pagelinks = $.extend(
-    {}, sattrlist.klk_fi_parsed, sattrlist.klk_pagelinks);
+sattrlist.klk_fi_pagelinks = $.extend(
+    {}, sattrlist.klk_fi, sattrlist.klk_pagelinks);
 
-sattrlist.klk_fi_parsed_pagelinks_custom = sattrlist.klk_pagelinks_custom;
+sattrlist.klk_fi_pagelinks_custom = sattrlist.klk_pagelinks_custom;
 
-attrlist.klk_fi = {
-    ocr: {
-        label: "OCR",
-        opts: options.default
-    }
-};
-
-attrlist.klk_fi_parsed =
+attrlist.klk_fi =
     $.extend(
         {
             lemma: attrs.baseform,
@@ -13287,15 +13254,16 @@ attrlist.klk_fi_parsed =
             dephead: attrs.dephead,
             deprel: attrs.deprel_tdt,
             ref: attrs.ref,
-            lex: attrs.lemgram_hidden
+            lex: attrs.lemgram_hidden,
+            ocr: {
+                label: "OCR",
+                opts: options.default
+            },
         },
-        attrlist.klk_fi,
         attrlist.finer);
 
-attrlist.klk_fi_parsed_pagelinks = attrlist.klk_fi_parsed;
+attrlist.klk_fi_pagelinks = attrlist.klk_fi;
 
-
-var klk_fi_parsed_years = funcs.makeYearlist(1820, 2000);
 
 // Generate settings.corpora and settings.corporafolders for the
 // Finnish KLK corpora by using the above functions
@@ -13312,34 +13280,23 @@ funcs.makeCorpusSettingsByYearDecade(
         return funcs.makeKlkCorpusSettings(
             "KLK suomi {year}",
             "Kansalliskirjaston suomenkielisiä sanoma- ja aikakauslehtiä vuodelta {year}",
-            "klk",
-            "fi",
-            year,
-            klk_fi_parsed_years.indexOf(year) != -1);
+            "klk_fi",
+            year);
     },
     funcs.makeYearlist(1820, 2000,
                        {descending: true,
                         omit: [1828, 1843]})
 );
 
-delete klk_fi_parsed_years;
-
 
 // KLK version 2
 
-sattrlist.klk2_fi_parsed = $.extend(
-    {},
-    sattrlist.klk2,
-);
+sattrlist.klk_fi_v2 = sattrlist.klk_v2;
+sattrlist.klk_fi_v2_paragraphs = sattrlist.klk_v2_paragraphs;
 
-sattrlist.klk2_fi_parsed_pagelinks = $.extend(
-    {},
-    sattrlist.klk2_fi_parsed,
-    sattrlist.klk_pagelinks);
-
-attrlist.klk2_fi = {
+attrlist.klk_fi_v2_extra = {
     hyph: {
-        label: "divided_in_lines",
+        label: "word_divided_into_lines",
     },
     ocr: {
         label: "ocr_word_confidence",
@@ -13352,38 +13309,56 @@ attrlist.klk2_fi = {
     },
 };
 
-attrlist.klk2_fi_parsed =
+sattrlist.klk_fi_v2_custom = sattrlist.klk_pagelinks_custom;
+sattrlist.klk_fi_v2_paragraphs_custom = sattrlist.klk_pagelinks_custom;
+
+attrlist.klk_fi_v2 =
     $.extend(
         {},
         attrlist.parsed_tdt,
-        attrlist.klk2_fi);
+        attrlist.klk_fi_v2_extra);
+
+attrlist.klk_fi_v2_paragraphs = attrlist.klk_fi_v2;
 
 funcs.setAttrOrder(
-    attrlist.klk2_fi_parsed,
+    attrlist.klk_fi_v2,
     "lemma lemmacomp pos msd dephead deprel hyph ocr cc vpos");
 
-attrlist.klk2_fi_parsed_pagelinks = attrlist.klk2_fi_parsed;
-
 funcs.makeCorpusSettingsByYearDecade(
-    settings.corporafolders.news.klk2_fi,
+    settings.corporafolders.news.klk_fi_v2,
     "fi_{decade}",
-    "klk2test_fi_{year}",
+    "klk_fi_v2_{year}",
     function(decade) {
         return {
             title: decade.toString() + "-luku",
+            description: "Kansalliskirjaston suomenkielisiä sanoma- ja aikakauslehtiä " + decade.toString() + "-luvulta (versio 2)"
         };
     },
     function(year) {
         return funcs.makeKlkCorpusSettings(
-            "KLK2 suomi {year}",
+            "KLK suomi v2: {year}",
             "Kansalliskirjaston suomenkielisiä sanoma- ja aikakauslehtiä vuodelta {year} (versio 2)",
-            "klk2",
-            "fi",
+            "klk_fi_v2",
             year,
-            true);
+            {
+                attrsKeyFunc: function (year) {
+                    return year <= 1911 ? "_paragraphs" : "";
+                },
+            });
     },
-    [2009, 2008, 2007, 2006, 2005, 2003, 2002, 1941, 1940, 1874, 1776, 1775]
+    funcs.makeYearlist(
+        1771, 2021,
+        {
+            descending: true,
+            omit: [].concat(
+                [1773, 1774],
+                funcs.makeYearlist(1777, 1788),
+                [1790, 1791, 1794, 1795, 1796, 1797, 1798,
+                 1802, 1803, 1806, 1807, 1809]),
+        })
 );
+
+funcs.addCorpusAliases("klk_fi_v2_[0-9]+", "klk-fi-v2");
 
 
 sattrs.vks_sentence_id = {
