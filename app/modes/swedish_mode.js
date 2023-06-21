@@ -521,6 +521,93 @@ settings.corpora.digisvenska = {
 
 funcs.addCorporaToFolder("learner", "digisvenska");
 
+attrlist.studex = {
+    ref: attrs.ref,
+    lemma: attrs.saldo,
+    lemma_stanza: attrs.baseform_sv,
+    lemmacomp: attrs.baseform_compound,
+    pos: attrs.pos,
+    msd: attrs.msd,
+    dephead: attrs.dephead,
+    deprel: attrs.deprel,
+    lex: attrs.lemgram
+};
+
+sattrlist.studex_08 = {
+    text_filename: { label: "studex_filename" },
+    text_grade: {
+	label: "studex_grade",
+	extendedComponent: "datasetSelect",
+        opts: options.lite,
+	dataset: [ "svag", "stark" ] },
+};
+
+settings.corporafolders.other.studex = {
+    title: "Studex",
+    description: "Studentexamensprovsvar i modersmål och litteratur (svenska).",
+    contents: [
+        "studex_08",
+        "studex_21_22",
+    ],
+    info: {
+        metadata_urn: "urn:nbn:fi:lb-2023051605",
+        urn: "",
+        shortname: "",
+        licence: {
+	    name: "CLARIN RES",
+	    description: "CLARIN RES end-user licence",
+	    urn: "urn:nbn:fi:lb-2023051606",
+	},
+	status: "beta"
+    }
+};
+
+settings.corpora.studex_08 = {
+    id: "studex_08",
+    title: "Studex-08",
+    description: "Studentexamensprovsvar i modersmål och litteratur (svenska). Essäprovet våren 2008.",
+    urn: "urn:nbn:fi:lb-2023051602",
+    metadata_urn: "urn:nbn:fi:lb-2023051601",
+    lbr_id: "urn:nbn:fi:lb-2023051605",
+    cite_id: "studex-08",
+    context: context.default,
+    within: within.default,
+    limitedAccess: true,
+    licenceType: "RES",
+    attributes: attrlist.studex,
+    structAttributes: sattrlist.studex_08
+};
+
+sattrlist.studex_21_22 = {
+    text_school: { label: "studex_school" },
+    text_round: {
+	label: "studex_round",
+	extendedComponent: "datasetSelect",
+        opts: options.lite,
+	dataset: [ "Våren 2021", "Våren 2022" ] },
+    text_topic: {
+	label: "studex_topic",
+	extendedComponent: "datasetSelect",
+        opts: options.lite,
+	dataset: [ "Rubrik 1", "Rubrik 2", "Rubrik 3", "Rubrik 4", "Rubrik 5" ] },
+};
+
+settings.corpora.studex_21_22 = {
+    id: "studex_21_22",
+    title: "Studex-21-22",
+    description: "Studentexamensprovsvar i modersmål och litteratur (svenska). Provet i skrivkompetens våren 2021 och våren 2022.",
+    urn: "urn:nbn:fi:lb-2023051604",
+    metadata_urn: "urn:nbn:fi:lb-2023051603",
+    lbr_id: "urn:nbn:fi:lb-2023051605",
+    cite_id: "studex-21-22",
+    context: context.default,
+    within: within.default,
+    limitedAccess: true,
+    licenceType: "RES",
+    attributes: attrlist.studex,
+    structAttributes: sattrlist.studex_21_22
+};
+
 settings.corpora.mulcold_sv = {
     id: "mulcold_sv",
     title: "MULCOLD svenska",

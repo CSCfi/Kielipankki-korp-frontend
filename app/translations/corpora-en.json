@@ -842,7 +842,6 @@
     "sentence_text_mns": "sentence (mns)",
     "sentence_text_rus": "sentence (rus)",
 
-
     "digisvenska_text_id" : "text id",
     "digisvenska_round" : "round",
     "digisvenska_question_id" : "question id",
@@ -855,6 +854,12 @@
     "digisvenska_grade" : "grade",
     "digisvenska_score" : "total score",
     "digisvenska_score_value" : "assignment score",
+
+    "studex_school": "school",
+    "studex_round": "round",
+    "studex_topic": "topic",
+    "studex_filename": "filename",
+    "studex_grade": "grade",
 
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }
