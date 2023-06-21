@@ -2030,6 +2030,8 @@ settings.corpora.achemenet_strassmaier = {
     structAttributes: sattrlist.oracc2021
 };
 
+funcs.addCorpusAliases("achemenet_.*", ["achemenet"]);
+
 
 settings.corpora.ethesis_ru = {
     title: "E-thesis (русский)",
