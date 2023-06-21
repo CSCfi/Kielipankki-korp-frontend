@@ -843,5 +843,18 @@
     "sentence_text_rus": "sentence (rus)",
 
 
+    "digisvenska_text_id" : "text id",
+    "digisvenska_round" : "round",
+    "digisvenska_question_id" : "question id",
+    "digisvenska_assignment_id" : "assignment id",
+    "digisvenska_assignment_type" : "assignment type",
+    "digisvenska_assignment_topic" : "assignment topic",
+    "digisvenska_assignment_url" : "Assignment (instructions)",
+    "digisvenska_county" : "county",
+    "digisvenska_gender" : "gender",
+    "digisvenska_grade" : "grade",
+    "digisvenska_score" : "total score",
+    "digisvenska_score_value" : "assignment score",
+
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }

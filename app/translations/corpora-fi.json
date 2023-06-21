@@ -1020,5 +1020,18 @@
     "sentence_text_mns": "virkkeen teksti (mns)",
     "sentence_text_rus": "virkkeen teksti (rus)",
 
+    "digisvenska_text_id" : "tekstin tunniste",
+    "digisvenska_round" : "kirjoitusten ajankohta",
+    "digisvenska_question_id" : "tehtävän numero",
+    "digisvenska_assignment_id" : "tehtävän tunniste",
+    "digisvenska_assignment_type" : "tehtävän tyyppi",
+    "digisvenska_assignment_topic" : "tehtävän aihe",
+    "digisvenska_assignment_url" : "tehtävänanto",
+    "digisvenska_county" : "maakunta",
+    "digisvenska_gender" : "sukupuoli",
+    "digisvenska_grade" : "arvosana",
+    "digisvenska_score" : "kokonaispisteet",
+    "digisvenska_score_value" : "tehtävän pisteet",
+
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }
