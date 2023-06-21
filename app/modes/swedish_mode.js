@@ -517,6 +517,7 @@ settings.corpora.digisvenska = {
     description: "Digisvenska-korpusen – En inlärarkorpus baserad på studentprovet i B-svenska",
     urn: "urn:nbn:fi:lb-2023051702",
     metadata_urn: "urn:nbn:fi:lb-2023051701",
+    lbr_id: "urn:nbn:fi:lb-2023051701",
     licence: {
         name: "CLARIN RES",
         description: "CLARIN RES end-user licence",
