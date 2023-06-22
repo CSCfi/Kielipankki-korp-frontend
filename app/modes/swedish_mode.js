@@ -500,7 +500,7 @@ sattrlist.digisvenska = {
 settings.corpora.digisvenska = {
     id: "digisvenska",
     title: "Digisvenska",
-    description: "Digisvenska-korpusen – En inlärarkorpus baserad på studentprovet i B-svenska",
+    description: "Digisvenska-korpusen – En inlärarkorpus baserad på studentprovet i B-svenska<br/><b>Currently, this resource is only available for internal use within the research project.</b>",
     urn: "urn:nbn:fi:lb-2023051702",
     metadata_urn: "urn:nbn:fi:lb-2023051701",
     lbr_id: "urn:nbn:fi:lb-2023051701",
@@ -544,7 +544,7 @@ sattrlist.studex_08 = {
 
 settings.corporafolders.other.studex = {
     title: "Studex",
-    description: "Studentexamensprovsvar i modersmål och litteratur (svenska).",
+    description: "Studentexamensprovsvar i modersmål och litteratur (svenska).<br/><b>Currently, this resource is only available for internal use within the research project.</b>",
     contents: [
         "studex_08",
         "studex_21_22",
@@ -565,7 +565,7 @@ settings.corporafolders.other.studex = {
 settings.corpora.studex_08 = {
     id: "studex_08",
     title: "Studex-08",
-    description: "Studentexamensprovsvar i modersmål och litteratur (svenska). Essäprovet våren 2008.",
+    description: "Studentexamensprovsvar i modersmål och litteratur (svenska). Essäprovet våren 2008.<br/><b>Currently, this resource is only available for internal use within the research project</b>",
     urn: "urn:nbn:fi:lb-2023051602",
     metadata_urn: "urn:nbn:fi:lb-2023051601",
     lbr_id: "urn:nbn:fi:lb-2023051605",
@@ -595,7 +595,7 @@ sattrlist.studex_21_22 = {
 settings.corpora.studex_21_22 = {
     id: "studex_21_22",
     title: "Studex-21-22",
-    description: "Studentexamensprovsvar i modersmål och litteratur (svenska). Provet i skrivkompetens våren 2021 och våren 2022.",
+    description: "Studentexamensprovsvar i modersmål och litteratur (svenska). Provet i skrivkompetens våren 2021 och våren 2022.<br/><b>Currently, this resource is only available for internal use within the research project.</b>",
     urn: "urn:nbn:fi:lb-2023051604",
     metadata_urn: "urn:nbn:fi:lb-2023051603",
     lbr_id: "urn:nbn:fi:lb-2023051605",
