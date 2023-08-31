@@ -692,7 +692,6 @@ settings.corporafolders.other.uspenskij_4bat = {
 	    name: "CC-BY (CLARIN PUB)",
 	    urn: "urn:nbn:fi:lb-2023042428",
 	},
-	status: "beta"
     },
     contents: [ "uspenskij_a_4bat_mns", "uspenskij_4bat_koi" ]
 }
