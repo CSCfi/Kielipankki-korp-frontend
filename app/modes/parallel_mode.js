@@ -824,6 +824,212 @@ settings.corpora.uspenskij_4bat_udm = {
     hide: true
 }
 
+// Morozov
+
+sattrlist.morozov = {
+    text_translators: { label: "text_translator" },
+    text_publisher: { label: "publisher" },
+    text_publication_year: { label: "publication_year" },
+    text_publication_place: { label: "publication_place" },
+    text_publication: { label: "publication_name" },
+    text_original_lang: { label: "origlang" },
+    text_no_of_pages: { label: "numberofpages" },
+    text_medium: { label: "medium" },
+    text_iso_lang: { label: "uralic_ud_text_iso_lang" },
+    text_lang: { label: "" },
+    text_id: { label: "text_id" },
+    text_isbn: { label: "isbn" },
+    text_genre: { label: "text_genre" },
+    text_comment: { label: "comment" },
+    text_bibliog: { label: "bibliography" },
+    text_author: { label: "text_author" },
+    text_word_count: { label: "num_words" },
+    text_character_count: { label: "num_chars" },
+    sentence_text: { label: "text" },
+    sentence_id: { label: "sentence_id" }
+}
+
+var morozov_corpora = [ "morozov_chv", "morozov_fin", "morozov_hun_1952bucharest", "morozov_hun_1952budapest", "morozov_kca", "morozov_koi", "morozov_kpv",
+			"morozov_mdf", "morozov_mhr", "morozov_mns", "morozov_mrj", "morozov_myv_1953", "morozov_myv_2018", "morozov_rus", "morozov_tat", "morozov_udm" ];
+
+// return all corpora except the one defined as argument
+function morozov_linked_corpora(corpus) {
+    var retval = [];
+    for (var i = 0; i < morozov_corpora.length; i++) {
+	if (corpus.localeCompare(morozov_corpora[i]) != 0) {
+	    retval.push(morozov_corpora[i]); } }
+    return retval; }
+
+var morozov_common_corpus_info = {
+    within: within.link,
+    context: context.linkAligned,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.morozov,
+    limitedAccess: true,
+    hide: true
+};
+
+function morozov_add_common_info(corpus) {
+    for (var key in morozov_common_corpus_info) {
+	corpus[key] = morozov_common_corpus_info[key];
+    }
+    corpus.licence = {
+        name: "CC-BY (CLARIN PUB)",
+        urn: "urn:nbn:fi:lb-2023082104",
+    };
+    corpus.metadata_urn = "urn:nbn:fi:lb-2023082102";
+    corpus.status = "beta";
+};
+
+settings.corpora.morozov_fin = {
+    id: "morozov_fin",
+    lang: "fin",
+    title : "Morozov (chv-fin-hun-kca-koi-kpv-mdf-mhr-mns-mrj-myv-rus-tat-udm)",
+    description: "Pavlik Morozov parallel corpus: Chuvash, Erzya, Finnish, Hill Mari, Hungarian, Khanti, Komi-Permyak, Komi-Zyrian, Mansi, Meadow Mari, Moksha, Russian, Tatar, Udmurt.",
+    linkedTo: morozov_linked_corpora("morozov_fin")
+}
+morozov_add_common_info(settings.corpora.morozov_fin);
+settings.corpora.morozov_fin.hide = false;
+
+settings.corpora.morozov_chv = {
+    id: "morozov_chv",
+    lang: "chv",
+    title : "Morozov (chv)",
+    description: "Pavlik Morozov parallel corpus (Chuvash)",
+    linkedTo: morozov_linked_corpora("morozov_chv")
+}
+morozov_add_common_info(settings.corpora.morozov_chv);
+settings.corpora.morozov_chv.attributes = {};
+
+settings.corpora.morozov_hun_1952bucharest = {
+    id: "morozov_hun_1952bucharest",
+    lang: "hun-1952-bucharest",
+    title : "Morozov (hun-1952bucharest)",
+    description: "Pavlik Morozov parallel corpus (Hungarian, 1952 Bucharest)",
+    linkedTo: morozov_linked_corpora("morozov_hun_1952bucharest")
+}
+morozov_add_common_info(settings.corpora.morozov_hun_1952bucharest);
+
+settings.corpora.morozov_hun_1952budapest = {
+    id: "morozov_hun_1952budapest",
+    lang: "hun-1952-budapest",
+    title : "Morozov (hun-1952budapest)",
+    description: "Pavlik Morozov parallel corpus (Hungarian, 1952 Budapest)",
+    linkedTo: morozov_linked_corpora("morozov_hun_1952budapest")
+}
+morozov_add_common_info(settings.corpora.morozov_hun_1952budapest);
+
+settings.corpora.morozov_kca = {
+    id: "morozov_kca",
+    lang: "kca",
+    title : "Morozov (kca)",
+    description: "Pavlik Morozov parallel corpus (Khanti)",
+    linkedTo: morozov_linked_corpora("morozov_kca")
+}
+morozov_add_common_info(settings.corpora.morozov_kca);
+settings.corpora.morozov_kca.attributes = {};
+
+settings.corpora.morozov_koi = {
+    id: "morozov_koi",
+    lang: "koi",
+    title : "Morozov (koi)",
+    description: "Pavlik Morozov parallel corpus (Komi-Permyak)",
+    linkedTo: morozov_linked_corpora("morozov_koi")
+}
+morozov_add_common_info(settings.corpora.morozov_koi);
+
+settings.corpora.morozov_kpv = {
+    id: "morozov_kpv",
+    lang: "kpv",
+    title : "Morozov (kpv)",
+    description: "Pavlik Morozov parallel corpus (Komi-Zyrian)",
+    linkedTo: morozov_linked_corpora("morozov_kpv")
+}
+morozov_add_common_info(settings.corpora.morozov_kpv);
+
+settings.corpora.morozov_mdf = {
+    id: "morozov_mdf",
+    lang: "mdf",
+    title : "Morozov (mdf)",
+    description: "Pavlik Morozov parallel corpus (Moksha)",
+    linkedTo: morozov_linked_corpora("morozov_mdf")
+}
+morozov_add_common_info(settings.corpora.morozov_mdf);
+
+settings.corpora.morozov_mhr = {
+    id: "morozov_mhr",
+    lang: "mhr",
+    title : "Morozov (mhr)",
+    description: "Pavlik Morozov parallel corpus (Meadow Mari)",
+    linkedTo: morozov_linked_corpora("morozov_mhr")
+}
+morozov_add_common_info(settings.corpora.morozov_mhr);
+
+settings.corpora.morozov_mns = {
+    id: "morozov_mns",
+    lang: "mns",
+    title : "Morozov (mns)",
+    description: "Pavlik Morozov parallel corpus (Mansi)",
+    linkedTo: morozov_linked_corpora("morozov_mns")
+}
+morozov_add_common_info(settings.corpora.morozov_mns);
+
+settings.corpora.morozov_mrj = {
+    id: "morozov_mrj",
+    lang: "mrj",
+    title : "Morozov (mrj)",
+    description: "Pavlik Morozov parallel corpus (Hill Mari)",
+    linkedTo: morozov_linked_corpora("morozov_mrj")
+}
+morozov_add_common_info(settings.corpora.morozov_mrj);
+
+settings.corpora.morozov_myv_1953 = {
+    id: "morozov_myv_1953",
+    lang: "myv-1953",
+    title : "Morozov (myv-1953)",
+    description: "Pavlik Morozov parallel corpus (Erzya, 1953)",
+    linkedTo: morozov_linked_corpora("morozov_myv_1953")
+}
+morozov_add_common_info(settings.corpora.morozov_myv_1953);
+
+settings.corpora.morozov_myv_2018 = {
+    id: "morozov_myv_2018",
+    lang: "myv-2018",
+    title : "Morozov (myv-2018)",
+    description: "Pavlik Morozov parallel corpus (Erzya, 2018)",
+    linkedTo: morozov_linked_corpora("morozov_myv_2018")
+}
+morozov_add_common_info(settings.corpora.morozov_myv_2018);
+
+settings.corpora.morozov_rus = {
+    id: "morozov_rus",
+    lang: "rus",
+    title : "Morozov (rus)",
+    description: "Pavlik Morozov parallel corpus (Russian)",
+    linkedTo: morozov_linked_corpora("morozov_rus")
+}
+morozov_add_common_info(settings.corpora.morozov_rus);
+
+settings.corpora.morozov_tat = {
+    id: "morozov_tat",
+    lang: "tat",
+    title : "Morozov (tat)",
+    description: "Pavlik Morozov parallel corpus (Tatar)",
+    linkedTo: morozov_linked_corpora("morozov_tat")
+}
+morozov_add_common_info(settings.corpora.morozov_tat);
+settings.corpora.morozov_tat.attributes = {};
+
+settings.corpora.morozov_udm = {
+    id: "morozov_udm",
+    lang: "udm",
+    title : "Morozov (udm)",
+    description: "Pavlik Morozov parallel corpus (Udmurt)",
+    linkedTo: morozov_linked_corpora("morozov_udm")
+}
+morozov_add_common_info(settings.corpora.morozov_udm);
+
+funcs.addCorporaToFolder("other", "morozov_fin");
 
 /* OPUS – Open Source Paraller Corpus */
 

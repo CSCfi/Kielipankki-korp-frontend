@@ -815,6 +815,15 @@
     "udm": "Udmurt",
     "myv": "Erzya",
 
+    "kca": "Khanty",
+    "chv": "Chuvash",
+    "tat": "Tatar",
+    "myv-1953": "Erzya (1953)",
+    "myv-2018": "Erzya (2018)",
+    "hun-1952-bucharest": "Hungarian (1952 Bucharest)",
+    "hun-1952-budapest": "Hungarian (1952 Budapest)",
+    "text_translator": "translator",
+
     "num_chars": "number of characters",
     "text_author": "author",
     "chapter_id": "chapter id",

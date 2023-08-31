@@ -995,6 +995,14 @@
     "mrj": "vuorimari",
     "udm": "udmurtti",
 
+    "kca": "hanti",
+    "chv": "tšuvassi",
+    "tat": "tataari",
+    "myv-1953": "ersä (1953)",
+    "myv-2018": "ersä (2018)",
+    "hun-1952-bucharest": "unkari (1952 Bucharest)",
+    "hun-1952-budapest": "unkari (1952 Budapest)",
+
     "num_chars": "merkkimäärä",
     "chapter_id": "luvun tunniste",
     "story_id": "tarinan tunniste",
