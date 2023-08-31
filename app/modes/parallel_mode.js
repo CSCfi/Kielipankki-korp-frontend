@@ -824,6 +824,190 @@ settings.corpora.uspenskij_4bat_udm = {
     hide: true
 }
 
+// Tetiurev
+
+sattrlist.tetiurev = {
+    text_word_count: { label: "num_words" },
+    text_translators: { label: "text_translator" },
+    text_publisher: { label: "publisher" },
+    text_publication_year: { label: "publication_year" },
+    text_publication_place: { label: "publication_place" },
+    text_publication: { label: "publication_name" },
+    text_page_range: { label: "text_page_range" },
+    text_no_of_pages: { label: "numberofpages" },
+    text_iso_lang: { label: "uralic_ud_text_iso_lang" },
+    text_id: { label: "text_id" },
+    text_genre: { label: "text_genre" },
+    text_e_corrector: { label: "text_e_corrector" },
+    text_corrector: { label: "text_corrector" },
+    text_comment: { label: "comment" },
+    text_character_count: { label: "num_chars" },
+    text_bibliog: { label: "bibliography" },
+    text_author: { label: "text_author" },
+    chapter_id: { label: "chapter_id" },
+    paragraph_id: { label: "paragraph_id" },
+    sentence_id: { label: "sentence_id" },
+    sentence_text: { label: "text" },
+    sentence_comment: { label: "comment" },
+    sentence_text_eng: { label: "sentence_text_eng" }
+}
+
+settings.corpora.tetiurev_nat_sci_p1_mdf = {
+    id: "tetiurev_nat_sci_p1_mdf",
+    lang: "mdf",
+    title: "Tetiurev-nat-sci-p1 (mdf-myv)",
+    description: "Tetiurev: Environment and Natural Science for 3rd grade, part one (mdf-myv)",
+    metadata_urn: "urn:nbn:fi:lb-2023042421",
+    licence: {
+        name: "CC-BY (CLARIN PUB)",
+        urn: "urn:nbn:fi:lb-2023042423",
+    },
+    status: "beta",
+    context: context.linkAligned,
+    within: within.link,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.tetiurev,
+    linkedTo: [ "tetiurev_nat_sci_p1_myv" ]
+}
+
+settings.corpora.tetiurev_nat_sci_p1_myv = {
+    id: "tetiurev_nat_sci_p1_myv",
+    lang: "myv",
+    title: "Tetiurev-nat-sci-p1 (myv)",
+    description: "Tetiurev: Environment and Natural Science for 3rd grade, part one (myv)",
+    limitedAccess: true,
+    context: context.linkAligned,
+    within: within.link,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.tetiurev,
+    linkedTo: [ "tetiurev_nat_sci_p1_mdf" ],
+    hide: true
+}
+
+funcs.addCorporaToFolder("other", "tetiurev_nat_sci_p1_mdf");
+
+// Suomiejt
+
+sattrlist.suomiejt = {
+    text_translators: { label: "text_translator" },
+    text_publisher: { label: "publisher" },
+    text_publication_year: { label: "publication_year" },
+    text_publication_place: { label: "publication_place" },
+    text_publication: { label: "publication_name" },
+    text_source_lang: { label: "origlang" },
+    text_no_of_pages: { label: "numberofpages" },
+    text_material: { label: "medium" },
+    text_iso_lang: { label: "uralic_ud_text_iso_lang" },
+    text_id: { label: "text_id" },
+    text_isbn: { label: "isbn" },
+    text_genre: { label: "text_genre" },
+    text_e_corrector: { label: "text_e_corrector" },
+    text_comment: { label: "comment" },
+    text_bibliog: { label: "bibliography" },
+    text_author: { label: "text_author" },
+    text_word_count: { label: "num_words" },
+    text_character_count: { label: "num_chars" },
+    sentence_text: { label: "text" },
+    sentence_id: { label: "sentence_id" }
+}
+
+settings.corpora.suomiejt_fin = {
+    id: "suomiejt_fin",
+    lang: "fin",
+    title : "Suomiejt (fin-kpv-mdf-mhr-myv-rus-udm)",
+    description: "Finland, Yesterday and Today, parallel corpus (fin-kpv-mdf-mhr-myv-rus-udm)",
+    metadata_urn: "urn:nbn:fi:lb-2023041801",
+    licence: {
+        name: "CC-BY (CLARIN PUB)",
+        urn: "urn:nbn:fi:lb-2023041804",
+    },
+    status: "beta",
+    context: context.linkAligned,
+    within: within.link,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.suomiejt,
+    linkedTo: [ "suomiejt_kpv", "suomiejt_mdf", "suomiejt_mhr", "suomiejt_myv", "suomiejt_rus", "suomiejt_udm" ]
+}
+
+settings.corpora.suomiejt_kpv = {
+    id: "suomiejt_kpv",
+    lang: "kpv",
+    title : "Suomiejt (kpv)",
+    description: "Finland, Yesterday and Today, parallel corpus (kpv)",
+    context: context.linkAligned,
+    within: within.link,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.suomiejt,
+    linkedTo: [ "suomiejt_fin", "suomiejt_mdf", "suomiejt_mhr", "suomiejt_myv", "suomiejt_rus", "suomiejt_udm" ],
+    hide: true
+}
+
+settings.corpora.suomiejt_mdf = {
+    id: "suomiejt_mdf",
+    lang: "mdf",
+    title : "Suomiejt (mdf)",
+    description: "Finland, Yesterday and Today, parallel corpus (mdf)",
+    context: context.linkAligned,
+    within: within.link,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.suomiejt,
+    linkedTo: [ "suomiejt_fin", "suomiejt_kpv", "suomiejt_mhr", "suomiejt_myv", "suomiejt_rus", "suomiejt_udm" ],
+    hide: true
+}
+
+settings.corpora.suomiejt_mhr = {
+    id: "suomiejt_mhr",
+    lang: "mhr",
+    title : "Suomiejt (mhr)",
+    description: "Finland, Yesterday and Today, parallel corpus (mhr)",
+    context: context.linkAligned,
+    within: within.link,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.suomiejt,
+    linkedTo: [ "suomiejt_fin", "suomiejt_kpv", "suomiejt_mdf", "suomiejt_myv", "suomiejt_rus", "suomiejt_udm" ],
+    hide: true
+}
+
+settings.corpora.suomiejt_myv = {
+    id: "suomiejt_myv",
+    lang: "myv",
+    title : "Suomiejt (myv)",
+    description: "Finland, Yesterday and Today, parallel corpus (myv)",
+    context: context.linkAligned,
+    within: within.link,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.suomiejt,
+    linkedTo: [ "suomiejt_fin", "suomiejt_kpv", "suomiejt_mdf", "suomiejt_mhr", "suomiejt_rus", "suomiejt_udm" ],
+    hide: true
+}
+
+settings.corpora.suomiejt_rus = {
+    id: "suomiejt_rus",
+    lang: "rus",
+    title : "Suomiejt (rus)",
+    description: "Finland, Yesterday and Today, parallel corpus (rus)",
+    context: context.linkAligned,
+    within: within.link,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.suomiejt,
+    linkedTo: [ "suomiejt_fin", "suomiejt_kpv", "suomiejt_mdf", "suomiejt_mhr", "suomiejt_myv", "suomiejt_udm" ],
+    hide: true
+}
+
+settings.corpora.suomiejt_udm = {
+    id: "suomiejt_udm",
+    lang: "udm",
+    title : "Suomiejt (udm)",
+    description: "Finland, Yesterday and Today, parallel corpus (udm)",
+    context: context.linkAligned,
+    within: within.link,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.suomiejt,
+    linkedTo: [ "suomiejt_fin", "suomiejt_kpv", "suomiejt_mdf", "suomiejt_mhr", "suomiejt_myv", "suomiejt_rus" ],
+    hide: true
+}
+
+funcs.addCorporaToFolder("other", "suomiejt_fin");
 
 /* OPUS – Open Source Paraller Corpus */
 
