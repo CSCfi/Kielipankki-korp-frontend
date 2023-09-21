@@ -98,6 +98,8 @@
     "subject": "ämne",
     "volume": "band",
 
+    "title_uncleaned": "titel (orensad)",
+
     "book_number": "bokens nummer",
     "nlfcl_contributor": "medarbetare",
     "publication_year": "utgivningsår",

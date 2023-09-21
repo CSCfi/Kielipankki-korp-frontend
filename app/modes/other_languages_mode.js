@@ -5047,6 +5047,10 @@ sattrlist.coca2020 = $.extend(true, {}, sattrlist.coca);
 // Delete structural attributes in COCA 2017H1 but not in COCA 2020
 delete sattrlist.coca2020.text_publ_info;
 delete sattrlist.coca2020.text_wordcount;
+// Add text_title_orig
+sattrlist.coca2020.text_title_orig = {
+    label: "title_uncleaned",
+};
 
 settings.templ.coca2020_common = {
     within: within.sp,

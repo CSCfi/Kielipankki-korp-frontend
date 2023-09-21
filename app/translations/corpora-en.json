@@ -106,6 +106,8 @@
     "subject": "subject",
     "volume": "volume",
 
+    "title_uncleaned": "title (uncleaned)",
+
     "book_number": "book number",
     "contributor": "contributor",
 
