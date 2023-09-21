@@ -231,8 +231,7 @@ settings.corporafolders.english.reference.coca2020 = {
     description: "COCA: Corpus of Contemporary American English – Kielipankki Korp version 2020<br/><br/>The COCA corpus contains about 1,000 million words in 485,000 texts of US English from the years 1990–2019. The corpus is evenly divided into the following genres: spoken, fiction, magazine, newspaper, academic, blogs, other web and TV / movies (<a href='https://www.corpusdata.org/coca2020.asp' target='_blank'>more information</a>)." + byu_fulltext_note,
     // contents will be added further below
     info: {
-        // Uncomment location URN at the end of beta period
-        // urn: "urn:nbn:fi:lb-2022111502",
+        urn: "urn:nbn:fi:lb-2022111502",
         metadata_urn: "urn:nbn:fi:lb-2022111501",
         licence: {
             name: "ACA-Fi (Academic users in Finland)",
@@ -243,7 +242,6 @@ settings.corporafolders.english.reference.coca2020 = {
             name: "Prof. Mark Davies",
             url: "https://www.mark-davies.org/",
         },
-        status: "beta",
     },
 };
 
