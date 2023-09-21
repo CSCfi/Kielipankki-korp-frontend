@@ -188,7 +188,6 @@ settings.corporafolders.news.klk_fi_v2 = {
         urn: "urn:nbn:fi:lb-202009151",
         metadata_urn: "urn:nbn:fi:lb-202009152",
         licence: settings.licenceinfo.KLK_en,
-        status: "beta",
     }
 };
 
