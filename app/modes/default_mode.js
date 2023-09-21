@@ -181,17 +181,6 @@ funcs.addCorporaToFolder("manual", "ftb2");
 //     ]
 // };
 
-settings.corporafolders.news.klk_fi = {
-    title: "Kansalliskirjaston lehtikokoelman (KLK) suomenkieliset lehdet",
-    description: "Kansalliskirjaston sanoma- ja aikakauslehtikokoelma, Kielipankki-versio, suomenkieliset lehdet",
-    info: {
-        urn: "urn:nbn:fi:lb-201405275",
-        metadata_urn: "urn:nbn:fi:lb-2016050302",
-        licence: settings.licenceinfo.CC_BY,
-        cite_id: "KLK-fi",
-    }
-};
-
 settings.corporafolders.news.klk_fi_v2 = {
     title: "Kansalliskirjaston lehtikokoelman (KLK) suomenkieliset lehdet, versio 2",
     description: "Kansalliskirjaston sanoma- ja aikakauslehtikokoelman suomenkielinen osakorpus versio 2, Korp (klk-fi-v2-korp)<br/><br/>Aineistossa olevat linkit sivun kuviin ja PDF-tiedostoihin vievät <a href=\"https://digi.kansalliskirjasto.fi\" target=\"_blank\">Kansalliskirjaston digitaalisten aineistojen verkkosivuille</a>. Useimmille vuotta 1939 uudemmille lehdille sivun kuvien ja PDF-tiedostojen käyttö on sallittu vain tutkimustarkoituksiin ja edellyttää kirjautumista ja käyttölupalomakkeen täyttämistä Kansalliskirjaston palvelussa.",
@@ -200,6 +189,17 @@ settings.corporafolders.news.klk_fi_v2 = {
         metadata_urn: "urn:nbn:fi:lb-202009152",
         licence: settings.licenceinfo.KLK_en,
         status: "beta",
+    }
+};
+
+settings.corporafolders.news.klk_fi = {
+    title: "Kansalliskirjaston lehtikokoelman (KLK) suomenkieliset lehdet",
+    description: "Kansalliskirjaston sanoma- ja aikakauslehtikokoelma, Kielipankki-versio, suomenkieliset lehdet",
+    info: {
+        urn: "urn:nbn:fi:lb-201405275",
+        metadata_urn: "urn:nbn:fi:lb-2016050302",
+        licence: settings.licenceinfo.CC_BY,
+        cite_id: "KLK-fi",
     }
 };
 
