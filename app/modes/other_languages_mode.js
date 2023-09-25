@@ -228,7 +228,7 @@ var byu_compiler = {
 
 settings.corporafolders.english.reference.coca2020 = {
     title: "COCA 2020: Corpus of Contemporary American English",
-    description: "COCA: Corpus of Contemporary American English – Kielipankki Korp version 2020<br/><br/>The COCA corpus contains about 1,000 million words in 485,000 texts of US English from the years 1990–2019. The corpus is evenly divided into the following genres: spoken, fiction, magazine, newspaper, academic, blogs, other web and TV / movies (<a href='https://www.corpusdata.org/coca2020.asp' target='_blank'>more information</a>)." + byu_fulltext_note,
+    description: "COCA: Corpus of Contemporary American English – Kielipankki Korp version 2020<br/><br/>The COCA corpus contains about 1,000 million words in 485,000 texts of US English from the years 1990–2019. The corpus is evenly divided into the following genres: spoken, fiction, magazine, newspaper, academic, blogs, other web and TV / movies (<a href='https://www.corpusdata.org/coca2020.asp' target='_blank'>more information</a>).<br/><br/>Note that the metadata for individual texts are partly different and somewhat more concise than in the older <a href=\"http://urn.fi/urn:nbn:fi:lb-2017061922\" target=\"_blank\">COCA version 2017H1</a>." + byu_fulltext_note,
     // contents will be added further below
     info: {
         urn: "urn:nbn:fi:lb-2022111502",
@@ -247,7 +247,7 @@ settings.corporafolders.english.reference.coca2020 = {
 
 settings.corporafolders.english.reference.coca = {
     title: "COCA: Corpus of Contemporary American English",
-    description: "COCA: Corpus of Contemporary American English – Kielipankki Korp version 2017H1<br/><br/>The COCA corpus contains about 520 million words in 220,000 texts of US English from the years 1990–2015. The corpus is evenly divided into spoken, fiction, magazine, newspaper and academic genres." + byu_fulltext_note,
+    description: "COCA: Corpus of Contemporary American English – Kielipankki Korp version 2017H1<br/><br/>The COCA corpus contains about 520 million words in 220,000 texts of US English from the years 1990–2015. The corpus is evenly divided into spoken, fiction, magazine, newspaper and academic genres.<br/><br/><strong>Note</strong> that a newer, extended version of the corpus, <a href=\"http://urn.fi/urn:nbn:fi:lb-2022111501\" target=\"_blank\">COCA 2020</a>, is also available in Korp." + byu_fulltext_note,
     // contents will be added further below
     info: {
         urn: "urn:nbn:fi:lb-2017061933",
