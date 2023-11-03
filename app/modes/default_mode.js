@@ -1918,7 +1918,10 @@ settings.corpora.ftb2 = {
     id: "ftb2",
     urn: "urn:nbn:fi:lb-201407164",
     metadata_urn: "urn:nbn:fi:lb-2016042406",
-    licence: settings.licenceinfo.CC_BY_30,
+    licence: {
+	name: "CC BY SA",
+	urn: "urn:nbn:fi:lb-2023103101"
+    },
     cite_id: "FinnTreeBank2-korp",
     within: within.default,
     context: context.default,
@@ -1961,7 +1964,10 @@ settings.corpora.ftb2 = {
 var ftb3_info = {
     urn: "urn:nbn:fi:lb-2016051001",
     metadata_urn: "urn:nbn:fi:lb-2016042602",
-    licence: settings.licenceinfo.CC_BY_30,
+    licence: {
+	name: "CC BY",
+	urn: "urn:nbn:fi:lb-2022090204"
+    },
     cite_id: "FinnTreeBank3-korp",
 };
 
