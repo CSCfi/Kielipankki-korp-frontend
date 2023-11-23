@@ -65,6 +65,8 @@ export default {
     // - height: video height (percentage or "auto"); default: "auto"
     // - width: video width (percentage or "auto"); default: "auto"
     // - videoType: video type (appended to "video/"); default: "mp4"
+    // - sentence: the sentence (text) to show in the video popup;
+    //   default: the word forms of the current sentence
     //
     // If file and ext are empty, path is considered to contain them;
     // if path is also empty, baseURL is considered to contain them.
@@ -99,6 +101,7 @@ export default {
             const videoType = getValue(options.videoType) || "mp4"
             const height = getValue(options.height) || "auto"
             const width = getValue(options.width) || "auto"
+            const sentence = getValue(options.sentence)
             $scope.label = getValue(options.label) || "show_video_korp"
             // console.log("videoPlayer controller", $scope.sentenceData,
             //             baseURL, startTime, endTime, path, file, ext)
@@ -117,25 +120,29 @@ export default {
                 // console.log("videoLink", modalScope.videos,
                 //             modalScope.fileName, modalScope.startTime,
                 //             modalScope.endTime)
-                // find start of sentence
-                let startIdx = 0
-                for (let i = $scope.wordData.position; i >= 0; i--) {
-                    if (_.includes($scope.tokens[i]._open, "sentence")) {
-                        startIdx = i
-                        break
+                if (sentence) {
+                    modalScope.sentence = sentence
+                } else {
+                    // find start of sentence
+                    let startIdx = 0
+                    for (let i = $scope.wordData.position; i >= 0; i--) {
+                        if (_.includes($scope.tokens[i]._open, "sentence")) {
+                            startIdx = i
+                            break
+                        }
                     }
-                }
-                // find end of sentence
-                let endIdx = $scope.tokens.length - 1
-                for (let i = $scope.wordData.position; i <= endIdx; i++) {
-                    if (_.includes($scope.tokens[i]._close, "sentence")) {
-                        endIdx = i
-                        break
+                    // find end of sentence
+                    let endIdx = $scope.tokens.length - 1
+                    for (let i = $scope.wordData.position; i <= endIdx; i++) {
+                        if (_.includes($scope.tokens[i]._close, "sentence")) {
+                            endIdx = i
+                            break
+                        }
                     }
+                    modalScope.sentence =
+                        _.map($scope.tokens.slice(startIdx, endIdx + 1),
+                              "word").join(" ")
                 }
-                modalScope.sentence =
-                    _.map($scope.tokens.slice(startIdx, endIdx + 1),
-                          "word").join(" ")
                 modalScope.open()
             }
         }]
