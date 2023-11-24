@@ -7733,6 +7733,225 @@ funcs.extendCorpusSettings(settings.corpusinfo.pabivus_fin_1938,
 
 funcs.addCorporaToFolder("other", "pabivus_fin_1938");
 
+
+ // Christmas Gospel text-to-speech in four Uralic languages
+
+sattrlist.xmas_gospel = {
+    //text_lang : { label: "" },
+    //text_id : { label: "text_id" },
+    text_iso_lang : {
+	label: "iso_639_code" ,
+	extendedComponent: "datasetSelect",
+        localize: false,
+        opts: options.lite,
+        dataset: [ "kpv", "krl", "myv", "olo" ],
+    },
+    //chapter_id : { label: "pabivus_chapter" },
+    sentence_id : {
+	label: "pabivus_verse",
+	extendedComponent: "datasetSelect",
+        localize: false,
+        opts: options.lite,
+        dataset: [ ":LUK.2.1:", ":LUK.2.2:", ":LUK.2.3:", ":LUK.2.4:", ":LUK.2.5:", ":LUK.2.4–5:",
+		   ":LUK.2.6:", ":LUK.2.7:", ":LUK.2.8:", ":LUK.2.9:", ":LUK.2.10:",
+		   ":LUK.2.11:", ":LUK.2.12:", ":LUK.2.13:", ":LUK.2.14:", ":LUK.2.15:",
+		   ":LUK.2.16:", ":LUK.2.17:",  ":LUK.2.18:", ":LUK.2.19:", ":LUK.2.20:" ],
+    },
+    sentence_kpv_audio: { label: "sentence_kpv_audio", displayType: "hidden" },
+    sentence_krl_audio: { label: "sentence_krl_audio", displayType: "hidden" },
+    sentence_myv_audio: { label: "sentence_myv_audio", displayType: "hidden" },
+    sentence_olo_audio: { label: "sentence_olo_audio", displayType: "hidden" },
+    sentence_text_kpv: { label: "sentence_text_kpv", displayType: "hidden" },
+    sentence_text_krl: { label: "sentence_text_krl", displayType: "hidden" },
+    sentence_text_myv: { label: "sentence_text_myv", displayType: "hidden" },
+    sentence_text_olo: { label: "sentence_text_olo", displayType: "hidden" },
+    //sentence_text : { label: "text" }
+};
+
+var xmas_gospel_common_corpus_info = {
+    within: within.sp,
+    context: context.sp,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.xmas_gospel,
+};
+
+function xmas_gospel_add_common_info(corpus) {
+    for (var key in xmas_gospel_common_corpus_info) {
+	corpus[key] = xmas_gospel_common_corpus_info[key];
+    }
+    corpus.licence = {
+        name: "CC-BY-NC",
+        urn: "urn:nbn:fi:lb-2023110603",
+    },
+    corpus.metadata_urn = "urn:nbn:fi:lb-2023111601";
+};
+
+settings.corpora.xmas_gospel_kpv = {
+    id: "xmas_gospel_kpv",
+    title: "Christmas Gospel text-to-speech (kpv-krl-myv-olo)",
+    description: "Christmas Gospel text-to-speech in four Uralic languages<br/>This resource contains text and text-to-speech in four languages pertaining to the Finnish Christmas Gospel verses Luke 2. 1–20. The four languages include Komi-Zyrian (kpv), Erzya (myv), Karelian (krl) and Olonets-Karelian (olo, aka Livvi), whose texts are all included in the Parallel Biblical Verses for Uralic Studies (PaBiVUS) corpus (LUK.2.1–20).",
+    lang: "kpv",
+    linkedTo: ["xmas_gospel_krl", "xmas_gospel_myv", "xmas_gospel_olo"],
+    customAttributes: {
+	audio_kpv: funcs.makeVideoAttr({
+            baseURL: "https://korp.csc.fi/media/",
+            path: "xmas-gospel-tts/",
+            file: "@sentence_kpv_audio",
+	    sentence: "@sentence_text_kpv",
+	    label: "listen_audio_kpv_first"
+        }),
+	audio_krl: funcs.makeVideoAttr({
+            baseURL: "https://korp.csc.fi/media/",
+            path: "xmas-gospel-tts/",
+            file: "@sentence_krl_audio",
+	    sentence: "@sentence_text_krl",
+	    label: "listen_audio_krl"
+        }),
+	audio_myv: funcs.makeVideoAttr({
+            baseURL: "https://korp.csc.fi/media/",
+            path: "xmas-gospel-tts/",
+            file: "@sentence_myv_audio",
+	    sentence: "@sentence_text_myv",
+	    label: "listen_audio_myv"
+	}),
+	audio_olo: funcs.makeVideoAttr({
+            baseURL: "https://korp.csc.fi/media/",
+            path: "xmas-gospel-tts/",
+            file: "@sentence_olo_audio",
+	    sentence: "@sentence_text_olo",
+	    label: "listen_audio_olo"
+        }),
+    },
+};
+xmas_gospel_add_common_info(settings.corpora.xmas_gospel_kpv);
+
+settings.corpora.xmas_gospel_krl = {
+    id: "xmas_gospel_krl",
+    title: "Christmas Gospel text-to-speech (krl)",
+    description: "Christmas Gospel text-to-speech in four Uralic languages: Karelian",
+    lang: "krl",
+    linkedTo: ["xmas_gospel_kpv", "xmas_gospel_myv", "xmas_gospel_olo"],
+    customAttributes: {
+	audio_krl: funcs.makeVideoAttr({
+            baseURL: "https://korp.csc.fi/media/",
+            path: "xmas-gospel-tts/",
+            file: "@sentence_krl_audio",
+	    sentence: "@sentence_text_krl",
+	    label: "listen_audio_krl_first"
+        }),
+	audio_kpv: funcs.makeVideoAttr({
+            baseURL: "https://korp.csc.fi/media/",
+            path: "xmas-gospel-tts/",
+            file: "@sentence_kpv_audio",
+	    sentence: "@sentence_text_kpv",
+	    label: "listen_audio_kpv"
+        }),
+	audio_myv: funcs.makeVideoAttr({
+            baseURL: "https://korp.csc.fi/media/",
+            path: "xmas-gospel-tts/",
+            file: "@sentence_myv_audio",
+	    sentence: "@sentence_text_myv",
+	    label: "listen_audio_myv"
+	}),
+	audio_olo: funcs.makeVideoAttr({
+            baseURL: "https://korp.csc.fi/media/",
+            path: "xmas-gospel-tts/",
+            file: "@sentence_olo_audio",
+	    sentence: "@sentence_text_olo",
+	    label: "listen_audio_olo"
+        }),
+    },
+    hide: true,
+};
+xmas_gospel_add_common_info(settings.corpora.xmas_gospel_krl);
+
+settings.corpora.xmas_gospel_myv = {
+    id: "xmas_gospel_myv",
+    title: "Christmas Gospel text-to-speech (myv)",
+    description: "Christmas Gospel text-to-speech in four Uralic languages: Erzya",
+    lang: "myv",
+    linkedTo: ["xmas_gospel_kpv", "xmas_gospel_krl", "xmas_gospel_olo"],
+    customAttributes: {
+	audio_myv: funcs.makeVideoAttr({
+            baseURL: "https://korp.csc.fi/media/",
+            path: "xmas-gospel-tts/",
+            file: "@sentence_myv_audio",
+	    sentence: "@sentence_text_myv",
+	    label: "listen_audio_myv_first"
+	}),
+	audio_kpv: funcs.makeVideoAttr({
+            baseURL: "https://korp.csc.fi/media/",
+            path: "xmas-gospel-tts/",
+            file: "@sentence_kpv_audio",
+	    sentence: "@sentence_text_kpv",
+	    label: "listen_audio_kpv"
+        }),
+	audio_krl: funcs.makeVideoAttr({
+            baseURL: "https://korp.csc.fi/media/",
+            path: "xmas-gospel-tts/",
+            file: "@sentence_krl_audio",
+	    sentence: "@sentence_text_krl",
+	    label: "listen_audio_krl"
+        }),
+	audio_olo: funcs.makeVideoAttr({
+            baseURL: "https://korp.csc.fi/media/",
+            path: "xmas-gospel-tts/",
+            file: "@sentence_olo_audio",
+	    sentence: "@sentence_text_olo",
+	    label: "listen_audio_olo"
+        }),
+    },
+    hide: true,
+};
+xmas_gospel_add_common_info(settings.corpora.xmas_gospel_myv);
+
+settings.corpora.xmas_gospel_olo = {
+    id: "xmas_gospel_olo",
+    title: "Christmas Gospel text-to-speech (olo)",
+    description: "Christmas Gospel text-to-speech in four Uralic languages: Olonets-Karelian (aka Livvi)",
+    lang: "olo",
+    linkedTo: ["xmas_gospel_kpv", "xmas_gospel_krl", "xmas_gospel_myv"],
+    customAttributes: {
+	audio_olo: funcs.makeVideoAttr({
+            baseURL: "https://korp.csc.fi/media/",
+            path: "xmas-gospel-tts/",
+            file: "@sentence_olo_audio",
+	    sentence: "@sentence_text_olo",
+	    label: "listen_audio_olo_first"
+        }),
+	audio_kpv: funcs.makeVideoAttr({
+            baseURL: "https://korp.csc.fi/media/",
+            path: "xmas-gospel-tts/",
+            file: "@sentence_kpv_audio",
+	    sentence: "@sentence_text_kpv",
+	    label: "listen_audio_kpv"
+        }),
+	audio_krl: funcs.makeVideoAttr({
+            baseURL: "https://korp.csc.fi/media/",
+            path: "xmas-gospel-tts/",
+            file: "@sentence_krl_audio",
+	    sentence: "@sentence_text_krl",
+	    label: "listen_audio_krl"
+        }),
+	audio_myv: funcs.makeVideoAttr({
+            baseURL: "https://korp.csc.fi/media/",
+            path: "xmas-gospel-tts/",
+            file: "@sentence_myv_audio",
+	    sentence: "@sentence_text_myv",
+	    label: "listen_audio_myv"
+	}),
+    },
+    hide: true,
+};
+xmas_gospel_add_common_info(settings.corpora.xmas_gospel_olo);
+
+
+//funcs.extendCorpusSettings(settings.corpusinfo.xmas_gospel_kpv,
+//                           ["xmas_gospel_krl", "xmas_gospel_myv", "xmas_gospel_olo"]);
+
+funcs.addCorporaToFolder("other", "xmas_gospel_kpv");
+
+
 funcs.addAttrExtraProperties(settings.corpora);
 
 
