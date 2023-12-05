@@ -1966,7 +1966,7 @@ var ftb3_info = {
     metadata_urn: "urn:nbn:fi:lb-2016042602",
     licence: {
 	name: "CC BY",
-	urn: "urn:nbn:fi:lb-2022090204"
+	urn: "urn:nbn:fi:lb-2023111301"
     },
     cite_id: "FinnTreeBank3-korp",
 };

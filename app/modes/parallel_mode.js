@@ -53,7 +53,10 @@ settings.corporafolders.parliament.europarl = {
     info: {
         urn: "urn:nbn:fi:lb-2015043012",
         metadata_urn: "urn:nbn:fi:lb-2015043011",
-        licence: settings.licenceinfo.CC_BY,
+        licence: {
+            name: "CC BY",
+            urn: "urn:nbn:fi:lb-2023110701",
+        },
         cite_id: "HeKo-Europarl",
     }
 };
@@ -80,7 +83,10 @@ settings.corporafolders.legal.jrc = {
     info: {
         urn: "urn:nbn:fi:lb-2015062301",
         metadata_urn: "urn:nbn:fi:lb-2015061210",
-        licence: settings.licenceinfo.CC_BY,
+        licence: {
+            name: "CC BY",
+            urn: "urn:nbn:fi:lb-2023110703",
+        },
         cite_id: "HeKo-JRC-Acquis",
     }
 };
