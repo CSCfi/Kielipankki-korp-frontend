@@ -7790,12 +7790,11 @@ function xmas_gospel_add_common_info(corpus) {
         urn: "urn:nbn:fi:lb-2023110603",
     },
     corpus.metadata_urn = "urn:nbn:fi:lb-2023111601";
-    corpus.status = "beta";
 };
 
 settings.corpora.xmas_gospel_kpv = {
     id: "xmas_gospel_kpv",
-    title: "Christmas Gospel text-to-speech (kpv-krl-myv-olo)",
+    title: "Christmas Gospel text-to-speech (Komi-Zyrian, Erzya, Karelian, Olonets-Karelian)",
     description: "Christmas Gospel text-to-speech in four Uralic languages<br/>This resource contains text and text-to-speech in four languages pertaining to the Finnish Christmas Gospel verses Luke 2. 1–20. The four languages include Komi-Zyrian (kpv), Erzya (myv), Karelian (krl) and Olonets-Karelian (olo, aka Livvi), whose texts are all included in the Parallel Biblical Verses for Uralic Studies (PaBiVUS) corpus (LUK.2.1–20).",
     lang: "kpv",
     linkedTo: ["xmas_gospel_krl", "xmas_gospel_myv", "xmas_gospel_olo"],
@@ -7834,7 +7833,7 @@ xmas_gospel_add_common_info(settings.corpora.xmas_gospel_kpv);
 
 settings.corpora.xmas_gospel_krl = {
     id: "xmas_gospel_krl",
-    title: "Christmas Gospel text-to-speech (krl)",
+    title: "Christmas Gospel text-to-speech (Karelian)",
     description: "Christmas Gospel text-to-speech in four Uralic languages: Karelian",
     lang: "krl",
     linkedTo: ["xmas_gospel_kpv", "xmas_gospel_myv", "xmas_gospel_olo"],
@@ -7874,7 +7873,7 @@ xmas_gospel_add_common_info(settings.corpora.xmas_gospel_krl);
 
 settings.corpora.xmas_gospel_myv = {
     id: "xmas_gospel_myv",
-    title: "Christmas Gospel text-to-speech (myv)",
+    title: "Christmas Gospel text-to-speech (Erzya)",
     description: "Christmas Gospel text-to-speech in four Uralic languages: Erzya",
     lang: "myv",
     linkedTo: ["xmas_gospel_kpv", "xmas_gospel_krl", "xmas_gospel_olo"],
@@ -7914,7 +7913,7 @@ xmas_gospel_add_common_info(settings.corpora.xmas_gospel_myv);
 
 settings.corpora.xmas_gospel_olo = {
     id: "xmas_gospel_olo",
-    title: "Christmas Gospel text-to-speech (olo)",
+    title: "Christmas Gospel text-to-speech (Olonets-Karelian)",
     description: "Christmas Gospel text-to-speech in four Uralic languages: Olonets-Karelian (aka Livvi)",
     lang: "olo",
     linkedTo: ["xmas_gospel_kpv", "xmas_gospel_krl", "xmas_gospel_myv"],
