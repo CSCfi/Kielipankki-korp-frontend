@@ -7784,7 +7784,6 @@ function xmas_gospel_add_common_info(corpus) {
         urn: "urn:nbn:fi:lb-2023110603",
     },
     corpus.metadata_urn = "urn:nbn:fi:lb-2023111601";
-    corpus.status = "beta";
 };
 
 settings.corpora.xmas_gospel_kpv = {
