@@ -391,14 +391,6 @@ settings.corporafolders.uralic.wanca_2016 = {
     ]
 };
 
-settings.corporafolders.uralic.erme = {
-    title: "ERME",
-    description: "ERME: Erzya and Moksha Extended Corpora",
-    contents: [
-        "erme_mdf",
-        "erme_myv",
-    ]
-};
 
 settings.corporafolders.uralic.erme_v2 = {
     title: "ERME version 2",
@@ -4135,27 +4127,6 @@ settings.corpusAliases.scotscorr = "scots_.*";
 attrlist.testerzya = {};
 sattrlist.erme_debug = {}
 
-sattrlist.erme = {
-    text_author: {
-        label: "text_author"
-    },
-    text_title: {
-        label: "text_booktitle"
-    },
-    text_corrector: {
-        label: "text_corrector"
-    },
-    text_year: {
-        label: "text_year"
-    },
-    sentence_id: sattrs.sentence_id_hidden,
-    sentence_pgno: {
-        label: "page_num"
-    },
-    text_publisher: {
-        label: "text_publisher"
-    }
-};
 
 sattrlist.erme_v2 = {
     text_iso_lang: { label: "uralic_ud_text_iso_lang" },
@@ -4248,29 +4219,6 @@ sattrlist.testerzya = {
     }
 };
 
-settings.corpora.erme_myv = {
-    id: "erme_myv",
-    title: "Ersä/Erzya",
-    description: "ERME: Ersä/Erzya",
-    licence: settings.licenceinfo.CC_BY,
-    within: within.sp,
-    context: context.sp,
-    attributes: attrlist.testerzya,
-    structAttributes: sattrlist.erme,
-    unselected: true
-};
-
-settings.corpora.erme_mdf = {
-    id: "erme_mdf",
-    title: "Mokša/Moksha",
-    description: "ERME: Mokša/Moksha",
-    licence: settings.licenceinfo.CC_BY,
-    within: within.sp,
-    context: context.sp,
-    attributes: attrlist.testerzya,
-    structAttributes: sattrlist.erme,
-    unselected: true
-};
 
 settings.corpora.erme_v2_myv = {
     id: "erme_v2_myv",
