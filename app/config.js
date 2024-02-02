@@ -424,10 +424,16 @@ settings.corpusExtraInfo = {
 
 // Get the PID from corpus configuration corpusObj
 let getPid = function (corpusObj) {
-    return ((corpusObj.pid ? corpusObj.pid.urn : null)
-            || corpusObj.pid_urn
-            || (corpusObj.metadata ? corpusObj.metadata.urn : null)
-            || corpusObj.metadata_urn)
+    let pid = ((corpusObj.pid && corpusObj.pid.urn)
+               || corpusObj.pid_urn
+               || (corpusObj.metadata && corpusObj.metadata.urn)
+               || corpusObj.metadata_urn);
+    // If a URN value is a complete URL with a resolver, use the
+    // actual URN only as the PID
+    if (pid && pid.startsWith("http")) {
+        pid = pid.split("/").slice(-1)[0];
+    }
+    return pid;
 }
 
 // Special handling for specified corpus extra info items: property
@@ -494,12 +500,7 @@ settings.makeCorpusExtraInfoItem = {
             }
             // Use the metadata URN as the default cite id; fall back
             // to cite_id if no metadata URN is found
-            let citeId = (
-                (corpusObj.pid && corpusObj.pid.urn)
-                    || corpusObj.pid_urn
-                    || (corpusObj.metadata && corpusObj.metadata.urn)
-                    || corpusObj.metadata_urn
-                    || corpusObj.cite_id);
+            let citeId = getPid(corpusObj) || corpusObj.cite_id;
             if (citeId) {
                 return {
                     // Using ng-href would require using Angular $compile,
