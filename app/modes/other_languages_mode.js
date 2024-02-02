@@ -354,7 +354,7 @@ settings.corporafolders.uralic.wanca_2016 = {
     title: "Wanca 2016",
     description: "A collection of web corpora in small Uralic languages",
     info: {
-        metadata_urn: "http://urn.fi/urn:nbn:fi:lb-2019052401",
+        metadata_urn: "urn:nbn:fi:lb-2019052401",
         licence: settings.licenceinfo.CC_BY,
         cite_id: "wanca2016-korp",
     },
@@ -5366,7 +5366,7 @@ settings.corporafolders.uralic.uralic_ud_v210 = {
     title: "Uralic UD v2.10",
     description: "The corpus contains Universal Dependencies version 2.10 for the following Uralic languages: Erzya, Estonian, Finnish, Hungarian, Karelian, Komi-Permyak, Komi-Zyrian, Livvi, Moksha, North Sami and Skolt Sami.",
     info: {
-       metadata_urn: "http://urn.fi/urn:nbn:fi:lb-2022061001",
+       metadata_urn: "urn:nbn:fi:lb-2022061001",
        cite_id: "uralic-ud-v2-10",
     },
     contents: [ "uralic_ud_v210_et",

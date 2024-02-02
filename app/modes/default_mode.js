@@ -15323,7 +15323,7 @@ settings.corpora.eduskunta = {
     ],
     cite_id: "eduskunta-v1.5-korp",
     homepage: {
-        urn: "http://urn.fi/urn:nbn:fi:lb-2019111922",
+        urn: "urn:nbn:fi:lb-2019111922",
         name: "Eduskunnan täysistuntojen verkkolähetysten tallenteet",
         description: "META-SHARE-kuvailutietosivu, josta linkki eduskunnan täysistuntojen verkkolähetysten tallenteisiin",
         no_label: true,
