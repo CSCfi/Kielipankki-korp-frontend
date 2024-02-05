@@ -15839,7 +15839,7 @@ funcs.dmaStringifyPdfLink = function (filename, label, htmlAttrs) {
                  .replace(/ä/g, 'a')
                  .replace(/Ä/g, 'A')
                  .replace(/ö/g, 'o'))
-        let url = ("/korp/dma/pdf/"
+        let url = ("/media/dma/pdf/"
                    + fname.slice(0, fname.lastIndexOf("_"))
                    + "/" + fname);
         output += `<br/><a href="${url}" ${htmlAttrs}>${fname}</a>`;
