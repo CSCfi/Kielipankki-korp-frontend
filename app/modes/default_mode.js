@@ -11499,7 +11499,7 @@ for (var i = 0; i < la_murre_grouping.length; i++) {
 // var la_murre_fulltext_url_prefix = "/korp/fulltext/la_murre/";
 var la_murre_fulltext_url_prefix = (
     settings.isPublicServer ?
-        "/korp/fulltext/la_murre/" :
+        "/media/la-murre/fulltext/" :
         "//localhost/korp/fulltext/la_murre/");
 
 // Make LA-murre fulltext URLs with the sentence id as a fragment
