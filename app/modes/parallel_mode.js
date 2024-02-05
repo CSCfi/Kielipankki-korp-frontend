@@ -7800,28 +7800,28 @@ settings.corpora.xmas_gospel_kpv = {
     linkedTo: ["xmas_gospel_krl", "xmas_gospel_myv", "xmas_gospel_olo"],
     customAttributes: {
 	audio_kpv: funcs.makeVideoAttr({
-            baseURL: "https://korp.csc.fi/media/",
+            baseURL: "/media/",
             path: "xmas-gospel-tts/",
             file: "@sentence_kpv_audio",
 	    sentence: "@sentence_text_kpv",
 	    label: "listen_audio_kpv_first"
         }),
 	audio_krl: funcs.makeVideoAttr({
-            baseURL: "https://korp.csc.fi/media/",
+            baseURL: "/media/",
             path: "xmas-gospel-tts/",
             file: "@sentence_krl_audio",
 	    sentence: "@sentence_text_krl",
 	    label: "listen_audio_krl"
         }),
 	audio_myv: funcs.makeVideoAttr({
-            baseURL: "https://korp.csc.fi/media/",
+            baseURL: "/media/",
             path: "xmas-gospel-tts/",
             file: "@sentence_myv_audio",
 	    sentence: "@sentence_text_myv",
 	    label: "listen_audio_myv"
 	}),
 	audio_olo: funcs.makeVideoAttr({
-            baseURL: "https://korp.csc.fi/media/",
+            baseURL: "/media/",
             path: "xmas-gospel-tts/",
             file: "@sentence_olo_audio",
 	    sentence: "@sentence_text_olo",
@@ -7839,28 +7839,28 @@ settings.corpora.xmas_gospel_krl = {
     linkedTo: ["xmas_gospel_kpv", "xmas_gospel_myv", "xmas_gospel_olo"],
     customAttributes: {
 	audio_krl: funcs.makeVideoAttr({
-            baseURL: "https://korp.csc.fi/media/",
+            baseURL: "/media/",
             path: "xmas-gospel-tts/",
             file: "@sentence_krl_audio",
 	    sentence: "@sentence_text_krl",
 	    label: "listen_audio_krl_first"
         }),
 	audio_kpv: funcs.makeVideoAttr({
-            baseURL: "https://korp.csc.fi/media/",
+            baseURL: "/media/",
             path: "xmas-gospel-tts/",
             file: "@sentence_kpv_audio",
 	    sentence: "@sentence_text_kpv",
 	    label: "listen_audio_kpv"
         }),
 	audio_myv: funcs.makeVideoAttr({
-            baseURL: "https://korp.csc.fi/media/",
+            baseURL: "/media/",
             path: "xmas-gospel-tts/",
             file: "@sentence_myv_audio",
 	    sentence: "@sentence_text_myv",
 	    label: "listen_audio_myv"
 	}),
 	audio_olo: funcs.makeVideoAttr({
-            baseURL: "https://korp.csc.fi/media/",
+            baseURL: "/media/",
             path: "xmas-gospel-tts/",
             file: "@sentence_olo_audio",
 	    sentence: "@sentence_text_olo",
@@ -7879,28 +7879,28 @@ settings.corpora.xmas_gospel_myv = {
     linkedTo: ["xmas_gospel_kpv", "xmas_gospel_krl", "xmas_gospel_olo"],
     customAttributes: {
 	audio_myv: funcs.makeVideoAttr({
-            baseURL: "https://korp.csc.fi/media/",
+            baseURL: "/media/",
             path: "xmas-gospel-tts/",
             file: "@sentence_myv_audio",
 	    sentence: "@sentence_text_myv",
 	    label: "listen_audio_myv_first"
 	}),
 	audio_kpv: funcs.makeVideoAttr({
-            baseURL: "https://korp.csc.fi/media/",
+            baseURL: "/media/",
             path: "xmas-gospel-tts/",
             file: "@sentence_kpv_audio",
 	    sentence: "@sentence_text_kpv",
 	    label: "listen_audio_kpv"
         }),
 	audio_krl: funcs.makeVideoAttr({
-            baseURL: "https://korp.csc.fi/media/",
+            baseURL: "/media/",
             path: "xmas-gospel-tts/",
             file: "@sentence_krl_audio",
 	    sentence: "@sentence_text_krl",
 	    label: "listen_audio_krl"
         }),
 	audio_olo: funcs.makeVideoAttr({
-            baseURL: "https://korp.csc.fi/media/",
+            baseURL: "/media/",
             path: "xmas-gospel-tts/",
             file: "@sentence_olo_audio",
 	    sentence: "@sentence_text_olo",
@@ -7919,28 +7919,28 @@ settings.corpora.xmas_gospel_olo = {
     linkedTo: ["xmas_gospel_kpv", "xmas_gospel_krl", "xmas_gospel_myv"],
     customAttributes: {
 	audio_olo: funcs.makeVideoAttr({
-            baseURL: "https://korp.csc.fi/media/",
+            baseURL: "/media/",
             path: "xmas-gospel-tts/",
             file: "@sentence_olo_audio",
 	    sentence: "@sentence_text_olo",
 	    label: "listen_audio_olo_first"
         }),
 	audio_kpv: funcs.makeVideoAttr({
-            baseURL: "https://korp.csc.fi/media/",
+            baseURL: "/media/",
             path: "xmas-gospel-tts/",
             file: "@sentence_kpv_audio",
 	    sentence: "@sentence_text_kpv",
 	    label: "listen_audio_kpv"
         }),
 	audio_krl: funcs.makeVideoAttr({
-            baseURL: "https://korp.csc.fi/media/",
+            baseURL: "/media/",
             path: "xmas-gospel-tts/",
             file: "@sentence_krl_audio",
 	    sentence: "@sentence_text_krl",
 	    label: "listen_audio_krl"
         }),
 	audio_myv: funcs.makeVideoAttr({
-            baseURL: "https://korp.csc.fi/media/",
+            baseURL: "/media/",
             path: "xmas-gospel-tts/",
             file: "@sentence_myv_audio",
 	    sentence: "@sentence_text_myv",
