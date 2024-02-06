@@ -1,8 +1,11 @@
 
 var isLab = window.isLab || false;
 
+var isProductionServerKielipankki = (
+    window.location.hostname.indexOf("kielipankki.fi") != -1);
 var isProductionServer = (
-    window.location.hostname.indexOf(".csc.fi") != -1
+    isProductionServerKielipankki
+        || window.location.hostname.indexOf(".csc.fi") != -1
         || window.location.hostname == "195.148.22.239");
 var isProductionServerTest =
     (isProductionServer
@@ -268,19 +271,25 @@ settings.downloadFormatParamsPhysical = {
 
 
 // Korp backend URL
-// Always use the backend at korp.csc.fi
-settings.korpBackendURL = "https://korp.csc.fi/korp/api8";
+// Always use the backend at the production server: korp.csc.fi unless
+// the frontend is on www.kielipankki.fi
+var korpBackendServer = (isProductionServerKielipankki
+                         ? "https://www.kielipankki.fi"
+                         : "https://korp.csc.fi");
+settings.korpBackendURL = korpBackendServer + "/korp/api8";
 // // Alternatively, use the backend on the same site as the frontend
 // settings.korpBackendURL =
 //    window.location.protocol + "//" + window.location.hostname + "/korp/api8";
 // console.log("korpBackendURL: '" + settings.korpBackendURL + "'")
-settings.downloadCgiScript = "https://korp.csc.fi/cgi-bin/korp/korp_download.cgi";
+settings.downloadCgiScript = (korpBackendServer
+                              + (isProductionServerKielipankki ? "/korp" : "")
+                              + "/cgi-bin/korp/korp_download.cgi");
 
 // The main Korp, Korp Labs and old Korp URLs for the links in the cog menu
 settings.korpUrl = {
     "main": (isProductionServer ? "/korp/" : "/korp/"),
-    "lab": (isProductionServer ? "/korplab/" : "/korplab/"),
-    "old": (isProductionServer ? "/korp-old/" : "/korp-old/"),
+    "lab": (isProductionServer ? "https://korp.csc.fi/korplab/" : "/korplab/"),
+    "old": (isProductionServer ? "https://korp.csc.fi/korp-old/" : "/korp-old/"),
 };
 
 settings.urnResolver = "http://urn.fi/";
