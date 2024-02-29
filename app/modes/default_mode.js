@@ -16614,7 +16614,9 @@ sattrlist.ylenews_fi_common = {
             extendedComponent: "structServiceSelect",
         }
     ),
-    text_url: sattrs.link_original,
+    // This is replaced with a custom attribute based on text_id, as
+    // the URLs have changed
+    text_url: sattrs.hidden,
     text_datetime_published: {
         label: "datetime_published",
         // The datetime values look better when kept on the same line,
@@ -16648,6 +16650,20 @@ sattrlist.ylenews_fi_common = {
         translation: transl.textPart,
     },
 };
+
+
+// Custom attribute: links based on the values of text_id (the
+// original URLs have changed)
+sattrlist.ylenews_fi_custom = {
+    text_url_fixed: {
+        pattern: funcs.makeLinkPattern(
+            "show_original",
+            "https://yle.fi/a/<%= struct_attrs.text_id %>"),
+        customType: "struct",
+        urlOpts: sattrs.link_url_opts,
+    },
+};
+
 
 sattrs.ylenews_fi_paragraph_type = {
     label: "paragraph_type",
@@ -16702,6 +16718,7 @@ settings.templ.ylenews_fi_a_base = $.extend(
             {
                 paragraph_type: sattrs.ylenews_fi_paragraph_type,
             }),
+        customAttributes: sattrlist.ylenews_fi_custom,
     }
 );
 
@@ -16770,6 +16787,7 @@ settings.templ.ylenews_fi_s_base = $.extend(
             {
                 sentence_paragraph_type: sattrs.ylenews_fi_paragraph_type,
             }),
+        customAttributes: sattrlist.ylenews_fi_custom,
     }
 );
 
@@ -16831,7 +16849,9 @@ sattrlist.ylenews_fi_selko_common = {
         label: "text_id",
     },
     text_publisher: sattrs.text_publisher,
-    text_url: sattrs.link_original,
+    // This is replaced with a custom attribute based on text_id, as
+    // the URLs have changed
+    text_url: sattrs.hidden,
     text_datetime_published: {
         label: "datetime_published",
         stringify: funcs.stringifyIsoDatetime,
@@ -16900,6 +16920,7 @@ settings.corpora.ylenews_fi_2011_2018_selko_a = {
         {
             paragraph_type: sattrs.ylenews_fi_selko_paragraph_type,
         }),
+    customAttributes: sattrlist.ylenews_fi_custom,
 };
 
 
@@ -16924,6 +16945,7 @@ settings.corpora.ylenews_fi_2011_2018_selko_s = {
         {
             sentence_paragraph_type: sattrs.ylenews_fi_selko_paragraph_type,
         }),
+    customAttributes: sattrlist.ylenews_fi_custom,
 };
 
 
