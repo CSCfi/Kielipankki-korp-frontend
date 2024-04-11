@@ -962,40 +962,40 @@ settings.corpusAliases["ylenews_sv_2012_2018_s"]
     = "ylenews_sv_201[2-8]_s";
 
 
-settings.corpora.nlfcl_sv = {
-    id: "nlfcl_sv",
-    title: "Nationalbibliotekets Klassikerbibliotek (svenska)",
-    description: "Nationalbibliotekets Klassikerbiblioteks svenskspråkiga delkorpus – Kielipankki version: verk från åren 1810–1937",
-    urn: "urn:nbn:fi:lb-201804042",
-    metadata_urn: "urn:nbn:fi:lb-201804041",
-    cite_id: "nlfcl-sv-korp",
-    licence: settings.licenceinfo.CC_BY_40,
-    features: ["paragraphs"],
-    attributes : attrlist.parsed_sv_lemmaset,
-    structAttributes: {
-        text_id: sattrs.hidden,
-        text_title: sattrs.text_title,
-        text_author: sattrs.text_author,
-        text_contributor: {
-            label: "nlfcl_contributor"
-        },
-        text_rights: sattrs.hidden,
-        text_filename: sattrs.hidden,
-        text_digitized: {
-            label: "digitization_date"
-        },
-        text_book_number: {
-            label: "book_number"
-        },
-        text_year: {
-            label: "publication_year"
-        },
-        paragraph_id: sattrs.paragraph_id_hidden,
-        sentence_id: sattrs.sentence_id_hidden,
-    }
-};
-
-funcs.addCorporaToFolder("literary", "nlfcl_sv");
+//settings.corpora.nlfcl_sv = {
+//    id: "nlfcl_sv",
+//    title: "Nationalbibliotekets Klassikerbibliotek (svenska)",
+//    description: "Nationalbibliotekets Klassikerbiblioteks svenskspråkiga delkorpus – Kielipankki version: verk från åren 1810–1937",
+//    urn: "urn:nbn:fi:lb-201804042",
+//    metadata_urn: "urn:nbn:fi:lb-201804041",
+//    cite_id: "nlfcl-sv-korp",
+//    licence: settings.licenceinfo.CC_BY_40,
+//    features: ["paragraphs"],
+//    attributes : attrlist.parsed_sv_lemmaset,
+//    structAttributes: {
+//        text_id: sattrs.hidden,
+//        text_title: sattrs.text_title,
+//        text_author: sattrs.text_author,
+//        text_contributor: {
+//            label: "nlfcl_contributor"
+//        },
+//        text_rights: sattrs.hidden,
+//        text_filename: sattrs.hidden,
+//        text_digitized: {
+//            label: "digitization_date"
+//        },
+//        text_book_number: {
+//            label: "book_number"
+//        },
+//        text_year: {
+//            label: "publication_year"
+//        },
+//        paragraph_id: sattrs.paragraph_id_hidden,
+//        sentence_id: sattrs.sentence_id_hidden,
+//    }
+//};
+//
+//funcs.addCorporaToFolder("literary", "nlfcl_sv");
 
 
 funcs.addAttrExtraProperties(settings.corpora);
