@@ -110,27 +110,27 @@ settings.corporafolders = {
 };
 
 
-settings.corporafolders.academic.ethesis = {
-    title: "E-thesis (svenska)",
-    description: "Helsingfors universitets svenska E-thesis, Korp-version",
-    contents: [
-        "ethesis_sv_dissabs",
-        "ethesis_sv_maabs",
-        "ethesis_sv_phd",
-        "ethesis_sv_ma",
-    ],
-    info: {
-        metadata_urn: "urn:nbn:fi:lb-2016102810",
-        urn: "urn:nbn:fi:lb-2016102801",
-        shortname: "e-thesis-sv",
-        licence: settings.licenceinfo.CC_BY,
-        homepage: {
-            url: "https://ethesis.helsinki.fi/sv/",
-            name: "Digitala avhandlingar vid Helsingfors universitet",
-            // no_label: true,
-        },
-    }
-};
+//settings.corporafolders.academic.ethesis = {
+//    title: "E-thesis (svenska)",
+//    description: "Helsingfors universitets svenska E-thesis, Korp-version",
+//    contents: [
+//        "ethesis_sv_dissabs",
+//        "ethesis_sv_maabs",
+//        "ethesis_sv_phd",
+//        "ethesis_sv_ma",
+//    ],
+//    info: {
+//        metadata_urn: "urn:nbn:fi:lb-2016102810",
+//        urn: "urn:nbn:fi:lb-2016102801",
+//        shortname: "e-thesis-sv",
+//        licence: settings.licenceinfo.CC_BY,
+//        homepage: {
+//            url: "https://ethesis.helsinki.fi/sv/",
+//            name: "Digitala avhandlingar vid Helsingfors universitet",
+//            // no_label: true,
+//        },
+//    }
+//};
 
 var fstc_info = {
     urn: "urn:nbn:fi:lb-2016112318",
@@ -149,214 +149,214 @@ var fstc_info = {
     cite_id: "fstc-korp",
 };
 
-settings.corporafolders.literary.fstc_literary = {
-    title: "Finlandssvensk textkorpus (UHLCS) (FISC/FSTC): litteratur",
-    description: "Finlandssvensk textcorpus (UHLCS): litteratur: delkorpusar som var i Lemmie-servicen, morfosyntaktiskt analyserade med SWECG<br/><br/><strong>Observera</strong> att delkorpusar av FSTC finns också under <i>Tidnings-, tidskrifts- och nyhetskorpusar</i> och <i>Andra korpusar</i>.",
-    info: fstc_info,
-};
-
-settings.corporafolders.news.klk_sv = {
-    title: "Nationalbibliotekets svenskspråkiga tidningar och tidskrifter",
-    description: "Svenskspråkiga tidningar och tidskrifter i Nationalbibliotekets digitala samlingar, Kielipankki-version",
-    info: {
-        urn: "urn:nbn:fi:lb-2014091901",
-        metadata_urn: "urn:nbn:fi:lb-2016050301",
-        licence: settings.licenceinfo.CC_BY,
-        cite_id: "KLK-sv",
-    }
-};
-
-settings.corporafolders.news.ylenews_sv = {
-    title: "Yle svenska webbartiklar",
-    description: "Yle svenska webbartiklar<br/><br/>Mappen innehåller två korpusar med samma meningar men med olika tillgänglighet och egenskaper: den ena korpusen är öppen för alla och har meningarna i en blandad ordning inom varje text och utan utökad kontextvisning, medan den andra korpusen är tillgänglig för forskare och har meningarna i den ursprungliga ordningen och stöd för utökad kontextvisning.",
-    info: {
-        homepage: {
-            name: "Svenska Yle",
-            url: "https://svenska.yle.fi",
-            no_label: true,
-        },
-    },
-};
-
-settings.corporafolders.news.ylenews_sv.a = {
-    title: "Yle svenska webbartiklar 2012–2018 (för forskare)",
-    description: "Yle svenska webbartiklar 2012–2018, Korp<br/>Variant tillgänglig för forskare: meningarna i den ursprungliga ordningen och stöd för utökad kontextvisning<br/><br/>Korpusen är indelad i delkorpusar enligt år, och artiklarna är ordnade enligt redigeringsdatumet.",
-    // Contents are added later with funcs.addCorpusSettings
-    contents: [],
-    info: {
-        urn: "urn:nbn:fi:lb-2019120405",
-        metadata_urn: "urn:nbn:fi:lb-2019120403",
-        licence: settings.licenceinfo.Ylenews_sv_en,
-        cite_id: "ylenews-sv-2012-2018-korp",
-    },
-};
-
-settings.corporafolders.news.ylenews_sv.s = {
-    title: "Yle svenska webbartiklar 2012–2018 (för alla)",
-    description: "Yle svenska webbartiklar 2012–2018, blandad, Korp<br/>Variant öppen för alla: meningarna i en blandad ordning inom varje text och ingen utökad kontextvisning<br/><br/>Korpusen är indelad i delkorpusar enligt år, och artiklarna är ordnade enligt redigeringsdatumet.",
-    // Contents are added later with funcs.addCorpusSettings
-    contents: [],
-    info: {
-        urn: "urn:nbn:fi:lb-2019120406",
-        metadata_urn: "urn:nbn:fi:lb-2019120404",
-        licence: settings.licenceinfo.CC_BY,
-        cite_id: "ylenews-sv-2012-2018-s-korp",
-    },
-};
-
-settings.corporafolders.news.fstc_news = {
-    title: "Finlandssvensk textkorpus (UHLCS) (FISC/FSTC): tidningar och nyheter",
-    description: "Finlandssvensk textcorpus (UHLCS): tidningar och nyheter: delkorpusar som var i Lemmie-servicen, morfosyntaktiskt analyserade med SWECG<br/><br/><strong>Observera</strong> att delkorpusar av FSTC finns också under <i>Litteraturkorpusar</i> och <i>Andra korpusar</i>.",
-    info: fstc_info,
-};
-
-settings.corporafolders.legal.semfinlex = {
-    title: "Semfinlex",
-    description: "Innehåller ett urval av ursprungliga författningar av Riksdagen (1920–2018), avgöranden av Högsta domstolen (1980–) och avgöranden av Högsta förvaltningsdomstolen (2001–).",
-    contents: [
-        "semfinlex_asd_sv_2018",
-        "semfinlex_kko_sv_2018",
-        "semfinlex_kho_sv_2018",
-    ],
-    info: {
-        licence: settings.licenceinfo.CC_BY,
-        cite_id: "semfinlex",
-    }
-}
-
-settings.corporafolders.other.fstc_other = {
-    title: "Finlandssvensk textkorpus (UHLCS) (FISC/FSTC): myndighetstexter",
-    description: "Finlandssvensk textcorpus (UHLCS): myndighetstexter: delkorpus som var i Lemmie-servicen, morfosyntaktiskt analyserad med SWECG<br/><br/><strong>Observera</strong> att delkorpusar av FSTC finns också under <i>Litteraturkorpusar</i> och <i>Tidnings-, tidskrifts- och nyhetskorpusar</i>.",
-    info: fstc_info,
-};
+//settings.corporafolders.literary.fstc_literary = {
+//    title: "Finlandssvensk textkorpus (UHLCS) (FISC/FSTC): litteratur",
+//    description: "Finlandssvensk textcorpus (UHLCS): litteratur: delkorpusar som var i Lemmie-servicen, morfosyntaktiskt analyserade med SWECG<br/><br/><strong>Observera</strong> att delkorpusar av FSTC finns också under <i>Tidnings-, tidskrifts- och nyhetskorpusar</i> och <i>Andra korpusar</i>.",
+//    info: fstc_info,
+//};
+//
+//settings.corporafolders.news.klk_sv = {
+//    title: "Nationalbibliotekets svenskspråkiga tidningar och tidskrifter",
+//    description: "Svenskspråkiga tidningar och tidskrifter i Nationalbibliotekets digitala samlingar, Kielipankki-version",
+//    info: {
+//        urn: "urn:nbn:fi:lb-2014091901",
+//        metadata_urn: "urn:nbn:fi:lb-2016050301",
+//        licence: settings.licenceinfo.CC_BY,
+//        cite_id: "KLK-sv",
+//    }
+//};
+//
+//settings.corporafolders.news.ylenews_sv = {
+//    title: "Yle svenska webbartiklar",
+//    description: "Yle svenska webbartiklar<br/><br/>Mappen innehåller två korpusar med samma meningar men med olika tillgänglighet och egenskaper: den ena korpusen är öppen för alla och har meningarna i en blandad ordning inom varje text och utan utökad kontextvisning, medan den andra korpusen är tillgänglig för forskare och har meningarna i den ursprungliga ordningen och stöd för utökad kontextvisning.",
+//    info: {
+//        homepage: {
+//            name: "Svenska Yle",
+//            url: "https://svenska.yle.fi",
+//            no_label: true,
+//        },
+//    },
+//};
+//
+//settings.corporafolders.news.ylenews_sv.a = {
+//    title: "Yle svenska webbartiklar 2012–2018 (för forskare)",
+//    description: "Yle svenska webbartiklar 2012–2018, Korp<br/>Variant tillgänglig för forskare: meningarna i den ursprungliga ordningen och stöd för utökad kontextvisning<br/><br/>Korpusen är indelad i delkorpusar enligt år, och artiklarna är ordnade enligt redigeringsdatumet.",
+//    // Contents are added later with funcs.addCorpusSettings
+//    contents: [],
+//    info: {
+//        urn: "urn:nbn:fi:lb-2019120405",
+//        metadata_urn: "urn:nbn:fi:lb-2019120403",
+//        licence: settings.licenceinfo.Ylenews_sv_en,
+//        cite_id: "ylenews-sv-2012-2018-korp",
+//    },
+//};
+//
+//settings.corporafolders.news.ylenews_sv.s = {
+//    title: "Yle svenska webbartiklar 2012–2018 (för alla)",
+//    description: "Yle svenska webbartiklar 2012–2018, blandad, Korp<br/>Variant öppen för alla: meningarna i en blandad ordning inom varje text och ingen utökad kontextvisning<br/><br/>Korpusen är indelad i delkorpusar enligt år, och artiklarna är ordnade enligt redigeringsdatumet.",
+//    // Contents are added later with funcs.addCorpusSettings
+//    contents: [],
+//    info: {
+//        urn: "urn:nbn:fi:lb-2019120406",
+//        metadata_urn: "urn:nbn:fi:lb-2019120404",
+//        licence: settings.licenceinfo.CC_BY,
+//        cite_id: "ylenews-sv-2012-2018-s-korp",
+//    },
+//};
+//
+//settings.corporafolders.news.fstc_news = {
+//    title: "Finlandssvensk textkorpus (UHLCS) (FISC/FSTC): tidningar och nyheter",
+//    description: "Finlandssvensk textcorpus (UHLCS): tidningar och nyheter: delkorpusar som var i Lemmie-servicen, morfosyntaktiskt analyserade med SWECG<br/><br/><strong>Observera</strong> att delkorpusar av FSTC finns också under <i>Litteraturkorpusar</i> och <i>Andra korpusar</i>.",
+//    info: fstc_info,
+//};
+//
+//settings.corporafolders.legal.semfinlex = {
+//    title: "Semfinlex",
+//    description: "Innehåller ett urval av ursprungliga författningar av Riksdagen (1920–2018), avgöranden av Högsta domstolen (1980–) och avgöranden av Högsta förvaltningsdomstolen (2001–).",
+//    contents: [
+//        "semfinlex_asd_sv_2018",
+//        "semfinlex_kko_sv_2018",
+//        "semfinlex_kho_sv_2018",
+//    ],
+//    info: {
+//        licence: settings.licenceinfo.CC_BY,
+//        cite_id: "semfinlex",
+//    }
+//}
+//
+//settings.corporafolders.other.fstc_other = {
+//    title: "Finlandssvensk textkorpus (UHLCS) (FISC/FSTC): myndighetstexter",
+//    description: "Finlandssvensk textcorpus (UHLCS): myndighetstexter: delkorpus som var i Lemmie-servicen, morfosyntaktiskt analyserad med SWECG<br/><br/><strong>Observera</strong> att delkorpusar av FSTC finns också under <i>Litteraturkorpusar</i> och <i>Tidnings-, tidskrifts- och nyhetskorpusar</i>.",
+//    info: fstc_info,
+//};
 
 
 // Generate settings.corpora and settings.corporafolders for the
 // Swedish KLK corpora by using functions defined in config.js
 
-funcs.makeCorpusSettingsByYearDecade(
-    settings.corporafolders.news.klk_sv, "sv_{decade}", "klk_sv_{year}",
-    function(decade) {
-        return { title: decade.toString() + "-talet" };
-    },
-    function(year) {
-        return funcs.makeKlkCorpusSettings(
-            "Nationalbiblioteket svenska {year}",
-            "Nationalbibliotekets svenskspråkiga tidningar och tidskrifter från {year}",
-            "klk_sv",
-            year);
-    },
-    funcs.makeYearlist(
-        1771, 1948,
-        {descending: true,
-         omit: [1779, 1780, 1781, 1786, 1787, 1788, 1790]}
-    )
-);
-
-
-settings.corpora.semfinlex_asd_sv_2018 = {
-    id: "semfinlex_asd_sv_2018",
-    lang: "swe",
-    title: "Ursprungliga författningar",
-    description: "Ett urval av ursprungliga författningar av Riksdagen från 1920̣–2018.",
-    urn: "urn:nbn:fi:lb-2019042604",
-    metadata_urn: "urn:nbn:fi:lb-2019042603",
-    context: context.default,
-    within: within.default,
-    licence: settings.licenceinfo.CC_BY,
-    attributes: attrlist.parsed_sv,
-    structAttributes: {
-        text_url: {
-            label: "URL",
-            type: "url",
-            urlOpts: sattrs.link_url_opts
-        },
-        text_parl_statute_type: {
-            label: "parl_statute_type",
-            extendedComponent: "datasetSelect",
-            opts: options.lite,
-            dataset: [
-                "laki",
-                "asetus",
-                "paatos",
-                "ilmoitus",
-                "tyojarjestys",
-                "kirje",
-                "luettelo",
-                "kuulutus",
-                "kaari",
-                ""
-            ],
-            translation: transl.parlStatuteType,
-        }
-    }
-}
-
-settings.corpora.semfinlex_kko_sv_2018 = {
-    id: "semfinlex_kko_sv_2018",
-    lang: "swe",
-    title: "Avgöranden av KKO",
-    description: "Ett urval av avgöranden av Högsta domstolen (KKO) från 1980̣–2018.",
-    urn: "urn:nbn:fi:lb-2019042610",
-    metadata_urn: "urn:nbn:fi:lb-2019042609",
-    context: context.default,
-    within: within.default,
-    licence: settings.licenceinfo.CC_BY,
-    attributes: attrlist.parsed_sv,
-    structAttributes: {
-        text_url: {
-            label: "URL",
-            type: "url",
-            urlOpts: sattrs.link_url_opts
-        },
-        text_keywords: {label: "keywords"}
-    }
-}
-
-settings.corpora.semfinlex_kho_sv_2018 = {
-    id: "semfinlex_kho_sv_2018",
-    lang: "swe",
-    title: "Avgöranden av KHO",
-    description: "Ett urval av avgöranden av Högsta förvaltningsdomstolen (KHO) från 2001–2018.",
-    urn: "urn:nbn:fi:lb-2019042610",
-    metadata_urn: "urn:nbn:fi:lb-2019042609",
-    context: context.default,
-    within: within.default,
-    licence: settings.licenceinfo.CC_BY,
-    attributes: attrlist.parsed_sv,
-    structAttributes: {
-        text_url: {
-            label: "URL",
-            type: "url",
-            urlOpts: sattrs.link_url_opts
-        },
-        text_keywords: {label: "keywords"}
-    }
-}
-
-
-/*ETHESIS*/
-
-settings.templ.ethesis_sv = {
-    title: "E-thesis: {}",
-    description: "Helsingfors universitets svenska E-thesis, Korp-version: {}",
-    id: "ethesis_sv_{}",
-    within: within.default,
-    context: context.default,
-    attributes: {},
-    structAttributes: sattrlist.ethesis,
-};
-
-funcs.addCorpusSettings(
-    settings.templ.ethesis_sv,
-    [
-        ["ma", "Masteruppsatser", "Masteruppsatser (1997–2016)"],
-        ["maabs", "Masteruppsatser (abstrakt)",
-         "Masteruppsatser (abstrakt) (1999–2016)"],
-        ["dissabs", "Doktorsavhandlingar (abstrakt)",
-         "Doktorsavhandlingar (abstrakt) (2006–2016)"],
-        ["phd", "Doktorsavhandlingar", "Doktorsavhandlingar (2000–2016)"],
-    ]);
+//funcs.makeCorpusSettingsByYearDecade(
+//    settings.corporafolders.news.klk_sv, "sv_{decade}", "klk_sv_{year}",
+//    function(decade) {
+//        return { title: decade.toString() + "-talet" };
+//    },
+//    function(year) {
+//        return funcs.makeKlkCorpusSettings(
+//            "Nationalbiblioteket svenska {year}",
+//            "Nationalbibliotekets svenskspråkiga tidningar och tidskrifter från {year}",
+//            "klk_sv",
+//            year);
+//    },
+//    funcs.makeYearlist(
+//        1771, 1948,
+//        {descending: true,
+//         omit: [1779, 1780, 1781, 1786, 1787, 1788, 1790]}
+//    )
+//);
+//
+//
+//settings.corpora.semfinlex_asd_sv_2018 = {
+//    id: "semfinlex_asd_sv_2018",
+//    lang: "swe",
+//    title: "Ursprungliga författningar",
+//    description: "Ett urval av ursprungliga författningar av Riksdagen från 1920̣–2018.",
+//    urn: "urn:nbn:fi:lb-2019042604",
+//    metadata_urn: "urn:nbn:fi:lb-2019042603",
+//    context: context.default,
+//    within: within.default,
+//    licence: settings.licenceinfo.CC_BY,
+//    attributes: attrlist.parsed_sv,
+//    structAttributes: {
+//        text_url: {
+//            label: "URL",
+//            type: "url",
+//            urlOpts: sattrs.link_url_opts
+//        },
+//        text_parl_statute_type: {
+//            label: "parl_statute_type",
+//            extendedComponent: "datasetSelect",
+//            opts: options.lite,
+//            dataset: [
+//                "laki",
+//                "asetus",
+//                "paatos",
+//                "ilmoitus",
+//                "tyojarjestys",
+//                "kirje",
+//                "luettelo",
+//                "kuulutus",
+//                "kaari",
+//                ""
+//            ],
+//            translation: transl.parlStatuteType,
+//        }
+//    }
+//}
+//
+//settings.corpora.semfinlex_kko_sv_2018 = {
+//    id: "semfinlex_kko_sv_2018",
+//    lang: "swe",
+//    title: "Avgöranden av KKO",
+//    description: "Ett urval av avgöranden av Högsta domstolen (KKO) från 1980̣–2018.",
+//    urn: "urn:nbn:fi:lb-2019042610",
+//    metadata_urn: "urn:nbn:fi:lb-2019042609",
+//    context: context.default,
+//    within: within.default,
+//    licence: settings.licenceinfo.CC_BY,
+//    attributes: attrlist.parsed_sv,
+//    structAttributes: {
+//        text_url: {
+//            label: "URL",
+//            type: "url",
+//            urlOpts: sattrs.link_url_opts
+//        },
+//        text_keywords: {label: "keywords"}
+//    }
+//}
+//
+//settings.corpora.semfinlex_kho_sv_2018 = {
+//    id: "semfinlex_kho_sv_2018",
+//    lang: "swe",
+//    title: "Avgöranden av KHO",
+//    description: "Ett urval av avgöranden av Högsta förvaltningsdomstolen (KHO) från 2001–2018.",
+//    urn: "urn:nbn:fi:lb-2019042610",
+//    metadata_urn: "urn:nbn:fi:lb-2019042609",
+//    context: context.default,
+//    within: within.default,
+//    licence: settings.licenceinfo.CC_BY,
+//    attributes: attrlist.parsed_sv,
+//    structAttributes: {
+//        text_url: {
+//            label: "URL",
+//            type: "url",
+//            urlOpts: sattrs.link_url_opts
+//        },
+//        text_keywords: {label: "keywords"}
+//    }
+//}
+//
+//
+///*ETHESIS*/
+//
+//settings.templ.ethesis_sv = {
+//    title: "E-thesis: {}",
+//    description: "Helsingfors universitets svenska E-thesis, Korp-version: {}",
+//    id: "ethesis_sv_{}",
+//    within: within.default,
+//    context: context.default,
+//    attributes: {},
+//    structAttributes: sattrlist.ethesis,
+//};
+//
+//funcs.addCorpusSettings(
+//    settings.templ.ethesis_sv,
+//    [
+//        ["ma", "Masteruppsatser", "Masteruppsatser (1997–2016)"],
+//        ["maabs", "Masteruppsatser (abstrakt)",
+//         "Masteruppsatser (abstrakt) (1999–2016)"],
+//        ["dissabs", "Doktorsavhandlingar (abstrakt)",
+//         "Doktorsavhandlingar (abstrakt) (2006–2016)"],
+//        ["phd", "Doktorsavhandlingar", "Doktorsavhandlingar (2000–2016)"],
+//    ]);
 
 
 /* STUDENTSVENSKA */
