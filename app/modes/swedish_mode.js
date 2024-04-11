@@ -336,17 +336,17 @@ funcs.makeCorpusSettingsByYearDecade(
 //
 //
 ///*ETHESIS*/
-//
-//settings.templ.ethesis_sv = {
-//    title: "E-thesis: {}",
-//    description: "Helsingfors universitets svenska E-thesis, Korp-version: {}",
-//    id: "ethesis_sv_{}",
-//    within: within.default,
-//    context: context.default,
-//    attributes: {},
-//    structAttributes: sattrlist.ethesis,
-//};
-//
+
+settings.templ.ethesis_sv = {
+    title: "E-thesis: {}",
+    description: "Helsingfors universitets svenska E-thesis, Korp-version: {}",
+    id: "ethesis_sv_{}",
+    within: within.default,
+    context: context.default,
+    attributes: {},
+    structAttributes: sattrlist.ethesis,
+};
+
 funcs.addCorpusSettings(
     settings.templ.ethesis_sv,
     [
