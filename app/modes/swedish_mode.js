@@ -234,26 +234,26 @@ var fstc_info = {
 // Generate settings.corpora and settings.corporafolders for the
 // Swedish KLK corpora by using functions defined in config.js
 
-//funcs.makeCorpusSettingsByYearDecade(
-//    settings.corporafolders.news.klk_sv, "sv_{decade}", "klk_sv_{year}",
-//    function(decade) {
-//        return { title: decade.toString() + "-talet" };
-//    },
-//    function(year) {
-//        return funcs.makeKlkCorpusSettings(
-//            "Nationalbiblioteket svenska {year}",
-//            "Nationalbibliotekets svenskspråkiga tidningar och tidskrifter från {year}",
-//            "klk_sv",
-//            year);
-//    },
-//    funcs.makeYearlist(
-//        1771, 1948,
-//        {descending: true,
-//         omit: [1779, 1780, 1781, 1786, 1787, 1788, 1790]}
-//    )
-//);
-//
-//
+funcs.makeCorpusSettingsByYearDecade(
+    settings.corporafolders.news.klk_sv, "sv_{decade}", "klk_sv_{year}",
+    function(decade) {
+        return { title: decade.toString() + "-talet" };
+    },
+    function(year) {
+        return funcs.makeKlkCorpusSettings(
+            "Nationalbiblioteket svenska {year}",
+            "Nationalbibliotekets svenskspråkiga tidningar och tidskrifter från {year}",
+            "klk_sv",
+            year);
+    },
+    funcs.makeYearlist(
+        1771, 1948,
+        {descending: true,
+         omit: [1779, 1780, 1781, 1786, 1787, 1788, 1790]}
+    )
+);
+
+
 //settings.corpora.semfinlex_asd_sv_2018 = {
 //    id: "semfinlex_asd_sv_2018",
 //    lang: "swe",
@@ -347,16 +347,16 @@ var fstc_info = {
 //    structAttributes: sattrlist.ethesis,
 //};
 //
-//funcs.addCorpusSettings(
-//    settings.templ.ethesis_sv,
-//    [
-//        ["ma", "Masteruppsatser", "Masteruppsatser (1997–2016)"],
-//        ["maabs", "Masteruppsatser (abstrakt)",
-//         "Masteruppsatser (abstrakt) (1999–2016)"],
-//        ["dissabs", "Doktorsavhandlingar (abstrakt)",
-//         "Doktorsavhandlingar (abstrakt) (2006–2016)"],
-//        ["phd", "Doktorsavhandlingar", "Doktorsavhandlingar (2000–2016)"],
-//    ]);
+funcs.addCorpusSettings(
+    settings.templ.ethesis_sv,
+    [
+        ["ma", "Masteruppsatser", "Masteruppsatser (1997–2016)"],
+        ["maabs", "Masteruppsatser (abstrakt)",
+         "Masteruppsatser (abstrakt) (1999–2016)"],
+        ["dissabs", "Doktorsavhandlingar (abstrakt)",
+         "Doktorsavhandlingar (abstrakt) (2006–2016)"],
+        ["phd", "Doktorsavhandlingar", "Doktorsavhandlingar (2000–2016)"],
+    ]);
 
 
 /* STUDENTSVENSKA */
