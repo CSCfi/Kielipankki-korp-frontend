@@ -5362,24 +5362,26 @@ sattrlist.ud2_uralic_fi = {
     sentence_newpar_id : { label: "uralic_ud_sentence_newpar_id" }
 };
 
-settings.corporafolders.uralic.uralic_ud_v210 = {
-    title: "Uralic UD v2.10",
-    description: "The corpus contains Universal Dependencies version 2.10 for the following Uralic languages: Erzya, Estonian, Finnish, Hungarian, Karelian, Komi-Permyak, Komi-Zyrian, Livvi, Moksha, North Sami and Skolt Sami.",
+settings.corporafolders.uralic.uralic_ud_v213 = {
+    title: "Uralic UD v2.13",
+    description: "The corpus contains Universal Dependencies version 2.13 for the following Uralic languages: Erzya, Estonian, Finnish, Hungarian, Karelian, Komi-Permyak, Komi-Zyrian, Livvi, Moksha, North Sami, Skolt Sami and Veps.",
     info: {
-       metadata_urn: "urn:nbn:fi:lb-2022061001",
-       cite_id: "uralic-ud-v2-10",
+       metadata_urn: "urn:nbn:fi:lb-2024031207",
+	cite_id: "uralic-ud-v2-13",
+	status: "beta",
     },
-    contents: [ "uralic_ud_v210_et",
-		"uralic_ud_v210_fi",
-		"uralic_ud_v210_hu",
-		"uralic_ud_v210_krl",
-		"uralic_ud_v210_koi",
-		"uralic_ud_v210_kpv",
-		"uralic_ud_v210_mdf",
-		"uralic_ud_v210_myv",
-		"uralic_ud_v210_olo",
-		"uralic_ud_v210_sme",
-		"uralic_ud_v210_sms" ]
+    contents: [ "uralic_ud_v213_et",
+		"uralic_ud_v213_fi",
+		"uralic_ud_v213_hu",
+		"uralic_ud_v213_krl",
+		"uralic_ud_v213_koi",
+		"uralic_ud_v213_kpv",
+		"uralic_ud_v213_mdf",
+		"uralic_ud_v213_myv",
+		"uralic_ud_v213_olo",
+		"uralic_ud_v213_sme",
+		"uralic_ud_v213_sms",
+		"uralic_ud_v213_vep" ]
 };
 
 function create_ud2_sattrlist(sentence_attribute_names) {
@@ -5410,9 +5412,9 @@ settings.licenceinfo.CC_BY_NC_SA_40 = {
     url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
 };
 
-settings.corpora.uralic_ud_v210_et = {
-    id: "uralic_ud_v210_et",
-    title: "Uralic UD v2.10 for Estonian",
+settings.corpora.uralic_ud_v213_et = {
+    id: "uralic_ud_v213_et",
+    title: "Uralic UD v2.13 for Estonian",
     description: "Universal Dependencies version 2.10 for Estonian",
     lang: "et",
     within: within.sp,
@@ -5420,12 +5422,12 @@ settings.corpora.uralic_ud_v210_et = {
     attributes: attrlist.ud2_uralic,
     structAttributes: create_ud2_sattrlist(["newdoc_id"]),
     licence: settings.licenceinfo.CC_BY_NC_SA_40,
-    metadata_urn: "urn:nbn:fi:lb-2022061001",
+    metadata_urn: "urn:nbn:fi:lb-2024031207",
 };
 
-settings.corpora.uralic_ud_v210_fi = {
-    id: "uralic_ud_v210_fi",
-    title: "Uralic UD v2.10 for Finnish",
+settings.corpora.uralic_ud_v213_fi = {
+    id: "uralic_ud_v213_fi",
+    title: "Uralic UD v2.13 for Finnish",
     description: "Universal Dependencies version 2.10 for Finnish<br/>(Note: the treebanks OOD, PUD and TDT are licensed as CC BY-SA 4.0, but FTB is licensed as CC BY 4.0)",
     lang: "fi",
     within: within.sp,
@@ -5433,12 +5435,12 @@ settings.corpora.uralic_ud_v210_fi = {
     attributes: attrlist.ud2_uralic,
     structAttributes: sattrlist.ud2_uralic_fi,
     licence: settings.licenceinfo.CC_BY_SA_40,
-    metadata_urn: "urn:nbn:fi:lb-2022061001",
+    metadata_urn: "urn:nbn:fi:lb-2024031207",
 };
 
-settings.corpora.uralic_ud_v210_hu = {
-    id: "uralic_ud_v210_hu",
-    title: "Uralic UD v2.10 for Hungarian",
+settings.corpora.uralic_ud_v213_hu = {
+    id: "uralic_ud_v213_hu",
+    title: "Uralic UD v2.13 for Hungarian",
     description: "Universal Dependencies version 2.10 for Hungarian",
     lang: "hu",
     within: within.sp,
@@ -5446,12 +5448,12 @@ settings.corpora.uralic_ud_v210_hu = {
     attributes: attrlist.ud2_uralic,
     structAttributes: create_ud2_sattrlist([]),
     licence: settings.licenceinfo.CC_BY_NC_SA_30,
-    metadata_urn: "urn:nbn:fi:lb-2022061001",
+    metadata_urn: "urn:nbn:fi:lb-2024031207",
 };
 
-settings.corpora.uralic_ud_v210_krl = {
-    id: "uralic_ud_v210_krl",
-    title: "Uralic UD v2.10 for Dvina-Karelian",
+settings.corpora.uralic_ud_v213_krl = {
+    id: "uralic_ud_v213_krl",
+    title: "Uralic UD v2.13 for Dvina-Karelian",
     description: "Universal Dependencies version 2.10 for Dvina-Karelian",
     lang: "krl",
     within: within.sp,
@@ -5459,12 +5461,12 @@ settings.corpora.uralic_ud_v210_krl = {
     attributes: attrlist.ud2_uralic,
     structAttributes: create_ud2_sattrlist(["comment"]),
     licence: settings.licenceinfo.CC_BY_SA_40,
-    metadata_urn: "urn:nbn:fi:lb-2022061001",
+    metadata_urn: "urn:nbn:fi:lb-2024031207",
 };
 
-settings.corpora.uralic_ud_v210_koi = {
-    id: "uralic_ud_v210_koi",
-    title: "Uralic UD v2.10 for Komi-Permyak",
+settings.corpora.uralic_ud_v213_koi = {
+    id: "uralic_ud_v213_koi",
+    title: "Uralic UD v2.13 for Komi-Permyak",
     description: "Universal Dependencies version 2.10 for Komi-Permyak",
     lang: "koi",
     within: within.sp,
@@ -5472,12 +5474,12 @@ settings.corpora.uralic_ud_v210_koi = {
     attributes: attrlist.ud2_uralic,
     structAttributes: create_ud2_sattrlist(["text_sms", "text_mdf", "text_fi", "text_olo", "text_kpv", "text_ru", "text_orig", "source", "gloss_ru"]),
     licence: settings.licenceinfo.CC_BY_SA_40,
-    metadata_urn: "urn:nbn:fi:lb-2022061001",
+    metadata_urn: "urn:nbn:fi:lb-2024031207",
 };
 
-settings.corpora.uralic_ud_v210_kpv = {
-    id: "uralic_ud_v210_kpv",
-    title: "Uralic UD v2.10 for Komi-Zyrian",
+settings.corpora.uralic_ud_v213_kpv = {
+    id: "uralic_ud_v213_kpv",
+    title: "Uralic UD v2.13 for Komi-Zyrian",
     description: "Universal Dependencies version 2.10 for Komi-Zyrian",
     lang: "kpv",
     within: within.sp,
@@ -5485,12 +5487,12 @@ settings.corpora.uralic_ud_v210_kpv = {
     attributes: attrlist.ud2_uralic,
     structAttributes: create_ud2_sattrlist(["text_ru", "text_en", "comment", "text_koi", "text_orig", "corpus_version", "text_end", "questions", "label"]),
     licence: settings.licenceinfo.CC_BY_SA_40,
-    metadata_urn: "urn:nbn:fi:lb-2022061001",
+    metadata_urn: "urn:nbn:fi:lb-2024031207",
 };
 
-settings.corpora.uralic_ud_v210_mdf = {
-    id: "uralic_ud_v210_mdf",
-    title: "Uralic UD v2.10 for Moksha",
+settings.corpora.uralic_ud_v213_mdf = {
+    id: "uralic_ud_v213_mdf",
+    title: "Uralic UD v2.13 for Moksha",
     description: "Universal Dependencies version 2.10 for Moksha",
     lang: "mdf",
     within: within.sp,
@@ -5498,12 +5500,12 @@ settings.corpora.uralic_ud_v210_mdf = {
     attributes: attrlist.ud2_uralic,
     structAttributes: create_ud2_sattrlist(["text_en", "source", "text_orig", "gloss_en", "text_sms", "text_kpv", "text_fi"]),
     licence: settings.licenceinfo.CC_BY_SA_40,
-    metadata_urn: "urn:nbn:fi:lb-2022061001",
+    metadata_urn: "urn:nbn:fi:lb-2024031207",
 };
 
-settings.corpora.uralic_ud_v210_myv = {
-    id: "uralic_ud_v210_myv",
-    title: "Uralic UD v2.10 for Erzya",
+settings.corpora.uralic_ud_v213_myv = {
+    id: "uralic_ud_v213_myv",
+    title: "Uralic UD v2.13 for Erzya",
     description: "Universal Dependencies version 2.10 for Erzya",
     lang: "myv",
     within: within.sp,
@@ -5511,12 +5513,12 @@ settings.corpora.uralic_ud_v210_myv = {
     attributes: attrlist.ud2_uralic,
     structAttributes: create_ud2_sattrlist(["text_en", "text_fi", "story_id", "source", "text_ru", "text_orig"]),
     licence: settings.licenceinfo.CC_BY_SA_40,
-    metadata_urn: "urn:nbn:fi:lb-2022061001",
+    metadata_urn: "urn:nbn:fi:lb-2024031207",
 };
 
-settings.corpora.uralic_ud_v210_olo = {
-    id: "uralic_ud_v210_olo",
-    title: "Uralic UD v2.10 for Olonets-Karelian",
+settings.corpora.uralic_ud_v213_olo = {
+    id: "uralic_ud_v213_olo",
+    title: "Uralic UD v2.13 for Olonets-Karelian",
     description: "Universal Dependencies version 2.10 for Olonets-Karelian",
     lang: "olo",
     within: within.sp,
@@ -5524,12 +5526,12 @@ settings.corpora.uralic_ud_v210_olo = {
     attributes: attrlist.ud2_uralic,
     structAttributes: create_ud2_sattrlist(["text_sms", "text_mdf", "text_fi", "text_en"]),
     licence: settings.licenceinfo.CC_BY_SA_40,
-    metadata_urn: "urn:nbn:fi:lb-2022061001",
+    metadata_urn: "urn:nbn:fi:lb-2024031207",
 };
 
-settings.corpora.uralic_ud_v210_sme = {
-    id: "uralic_ud_v210_sme",
-    title: "Uralic UD v2.10 for North Sami",
+settings.corpora.uralic_ud_v213_sme = {
+    id: "uralic_ud_v213_sme",
+    title: "Uralic UD v2.13 for North Sami",
     description: "Universal Dependencies version 2.10 for North Sami",
     lang: "sme",
     within: within.sp,
@@ -5537,12 +5539,12 @@ settings.corpora.uralic_ud_v210_sme = {
     attributes: attrlist.ud2_uralic,
     structAttributes: create_ud2_sattrlist([]),
     licence: settings.licenceinfo.CC_BY_SA_40,
-    metadata_urn: "urn:nbn:fi:lb-2022061001",
+    metadata_urn: "urn:nbn:fi:lb-2024031207",
 };
 
-settings.corpora.uralic_ud_v210_sms = {
-    id: "uralic_ud_v210_sms",
-    title: "Uralic UD v2.10 for Skolt Sami",
+settings.corpora.uralic_ud_v213_sms = {
+    id: "uralic_ud_v213_sms",
+    title: "Uralic UD v2.13 for Skolt Sami",
     description: "Universal Dependencies version 2.10 for Skolt Sami",
     lang: "sms",
     within: within.sp,
@@ -5550,7 +5552,20 @@ settings.corpora.uralic_ud_v210_sms = {
     attributes: attrlist.ud2_uralic,
     structAttributes: create_ud2_sattrlist(["story_id", "text_fi", "text_mdf", "text_olo", "comment"]),
     licence: settings.licenceinfo.CC_BY_SA_40,
-    metadata_urn: "urn:nbn:fi:lb-2022061001",
+    metadata_urn: "urn:nbn:fi:lb-2024031207",
+};
+
+settings.corpora.uralic_ud_v213_vep = {
+    id: "uralic_ud_v213_vep",
+    title: "Uralic UD v2.13 for Veps",
+    description: "Universal Dependencies version 2.13 for Veps",
+    lang: "vep",
+    within: within.sp,
+    context: context.sp,
+    attributes: attrlist.ud2_uralic,
+    structAttributes: create_ud2_sattrlist(["text"]),
+    licence: settings.licenceinfo.CC_BY_SA_40,
+    metadata_urn: "urn:nbn:fi:lb-2024031207",
 };
 
 funcs.addAttrExtraProperties(settings.corpora);
