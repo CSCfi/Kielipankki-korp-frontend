@@ -1,4 +1,11 @@
 
+<!-- Uusi aineisto (beta): Uralic UD v2.13 2024-04-15 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2024031207"
+target="_blank">Uralic UD v2.13, Kielipankin Korp-versio,
+(uralic-ud2.13-korp)</a> on nyt käytettävissä beetatestiversiona Korpissa.
+
+
 <!-- Alkuperäistekstien linkkejä korjattu: ylenews-fi-2011-2021 2024-02-29 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2021020901" target="_blank">
