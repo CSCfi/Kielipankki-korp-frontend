@@ -5961,6 +5961,8 @@ sattrs.day_of_month = {
 sattrs.sentence_lang = {
     label: "sentence_lang_identified",
     translation: transl.lang,
+    extendedComponent: "structServiceSelect",
+    opts: options.lite,
 };
 
 sattrs.sentence_lang_conf = {
