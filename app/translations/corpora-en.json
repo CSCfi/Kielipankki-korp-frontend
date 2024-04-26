@@ -460,7 +460,7 @@
 
     "title_lemmas": "title word lemmas",
 
-    "sentence_polarity": "sentence polarity",
+    "sentence_sentiment_polarity": "sentence sentiment polarity",
 
     "sentence_lang_identified": "sentence language (identified)",
     "sentence_lang_identified_confidence": "sentence language identification confidence",

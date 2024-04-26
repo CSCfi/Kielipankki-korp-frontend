@@ -699,7 +699,7 @@
 
     "title_lemmas": "otsikon sanojen perusmuodot",
 
-    "sentence_polarity": "virkkeen polaarisuus",
+    "sentence_sentiment_polarity": "virkkeen tunnesävyn polaarisuus",
 
     "sentence_lang_identified": "virkkeen kieli (tunnistettu)",
     "sentence_lang_identified_confidence": "virkkeen kielentunnistuksen luotettavuus",

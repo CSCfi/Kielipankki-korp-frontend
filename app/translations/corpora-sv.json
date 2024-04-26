@@ -386,7 +386,7 @@
 
     "facsimile_title": "faksimilupplaga",
 
-    "sentence_polarity": "meningens polaritet",
+    "sentence_sentiment_polarity": "meningens sentimentpolaritet",
 
     "sentence_lang_identified": "satsens språk (identifierad)",
 

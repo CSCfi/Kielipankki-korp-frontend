@@ -16359,7 +16359,9 @@ sattrlist.s24_2001_2017 = {
         translation: transl.paragraphType,
     },
     sentence_id: sattrs.sentence_id_hidden,
-    sentence_polarity: sattrs.sentence_polarity,
+    sentence_sentiment_polarity: sattrs.sentence_sentiment_polarity,
+    // Old (misleading) name for sentence_sentiment_polarity
+    sentence_polarity: sattrs.hidden,
 };
 
 // Custom attributes: links based on the values of other attributes

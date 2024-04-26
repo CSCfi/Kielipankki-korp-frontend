@@ -5996,8 +5996,8 @@ sattrlist.lang_text_paragraph_sentence = {
     sentence_lang_conf: sattrs.sentence_lang_conf,
 };
 
-sattrs.sentence_polarity = {
-    label: "sentence_polarity",
+sattrs.sentence_sentiment_polarity = {
+    label: "sentence_sentiment_polarity",
     extendedComponent: "datasetSelect",
     opts: options.lite,
     dataset: [
