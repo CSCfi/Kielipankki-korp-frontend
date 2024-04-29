@@ -388,7 +388,7 @@
 
     "sentence_sentiment_polarity": "meningens sentimentpolaritet",
 
-    "sentence_lang_identified": "satsens språk (identifierad)",
+    "sentence_lang_identified": "meningens språk (identifierad)",
 
     "ner_tags": "namnklassificering",
     "ner_tag_max": "namnklassificering (maximal)",
