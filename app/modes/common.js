@@ -5960,7 +5960,8 @@ sattrs.day_of_month = {
 
 sattrs.sentence_lang = {
     label: "sentence_lang_identified",
-    translation: transl.lang,
+    // Always show language codes instead of names, so no translation
+    // translation: transl.lang,
     extendedComponent: "structServiceSelect",
     opts: options.lite,
 };
@@ -5973,14 +5974,16 @@ sattrs.paragraph_sum_lang = {
     label: "paragraph_lang_identified_counts",
     type: "set",
     opts: options.fullSet,
-    pattern: '<span data-key="<%= key %>"><%= util.translateAttribute(null, transl.lang, val.split(":")[0]) + ": " + val.split(":")[1] %></span>',
+    // This pattern could be used if we wished to show language names
+    // for codes with translations in transl.lang:
+    // pattern: '<span data-key="<%= key %>"><%= util.translateAttribute(null, transl.lang, val.split(":")[0]) + ": " + val.split(":")[1] %></span>',
 };
 
 sattrs.text_sum_lang = {
     label: "text_lang_identified_counts",
     type: "set",
     opts: options.fullSet,
-    pattern: sattrs.paragraph_sum_lang.pattern,
+    // pattern: sattrs.paragraph_sum_lang.pattern,
 };
 
 sattrlist.lang_text_sentence = {
