@@ -20,6 +20,11 @@
 .reduce-attr-select .reduce-dropdown-menu .reduce-label {
     position: initial;
 }
+
+// Make extended search attribute selection list heading (selected
+// value) as wide as the longest value
+.query_token .arg_type {
+    width: fit-content;
 }
 
 // Full-width text in context view
