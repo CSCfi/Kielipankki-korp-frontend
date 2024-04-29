@@ -2,11 +2,12 @@
 // Generic style modifications for the Korp of the Language Bank of
 // Finland
 
-// Make the statistics attribute selection list wider, to accommodate
-// longer attribute labels
+// Make the statistics attribute selection list heading (showing the
+// selected value) wider, to accommodate longer attribute labels
 // TODO: Try to make this depend on the length of the labels
 .reduce-attr-select {
-    width: 250px;
+    width: 300px;
+}
 
 // Make the statistics attribute selection list as wide as the longest
 // label, without line wrapping
