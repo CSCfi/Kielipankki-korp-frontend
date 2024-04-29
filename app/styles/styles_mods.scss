@@ -7,6 +7,18 @@
 // TODO: Try to make this depend on the length of the labels
 .reduce-attr-select {
     width: 250px;
+
+// Make the statistics attribute selection list as wide as the longest
+// label, without line wrapping
+.reduce-attr-select .reduce-dropdown-menu {
+    width: max-content;
+}
+
+// Override "position: absolute" to make the statistics attribute
+// selection list as wide as the longest label (and not rather narrow)
+.reduce-attr-select .reduce-dropdown-menu .reduce-label {
+    position: initial;
+}
 }
 
 // Full-width text in context view
