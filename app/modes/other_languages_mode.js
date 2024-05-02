@@ -5368,7 +5368,6 @@ settings.corporafolders.uralic.uralic_ud_v213 = {
     info: {
        metadata_urn: "urn:nbn:fi:lb-2024031207",
 	cite_id: "uralic-ud-v2-13",
-	status: "beta",
     },
     contents: [ "uralic_ud_v213_et",
 		"uralic_ud_v213_fi",
