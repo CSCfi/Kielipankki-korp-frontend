@@ -5958,12 +5958,25 @@ sattrs.day_of_month = {
     label: "day"
 };
 
+
+// Return a link to an SIL page describing the ISO 639-3 language code
+// lang, with the possible translation as attribute "title" (tooltip)
+funcs.makeLinkISO639_3 = function (lang) {
+    return ('<a href="https://iso639-3.sil.org/code/'
+            // Direct "xxx" to "und", but show it as "xxx"
+            + (lang == "xxx" ? "und" : lang)
+            + '" target="_blank"'
+            + 'title="' + util.translateAttribute(null, transl.lang, lang)
+            + '">' + lang + '</a>');
+}
+
 sattrs.sentence_lang = {
     label: "sentence_lang_identified",
-    // Always show language codes instead of names, so no translation
+    // Always show language codes instead of names, so no translation here
     // translation: transl.lang,
     extendedComponent: "structServiceSelect",
     opts: options.lite,
+    pattern: '<%= funcs.makeLinkISO639_3(val) %>',
 };
 
 sattrs.sentence_lang_conf = {
@@ -5974,16 +5987,16 @@ sattrs.paragraph_sum_lang = {
     label: "paragraph_lang_identified_counts",
     type: "set",
     opts: options.fullSet,
-    // This pattern could be used if we wished to show language names
-    // for codes with translations in transl.lang:
-    // pattern: '<span data-key="<%= key %>"><%= util.translateAttribute(null, transl.lang, val.split(":")[0]) + ": " + val.split(":")[1] %></span>',
+    // Show language codes with links to SIL ISO 639-3 pages and
+    // possible translations as tooltips
+    pattern: '<span data-key="<%= key %>"><%= funcs.makeLinkISO639_3(val.split(":")[0]) + ": " + val.split(":")[1] %></span>',
 };
 
 sattrs.text_sum_lang = {
     label: "text_lang_identified_counts",
     type: "set",
     opts: options.fullSet,
-    // pattern: sattrs.paragraph_sum_lang.pattern,
+    pattern: sattrs.paragraph_sum_lang.pattern,
 };
 
 sattrlist.lang_text_sentence = {
