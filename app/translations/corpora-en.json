@@ -462,10 +462,10 @@
 
     "sentence_sentiment_polarity": "sentence sentiment polarity",
 
-    "sentence_lang_identified": "sentence language (identified)",
+    "sentence_lang_identified": "sentence language (identified, ISO 639-3)",
     "sentence_lang_identified_confidence": "sentence language identification confidence",
-    "text_lang_identified_counts": "identified languages in text sentences",
-    "paragraph_lang_identified_counts": "identified languages in paragraph sentences",
+    "text_lang_identified_counts": "identified languages in text sentences (ISO 639-3)",
+    "paragraph_lang_identified_counts": "identified languages in paragraph sentences (ISO 639-3)",
 
     "locality": "locality",
     "locality_orig": "locality in original language",

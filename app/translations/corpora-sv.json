@@ -388,10 +388,10 @@
 
     "sentence_sentiment_polarity": "meningens sentimentpolaritet",
 
-    "sentence_lang_identified": "meningens språk (identifierad)",
+    "sentence_lang_identified": "meningens språk (identifierad, ISO 639-3)",
     "sentence_lang_identified_confidence": "meningens språkidentifieringskonfidens",
-    "text_lang_identified_counts": "identifierade språk i textens meningar",
-    "paragraph_lang_identified_counts": "identifierade språk i styckets meningar",
+    "text_lang_identified_counts": "identifierade språk i textens meningar (ISO 639-3)",
+    "paragraph_lang_identified_counts": "identifierade språk i styckets meningar (ISO 639-3)",
 
     "ner_tags": "namnklassificering",
     "ner_tag_max": "namnklassificering (maximal)",

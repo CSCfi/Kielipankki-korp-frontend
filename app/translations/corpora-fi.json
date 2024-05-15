@@ -701,10 +701,10 @@
 
     "sentence_sentiment_polarity": "virkkeen tunnesävyn polaarisuus",
 
-    "sentence_lang_identified": "virkkeen kieli (tunnistettu)",
+    "sentence_lang_identified": "virkkeen kieli (tunnistettu, ISO 639-3)",
     "sentence_lang_identified_confidence": "virkkeen kielentunnistuksen luotettavuus",
-    "text_lang_identified_counts": "tekstin virkkeiden tunnistetut kielet",
-    "paragraph_lang_identified_counts": "kappaleen virkkeiden tunnistetut kielet",
+    "text_lang_identified_counts": "tekstin virkkeiden tunnistetut kielet (ISO 639-3)",
+    "paragraph_lang_identified_counts": "kappaleen virkkeiden tunnistetut kielet (ISO 639-3)",
 
     "publication_type": "julkaisutyyppi",
 
