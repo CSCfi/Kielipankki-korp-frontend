@@ -1,4 +1,20 @@
 
+<!-- Suomi24 2001–2020: Attribute name “sentence polarity” → “sentence sentiment polarity” 2024-07-10 -->
+
+In the <a href="http://urn.fi/urn:nbn:fi:lb-2021101525"
+target="_blank">Suomi24 2001–2020 corpus</a>, the text attribute name
+_sentence polarity_ has been changed to _sentence sentiment polarity_,
+as the established meaning of _sentence polarity_ refers to syntactic
+polarity.
+
+In addition, the internal name of the attribute has been changed from
+`sentence_polarity` to `sentence_sentiment_polarity`. (The internal
+name is used e.g. in the extended search.) Because of this change,
+saved links to such Korp searches do not work correctly in which this
+attribute has been used as a search condition or for compiling
+statistics.
+
+
 <!-- New corpus (beta): Uralic UD v2.13 2024-04-15 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2024031207"

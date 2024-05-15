@@ -1,4 +1,19 @@
 
+<!-- Suomi24 2001–2020: Piirteen nimi ”virkkeen polaarisuus” → ”virkkeen tunnesävyn polaarisuus” 2024-07-10 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2021101525"
+target="_blank">Suomi24 2001–2020 -aineistossa</a> tekstin piirteen
+nimi _virkkeen polaarisuus_ on muutettu muotoon _virkkeen tunnesävyn
+polaarisuus_ (_tunnesävy_ = _sentimentti_), koska _virkkeen polaarisuuden_
+vakiintunut merkitys viittaa syntaktiseen polaarisuuteen.
+
+Lisäksi piirteen sisäinen nimi on muutettu `sentence_polarity` →
+`sentence_sentiment_polarity`. (Sisäistä nimeä käytetään mm.
+edistyneessä haussa.) Tämän muutoksen vuoksi tallennetut linkit
+sellaisiin Korp-hakuihin eivät toimi oikein, joissa tätä piirrettä on
+käytetty hakuehtona tai tilastojen laskennassa.
+
+
 <!-- Uusi aineisto (beta): Uralic UD v2.13 2024-04-15 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2024031207"
