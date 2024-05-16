@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import argparse
@@ -74,7 +74,7 @@ if __name__ == "__main__":
     # Derive final structure from the languages
     out = []
     default = languages[def_lang]
-    for n_key in sorted(default.iterkeys(), reverse=True):
+    for n_key in sorted(default.keys(), reverse=True):
         in_item = default[n_key];
         out_item = {"t": { def_lang : in_item["t"] },
                     "h" : { def_lang : in_item["h"] },
@@ -92,4 +92,4 @@ if __name__ == "__main__":
         json_opts = dict(sort_keys=True, indent=4, separators=(',', ': '))
     else:
         json_opts = dict(separators=(',', ':')) # minified
-    print "%s(%s)" % (args.callback, json.dumps(out, **json_opts),)
+    print("%s(%s)" % (args.callback, json.dumps(out, **json_opts),))

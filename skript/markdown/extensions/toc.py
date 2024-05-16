@@ -88,7 +88,7 @@ class TocTreeprocessor(Treeprocessor):
     
     # Iterator wrapper to get parent and child all at once
     def iterparent(self, root):
-        for parent in root.getiterator():
+        for parent in root.iter():
             for child in parent:
                 yield parent, child
     
@@ -146,7 +146,7 @@ class TocTreeprocessor(Treeprocessor):
         
         # Get a list of id attributes
         used_ids = set()
-        for c in doc.getiterator():
+        for c in doc.iter():
             if "id" in c.attrib:
                 used_ids.add(c.attrib["id"])
 

@@ -198,8 +198,7 @@ class HiliteTreeprocessor(Treeprocessor):
 
     def run(self, root):
         """ Find code blocks and store in htmlStash. """
-        blocks = root.getiterator('pre')
-        for block in blocks:
+        for block in root.iter('pre'):
             children = block.getchildren()
             if len(children) == 1 and children[0].tag == 'code':
                 code = CodeHilite(children[0].text,
