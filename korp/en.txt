@@ -1,5 +1,31 @@
 
-<!-- Suomi24 2001–2020: Attribute name “sentence polarity” → “sentence sentiment polarity” 2024-07-10 -->
+<!-- Changes in the representation of the identified language attribute 2024-07-10b -->
+
+The representation of the text attribute containing the identified
+language of a sentence has been changed. The changes affect the
+Finnish Sub-corpus of the Newspaper and Periodical Corpus of the
+National Library of Finland version 2 and the Suomi24 2018–2020
+corpus. The changes are the following:
+
+- A language is always represented by its three-letter ISO 639-3 code
+  even if the code had a translation in Korp.
+- If a language code has a translation, it is shown as a tooltip in
+  the sidebar of the KWIC result when hovering over the code.
+- A language code in the KWIC sidebar is a link to the page of the
+  language in question on the <a href="https://iso639-3.sil.org/"
+  target="_blank">SIL’s ISO 639-3 site</a>.
+- The extended search has a selection list for language codes.
+- The attribute label includes the language code standard (ISO 639-3).
+
+Except for the selection list in the extended search, these changes
+also apply to the attributes containing the identified languages of a
+text or paragraph.
+
+The internal representation of the attributes are intact, so they can
+be used in the CQP expressions of the advanced search as before.
+
+
+<!-- Suomi24 2001–2020: Attribute name “sentence polarity” → “sentence sentiment polarity” 2024-07-10a -->
 
 In the <a href="http://urn.fi/urn:nbn:fi:lb-2021101525"
 target="_blank">Suomi24 2001–2020 corpus</a>, the text attribute name

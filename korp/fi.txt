@@ -1,5 +1,31 @@
 
-<!-- Suomi24 2001–2020: Piirteen nimi ”virkkeen polaarisuus” → ”virkkeen tunnesävyn polaarisuus” 2024-07-10 -->
+<!-- Muutoksia tunnistetun kielen piirteen esitysmuodossa 2024-07-10b -->
+
+Virkkeen tunnistetun kielen sisältävän tekstin piirteen esitysmuotoa
+on muutettu. Muutokset koskevat Kansalliskirjaston lehtikokoelman
+(KLK) suomenkielisten lehtien versiota 2 sekä Suomi24 2018–2020
+-aineistoa. Muutokset ovat seuraavat:
+
+- Kielestä näkyy aina kolmikirjaiminen ISO 639-3 -kielikoodi, ei
+  kielen nimeä, vaikka sille olisi käännös Korpissa.
+- Jos kielikoodille on käännös, konkordanssin reunapalkissa kielen
+  nimi näkyy työkaluvihjeenä, kun vie kohdistimen kielikoodin
+  kohdalle.
+- Konkordanssin reunapalkissa kielikoodi on linkki kyseisen kielen
+  sivulle <a href="https://iso639-3.sil.org/" target="_blank">SIL:n
+  ISO 639-3 -sivustolla</a>.
+- Laajennetussa haussa virkkeen kielen kielikoodeille on valintalista.
+- Piirteen nimessä näkyy kielikoodistandardi (ISO 639-3).
+
+Laajennetun haun valintalistaa lukuun ottamatta nämä muutokset
+koskevat myös piirteitä, jotka sisältävät tekstin tai kappaleen
+virkkeiden tunnistetut kielet.
+
+Piirteiden sisäiset esitysmuodot ovat ennallaan, joten niitä voi
+käyttää edistyneen haun CQP-lausekkeissa samoin kuin ennen.
+
+
+<!-- Suomi24 2001–2020: Piirteen nimi ”virkkeen polaarisuus” → ”virkkeen tunnesävyn polaarisuus” 2024-07-10a -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2021101525"
 target="_blank">Suomi24 2001–2020 -aineistossa</a> tekstin piirteen
