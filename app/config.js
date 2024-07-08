@@ -271,11 +271,8 @@ settings.downloadFormatParamsPhysical = {
 
 
 // Korp backend URL
-// Always use the backend at the production server: korp.csc.fi unless
-// the frontend is on www.kielipankki.fi
-var korpBackendServer = (isProductionServerKielipankki
-                         ? "https://www.kielipankki.fi"
-                         : "https://korp.csc.fi");
+// Always use the backend on the production server
+var korpBackendServer = "https://www.kielipankki.fi";
 settings.korpBackendURL = korpBackendServer + "/korp/api8";
 // // Alternatively, use the backend on the same site as the frontend
 // settings.korpBackendURL =
