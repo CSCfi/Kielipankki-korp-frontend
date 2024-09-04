@@ -153,12 +153,14 @@ settings.licenceinfo = {
         description: "Creative Commons Attribution-ShareAlike",
         url: "https://creativecommons.org/licenses/by-sa/3.0/",
     },
-    EUPL_11: {
-        name: "EUPL v1.1 (CLARIN PUB)",
-        description: "European Union Public Licence, version 1.1",
-        url: "http://ec.europa.eu/idabc/en/document/7774.html",
-        // An alternative URL:
-        // url: "https://joinup.ec.europa.eu/community/eupl/og_page/european-union-public-licence-eupl-v11",
+    // The following is a function returning licence info with a link
+    // to the PID of a corpus-specific licence page
+    eupl_fin: function (urn) {
+        return {
+            name: "EUPL v. 1.2",
+            description: "Euroopan unionin yleinen lisenssi v. 1.2 (EUPL)",
+            urn: urn,
+        }
     },
     ParFinRus_2016_fi: {
         name: "CLARIN RES +NC +INF +ND 1.0",

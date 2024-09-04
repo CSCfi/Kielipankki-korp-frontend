@@ -234,7 +234,7 @@ settings.corporafolders.literary.skk = {
     info: {
         urn: "urn:nbn:fi:lb-2015022401",
         metadata_urn: "urn:nbn:fi:lb-20140730186",
-        licence: settings.licenceinfo.EUPL_11,
+        licence: settings.licenceinfo.eupl_fin("urn:nbn:fi:lb-2024082002"),
         homepage: funcs.kainoHomepage("klassikot/meta/klassikot"),
         cite_id: "SKK",
     }
@@ -1407,7 +1407,7 @@ settings.corporafolders.other.kotus_ns_presidentti = {
         // to update the URNs, you should also check them.
         urn: "urn:nbn:fi:lb-20151001",
         metadata_urn: "urn:nbn:fi:lb-20140730150",
-        licence: settings.licenceinfo.EUPL_11,
+        licence: settings.licenceinfo.eupl_fin("urn:nbn:fi:lb-2024082104"),
         homepage: funcs.kainoHomepage(
             "teko/meta/presidentti/presidentti"),
         compiler: {
@@ -1462,7 +1462,7 @@ settings.corporafolders.historical.vks = {
     info: {
         urn: "urn:nbn:fi:lb-201407166",
         metadata_urn: "urn:nbn:fi:lb-201407165",
-        licence: settings.licenceinfo.EUPL_11,
+        licence: settings.licenceinfo.eupl_fin("urn:nbn:fi:lb-2024082106"),
         homepage: funcs.kainoHomepage("vks/meta/vks"),
         cite_id: "VKS",
     },
@@ -1569,7 +1569,7 @@ settings.corporafolders.historical.vns = {
     info: {
         urn: "urn:nbn:fi:lb-2016081203",
         metadata_urn: "urn:nbn:fi:lb-20140730147",
-        licence: settings.licenceinfo.EUPL_11,
+        licence: settings.licenceinfo.eupl_fin("urn:nbn:fi:lb-2024082108"),
         homepage: funcs.kainoHomepage("1800/meta/1800"),
         cite_id: "VNSK",
     },
@@ -10585,7 +10585,7 @@ settings.corpora.kotus_lakidir = {
     metadata_urn: "urn:nbn:fi:lb-20140730126",
     // TODO: Check that & is paased correctly to the URL
     cite_id: "Lakeja&direktiiveja",
-    licence: settings.licenceinfo.EUPL_11,
+    licence: settings.licenceinfo.eupl_fin("urn:nbn:fi:lb-2024082102"),
     homepage: funcs.kainoHomepage("teko/meta/saadokset/saadokset"),
     within: within.sp,
     context: context.sp,
@@ -10668,7 +10668,7 @@ settings.corpora.kotus_sp = {
     id: "kotus_sp",
     urn: "urn:nbn:fi:lb-2016081202",
     metadata_urn: "urn:nbn:fi:lb-20140730176",
-    licence: settings.licenceinfo.EUPL_11,
+    licence: settings.licenceinfo.eupl_fin("urn:nbn:fi:lb-2024082004"),
     homepage: funcs.kainoHomepage("sp/meta/sp"),
     cite_id: "Sananparsikokoelma",
     within: within.default,
