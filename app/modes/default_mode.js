@@ -15310,14 +15310,16 @@ settings.corpora.eduskunta = {
     licence: [
         {
             subtype: "text",
-            name: "CLARIN PUB +BY +PRIV 1.0",
-            description: "CLARIN PUB loppukäyttäjän lisenssisopimus +BY +PRIV 1.0",
+            name: "Tekijänoikeusvapaa; +PRIV",
+            // &#x0a; seems to add a line break to the tooltip, but
+            // does that work in all browsers?
+            description: "Tekijänoikeusvapaa aineisto; sisältää henkilötietoja (+PRIV)&#x0a;Copyright-free material; includes personal data (+PRIV)",
             urn: "urn:nbn:fi:lb-2019112821",
         },
         {
             subtype: "audiovideo",
-            name: "CLARIN PUB +BY +PRIV +ND +OTHER 1.0",
-            description: "CLARIN PUB loppukäyttäjän lisenssisopimus +BY +PRIV +ND +OTHER 1.0",
+            name: "CLARIN PUB +BY +PRIV +ND +OTHER 2.1",
+            description: "CLARIN PUB loppukäyttäjän lisenssisopimus +BY +PRIV +ND +OTHER v2.1",
             urn: "urn:nbn:fi:lb-2019112621",
         },
     ],
