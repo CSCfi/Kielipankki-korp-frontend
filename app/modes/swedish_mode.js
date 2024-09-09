@@ -137,7 +137,7 @@ var fstc_info = {
     metadata_urn: "urn:nbn:fi:lb-2016050213",
     lbr_id: "urn:nbn:fi:lb-2016050212",
     licence: {
-        name: "CLARIN RES +PLAN +NC +LOC +ND",
+        name: "CLARIN RES +PLAN +NC +LOC +ND 2.1",
         urn: "urn:nbn:fi:lb-20150304123",
     },
     // KitWiki is no longer available and there is no replacement page yet
@@ -414,8 +414,8 @@ settings.corpora.studentsvenska = {
     urn: "urn:nbn:fi:lb-2016081701",
     metadata_urn: "urn:nbn:fi:lb-20140730119",
     licence: {
-        name: "CLARIN RES +PLAN +NC +PRIV 1.0",
-        description: "CLARIN RES end-user licence +PLAN +NC +PRIV 1.0",
+        name: "CLARIN RES +PLAN +NC +PRIV 2.1",
+        description: "CLARIN RES end-user licence +PLAN +NC +PRIV 2.1",
         urn: "urn:nbn:fi:lb-2016040410",
     },
     cite_id: "Studentsvenska",
@@ -633,7 +633,7 @@ settings.corpora.topling_sv = {
     metadata_urn: "urn:nbn:fi:lb-2016111801",
     lbr_id: "urn:nbn:fi:lb-20140730168",
     licence: {
-        name: "CLARIN RES +NC +DEP 1.0",
+        name: "CLARIN RES +NC +DEP 2.1",
         urn: "urn:nbn:fi:lb-2016112304",
     },
     homepage_url: "https://www.jyu.fi/topling",
@@ -816,7 +816,7 @@ settings.corpora.parole_sv = $.extend(true, {}, settings.templ.fstc, {
     urn: "urn:nbn:fi:lb-2016050208",
     metadata_urn: "urn:nbn:fi:lb-2016050211",
     licence: {
-        name: "CLARIN RES +PLAN +NC +LOC +ND",
+        name: "CLARIN RES +PLAN +NC +LOC +ND 2.1",
         urn: "urn:nbn:fi:lb-2015101602",
     },
     cite_id: "parole-sv",

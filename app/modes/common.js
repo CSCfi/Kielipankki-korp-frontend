@@ -163,11 +163,11 @@ settings.licenceinfo = {
         }
     },
     ParFinRus_2016_fi: {
-        name: "CLARIN RES +NC +INF +ND 1.0",
+        name: "CLARIN RES +NC +INF +ND 2.1",
         urn: "urn:nbn:fi:lb-2017020611",
     },
     ParFinRus_2016_en: {
-        name: "CLARIN RES +NC +INF +ND 1.0",
+        name: "CLARIN RES +NC +INF +ND 2.1",
         urn: "urn:nbn:fi:lb-2017020612",
     },
     // TODO: Check if ACA_NC is needed, as it is not currently used
@@ -176,12 +176,12 @@ settings.licenceinfo = {
     // ACA+NC licence, as the idea probably is that each such corpus
     // should have a licence page of its own.
     ACA_NC: {
-        name: "CLARIN ACA +NC",
-        description: "CLARIN ACA (Academic) End-User License 1.0, Non-commercial",
+        name: "CLARIN ACA +NC 2.1",
+        description: "CLARIN ACA (Academic) End-User License 2.1, Non-commercial",
         // url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/ClarinEulaAca?NC=1",
     },
     Ylenews_sv_en: {
-        name: "CLARIN ACA +NC 1.0",
+        name: "CLARIN ACA +NC 2.1",
         urn: "urn:nbn:fi:lb-2019120401",
     },
     KLK_en: {
@@ -6484,7 +6484,7 @@ settings.corpusinfo.parfin = {
     metadata_urn: "urn:nbn:fi:lb-2014052710",
     lbr_id: "urn:nbn:fi:lb-2014052710",
     licence: {
-        name: "CLARIN RES +NC +PLAN +INF",
+        name: "CLARIN RES +NC +PLAN +INF 2.1",
         urn: "urn:nbn:fi:lb-2015041306",
     },
     homepage_url: "https://mustikka.uta.fi/",
@@ -7036,7 +7036,7 @@ settings.corpusinfo.parrus = {
     metadata_urn: "urn:nbn:fi:lb-20140730173",
     lbr_id: "urn:nbn:fi:lb-2014052710",
     licence: {
-        name: "CLARIN RES +PLAN +NC +INF +ND",
+        name: "CLARIN RES +PLAN +NC +INF +ND 2.1",
         url: "urn:nbn:fi:lb-2016042705",
     },
     homepage_url: "https://mustikka.uta.fi/",

@@ -489,7 +489,7 @@ settings.corpora.ceal_s_fi = {
     urn: "urn:nbn:fi:lb-2020012802",
     metadata_urn: "urn:nbn:fi:lb-2020012801",
     licence: {
-        name: "CLARIN ACA +AFFIL=EDU +NC 1.0",
+        name: "CLARIN ACA +AFFIL=EDU +NC 2.1",
         urn: "urn:nbn:fi:lb-2020012804",
     },
     cite_id: "ceal-par-s-korp",
@@ -511,7 +511,7 @@ settings.corpora.ceal_s_en = {
     urn: "urn:nbn:fi:lb-2020012802",
     metadata_urn: "urn:nbn:fi:lb-2020012801",
     licence: {
-        name: "CLARIN ACA +AFFIL=EDU +NC 1.0",
+        name: "CLARIN ACA +AFFIL=EDU +NC 2.1",
         urn: "urn:nbn:fi:lb-2020012803",
     },
     cite_id: "ceal-par-s-korp",
@@ -535,7 +535,7 @@ settings.corpora.ceal_o_fi = {
     urn: "urn:nbn:fi:lb-2019121808",
     metadata_urn: "urn:nbn:fi:lb-2019121805",
     licence: {
-	name: "CLARIN RES +NC 1.0",
+	name: "CLARIN RES +NC 2.1",
 	urn: "urn:nbn:fi:lb-2019121806",
     },
     cite_id: "ceal-par-korp",
@@ -557,7 +557,7 @@ settings.corpora.ceal_o_en = {
     urn: "urn:nbn:fi:lb-2019121808",
     metadata_urn: "urn:nbn:fi:lb-2019121805",
     licence: {
-	name: "CLARIN RES +NC 1.0",
+	name: "CLARIN RES +NC 2.1",
 	urn: "urn:nbn:fi:lb-2019121806",
     },
     cite_id: "ceal-par-korp",

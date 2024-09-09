@@ -433,7 +433,7 @@ settings.corporafolders.swahili.hcs2 = {
         metadata_urn: "urn:nbn:fi:lb-2016011301",
         lbr_id: "urn:nbn:fi:lb-2014032624",
         licence: {
-            name: "CLARIN ACA +NC 1.0",
+            name: "CLARIN ACA +NC 2.1",
             urn: "urn:nbn:fi:lb-2016112310",
         },
         cite_id: "hcs-a-v2",
@@ -598,8 +598,8 @@ settings.corpora.hc = {
     limitedAccess: true,
     licenceType: "ACA",
     licence: {
-        name: "CLARIN ACA +NC +DEP 1.0",
-        description: "CLARIN ACA (Academic) End-User License 1.0, Non-commercial, No redistribution, Redeposit",
+        name: "CLARIN ACA +NC +DEP 2.1",
+        description: "CLARIN ACA (Academic) End-User License 2.1, Non-commercial, No redistribution, Redeposit",
         urn: "urn:nbn:fi:lb-2019061301",
     },
     cite_id: "HC-TEI-XML",
@@ -2899,7 +2899,7 @@ settings.corpora.topling_en = {
     metadata_urn: "urn:nbn:fi:lb-2016111803",
     lbr_id: "urn:nbn:fi:lb-20140730168",
     licence: {
-        name: "CLARIN RES +NC +DEP 1.0",
+        name: "CLARIN RES +NC +DEP 2.1",
         urn: "urn:nbn:fi:lb-2016112308"
     },
     homepage_url: "https://www.jyu.fi/topling",

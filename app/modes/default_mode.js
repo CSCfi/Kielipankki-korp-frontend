@@ -248,7 +248,7 @@ settings.corporafolders.literary.kaannossuomi = {
         urn: "urn:nbn:fi:lb-2019100803",
         metadata_urn: "urn:nbn:fi:lb-2019100801",
         licence: {
-            name: "CLARIN RES +NC +DEP 1.0",
+            name: "CLARIN RES +NC +DEP 2.1",
             urn: "urn:nbn:fi:lb-2019100805",
         },
         cite_id: "kaannossuomi-korp",
@@ -280,7 +280,7 @@ var ftc_info = {
     metadata_urn: "urn:nbn:fi:lb-2016050207",
     lbr_id: "urn:nbn:fi:lb-201403268",
     licence: {
-        name: "CLARIN RES +PLAN +NC +ND",
+        name: "CLARIN RES +PLAN +NC +ND 2.1",
         urn: "urn:nbn:fi:lb-20150304137",
     },
     // KitWiki is no longer available and there is no replacement page yet
@@ -944,7 +944,7 @@ settings.corporafolders.news.ylenews_fi.a = {
         urn: "urn:nbn:fi:lb-2022032204",
         metadata_urn: "urn:nbn:fi:lb-2022032203",
         licence: {
-            name: "CLARIN ACA +NC 2.0",
+            name: "CLARIN ACA +NC 2.1",
             urn: "urn:nbn:fi:lb-2019121002",
         },
         cite_id: "ylenews-fi-2011-2021-korp",
@@ -996,7 +996,7 @@ settings.corporafolders.news.kal.kal_perus = {
         metadata_urn: "urn:nbn:fi:lb-2018060702",
         cite_id: "kotus-al-unrev-korp",
         licence: {
-            name: "CLARIN ACA +NC +DEP 1.0",
+            name: "CLARIN ACA +NC +DEP 2.1",
             urn: "urn:nbn:fi:lb-2021030304",
         }
     }
@@ -1016,7 +1016,7 @@ settings.corporafolders.news.kal.kal_ydin = {
         metadata_urn: "urn:nbn:fi:lb-2018060701",
         cite_id: "kotus-al-rev-korp",
         licence: {
-            name: "CLARIN ACA +NC +DEP 1.0",
+            name: "CLARIN ACA +NC +DEP 2.1",
             urn: "urn:nbn:fi:lb-2021030302",
         }
     }
@@ -1432,7 +1432,7 @@ settings.corporafolders.learner.las2 = {
         metadata_urn: "urn:nbn:fi:lb-201407167",
         homepage_url: "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/tutkimus/tutkimushankkeet/las2/Sivut/home.aspx",
         licence: {
-            name: "CLARIN RES +PLAN +NC +INF +LOC +ND",
+            name: "CLARIN RES +PLAN +NC +INF +LOC +ND 2.1",
             urn: "urn:nbn:fi:lb-2015041305",
         },
         cite_id: "LAS2",
@@ -9842,7 +9842,7 @@ settings.corpora.hsfi = {
     metadata_urn: "urn:nbn:fi:lb-2014052718",
     licence: {
         urn: "urn:nbn:fi:lb-20150304140",
-        name: "CLARIN ACA +NC +anonymisointi",
+        name: "CLARIN ACA +NC +anonymisointi 2.1",
         description: "Vain ei-kaupalliseen tutkimuskäyttöön. Nimimerkit tulee anonymisoida korpukseen viittaavissa julkaisuissa.",
     },
     cite_id: "HS.fi",
@@ -9893,7 +9893,7 @@ settings.corpora.karjalansuomi = {
     urn: "urn:nbn:fi:lb-2016112501",
     metadata_urn: "urn:nbn:fi:lb-2014092601",
     licence: {
-        name: "CLARIN ACA 1.0",
+        name: "CLARIN ACA 2.1",
         urn: "urn:nbn:fi:lb-2016112302",
     },
     cite_id: "Karjalansuomi",
@@ -12145,7 +12145,7 @@ las2_common_props = {
     metadata_urn: "urn:nbn:fi:lb-201407167",
     homepage_url: "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/tutkimus/tutkimushankkeet/las2/Sivut/home.aspx",
     licence: {
-        name: "CLARIN RES +PLAN +NC +LOC +ND",
+        name: "CLARIN RES +PLAN +NC +LOC +ND 2.1",
         urn: "urn:nbn:fi:lb-20150304111"
     },
     cite_id: "LAS2",
@@ -13099,7 +13099,7 @@ settings.corpora.finstud = {
     urn: "urn:nbn:fi:lb-2016090610",
     metadata_urn: "urn:nbn:fi:lb-20140730158",
     licence: {
-        name: "CLARIN RES +PLAN +NC +PRIV 1.0",
+        name: "CLARIN RES +PLAN +NC +PRIV 2.1",
         urn: "urn:nbn:fi:lb-2016041802",
     },
     cite_id: "FinStud86",
@@ -13123,7 +13123,7 @@ settings.corpora.yoaineet = {
     urn: "urn:nbn:fi:lb-2019032801",
     metadata_urn: "urn:nbn:fi:lb-2017030301",
     licence: {
-        name: "CLARIN RES +NC +PRIV 1.0",
+        name: "CLARIN RES +NC +PRIV 2.1",
         urn: "urn:nbn:fi:lb-2017030601",
     },
     cite_id: "ylioppilasaineet",
@@ -14986,7 +14986,7 @@ settings.corpora.topling_fi = {
     metadata_urn: "urn:nbn:fi:lb-2016111802",
     lbr_id: "urn:nbn:fi:lb-20140730168",
     licence: {
-        name: "CLARIN RES +NC +DEP 1.0",
+        name: "CLARIN RES +NC +DEP 2.1",
         urn: "urn:nbn:fi:lb-2016112305"
     },
     homepage_url: "https://www.jyu.fi/topling",
@@ -15047,7 +15047,7 @@ settings.corpora.ceal_o = {
     urn: "urn:nbn:fi:lb-2018011201",
     metadata_urn: "urn:nbn:fi:lb-2017011302",
     licence: {
-        name: "CLARIN RES +NC 1.0",
+        name: "CLARIN RES +NC 2.1",
         urn: "urn:nbn:fi:lb-2017011306",
     },
     cite_id: "ceal-o",
@@ -15070,7 +15070,7 @@ settings.corpora.ceal_s = {
     urn: "urn:nbn:fi:lb-2018011202",
     metadata_urn: "urn:nbn:fi:lb-2017011303",
     licence: {
-        name: "CLARIN ACA +AFFIL=EDU +NC 1.0",
+        name: "CLARIN ACA +AFFIL=EDU +NC 2.1",
         urn: "urn:nbn:fi:lb-2017011308",
     },
     cite_id: "ceal-s",
@@ -15241,7 +15241,7 @@ settings.corpora.iijoki = {
     limitedAccess: true,
     licenceType: "ACA",
     licence: {
-        name: "CLARIN ACA +NC +DEP 1.0",
+        name: "CLARIN ACA +NC +DEP 2.1",
         urn: "urn:nbn:fi:lb-2019102106"
     },
     within: within.sp,
@@ -15864,7 +15864,7 @@ settings.corpora.dma = {
     homepage_url: "http://www.helsinki.fi/fus/research/ma.html",
     // TODO (plugin corpusinfo_formatter?): Allow an array of values for licence.
     licence: {
-        name: "CC BY 4.0 (teksti) / CLARIN RES +PRIV +ND (PDF-sanaliput)",
+        name: "CC BY 4.0 (teksti) / CLARIN RES +PRIV +ND 2.1 (PDF-sanaliput)",
         // Explicit PUB licence category for the Korp data; otherwise
         // "CLARIN RES" in the name would make it RES
         category: "PUB",
@@ -16485,7 +16485,7 @@ settings.corpora.iclfi = {
     urn: "urn:nbn:fi:lb-20140730163",
     metadata_urn: "urn:nbn:fi:lb-20140730163",
     licence: {
-        name: "CLARIN RES +PLAN +NC +INF +PRIV +DEP",
+        name: "CLARIN RES +PLAN +NC +INF +PRIV +DEP 2.1",
         urn: "urn:nbn:fi:lb-2015050501"
     },
     homepage_url: "http://www.oulu.fi/suomitoisenakielena/node/16078",
@@ -16914,7 +16914,7 @@ settings.corpora.ylenews_fi_2011_2018_selko_a = {
     limitedAccess: true,
     licenceType: "ACA",
     licence: {
-        name: "CLARIN ACA +NC 1.0",
+        name: "CLARIN ACA +NC 2.1",
         urn: "urn:nbn:fi:lb-2019121202",
     },
     features: ["paragraphs"],
