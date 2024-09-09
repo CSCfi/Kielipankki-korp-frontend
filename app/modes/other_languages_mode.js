@@ -398,7 +398,7 @@ settings.corporafolders.uralic.erme_v2 = {
     info: {
       metadata_urn: "urn:nbn:fi:lb-2023021601",
         licence: {
-            name: "CC BY (CLARIN PUB)",
+            name: "CC BY (PUB)",
             urn: "urn:nbn:fi:lb-2022020106",
         }
     },
@@ -4225,7 +4225,7 @@ settings.corpora.erme_v2_myv = {
     title: "ERME version 2: Ersä/Erzya",
     description: "ERME version 2: Ersä/Erzya",
     licence: {
-        name: "CC BY (CLARIN PUB)",
+        name: "CC BY (PUB)",
         urn: "urn:nbn:fi:lb-2022020106",
     },
     within: within.sp,
@@ -4240,7 +4240,7 @@ settings.corpora.erme_v2_mdf = {
     title: "ERME version 2: Mokša/Moksha",
     description: "ERME version 2: Mokša/Moksha",
     licence: {
-        name:"CC BY (CLARIN PUB)",
+        name:"CC BY (PUB)",
         urn: "urn:nbn:fi:lb-2022020106",
     },
     within: within.sp,
@@ -5396,17 +5396,17 @@ function create_ud2_sattrlist(sentence_attribute_names) {
 };
 
 settings.licenceinfo.CC_BY_SA_40 = {
-    name: "CC BY-SA 4.0 (CLARIN PUB)",
+    name: "CC BY-SA 4.0 (PUB)",
     description: "Creative Commons Attribution-ShareAlike",
     url: "https://creativecommons.org/licenses/by-sa/4.0/",
 };
 settings.licenceinfo.CC_BY_NC_SA_30 = {
-    name: "CC BY-NC-SA 3.0 (CLARIN PUB)",
+    name: "CC BY-NC-SA 3.0 (PUB)",
     description: "Creative Commons Attribution-NonCommercial-ShareAlike",
     url: "https://creativecommons.org/licenses/by-nc-sa/3.0/",
 };
 settings.licenceinfo.CC_BY_NC_SA_40 = {
-    name: "CC BY-NC-SA 4.0 (CLARIN PUB)",
+    name: "CC BY-NC-SA 4.0 (PUB)",
     description: "Creative Commons Attribution-NonCommercial-ShareAlike",
     url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
 };

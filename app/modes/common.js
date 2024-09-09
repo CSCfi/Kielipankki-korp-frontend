@@ -102,54 +102,54 @@ settings.corpusFeatures.paragraphs = {
 // Recurring corpus licence information (name + URL)
 settings.licenceinfo = {
     CC0: {
-        name: "CC ZERO (CC0) (CLARIN PUB)",
+        name: "CC ZERO (CC0) (PUB)",
         description: "Public Domain Dedication",
         // URN to the English version (the same for all CC licences)
         // TODO: Allow different URNs based on the UI language
         urn: "urn:nbn:fi:lb-2021120221",
     },
     CC_BY: {
-        name: "CC BY (CLARIN PUB)",
+        name: "CC BY (PUB)",
         description: "Creative Commons Attribution",
         urn: "urn:nbn:fi:lb-2021120223",
     },
     CC_BY_30: {
-        name: "CC BY 3.0 (CLARIN PUB)",
+        name: "CC BY 3.0 (PUB)",
         description: "Creative Commons Attribution 3.0",
         url: "https://creativecommons.org/licenses/by/3.0/",
     },
     CC_BY_40: {
-        name: "CC BY 4.0 (CLARIN PUB)",
+        name: "CC BY 4.0 (PUB)",
         description: "Creative Commons Attribution",
         urn: "urn:nbn:fi:lb-2021120223",
     },
     CC_BY_NC: {
-        name: "CC BY-NC (CLARIN PUB)",
+        name: "CC BY-NC (PUB)",
         description: "Creative Commons Attribution-NonCommercial",
         urn: "urn:nbn:fi:lb-2021120227",
     },
     CC_BY_ND: {
-        name: "CC BY-ND (CLARIN PUB)",
+        name: "CC BY-ND (PUB)",
         description: "Creative Commons Attribution-NoDerivatives",
         urn: "urn:nbn:fi:lb-2021120231",
     },
     CC_BY_ND_40: {
-        name: "CC BY-ND 4.0 (CLARIN PUB)",
+        name: "CC BY-ND 4.0 (PUB)",
         description: "Creative Commons Attribution-NoDerivatives 4.0",
         urn: "urn:nbn:fi:lb-2021120231",
     },
     CC_BY_NC_ND: {
-        name: "CC BY-NC-ND (CLARIN PUB)",
+        name: "CC BY-NC-ND (PUB)",
         description: "Creative Commons Attribution-NonCommercial-NoDerivatives",
         url: "https://creativecommons.org/licenses/by-nc-nd/4.0/",
     },
     CC_BY_NC_ND_40: {
-        name: "CC BY-NC-ND 4.0 (CLARIN PUB)",
+        name: "CC BY-NC-ND 4.0 (PUB)",
         description: "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0",
         url: "https://creativecommons.org/licenses/by-nc-nd/4.0/",
     },
     CC_BY_SA_30: {
-        name: "CC BY-SA 3.0 (CLARIN PUB)",
+        name: "CC BY-SA 3.0 (PUB)",
         description: "Creative Commons Attribution-ShareAlike",
         url: "https://creativecommons.org/licenses/by-sa/3.0/",
     },
@@ -185,7 +185,7 @@ settings.licenceinfo = {
         urn: "urn:nbn:fi:lb-2019120401",
     },
     KLK_en: {
-        name: "CC BY 4.0 (CLARIN PUB)",
+        name: "CC BY 4.0 (PUB)",
         urn: "urn:nbn:fi:lb-2023032704",
     },
 };

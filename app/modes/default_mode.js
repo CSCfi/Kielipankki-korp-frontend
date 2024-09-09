@@ -1032,7 +1032,7 @@ settings.corporafolders.news.stt = {
         urn: "urn:nbn:fi:lb-2018121002",
         metadata_urn: "urn:nbn:fi:lb-2019111201",
     	licence: {
-            name: "CC BY NC (CLARIN PUB)",
+            name: "CC BY NC (PUB)",
             urn: "urn:nbn:fi:lb-2023022703"
     	},
     }

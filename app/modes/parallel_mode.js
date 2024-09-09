@@ -695,7 +695,7 @@ settings.corporafolders.other.uspenskij_4bat = {
     info: {
         metadata_urn: "urn:nbn:fi:lb-2023042426",
 	licence: {
-	    name: "CC-BY (CLARIN PUB)",
+	    name: "CC-BY (PUB)",
 	    urn: "urn:nbn:fi:lb-2023042428",
 	},
     },
