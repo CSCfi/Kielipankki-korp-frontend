@@ -282,24 +282,27 @@ export default {
         // "tokenValue" so that possibly changes to it would be
         // reflected here automatically. The additional features here
         // could be simply parameter values
-        template: '<input class="arg_value arg_value_wordselector"' +
-            ' ng-model="input"' +
-            ' ng-model-options=\'{debounce : {default : 300, blur : 0}, updateOn: "default blur"}\'' +
-            ' ng-change="inputChange()" escaper' +
-            ' placeholder=\'<{{"any" | loc:lang}}>\'>' +
-            '<span ng-click="onIconClick()" class="fa fa-list list-link-icon"' +
-            ' title="{{\'scotscorr_open_wordlist\' | loc:lang}}"></span>' +
-            '<a href="http://www.dsl.ac.uk/" target="_blank"' +
-            ' title="Dictionary of the Scots Language">' +
-            '<span class="fa fa-book book-link-icon"></span></a>' +
-            ' <span class="val_mod" popper' +
-            ' ng-class=\'{sensitive : case == "sensitive", insensitive : case == "insensitive"}\'>' +
-            ' Aa ' +
-            '</span>' +
-            '<ul class="mod_menu popper_menu dropdown-menu">' +
-            '<li><a ng-click="makeSensitive()">{{"case_sensitive" | loc:lang}}</a></li>' +
-            '<li><a ng-click="makeInsensitive()">{{"case_insensitive" | loc:lang}}</a></li>' +
-            '</ul>',
+        template: `
+            <input class="arg_value arg_value_wordselector"
+                ng-model="input"
+                ng-model-options='{debounce : {default : 300, blur : 0}, updateOn: "default blur"}'
+                ng-change="inputChange()" escaper
+                placeholder='<{{"any" | loc:lang}}>'>
+            <span ng-click="onIconClick()" class="fa fa-list list-link-icon"
+                title="{{'scotscorr_open_wordlist' | loc:lang}}"></span>
+            <a href="http://www.dsl.ac.uk/" target="_blank"
+                title="Dictionary of the Scots Language">
+                <span class="fa fa-book book-link-icon"></span>
+            </a>
+            <span class="val_mod" popper
+                ng-class='{sensitive : case == "sensitive", insensitive : case == "insensitive"}'>
+                Aa
+            </span>
+            <ul class="mod_menu popper_menu dropdown-menu">
+            <li><a ng-click="makeSensitive()">{{"case_sensitive" | loc:lang}}</a></li>
+            <li><a ng-click="makeInsensitive()">{{"case_insensitive" | loc:lang}}</a></li>
+            </ul>
+        `,
         controller: ["$scope", "$uibModal", function ($scope, $uibModal) {
             var s = $scope;
             var modal = null;
@@ -365,21 +368,22 @@ export default {
                         s.groups.push(group);
                         groupstack.push(group);
                         var groupref = 'groups[' + groupnum.toString() + ']';
-                        s.group_template += '<li>' +
-                            '<span class="wordselector-group-arrow"></span>' +
-                            '<span class="wordselector-group-heading" ng-click="toggleGroup(' + groupref + ')">' +
-                            '<img ng-src="{{' + groupref + '.shown ? \'' + extendedImg + '\' : \'' + collapsedImg + '\'}}"/> ' +
-                            '<span class="wordselector-group-name">' + group.name + '</span>' +
-                            // Em quad
-                            '&#x2001;</span>' +
-                            '<span class="wordselector-group-extra"> (' +
-                            s.make_counts_template(groupref + '.numselected',
-                                                   groupref + '.numwords',
-                                                   groupref + '.selectedfreq',
-                                                   groupref + '.totalfreq') +
-                            ')</span>' +
-                            '<div ng-if="' + groupref + '.shown">' +
-                            '<ul>';
+                        // &#x2001; below is an em quad
+                        s.group_template += `<li>
+                            <span class="wordselector-group-arrow"></span>
+                            <span class="wordselector-group-heading" ng-click="toggleGroup(${groupref})">
+                            <img ng-src="{{${groupref}.shown ? '${extendedImg}' : '${collapsedImg}'}}"/> 
+                            <span class="wordselector-group-name">${group.name}</span>
+                            &#x2001;</span>
+                            <span class="wordselector-group-extra">(` +
+                                s.make_counts_template(groupref + '.numselected',
+                                                       groupref + '.numwords',
+                                                       groupref + '.selectedfreq',
+                                                       groupref + '.totalfreq') +
+                            `)</span>
+                            <div ng-if="${groupref}.shown">
+                            <ul>
+                        `;
                         make_word_list(data[i][1], groupstack);
                         groupstack.pop();
                         s.group_template += '</ul></div></li>';
@@ -387,13 +391,14 @@ export default {
                         if (! words_seen) {
                             var groupref =
                                 'groups[' + (s.groups.length - 1).toString() + ']';
-                            s.group_template +=
-                            '<li ng-repeat="word in ' + groupref + '.words">' +
-                                '<input type="checkbox" ng-model="word.selected" ng-click="update(e, word.word)">' +
-                                // &#x2000; = en quad
-                                '<span ng-class="\'wordselector-word-\' + (word.selected ? \'\' : \'un\') + \'selected\'">&#x2000;{{word.word}}</span>' +
-                                '&#x2000;(<span class="wordselector-freq" ng-bind-html="pretty_num(word.freq) | trust"></span>)</input>' +
-                                '</li>';
+                            // &#x2000; = en quad
+                            s.group_template += `
+                                <li ng-repeat="word in ${groupref}.words">
+                                    <input type="checkbox" ng-model="word.selected" ng-click="update(e, word.word)">
+                                        <span ng-class="'wordselector-word-' + (word.selected ? '' : 'un') + 'selected'">&#x2000;{{word.word}}</span>
+                                        &#x2000;(<span class="wordselector-freq" ng-bind-html="pretty_num(word.freq) | trust"></span>)</input>
+                                </li>
+                            `;
                             words_seen = true;
                         }
                         s.words.push({word: data[i][0],
@@ -427,35 +432,34 @@ export default {
             s.onIconClick = function () {
                 s.setSelected();
                 modal = $uibModal.open({
-                    template: '<div>' +
-                        '<div class="modal-header">' +
-                        '<h3 class="modal-title">{{\'wordlist\' | loc:lang}} (ScotsCorr)</h3>' +
-                        '<span ng-click="done()" class="close-x">×</span>' +
-                        '</div>' +
-                        '<div class="modal-header">' +
-                        '<div class="modal-value">' +
-                        '<a href="http://www.dsl.ac.uk/" target="_blank"><span class="fa fa-book book-link-icon"></span> Dictionary of the Scots Language</a>' +
-                        '</div>' +
-                        '<div class="modal-value">' +
-                        '<p><span class="modal-value-heading">{{\'selected_words\' | loc:lang}}</span> (' +
-                        s.make_counts_template('selected_words.length',
-                                               'words.length',
-                                               'selected_freq',
-                                               'total_freq') +
-                        '): <span id="wordselector-selected-words"><span ng-bind-html="selected_words_str | trust"></span></span></p>' +
-                        '</div>' +
-                        '<div class="modal-buttons">' +
-                        '<button type="button" class="btn btn-default" ng-click="done()">{{\'button_done\' | loc:lang}}</button>' +
-                        '<button type="button" class="btn btn-default" ng-click="clearSelected()">{{\'button_clear\' | loc:lang}}</button>' +
-                        '<button type="button" class="btn btn-default" ng-click="cancel()">{{\'button_cancel\' | loc:lang}}</button>' +
-                        '</div>' +
-                        '</div>' +
-                        '<div class="modal-body modal-wordselector" style="overflow-y: auto; font-size: 80%">' +
-                        '<ul>' +
-                        s.group_template +
-                        '</ul>' +
-                        '</div>' +
-                        '</div>',
+                    template: `
+                        <div>
+                            <div class="modal-header">
+                                <h3 class="modal-title">{{'wordlist' | loc:lang}} (ScotsCorr)</h3>
+                                <span ng-click="done()" class="close-x">×</span>
+                            </div>
+                            <div class="modal-header">
+                                <div class="modal-value">
+                                    <a href="http://www.dsl.ac.uk/" target="_blank"><span class="fa fa-book book-link-icon"></span> Dictionary of the Scots Language</a>
+                                </div>
+                                <div class="modal-value">
+                                    <p><span class="modal-value-heading">{{'selected_words' | loc:lang}}</span> (` +
+                                    s.make_counts_template('selected_words.length',
+                                                           'words.length',
+                                                           'selected_freq',
+                                                           'total_freq') +
+                                    `): <span id="wordselector-selected-words"><span ng-bind-html="selected_words_str | trust"></span></span></p>
+                                </div>
+                                <div class="modal-buttons">
+                                    <button type="button" class="btn btn-default" ng-click="done()">{{'button_done' | loc:lang}}</button>
+                                    <button type="button" class="btn btn-default" ng-click="clearSelected()">{{'button_clear' | loc:lang}}</button>
+                                    <button type="button" class="btn btn-default" ng-click="cancel()">{{'button_cancel' | loc:lang}}</button>
+                                </div>
+                            </div>
+                            <div class="modal-body modal-wordselector" style="overflow-y: auto; font-size: 80%">
+                                <ul>${s.group_template}</ul>
+                            </div>
+                        </div>`,
                     scope: s
                 });
             };
