@@ -394,7 +394,7 @@ export default {
                             // &#x2000; = en quad
                             s.group_template += `
                                 <li ng-repeat="word in ${groupref}.words">
-                                    <input type="checkbox" ng-model="word.selected" ng-click="update(e, word.word)">
+                                    <input type="checkbox" ng-model="word.selected" ng-change="update(e, word.word)">
                                         <span ng-class="'wordselector-word-' + (word.selected ? '' : 'un') + 'selected'">&#x2000;{{word.word}}</span>
                                         &#x2000;(<span class="wordselector-freq" ng-bind-html="pretty_num(word.freq) | trust"></span>)</input>
                                 </li>
