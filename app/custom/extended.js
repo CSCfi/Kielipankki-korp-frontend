@@ -1,3 +1,8 @@
+
+const collapsedImg = require("../img/collapsed.png")
+const extendedImg = require("../img/extended.png")
+
+
 export default {
     complemgramExtended: {
         template: `<autoc
@@ -363,7 +368,7 @@ export default {
                         s.group_template += '<li>' +
                             '<span class="wordselector-group-arrow"></span>' +
                             '<span class="wordselector-group-heading" ng-click="toggleGroup(' + groupref + ')">' +
-                            '<img ng-src="img/{{' + groupref + '.shown ? \'extended\' : \'collapsed\'}}.png"/> ' +
+                            '<img ng-src="{{' + groupref + '.shown ? \'' + extendedImg + '\' : \'' + collapsedImg + '\'}}"/> ' +
                             '<span class="wordselector-group-name">' + group.name + '</span>' +
                             // Em quad
                             '&#x2001;</span>' +
