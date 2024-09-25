@@ -304,8 +304,8 @@ export default {
             </ul>
         `,
         controller: ["$scope", "$uibModal", function ($scope, $uibModal) {
-            var s = $scope;
-            var modal = null;
+            let s = $scope;
+            let modal = null;
             s.words = [];
             s.groups = [];
             s.group_template = "";
@@ -322,7 +322,7 @@ export default {
             // and their frequencies.
             s.make_counts_template = function (tokens_sel, tokens_all, freq_sel,
                                                freq_all) {
-                var pretty_num = function (val) {
+                const pretty_num = function (val) {
                     return ('<span ng-bind-html="pretty_num(' + val +
                             ') | trust"></span>');
                 }
@@ -350,12 +350,12 @@ export default {
             // To make things simpler in Angular, s.group_template
             // contains all the groups explicitly written out but the
             // words are represented using ng-repeat.
-            var make_word_list = function (data, groupstack) {
+            const make_word_list = function (data, groupstack) {
                 // c.log("scotscorr_word data", data);
-                var words_seen = false;
-                for (var i = 0; i < data.length; i++) {
+                let words_seen = false;
+                for (let i = 0; i < data.length; i++) {
                     if (_.isArray(data[i][1])) {
-                        var group = {
+                        let group = {
                             name: data[i][0],
                             words: [],
                             numwords: 0,
@@ -364,10 +364,10 @@ export default {
                             selectedfreq: 0,
                             shown: false
                         };
-                        var groupnum = s.groups.length;
+                        const groupnum = s.groups.length;
                         s.groups.push(group);
                         groupstack.push(group);
-                        var groupref = 'groups[' + groupnum.toString() + ']';
+                        const groupref = 'groups[' + groupnum.toString() + ']';
                         // &#x2001; below is an em quad
                         s.group_template += `<li>
                             <span class="wordselector-group-arrow"></span>
@@ -389,7 +389,7 @@ export default {
                         s.group_template += '</ul></div></li>';
                     } else {
                         if (! words_seen) {
-                            var groupref =
+                            const groupref =
                                 'groups[' + (s.groups.length - 1).toString() + ']';
                             // &#x2000; = en quad
                             s.group_template += `
@@ -412,11 +412,11 @@ export default {
                 "corpus_info/scotscorr-words.json",
                 function (data) {
                     make_word_list(data, []);
-                    for (var i = 0; i < s.words.length; i++) {
-                        var word = s.words[i];
+                    for (let i = 0; i < s.words.length; i++) {
+                        let word = s.words[i];
                         s.total_freq += word.freq;
-                        for (var j = 0; j < word.groups.length; j++) {
-                            var group = word.groups[j];
+                        for (let j = 0; j < word.groups.length; j++) {
+                            let group = word.groups[j];
                             group.words.push(word);
                             group.numwords += 1;
                             group.totalfreq += word.freq;
@@ -467,8 +467,8 @@ export default {
             // input value
             s.setSelected = function () {
                 s.input_prev = s.input;
-                var op = s.$parent.orObj.op;
-                var select_fn = null;
+                const op = s.$parent.orObj.op;
+                let select_fn = null;
                 if (s.input == "" || op == "!=" || op == "!*=") {
                     // Nothing selected for the empty word nor the negated
                     // operations
@@ -483,7 +483,7 @@ export default {
                     // word matches the condition. This assumes that the
                     // CQP regular expressions are are compatible with
                     // JavaScript RegExps, as they (mostly) are.
-                    var word_re = "";
+                    let word_re = "";
                     if (op == "*=") {
                         // Regular expression
                         word_re = "^(" + s.input + ")$";
@@ -502,7 +502,7 @@ export default {
                     select_fn = function (word) { return word_re.test(word); };
                 }
                 // c.log("scotscorr_word setSelected", s.selected_words);
-                for (var i = 0; i < s.words.length; i++) {
+                for (let i = 0; i < s.words.length; i++) {
                     s.words[i].selected = select_fn(s.words[i].word);
                     // if (s.words[i].selected) {c.log("selected:", s.words[i].word);}
                 }
@@ -518,7 +518,7 @@ export default {
             };
             // Set the case-insensitive flag
             s.makeInsensitive = function () {
-                var flags = s.orObj.flags || {};
+                let flags = s.orObj.flags || {};
                 flags["c"] = true;
                 s.orObj.flags = flags;
                 s["case"] = "insensitive";
@@ -533,9 +533,9 @@ export default {
                 // how could we retain the order of the words, that is,
                 // how could an added word be added at the right position
                 // in the list?
-                var selected_words = _.filter(s.words, "selected");
+                const selected_words = _.filter(s.words, "selected");
                 s.selected_words = _.map(selected_words, "word");
-                for (var j = 0; j < s.groups.length; j++) {
+                for (let j = 0; j < s.groups.length; j++) {
                     s.groups[j].numselected = s.groups[j].selectedfreq = 0;
                 }
                 // Join with an en quad
@@ -550,11 +550,11 @@ export default {
                           })
                     .join("\u2000");
                 s.selected_freq = 0;
-                for (var i = 0; i < selected_words.length; i++) {
-                    var selword = selected_words[i];
+                for (let i = 0; i < selected_words.length; i++) {
+                    let selword = selected_words[i];
                     s.selected_freq += selword.freq;
-                    for (var j = 0; j < selword.groups.length; j++) {
-                        var group = selword.groups[j];
+                    for (let j = 0; j < selword.groups.length; j++) {
+                        let group = selword.groups[j];
                         group.numselected += 1;
                         group.selectedfreq += selword.freq;
                     }
@@ -593,13 +593,13 @@ export default {
             };
             // Clear the selected words
             s.clearSelected = function (event) {
-                for (var i = 0; i < s.words.length; i++) {
+                for (let i = 0; i < s.words.length; i++) {
                     s.words[i].selected = false;
                 }
                 s.selected_words = [];
                 s.selected_words_str = "";
                 s.selected_freq = 0;
-                for (var j = 0; j < s.groups.length; j++) {
+                for (let j = 0; j < s.groups.length; j++) {
                     s.groups[j].numselected = s.groups[j].selectedfreq = 0;
                 }
                 // s.update();
