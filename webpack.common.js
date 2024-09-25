@@ -417,6 +417,11 @@ module.exports = {
                     noErrorOnMissing: true,
                 },
                 {
+                    from: korpConfigDir + "/corpus_info/*.json",
+                    to: "corpus_info/[name].[ext]",
+                    noErrorOnMissing: true,
+                },
+                {
                     from: "app/translations/angular-locale_*.js",
                     to: "translations/[name].[ext]",
                 },
