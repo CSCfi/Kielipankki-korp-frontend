@@ -565,6 +565,10 @@ export default {
             s.toggleGroup = function (group, event) {
                 group.shown = ! group.shown;
             }
+            // Update input value to the model
+            s.inputChange = function () {
+                s.model = escape(s.input);
+            }
             // Set the input value based on the selected words
             s.done = function (event) {
                 modal.close();
