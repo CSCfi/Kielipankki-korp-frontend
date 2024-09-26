@@ -33,7 +33,15 @@
         list-style: none;
 	li ul {
 	    margin-left: 2em;
-	    line-height: 70%;
+            // Override global vertical margin settings for ul (1em)
+            margin-top: 0.5ex;
+            margin-bottom: 0.5ex;
+	    line-height: 120%;
+            li input[type="checkbox"] {
+                // Looks better if the checkbox is aligned with the
+                // word and not slightly lower (global default: 2px)
+                top: 0px;
+            }
 	}
     }
 }
