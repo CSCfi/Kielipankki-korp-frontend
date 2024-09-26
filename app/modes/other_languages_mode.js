@@ -3664,7 +3664,7 @@ sattrlist.scotscorr = {
         ],
     },
     text_scripttype2: {
-        label: "scotscorr_scripttype",
+        label: "scotscorr_scripttype2",
         extendedComponent: "datasetSelect",
         opts: options.lite,
         localize: false,
