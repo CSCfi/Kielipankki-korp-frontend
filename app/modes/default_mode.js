@@ -9968,7 +9968,7 @@ settings.corpora.reittidemo = {
     },
     customAttributes: {
         video: funcs.makeVideoAttr({
-            baseURL: "http://localhost/corpusdata/",
+            baseURL: "/media/",
             path: "reittidemo/",
             file: "reitti_a-siipeen",
             ext: "mp4",
@@ -16836,7 +16836,7 @@ funcs.addCorpusAliases(
     [
         "ylenews-fi-2019-2021-s-korp",
     ]);
-    
+
 funcs.addCorpusAliases(
     "ylenews_fi_20(1[1-9]|2[01])_s",
     [
