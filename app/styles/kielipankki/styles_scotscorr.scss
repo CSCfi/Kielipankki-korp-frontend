@@ -27,6 +27,8 @@
     overflow-y: auto;
     font-size: 1em;
     margin: 0.5em 1em 0.5em 1em;
+    // Long list is scrolled with the heading fixed
+    max-height: 70vh;
     ul {
         list-style: none;
 	li ul {
