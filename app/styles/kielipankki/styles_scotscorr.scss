@@ -89,7 +89,16 @@
     }
 }
 
+// Make the token box containing a word list link wide enough to
+// accommodate the link (and the dictionary link). The :has
+// pseudo-selector requires a relatively recent browser, but
+// functionality is not sacrificed with older browsers, either, even
+// though the links may be outside the token box.
+div.arg_val_container:has(> input.arg_value_wordselector) {
+    width: 300px;
+}
+
 .arg_value_wordselector {
     // Allow space for the word selector list icon
-    width: 85% !important;
+    width: 83% !important;
 }
