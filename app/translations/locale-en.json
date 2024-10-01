@@ -26,5 +26,11 @@
     "corpusinfo_descr_status_beta": "<strong>Please note</strong> that the corpus is in beta testing, so it may change without notice.",
     "corpusinfo_descr_status_test": "<strong>Please note</strong> that the corpus is still in the test stage, so it may change significantly without notice.",
 
+    "wordlist": "Word list",
+    "selected_words": "Selected words",
+    "button_done": "Done",
+    "button_clear": "Clear",
+    "button_cancel": "Cancel",
+
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }

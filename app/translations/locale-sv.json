@@ -26,5 +26,11 @@
     "corpusinfo_descr_status_beta": "<strong>Observera</strong> att korpusen betatestas, så den kan ändras utan förvarning.",
     "corpusinfo_descr_status_test": "<strong>Observera</strong> att korpusen ännu testas, så den kan ändras betydligt utan förvarning.",
 
+    "wordlist": "Ordlista",
+    "selected_words": "Valda ord",
+    "button_done": "Klart",
+    "button_clear": "Avmarkera",
+    "button_cancel": "Avbryt",
+
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }
