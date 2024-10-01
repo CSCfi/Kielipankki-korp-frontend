@@ -1,5 +1,5 @@
 
-<!-- Muutoksia tunnistetun kielen piirteen esitysmuodossa 2024-07-10b -->
+<!-- Muutoksia tunnistetun kielen piirteen esitysmuodossa 2024-10-04b -->
 
 Virkkeen tunnistetun kielen sisältävän tekstin piirteen esitysmuotoa
 on muutettu. Muutokset koskevat Kansalliskirjaston lehtikokoelman
@@ -25,7 +25,7 @@ Piirteiden sisäiset esitysmuodot ovat ennallaan, joten niitä voi
 käyttää edistyneen haun CQP-lausekkeissa samoin kuin ennen.
 
 
-<!-- Suomi24 2001–2020: Piirteen nimi ”virkkeen polaarisuus” → ”virkkeen tunnesävyn polaarisuus” 2024-07-10a -->
+<!-- Suomi24 2001–2020: Piirteen nimi ”virkkeen polaarisuus” → ”virkkeen tunnesävyn polaarisuus” 2024-10-04a -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2021101525"
 target="_blank">Suomi24 2001–2020 -aineistossa</a> tekstin piirteen

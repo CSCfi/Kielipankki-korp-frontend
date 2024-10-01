@@ -1,5 +1,5 @@
 
-<!-- Changes in the representation of the identified language attribute 2024-07-10b -->
+<!-- Changes in the representation of the identified language attribute 2024-10-04b -->
 
 The representation of the text attribute containing the identified
 language of a sentence has been changed. The changes affect the
@@ -25,7 +25,7 @@ The internal representation of the attributes are intact, so they can
 be used in the CQP expressions of the advanced search as before.
 
 
-<!-- Suomi24 2001–2020: Attribute name “sentence polarity” → “sentence sentiment polarity” 2024-07-10a -->
+<!-- Suomi24 2001–2020: Attribute name “sentence polarity” → “sentence sentiment polarity” 2024-10-04a -->
 
 In the <a href="http://urn.fi/urn:nbn:fi:lb-2021101525"
 target="_blank">Suomi24 2001–2020 corpus</a>, the text attribute name
