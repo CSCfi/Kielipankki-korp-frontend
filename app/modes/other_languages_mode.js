@@ -442,7 +442,7 @@ settings.corporafolders.swahili.hcs2 = {
 
 settings.corporafolders.cuneiform.oracc2021 = {
     title: "Oracc 2021",
-    description: "Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, June 2021<br/><br/>Note that the subcorpora CAMS, CTIJ, DCCLT and HBTIN contain less data than their counterparts in <a href=\"http://urn.fi/urn:nbn:fi:lb-2019060601\" target=\"_blank\">Oracc, Korp version, May 2019</a>. This version is based on the JSON data that was available in <a href=\"http://oracc.museum.upenn.edu/\" target=\"_blank\">Oracc</a> in June 2021.",
+    description: "Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, June 2021<br/><br/>Note that the subcorpora CAMS, CTIJ, DCCLT and HBTIN contain less data than their counterparts in <a href=\"http://urn.fi/urn:nbn:fi:lb-2019060601\" target=\"_blank\">Oracc, Korp version, May 2019</a>. This version is based on the JSON data that was available in <a href=\"http://oracc.museum.upenn.edu/\" target=\"_blank\">Oracc</a> in June 2021.<br/>A list of Oracc texts included in this Korp version is <a href=\"http://urn.fi/urn:nbn:fi:lb-2024092401\" target=\"_blank\">here</a> (the CDLI number and lemmatization status of each text in Oracc).",
     contents: [
         "oracc2021_adsd",
         "oracc2021_aemw",
