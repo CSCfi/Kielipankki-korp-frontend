@@ -2928,7 +2928,7 @@ settings.corpora.elfa = {
     cite_id: "ELFA-korp",
     context: context.sp,
     within: within.sp,
-    ignore_between_tokens_cqp: '[type != "word"]*',
+    ignoreBetweenTokensCQP: '[type != "word"]*',
     attributes: {
         type: {
             label: "token_type",
@@ -3770,7 +3770,7 @@ funcs.extendCorpusSettings(
             },
         },
         structAttributes: sattrlist.scotscorr,
-        ignore_between_tokens_cqp: '[word="[^a-zA-Z0-9]+|\\{.*"]*',
+        ignoreBetweenTokensCQP: '[word="[^a-zA-Z0-9]+|\\{.*"]*',
     },
     [
         "scots_f1540_1599",

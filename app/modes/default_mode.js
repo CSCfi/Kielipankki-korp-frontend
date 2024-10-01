@@ -12004,7 +12004,7 @@ settings.templ.la_murre = {
     },
     // Ignore any number of punctuation tokens between tokens in the
     // extended search
-    ignore_between_tokens_cqp: '[pos="punct"]*',
+    ignoreBetweenTokensCQP: '[pos="punct"]*',
 };
 
 funcs.makeFolderHierarchy(
