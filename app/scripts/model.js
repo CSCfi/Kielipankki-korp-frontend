@@ -34,12 +34,16 @@ class BaseProxy {
     }
 
     expandCQP(cqp) {
+        let result
         try {
-            return CQP.expandOperators(cqp)
+            result = CQP.expandOperators(cqp)
         } catch (e) {
             c.warn("CQP expansion failed", cqp, e)
-            return cqp
+            result = cqp
         }
+        // Let plugins filter the expanded CQP
+        result = plugins.callFilters("filterExpandedCQP", result)
+        return result
     }
 
     makeRequest() {

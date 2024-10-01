@@ -455,6 +455,8 @@ korpApp.controller("ExtendedSearch", function ($scope, $location, $rootScope, se
         if ($rootScope.globalFilter) {
             val2 = CQP.stringify(CQP.mergeCqpExprs(CQP.parse(val2 || "[]"), $rootScope.globalFilter))
         }
+        // Let plugins filter the extended search CQP expression
+        val2 = plugins.callFilters("filterExtendedCQP", val2)
         $rootScope.extendedCQP = val2
     }
 
@@ -488,6 +490,8 @@ korpApp.controller("ExtendedSearch", function ($scope, $location, $rootScope, se
     return s.$on("corpuschooserchange", function () {
         s.withins = s.getWithins()
         s.within = s.withins[0] && s.withins[0].value
+        // Let plugins act when corpus selection is changed
+        plugins.callActions("onCorpusChooserChange")
     })
 })
 
