@@ -31,6 +31,8 @@ window.CorpusListing = class CorpusListing {
             "getStructAttrsIntersection",
             "getStructAttrs",
         ])
+        // Let plugins act on CorpusListing after constructing it
+        plugins.callActions("onCorpusListingConstructed", this)
     }
 
     get(key) {
@@ -63,6 +65,9 @@ window.CorpusListing = class CorpusListing {
 
     select(idArray) {
         this.selected = _.values(_.pick.apply(this, [this.struct].concat(idArray)))
+        // Let plugins act on CorpusListing when selecting the corpora
+        // listed in idArray
+        plugins.callActions("onCorpusListingSelect", this, idArray)
     }
 
     mapSelectedCorpora(f) {
