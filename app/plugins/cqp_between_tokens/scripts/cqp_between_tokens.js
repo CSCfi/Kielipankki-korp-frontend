@@ -1,77 +1,135 @@
 
+// Plugin cqp_between_tokens
+//
+// Callback methods to handle the "ignoreBetweenTokensCQP" property of
+// corpus configurations: specify a CQP expression to insert between
+// tokens in the extended search, effectively ignoring tokens matching
+// it between tokens when searching.
+//
+// Converted from modifications to Korp 5 code. (Jyrki Niemi
+// 2024-09-26)
+
+
+// Plugin class
+
+class CQPBetweenTokens {
+
+    constructor () {
+        // Plugin name
+        this.name = "cqp_between_tokens"
+        // Reference to the global corpus listing, initialized in
+        // onCorpusListingConstructed
+        this._corpusListing = null
+    }
+
+    // Callback methods called at hook points
+
+    // Initialize ignoreBetweenTokens in CorpusListing
+    onCorpusListingConstructed (corpusListing) {
+        this._corpusListing = corpusListing
+        this._updateIgnoreBetweenTokensCQP()
+    }
+
+    // Update ignoreBetweenTokens in CorpusListing.select
+    onCorpusListingSelect (corpusListing, idArray) {
+        this._updateIgnoreBetweenTokensCQP()
+    }
+
+    // When corpus selection is changed, update the ignorable tokens
+    // between tokens and set the CQP expression shown in the advanced
+    // search for the extended search.
+    onCorpusChooserChange () {
+        this._updateIgnoreBetweenTokensCQP()
+    }
+
+    // Add the possible ignorable tokens between tokens to the CQP
+    // expression after expanding operators.
+    filterExpandedCQP (cqp) {
+        return this._addIgnoreBetweenTokensCQP(cqp)
+    }
+
+    // Add the possible ignorable tokens between tokens (regardless of
+    // the current search tab) to the CQP of the extended search. This
+    // makes the modified version to be shown in the advanced search
+    // as the extended search expression.
+    // (Jyrki Niemi 2015-09-25, 2016-03-18)
+    filterExtendedCQP (cqp) {
+        return this._addIgnoreBetweenTokensCQP(cqp, true)
+    }
+
+    // Internal methods
+
     // Update the CQP token expression to be ignored between tokens: it
     // takes effect only if all the selected corpora have the same
-    // ignore expression (property ignore_between_tokens_cqp).
-    // (Jyrki Niemi 2015-09-25, 2016-03-17)
-    updateIgnoreBetweenTokensCQP() {
-        const ignore_cqps =
-            _(this.selected)
-            .pluck("ignore_between_tokens_cqp")
-            .uniq()
-            .value();
-        // c.log "ignore_cqps", ignore_cqps
-        this.ignore_between_tokens_cqp =
-            ignore_cqps.length === 1 ?
-                ignore_cqps[0]
-            :
-                "";
-        c.log("ignore_between_tokens_cqp", this.ignore_between_tokens_cqp);
-        return this.ignore_between_tokens_cqp;
+    // ignore expression (property ignoreBetweenTokensCQP).
+    // (Jyrki Niemi 2015-09-25, 2016-03-17, 2024-09-26)
+    _updateIgnoreBetweenTokensCQP () {
+        const ignoreCqps = (_(this._corpusListing.selected)
+                            .map("ignoreBetweenTokensCQP")
+                            .uniq().value())
+        // c.log("ignoreCqps", ignoreCqps)
+        this._corpusListing.ignoreBetweenTokensCQP =
+            ignoreCqps.length === 1 ? ignoreCqps[0] : ""
+        c.log("ignoreBetweenTokensCQP", this._corpusListing.ignoreBetweenTokensCQP)
+        return this._corpusListing.ignoreBetweenTokensCQP
     }
 
     // Add a CQP token expression to be ignored between the individual
     // token expressions in cqp, based on the property
-    // ignore_between_tokens_cqp of the corpus configuration. The
+    // ignoreBetweenTokensCQP of the corpus confgiuration. The
     // expression to be ignored is added only if all the selected
-    // corpora have the same ignore expression and only in the extended
-    // search (could be in the simple search as well) or if the
-    // argument force is true.
-    // CHECK: Is this the proper place to have this functionality?
-    // (Jyrki Niemi 2015-09-25, 2016-03-17)
-    addIgnoreBetweenTokensCQP(cqp, force = false) {
-        // c.log "addIgnoreCQPBetweenTokens called", cqp, @ignore_between_tokens_cqp, search().search_tab
+    // corpora have the same ignore expression and only in the
+    // extended search (could be in the simple search as well) or if
+    // the argument force is true.
+    // (Jyrki Niemi 2015-09-25, 2016-03-17, 2024-09-26)
+    _addIgnoreBetweenTokensCQP (cqp, force = false) {
+        // c.log("_addIgnoreCQPBetweenTokens called", cqp, this._corpusListing.ignoreBetweenTokensCQP, search().search_tab)
         // The value of search_tab seems to be sometimes an integer and
         // sometimes a string.
-        if (this.ignore_between_tokens_cqp &&
-                (force || (Number(search().search_tab) === 1))) {
-            // c.log "addIgnoreCQPBetweenTokens before:", cqp
-            cqp = this.insertBetweenCQPTokens(cqp, this.ignore_between_tokens_cqp);
-            c.log("addIgnoreCQPBetweenTokens after:", cqp);
+        if (this._corpusListing.ignoreBetweenTokensCQP
+                && (force || Number(search().search_tab) === 1)) {
+            // c.log("_addIgnoreCQPBetweenTokens before:", cqp)
+            cqp = this._insertBetweenCQPTokens(
+                cqp, this._corpusListing.ignoreBetweenTokensCQP)
+            c.log("_addIgnoreCQPBetweenTokens after:", cqp)
         }
         return cqp;
     }
 
-    // Insert the CQP expression insert_cqp between each pair of token
-    // expressions in the CQP expression base_cqp (Jyrki Niemi
-    // 2015-09-25, 2016-03-17)
-    insertBetweenCQPTokens(base_cqp, insert_cqp) {
+    // Insert the CQP expression insertCqp between each pair of token
+    // expressions in the CQP expression baseCqp (Jyrki Niemi
+    // 2015-09-25, 2016-03-17, 2024-09-26)
+    _insertBetweenCQPTokens (baseCqp, insertCqp) {
         // Split the original CQP expression so that each token
         // expression [...] and each string between them is a separate
         // string.
-        let token;
-        const cqp_tokens = base_cqp.match(
-            /\[([^\]\"\']*("([^\\\"]|\\.)*"|'([^\\\']|\\.)*'))*[^\]\"\']*\]|([^\[]+)/g);
+        const cqpTokens = baseCqp.match(
+            /\[([^\]\"\']*("([^\\\"]|\\.)*"|'([^\\\']|\\.)*'))*[^\]\"\']*\]|([^\[]+)/g)
         // Find the last token proper, which need not be followed by
         // the insert expression, although it does not make a
         // difference in the result if it is optional.
-        const last_token_num = _(cqp_tokens)
-                         .map(token => token.charAt(0) === "[")
-                         .lastIndexOf(true);
+        const lastTokenNum = (_(cqpTokens)
+                              .map(token => token.charAt(0) === "[")
+                              .lastIndexOf(true))
         // Append the insert expression to each token expression and
-        // enclose them together in parentheses, so that repetition and
-        // other regexp operators work correctly for the augmented
+        // enclose them together in parentheses, so that repetition
+        // and other regexp operators work correctly for the augmented
         // token expression.
-        const result = (() => {
-            const result1 = [];
-            for (let token_num = 0; token_num < cqp_tokens.length; token_num++) {
-                token = cqp_tokens[token_num];
-                 if ((token.charAt(0) === "[") && (token_num < last_token_num)) {
-                     result1.push("(" + token + " " + insert_cqp + ")");
-                 } else {
-                     result1.push(token);
-                }
+        const tokenCount = cqpTokens.length
+        let result = []
+        for (let tokenNum = 0; tokenNum < tokenCount; tokenNum++) {
+            token = cqpTokens[tokenNum]
+            if (token.charAt(0) === "[" && tokenNum < lastTokenNum) {
+                result.push(`(${token} ${insertCqp})`)
+            } else {
+                result.push(token)
             }
-            return result1;
-        })();
-        return result.join("");
+        }
+        return result.join("")
     }
+
+}
+
+
+// Register the plugin
+plugins.register(new CQPBetweenTokens)
