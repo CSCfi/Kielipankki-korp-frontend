@@ -1,4 +1,20 @@
 
+<!-- LA-murre ja ELFA: Laajennetun haun saneiden välissä jätetään huomiotta välimerkit 2024-10-04e -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2016040702"
+target="_blank">Lauseopin arkiston murreaineistossa</a> ja <a
+href="http://urn.fi/urn:nbn:fi:lb-2016061302"
+target="_blank">ELFA-aineistossa (English as a Lingua Franca in
+Academic Settings)</a> laajennetun haun hakutulokset sisältävät nyt
+osumia, joissa laajennetussa haussa eksplisiittisesti määriteltyjen
+saneiden välissä voi esiintyä välimerkkejä ja saneina esitettyjä
+annotaatioita. Näin tällaisia saneita ei tarvitse erikseen ottaa
+huomioon laajennetun haun hakuehdossa.
+
+Tämä ominaisuus oli ”vanhassa Korpissa”, mutta se on lisätty vasta nyt
+tähän Korp-versioon.
+
+
 <!-- ScotsCorr toimii viimein 2024-10-04d -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-201411071"

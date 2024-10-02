@@ -1,4 +1,20 @@
 
+<!-- LA-murre and ELFA: Punctuation marks ignored between extended search tokens 2024-10-04e -->
+
+In <a href="http://urn.fi/urn:nbn:fi:lb-2016040702"
+target="_blank">The Finnish Dialect Corpus of the Syntax Archive
+(LA-murre)</a> and <a href="http://urn.fi/urn:nbn:fi:lb-2016061302"
+target="_blank">The Corpus of English as a Lingua Franca in Academic
+Settings (ELFA)</a>, the search results of the extended search now
+include matches with punctuation marks and annotations represented as
+tokens between the tokens explicitly specified in the extended search.
+Such tokens thus need not be explicitly taken into account in the
+extended search expression.
+
+This feature was present in the “old Korp” but it has only now been
+added to this Korp version.
+
+
 <!-- ScotsCorr finally works 2024-10-04d -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-201411071" target="_blank">The
