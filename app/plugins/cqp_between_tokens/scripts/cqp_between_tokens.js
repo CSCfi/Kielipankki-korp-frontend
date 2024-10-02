@@ -105,12 +105,6 @@ class CQPBetweenTokens {
         // string.
         const cqpTokens = baseCqp.match(
             /\[([^\]\"\']*("([^\\\"]|\\.)*"|'([^\\\']|\\.)*'))*[^\]\"\']*\]|([^\[]+)/g)
-        // Find the last token proper, which need not be followed by
-        // the insert expression, although it does not make a
-        // difference in the result if it is optional.
-        const lastTokenNum = (_(cqpTokens)
-                              .map(token => token.charAt(0) === "[")
-                              .lastIndexOf(true))
         // Append the insert expression to each token expression and
         // enclose them together in parentheses, so that repetition
         // and other regexp operators work correctly for the augmented
@@ -119,7 +113,13 @@ class CQPBetweenTokens {
         let result = []
         for (let tokenNum = 0; tokenNum < tokenCount; tokenNum++) {
             token = cqpTokens[tokenNum]
-            if (token.charAt(0) === "[" && tokenNum < lastTokenNum) {
+            // Test for tokenNum < tokenCount -1: the insert
+            // expression need not be added to the last token
+            // expression if it is not followed by anything (it would
+            // not hurt, though); however, if it is followed by
+            // repetition {n,m} or boundary </struct>, the insert
+            // expression is added
+            if (token.charAt(0) === "[" && tokenNum < tokenCount - 1) {
                 result.push(`(${token} ${insertCqp})`)
             } else {
                 result.push(token)
