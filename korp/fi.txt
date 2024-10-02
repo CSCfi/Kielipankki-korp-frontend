@@ -1,4 +1,11 @@
 
+<!-- Reittidemo: Videolinkit toimivat jälleen 2024-10-04f -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2014101401"
+target="_blank">Reittidemo-aineiston</a> videolinkit toimivat jälleen.
+Pahoittelemme, että ne olivat pitkään toimimattomia.
+
+
 <!-- LA-murre ja ELFA: Laajennetun haun saneiden välissä jätetään huomiotta välimerkit 2024-10-04e -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2016040702"

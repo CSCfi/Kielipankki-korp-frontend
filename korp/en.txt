@@ -1,4 +1,12 @@
 
+<!-- Reittidemo: Video links work again 2024-10-04f -->
+
+The video links in the <a
+href="http://urn.fi/urn:nbn:fi:lb-2014101401" target="_blank">Route to
+A wing Corpus (Reittidemo)</a> work again. We apologize for their
+being broken for a long time.
+
+
 <!-- LA-murre and ELFA: Punctuation marks ignored between extended search tokens 2024-10-04e -->
 
 In <a href="http://urn.fi/urn:nbn:fi:lb-2016040702"
