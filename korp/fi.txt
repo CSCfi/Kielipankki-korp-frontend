@@ -1,4 +1,10 @@
 
+<!-- Laajennetun haun aikavälivalitsin korjattu 2024-10-04c -->
+
+Laajennetun haun aikavälivalitsin (tekstin piirre _aikaväli_) toimii
+jälleen. Pahoittelemme, että se oli pitkään rikki.
+
+
 <!-- Muutoksia tunnistetun kielen piirteen esitysmuodossa 2024-10-04b -->
 
 Virkkeen tunnistetun kielen sisältävän tekstin piirteen esitysmuotoa

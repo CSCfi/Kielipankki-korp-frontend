@@ -1,4 +1,11 @@
 
+<!-- Time interval selector in extended search fixed 2024-10-04c -->
+
+The time interval selector (text attribute _time interval_) in the
+extended search works again. We apologize for it being broken for a
+long time.
+
+
 <!-- Changes in the representation of the identified language attribute 2024-10-04b -->
 
 The representation of the text attribute containing the identified
