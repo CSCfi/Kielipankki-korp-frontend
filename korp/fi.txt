@@ -1,4 +1,31 @@
 
+<!-- ScotsCorr toimii viimein 2024-10-04d -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-201411071"
+target="_blank">ScotsCorr-aineisto</a> toimii viimein tässä
+Korp-versiossa. Pahoittelemme, että ScotsCorrin toiminnassa oli pitkä
+katko siitä alkaen, kun ”vanha Korp” jouduttiin ajamaan alas
+kesäkuussa 2024.
+
+Seuraavien ScotsCorrin tarvitsemien ominaisuuksien pitäisi toimia
+kuten vanhassa Korpissa:
+
+- konkordanssihakutulokset ja niiden konteksti;
+- laajennetun haun sananmuotojen sanalista; sekä
+- hakutulokset sisältävät osumia, joissa laajennetussa haussa
+  eksplisiittisesti määriteltyjen saneiden välissä esiintyy
+  välimerkkejä tai saneina esitettyjä annotaatioita.
+
+Lisäksi on korjattu yhden tekstin piirteen nimi: _käsiala
+(toissijainen)_ näkyy nyt oikein, kun vanhassa Korpissa sekin oli
+_käsiala_ (arvot olivat oikein).
+
+Jos jokin ei toimi kuten ennen, lähetä palautetta joko <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html"
+target="_blank">palautelomakkeen</a> kautta tai sähköpostitse
+osoitteella `fin-clarin (ät) helsinki.fi`.
+
+
 <!-- Laajennetun haun aikavälivalitsin korjattu 2024-10-04c -->
 
 Laajennetun haun aikavälivalitsin (tekstin piirre _aikaväli_) toimii

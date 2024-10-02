@@ -1,4 +1,32 @@
 
+<!-- ScotsCorr finally works 2024-10-04d -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-201411071" target="_blank">The
+ScotsCorr corpus</a> finally works in this Korp version. We apologize
+for the long break in ScotsCorr since the “old Korp” had to be shut
+down in June 2024.
+
+The following features needed by ScotsCorr should work as in the old
+Korp:
+
+- KWIC search results and their contexts;
+- the word list in the extended search; and
+- search results include matches with punctuation marks and
+  annotations represented as tokens between the tokens explicitly
+  specified in the extended search.
+
+In addition, the name of one text attribute has been corrected:
+_script type (secondary)_ is now shown correctly, whereas in the old
+Korp it was a second _script type (primary)_ (the values were
+correct).
+
+If something does not work as before, please send feedback either via
+the <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback"
+target="_blank">feedback form</a> or by email to `fin-clarin (at)
+helsinki.fi`.
+
+
 <!-- Time interval selector in extended search fixed 2024-10-04c -->
 
 The time interval selector (text attribute _time interval_) in the
