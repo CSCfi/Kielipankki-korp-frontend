@@ -26,6 +26,15 @@ class CQPBetweenTokens {
 
     // Initialize ignoreBetweenTokens in CorpusListing
     onCorpusListingConstructed (corpusListing) {
+        // The CorpusListing constructor is also called in
+        // CorpusListing.subsetFactory to create a subset of a
+        // CorpusListing, but we need to use the first, global
+        // CorpusListing containing all the corpora, constructed in a
+        // mode file. Thus, if this._corpusListing already has a
+        // non-null value, do nothing.
+        if (this._corpusListing) {
+            return
+        }
         this._corpusListing = corpusListing
         this._updateIgnoreBetweenTokensCQP()
     }
@@ -37,9 +46,18 @@ class CQPBetweenTokens {
 
     // When corpus selection is changed, update the ignorable tokens
     // between tokens and set the CQP expression shown in the advanced
-    // search for the extended search.
-    onCorpusChooserChange () {
+    // search for the extended search. If opts contains key
+    // "updateExtendedCQP", its value should be a function that is
+    // called without arguments to update the CQP expression
+    // corresponding to the extended search. This makes the CQP
+    // expression shown in the advanced search for the extended search
+    // reflect the possible change in ignoreBetweenTokensCQP caused by
+    // a change in selected corpora.
+    onCorpusChooserChange (opts = {}) {
         this._updateIgnoreBetweenTokensCQP()
+        if ("updateExtendedCQP" in opts) {
+            opts.updateExtendedCQP()
+        }
     }
 
     // Add the possible ignorable tokens between tokens to the CQP
@@ -69,7 +87,7 @@ class CQPBetweenTokens {
                             .uniq().value())
         // c.log("ignoreCqps", ignoreCqps)
         this._corpusListing.ignoreBetweenTokensCQP =
-            ignoreCqps.length === 1 ? ignoreCqps[0] : ""
+            ignoreCqps.length === 1 ? ignoreCqps[0] || "" : ""
         c.log("ignoreBetweenTokensCQP", this._corpusListing.ignoreBetweenTokensCQP)
         return this._corpusListing.ignoreBetweenTokensCQP
     }
