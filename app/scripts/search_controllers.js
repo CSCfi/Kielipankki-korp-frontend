@@ -490,8 +490,11 @@ korpApp.controller("ExtendedSearch", function ($scope, $location, $rootScope, se
     return s.$on("corpuschooserchange", function () {
         s.withins = s.getWithins()
         s.within = s.withins[0] && s.withins[0].value
-        // Let plugins act when corpus selection is changed
-        plugins.callActions("onCorpusChooserChange")
+        // Let plugins act when corpus selection is changed; pass
+        // updateExtendedCQP as an argument so that a plugin may call
+        // it if the extended CQP needs updating because of the plugin
+        plugins.callActions("onCorpusChooserChange",
+                            {updateExtendedCQP: updateExtendedCQP})
     })
 })
 
