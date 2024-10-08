@@ -87,7 +87,7 @@ class CQPBetweenTokens {
                             .uniq().value())
         // c.log("ignoreCqps", ignoreCqps)
         this._corpusListing.ignoreBetweenTokensCQP =
-            ignoreCqps.length === 1 ? ignoreCqps[0] : ""
+            ignoreCqps.length === 1 ? ignoreCqps[0] || "" : ""
         c.log("ignoreBetweenTokensCQP", this._corpusListing.ignoreBetweenTokensCQP)
         return this._corpusListing.ignoreBetweenTokensCQP
     }
