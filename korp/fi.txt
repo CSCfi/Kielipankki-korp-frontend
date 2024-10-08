@@ -1,12 +1,12 @@
 
-<!-- Reittidemo: Videolinkit toimivat jälleen 2024-10-04f -->
+<!-- Reittidemo: Videolinkit toimivat jälleen 2024-10-11f -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2014101401"
 target="_blank">Reittidemo-aineiston</a> videolinkit toimivat jälleen.
 Pahoittelemme, että ne olivat pitkään toimimattomia.
 
 
-<!-- LA-murre ja ELFA: Laajennetun haun saneiden välissä jätetään huomiotta välimerkit 2024-10-04e -->
+<!-- LA-murre ja ELFA: Laajennetun haun saneiden välissä jätetään huomiotta välimerkit 2024-10-11e -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2016040702"
 target="_blank">Lauseopin arkiston murreaineistossa</a> ja <a
@@ -22,7 +22,7 @@ Tämä ominaisuus oli ”vanhassa Korpissa”, mutta se on lisätty vasta nyt
 tähän Korp-versioon.
 
 
-<!-- ScotsCorr toimii viimein 2024-10-04d -->
+<!-- ScotsCorr toimii viimein 2024-10-11d -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-201411071"
 target="_blank">ScotsCorr-aineisto</a> toimii viimein tässä
@@ -49,13 +49,13 @@ target="_blank">palautelomakkeen</a> kautta tai sähköpostitse
 osoitteella `fin-clarin (ät) helsinki.fi`.
 
 
-<!-- Laajennetun haun aikavälivalitsin korjattu 2024-10-04c -->
+<!-- Laajennetun haun aikavälivalitsin korjattu 2024-10-11c -->
 
 Laajennetun haun aikavälivalitsin (tekstin piirre _aikaväli_) toimii
 jälleen. Pahoittelemme, että se oli pitkään rikki.
 
 
-<!-- Muutoksia tunnistetun kielen piirteen esitysmuodossa 2024-10-04b -->
+<!-- Muutoksia tunnistetun kielen piirteen esitysmuodossa 2024-10-11b -->
 
 Virkkeen tunnistetun kielen sisältävän tekstin piirteen esitysmuotoa
 on muutettu. Muutokset koskevat Kansalliskirjaston lehtikokoelman
@@ -81,7 +81,7 @@ Piirteiden sisäiset esitysmuodot ovat ennallaan, joten niitä voi
 käyttää edistyneen haun CQP-lausekkeissa samoin kuin ennen.
 
 
-<!-- Suomi24 2001–2020: Piirteen nimi ”virkkeen polaarisuus” → ”virkkeen tunnesävyn polaarisuus” 2024-10-04a -->
+<!-- Suomi24 2001–2020: Piirteen nimi ”virkkeen polaarisuus” → ”virkkeen tunnesävyn polaarisuus” 2024-10-11a -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2021101525"
 target="_blank">Suomi24 2001–2020 -aineistossa</a> tekstin piirteen
