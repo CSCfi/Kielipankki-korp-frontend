@@ -26,6 +26,15 @@ class CQPBetweenTokens {
 
     // Initialize ignoreBetweenTokens in CorpusListing
     onCorpusListingConstructed (corpusListing) {
+        // The CorpusListing constructor is also called in
+        // CorpusListing.subsetFactory to create a subset of a
+        // CorpusListing, but we need to use the first, global
+        // CorpusListing containing all the corpora, constructed in a
+        // mode file. Thus, if this._corpusListing already has a
+        // non-null value, do nothing.
+        if (this._corpusListing) {
+            return
+        }
         this._corpusListing = corpusListing
         this._updateIgnoreBetweenTokensCQP()
     }
