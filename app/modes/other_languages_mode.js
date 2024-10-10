@@ -3792,6 +3792,30 @@ settings.corpusAliases.scotscorr = "scots_.*";
 attrlist.testerzya = {};
 sattrlist.erme_debug = {}
 
+sattrlist.erme_v3 = {
+    text_author: { label: "text_author" },
+    text_collector: { label: "entry_collector" },
+    text_comment: { label: "comment" },
+    text_content: { label: "content" },
+    text_continues_from: { label: "continues_from" },
+    text_continues_to: { label: "continues_to" },
+    text_corrector: { label: "text_corrector" },
+    text_e_corrector: { label: "text_e_corrector" },
+    text_erme_id: { label: "erme_id" },
+    text_genre: { label: "text_genre" },
+    text_has_parallel: { label: "has_parallel" },
+    text_iso_lang: { label: "uralic_ud_text_iso_lang" },
+    text_issue: { label: "text_issue" },
+    text_page_range: { label: "text_page_range" },
+    text_publication_name: { label: "publication_name" },
+    text_section: { label: "section" },
+    text_title: { label: "title" },
+    text_translator: { label: "translator" },
+    paragraph_erme_id: { label: "erme_id" },
+    sentence_erme_id: { label: "erme_id" },
+    sentence_pg_no: { label: "page_num" },
+    sentence_text: { label: "text" }
+};
 
 sattrlist.erme_v2 = {
     text_iso_lang: { label: "uralic_ud_text_iso_lang" },

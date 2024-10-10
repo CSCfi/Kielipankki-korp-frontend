@@ -1047,10 +1047,16 @@
     "digisvenska_score_value" : "tehtävän pisteet",
 
     "studex_school": "lukio",
-     "studex_round": "kirjoitusten ajankohta",
-     "studex_topic": "otsikko",
-     "studex_filename": "tiedostonnimi",
-     "studex_grade": "arvosana",
+    "studex_round": "kirjoitusten ajankohta",
+    "studex_topic": "otsikko",
+    "studex_filename": "tiedostonnimi",
+    "studex_grade": "arvosana",
+
+    "has_parallel": "rinnakkaisteksti",
+    "content": "sisältö",
+    "continues_from": "jatkuu numerosta",
+    "continues_to": "jatkuu numerossa",
+    "erme_id": "ERME-tunniste",
 
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }

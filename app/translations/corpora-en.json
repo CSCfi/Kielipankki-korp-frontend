@@ -874,5 +874,11 @@
     "studex_filename": "filename",
     "studex_grade": "grade",
 
+    "has_parallel": "parallel text",
+    "content": "content",
+    "continues_from": "continues from issue",
+    "continues_to": "continues in issue",
+    "erme_id": "ERME ID",
+
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }
