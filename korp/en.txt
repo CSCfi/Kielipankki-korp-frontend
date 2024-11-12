@@ -1,4 +1,17 @@
 
+<!-- Korp moved to a new server 2024-11-12g -->
+
+The Korp service of the Language Bank of Finland was moved to a new
+server on 12 November 2024. Korp also got a few minor fixes and
+changes, described in the news items below.
+
+If something does not work as before, please send feedback either via
+the <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback"
+target="_blank">feedback form</a> or by email to `fin-clarin (at)
+helsinki.fi`.
+
+
 <!-- Reittidemo: Video links work again 2024-11-12f -->
 
 The video links in the <a

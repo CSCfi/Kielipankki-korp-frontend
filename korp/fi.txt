@@ -1,4 +1,16 @@
 
+<!-- Korp uudella palvelimella 2024-11-12g -->
+
+Kielipankin Korp-palvelu siirrettiin uudelle palvelimelle 12.11.2024.
+Tässä yhteydessä Korpiin tehtiin pieniä korjauksia ja muutoksia,
+joita on kuvattu alla olevissa uutisissa.
+
+Jos jokin ei toimi kuten ennen, lähetä palautetta joko <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html"
+target="_blank">palautelomakkeen</a> kautta tai sähköpostitse
+osoitteella `fin-clarin (ät) helsinki.fi`.
+
+
 <!-- Reittidemo: Videolinkit toimivat jälleen 2024-11-12f -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2014101401"
