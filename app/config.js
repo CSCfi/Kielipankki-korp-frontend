@@ -275,8 +275,10 @@ settings.downloadFormatParamsPhysical = {
 // var korpBackendServer = "https://www.kielipankki.fi";
 // settings.korpBackendURL = korpBackendServer + "/korp/api8";
 // // Alternatively, use the backend on the same site as the frontend
-// settings.korpBackendURL =
-window.location.protocol + "//" + window.location.hostname + window.location.pathname.replace(/\/korp.*/, "/korp/api8");
+settings.korpBackendURL = window.location.protocol + "//" +
+    window.location.hostname +
+    window.location.pathname.replace(
+	/\/korp.*/, "/korp/api8"));
 // console.log("korpBackendURL: '" + settings.korpBackendURL + "'")
 settings.downloadCgiScript = (korpBackendServer
                               + (isProductionServerKielipankki ? "/korp" : "")
