@@ -279,7 +279,7 @@ settings.downloadFormatParamsPhysical = {
 settings.korpBackendURL = window.location.protocol + "//" +
     window.location.hostname +
     window.location.pathname.replace(
-	/\/korp.*/, "/korp/api8"));
+	/\/korp.*/, "/korp/api8");
 // console.log("korpBackendURL: '" + settings.korpBackendURL + "'")
 settings.downloadCgiScript = (kielipankkiBaseAddress
                               + (isProductionServerKielipankki ? "/korp" : "")
