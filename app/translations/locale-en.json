@@ -218,7 +218,7 @@
     "table": "Table",
     "smoothing": "Smoothing",
     "show_diagram": "Show Trend Diagram",
-    "non_time_before": "",
+    "non_time_before": " ",
     "non_time_after": " of selected material lacks time data.",
     "rel_hits_short": "Rel. hits",
     "abs_hits_short": "Abs. hits",
