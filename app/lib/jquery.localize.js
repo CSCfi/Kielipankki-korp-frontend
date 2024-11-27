@@ -55,9 +55,12 @@
 		this.find("[rel^=localize]").each(function(i, elem) {
 			var elem = $(elem);
 			var key = elem.attr("rel").match(/localize\[(.*?)\]/)[1];
-                        // Is it a problem to refer to util here, even
-                        // if it works?
-		        var value = valueForKey(key, data) || util.getLocaleStringDefault(key);
+			var value = valueForKey(key, data);
+			if (value == null) {
+				// Is it a problem to refer to util here, even
+				// if it works?
+				value = util.getLocaleStringDefault(key);
+			}
 			var prefix = valueForKey($(this).data("locPrefix"), data) || "";
 			var suffix = valueForKey($(this).data("locSuffix"), data) || "";
 			if(prefix) prefix += ": "; 
