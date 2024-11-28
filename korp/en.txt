@@ -1,3 +1,11 @@
+<!-- Defunct functionalities removed or replaced 2024-12-28g -->
+
+The hamburger menu in the top right corner previously had links to
+"Korp Labs (Korp Beta)", "Old Korp (Korp 5)" and "Annotation Lab".
+The first two have been removed, and the third one has been replaced
+with a link to a service for annotating Finnish text for syntax. It
+currently only produces HTML renderings of syntax trees, but support
+for downloadable tabular annotations is forthcoming.
 
 <!-- Korp moved to a new server 2024-11-12g -->
 

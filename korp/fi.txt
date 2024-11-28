@@ -1,3 +1,12 @@
+<!-- Vanhentuneita toiminnallisuuksia poistettu ja korvattu 2024-12-28g -->
+
+Oikeassa yläkulmassa olevassa valikossa oli aiemmin linkit nimillä
+"Korp-laboratorio (Korp Beta)", "Vanha Korp (Korp 5) ja
+"Annotointilaboratorio". Näistä ensimmäiset kaksi on poistettu, ja
+viimeinen korvattu linkillä palveluun, joka jäsentää lyhyitä
+suomenkielisiä tekstejä. Toistaiseksi se tuottaa vain selaimessa näkyviä
+syntaksipuita, mutta tuki ladattaville annotaatiotiedostoille on tulossa.
+
 
 <!-- Korp uudella palvelimella 2024-11-12g -->
 

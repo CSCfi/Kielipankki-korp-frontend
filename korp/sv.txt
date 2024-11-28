@@ -1,3 +1,11 @@
+<!-- Nedlagda funktioner tagits bort eller ersatts 2024-12-28g -->
+
+Hamburgermenyn i det övre högra hörnet hade tidigare länkar till
+"Korplabbet (Korp Beta)", "Gamla Korpen (Korp 5)" och "Annoteringslabbet".
+De två första har tagits bort och den tredje har ersatts
+med en länk till en tjänst för att annotera finsk text. Det
+producerar nu bara HTML-renderingar av syntaxträd, men stöd
+för nedladdningsbara annoteringsfiler kommer.
 
 <!-- Korp flyttades till ny server 7.2.2024 2024-02-07 -->
 
