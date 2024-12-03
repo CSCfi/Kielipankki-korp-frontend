@@ -1,4 +1,4 @@
-<!-- Nedlagda funktioner tagits bort eller ersatts 2024-12-28g -->
+<!-- Nedlagda funktioner tagits bort eller ersatts 2024-12-28 -->
 
 Hamburgermenyn i det övre högra hörnet hade tidigare länkar till
 "Korplabbet (Korp Beta)", "Gamla Korpen (Korp 5)" och "Annoteringslabbet".
@@ -6,6 +6,10 @@ De två första har tagits bort och den tredje har ersatts
 med en länk till en tjänst för att annotera finsk text. Det
 producerar nu bara HTML-renderingar av syntaxträd, men stöd
 för nedladdningsbara annoteringsfiler kommer.
+
+Information av fler verktyg för analysering och annotering finns på
+<a href="https://www.kielipankki.fi/verktyg/" target="_blank">
+verktygssidan</a>.
 
 <!-- Korp flyttades till ny server 7.2.2024 2024-02-07 -->
 
