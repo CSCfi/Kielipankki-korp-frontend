@@ -16366,6 +16366,9 @@ sattrlist.s24_2001_2017 = {
     sentence_polarity: sattrs.hidden,
 };
 
+// Add identified-language attributes to text, paragraph and sentence
+$.extend(sattrlist.s24_2001_2017, sattrlist.lang_text_paragraph_sentence);
+
 // Custom attributes: links based on the values of other attributes
 sattrlist.s24_2001_2017_custom = {
     text_thread_link: {
