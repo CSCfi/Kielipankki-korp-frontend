@@ -285,6 +285,12 @@ settings.downloadCgiScript = (kielipankkiBaseAddress
                               + (isProductionServerKielipankki ? "/korp" : "")
                               + "/cgi-bin/korp/korp_download.cgi");
 
+// Override backend locations when running on localhost
+if (window.location.hostname == "localhost") {
+    settings.korpBackendURL = "http://localhost:1236";
+    settings.downloadCgiScript = "http://localhost/cgi-bin/korp-2.8-py3/korp_download.cgi";
+}
+
 // The main Korp, Korp Labs and old Korp URLs for the links in the cog menu
 settings.korpUrl = {
     "main": (isProductionServer ? "/korp/" : "/korp/"),
