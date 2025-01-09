@@ -5584,7 +5584,7 @@ attrlist.standard = {
     nertag: attrs.ner_tags
 };
 
-attrlist.finer = {
+attrlist.ne = {
     ne_name: attrs.ne_name,
     ne_ex: attrs.ne_ex,
     ne_type: attrs.ne_type_fi,
@@ -5592,9 +5592,16 @@ attrlist.finer = {
     ne_fulltype: attrs.ne_fulltype_fi,
     ne_placename: attrs.ne_placename,
     ne_placename_source: attrs.ne_placename_source,
-    nertag: attrs.ner_rawtag,
-    nerbio: attrs.ner_bio,
 };
+
+attrlist.finer = $.extend(
+    {},
+    attrlist.ne,
+    {
+        nertag: attrs.ner_rawtag,
+        nerbio: attrs.ner_bio,
+    }
+);
 
 // Attributes produced by vrt-finnish-nertag (*not* FiNER version 2,
 // but Finnish NER *tags* version 2)
