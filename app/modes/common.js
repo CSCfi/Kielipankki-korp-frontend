@@ -5594,6 +5594,24 @@ attrlist.ne = {
     ne_placename_source: attrs.ne_placename_source,
 };
 
+// Helper function for supporting nested (recursively embedded)
+// structural attributes: Return a copy of structural attribute
+// definitions in object structAttrs with each attribute struct_attr
+// copied to struct_attr1 ... struct_attrN, where N = maxLevel. (The
+// returned value also contains the original struct_attr.) The value
+// of property "label" of struct_attrK is struct_attr.label + "_" + K.
+funcs.nestStructAttrs = function (structAttrs, maxLevel) {
+    let result = $.extend(true, {}, structAttrs);
+    for (let level = 1; level <= maxLevel; level++) {
+        for (let attr in structAttrs) {
+            let nestAttr = `${attr}${level}`;
+            result[nestAttr] = $.extend(true, {}, result[attr]);
+            result[nestAttr].label = `${result[attr].label}_${level}`;
+        }
+    }
+    return result;
+};
+
 attrlist.finer = $.extend(
     {},
     attrlist.ne,
@@ -5603,9 +5621,9 @@ attrlist.finer = $.extend(
     }
 );
 
-// Attributes produced by vrt-finnish-nertag (*not* FiNER version 2,
-// but Finnish NER *tags* version 2)
-attrlist.finer2 = {
+// FiNER positional attributes 2 with attribute names nertag, nertags,
+// nerbio (without suffix "2")
+attrlist.finer2_pos = {
     nertag: {
         label: "ner_tag_max",
     },
@@ -5622,6 +5640,24 @@ attrlist.finer2 = {
         label: "ner_bio",
     },
 };
+
+// FiNER positional attributes 2 with attribute names nertag2,
+// nertags2, nerbio2
+attrlist.finer2_pos2 = {
+    nertag2: attrlist.finer2_pos.nertag,
+    nertags2: attrlist.finer2_pos.nertags,
+    nerbio2: attrlist.finer2_pos.nerbio,
+};
+
+// Attributes produced by vrt-finnish-nertag (*not* FiNER version 2,
+// but Finnish NER *tags* version 2): ne_* attributes, possibly nested
+// (recursively embedded) up to 2 levels, and nertag2, nertags2,
+// nerbio2
+attrlist.finer2 = $.extend(
+    {},
+    funcs.nestStructAttrs(attrlist.ne, 2),
+    attrlist.finer2_pos2
+);
 
 
 attrlist.ud2_fi = {
