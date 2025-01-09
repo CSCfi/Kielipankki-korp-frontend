@@ -5624,20 +5624,21 @@ attrlist.finer = $.extend(
 // FiNER positional attributes 2 with attribute names nertag, nertags,
 // nerbio (without suffix "2")
 attrlist.finer2_pos = {
+    // TODO: Implement better representations; in particular, how to
+    // localize the values
     nertag: {
         label: "ner_tag_max",
+        extendedComponent: "structServiceSelect",
     },
     nertags: {
         label: "ner_tags",
         type: "set",
-        opts: options.set,
-        // Hide the tags containing nesting information (a digit
-        // suffix) until it can be represented and searched for in a
-        // more user-friendly way (in Korp 9)
-        displayType: "hidden",
+        opts: options.fullSet,
+        extendedComponent: "structServiceAutocomplete",
     },
     nerbio: {
         label: "ner_bio",
+        extendedComponent: "structServiceSelect",
     },
 };
 
