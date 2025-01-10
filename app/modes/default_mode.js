@@ -16391,7 +16391,7 @@ sattrlist.s24_2001_2017_custom = {
 settings.templ.s24_base = {
     // {} is replaced with the year
     id: "s24_{}",
-    features: ["paragraphs"],
+    features: ["paragraphs", "finer2"],
     attributes: attrlist.parsed_tdt_spaces,
     customAttributes: sattrlist.s24_2001_2017_custom,
     defaultFilters: ["text_topic_name_top", "text_topic_names"],
