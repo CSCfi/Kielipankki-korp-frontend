@@ -1981,8 +1981,8 @@ settings.corpora.oracc_saao = {
 
 settings.corpora.achemenet_murashu = {
     id: "achemenet_murashu",
-    title: "Murashu archives (Achemenet)",
-    description: "Murashu archives (Achemenet)",
+    title: "Murašû archive (Achemenet)",
+    description: "Murašû archive (Achemenet)",
     context: context.sp,
     within: within.sp,
     attributes: attrlist.oracc2021,
@@ -2001,8 +2001,8 @@ settings.corpora.achemenet_yos7 = {
 
 settings.corpora.achemenet_belremanni = {
     id: "achemenet_belremanni",
-    title: "Bel-remanni (Achemenet)",
-    description: "Bel-remanni (Achemenet)",
+    title: "Bēl-rēmanni (Achemenet)",
+    description: "Jursa, Das Archiv des Bēl-rēmanni (Achemenet)",
     context: context.sp,
     within: within.sp,
     attributes: attrlist.oracc2021,
@@ -2022,7 +2022,7 @@ settings.corpora.achemenet_ct55 = {
 settings.corpora.achemenet_strassmaier = {
     id: "achemenet_strassmaier",
     title: "Strassmaier (Achemenet)",
-    description: "Strassmaier (Achemenet)",
+    description: "Strassmaier (Cyr, Camb, Dar) (Achemenet)",
     context: context.sp,
     within: within.sp,
     attributes: attrlist.oracc2021,
