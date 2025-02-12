@@ -106,6 +106,8 @@
     "subject": "subject",
     "volume": "volume",
 
+    "title_uncleaned": "title (uncleaned)",
+
     "book_number": "book number",
     "contributor": "contributor",
 
@@ -458,12 +460,12 @@
 
     "title_lemmas": "title word lemmas",
 
-    "sentence_polarity": "sentence polarity",
+    "sentence_sentiment_polarity": "sentence sentiment polarity",
 
-    "sentence_lang_identified": "sentence language (identified)",
+    "sentence_lang_identified": "sentence language (identified, ISO 639-3)",
     "sentence_lang_identified_confidence": "sentence language identification confidence",
-    "text_lang_identified_counts": "identified languages in text sentences",
-    "paragraph_lang_identified_counts": "identified languages in paragraph sentences",
+    "text_lang_identified_counts": "identified languages in text sentences (ISO 639-3)",
+    "paragraph_lang_identified_counts": "identified languages in paragraph sentences (ISO 639-3)",
 
     "locality": "locality",
     "locality_orig": "locality in original language",
@@ -816,6 +818,17 @@
     "udm": "Udmurt",
     "myv": "Erzya",
 
+    "krl": "North Karelian",
+    "olo": "Livvi-Karelian",
+    "listen_audio_kpv": "Listen to utterance (Komi‑Zyrian)",
+    "listen_audio_krl": "Listen to utterance (Karelian)",
+    "listen_audio_myv": "Listen to utterance (Erzya)",
+    "listen_audio_olo": "Listen to utterance (Olonets‑Karelian)",
+    "listen_audio_kpv_first": "Listen to utterance (Komi‑Zyrian)",
+    "listen_audio_krl_first": "Listen to utterance (Karelian)",
+    "listen_audio_myv_first": "Listen to utterance (Erzya)",
+    "listen_audio_olo_first": "Listen to utterance (Olonets‑Karelian)",
+
     "num_chars": "number of characters",
     "text_author": "author",
     "chapter_id": "chapter id",
@@ -843,6 +856,24 @@
     "sentence_text_mns": "sentence (mns)",
     "sentence_text_rus": "sentence (rus)",
 
+    "digisvenska_text_id" : "text id",
+    "digisvenska_round" : "round",
+    "digisvenska_question_id" : "question id",
+    "digisvenska_assignment_id" : "assignment id",
+    "digisvenska_assignment_type" : "assignment type",
+    "digisvenska_assignment_topic" : "assignment topic",
+    "digisvenska_assignment_url" : "Assignment (instructions)",
+    "digisvenska_county" : "county",
+    "digisvenska_gender" : "gender",
+    "digisvenska_grade" : "grade",
+    "digisvenska_score" : "total score",
+    "digisvenska_score_value" : "assignment score",
+
+    "studex_school": "school",
+    "studex_round": "round",
+    "studex_topic": "topic",
+    "studex_filename": "filename",
+    "studex_grade": "grade",
 
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }

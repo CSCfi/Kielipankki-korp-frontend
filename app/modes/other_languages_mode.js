@@ -228,11 +228,10 @@ var byu_compiler = {
 
 settings.corporafolders.english.reference.coca2020 = {
     title: "COCA 2020: Corpus of Contemporary American English",
-    description: "COCA: Corpus of Contemporary American English – Kielipankki Korp version 2020<br/><br/>The COCA corpus contains about 1,000 million words in 485,000 texts of US English from the years 1990–2019. The corpus is evenly divided into the following genres: spoken, fiction, magazine, newspaper, academic, blogs, other web and TV / movies (<a href='https://www.corpusdata.org/coca2020.asp' target='_blank'>more information</a>)." + byu_fulltext_note,
+    description: "COCA: Corpus of Contemporary American English – Kielipankki Korp version 2020<br/><br/>The COCA corpus contains about 1,000 million words in 485,000 texts of US English from the years 1990–2019. The corpus is evenly divided into the following genres: spoken, fiction, magazine, newspaper, academic, blogs, other web and TV / movies (<a href='https://www.corpusdata.org/coca2020.asp' target='_blank'>more information</a>).<br/><br/>Note that the metadata for individual texts are partly different and somewhat more concise than in the older <a href=\"http://urn.fi/urn:nbn:fi:lb-2017061922\" target=\"_blank\">COCA version 2017H1</a>." + byu_fulltext_note,
     // contents will be added further below
     info: {
-        // Uncomment location URN at the end of beta period
-        // urn: "urn:nbn:fi:lb-2022111502",
+        urn: "urn:nbn:fi:lb-2022111502",
         metadata_urn: "urn:nbn:fi:lb-2022111501",
         licence: {
             name: "ACA-Fi (Academic users in Finland)",
@@ -243,13 +242,12 @@ settings.corporafolders.english.reference.coca2020 = {
             name: "Prof. Mark Davies",
             url: "https://www.mark-davies.org/",
         },
-        status: "beta",
     },
 };
 
 settings.corporafolders.english.reference.coca = {
     title: "COCA: Corpus of Contemporary American English",
-    description: "COCA: Corpus of Contemporary American English – Kielipankki Korp version 2017H1<br/><br/>The COCA corpus contains about 520 million words in 220,000 texts of US English from the years 1990–2015. The corpus is evenly divided into spoken, fiction, magazine, newspaper and academic genres." + byu_fulltext_note,
+    description: "COCA: Corpus of Contemporary American English – Kielipankki Korp version 2017H1<br/><br/>The COCA corpus contains about 520 million words in 220,000 texts of US English from the years 1990–2015. The corpus is evenly divided into spoken, fiction, magazine, newspaper and academic genres.<br/><br/><strong>Note</strong> that a newer, extended version of the corpus, <a href=\"http://urn.fi/urn:nbn:fi:lb-2022111501\" target=\"_blank\">COCA 2020</a>, is also available in Korp." + byu_fulltext_note,
     // contents will be added further below
     info: {
         urn: "urn:nbn:fi:lb-2017061933",
@@ -356,7 +354,7 @@ settings.corporafolders.uralic.wanca_2016 = {
     title: "Wanca 2016",
     description: "A collection of web corpora in small Uralic languages",
     info: {
-        metadata_urn: "http://urn.fi/urn:nbn:fi:lb-2019052401",
+        metadata_urn: "urn:nbn:fi:lb-2019052401",
         licence: settings.licenceinfo.CC_BY,
         cite_id: "wanca2016-korp",
     },
@@ -393,14 +391,6 @@ settings.corporafolders.uralic.wanca_2016 = {
     ]
 };
 
-settings.corporafolders.uralic.erme = {
-    title: "ERME",
-    description: "ERME: Erzya and Moksha Extended Corpora",
-    contents: [
-        "erme_mdf",
-        "erme_myv",
-    ]
-};
 
 settings.corporafolders.uralic.erme_v2 = {
     title: "ERME version 2",
@@ -408,7 +398,7 @@ settings.corporafolders.uralic.erme_v2 = {
     info: {
       metadata_urn: "urn:nbn:fi:lb-2023021601",
         licence: {
-            name: "CC BY (CLARIN PUB)",
+            name: "CC BY (PUB)",
             urn: "urn:nbn:fi:lb-2022020106",
         }
     },
@@ -443,7 +433,7 @@ settings.corporafolders.swahili.hcs2 = {
         metadata_urn: "urn:nbn:fi:lb-2016011301",
         lbr_id: "urn:nbn:fi:lb-2014032624",
         licence: {
-            name: "CLARIN ACA +NC 1.0",
+            name: "CLARIN ACA +NC 2.1",
             urn: "urn:nbn:fi:lb-2016112310",
         },
         cite_id: "hcs-a-v2",
@@ -452,7 +442,7 @@ settings.corporafolders.swahili.hcs2 = {
 
 settings.corporafolders.cuneiform.oracc2021 = {
     title: "Oracc 2021",
-    description: "Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, June 2021<br/><br/>Note that the subcorpora CAMS, CTIJ, DCCLT and HBTIN contain less data than their counterparts in <a href=\"http://urn.fi/urn:nbn:fi:lb-2019060601\" target=\"_blank\">Oracc, Korp version, May 2019</a>. This version is based on the JSON data that was available in <a href=\"http://oracc.museum.upenn.edu/\" target=\"_blank\">Oracc</a> in June 2021.",
+    description: "Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, June 2021<br/><br/>Note that the subcorpora CAMS, CTIJ, DCCLT and HBTIN contain less data than their counterparts in <a href=\"http://urn.fi/urn:nbn:fi:lb-2019060601\" target=\"_blank\">Oracc, Korp version, May 2019</a>. This version is based on the JSON data that was available in <a href=\"http://oracc.museum.upenn.edu/\" target=\"_blank\">Oracc</a> in June 2021.<br/>A list of Oracc texts included in this Korp version is <a href=\"http://urn.fi/urn:nbn:fi:lb-2024092401\" target=\"_blank\">here</a> (the CDLI number and lemmatization status of each text in Oracc).",
     contents: [
         "oracc2021_adsd",
         "oracc2021_aemw",
@@ -630,8 +620,8 @@ settings.corpora.hc = {
     limitedAccess: true,
     licenceType: "ACA",
     licence: {
-        name: "CLARIN ACA +NC +DEP 1.0",
-        description: "CLARIN ACA (Academic) End-User License 1.0, Non-commercial, No redistribution, Redeposit",
+        name: "CLARIN ACA +NC +DEP 2.1",
+        description: "CLARIN ACA (Academic) End-User License 2.1, Non-commercial, No redistribution, Redeposit",
         urn: "urn:nbn:fi:lb-2019061301",
     },
     cite_id: "HC-TEI-XML",
@@ -2986,7 +2976,7 @@ settings.corpora.topling_en = {
     metadata_urn: "urn:nbn:fi:lb-2016111803",
     lbr_id: "urn:nbn:fi:lb-20140730168",
     licence: {
-        name: "CLARIN RES +NC +DEP 1.0",
+        name: "CLARIN RES +NC +DEP 2.1",
         urn: "urn:nbn:fi:lb-2016112308"
     },
     homepage_url: "https://www.jyu.fi/topling",
@@ -3015,7 +3005,7 @@ settings.corpora.elfa = {
     cite_id: "ELFA-korp",
     context: context.sp,
     within: within.sp,
-    ignore_between_tokens_cqp: '[type != "word"]*',
+    ignoreBetweenTokensCQP: '[type != "word"]*',
     attributes: {
         type: {
             label: "token_type",
@@ -3751,7 +3741,7 @@ sattrlist.scotscorr = {
         ],
     },
     text_scripttype2: {
-        label: "scotscorr_scripttype",
+        label: "scotscorr_scripttype2",
         extendedComponent: "datasetSelect",
         opts: options.lite,
         localize: false,
@@ -3770,345 +3760,10 @@ sattrlist.scotscorr = {
     text_st: { label: "scotscorr_st" },
 };
 
-// Add a multiple-selection list to the word, with one level of
-// collapsible grouping by the first character of the word (required
-// to make the list work reasonably fast for a large number of words).
-// The resulting value is a regular expression. This could be
-// generalized, maybe to an Angular directive.
 attrs.scotscorr_word = {
     label: "word",
     opts: options.default,
-    // The input field also has "list" icon, which is a link opening a
-    // list of words with checkboxes from which the user can select.
-    // This has been copied and modified from the code for the the
-    // Swedish msd attribute.
-    // TODO: Parametrize the default template in the directive
-    // "tokenValue" so that possibly changes to it would be reflected
-    // here automatically. The additional features here could be
-    // simply parameter values
-    extended_template: '<input class="arg_value arg_value_wordselector"' +
-        ' ng-model="input"' +
-        ' ng-model-options=\'{debounce : {default : 300, blur : 0}, updateOn: "default blur"}\'' +
-        ' ng-change="inputChange()" escaper' +
-        ' placeholder=\'<{{"any" | loc:lang}}>\'>' +
-        '<span ng-click="onIconClick()" class="fa fa-list list-link-icon"' +
-        ' title="{{\'scotscorr_open_wordlist\' | loc:lang}}"></span>' +
-        '<a href="http://www.dsl.ac.uk/" target="_blank"' +
-        ' title="Dictionary of the Scots Language">' +
-        '<span class="fa fa-book book-link-icon"></span></a>' +
-        ' <span class="val_mod" popper' +
-        ' ng-class=\'{sensitive : case == "sensitive", insensitive : case == "insensitive"}\'>' +
-        ' Aa ' +
-        '</span>' +
-        '<ul class="mod_menu popper_menu dropdown-menu">' +
-        '<li><a ng-click="makeSensitive()">{{"case_sensitive" | loc:lang}}</a></li>' +
-        '<li><a ng-click="makeInsensitive()">{{"case_insensitive" | loc:lang}}</a></li>' +
-        '</ul>',
-    controller: function ($scope, $uibModal) {
-        var s = $scope;
-        var modal = null;
-        s.words = [];
-        s.groups = [];
-        s.group_template = "";
-        s.selected_words = [];
-        s.selected_words_str = "";
-        s.selected_freq = 0;
-        s.total_freq = 0;
-        s["case"] = "sensitive";
-        // Add a thousands separator to a number
-        s.pretty_num = function (num) {
-            return util.prettyNumbers(num);
-        };
-        // Make a template for the counts of selected and all tokens
-        // and their frequencies.
-        s.make_counts_template = function (tokens_sel, tokens_all, freq_sel,
-                                           freq_all) {
-            var pretty_num = function (val) {
-                return ('<span ng-bind-html="pretty_num(' + val +
-                        ') | trust"></span>');
-            }
-            // FIXME: Add thousands separators to the numbers shown in
-            // the tooltip.
-            return ('<span ng-attr-title="{{' + tokens_sel.toString() + '}}' +
-                    ' {{\'scotscorr_selected_words_with_freq\' | loc:lang}} {{' +
-                    freq_sel.toString() + '}}">' +
-                    pretty_num(tokens_sel) +
-                    // ' / ' +
-                    // pretty_num(tokens_all) +
-                    ';&nbsp; <span class="wordselector-freq"> ' +
-                    pretty_num(freq_sel) +
-                    // ' / ' +
-                    // pretty_num(freq_all) +
-                    '</span></span>');
-        };
-        // Process the word data (words and their frequencies grouped,
-        // possibly hierarchically) and create s.words, s.groups and
-        // s.group_template. The structure is represented as an array
-        // of nested arrays, whose first item is the word or group
-        // label and the second item the absolute frequency for a word
-        // and an array of arrays for a group. Groups may be nested,
-        // but a group may contain either groups or words, not both.
-        // To make things simpler in Angular, s.group_template
-        // contains all the groups explicitly written out but the
-        // words are represented using ng-repeat.
-        var make_word_list = function (data, groupstack) {
-            // c.log("scotscorr_word data", data);
-            var words_seen = false;
-            for (var i = 0; i < data.length; i++) {
-                if (_.isArray(data[i][1])) {
-                    var group = {
-                        name: data[i][0],
-                        words: [],
-                        numwords: 0,
-                        numselected: 0,
-                        totalfreq: 0,
-                        selectedfreq: 0,
-                        shown: false
-                    };
-                    var groupnum = s.groups.length;
-                    s.groups.push(group);
-                    groupstack.push(group);
-                    var groupref = 'groups[' + groupnum.toString() + ']';
-                    s.group_template += '<li>' +
-                        '<span class="wordselector-group-arrow"></span>' +
-                        '<span class="wordselector-group-heading" ng-click="toggleGroup(' + groupref + ')">' +
-                        '<img ng-src="img/{{' + groupref + '.shown ? \'extended\' : \'collapsed\'}}.png"/> ' +
-                        '<span class="wordselector-group-name">' + group.name + '</span>' +
-                        // Em quad
-                        '&#x2001;</span>' +
-                        '<span class="wordselector-group-extra"> (' +
-                        s.make_counts_template(groupref + '.numselected',
-                                               groupref + '.numwords',
-                                               groupref + '.selectedfreq',
-                                               groupref + '.totalfreq') +
-                        ')</span>' +
-                        '<div ng-if="' + groupref + '.shown">' +
-                        '<ul>';
-                    make_word_list(data[i][1], groupstack);
-                    groupstack.pop();
-                    s.group_template += '</ul></div></li>';
-                } else {
-                    if (! words_seen) {
-                        var groupref =
-                            'groups[' + (s.groups.length - 1).toString() + ']';
-                        s.group_template +=
-                        '<li ng-repeat="word in ' + groupref + '.words">' +
-                            '<input type="checkbox" ng-model="word.selected" ng-click="update(e, word.word)">' +
-                            // &#x2000; = en quad
-                            '<span ng-class="\'wordselector-word-\' + (word.selected ? \'\' : \'un\') + \'selected\'">&#x2000;{{word.word}}</span>' +
-                            '&#x2000;(<span class="wordselector-freq" ng-bind-html="pretty_num(word.freq) | trust"></span>)</input>' +
-                            '</li>';
-                        words_seen = true;
-                    }
-                    s.words.push({word: data[i][0],
-                                  freq: data[i][1],
-                                  groups: groupstack.slice(),
-                                  selected: false});
-                }
-            }
-        }
-        $.getJSON(
-            "corpus_info/scotscorr-words.json",
-            function (data) {
-                make_word_list(data, []);
-                for (var i = 0; i < s.words.length; i++) {
-                    var word = s.words[i];
-                    s.total_freq += word.freq;
-                    for (var j = 0; j < word.groups.length; j++) {
-                        var group = word.groups[j];
-                        group.words.push(word);
-                        group.numwords += 1;
-                        group.totalfreq += word.freq;
-                    }
-                }
-                // c.log("scotscorr_word words", s.words);
-                // c.log("scotscorr_word groups", s.groups,
-                //       s.group_words);
-                c.log('scotscorr group_template', s.group_template);
-            }
-        );
-        // Executed on clicking the list icon
-        s.onIconClick = function () {
-            s.setSelected();
-            modal = $uibModal.open({
-                template: '<div>' +
-                    '<div class="modal-header">' +
-                    '<h3 class="modal-title">{{\'wordlist\' | loc:lang}} (ScotsCorr)</h3>' +
-                    '<span ng-click="done()" class="close-x">×</span>' +
-                    '</div>' +
-                    '<div class="modal-header">' +
-                    '<div class="modal-value">' +
-                    '<a href="http://www.dsl.ac.uk/" target="_blank"><span class="fa fa-book book-link-icon"></span> Dictionary of the Scots Language</a>' +
-                    '</div>' +
-                    '<div class="modal-value">' +
-                    '<p><span class="modal-value-heading">{{\'selected_words\' | loc:lang}}</span> (' +
-                    s.make_counts_template('selected_words.length',
-                                           'words.length',
-                                           'selected_freq',
-                                           'total_freq') +
-                    '): <span id="wordselector-selected-words"><span ng-bind-html="selected_words_str | trust"></span></span></p>' +
-                    '</div>' +
-                    '<div class="modal-buttons">' +
-                    '<button type="button" class="btn btn-default" ng-click="done()">{{\'button_done\' | loc:lang}}</button>' +
-                    '<button type="button" class="btn btn-default" ng-click="clearSelected()">{{\'button_clear\' | loc:lang}}</button>' +
-                    '<button type="button" class="btn btn-default" ng-click="cancel()">{{\'button_cancel\' | loc:lang}}</button>' +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="modal-body modal-wordselector" style="overflow-y: auto; font-size: 80%">' +
-                    '<ul>' +
-                    s.group_template +
-                    '</ul>' +
-                    '</div>' +
-                    '</div>',
-                scope: s
-            });
-        };
-        // Set the selected property of words based on the current
-        // input value
-        s.setSelected = function () {
-            s.input_prev = s.input;
-            var op = s.$parent.orObj.op;
-            var select_fn = null;
-            if (s.input == "" || op == "!=" || op == "!*=") {
-                // Nothing selected for the empty word nor the negated
-                // operations
-                s.selected_words = [];
-                select_fn = function (word) { return false; };
-            } else if (op == "=") {
-                // Select only the word literally
-                s.selected_words = [s.input];
-                select_fn = function (word) { return word == s.input };
-            } else {
-                // Construct a regular expression for testing if a
-                // word matches the condition. This assumes that the
-                // CQP regular expressions are are compatible with
-                // JavaScript RegExps, as they (mostly) are.
-                var word_re = "";
-                if (op == "*=") {
-                    // Regular expression
-                    word_re = "^(" + s.input + ")$";
-                } else if (op == "^=") {
-                    // Starts with
-                    word_re = "^(" + window.regescape(s.input) + ")";
-                } else if (op == "&=") {
-                    // Ends with
-                    word_re = "(" + window.regescape(s.input) + ")$";
-                } else if (op == "_=") {
-                    // Contains
-                    word_re = window.regescape(s.input)
-                }
-                // c.log("matching", word_re);
-                word_re = RegExp(word_re);
-                select_fn = function (word) { return word_re.test(word); };
-            }
-            // c.log("scotscorr_word setSelected", s.selected_words);
-            for (var i = 0; i < s.words.length; i++) {
-                s.words[i].selected = select_fn(s.words[i].word);
-                // if (s.words[i].selected) {c.log("selected:", s.words[i].word);}
-            }
-            // s.selected_words_str = s.selected_words.join("\u2000");
-            s.update();
-        };
-        // Clear the case-insensitive flag (restore the default)
-        s.makeSensitive = function () {
-            s["case"] = "sensitive";
-            if (s.orObj.flags != null) {
-                delete s.orObj.flags.c;
-            }
-        };
-        // Set the case-insensitive flag
-        s.makeInsensitive = function () {
-            var flags = s.orObj.flags || {};
-            flags["c"] = true;
-            s.orObj.flags = flags;
-            s["case"] = "insensitive";
-        };
-        // Update s.selected_words based on the selected property
-        // in the elements of s.words. The arguments are
-        // currently not used.
-        s.update = function (event, word) {
-            c.log("scotscorr_word update", word, event,
-                  _.filter(s.words, "selected"));
-            // We could use the words in s.selected_words, but
-            // how could we retain the order of the words, that is,
-            // how could an added word be added at the right position
-            // in the list?
-            var selected_words = _.filter(s.words, "selected");
-            s.selected_words = _.pluck(selected_words, "word");
-            for (var j = 0; j < s.groups.length; j++) {
-                s.groups[j].numselected = s.groups[j].selectedfreq = 0;
-            }
-            // Join with an en quad
-            s.selected_words_str =
-                _.map(selected_words,
-                      function (word) {
-                          return (word.word.replace(/&/g, "&amp;")
-                                  .replace(/</g, "&lt;").replace(/>/g, "&gt;") +
-                                  '&nbsp;(<span class="wordselector-freq">' +
-                                  s.pretty_num(word.freq.toString()) +
-                                  '</span>)');
-                      })
-                .join("\u2000");
-            s.selected_freq = 0;
-            for (var i = 0; i < selected_words.length; i++) {
-                var selword = selected_words[i];
-                s.selected_freq += selword.freq;
-                for (var j = 0; j < selword.groups.length; j++) {
-                    var group = selword.groups[j];
-                    group.numselected += 1;
-                    group.selectedfreq += selword.freq;
-                }
-            }
-            c.log("scotscorr_word selected", s.selected_words);
-        };
-        // Toggle a group
-        s.toggleGroup = function (group, event) {
-            group.shown = ! group.shown;
-        }
-        // Set the input value based on the selected words
-        s.done = function (event) {
-            modal.close();
-            if (s.selected_words.length > 1) {
-                s.input = (
-                    _.map(s.selected_words, window.regescape)
-                        .join("|"));
-                // Force regular expression
-                s.$parent.orObj.op = "*=";
-            } else {
-                s.input = (s.selected_words.length == 1
-                           ? s.selected_words[0]
-                           : "");
-                // For a single word, use "=" unless the word is the
-                // same as before
-                if (s.input != s.input_prev) {
-                    s.$parent.orObj.op = "=";
-                }
-            }
-            // s.inputChange() (from escaper) seems to be needed to
-            // update the input value to the model; specifying it in
-            // the ng-change attribute of the template appears not to
-            // suffice.
-            s.inputChange();
-            c.log("scotscorr_word input", s.input);
-        };
-        // Clear the selected words
-        s.clearSelected = function (event) {
-            for (var i = 0; i < s.words.length; i++) {
-                s.words[i].selected = false;
-            }
-            s.selected_words = [];
-            s.selected_words_str = "";
-            s.selected_freq = 0;
-            for (var j = 0; j < s.groups.length; j++) {
-                s.groups[j].numselected = s.groups[j].selectedfreq = 0;
-            }
-            // s.update();
-        };
-        // Cancel: retain the original input value
-        s.cancel = function (event) {
-            modal.close();
-        };
-    },
+    extendedComponent: "scotscorrWord",
 };
 
 
@@ -4192,7 +3847,7 @@ funcs.extendCorpusSettings(
             },
         },
         structAttributes: sattrlist.scotscorr,
-        ignore_between_tokens_cqp: '[word="[^a-zA-Z0-9]+|\\{.*"]*',
+        ignoreBetweenTokensCQP: '[word="[^a-zA-Z0-9]+|\\{.*"]*',
     },
     [
         "scots_f1540_1599",
@@ -4214,27 +3869,6 @@ settings.corpusAliases.scotscorr = "scots_.*";
 attrlist.testerzya = {};
 sattrlist.erme_debug = {}
 
-sattrlist.erme = {
-    text_author: {
-        label: "text_author"
-    },
-    text_title: {
-        label: "text_booktitle"
-    },
-    text_corrector: {
-        label: "text_corrector"
-    },
-    text_year: {
-        label: "text_year"
-    },
-    sentence_id: sattrs.sentence_id_hidden,
-    sentence_pgno: {
-        label: "page_num"
-    },
-    text_publisher: {
-        label: "text_publisher"
-    }
-};
 
 sattrlist.erme_v2 = {
     text_iso_lang: { label: "uralic_ud_text_iso_lang" },
@@ -4327,36 +3961,13 @@ sattrlist.testerzya = {
     }
 };
 
-settings.corpora.erme_myv = {
-    id: "erme_myv",
-    title: "Ersä/Erzya",
-    description: "ERME: Ersä/Erzya",
-    licence: settings.licenceinfo.CC_BY,
-    within: within.sp,
-    context: context.sp,
-    attributes: attrlist.testerzya,
-    structAttributes: sattrlist.erme,
-    unselected: true
-};
-
-settings.corpora.erme_mdf = {
-    id: "erme_mdf",
-    title: "Mokša/Moksha",
-    description: "ERME: Mokša/Moksha",
-    licence: settings.licenceinfo.CC_BY,
-    within: within.sp,
-    context: context.sp,
-    attributes: attrlist.testerzya,
-    structAttributes: sattrlist.erme,
-    unselected: true
-};
 
 settings.corpora.erme_v2_myv = {
     id: "erme_v2_myv",
     title: "ERME version 2: Ersä/Erzya",
     description: "ERME version 2: Ersä/Erzya",
     licence: {
-        name: "CC BY (CLARIN PUB)",
+        name: "CC BY (PUB)",
         urn: "urn:nbn:fi:lb-2022020106",
     },
     within: within.sp,
@@ -4371,7 +3982,7 @@ settings.corpora.erme_v2_mdf = {
     title: "ERME version 2: Mokša/Moksha",
     description: "ERME version 2: Mokša/Moksha",
     licence: {
-        name:"CC BY (CLARIN PUB)",
+        name:"CC BY (PUB)",
         urn: "urn:nbn:fi:lb-2022020106",
     },
     within: within.sp,
@@ -5124,6 +4735,10 @@ sattrlist.coca2020 = $.extend(true, {}, sattrlist.coca);
 // Delete structural attributes in COCA 2017H1 but not in COCA 2020
 delete sattrlist.coca2020.text_publ_info;
 delete sattrlist.coca2020.text_wordcount;
+// Add text_title_orig
+sattrlist.coca2020.text_title_orig = {
+    label: "title_uncleaned",
+};
 
 settings.templ.coca2020_common = {
     within: within.sp,
@@ -5489,24 +5104,25 @@ sattrlist.ud2_uralic_fi = {
     sentence_newpar_id : { label: "uralic_ud_sentence_newpar_id" }
 };
 
-settings.corporafolders.uralic.uralic_ud_v210 = {
-    title: "Uralic UD v2.10",
-    description: "The corpus contains Universal Dependencies version 2.10 for the following Uralic languages: Erzya, Estonian, Finnish, Hungarian, Karelian, Komi-Permyak, Komi-Zyrian, Livvi, Moksha, North Sami and Skolt Sami.",
+settings.corporafolders.uralic.uralic_ud_v213 = {
+    title: "Uralic UD v2.13",
+    description: "The corpus contains Universal Dependencies version 2.13 for the following Uralic languages: Erzya, Estonian, Finnish, Hungarian, Karelian, Komi-Permyak, Komi-Zyrian, Livvi, Moksha, North Sami, Skolt Sami and Veps.",
     info: {
-       metadata_urn: "http://urn.fi/urn:nbn:fi:lb-2022061001",
-       cite_id: "uralic-ud-v2-10",
+       metadata_urn: "urn:nbn:fi:lb-2024031207",
+	cite_id: "uralic-ud-v2-13",
     },
-    contents: [ "uralic_ud_v210_et",
-		"uralic_ud_v210_fi",
-		"uralic_ud_v210_hu",
-		"uralic_ud_v210_krl",
-		"uralic_ud_v210_koi",
-		"uralic_ud_v210_kpv",
-		"uralic_ud_v210_mdf",
-		"uralic_ud_v210_myv",
-		"uralic_ud_v210_olo",
-		"uralic_ud_v210_sme",
-		"uralic_ud_v210_sms" ]
+    contents: [ "uralic_ud_v213_et",
+		"uralic_ud_v213_fi",
+		"uralic_ud_v213_hu",
+		"uralic_ud_v213_krl",
+		"uralic_ud_v213_koi",
+		"uralic_ud_v213_kpv",
+		"uralic_ud_v213_mdf",
+		"uralic_ud_v213_myv",
+		"uralic_ud_v213_olo",
+		"uralic_ud_v213_sme",
+		"uralic_ud_v213_sms",
+		"uralic_ud_v213_vep" ]
 };
 
 function create_ud2_sattrlist(sentence_attribute_names) {
@@ -5522,24 +5138,24 @@ function create_ud2_sattrlist(sentence_attribute_names) {
 };
 
 settings.licenceinfo.CC_BY_SA_40 = {
-    name: "CC BY-SA 4.0 (CLARIN PUB)",
+    name: "CC BY-SA 4.0 (PUB)",
     description: "Creative Commons Attribution-ShareAlike",
     url: "https://creativecommons.org/licenses/by-sa/4.0/",
 };
 settings.licenceinfo.CC_BY_NC_SA_30 = {
-    name: "CC BY-NC-SA 3.0 (CLARIN PUB)",
+    name: "CC BY-NC-SA 3.0 (PUB)",
     description: "Creative Commons Attribution-NonCommercial-ShareAlike",
     url: "https://creativecommons.org/licenses/by-nc-sa/3.0/",
 };
 settings.licenceinfo.CC_BY_NC_SA_40 = {
-    name: "CC BY-NC-SA 4.0 (CLARIN PUB)",
+    name: "CC BY-NC-SA 4.0 (PUB)",
     description: "Creative Commons Attribution-NonCommercial-ShareAlike",
     url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
 };
 
-settings.corpora.uralic_ud_v210_et = {
-    id: "uralic_ud_v210_et",
-    title: "Uralic UD v2.10 for Estonian",
+settings.corpora.uralic_ud_v213_et = {
+    id: "uralic_ud_v213_et",
+    title: "Uralic UD v2.13 for Estonian",
     description: "Universal Dependencies version 2.10 for Estonian",
     lang: "et",
     within: within.sp,
@@ -5547,12 +5163,12 @@ settings.corpora.uralic_ud_v210_et = {
     attributes: attrlist.ud2_uralic,
     structAttributes: create_ud2_sattrlist(["newdoc_id"]),
     licence: settings.licenceinfo.CC_BY_NC_SA_40,
-    metadata_urn: "urn:nbn:fi:lb-2022061001",
+    metadata_urn: "urn:nbn:fi:lb-2024031207",
 };
 
-settings.corpora.uralic_ud_v210_fi = {
-    id: "uralic_ud_v210_fi",
-    title: "Uralic UD v2.10 for Finnish",
+settings.corpora.uralic_ud_v213_fi = {
+    id: "uralic_ud_v213_fi",
+    title: "Uralic UD v2.13 for Finnish",
     description: "Universal Dependencies version 2.10 for Finnish<br/>(Note: the treebanks OOD, PUD and TDT are licensed as CC BY-SA 4.0, but FTB is licensed as CC BY 4.0)",
     lang: "fi",
     within: within.sp,
@@ -5560,12 +5176,12 @@ settings.corpora.uralic_ud_v210_fi = {
     attributes: attrlist.ud2_uralic,
     structAttributes: sattrlist.ud2_uralic_fi,
     licence: settings.licenceinfo.CC_BY_SA_40,
-    metadata_urn: "urn:nbn:fi:lb-2022061001",
+    metadata_urn: "urn:nbn:fi:lb-2024031207",
 };
 
-settings.corpora.uralic_ud_v210_hu = {
-    id: "uralic_ud_v210_hu",
-    title: "Uralic UD v2.10 for Hungarian",
+settings.corpora.uralic_ud_v213_hu = {
+    id: "uralic_ud_v213_hu",
+    title: "Uralic UD v2.13 for Hungarian",
     description: "Universal Dependencies version 2.10 for Hungarian",
     lang: "hu",
     within: within.sp,
@@ -5573,12 +5189,12 @@ settings.corpora.uralic_ud_v210_hu = {
     attributes: attrlist.ud2_uralic,
     structAttributes: create_ud2_sattrlist([]),
     licence: settings.licenceinfo.CC_BY_NC_SA_30,
-    metadata_urn: "urn:nbn:fi:lb-2022061001",
+    metadata_urn: "urn:nbn:fi:lb-2024031207",
 };
 
-settings.corpora.uralic_ud_v210_krl = {
-    id: "uralic_ud_v210_krl",
-    title: "Uralic UD v2.10 for Dvina-Karelian",
+settings.corpora.uralic_ud_v213_krl = {
+    id: "uralic_ud_v213_krl",
+    title: "Uralic UD v2.13 for Dvina-Karelian",
     description: "Universal Dependencies version 2.10 for Dvina-Karelian",
     lang: "krl",
     within: within.sp,
@@ -5586,12 +5202,12 @@ settings.corpora.uralic_ud_v210_krl = {
     attributes: attrlist.ud2_uralic,
     structAttributes: create_ud2_sattrlist(["comment"]),
     licence: settings.licenceinfo.CC_BY_SA_40,
-    metadata_urn: "urn:nbn:fi:lb-2022061001",
+    metadata_urn: "urn:nbn:fi:lb-2024031207",
 };
 
-settings.corpora.uralic_ud_v210_koi = {
-    id: "uralic_ud_v210_koi",
-    title: "Uralic UD v2.10 for Komi-Permyak",
+settings.corpora.uralic_ud_v213_koi = {
+    id: "uralic_ud_v213_koi",
+    title: "Uralic UD v2.13 for Komi-Permyak",
     description: "Universal Dependencies version 2.10 for Komi-Permyak",
     lang: "koi",
     within: within.sp,
@@ -5599,12 +5215,12 @@ settings.corpora.uralic_ud_v210_koi = {
     attributes: attrlist.ud2_uralic,
     structAttributes: create_ud2_sattrlist(["text_sms", "text_mdf", "text_fi", "text_olo", "text_kpv", "text_ru", "text_orig", "source", "gloss_ru"]),
     licence: settings.licenceinfo.CC_BY_SA_40,
-    metadata_urn: "urn:nbn:fi:lb-2022061001",
+    metadata_urn: "urn:nbn:fi:lb-2024031207",
 };
 
-settings.corpora.uralic_ud_v210_kpv = {
-    id: "uralic_ud_v210_kpv",
-    title: "Uralic UD v2.10 for Komi-Zyrian",
+settings.corpora.uralic_ud_v213_kpv = {
+    id: "uralic_ud_v213_kpv",
+    title: "Uralic UD v2.13 for Komi-Zyrian",
     description: "Universal Dependencies version 2.10 for Komi-Zyrian",
     lang: "kpv",
     within: within.sp,
@@ -5612,12 +5228,12 @@ settings.corpora.uralic_ud_v210_kpv = {
     attributes: attrlist.ud2_uralic,
     structAttributes: create_ud2_sattrlist(["text_ru", "text_en", "comment", "text_koi", "text_orig", "corpus_version", "text_end", "questions", "label"]),
     licence: settings.licenceinfo.CC_BY_SA_40,
-    metadata_urn: "urn:nbn:fi:lb-2022061001",
+    metadata_urn: "urn:nbn:fi:lb-2024031207",
 };
 
-settings.corpora.uralic_ud_v210_mdf = {
-    id: "uralic_ud_v210_mdf",
-    title: "Uralic UD v2.10 for Moksha",
+settings.corpora.uralic_ud_v213_mdf = {
+    id: "uralic_ud_v213_mdf",
+    title: "Uralic UD v2.13 for Moksha",
     description: "Universal Dependencies version 2.10 for Moksha",
     lang: "mdf",
     within: within.sp,
@@ -5625,12 +5241,12 @@ settings.corpora.uralic_ud_v210_mdf = {
     attributes: attrlist.ud2_uralic,
     structAttributes: create_ud2_sattrlist(["text_en", "source", "text_orig", "gloss_en", "text_sms", "text_kpv", "text_fi"]),
     licence: settings.licenceinfo.CC_BY_SA_40,
-    metadata_urn: "urn:nbn:fi:lb-2022061001",
+    metadata_urn: "urn:nbn:fi:lb-2024031207",
 };
 
-settings.corpora.uralic_ud_v210_myv = {
-    id: "uralic_ud_v210_myv",
-    title: "Uralic UD v2.10 for Erzya",
+settings.corpora.uralic_ud_v213_myv = {
+    id: "uralic_ud_v213_myv",
+    title: "Uralic UD v2.13 for Erzya",
     description: "Universal Dependencies version 2.10 for Erzya",
     lang: "myv",
     within: within.sp,
@@ -5638,12 +5254,12 @@ settings.corpora.uralic_ud_v210_myv = {
     attributes: attrlist.ud2_uralic,
     structAttributes: create_ud2_sattrlist(["text_en", "text_fi", "story_id", "source", "text_ru", "text_orig"]),
     licence: settings.licenceinfo.CC_BY_SA_40,
-    metadata_urn: "urn:nbn:fi:lb-2022061001",
+    metadata_urn: "urn:nbn:fi:lb-2024031207",
 };
 
-settings.corpora.uralic_ud_v210_olo = {
-    id: "uralic_ud_v210_olo",
-    title: "Uralic UD v2.10 for Olonets-Karelian",
+settings.corpora.uralic_ud_v213_olo = {
+    id: "uralic_ud_v213_olo",
+    title: "Uralic UD v2.13 for Olonets-Karelian",
     description: "Universal Dependencies version 2.10 for Olonets-Karelian",
     lang: "olo",
     within: within.sp,
@@ -5651,12 +5267,12 @@ settings.corpora.uralic_ud_v210_olo = {
     attributes: attrlist.ud2_uralic,
     structAttributes: create_ud2_sattrlist(["text_sms", "text_mdf", "text_fi", "text_en"]),
     licence: settings.licenceinfo.CC_BY_SA_40,
-    metadata_urn: "urn:nbn:fi:lb-2022061001",
+    metadata_urn: "urn:nbn:fi:lb-2024031207",
 };
 
-settings.corpora.uralic_ud_v210_sme = {
-    id: "uralic_ud_v210_sme",
-    title: "Uralic UD v2.10 for North Sami",
+settings.corpora.uralic_ud_v213_sme = {
+    id: "uralic_ud_v213_sme",
+    title: "Uralic UD v2.13 for North Sami",
     description: "Universal Dependencies version 2.10 for North Sami",
     lang: "sme",
     within: within.sp,
@@ -5664,12 +5280,12 @@ settings.corpora.uralic_ud_v210_sme = {
     attributes: attrlist.ud2_uralic,
     structAttributes: create_ud2_sattrlist([]),
     licence: settings.licenceinfo.CC_BY_SA_40,
-    metadata_urn: "urn:nbn:fi:lb-2022061001",
+    metadata_urn: "urn:nbn:fi:lb-2024031207",
 };
 
-settings.corpora.uralic_ud_v210_sms = {
-    id: "uralic_ud_v210_sms",
-    title: "Uralic UD v2.10 for Skolt Sami",
+settings.corpora.uralic_ud_v213_sms = {
+    id: "uralic_ud_v213_sms",
+    title: "Uralic UD v2.13 for Skolt Sami",
     description: "Universal Dependencies version 2.10 for Skolt Sami",
     lang: "sms",
     within: within.sp,
@@ -5677,7 +5293,20 @@ settings.corpora.uralic_ud_v210_sms = {
     attributes: attrlist.ud2_uralic,
     structAttributes: create_ud2_sattrlist(["story_id", "text_fi", "text_mdf", "text_olo", "comment"]),
     licence: settings.licenceinfo.CC_BY_SA_40,
-    metadata_urn: "urn:nbn:fi:lb-2022061001",
+    metadata_urn: "urn:nbn:fi:lb-2024031207",
+};
+
+settings.corpora.uralic_ud_v213_vep = {
+    id: "uralic_ud_v213_vep",
+    title: "Uralic UD v2.13 for Veps",
+    description: "Universal Dependencies version 2.13 for Veps",
+    lang: "vep",
+    within: within.sp,
+    context: context.sp,
+    attributes: attrlist.ud2_uralic,
+    structAttributes: create_ud2_sattrlist(["text"]),
+    licence: settings.licenceinfo.CC_BY_SA_40,
+    metadata_urn: "urn:nbn:fi:lb-2024031207",
 };
 
 funcs.addAttrExtraProperties(settings.corpora);

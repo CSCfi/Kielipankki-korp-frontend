@@ -102,70 +102,72 @@ settings.corpusFeatures.paragraphs = {
 // Recurring corpus licence information (name + URL)
 settings.licenceinfo = {
     CC0: {
-        name: "CC ZERO (CC0) (CLARIN PUB)",
+        name: "CC ZERO (CC0) (PUB)",
         description: "Public Domain Dedication",
         // URN to the English version (the same for all CC licences)
         // TODO: Allow different URNs based on the UI language
         urn: "urn:nbn:fi:lb-2021120221",
     },
     CC_BY: {
-        name: "CC BY (CLARIN PUB)",
+        name: "CC BY (PUB)",
         description: "Creative Commons Attribution",
         urn: "urn:nbn:fi:lb-2021120223",
     },
     CC_BY_30: {
-        name: "CC BY 3.0 (CLARIN PUB)",
+        name: "CC BY 3.0 (PUB)",
         description: "Creative Commons Attribution 3.0",
         url: "https://creativecommons.org/licenses/by/3.0/",
     },
     CC_BY_40: {
-        name: "CC BY 4.0 (CLARIN PUB)",
+        name: "CC BY 4.0 (PUB)",
         description: "Creative Commons Attribution",
         urn: "urn:nbn:fi:lb-2021120223",
     },
     CC_BY_NC: {
-        name: "CC BY-NC (CLARIN PUB)",
+        name: "CC BY-NC (PUB)",
         description: "Creative Commons Attribution-NonCommercial",
         urn: "urn:nbn:fi:lb-2021120227",
     },
     CC_BY_ND: {
-        name: "CC BY-ND (CLARIN PUB)",
+        name: "CC BY-ND (PUB)",
         description: "Creative Commons Attribution-NoDerivatives",
         urn: "urn:nbn:fi:lb-2021120231",
     },
     CC_BY_ND_40: {
-        name: "CC BY-ND 4.0 (CLARIN PUB)",
+        name: "CC BY-ND 4.0 (PUB)",
         description: "Creative Commons Attribution-NoDerivatives 4.0",
         urn: "urn:nbn:fi:lb-2021120231",
     },
     CC_BY_NC_ND: {
-        name: "CC BY-NC-ND (CLARIN PUB)",
+        name: "CC BY-NC-ND (PUB)",
         description: "Creative Commons Attribution-NonCommercial-NoDerivatives",
         url: "https://creativecommons.org/licenses/by-nc-nd/4.0/",
     },
     CC_BY_NC_ND_40: {
-        name: "CC BY-NC-ND 4.0 (CLARIN PUB)",
+        name: "CC BY-NC-ND 4.0 (PUB)",
         description: "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0",
         url: "https://creativecommons.org/licenses/by-nc-nd/4.0/",
     },
     CC_BY_SA_30: {
-        name: "CC BY-SA 3.0 (CLARIN PUB)",
+        name: "CC BY-SA 3.0 (PUB)",
         description: "Creative Commons Attribution-ShareAlike",
         url: "https://creativecommons.org/licenses/by-sa/3.0/",
     },
-    EUPL_11: {
-        name: "EUPL v1.1 (CLARIN PUB)",
-        description: "European Union Public Licence, version 1.1",
-        url: "http://ec.europa.eu/idabc/en/document/7774.html",
-        // An alternative URL:
-        // url: "https://joinup.ec.europa.eu/community/eupl/og_page/european-union-public-licence-eupl-v11",
+    // The following is a function returning licence info with a link
+    // to the PID of a corpus-specific licence page
+    eupl_fin: function (urn) {
+        return {
+            name: "EUPL v. 1.2",
+            description: "Euroopan unionin yleinen lisenssi v. 1.2 (EUPL)",
+            urn: urn,
+        }
     },
     ParFinRus_2016_fi: {
-        name: "CLARIN RES +NC +INF +ND 1.0",
+        name: "CLARIN RES +NC +INF +ND 2.1",
         urn: "urn:nbn:fi:lb-2017020611",
     },
     ParFinRus_2016_en: {
-        name: "CLARIN RES +NC +INF +ND 1.0",
+        name: "CLARIN RES +NC +INF +ND 2.1",
         urn: "urn:nbn:fi:lb-2017020612",
     },
     // TODO: Check if ACA_NC is needed, as it is not currently used
@@ -174,16 +176,16 @@ settings.licenceinfo = {
     // ACA+NC licence, as the idea probably is that each such corpus
     // should have a licence page of its own.
     ACA_NC: {
-        name: "CLARIN ACA +NC",
-        description: "CLARIN ACA (Academic) End-User License 1.0, Non-commercial",
+        name: "CLARIN ACA +NC 2.1",
+        description: "CLARIN ACA (Academic) End-User License 2.1, Non-commercial",
         // url: "https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/ClarinEulaAca?NC=1",
     },
     Ylenews_sv_en: {
-        name: "CLARIN ACA +NC 1.0",
+        name: "CLARIN ACA +NC 2.1",
         urn: "urn:nbn:fi:lb-2019120401",
     },
     KLK_en: {
-        name: "CC BY 4.0 (CLARIN PUB)",
+        name: "CC BY 4.0 (PUB)",
         urn: "urn:nbn:fi:lb-2023032704",
     },
 };
@@ -4077,65 +4079,7 @@ settings.commonStructTypes = {
         hideCompare: "true",
         hideStatistics: "true",
         opts: false,
-        // FIXME: The localized values of "date_from" and "date_to"
-        // are not changed immediately when changing the interface
-        // language, but only after e.g. switching the search
-        // attribute. How could that be made work? But neither are the
-        // month and day-of-week names in the date picker itself
-        // localized immediately. (Jyrki Niemi 2017-11-02)
-        extendedTemplate: '<div class="date_interval_arg_type"> <div class="section"> <button class="btn btn-default btn-sm" popper no-close-on-click my="left top" at="right top"> <i class="fa fa-calendar"></i> {{"date_from" | loc:lang}} </button> {{combined.format("YYYY-MM-DD HH:mm")}} <time-interval ng-click="from_click($event)" class="date_interval popper_menu dropdown-menu" date-model="from_date" time-model="from_time" model="combined" min-date="minDate" max-date="maxDate"> </time-interval> </div> <div class="section"> <button class="btn btn-default btn-sm" popper no-close-on-click my="left top" at="right top"> <i class="fa fa-calendar"></i> {{"date_to" | loc:lang}} </button> {{combined2.format("YYYY-MM-DD HH:mm")}} <time-interval ng-click="from_click($event)" class="date_interval popper_menu dropdown-menu" date-model="to_date" time-model="to_time" model="combined2" my="left top" at="right top" min-date="minDate" max-date="maxDate"> </time-interval> </div> </div>',
-        extendedController: [
-            "$scope", "searches", "$timeout", function($scope, searches, $timeout) {
-                var cl, getTime, getYear, ref, ref1, ref2, s, updateIntervals;
-                s = $scope;
-                cl = settings.corpusListing;
-
-                updateIntervals = function() {
-                    var from, moments, ref, ref1, to;
-                    moments = cl.getMomentInterval();
-                    if (moments.length) {
-                        return ref = _.invokeMap(moments, "toDate"), s.minDate = ref[0], s.maxDate = ref[1], ref;
-                    } else {
-                        ref1 = cl.getTimeInterval(), from = ref1[0], to = ref1[1];
-                        s.minDate = moment(from.toString(), "YYYY").toDate();
-                        return s.maxDate = moment(to.toString(), "YYYY").toDate();
-                    }
-                };
-
-                s.$on("corpuschooserchange", function() {
-                  return updateIntervals();
-                });
-
-                updateIntervals();
-
-                s.from_click = function(event) {
-                  event.originalEvent.preventDefault();
-                  return event.originalEvent.stopPropagation();
-                };
-
-                getYear = function(val) {
-                  return moment(val.toString(), "YYYYMMDD").toDate();
-                };
-
-                getTime = function(val) {
-                  return moment(val.toString(), "HHmmss").toDate();
-                };
-
-                if (!s.model) {
-                    s.from_date = s.minDate;
-                    s.to_date = s.maxDate;
-                    ref = _.invokeMap(cl.getMomentInterval(), "toDate"), s.from_time = ref[0], s.to_time = ref[1];
-                } else if (s.model.length === 4) {
-                    ref1 = _.map(s.model.slice(0, 3), getYear), s.from_date = ref1[0], s.to_date = ref1[1];
-                    ref2 = _.map(s.model.slice(2), getTime), s.from_time = ref2[0], s.to_time = ref2[1];
-                }
-                return s.$watchGroup(["combined", "combined2"], function(arg) {
-                    var combined, combined2;
-                    combined = arg[0], combined2 = arg[1];
-                    return s.model = [moment(s.from_date).format("YYYYMMDD"), moment(s.to_date).format("YYYYMMDD"), moment(s.from_time).format("HHmmss"), moment(s.to_time).format("HHmmss")];
-                });
-            }
-        ]
+        extendedComponent: "dateInterval",
     }
 };
 
@@ -5958,9 +5902,25 @@ sattrs.day_of_month = {
     label: "day"
 };
 
+
+// Return a link to an SIL page describing the ISO 639-3 language code
+// lang, with the possible translation as attribute "title" (tooltip)
+funcs.makeLinkISO639_3 = function (lang) {
+    return ('<a href="https://iso639-3.sil.org/code/'
+            // Direct "xxx" to "und", but show it as "xxx"
+            + (lang == "xxx" ? "und" : lang)
+            + '" target="_blank"'
+            + 'title="' + util.translateAttribute(null, transl.lang, lang)
+            + '">' + lang + '</a>');
+}
+
 sattrs.sentence_lang = {
     label: "sentence_lang_identified",
-    translation: transl.lang,
+    // Always show language codes instead of names, so no translation here
+    // translation: transl.lang,
+    extendedComponent: "structServiceSelect",
+    opts: options.lite,
+    pattern: '<%= funcs.makeLinkISO639_3(val) %>',
 };
 
 sattrs.sentence_lang_conf = {
@@ -5971,7 +5931,9 @@ sattrs.paragraph_sum_lang = {
     label: "paragraph_lang_identified_counts",
     type: "set",
     opts: options.fullSet,
-    pattern: '<span data-key="<%= key %>"><%= util.translateAttribute(null, transl.lang, val.split(":")[0]) + ": " + val.split(":")[1] %></span>',
+    // Show language codes with links to SIL ISO 639-3 pages and
+    // possible translations as tooltips
+    pattern: '<span data-key="<%= key %>"><%= funcs.makeLinkISO639_3(val.split(":")[0]) + ": " + val.split(":")[1] %></span>',
 };
 
 sattrs.text_sum_lang = {
@@ -5994,8 +5956,8 @@ sattrlist.lang_text_paragraph_sentence = {
     sentence_lang_conf: sattrs.sentence_lang_conf,
 };
 
-sattrs.sentence_polarity = {
-    label: "sentence_polarity",
+sattrs.sentence_sentiment_polarity = {
+    label: "sentence_sentiment_polarity",
     extendedComponent: "datasetSelect",
     opts: options.lite,
     dataset: [
@@ -6464,7 +6426,7 @@ settings.corpusinfo.parfin = {
     metadata_urn: "urn:nbn:fi:lb-2014052710",
     lbr_id: "urn:nbn:fi:lb-2014052710",
     licence: {
-        name: "CLARIN RES +NC +PLAN +INF",
+        name: "CLARIN RES +NC +PLAN +INF 2.1",
         urn: "urn:nbn:fi:lb-2015041306",
     },
     homepage_url: "https://mustikka.uta.fi/",
@@ -7016,7 +6978,7 @@ settings.corpusinfo.parrus = {
     metadata_urn: "urn:nbn:fi:lb-20140730173",
     lbr_id: "urn:nbn:fi:lb-2014052710",
     licence: {
-        name: "CLARIN RES +PLAN +NC +INF +ND",
+        name: "CLARIN RES +PLAN +NC +INF +ND 2.1",
         url: "urn:nbn:fi:lb-2016042705",
     },
     homepage_url: "https://mustikka.uta.fi/",

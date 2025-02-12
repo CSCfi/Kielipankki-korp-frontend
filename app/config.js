@@ -1,8 +1,11 @@
 
 var isLab = window.isLab || false;
 
+var isProductionServerKielipankki = (
+    window.location.hostname.indexOf("kielipankki.fi") != -1);
 var isProductionServer = (
-    window.location.hostname.indexOf(".csc.fi") != -1
+    isProductionServerKielipankki
+        || window.location.hostname.indexOf(".csc.fi") != -1
         || window.location.hostname == "195.148.22.239");
 var isProductionServerTest =
     (isProductionServer
@@ -20,6 +23,8 @@ c.log("Production server:", isProductionServer);
 
 var baseURL = (window.location.protocol + "//" + window.location.hostname
                + window.location.pathname);
+
+var kielipankkiBaseAddress = "https://www.kielipankki.fi";
 
 settings.autocomplete = true;
 settings.mapEnabled = true;
@@ -268,23 +273,27 @@ settings.downloadFormatParamsPhysical = {
 
 
 // Korp backend URL
-// Always use the backend at korp.csc.fi
-settings.korpBackendURL = "https://korp.csc.fi/korp/api8";
-// // Alternatively, use the backend on the same site as the frontend
-// settings.korpBackendURL =
-//    window.location.protocol + "//" + window.location.hostname + "/korp/api8";
+// Currently we, use the backend on the same site as the frontend
+// To enforce a hardcoded production backend, do eg.
+// settings.korpBackendURL = kielipankkiBaseAddress + "/korp/api8";
+settings.korpBackendURL = window.location.protocol + "//" +
+    window.location.hostname +
+    window.location.pathname.replace(
+	/\/korp.*/, "/korp/api8");
 // console.log("korpBackendURL: '" + settings.korpBackendURL + "'")
-settings.downloadCgiScript = "https://korp.csc.fi/cgi-bin/korp/korp_download.cgi";
+settings.downloadCgiScript = (kielipankkiBaseAddress
+                              + (isProductionServerKielipankki ? "/korp" : "")
+                              + "/cgi-bin/korp/korp_download.cgi");
 
 // The main Korp, Korp Labs and old Korp URLs for the links in the cog menu
 settings.korpUrl = {
     "main": (isProductionServer ? "/korp/" : "/korp/"),
-    "lab": (isProductionServer ? "/korplab/" : "/korplab/"),
-    "old": (isProductionServer ? "/korp-old/" : "/korp-old/"),
+    "lab": (isProductionServer ? "https://korp.csc.fi/korplab/" : "/korplab/"),
+    "old": (isProductionServer ? "https://korp.csc.fi/korp-old/" : "/korp-old/"),
 };
 
 settings.urnResolver = "http://urn.fi/";
-settings.corpus_cite_base_url = "http://www.kielipankki.fi/viittaus/?key=";
+settings.corpus_cite_base_url = kielipankkiBaseAddress + "/viittaus/?key=";
 
 // Set advanced_search_within to false to disable the within selection
 // in the advanced search. If the value is undefined, assume true.
@@ -378,7 +387,7 @@ settings.shibbolethLogoutUrl = function (href) {
 settings.make_direct_LBR_URL = function (lbr_id) {
     console.log ("make_direct_LBR_URL", lbr_id);
     if (lbr_id) {
-        return ("https://www.kielipankki.fi/lbr3/"
+        return (kielipankkiBaseAddress + "/lbr3/"
                 + (lbr_id.slice(0, 3) != "urn" ? "urn:nbn:fi:lb-" : "")
                 + lbr_id);
     } else {
@@ -424,10 +433,16 @@ settings.corpusExtraInfo = {
 
 // Get the PID from corpus configuration corpusObj
 let getPid = function (corpusObj) {
-    return ((corpusObj.pid ? corpusObj.pid.urn : null)
-            || corpusObj.pid_urn
-            || (corpusObj.metadata ? corpusObj.metadata.urn : null)
-            || corpusObj.metadata_urn)
+    let pid = ((corpusObj.pid && corpusObj.pid.urn)
+               || corpusObj.pid_urn
+               || (corpusObj.metadata && corpusObj.metadata.urn)
+               || corpusObj.metadata_urn);
+    // If a URN value is a complete URL with a resolver, use the
+    // actual URN only as the PID
+    if (pid && pid.startsWith("http")) {
+        pid = pid.split("/").slice(-1)[0];
+    }
+    return pid;
 }
 
 // Special handling for specified corpus extra info items: property
@@ -494,12 +509,7 @@ settings.makeCorpusExtraInfoItem = {
             }
             // Use the metadata URN as the default cite id; fall back
             // to cite_id if no metadata URN is found
-            let citeId = (
-                (corpusObj.pid && corpusObj.pid.urn)
-                    || corpusObj.pid_urn
-                    || (corpusObj.metadata && corpusObj.metadata.urn)
-                    || corpusObj.metadata_urn
-                    || corpusObj.cite_id);
+            let citeId = getPid(corpusObj) || corpusObj.cite_id;
             if (citeId) {
                 return {
                     // Using ng-href would require using Angular $compile,

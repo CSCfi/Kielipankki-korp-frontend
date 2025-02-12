@@ -181,25 +181,24 @@ funcs.addCorporaToFolder("manual", "ftb2");
 //     ]
 // };
 
+settings.corporafolders.news.klk_fi_v2 = {
+    title: "Kansalliskirjaston lehtikokoelman (KLK) suomenkieliset lehdet, versio 2",
+    description: "Kansalliskirjaston sanoma- ja aikakauslehtikokoelman suomenkielinen osakorpus versio 2, Korp (klk-fi-v2-korp)<br/><br/>Tämä aineisto sisältää <a href=\"https://digi.kansalliskirjasto.fi/\" target=\"_blank\">Kansalliskirjaston lehtikokoelman</a> sanoma- ja aikakauslehtiä vuosilta 1771–2021. Aineistossa on yli neljä kertaa niin paljon saneita kuin <a href=\"http://urn.fi/urn:nbn:fi:lb-2016050302\" target=\"_blank\">aineiston aiemmassa versiossa</a>, joka myös on yhä käytettävissä Korpissa. Paljon uutta aineistoa on määrällisesti etenkin vuosilta 1911–1945, suhteellisesti myös vuosilta 1946–2000 ja kokonaan uutena vuosilta 2001–2021.<br/><br/><strong>Huomaa</strong>, että aineiston suuren koon vuoksi Korp-haut voivat olla hitaita, joten kannattaa ainakin ensin kokeilla hakuja pienehköllä osalla aineistoa.<br/><br/>Vuoteen 1911 asti aineisto sisältää virkkeet alkuperäisessä järjestyksessä sekä kappalekontekstin, kun taas vuodesta 1912 alkaen virkkeet on sekoitettu kunkin tekstin (lehden sivun) sisällä eikä kappalekontekstia ole saatavilla.<br/><br/>Aineiston virkkeiden kieli on tunnistettu <a href=\"http://urn.fi/urn:nbn:fi:lb-2022092201\" target=\"_blank\">HeLI-OTS-kielentunnistimella</a>. Aineisto sisältää seuraavista lähdeaineistoista ne tekstit (lehden sivut), joilla vähintään yksi virke on tunnistettu suomeksi: <a href=\"http://urn.fi/urn:nbn:fi:lb-2016050302\" target=\"_blank\">Kansalliskirjaston lehtikokoelman suomenkielinen osakorpus (versio 1)</a>; <a href=\"http://urn.fi/urn:nbn:fi:lb-2016050301\" target=\"_blank\">Kansalliskirjaston lehtikokoelman ruotsinkielinen osakorpus (versio 1)</a>; sekä Kansalliskirjaston vuoden 2013 jälkeen tuottama aineisto, jota ei ole aiemmin ollut saatavilla Kielipankissa.<br/><br/>Huomaa, että toistaiseksi tästä aineistosta puuttuvat nimiannotaatiot, jollaiset ovat aiemmassa versiossa.<br/><br/>Aineistossa olevat linkit sivun kuviin ja PDF-tiedostoihin vievät <a href=\"https://digi.kansalliskirjasto.fi\" target=\"_blank\">Kansalliskirjaston digitaalisten aineistojen verkkosivuille</a>. Useimmille vuotta 1939 uudemmille lehdille sivun kuvien ja PDF-tiedostojen käyttö on sallittu vain tutkimustarkoituksiin ja edellyttää kirjautumista ja käyttölupalomakkeen täyttämistä Kansalliskirjaston palvelussa.",
+    info: {
+        urn: "urn:nbn:fi:lb-202009151",
+        metadata_urn: "urn:nbn:fi:lb-202009152",
+        licence: settings.licenceinfo.KLK_en,
+    }
+};
+
 settings.corporafolders.news.klk_fi = {
     title: "Kansalliskirjaston lehtikokoelman (KLK) suomenkieliset lehdet",
-    description: "Kansalliskirjaston sanoma- ja aikakauslehtikokoelma, Kielipankki-versio, suomenkieliset lehdet",
+    description: "Kansalliskirjaston sanoma- ja aikakauslehtikokoelma, Kielipankki-versio, suomenkieliset lehdet<br/><br/><strong>Huomaa</strong>, että aineistosta on Korpissa uusi, huomattavasti laajempi <a href=\"http://urn.fi/urn:nbn:fi:lb-202009152\" target=\"_blank\">versio 2</a>. Tämä versio sisältää kuitenkin nimiannotaatiot, jollaiset toistaiseksi puuttuvat uudesta versiosta.",
     info: {
         urn: "urn:nbn:fi:lb-201405275",
         metadata_urn: "urn:nbn:fi:lb-2016050302",
         licence: settings.licenceinfo.CC_BY,
         cite_id: "KLK-fi",
-    }
-};
-
-settings.corporafolders.news.klk_fi_v2 = {
-    title: "Kansalliskirjaston lehtikokoelman (KLK) suomenkieliset lehdet, versio 2",
-    description: "Kansalliskirjaston sanoma- ja aikakauslehtikokoelman suomenkielinen osakorpus versio 2, Korp (klk-fi-v2-korp)<br/><br/>Aineistossa olevat linkit sivun kuviin ja PDF-tiedostoihin vievät <a href=\"https://digi.kansalliskirjasto.fi\" target=\"_blank\">Kansalliskirjaston digitaalisten aineistojen verkkosivuille</a>. Useimmille vuotta 1939 uudemmille lehdille sivun kuvien ja PDF-tiedostojen käyttö on sallittu vain tutkimustarkoituksiin ja edellyttää kirjautumista ja käyttölupalomakkeen täyttämistä Kansalliskirjaston palvelussa.",
-    info: {
-        urn: "urn:nbn:fi:lb-202009151",
-        metadata_urn: "urn:nbn:fi:lb-202009152",
-        licence: settings.licenceinfo.KLK_en,
-        status: "beta",
     }
 };
 
@@ -235,7 +234,7 @@ settings.corporafolders.literary.skk = {
     info: {
         urn: "urn:nbn:fi:lb-2015022401",
         metadata_urn: "urn:nbn:fi:lb-20140730186",
-        licence: settings.licenceinfo.EUPL_11,
+        licence: settings.licenceinfo.eupl_fin("urn:nbn:fi:lb-2024082002"),
         homepage: funcs.kainoHomepage("klassikot/meta/klassikot"),
         cite_id: "SKK",
     }
@@ -249,7 +248,7 @@ settings.corporafolders.literary.kaannossuomi = {
         urn: "urn:nbn:fi:lb-2019100803",
         metadata_urn: "urn:nbn:fi:lb-2019100801",
         licence: {
-            name: "CLARIN RES +NC +DEP 1.0",
+            name: "CLARIN RES +NC +DEP 2.1",
             urn: "urn:nbn:fi:lb-2019100805",
         },
         cite_id: "kaannossuomi-korp",
@@ -281,7 +280,7 @@ var ftc_info = {
     metadata_urn: "urn:nbn:fi:lb-2016050207",
     lbr_id: "urn:nbn:fi:lb-201403268",
     licence: {
-        name: "CLARIN RES +PLAN +NC +ND",
+        name: "CLARIN RES +PLAN +NC +ND 2.1",
         urn: "urn:nbn:fi:lb-20150304137",
     },
     // KitWiki is no longer available and there is no replacement page yet
@@ -945,7 +944,7 @@ settings.corporafolders.news.ylenews_fi.a = {
         urn: "urn:nbn:fi:lb-2022032204",
         metadata_urn: "urn:nbn:fi:lb-2022032203",
         licence: {
-            name: "CLARIN ACA +NC 2.0",
+            name: "CLARIN ACA +NC 2.1",
             urn: "urn:nbn:fi:lb-2019121002",
         },
         cite_id: "ylenews-fi-2011-2021-korp",
@@ -997,7 +996,7 @@ settings.corporafolders.news.kal.kal_perus = {
         metadata_urn: "urn:nbn:fi:lb-2018060702",
         cite_id: "kotus-al-unrev-korp",
         licence: {
-            name: "CLARIN ACA +NC +DEP 1.0",
+            name: "CLARIN ACA +NC +DEP 2.1",
             urn: "urn:nbn:fi:lb-2021030304",
         }
     }
@@ -1017,7 +1016,7 @@ settings.corporafolders.news.kal.kal_ydin = {
         metadata_urn: "urn:nbn:fi:lb-2018060701",
         cite_id: "kotus-al-rev-korp",
         licence: {
-            name: "CLARIN ACA +NC +DEP 1.0",
+            name: "CLARIN ACA +NC +DEP 2.1",
             urn: "urn:nbn:fi:lb-2021030302",
         }
     }
@@ -1033,7 +1032,7 @@ settings.corporafolders.news.stt = {
         urn: "urn:nbn:fi:lb-2018121002",
         metadata_urn: "urn:nbn:fi:lb-2019111201",
     	licence: {
-            name: "CC BY NC (CLARIN PUB)",
+            name: "CC BY NC (PUB)",
             urn: "urn:nbn:fi:lb-2023022703"
     	},
     }
@@ -1408,7 +1407,7 @@ settings.corporafolders.other.kotus_ns_presidentti = {
         // to update the URNs, you should also check them.
         urn: "urn:nbn:fi:lb-20151001",
         metadata_urn: "urn:nbn:fi:lb-20140730150",
-        licence: settings.licenceinfo.EUPL_11,
+        licence: settings.licenceinfo.eupl_fin("urn:nbn:fi:lb-2024082104"),
         homepage: funcs.kainoHomepage(
             "teko/meta/presidentti/presidentti"),
         compiler: {
@@ -1433,7 +1432,7 @@ settings.corporafolders.learner.las2 = {
         metadata_urn: "urn:nbn:fi:lb-201407167",
         homepage_url: "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/tutkimus/tutkimushankkeet/las2/Sivut/home.aspx",
         licence: {
-            name: "CLARIN RES +PLAN +NC +INF +LOC +ND",
+            name: "CLARIN RES +PLAN +NC +INF +LOC +ND 2.1",
             urn: "urn:nbn:fi:lb-2015041305",
         },
         cite_id: "LAS2",
@@ -1463,7 +1462,7 @@ settings.corporafolders.historical.vks = {
     info: {
         urn: "urn:nbn:fi:lb-201407166",
         metadata_urn: "urn:nbn:fi:lb-201407165",
-        licence: settings.licenceinfo.EUPL_11,
+        licence: settings.licenceinfo.eupl_fin("urn:nbn:fi:lb-2024082106"),
         homepage: funcs.kainoHomepage("vks/meta/vks"),
         cite_id: "VKS",
     },
@@ -1570,7 +1569,7 @@ settings.corporafolders.historical.vns = {
     info: {
         urn: "urn:nbn:fi:lb-2016081203",
         metadata_urn: "urn:nbn:fi:lb-20140730147",
-        licence: settings.licenceinfo.EUPL_11,
+        licence: settings.licenceinfo.eupl_fin("urn:nbn:fi:lb-2024082108"),
         homepage: funcs.kainoHomepage("1800/meta/1800"),
         cite_id: "VNSK",
     },
@@ -1919,7 +1918,10 @@ settings.corpora.ftb2 = {
     id: "ftb2",
     urn: "urn:nbn:fi:lb-201407164",
     metadata_urn: "urn:nbn:fi:lb-2016042406",
-    licence: settings.licenceinfo.CC_BY_30,
+    licence: {
+	name: "CC BY SA",
+	urn: "urn:nbn:fi:lb-2023103101"
+    },
     cite_id: "FinnTreeBank2-korp",
     within: within.default,
     context: context.default,
@@ -1962,7 +1964,10 @@ settings.corpora.ftb2 = {
 var ftb3_info = {
     urn: "urn:nbn:fi:lb-2016051001",
     metadata_urn: "urn:nbn:fi:lb-2016042602",
-    licence: settings.licenceinfo.CC_BY_30,
+    licence: {
+	name: "CC BY",
+	urn: "urn:nbn:fi:lb-2023111301"
+    },
     cite_id: "FinnTreeBank3-korp",
 };
 
@@ -9837,7 +9842,7 @@ settings.corpora.hsfi = {
     metadata_urn: "urn:nbn:fi:lb-2014052718",
     licence: {
         urn: "urn:nbn:fi:lb-20150304140",
-        name: "CLARIN ACA +NC +anonymisointi",
+        name: "CLARIN ACA +NC +anonymisointi 2.1",
         description: "Vain ei-kaupalliseen tutkimuskäyttöön. Nimimerkit tulee anonymisoida korpukseen viittaavissa julkaisuissa.",
     },
     cite_id: "HS.fi",
@@ -9888,7 +9893,7 @@ settings.corpora.karjalansuomi = {
     urn: "urn:nbn:fi:lb-2016112501",
     metadata_urn: "urn:nbn:fi:lb-2014092601",
     licence: {
-        name: "CLARIN ACA 1.0",
+        name: "CLARIN ACA 2.1",
         urn: "urn:nbn:fi:lb-2016112302",
     },
     cite_id: "Karjalansuomi",
@@ -9963,7 +9968,7 @@ settings.corpora.reittidemo = {
     },
     customAttributes: {
         video: funcs.makeVideoAttr({
-            baseURL: "http://localhost/corpusdata/",
+            baseURL: "/media/",
             path: "reittidemo/",
             file: "reitti_a-siipeen",
             ext: "mp4",
@@ -10580,7 +10585,7 @@ settings.corpora.kotus_lakidir = {
     metadata_urn: "urn:nbn:fi:lb-20140730126",
     // TODO: Check that & is paased correctly to the URL
     cite_id: "Lakeja&direktiiveja",
-    licence: settings.licenceinfo.EUPL_11,
+    licence: settings.licenceinfo.eupl_fin("urn:nbn:fi:lb-2024082102"),
     homepage: funcs.kainoHomepage("teko/meta/saadokset/saadokset"),
     within: within.sp,
     context: context.sp,
@@ -10663,7 +10668,7 @@ settings.corpora.kotus_sp = {
     id: "kotus_sp",
     urn: "urn:nbn:fi:lb-2016081202",
     metadata_urn: "urn:nbn:fi:lb-20140730176",
-    licence: settings.licenceinfo.EUPL_11,
+    licence: settings.licenceinfo.eupl_fin("urn:nbn:fi:lb-2024082004"),
     homepage: funcs.kainoHomepage("sp/meta/sp"),
     cite_id: "Sananparsikokoelma",
     within: within.default,
@@ -11494,7 +11499,7 @@ for (var i = 0; i < la_murre_grouping.length; i++) {
 // var la_murre_fulltext_url_prefix = "/korp/fulltext/la_murre/";
 var la_murre_fulltext_url_prefix = (
     settings.isPublicServer ?
-        "/korp/fulltext/la_murre/" :
+        "/media/la-murre/fulltext/" :
         "//localhost/korp/fulltext/la_murre/");
 
 // Make LA-murre fulltext URLs with the sentence id as a fragment
@@ -11999,7 +12004,7 @@ settings.templ.la_murre = {
     },
     // Ignore any number of punctuation tokens between tokens in the
     // extended search
-    ignore_between_tokens_cqp: '[pos="punct"]*',
+    ignoreBetweenTokensCQP: '[pos="punct"]*',
 };
 
 funcs.makeFolderHierarchy(
@@ -12140,7 +12145,7 @@ las2_common_props = {
     metadata_urn: "urn:nbn:fi:lb-201407167",
     homepage_url: "http://www.utu.fi/fi/yksikot/hum/yksikot/suomi-sgr/tutkimus/tutkimushankkeet/las2/Sivut/home.aspx",
     licence: {
-        name: "CLARIN RES +PLAN +NC +LOC +ND",
+        name: "CLARIN RES +PLAN +NC +LOC +ND 2.1",
         urn: "urn:nbn:fi:lb-20150304111"
     },
     cite_id: "LAS2",
@@ -13094,7 +13099,7 @@ settings.corpora.finstud = {
     urn: "urn:nbn:fi:lb-2016090610",
     metadata_urn: "urn:nbn:fi:lb-20140730158",
     licence: {
-        name: "CLARIN RES +PLAN +NC +PRIV 1.0",
+        name: "CLARIN RES +PLAN +NC +PRIV 2.1",
         urn: "urn:nbn:fi:lb-2016041802",
     },
     cite_id: "FinStud86",
@@ -13118,7 +13123,7 @@ settings.corpora.yoaineet = {
     urn: "urn:nbn:fi:lb-2019032801",
     metadata_urn: "urn:nbn:fi:lb-2017030301",
     licence: {
-        name: "CLARIN RES +NC +PRIV 1.0",
+        name: "CLARIN RES +NC +PRIV 2.1",
         urn: "urn:nbn:fi:lb-2017030601",
     },
     cite_id: "ylioppilasaineet",
@@ -14981,7 +14986,7 @@ settings.corpora.topling_fi = {
     metadata_urn: "urn:nbn:fi:lb-2016111802",
     lbr_id: "urn:nbn:fi:lb-20140730168",
     licence: {
-        name: "CLARIN RES +NC +DEP 1.0",
+        name: "CLARIN RES +NC +DEP 2.1",
         urn: "urn:nbn:fi:lb-2016112305"
     },
     homepage_url: "https://www.jyu.fi/topling",
@@ -15042,7 +15047,7 @@ settings.corpora.ceal_o = {
     urn: "urn:nbn:fi:lb-2018011201",
     metadata_urn: "urn:nbn:fi:lb-2017011302",
     licence: {
-        name: "CLARIN RES +NC 1.0",
+        name: "CLARIN RES +NC 2.1",
         urn: "urn:nbn:fi:lb-2017011306",
     },
     cite_id: "ceal-o",
@@ -15065,7 +15070,7 @@ settings.corpora.ceal_s = {
     urn: "urn:nbn:fi:lb-2018011202",
     metadata_urn: "urn:nbn:fi:lb-2017011303",
     licence: {
-        name: "CLARIN ACA +AFFIL=EDU +NC 1.0",
+        name: "CLARIN ACA +AFFIL=EDU +NC 2.1",
         urn: "urn:nbn:fi:lb-2017011308",
     },
     cite_id: "ceal-s",
@@ -15236,7 +15241,7 @@ settings.corpora.iijoki = {
     limitedAccess: true,
     licenceType: "ACA",
     licence: {
-        name: "CLARIN ACA +NC +DEP 1.0",
+        name: "CLARIN ACA +NC +DEP 2.1",
         urn: "urn:nbn:fi:lb-2019102106"
     },
     within: within.sp,
@@ -15305,20 +15310,22 @@ settings.corpora.eduskunta = {
     licence: [
         {
             subtype: "text",
-            name: "CLARIN PUB +BY +PRIV 1.0",
-            description: "CLARIN PUB loppukäyttäjän lisenssisopimus +BY +PRIV 1.0",
+            name: "Tekijänoikeusvapaa; +PRIV",
+            // &#x0a; seems to add a line break to the tooltip, but
+            // does that work in all browsers?
+            description: "Tekijänoikeusvapaa aineisto; sisältää henkilötietoja (+PRIV)&#x0a;Copyright-free material; includes personal data (+PRIV)",
             urn: "urn:nbn:fi:lb-2019112821",
         },
         {
             subtype: "audiovideo",
-            name: "CLARIN PUB +BY +PRIV +ND +OTHER 1.0",
-            description: "CLARIN PUB loppukäyttäjän lisenssisopimus +BY +PRIV +ND +OTHER 1.0",
+            name: "CLARIN PUB +BY +PRIV +ND +OTHER 2.1",
+            description: "CLARIN PUB loppukäyttäjän lisenssisopimus +BY +PRIV +ND +OTHER v2.1",
             urn: "urn:nbn:fi:lb-2019112621",
         },
     ],
     cite_id: "eduskunta-v1.5-korp",
     homepage: {
-        urn: "http://urn.fi/urn:nbn:fi:lb-2019111922",
+        urn: "urn:nbn:fi:lb-2019111922",
         name: "Eduskunnan täysistuntojen verkkolähetysten tallenteet",
         description: "META-SHARE-kuvailutietosivu, josta linkki eduskunnan täysistuntojen verkkolähetysten tallenteisiin",
         no_label: true,
@@ -15834,7 +15841,7 @@ funcs.dmaStringifyPdfLink = function (filename, label, htmlAttrs) {
                  .replace(/ä/g, 'a')
                  .replace(/Ä/g, 'A')
                  .replace(/ö/g, 'o'))
-        let url = ("/dma/pdf/"
+        let url = ("/media/dma/pdf/"
                    + fname.slice(0, fname.lastIndexOf("_"))
                    + "/" + fname);
         output += `<br/><a href="${url}" ${htmlAttrs}>${fname}</a>`;
@@ -15857,7 +15864,7 @@ settings.corpora.dma = {
     homepage_url: "http://www.helsinki.fi/fus/research/ma.html",
     // TODO (plugin corpusinfo_formatter?): Allow an array of values for licence.
     licence: {
-        name: "CC BY 4.0 (teksti) / CLARIN RES +PRIV +ND (PDF-sanaliput)",
+        name: "CC BY 4.0 (teksti) / CLARIN RES +PRIV +ND 2.1 (PDF-sanaliput)",
         // Explicit PUB licence category for the Korp data; otherwise
         // "CLARIN RES" in the name would make it RES
         category: "PUB",
@@ -16354,7 +16361,9 @@ sattrlist.s24_2001_2017 = {
         translation: transl.paragraphType,
     },
     sentence_id: sattrs.sentence_id_hidden,
-    sentence_polarity: sattrs.sentence_polarity,
+    sentence_sentiment_polarity: sattrs.sentence_sentiment_polarity,
+    // Old (misleading) name for sentence_sentiment_polarity
+    sentence_polarity: sattrs.hidden,
 };
 
 // Custom attributes: links based on the values of other attributes
@@ -16476,7 +16485,7 @@ settings.corpora.iclfi = {
     urn: "urn:nbn:fi:lb-20140730163",
     metadata_urn: "urn:nbn:fi:lb-20140730163",
     licence: {
-        name: "CLARIN RES +PLAN +NC +INF +PRIV +DEP",
+        name: "CLARIN RES +PLAN +NC +INF +PRIV +DEP 2.1",
         urn: "urn:nbn:fi:lb-2015050501"
     },
     homepage_url: "http://www.oulu.fi/suomitoisenakielena/node/16078",
@@ -16609,7 +16618,9 @@ sattrlist.ylenews_fi_common = {
             extendedComponent: "structServiceSelect",
         }
     ),
-    text_url: sattrs.link_original,
+    // This is replaced with a custom attribute based on text_id, as
+    // the URLs have changed
+    text_url: sattrs.hidden,
     text_datetime_published: {
         label: "datetime_published",
         // The datetime values look better when kept on the same line,
@@ -16643,6 +16654,20 @@ sattrlist.ylenews_fi_common = {
         translation: transl.textPart,
     },
 };
+
+
+// Custom attribute: links based on the values of text_id (the
+// original URLs have changed)
+sattrlist.ylenews_fi_custom = {
+    text_url_fixed: {
+        pattern: funcs.makeLinkPattern(
+            "show_original",
+            "https://yle.fi/a/<%= struct_attrs.text_id %>"),
+        customType: "struct",
+        urlOpts: sattrs.link_url_opts,
+    },
+};
+
 
 sattrs.ylenews_fi_paragraph_type = {
     label: "paragraph_type",
@@ -16697,6 +16722,7 @@ settings.templ.ylenews_fi_a_base = $.extend(
             {
                 paragraph_type: sattrs.ylenews_fi_paragraph_type,
             }),
+        customAttributes: sattrlist.ylenews_fi_custom,
     }
 );
 
@@ -16765,6 +16791,7 @@ settings.templ.ylenews_fi_s_base = $.extend(
             {
                 sentence_paragraph_type: sattrs.ylenews_fi_paragraph_type,
             }),
+        customAttributes: sattrlist.ylenews_fi_custom,
     }
 );
 
@@ -16809,7 +16836,7 @@ funcs.addCorpusAliases(
     [
         "ylenews-fi-2019-2021-s-korp",
     ]);
-    
+
 funcs.addCorpusAliases(
     "ylenews_fi_20(1[1-9]|2[01])_s",
     [
@@ -16826,7 +16853,9 @@ sattrlist.ylenews_fi_selko_common = {
         label: "text_id",
     },
     text_publisher: sattrs.text_publisher,
-    text_url: sattrs.link_original,
+    // This is replaced with a custom attribute based on text_id, as
+    // the URLs have changed
+    text_url: sattrs.hidden,
     text_datetime_published: {
         label: "datetime_published",
         stringify: funcs.stringifyIsoDatetime,
@@ -16885,7 +16914,7 @@ settings.corpora.ylenews_fi_2011_2018_selko_a = {
     limitedAccess: true,
     licenceType: "ACA",
     licence: {
-        name: "CLARIN ACA +NC 1.0",
+        name: "CLARIN ACA +NC 2.1",
         urn: "urn:nbn:fi:lb-2019121202",
     },
     features: ["paragraphs"],
@@ -16895,6 +16924,7 @@ settings.corpora.ylenews_fi_2011_2018_selko_a = {
         {
             paragraph_type: sattrs.ylenews_fi_selko_paragraph_type,
         }),
+    customAttributes: sattrlist.ylenews_fi_custom,
 };
 
 
@@ -16919,6 +16949,7 @@ settings.corpora.ylenews_fi_2011_2018_selko_s = {
         {
             sentence_paragraph_type: sattrs.ylenews_fi_selko_paragraph_type,
         }),
+    customAttributes: sattrlist.ylenews_fi_custom,
 };
 
 

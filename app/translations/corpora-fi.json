@@ -83,6 +83,8 @@
     "text_volume": "nide",
     "subject": "aihe",
 
+    "title_uncleaned": "otsikko (siivoamaton)",
+
     "embargoed_datetime": "embargon ajankohta",
     "publication_status": "julkaisun tila",
     "editor_note": "toimittajan huomautus",
@@ -697,12 +699,12 @@
 
     "title_lemmas": "otsikon sanojen perusmuodot",
 
-    "sentence_polarity": "virkkeen polaarisuus",
+    "sentence_sentiment_polarity": "virkkeen tunnesävyn polaarisuus",
 
-    "sentence_lang_identified": "virkkeen kieli (tunnistettu)",
+    "sentence_lang_identified": "virkkeen kieli (tunnistettu, ISO 639-3)",
     "sentence_lang_identified_confidence": "virkkeen kielentunnistuksen luotettavuus",
-    "text_lang_identified_counts": "tekstin virkkeiden tunnistetut kielet",
-    "paragraph_lang_identified_counts": "kappaleen virkkeiden tunnistetut kielet",
+    "text_lang_identified_counts": "tekstin virkkeiden tunnistetut kielet (ISO 639-3)",
+    "paragraph_lang_identified_counts": "kappaleen virkkeiden tunnistetut kielet (ISO 639-3)",
 
     "publication_type": "julkaisutyyppi",
 
@@ -995,6 +997,17 @@
     "mrj": "vuorimari",
     "udm": "udmurtti",
 
+    "krl": "vienankarjala",
+    "olo": "livvinkarjala",
+    "listen_audio_kpv": "Soita puhunnos (komi‑syrjääni)",
+    "listen_audio_krl": "Soita puhunnos (vienankarjala)",
+    "listen_audio_myv": "Soita puhunnos (ersä)",
+    "listen_audio_olo": "Soita puhunnos (livvinkarjala)",
+    "listen_audio_kpv_first": "Soita puhunnos (komi‑syrjääni)",
+    "listen_audio_krl_first": "Soita puhunnos (vienankarjala)",
+    "listen_audio_myv_first": "Soita puhunnos (ersä)",
+    "listen_audio_olo_first": "Soita puhunnos (livvinkarjala)",
+
     "num_chars": "merkkimäärä",
     "chapter_id": "luvun tunniste",
     "story_id": "tarinan tunniste",
@@ -1019,6 +1032,25 @@
     "sentence_text_mhr": "virkkeen teksti (mhr)",
     "sentence_text_mns": "virkkeen teksti (mns)",
     "sentence_text_rus": "virkkeen teksti (rus)",
+
+    "digisvenska_text_id" : "tekstin tunniste",
+    "digisvenska_round" : "kirjoitusten ajankohta",
+    "digisvenska_question_id" : "tehtävän numero",
+    "digisvenska_assignment_id" : "tehtävän tunniste",
+    "digisvenska_assignment_type" : "tehtävän tyyppi",
+    "digisvenska_assignment_topic" : "tehtävän aihe",
+    "digisvenska_assignment_url" : "tehtävänanto",
+    "digisvenska_county" : "maakunta",
+    "digisvenska_gender" : "sukupuoli",
+    "digisvenska_grade" : "arvosana",
+    "digisvenska_score" : "kokonaispisteet",
+    "digisvenska_score_value" : "tehtävän pisteet",
+
+    "studex_school": "lukio",
+     "studex_round": "kirjoitusten ajankohta",
+     "studex_topic": "otsikko",
+     "studex_filename": "tiedostonnimi",
+     "studex_grade": "arvosana",
 
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }

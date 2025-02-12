@@ -98,6 +98,8 @@
     "subject": "ämne",
     "volume": "band",
 
+    "title_uncleaned": "titel (orensad)",
+
     "book_number": "bokens nummer",
     "nlfcl_contributor": "medarbetare",
     "publication_year": "utgivningsår",
@@ -384,9 +386,12 @@
 
     "facsimile_title": "faksimilupplaga",
 
-    "sentence_polarity": "meningens polaritet",
+    "sentence_sentiment_polarity": "meningens sentimentpolaritet",
 
-    "sentence_lang_identified": "satsens språk (identifierad)",
+    "sentence_lang_identified": "meningens språk (identifierad, ISO 639-3)",
+    "sentence_lang_identified_confidence": "meningens språkidentifieringskonfidens",
+    "text_lang_identified_counts": "identifierade språk i textens meningar (ISO 639-3)",
+    "paragraph_lang_identified_counts": "identifierade språk i styckets meningar (ISO 639-3)",
 
     "ner_tags": "namnklassificering",
     "ner_tag_max": "namnklassificering (maximal)",
@@ -469,6 +474,12 @@
     "studentsvenska_errorwordorder": "antal ordföljdsfel",
     "studentsvenska_subject": "uppsatsämne",
 
+    "studex_school": "gymnasium",
+    "studex_round": "tidpunkt",
+    "studex_topic": "rubrik",
+    "studex_filename": "filnamn",
+    "studex_grade": "vitsord",
+
     "text__geo_provenience": "fyndort",
 
     "main_section": "huvudavdelning",
@@ -507,6 +518,33 @@
     "kca-2013": "khanty (2013)",
     "kca-2017": "khanty (2017)",
     "kca-2018": "khanty (2018)",
+
+    "kpv": "komi-syrjänska",
+    "krl": "karelska",
+    "myv": "erzia",
+    "olo": "olonetsiska",
+
+    "listen_audio_kpv": "Lyssna på yttrandet (komi‑syrjänska)",
+    "listen_audio_krl": "Lyssna på yttrandet (karelska)",
+    "listen_audio_myv": "Lyssna på yttrandet (erzia)",
+    "listen_audio_olo": "Lyssna på yttrandet (olonetsiska)",
+    "listen_audio_kpv_first": "Lyssna på yttrandet (komi‑syrjänska)",
+    "listen_audio_krl_first": "Lyssna på yttrandet (karelska)",
+    "listen_audio_myv_first": "Lyssna på yttrandet (erzia)",
+    "listen_audio_olo_first": "Lyssna på yttrandet (olonetsiska)",
+
+    "digisvenska_text_id" : "text-ID",
+    "digisvenska_round" : "provomgång",
+    "digisvenska_question_id" : "fråge-ID",
+    "digisvenska_assignment_id" : "uppgifts-ID",
+    "digisvenska_assignment_type" : "uppgiftstyp",
+    "digisvenska_assignment_topic" : "assignment topic",
+    "digisvenska_assignment_url" : "Uppgift (instruktioner)",
+    "digisvenska_county" : "landskap",
+    "digisvenska_gender" : "kön",
+    "digisvenska_grade" : "studentbetyg",
+    "digisvenska_score" : "totala studentprovspoäng",
+    "digisvenska_score_value" : "uppgiftspoäng",
 
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }

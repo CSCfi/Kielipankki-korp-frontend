@@ -10,7 +10,7 @@
     "feedback_link": "<a id='feedback' class='follow_link' href='https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback_sv' target='_blank'>Feedback</a>",
     "feedback_url": "https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback_sv",
     "feedback_linktext": "Feedback",
-    "import_chain": "Annoteringslabbet",
+    "parsing_demo": "Annoteringsverktyg för finska",
     "annotlab_multilingual": "Flerspråkiga annoteringslabbet (Sparv)",
     "annotlab_multilingual_url_params": "lang=sv&language=sv",
     "privacy": "Dataskyddsbeskrivning",
@@ -21,8 +21,16 @@
     "about_body": "Korp är Språkbankens konkordansverktyg, anpassad till Finska språkbanken. För mer information, kommentarer, förslag, buggrapporter eller annan feedback, kontakta oss via <a id='feedback' class='follow_link' href='https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback_sv' target='_blank'>feedbackformuläret</a> eller skicka e-post till <i>fin-clarin (at) helsinki.fi</i>.",
     "about_adapt": "Anpassning till Finska språkbanken",
 
+    "corpselector_limited": "Korpusen är skyddad; <a class=\"link\" href=\"https://lbr.csc.fi/\" target=\"_blank\">ansök om åtkomsträttigheter</a>.",
+
     "corpusinfo_descr_status_beta": "<strong>Observera</strong> att korpusen betatestas, så den kan ändras utan förvarning.",
     "corpusinfo_descr_status_test": "<strong>Observera</strong> att korpusen ännu testas, så den kan ändras betydligt utan förvarning.",
+
+    "wordlist": "Ordlista",
+    "selected_words": "Valda ord",
+    "button_done": "Klart",
+    "button_clear": "Avmarkera",
+    "button_cancel": "Avbryt",
 
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }

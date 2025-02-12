@@ -1,3 +1,8 @@
+
+const collapsedImg = require("../img/collapsed.png")
+const extendedImg = require("../img/extended.png")
+
+
 export default {
     complemgramExtended: {
         template: `<autoc
@@ -103,17 +108,17 @@ export default {
             <h3>{{'simple' | loc}}</h3>
             <form ng-submit="commitDateInput()">
                 <div class="" style="margin-bottom: 1rem;">
-                    <span class="" style="display : inline-block; width: 32px; text-transform: capitalize;">{{'from' | loc}}</span> <input type="text" ng-blur="commitDateInput()" ng-model="fromDateString" placeholder="'1945' {{'or' | loc}} '1945-08-06'"/>
+                    <span class="" style="display : inline-block; width: 42px; text-transform: capitalize;">{{'date_from' | loc}}</span> <input type="text" ng-blur="commitDateInput()" ng-model="fromDateString" placeholder="'1945' {{'or' | loc}} '1945-08-06'"/>
                 </div>
                 <div>
-                    <span class="" style="display : inline-block; width: 32px; text-transform: capitalize;">{{'to' | loc}}</span> <input type="text" ng-blur="commitDateInput()" ng-model="toDateString" placeholder="'1968' {{'or' | loc}} '1968-04-04'"/>
+                    <span class="" style="display : inline-block; width: 42px; text-transform: capitalize;">{{'date_to' | loc}}</span> <input type="text" ng-blur="commitDateInput()" ng-model="toDateString" placeholder="'1968' {{'or' | loc}} '1968-04-04'"/>
                 </div>
                 <button type="submit" class="hidden" />
             </form>
             <div class="section mt-4"> 
                 <h3>{{'advanced' | loc}}</h3>
                 <button class="btn btn-default btn-sm" popper no-close-on-click my="left top" at="right top"> 
-                    <i class="fa fa-calendar"></i> <span style="text-transform: capitalize;">{{'from' | loc}} </span>
+                    <i class="fa fa-calendar"></i> <span style="text-transform: capitalize;">{{'date_from' | loc}} </span>
                 </button> 
                 {{combined.format("YYYY-MM-DD HH:mm")}} 
                 <time-interval 
@@ -128,7 +133,7 @@ export default {
                 
             <div class="section"> 
                 <button class="btn btn-default btn-sm" popper no-close-on-click my="left top" at="right top"> 
-                    <i class="fa fa-calendar"></i> <span style="text-transform: capitalize;">{{'to' | loc}} </span>
+                    <i class="fa fa-calendar"></i> <span style="text-transform: capitalize;">{{'date_to' | loc}} </span>
                 </button> 
                 {{combined2.format("YYYY-MM-DD HH:mm")}} 
                 
@@ -262,4 +267,351 @@ export default {
         }]
     },
 
+    // ScotsCorr word: Add a multiple-selection list to the word, with
+    // one level of collapsible grouping by the first character of the
+    // word (required to make the list work reasonably fast for a
+    // large number of words). The resulting value is a regular
+    // expression. This could be generalized, maybe to an Angular
+    // directive.
+    scotscorrWord: {
+        // The input field also has "list" icon, which is a link
+        // opening a list of words with checkboxes from which the user
+        // can select. This has been copied and modified from the code
+        // for the the Swedish msd attribute.
+        // TODO(?): Parametrize the default template in the directive
+        // "tokenValue" so that possibly changes to it would be
+        // reflected here automatically. The additional features here
+        // could be simply parameter values
+        template: `
+            <input class="arg_value arg_value_wordselector"
+                ng-model="input"
+                ng-model-options='{debounce : {default : 300, blur : 0}, updateOn: "default blur"}'
+                ng-change="inputChange()" escaper
+                placeholder='<{{"any" | loc:lang}}>'>
+            <span ng-click="onIconClick()" class="fa fa-list list-link-icon"
+                title="{{'scotscorr_open_wordlist' | loc:lang}}"></span>
+            <a href="http://www.dsl.ac.uk/" target="_blank"
+                title="Dictionary of the Scots Language">
+                <span class="fa fa-book book-link-icon"></span>
+            </a>
+            <span class="val_mod" popper
+                ng-class='{sensitive : case == "sensitive", insensitive : case == "insensitive"}'>
+                Aa
+            </span>
+            <ul class="mod_menu popper_menu dropdown-menu">
+            <li><a ng-click="makeSensitive()">{{"case_sensitive" | loc:lang}}</a></li>
+            <li><a ng-click="makeInsensitive()">{{"case_insensitive" | loc:lang}}</a></li>
+            </ul>
+        `,
+        controller: ["$scope", "$uibModal", function ($scope, $uibModal) {
+            let s = $scope;
+            let modal = null;
+            s.words = [];
+            s.groups = [];
+            s.group_template = "";
+            s.selected_words = [];
+            s.selected_words_str = "";
+            s.selected_freq = 0;
+            s.total_freq = 0;
+            s["case"] = "sensitive";
+            // Add a thousands separator to a number
+            s.pretty_num = function (num) {
+                return util.prettyNumbers(num);
+            };
+            // Make a template for the counts of selected and all tokens
+            // and their frequencies.
+            s.make_counts_template = function (tokens_sel, tokens_all, freq_sel,
+                                               freq_all) {
+                const pretty_num = function (val) {
+                    return ('<span ng-bind-html="pretty_num(' + val +
+                            ') | trust"></span>');
+                }
+                // FIXME: Add thousands separators to the numbers shown in
+                // the tooltip.
+                return ('<span ng-attr-title="{{' + tokens_sel.toString() + '}}' +
+                        ' {{\'scotscorr_selected_words_with_freq\' | loc:lang}} {{' +
+                        freq_sel.toString() + '}}">' +
+                        pretty_num(tokens_sel) +
+                        // ' / ' +
+                        // pretty_num(tokens_all) +
+                        ';&nbsp; <span class="wordselector-freq"> ' +
+                        pretty_num(freq_sel) +
+                        // ' / ' +
+                        // pretty_num(freq_all) +
+                        '</span></span>');
+            };
+            // Process the word data (words and their frequencies grouped,
+            // possibly hierarchically) and create s.words, s.groups and
+            // s.group_template. The structure is represented as an array
+            // of nested arrays, whose first item is the word or group
+            // label and the second item the absolute frequency for a word
+            // and an array of arrays for a group. Groups may be nested,
+            // but a group may contain either groups or words, not both.
+            // To make things simpler in Angular, s.group_template
+            // contains all the groups explicitly written out but the
+            // words are represented using ng-repeat.
+            const make_word_list = function (data, groupstack) {
+                // c.log("scotscorr_word data", data);
+                let words_seen = false;
+                for (let i = 0; i < data.length; i++) {
+                    if (_.isArray(data[i][1])) {
+                        let group = {
+                            name: data[i][0],
+                            words: [],
+                            numwords: 0,
+                            numselected: 0,
+                            totalfreq: 0,
+                            selectedfreq: 0,
+                            shown: false
+                        };
+                        const groupnum = s.groups.length;
+                        s.groups.push(group);
+                        groupstack.push(group);
+                        const groupref = 'groups[' + groupnum.toString() + ']';
+                        // &#x2001; below is an em quad
+                        s.group_template += `<li>
+                            <span class="wordselector-group-arrow"></span>
+                            <span class="wordselector-group-heading" ng-click="toggleGroup(${groupref})">
+                            <img ng-src="{{${groupref}.shown ? '${extendedImg}' : '${collapsedImg}'}}"/> 
+                            <span class="wordselector-group-name">${group.name}</span>
+                            &#x2001;</span>
+                            <span class="wordselector-group-extra">(` +
+                                s.make_counts_template(groupref + '.numselected',
+                                                       groupref + '.numwords',
+                                                       groupref + '.selectedfreq',
+                                                       groupref + '.totalfreq') +
+                            `)</span>
+                            <div ng-if="${groupref}.shown">
+                            <ul>
+                        `;
+                        make_word_list(data[i][1], groupstack);
+                        groupstack.pop();
+                        s.group_template += '</ul></div></li>';
+                    } else {
+                        if (! words_seen) {
+                            const groupref =
+                                'groups[' + (s.groups.length - 1).toString() + ']';
+                            // &#x2000; = en quad
+                            s.group_template += `
+                                <li ng-repeat="word in ${groupref}.words">
+                                    <input type="checkbox" ng-model="word.selected" ng-change="update(e, word.word)">
+                                        <span ng-class="'wordselector-word-' + (word.selected ? '' : 'un') + 'selected'">&#x2000;{{word.word}}</span>
+                                        &#x2000;(<span class="wordselector-freq" ng-bind-html="pretty_num(word.freq) | trust"></span>)</input>
+                                </li>
+                            `;
+                            words_seen = true;
+                        }
+                        s.words.push({word: data[i][0],
+                                      freq: data[i][1],
+                                      groups: groupstack.slice(),
+                                      selected: false});
+                    }
+                }
+            }
+            $.getJSON(
+                "corpus_info/scotscorr-words.json",
+                function (data) {
+                    make_word_list(data, []);
+                    for (let i = 0; i < s.words.length; i++) {
+                        let word = s.words[i];
+                        s.total_freq += word.freq;
+                        for (let j = 0; j < word.groups.length; j++) {
+                            let group = word.groups[j];
+                            group.words.push(word);
+                            group.numwords += 1;
+                            group.totalfreq += word.freq;
+                        }
+                    }
+                    // c.log("scotscorr_word words", s.words);
+                    // c.log("scotscorr_word groups", s.groups,
+                    //       s.group_words);
+                    c.log('scotscorr group_template', s.group_template);
+                }
+            );
+            // Executed on clicking the list icon
+            s.onIconClick = function () {
+                s.setSelected();
+                modal = $uibModal.open({
+                    template: `
+                        <div>
+                            <div class="modal-header">
+                                <h3 class="modal-title">{{'wordlist' | loc:lang}} (ScotsCorr)</h3>
+                                <span ng-click="done()" class="close-x">×</span>
+                            </div>
+                            <div class="modal-header">
+                                <div class="modal-value">
+                                    <a href="http://www.dsl.ac.uk/" target="_blank"><span class="fa fa-book book-link-icon"></span> Dictionary of the Scots Language</a>
+                                </div>
+                                <div class="modal-value">
+                                    <p><span class="modal-value-heading">{{'selected_words' | loc:lang}}</span> (` +
+                                    s.make_counts_template('selected_words.length',
+                                                           'words.length',
+                                                           'selected_freq',
+                                                           'total_freq') +
+                                    `): <span id="wordselector-selected-words"><span ng-bind-html="selected_words_str | trust"></span></span></p>
+                                </div>
+                                <div class="modal-buttons">
+                                    <button type="button" class="btn btn-default" ng-click="done()">{{'button_done' | loc:lang}}</button>
+                                    <button type="button" class="btn btn-default" ng-click="clearSelected()">{{'button_clear' | loc:lang}}</button>
+                                    <button type="button" class="btn btn-default" ng-click="cancel()">{{'button_cancel' | loc:lang}}</button>
+                                </div>
+                            </div>
+                            <div class="modal-body modal-wordselector" style="overflow-y: auto; font-size: 80%">
+                                <ul>${s.group_template}</ul>
+                            </div>
+                        </div>`,
+                    scope: s
+                });
+            };
+            // Set the selected property of words based on the current
+            // input value
+            s.setSelected = function () {
+                s.input_prev = s.input;
+                const op = s.$parent.orObj.op;
+                let select_fn = null;
+                if (s.input == "" || op == "!=" || op == "!*=") {
+                    // Nothing selected for the empty word nor the negated
+                    // operations
+                    s.selected_words = [];
+                    select_fn = function (word) { return false; };
+                } else if (op == "=") {
+                    // Select only the word literally
+                    s.selected_words = [s.input];
+                    select_fn = function (word) { return word == s.input };
+                } else {
+                    // Construct a regular expression for testing if a
+                    // word matches the condition. This assumes that the
+                    // CQP regular expressions are are compatible with
+                    // JavaScript RegExps, as they (mostly) are.
+                    let word_re = "";
+                    if (op == "*=") {
+                        // Regular expression
+                        word_re = "^(" + s.input + ")$";
+                    } else if (op == "^=") {
+                        // Starts with
+                        word_re = "^(" + window.regescape(s.input) + ")";
+                    } else if (op == "&=") {
+                        // Ends with
+                        word_re = "(" + window.regescape(s.input) + ")$";
+                    } else if (op == "_=") {
+                        // Contains
+                        word_re = window.regescape(s.input)
+                    }
+                    // c.log("matching", word_re);
+                    word_re = RegExp(word_re);
+                    select_fn = function (word) { return word_re.test(word); };
+                }
+                // c.log("scotscorr_word setSelected", s.selected_words);
+                for (let i = 0; i < s.words.length; i++) {
+                    s.words[i].selected = select_fn(s.words[i].word);
+                    // if (s.words[i].selected) {c.log("selected:", s.words[i].word);}
+                }
+                // s.selected_words_str = s.selected_words.join("\u2000");
+                s.update();
+            };
+            // Clear the case-insensitive flag (restore the default)
+            s.makeSensitive = function () {
+                s["case"] = "sensitive";
+                if (s.orObj.flags != null) {
+                    delete s.orObj.flags.c;
+                }
+            };
+            // Set the case-insensitive flag
+            s.makeInsensitive = function () {
+                let flags = s.orObj.flags || {};
+                flags["c"] = true;
+                s.orObj.flags = flags;
+                s["case"] = "insensitive";
+            };
+            // Update s.selected_words based on the selected property
+            // in the elements of s.words. The arguments are
+            // currently not used.
+            s.update = function (event, word) {
+                c.log("scotscorr_word update", word, event,
+                      _.filter(s.words, "selected"));
+                // We could use the words in s.selected_words, but
+                // how could we retain the order of the words, that is,
+                // how could an added word be added at the right position
+                // in the list?
+                const selected_words = _.filter(s.words, "selected");
+                s.selected_words = _.map(selected_words, "word");
+                for (let j = 0; j < s.groups.length; j++) {
+                    s.groups[j].numselected = s.groups[j].selectedfreq = 0;
+                }
+                // Join with an en quad
+                s.selected_words_str =
+                    _.map(selected_words,
+                          function (word) {
+                              return (word.word.replace(/&/g, "&amp;")
+                                      .replace(/</g, "&lt;").replace(/>/g, "&gt;") +
+                                      '&nbsp;(<span class="wordselector-freq">' +
+                                      s.pretty_num(word.freq.toString()) +
+                                      '</span>)');
+                          })
+                    .join("\u2000");
+                s.selected_freq = 0;
+                for (let i = 0; i < selected_words.length; i++) {
+                    let selword = selected_words[i];
+                    s.selected_freq += selword.freq;
+                    for (let j = 0; j < selword.groups.length; j++) {
+                        let group = selword.groups[j];
+                        group.numselected += 1;
+                        group.selectedfreq += selword.freq;
+                    }
+                }
+                c.log("scotscorr_word selected", s.selected_words);
+            };
+            // Toggle a group
+            s.toggleGroup = function (group, event) {
+                group.shown = ! group.shown;
+            }
+            // Update input value to the model
+            s.inputChange = function () {
+                s.model = escape(s.input);
+            }
+            // Set the input value based on the selected words
+            s.done = function (event) {
+                modal.close();
+                if (s.selected_words.length > 1) {
+                    s.input = (
+                        _.map(s.selected_words, window.regescape)
+                            .join("|"));
+                    // Force regular expression
+                    s.$parent.orObj.op = "*=";
+                } else {
+                    s.input = (s.selected_words.length == 1
+                               ? s.selected_words[0]
+                               : "");
+                    // For a single word, use "=" unless the word is the
+                    // same as before
+                    if (s.input != s.input_prev) {
+                        s.$parent.orObj.op = "=";
+                    }
+                }
+                // s.inputChange() (from escaper) seems to be needed to
+                // update the input value to the model; specifying it in
+                // the ng-change attribute of the template appears not to
+                // suffice.
+                s.inputChange();
+                c.log("scotscorr_word input", s.input);
+            };
+            // Clear the selected words
+            s.clearSelected = function (event) {
+                for (let i = 0; i < s.words.length; i++) {
+                    s.words[i].selected = false;
+                }
+                s.selected_words = [];
+                s.selected_words_str = "";
+                s.selected_freq = 0;
+                for (let j = 0; j < s.groups.length; j++) {
+                    s.groups[j].numselected = s.groups[j].selectedfreq = 0;
+                }
+                // s.update();
+            };
+            // Cancel: retain the original input value
+            s.cancel = function (event) {
+                modal.close();
+            };
+        }]
+    },
 }

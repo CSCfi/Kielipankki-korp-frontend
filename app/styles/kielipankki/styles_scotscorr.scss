@@ -1,0 +1,104 @@
+
+/* Styles for the ScotsCorr word selector modal */
+
+.modal-value {
+    font-size: 0.8em;
+    width: 100%;
+}
+
+.modal-value-heading {
+    font-weight: bold;
+}
+
+#wordselector-selected-words {
+    display: block;
+    line-height: 95%;
+}
+
+.modal-buttons, .modal-value {
+    display: block;
+}
+
+.modal-buttons button {
+    margin-right: 0.5em;
+}
+
+.modal-wordselector {
+    overflow-y: auto;
+    font-size: 1em;
+    margin: 0.5em 1em 0.5em 1em;
+    // Long list is scrolled with the heading fixed
+    max-height: 70vh;
+    ul {
+        list-style: none;
+	li ul {
+	    margin-left: 2em;
+            // Override global vertical margin settings for ul (1em)
+            margin-top: 0.5ex;
+            margin-bottom: 0.5ex;
+	    line-height: 120%;
+            li input[type="checkbox"] {
+                // Looks better if the checkbox is aligned with the
+                // word and not slightly lower (global default: 2px)
+                top: 0px;
+            }
+	}
+    }
+}
+
+.wordselector-group-heading {
+    font-weight: bold;
+    cursor: pointer;
+    &:hover {
+      color : darkgrey;
+    }
+}
+
+.wordselector-group-name {
+    display: inline-block;
+    min-width: 1em;
+}
+
+.wordselector-freq {
+    // Frequency information in dark grey
+    color: #555555;
+    // font-size: 0.8em;
+}
+
+.wordselector-word-unselected {
+    font-weight: normal;
+}
+
+.wordselector-word-selected {
+    font-weight: bold;
+}
+
+.list-link-icon {
+    margin-left: 0.25em;
+    cursor: pointer;
+    &:hover {
+      color : darkgrey;
+    }
+}
+
+.book-link-icon {
+    margin-left: 0.25em;
+    cursor: pointer;
+    &:hover {
+      color : darkgrey;
+    }
+}
+
+// Make the token box containing a word list link wide enough to
+// accommodate the link (and the dictionary link). The :has
+// pseudo-selector requires a relatively recent browser, but
+// functionality is not sacrificed with older browsers, either, even
+// though the links may be outside the token box.
+div.arg_val_container:has(> input.arg_value_wordselector) {
+    width: 300px;
+}
+
+.arg_value_wordselector {
+    // Allow space for the word selector list icon
+    width: 83% !important;
+}
