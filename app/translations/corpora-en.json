@@ -713,6 +713,9 @@
 
     "text__geo_provenience": "find location",
 
+    "cdli_link": "CDLI link",
+    "archive": "archive",
+
     "main_section": "main section",
     "sections": "sections",
     "datetime_published": "publication date and time",

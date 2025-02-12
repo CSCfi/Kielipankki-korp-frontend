@@ -892,6 +892,9 @@
 
     "text__geo_provenience": "löytöpaikka",
 
+    "cdli_link": "CDLI-linkki",
+    "archive": "arkisto",
+
     "main_section": "pääosasto",
     "sections": "osastot",
     "datetime_published": "julkaisuajankohta",

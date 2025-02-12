@@ -1979,14 +1979,55 @@ settings.corpora.oracc_saao = {
 
 // ACHEMENET
 
+// Positional attributes are the same as in Oracc 2021
+attrlist.achemenet = $.extend(true, {}, attrlist.oracc2021);
+
+// Add structural attributes not in Oracc 2021
+sattrlist.achemenet = $.extend(
+    true, {}, sattrlist.oracc2021,
+    {
+        text_cdlilink: {
+            label: "cdli_link",
+            type: "url",
+            urlOpts: {
+                // inLinkSection: true,
+                hideUrl: true,
+                newWindow: true,
+            }
+        },
+        text_date: sattrs.date,
+        text_archive: {
+            label: "archive",
+            extendedComponent: "structServiceSelect",
+        },
+        text_id: {
+            label: "text_id",
+            displayType: "hidden",
+        },
+        sentence_translation: {
+            label: "oracc_sent_translation",
+        },
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+);
+// Remove Oracc 2021 structural attributes not in Achemenet
+for (let attr of [
+    "text_photo",
+    "text_copy",
+    "text_accessionno",
+    "text_excavation",
+]) {
+    delete sattrlist.achemenet[attr];
+}
+
 settings.corpora.achemenet_murashu = {
     id: "achemenet_murashu",
     title: "Murašû archive (Achemenet)",
     description: "Murašû archive (Achemenet)",
     context: context.sp,
     within: within.sp,
-    attributes: attrlist.oracc2021,
-    structAttributes: sattrlist.oracc2021
+    attributes: attrlist.achemenet,
+    structAttributes: sattrlist.achemenet
 };
 
 settings.corpora.achemenet_yos7 = {
@@ -1995,8 +2036,8 @@ settings.corpora.achemenet_yos7 = {
     description: "YOS 7 (Achemenet)",
     context: context.sp,
     within: within.sp,
-    attributes: attrlist.oracc2021,
-    structAttributes: sattrlist.oracc2021
+    attributes: attrlist.achemenet,
+    structAttributes: sattrlist.achemenet
 };
 
 settings.corpora.achemenet_belremanni = {
@@ -2005,8 +2046,8 @@ settings.corpora.achemenet_belremanni = {
     description: "Jursa, Das Archiv des Bēl-rēmanni (Achemenet)",
     context: context.sp,
     within: within.sp,
-    attributes: attrlist.oracc2021,
-    structAttributes: sattrlist.oracc2021
+    attributes: attrlist.achemenet,
+    structAttributes: sattrlist.achemenet
 };
 
 settings.corpora.achemenet_ct55 = {
@@ -2015,8 +2056,8 @@ settings.corpora.achemenet_ct55 = {
     description: "CT 55 (Achemenet)",
     context: context.sp,
     within: within.sp,
-    attributes: attrlist.oracc2021,
-    structAttributes: sattrlist.oracc2021
+    attributes: attrlist.achemenet,
+    structAttributes: sattrlist.achemenet
 };
 
 settings.corpora.achemenet_strassmaier = {
@@ -2025,8 +2066,8 @@ settings.corpora.achemenet_strassmaier = {
     description: "Strassmaier (Cyr, Camb, Dar) (Achemenet)",
     context: context.sp,
     within: within.sp,
-    attributes: attrlist.oracc2021,
-    structAttributes: sattrlist.oracc2021
+    attributes: attrlist.achemenet,
+    structAttributes: sattrlist.achemenet
 };
 
 funcs.addCorpusAliases("achemenet_.*", ["achemenet"]);
