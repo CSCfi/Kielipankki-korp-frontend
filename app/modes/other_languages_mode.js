@@ -537,16 +537,24 @@ settings.corpusAliases.oracc_2019_05
 
 settings.corporafolders.cuneiform.achemenet = {
     title: "Achemenet",
-    description: "Achemenet (beta 2.0)",
-    contents: ["achemenet_ct55", "achemenet_belremanni", "achemenet_yos7", "achemenet_murashu", "achemenet_strassmaier"],
+    description: "Achemenet Babylonian texts – Kielipankki version 2020-12, Korp<br/><br/><a href=\"http://www.achemenet.com/\" target=\"_blank\">The Achemenet project</a> provides transliterations and translations of documents written in the Achaemenid Persian Empire (550–330 BCE). The Korp version of Achemenet contains the Babylonian cuneiform texts available in Achemenet in December 2020. The texts have been automatically lemmatized at the Centre of Excellence in Ancient Near Eastern Empires (University of Helsinki), funded by the Research Council of Finland.",
+    contents: [
+        "achemenet_ct55",
+        "achemenet_belremanni",
+        "achemenet_yos7",
+        "achemenet_murashu",
+        "achemenet_strassmaier",
+    ],
     info: {
-        // TODO: Uncomment when the META-SHARE record for Achemenet is
-        // available and the URN points to it
-	// metadata_urn: "urn:nbn:fi:lb-2023062102",
+	metadata_urn: "urn:nbn:fi:lb-2023062101",
 	urn: "urn:nbn:fi:lb-2023062102",
-        licence: settings.licenceinfo.CC_BY_SA_30,
+        licence: {
+            name: "CC BY 4.0",
+            description: "Creative Commons Attribution 4.0 International",
+            urn: "urn:nbn:fi:lb-2025020601",
+        },
 	iprholder: {
-	    name: "Achemenet",
+	    name: "Achemenet-CNRS",
 	    url: "http://www.achemenet.com/",
 	},
         // TODO: Uncomment when https://www.kielipankki.fi/corpora/achemenet/
