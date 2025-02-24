@@ -2015,6 +2015,7 @@ sattrlist.achemenet = $.extend(
             label: "archive",
             extendedComponent: "structServiceSelect",
         },
+        text_empty: funcs.makeBoolAttr("text_is_empty"),
         text_id: {
             label: "text_id",
             displayType: "hidden",

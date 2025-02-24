@@ -894,6 +894,7 @@
 
     "cdli_link": "CDLI-linkki",
     "archive": "arkisto",
+    "text_is_empty": "teksti on tyhjä",
 
     "main_section": "pääosasto",
     "sections": "osastot",
