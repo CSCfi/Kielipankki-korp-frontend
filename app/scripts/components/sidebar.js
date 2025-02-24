@@ -319,6 +319,13 @@ export const sidebarComponent = {
                     // "[empty]"
                     if (value === "|" || value === "" || value === null
                             || value === attrs.emptyValue) {
+                        // If the label is hidden but the value is
+                        // empty, show the label anyway, so that the
+                        // user can see what is empty
+                        if (attrs.label && attrs.sidebarHideLabel) {
+                            output.append(
+                                `<span rel='localize[${attrs.label}]'></span>: `)
+                        }
                         output.append(
                             `<i rel='localize[empty]' style='color : grey'>${util.getLocaleString("empty")}</i>`
                         )
