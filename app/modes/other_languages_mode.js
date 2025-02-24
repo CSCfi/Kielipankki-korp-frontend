@@ -2004,9 +2004,6 @@ sattrlist.achemenet = $.extend(
             label: "text_id",
             displayType: "hidden",
         },
-        sentence_translation: {
-            label: "oracc_sent_translation",
-        },
         sentence_id: sattrs.sentence_id_hidden,
     }
 );
@@ -2016,6 +2013,7 @@ for (let attr of [
     "text_copy",
     "text_accessionno",
     "text_excavation",
+    "text_collection",
 ]) {
     delete sattrlist.achemenet[attr];
 }
