@@ -314,7 +314,11 @@ export const sidebarComponent = {
                     }
 
                     output.data("attrs", attrs)
-                    if (value === "|" || value === "" || value === null) {
+                    // attrs.emptyValue can be used to specify an
+                    // attribute-specific value represented as
+                    // "[empty]"
+                    if (value === "|" || value === "" || value === null
+                            || value === attrs.emptyValue) {
                         output.append(
                             `<i rel='localize[empty]' style='color : grey'>${util.getLocaleString("empty")}</i>`
                         )
