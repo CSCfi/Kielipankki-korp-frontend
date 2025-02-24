@@ -1993,7 +1993,9 @@ sattrlist.achemenet = $.extend(
                 // inLinkSection: true,
                 hideUrl: true,
                 newWindow: true,
-            }
+            },
+            hideExtended: true,
+            hideStatistics: true,
         },
         text_date: sattrs.date,
         text_archive: {
