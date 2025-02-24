@@ -1979,8 +1979,10 @@ settings.corpora.oracc_saao = {
 
 // ACHEMENET
 
-// Positional attributes are the same as in Oracc 2021
+// No additional positional attributes in Achemenet compared with Oracc 2021
 attrlist.achemenet = $.extend(true, {}, attrlist.oracc2021);
+// Remove Oracc 2021 positional attributes not in Achemenet
+delete attrlist.achemenet.url;
 
 // Add structural attributes not in Oracc 2021
 sattrlist.achemenet = $.extend(
@@ -1988,6 +1990,17 @@ sattrlist.achemenet = $.extend(
     {
         text_cdlilink: {
             label: "cdli_link",
+            type: "url",
+            urlOpts: {
+                // inLinkSection: true,
+                hideUrl: true,
+                newWindow: true,
+            },
+            hideExtended: true,
+            hideStatistics: true,
+        },
+        text_url: {
+            label: "link_to_original",
             type: "url",
             urlOpts: {
                 // inLinkSection: true,
