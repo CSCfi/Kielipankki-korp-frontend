@@ -565,6 +565,23 @@ settings.corporafolders.cuneiform.achemenet = {
 };
 
 
+settings.corporafolders.cuneiform.balt = {
+    title: "BALT",
+    description: "BALT: Babylonian Administrative and Legal Texts – Kielipankki version 2025-02, Korp<br/><br/>The corpus contains Babylonian cuneiform texts from the Neo-Babylonian, Persian, and Hellenistic periods (c. 626–93 BCE).<br/>More than half of the transliterated texts are legacy data of the late János Everling. The other texts have been transliterated and translated by Johannes Hackl, Bojana Janković, Michael Jursa, Yuval Levavi, Martina Schmidl and Caroline Waerzeggers.<br/>The texts have been automatically lemmatized at the <a href=\"https://www.helsinki.fi/en/researchgroups/ancient-near-eastern-empires\">Centre of Excellence in Ancient Near Eastern Empires</a> (University of Helsinki), funded by the Research Council of Finland.",
+    // contents added later with funcs.addCorpusSettings
+    info: {
+	metadata_urn: "urn:nbn:fi:lb-2025022201",
+	urn: "urn:nbn:fi:lb-2025022609",
+        licence: {
+            name: "CC BY 4.0",
+            description: "Creative Commons Attribution 4.0 International",
+            urn: "urn:nbn:fi:lb-2025022202",
+        },
+        status: "beta",
+    },
+};
+
+
 /* Helsinki Corpus */
 
 sattrlist.hc = {
@@ -2085,6 +2102,56 @@ settings.corpora.achemenet_strassmaier = {
 };
 
 funcs.addCorpusAliases("achemenet_.*", ["achemenet"]);
+
+
+// BALT
+
+// Same positional attributes as in Achemenet
+attrlist.balt = attrlist.achemenet;
+
+// Add structural attributes not in Achemenet
+sattrlist.balt = $.extend(
+    true, {}, sattrlist.achemenet,
+    {
+        text_collection: sattrlist.oracc2021.text_collection,
+        text_accessionno: sattrlist.oracc2021.text_accessionno,
+    }
+);
+// Remove Achemenet structural attributes not in BALT
+for (let attr of [
+    "text_url",
+    "text_empty",
+]) {
+    delete sattrlist.achemenet[attr];
+}
+
+
+settings.templ.balt = {
+    id: "balt_{}",
+    title: "{} (BALT)",
+    description: "{}<br/>BALT: Babylonian Administrative and Legal Texts – Kielipankki version 2025-02, Korp",
+    context: context.sp,
+    within: within.sp,
+    attributes: attrlist.balt,
+    structAttributes: sattrlist.balt,
+};
+
+funcs.addCorpusSettings(
+    settings.templ.balt,
+    [
+        ["everling", "Everling",
+         "Everling (AnOr 8, CT 49, GCCI 1 & 2, Nbk, TuM 2/3, UCP 9/1 & 9/3, VS 3, YOS 17)"],
+        ["hackl_jankovic_jursa", "Hackl, Jankovic & Jursa",
+         "Hackl, Jankovic & Jursa, KASKAL 8"],
+        ["hackl_jursa_privatbriefe", "Hackl, Jursa & Schmidl",
+         "Hackl, Jursa & Schmidl, AOAT 414/1"],
+        ["levavi", "Levavi", "Levavi, dubsar 3"],
+        ["waerzeggers", "Waerzeggers", "Waerzeggers, OLA 233"],
+    ],
+    settings.corporafolders.cuneiform.balt
+);
+
+funcs.addCorpusAliases("balt_.*", ["balt"]);
 
 
 settings.corpora.ethesis_ru = {
