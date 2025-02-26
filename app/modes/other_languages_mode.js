@@ -537,7 +537,7 @@ settings.corpusAliases.oracc_2019_05
 
 settings.corporafolders.cuneiform.achemenet = {
     title: "Achemenet",
-    description: "Achemenet Babylonian texts – Kielipankki version 2020-12, Korp<br/><br/><a href=\"http://www.achemenet.com/\" target=\"_blank\">The Achemenet project</a> provides transliterations and translations of documents written in the Achaemenid Persian Empire (550–330 BCE). The Korp version of Achemenet contains the Babylonian cuneiform texts available in Achemenet in December 2020. The texts have been automatically lemmatized at the Centre of Excellence in Ancient Near Eastern Empires (University of Helsinki), funded by the Research Council of Finland.",
+    description: "Achemenet Babylonian texts – Kielipankki version 2020-12, Korp<br/><br/><a href=\"http://www.achemenet.com/\" target=\"_blank\">The Achemenet project</a> provides transliterations and translations of documents written in the Achaemenid Persian Empire (550–330 BCE).<br/>The Korp version of Achemenet contains the Babylonian cuneiform texts available in Achemenet in December 2020.<br/>The texts have been automatically lemmatized at the <a href=\"https://www.helsinki.fi/en/researchgroups/ancient-near-eastern-empires\">Centre of Excellence in Ancient Near Eastern Empires</a> (University of Helsinki), funded by the Research Council of Finland.",
     contents: [
         "achemenet_ct55",
         "achemenet_belremanni",
