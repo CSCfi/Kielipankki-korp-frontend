@@ -2122,7 +2122,7 @@ for (let attr of [
     "text_url",
     "text_empty",
 ]) {
-    delete sattrlist.achemenet[attr];
+    delete sattrlist.balt[attr];
 }
 
 
