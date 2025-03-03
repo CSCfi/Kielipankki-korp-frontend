@@ -8341,11 +8341,10 @@ funcs.setAttrOrder = function (attrstruct, attrnamelist) {
     if (typeof attrnamelist == "string") {
         attrnamelist = attrnamelist.split(/[ \t]+/);
     }
-    var attrnamecount = attrnamelist.length;
-    for (var i = 0; i < attrnamelist.length; i++) {
+    for (let [i, attrname] of attrnamelist.entries()) {
         // The attribute with the smallest order value is shown first;
         // this has been changed at some point.
-        attrstruct[attrnamelist[i]].order = i;
+        attrstruct[attrname].order = i;
     }
 };
 
