@@ -547,7 +547,7 @@ settings.corporafolders.other.studex = {
     description: "Studentexamensprovsvar i modersmål och litteratur (svenska).<br/><b>Currently, this resource is only available for internal use within the research project.</b>",
     contents: [
         "studex_08",
-        "studex_21_22",
+        "studex_19_24",
     ],
     info: {
         metadata_urn: "urn:nbn:fi:lb-2023051605",
@@ -556,7 +556,7 @@ settings.corporafolders.other.studex = {
         licence: {
 	    name: "CLARIN RES",
 	    description: "CLARIN RES end-user licence",
-	    urn: "urn:nbn:fi:lb-2023051606",
+	    urn: "urn:nbn:fi:lb-2023051606", // license page must be updated
 	},
 	status: "beta"
     }
@@ -578,34 +578,37 @@ settings.corpora.studex_08 = {
     structAttributes: sattrlist.studex_08
 };
 
-sattrlist.studex_21_22 = {
+sattrlist.studex_19_24 = {
     text_school: { label: "studex_school" },
     text_round: {
 	label: "studex_round",
 	extendedComponent: "datasetSelect",
         opts: options.lite,
-	dataset: [ "Våren 2021", "Våren 2022" ] },
+	dataset: [ "Hösten 2019", "Våren 2019", "Hösten 2020", "Våren 2020",
+		   "Hösten 2021", "Våren 2021", "Hösten 2022", "Våren 2022",
+		   "Hösten 2023", "Våren 2023", "Hösten 2024", "Våren 2024" ] },
     text_topic: {
 	label: "studex_topic",
 	extendedComponent: "datasetSelect",
         opts: options.lite,
-	dataset: [ "Rubrik 1", "Rubrik 2", "Rubrik 3", "Rubrik 4", "Rubrik 5" ] },
+	dataset: [ "Rubrik 1", "Rubrik 2", "Rubrik 3", "Rubrik 4",
+		   "Rubrik 5", "Rubrik 6", "Rubrik 7" ] },
 };
 
-settings.corpora.studex_21_22 = {
-    id: "studex_21_22",
-    title: "Studex-21-22",
-    description: "Studentexamensprovsvar i modersmål och litteratur (svenska). Provet i skrivkompetens våren 2021 och våren 2022.<br/><b>Currently, this resource is only available for internal use within the research project.</b>",
-    urn: "urn:nbn:fi:lb-2023051604",
-    metadata_urn: "urn:nbn:fi:lb-2023051603",
+settings.corpora.studex_19_24 = {
+    id: "studex_19_24",
+    title: "Studex-19-24",
+    description: "Studentexamensprovsvar i modersmål och litteratur (svenska). Provet i skrivkompetens våren 2019 - hösten 2024.<br/><b>Currently, this resource is only available for internal use within the research project.</b>",
+    urn: "urn:nbn:fi:lb-2025021206", // location urn must be updated
+    metadata_urn: "urn:nbn:fi:lb-2025021205", // metadata page must be created
     lbr_id: "urn:nbn:fi:lb-2023051605",
-    cite_id: "studex-21-22",
+    cite_id: "studex-19-24",
     context: context.default,
     within: within.default,
     limitedAccess: true,
     licenceType: "RES",
     attributes: attrlist.studex,
-    structAttributes: sattrlist.studex_21_22
+    structAttributes: sattrlist.studex_19_24
 };
 
 settings.corpora.mulcold_sv = {
