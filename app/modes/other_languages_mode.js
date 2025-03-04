@@ -1998,12 +1998,54 @@ settings.corpora.oracc_saao = {
 };
 
 
+// Attribute orders in the sidebar for Cuneiform corpora (some
+// attributes are present only in some corpora)
+
+// Positional attributes
+let cuneiformAttrOrder = [
+    "lemma",
+    "normname",
+    "transcription",
+    "pos",
+    "oraccpos",
+    "msd",
+    "translation",
+    "sense",
+    "lang",
+    "autolemma",
+    "autopos",
+    "url",
+];
+
+// Structural attributes
+let cuneiformStructAttrOrder = [
+    "text_cdlinumber",
+    "text_cdlilink",
+    "text_primarypub",
+    "text_url",
+    "text_collection",
+    "text_museumno",
+    "text_accessionno",
+    "text_period",
+    "text_date",
+    "text_datebce",
+    "text_provenience",
+    "text_archive",
+    "text_genre",
+    "text_subgenre",
+    "text_language",
+    "text_empty",
+];
+
+
 // ACHEMENET
 
 // No additional positional attributes in Achemenet compared with Oracc 2021
 attrlist.achemenet = $.extend(true, {}, attrlist.oracc2021);
 // Remove Oracc 2021 positional attributes not in Achemenet
 delete attrlist.achemenet.url;
+
+funcs.setAttrOrder(attrlist.achemenet, cuneiformAttrOrder);
 
 // Add structural attributes not in Oracc 2021
 sattrlist.achemenet = $.extend(
@@ -2054,6 +2096,9 @@ for (let attr of [
 ]) {
     delete sattrlist.achemenet[attr];
 }
+
+funcs.setAttrOrder(sattrlist.achemenet, cuneiformStructAttrOrder);
+
 
 settings.corpora.achemenet_murashu = {
     id: "achemenet_murashu",
@@ -2128,6 +2173,8 @@ for (let attr of [
 ]) {
     delete sattrlist.balt[attr];
 }
+
+funcs.setAttrOrder(sattrlist.balt, cuneiformStructAttrOrder);
 
 
 settings.templ.balt = {
