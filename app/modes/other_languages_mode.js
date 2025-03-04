@@ -567,7 +567,7 @@ settings.corporafolders.cuneiform.achemenet = {
 
 settings.corporafolders.cuneiform.balt = {
     title: "BALT",
-    description: "BALT: Babylonian Administrative and Legal Texts – Kielipankki version 2025-02, Korp<br/><br/>The corpus contains Babylonian cuneiform texts from the Neo-Babylonian, Persian, and Hellenistic periods (c. 626–93 BCE).<br/>More than half of the transliterated texts are legacy data of the late János Everling. The other texts have been transliterated and translated by Johannes Hackl, Bojana Janković, Michael Jursa, Yuval Levavi, Martina Schmidl and Caroline Waerzeggers.<br/>The texts have been automatically lemmatized at the <a href=\"https://www.helsinki.fi/en/researchgroups/ancient-near-eastern-empires\">Centre of Excellence in Ancient Near Eastern Empires</a> (University of Helsinki), funded by the Research Council of Finland.",
+    description: "BALT: Babylonian Administrative and Legal Texts – Kielipankki version 2025-02, Korp<br/><br/>The corpus contains Babylonian cuneiform texts from the Neo-Babylonian, Persian, and Hellenistic periods (c. 626–93 BCE).<br/>More than half of the transliterated texts are legacy data of the late János Everling. The other texts have been transliterated and translated by Johannes Hackl, Bojana Janković, Michael Jursa, Yuval Levavi, Martina Schmidl and Caroline Waerzeggers.<br/>The texts have been automatically lemmatized at the <a href=\"https://www.helsinki.fi/en/researchgroups/ancient-near-eastern-empires\">Centre of Excellence in Ancient Near Eastern Empires</a> (University of Helsinki), funded by the Research Council of Finland.<br/><br/>More information about the corpus is available at <a href=\"https://doi.org/10.5281/zenodo.14186072\" target=\"_blank\">https://doi.org/10.5281/zenodo.14186072</a>.",
     // contents added later with funcs.addCorpusSettings
     info: {
 	metadata_urn: "urn:nbn:fi:lb-2025022201",
@@ -577,6 +577,10 @@ settings.corporafolders.cuneiform.balt = {
             description: "Creative Commons Attribution 4.0 International",
             urn: "urn:nbn:fi:lb-2025022202",
         },
+	iprholder: {
+	    name: "University of Helsinki",
+	    url: "https://www.helsinki.fi/",
+	},
         status: "beta",
     },
 };
@@ -2129,7 +2133,7 @@ for (let attr of [
 settings.templ.balt = {
     id: "balt_{}",
     title: "{} (BALT)",
-    description: "{}<br/>BALT: Babylonian Administrative and Legal Texts – Kielipankki version 2025-02, Korp",
+    description: "{}<br/>(BALT: Babylonian Administrative and Legal Texts – Kielipankki version 2025-02, Korp)<br/><br/>{}",
     context: context.sp,
     within: within.sp,
     attributes: attrlist.balt,
@@ -2140,13 +2144,20 @@ funcs.addCorpusSettings(
     settings.templ.balt,
     [
         ["everling", "Everling",
-         "Everling (AnOr 8, CT 49, GCCI 1 & 2, Nbk, TuM 2/3, UCP 9/1 & 9/3, VS 3, YOS 17)"],
-        ["hackl_jankovic_jursa", "Hackl, Jankovic & Jursa",
-         "Hackl, Jankovic & Jursa, KASKAL 8"],
-        ["hackl_jursa_privatbriefe", "Hackl, Jursa & Schmidl",
-         "Hackl, Jursa & Schmidl, AOAT 414/1"],
-        ["levavi", "Levavi", "Levavi, dubsar 3"],
-        ["waerzeggers", "Waerzeggers", "Waerzeggers, OLA 233"],
+         ["Everling (AnOr 8, CT 49, GCCI 1 & 2, Nbk, TuM 2/3, UCP 9/1 & 9/3, VS 3, YOS 17)",
+          "The texts have been transliterated by János Everling. The corpus includes texts published in AnOr 8 (Pohl 1933), CT 49 (Kennedy 1968), GCCI 1-2 (Dougherty 1923, 1933), Nbk (Strassmaier 1889), TuM 2/3 (Krückmann 1933), UCP 9/1 (Lutz 1927), UCP 9/3 (Lutz 1928), UCP 9/12 (Lutz 1931), VS 3 (Ungnad 1907), and YOS 17 (Weisberg and Dougherty 1980). For full bibliographical references, see <a href=\"https://doi.org/10.5281/zenodo.14186072\">https://doi.org/10.5281/zenodo.14186072</a>."]],
+        ["hackl_jankovic_jursa", "Hackl et al., Briefdossier des Šumu-ukīn",
+         ["Hackl, Jankovic & Jursa, Briefdossier des Šumu-ukīn (KASKAL 8)",
+          "The texts are originally published in Hackl, Johannes, Bojana Janković, and Michael Jursa. 2011. “Das Briefdossier des Šumu-ukīn.” KASKAL 8: 177–221."]],
+        ["hackl_jursa_privatbriefe", "Hackl et al., Spätbabylonische Privatbriefe",
+         ["Hackl, Jursa & Schmidl, Spätbabylonische Privatbriefe (AOAT 414/1)",
+          "The texts are originally published in Hackl, Johannes, Michael Jursa, and Martina Schmidl. 2014. Spätbabylonische Privatbriefe. With contributions by Klaus Wagensonner. Alter Orient und Altes Testament 414/1. Münster: Ugarit-Verlag."]],
+        ["levavi", "Levavi, Administrative Epistolography",
+         ["Levavi, Administrative Epistolography (Dubsar 3)",
+          "The texts are originally published in Levavi, Yuval. 2018. Administrative Epistolography in the Formative Phase of the Neo-Babylonian Empire. Dubsar 3. Münster: Zaphon."]],
+        ["waerzeggers", "Waerzeggers, Marduk-rēmanni",
+         ["Waerzeggers, Marduk-rēmanni (OLA 233)",
+          "The texts are originally published in Waerzeggers, Caroline. 2014. Marduk-rēmanni: Local Networks and Imperial Politics in Achaemenid Babylonia. Orientalia Lovaniensia Analecta 233. Leuven: Peeters."]],
     ],
     settings.corporafolders.cuneiform.balt
 );
