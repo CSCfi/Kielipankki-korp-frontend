@@ -856,6 +856,7 @@
     "sentence_text_rus": "sentence (rus)",
 
     "digisvenska_text_id" : "text id",
+    "digisvenska_skribent_id" : "writer id",
     "digisvenska_round" : "round",
     "digisvenska_question_id" : "question id",
     "digisvenska_assignment_id" : "assignment id",

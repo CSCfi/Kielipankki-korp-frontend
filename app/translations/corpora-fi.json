@@ -1034,6 +1034,7 @@
     "sentence_text_rus": "virkkeen teksti (rus)",
 
     "digisvenska_text_id" : "tekstin tunniste",
+    "digisvenska_skribent_id" : "kirjoittajan tunniste",
     "digisvenska_round" : "kirjoitusten ajankohta",
     "digisvenska_question_id" : "tehtävän numero",
     "digisvenska_assignment_id" : "tehtävän tunniste",
