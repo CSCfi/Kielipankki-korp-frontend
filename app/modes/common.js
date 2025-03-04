@@ -8094,7 +8094,11 @@ funcs.addCorpusAliases = function (corpus_id_patt, aliases) {
 // Occurrences of "{}" in the id, title, description of template are
 // replaced with the corresponding property value in the infolist
 // item, or if that is missing, the variable part of the id specified
-// in the infolist item.
+// in the infolist item. If the title or description in the infolist
+// item is an array of strings, the first "{}" is replaced with the
+// first item in the array, the second "{}" with the second item, and
+// so on, so that the last item replaces the possible remaining
+// occurrences of "{}".
 
 funcs.addCorpusSettings = function (template, infolist, folder, id_templ) {
     let ids = [];
@@ -8121,9 +8125,21 @@ funcs.addCorpusSettings = function (template, infolist, folder, id_templ) {
         config.id = id;
         for (let propname of subst_props) {
             if (template[propname]) {
-                config[propname] = template[propname].replace(
-                    /{}/g,
-                    info_is_string ? id_varpart : info[propname] || id_varpart);
+                if (_.isArray(info[propname])) {
+                    // If info[propname] is an array, replace each
+                    // occurrence of {} by a separate item; the last
+                    // item replaces the all the remaining {}'s
+                    let val = template[propname];
+                    for (let item of info[propname].slice(0, -1)) {
+                        val = val.replace(/{}/, item);
+                    }
+                    config[propname] = val.replace(
+                        /{}/g, info[propname].slice(-1)[0]);
+                } else {
+                    config[propname] = template[propname].replace(
+                        /{}/g, info_is_string ? id_varpart : (info[propname]
+                                                              || id_varpart));
+                }
             }
         }
         ids.push(id);
