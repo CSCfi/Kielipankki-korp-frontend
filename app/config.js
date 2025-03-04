@@ -24,6 +24,8 @@ c.log("Production server:", isProductionServer);
 var baseURL = (window.location.protocol + "//" + window.location.hostname
                + window.location.pathname);
 
+var kielipankkiBaseAddress = "https://www.kielipankki.fi";
+
 settings.autocomplete = true;
 settings.mapEnabled = true;
 settings.hitsPerPageDefault = 25
@@ -271,14 +273,15 @@ settings.downloadFormatParamsPhysical = {
 
 
 // Korp backend URL
-// Always use the backend on the production server
-var korpBackendServer = "https://www.kielipankki.fi";
-settings.korpBackendURL = korpBackendServer + "/korp/api8";
-// // Alternatively, use the backend on the same site as the frontend
-// settings.korpBackendURL =
-//    window.location.protocol + "//" + window.location.hostname + "/korp/api8";
+// Currently we, use the backend on the same site as the frontend
+// To enforce a hardcoded production backend, do eg.
+// settings.korpBackendURL = kielipankkiBaseAddress + "/korp/api8";
+settings.korpBackendURL = window.location.protocol + "//" +
+    window.location.hostname +
+    window.location.pathname.replace(
+	/\/korp.*/, "/korp/api8");
 // console.log("korpBackendURL: '" + settings.korpBackendURL + "'")
-settings.downloadCgiScript = (korpBackendServer
+settings.downloadCgiScript = (kielipankkiBaseAddress
                               + (isProductionServerKielipankki ? "/korp" : "")
                               + "/cgi-bin/korp/korp_download.cgi");
 
@@ -290,7 +293,7 @@ settings.korpUrl = {
 };
 
 settings.urnResolver = "http://urn.fi/";
-settings.corpus_cite_base_url = "http://www.kielipankki.fi/viittaus/?key=";
+settings.corpus_cite_base_url = kielipankkiBaseAddress + "/viittaus/?key=";
 
 // Set advanced_search_within to false to disable the within selection
 // in the advanced search. If the value is undefined, assume true.
@@ -384,7 +387,7 @@ settings.shibbolethLogoutUrl = function (href) {
 settings.make_direct_LBR_URL = function (lbr_id) {
     console.log ("make_direct_LBR_URL", lbr_id);
     if (lbr_id) {
-        return ("https://www.kielipankki.fi/lbr3/"
+        return (kielipankkiBaseAddress + "/lbr3/"
                 + (lbr_id.slice(0, 3) != "urn" ? "urn:nbn:fi:lb-" : "")
                 + lbr_id);
     } else {
