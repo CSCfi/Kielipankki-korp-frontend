@@ -8094,57 +8094,72 @@ funcs.addCorpusAliases = function (corpus_id_patt, aliases) {
 // Occurrences of "{}" in the id, title, description of template are
 // replaced with the corresponding property value in the infolist
 // item, or if that is missing, the variable part of the id specified
-// in the infolist item.
+// in the infolist item. If the title or description in the infolist
+// item is an array of strings, the first "{}" is replaced with the
+// first item in the array, the second "{}" with the second item, and
+// so on, so that the last item replaces the possible remaining
+// occurrences of "{}".
 
 funcs.addCorpusSettings = function (template, infolist, folder, id_templ) {
-    var ids = [];
+    let ids = [];
     // Replace {} with the value in the infolist item in these
     // properties ("id" is treated separately):
-    var subst_props = ["title", "description"];
+    const subst_props = ["title", "description"];
     if (id_templ == null) {
         id_templ = (template.id != null ? template.id : "")
     }
 
-    var add_info = function (info) {
-        var info_is_string = (typeof info == "string");
-        var id_varpart = (info_is_string ? info : info.id);
-        var id = (id_templ.indexOf("{}") > -1
-                  ? id_templ.replace(/{}/g, id_varpart)
-                  : id_templ + id_varpart);
+    const add_info = function (info) {
+        const info_is_string = (typeof info == "string");
+        const id_varpart = (info_is_string ? info : info.id);
+        const id = (id_templ.indexOf("{}") > -1
+                    ? id_templ.replace(/{}/g, id_varpart)
+                    : id_templ + id_varpart);
         // Make a deep copy so that the resulting objects can be
         // safely modified independently of each other if necessary.
         settings.corpora[id] = $.extend(true, {}, template);
-        var config = settings.corpora[id];
+        let config = settings.corpora[id];
         if (! info_is_string) {
             $.extend(config, info);
         }
         config.id = id;
-        for (var j = 0; j < subst_props.length; j++) {
-            var propname = subst_props[j];
+        for (let propname of subst_props) {
             if (template[propname]) {
-                config[propname] = template[propname].replace(
-                    /{}/g,
-                    info_is_string ? id_varpart : info[propname] || id_varpart);
+                if (_.isArray(info[propname])) {
+                    // If info[propname] is an array, replace each
+                    // occurrence of {} by a separate item; the last
+                    // item replaces the all the remaining {}'s
+                    let val = template[propname];
+                    for (let item of info[propname].slice(0, -1)) {
+                        val = val.replace(/{}/, item);
+                    }
+                    config[propname] = val.replace(
+                        /{}/g, info[propname].slice(-1)[0]);
+                } else {
+                    config[propname] = template[propname].replace(
+                        /{}/g, info_is_string ? id_varpart : (info[propname]
+                                                              || id_varpart));
+                }
             }
         }
         ids.push(id);
     };
 
     if (infolist.length == 2 && Number.isInteger(infolist[0])) {
-        for (var id = infolist[0]; id <= infolist[1]; id++) {
+        for (let id = infolist[0]; id <= infolist[1]; id++) {
             add_info(id.toString());
         }
     } else {
-        for (var i = 0; i < infolist.length; i++) {
-            if (_.isArray(infolist[i])) {
-                var id = infolist[i][0];
+        for (let infoitem of infolist) {
+            if (_.isArray(infoitem)) {
+                const id = infoitem[0];
                 add_info({
                     id: id,
-                    title: infolist[i][1] || id,
-                    description: infolist[i][2] || id,
+                    title: infoitem[1] || id,
+                    description: infoitem[2] || id,
                 });
             } else {
-                add_info(infolist[i]);
+                add_info(infoitem);
             }
         }
     }
@@ -8341,11 +8356,12 @@ funcs.setAttrOrder = function (attrstruct, attrnamelist) {
     if (typeof attrnamelist == "string") {
         attrnamelist = attrnamelist.split(/[ \t]+/);
     }
-    var attrnamecount = attrnamelist.length;
-    for (var i = 0; i < attrnamelist.length; i++) {
-        // The attribute with the smallest order value is shown first;
-        // this has been changed at some point.
-        attrstruct[attrnamelist[i]].order = i;
+    for (let [i, attrname] of attrnamelist.entries()) {
+        if (attrname in attrstruct) {
+            // The attribute with the smallest order value is shown first;
+            // this has been changed at some point.
+            attrstruct[attrname].order = i;
+        }
     }
 };
 
