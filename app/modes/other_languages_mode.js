@@ -537,13 +537,13 @@ settings.corpusAliases.oracc_2019_05
 
 settings.corporafolders.cuneiform.achemenet = {
     title: "Achemenet",
-    description: "Achemenet Babylonian texts – Kielipankki version 2020-12, Korp<br/><br/><a href=\"http://www.achemenet.com/\" target=\"_blank\">The Achemenet project</a> provides transliterations and translations of documents written in the Achaemenid Persian Empire (550–330 BCE).<br/>The Korp version of Achemenet contains the Babylonian cuneiform texts available in Achemenet in December 2020.<br/>The texts have been automatically lemmatized at the <a href=\"https://www.helsinki.fi/en/researchgroups/ancient-near-eastern-empires\">Centre of Excellence in Ancient Near Eastern Empires</a> (University of Helsinki), funded by the Research Council of Finland.",
+    description: "Achemenet Babylonian texts – Kielipankki version 2020-12, Korp<br/><br/><a href=\"http://www.achemenet.com/\" target=\"_blank\">The Achemenet project</a> provides transliterations and translations of documents written in the Achaemenid Persian Empire (550–330 BCE).<br/>The Korp version of Achemenet contains the Babylonian cuneiform texts available in Achemenet in December 2020.<br/>The texts have been automatically lemmatized at the <a href=\"https://www.helsinki.fi/en/researchgroups/ancient-near-eastern-empires\">Centre of Excellence in Ancient Near Eastern Empires</a> (University of Helsinki), funded by the Research Council of Finland.<br/><br/>More information about the corpus is available at <a href=\"https://doi.org/10.5281/zenodo.14223709\" target=\"_blank\">https://doi.org/10.5281/zenodo.14223709</a>.",
     contents: [
         "achemenet_ct55",
         "achemenet_belremanni",
-        "achemenet_yos7",
         "achemenet_murashu",
         "achemenet_strassmaier",
+        "achemenet_yos7",
     ],
     info: {
 	metadata_urn: "urn:nbn:fi:lb-2023062101",
@@ -2054,7 +2054,7 @@ for (let attr of [
 settings.corpora.achemenet_murashu = {
     id: "achemenet_murashu",
     title: "Murašû archive (Achemenet)",
-    description: "Murašû archive (Achemenet)",
+    description: "Murašû archive (Achemenet)<br/><br/>The texts are originally published in BE 8/1 (Clay 1908), BE 9 (Hilprecht and Clay 1898), BE 10 (Clay 1904), CTMMA III (Spar and von Dassow 2000), Entrepreneurs and Empire (Stolper 1985), Istanbul Murašû Texts (Donbaz and Stolper 1997), Joannès 1987, PBS 2/1 (Clay 1912), Stolper 2001, Stolper 2015, TuM 2/3 (Krückmann 1933), and UCP 9/3 (Lutz 1928). For full bibliographical references, see <a href=\"https://doi.org/10.5281/zenodo.14223709\" target=\"_blank\">https://doi.org/10.5281/zenodo.14223709</a>.",
     context: context.sp,
     within: within.sp,
     attributes: attrlist.achemenet,
@@ -2064,7 +2064,7 @@ settings.corpora.achemenet_murashu = {
 settings.corpora.achemenet_yos7 = {
     id: "achemenet_yos7",
     title: "YOS 7 (Achemenet)",
-    description: "YOS 7 (Achemenet)",
+    description: "YOS 7 (Achemenet)<br/><br/>The texts are originally published in Tremayne, Arch. 1925. Records from Erech: Time of Cyrus and Cambyses (538–521 B. C.). Yale Oriental Series, Babylonian Texts 7. New Haven: Yale University Press; London: Milford, Oxford University Press.",
     context: context.sp,
     within: within.sp,
     attributes: attrlist.achemenet,
@@ -2073,8 +2073,8 @@ settings.corpora.achemenet_yos7 = {
 
 settings.corpora.achemenet_belremanni = {
     id: "achemenet_belremanni",
-    title: "Bēl-rēmanni (Achemenet)",
-    description: "Jursa, Das Archiv des Bēl-rēmanni (Achemenet)",
+    title: "Jursa, Bēl-rēmanni (Achemenet)",
+    description: "Jursa, Das Archiv des Bēl-rēmanni (Achemenet)<br/><br/>The texts are originally published in Jursa, Michael. 1999. Das Archiv des Bēl-rēmanni. Uitgaven van het Nederlands Historisch-Archaeologisch Instituut te Istanbul 86. Istanbul: Nederlands Historisch-Archaeologisch Instituut.",
     context: context.sp,
     within: within.sp,
     attributes: attrlist.achemenet,
@@ -2084,7 +2084,7 @@ settings.corpora.achemenet_belremanni = {
 settings.corpora.achemenet_ct55 = {
     id: "achemenet_ct55",
     title: "CT 55 (Achemenet)",
-    description: "CT 55 (Achemenet)",
+    description: "CT 55 (Achemenet)<br/><br/>The texts are originally published in Pinches, T. G. 1982. Neo-Babylonian and Achaemenid Economic Texts. Cuneiform Texts from Babylonian Tablets in the British Museum 55. London: Trustees of the British Museum.",
     context: context.sp,
     within: within.sp,
     attributes: attrlist.achemenet,
@@ -2094,7 +2094,7 @@ settings.corpora.achemenet_ct55 = {
 settings.corpora.achemenet_strassmaier = {
     id: "achemenet_strassmaier",
     title: "Strassmaier (Achemenet)",
-    description: "Strassmaier (Cyr, Camb, Dar) (Achemenet)",
+    description: "Strassmaier (Cyr, Camb, Dar) (Achemenet)<br/><br/>The texts were originally published by J. N. Strassmaier in Inschriften von Nabonidus, König von Babylon (Leipzig, 1889); Inschriften von Nabuchodonosor, König von Babylon (Leipzig 1889); Inschriften von Cambyses, König von Babylon (Leipzig, 1890); Inschriften von Cyrus, König von Babylon (Leipzig, 1890); and Inschriften von Darius, König von Babylon (Leipzig, 1892–1897).",
     context: context.sp,
     within: within.sp,
     attributes: attrlist.achemenet,
