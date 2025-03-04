@@ -443,6 +443,7 @@ attrlist.digisvenska = {
 
 sattrlist.digisvenska = {
     text_essay_id: { label: "digisvenska_text_id" },
+    text_skribent_id: { label: "digisvenska_skribent_id" },
     text_round: {
 	label: "digisvenska_round",
 	extendedComponent: "datasetSelect",

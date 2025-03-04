@@ -534,6 +534,7 @@
     "listen_audio_olo_first": "Lyssna på yttrandet (olonetsiska)",
 
     "digisvenska_text_id" : "text-ID",
+    "digisvenska_skribent_id" : "skribent-ID",
     "digisvenska_round" : "provomgång",
     "digisvenska_question_id" : "fråge-ID",
     "digisvenska_assignment_id" : "uppgifts-ID",
