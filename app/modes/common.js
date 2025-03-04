@@ -8097,30 +8097,29 @@ funcs.addCorpusAliases = function (corpus_id_patt, aliases) {
 // in the infolist item.
 
 funcs.addCorpusSettings = function (template, infolist, folder, id_templ) {
-    var ids = [];
+    let ids = [];
     // Replace {} with the value in the infolist item in these
     // properties ("id" is treated separately):
-    var subst_props = ["title", "description"];
+    const subst_props = ["title", "description"];
     if (id_templ == null) {
         id_templ = (template.id != null ? template.id : "")
     }
 
-    var add_info = function (info) {
-        var info_is_string = (typeof info == "string");
-        var id_varpart = (info_is_string ? info : info.id);
-        var id = (id_templ.indexOf("{}") > -1
-                  ? id_templ.replace(/{}/g, id_varpart)
-                  : id_templ + id_varpart);
+    const add_info = function (info) {
+        const info_is_string = (typeof info == "string");
+        const id_varpart = (info_is_string ? info : info.id);
+        const id = (id_templ.indexOf("{}") > -1
+                    ? id_templ.replace(/{}/g, id_varpart)
+                    : id_templ + id_varpart);
         // Make a deep copy so that the resulting objects can be
         // safely modified independently of each other if necessary.
         settings.corpora[id] = $.extend(true, {}, template);
-        var config = settings.corpora[id];
+        let config = settings.corpora[id];
         if (! info_is_string) {
             $.extend(config, info);
         }
         config.id = id;
-        for (var j = 0; j < subst_props.length; j++) {
-            var propname = subst_props[j];
+        for (let propname of subst_props) {
             if (template[propname]) {
                 config[propname] = template[propname].replace(
                     /{}/g,
@@ -8131,20 +8130,20 @@ funcs.addCorpusSettings = function (template, infolist, folder, id_templ) {
     };
 
     if (infolist.length == 2 && Number.isInteger(infolist[0])) {
-        for (var id = infolist[0]; id <= infolist[1]; id++) {
+        for (let id = infolist[0]; id <= infolist[1]; id++) {
             add_info(id.toString());
         }
     } else {
-        for (var i = 0; i < infolist.length; i++) {
-            if (_.isArray(infolist[i])) {
-                var id = infolist[i][0];
+        for (let infoitem of infolist) {
+            if (_.isArray(infoitem)) {
+                const id = infoitem[0];
                 add_info({
                     id: id,
-                    title: infolist[i][1] || id,
-                    description: infolist[i][2] || id,
+                    title: infoitem[1] || id,
+                    description: infoitem[2] || id,
                 });
             } else {
-                add_info(infolist[i]);
+                add_info(infoitem);
             }
         }
     }
