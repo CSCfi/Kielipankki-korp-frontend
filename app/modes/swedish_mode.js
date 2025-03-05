@@ -498,8 +498,8 @@ sattrlist.digisvenska = {
     text_score_value: { label: "digisvenska_score_value" }
 };
 
-settings.corpora.digisvenska_test = {
-    id: "digisvenska_test",
+settings.corpora.digisvenska = {
+    id: "digisvenska",
     title: "Digisvenska",
     description: "Digisvenska-korpusen – En inlärarkorpus baserad på studentprovet i B-svenska<br/><b>Currently, this resource is only available for internal use within the research project.</b>",
     urn: "urn:nbn:fi:lb-2023051702",
@@ -520,7 +520,7 @@ settings.corpora.digisvenska_test = {
     status: "beta"
 };
 
-funcs.addCorporaToFolder("learner", "digisvenska_test");
+funcs.addCorporaToFolder("learner", "digisvenska");
 
 attrlist.studex = {
     ref: attrs.ref,
