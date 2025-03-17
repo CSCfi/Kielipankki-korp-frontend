@@ -1,3 +1,17 @@
+
+<!-- New Cuneiform corpora (beta): Achemenet and BALT 2025-03-14 -->
+
+Two new Cuneiform corpora are now available in Korp as beta test
+versions:
+
+- <a href="http://urn.fi/urn:nbn:fi:lb-2023062101"
+target="_blank">Achemenet Babylonian texts – Kielipankki version
+2020-12, Korp</a> (achemenet-2020-12-korp), and
+- <a href="http://urn.fi/urn:nbn:fi:lb-2025022201"
+target="_blank">BALT: Babylonian Administrative and Legal Texts –
+Kielipankki version 2025-02, Korp</a> (balt-2025-02-korp).
+
+
 <!-- Defunct functionalities removed or replaced 2024-12-28 -->
 
 The hamburger menu in the top right corner previously had links to

@@ -1,3 +1,17 @@
+
+<!-- Uusia nuolenpääkirjoitusaineistoja (beta): Achemenet ja BALT 2025-03-14 -->
+
+Korpissa on nyt käytettävissä beetatestiversiona kaksi uutta
+nuolenpääkirjoitusaineistoa:
+
+- <a href="http://urn.fi/urn:nbn:fi:lb-2023062101"
+target="_blank">Achemenetin babylonialaiset tekstit – Kielipankin
+versio 2020-12, Korp</a> (achemenet-2020-12-korp) ja
+- <a href="http://urn.fi/urn:nbn:fi:lb-2025022201"
+target="_blank">BALT: Babylonian Administrative and Legal Texts –
+Kielipankin versio 2025-02, Korp</a> (balt-2025-02-korp).
+
+
 <!-- Vanhentuneita toiminnallisuuksia poistettu ja korvattu 2024-12-28 -->
 
 Oikeassa yläkulmassa olevassa valikossa oli aiemmin linkit nimillä
