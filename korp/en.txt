@@ -1,5 +1,5 @@
 
-<!-- New Cuneiform corpora (beta): Achemenet and BALT 2025-03-14 -->
+<!-- New Cuneiform corpora (beta): Achemenet and BALT 2025-03-18 -->
 
 Two new Cuneiform corpora are now available in Korp as beta test
 versions:

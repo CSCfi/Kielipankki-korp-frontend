@@ -1,5 +1,5 @@
 
-<!-- Uusia nuolenpääkirjoitusaineistoja (beta): Achemenet ja BALT 2025-03-14 -->
+<!-- Uusia nuolenpääkirjoitusaineistoja (beta): Achemenet ja BALT 2025-03-18 -->
 
 Korpissa on nyt käytettävissä beetatestiversiona kaksi uutta
 nuolenpääkirjoitusaineistoa:
