@@ -31,6 +31,10 @@ window.CorpusListing = class CorpusListing {
             "getStructAttrsIntersection",
             "getStructAttrs",
         ])
+        // Names of word attributes, to help avoid having
+        // (intra-sentence structural) attributes both as word and
+        // text (structural) attributes
+        this._wordAttrNames = new Set()
         // Let plugins act on CorpusListing after constructing it
         plugins.callActions("onCorpusListingConstructed", this)
     }
@@ -436,6 +440,9 @@ window.CorpusListing = class CorpusListing {
                 attrs.push(_.extend({ group: "word_attr", value: key }, obj))
             }
         }
+        // Set this._wordAttrNames for the next call of
+        // this.getStructAttributeGroups
+        this._wordAttrNames = new Set(_.map(attrs, (corp) => corp.value))
         return attrs
     }
 
@@ -454,7 +461,10 @@ window.CorpusListing = class CorpusListing {
         const object = _.extend({}, common, allAttrs)
         for (let key in object) {
             const obj = object[key]
-            if (obj.displayType !== "hidden") {
+            // NOTE: The following assumes that this._wordAttrNames
+            // has been set in this.getWordAttributeGroups with the
+            // same value for setOperator as for this call
+            if (obj.displayType !== "hidden" && ! this._wordAttrNames.has(key)) {
                 sentAttrs.push(_.extend({ group: "sentence_attr", value: key }, obj))
             }
         }
