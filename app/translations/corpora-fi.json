@@ -635,6 +635,7 @@
 
     "message_type": "viestin tyyppi",
     "message_is_completely_empty": "viesti on täysin tyhjä",
+    "message_id": "viestin tunniste",
     "message_thread_id": "keskusteluketjun tunniste",
     "message_thread_start_timestamp": "keskusteluketjun alkuaikaleima",
     "comment_id": "kommentin tunniste",

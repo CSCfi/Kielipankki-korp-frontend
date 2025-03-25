@@ -418,6 +418,7 @@
 
     "message_type": "message type",
     "message_is_completely_empty": "message is completely empty",
+    "message_id": "messasge id",
     "message_thread_id": "discussion thread id",
     "message_thread_start_timestamp": "discussion thread start timestamp",
     "comment_id": "comment id",
