@@ -16329,6 +16329,9 @@ sattrlist.s24_2001_2017 = {
     text_id: {
         label: "text_id",
     },
+    text_msg_id: {
+        label: "message_id",
+    },
     text_thread_id: {
         label: "message_thread_id",
     },
@@ -16486,8 +16489,6 @@ funcs.addCorpusAliases(
 
 sattrlist.s24_2021_2023 = $.extend(
     {}, sattrlist.s24_2018_2020);
-sattrlist.s24_2021_2023.text_msg_id = sattrlist.s24_2021_2023.text_id;
-// delete sattrlist.s24_2021_2023["text_id"];
 
 settings.templ.s24_2021_2023 = $.extend(
     {}, settings.templ.s24_base,
