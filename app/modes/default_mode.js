@@ -311,11 +311,10 @@ funcs.addCorporaToFolder("cmc", [
 ]);
 
 settings.corporafolders.cmc.suomi24_accruing = {
-    title: "Suomi24 2001–2020",
+    title: "Suomi24 2001–2023",
     // TODO: Change VRT download and metadata URN to point to the new
     // version when it is available
-    description: "Suomi24 virkkeet -korpus 2001–2020, Korp-versio<br/><a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskustelut vuosilta 2001–2020 (1.1.2001–31.12.2020).<br/>Aineistossa näkyy kaikkien keskustelujen sisältö enintään kappaletasolla.<br/>Aineisto on jaettu osakorpuksiin vuosittain.<br/>Tutkijat voivat myös ladata käyttöönsä <a href='http://urn.fi/urn:nbn:fi:lb-2021101527' target='_blank' title='Kuvailutiedot'>koko Suomi24 2001–2020 -aineiston</a> Kielipankin <a href='http://urn.fi/urn:nbn:fi:lb-2021101528' target='_blank'>latauspalvelusta</a> (<a href='http://urn.fi/urn:nbn:fi:lb-20150304151' target='_blank'>lisenssi</a>).<br/><br/>Tämä kokoelma sisältää aineistot <a href='http://urn.fi/urn:nbn:fi:lb-2020021803' target='_blank' title='Kuvailutiedot'><i>Suomi24 virkkeet -korpus 2001–2017, Korp-versio 1.2</i></a> ja <a href='http://urn.fi/urn:nbn:fi:lb-2021101521' target='_blank' title='Kuvailutiedot'><i>Suomi24 virkkeet -korpus 2018–2020, Korp-versio</i></a>.<br/><br/>(<i>Suomi24 2001–2017</i> näkyi beetatestausvaiheessa Korpissa nimellä <i>Suomi24 virkkeet -korpus (2017H2)</i> ja aineiston ensimmäinen versio nimellä <i>Suomi24 2017H2</i>.)<br/><br/>2021-11-05: Kokoelmaan on lisätty beetatestiversiona vuosien 2018–2020 keskustelut (<a href='http://urn.fi/urn:nbn:fi:lb-2021101521' target='_blank' title='Kuvailutiedot'><i>Suomi24 virkkeet -korpus 2018–2020, Korp-versio</i></a>).<br/><br/>2021-04-21: Aineistosta on nyt käytössä päivitetty versio 1.2, jonka kuhunkin virkkeeseen on lisätty virkkeen tunnetilaa (sentiment) ilmaiseva polaarisuustieto (positiivinen, neutraali, negatiivinen). Polaarisuustieto on tuotettu luokittimella, joka on opetettu <a href='https://arxiv.org/pdf/2012.02613.pdf' target='_blank'>FinnSentiment-aineistolla</a>.<br/><br/>2020-02-20: Aineistosta on nyt käytössä korjattu versio 1.1. Se sisältää aiemmasta versiosta vuosilta 2009–2012 ja 2014 puuttuneet kirjoittajan nimimerkkitiedot, ja kaikissa nimimerkeissä merkit <i>'</i>, <i>\"</i> ja <i>&amp;</i> näkyvät sellaisinaan, eivät <i>&amp;apos;</i>, <i>&amp;quot;</i> ja <i>&amp;amp;</i>. Lisäksi aineiston nimessä on korvattu <i>2017H2</i> vuosivälillä <i>2001–2017</i>.<br/><br/>2020-01-21: Aineiston dependenssijäsennykset ja -relaatiot on korjattu 2019-12-19. Myös sanakuva toimii periaatteessa, mutta aineiston koon vuoksi valitettavasti ei aina käytännössä. Selvitämme asiaa. Nimientunnistustiedot ovat toistaiseksi vain vanhemmassa Suomi24 2016H2 -aineistossa.</strong>",
-    // description: "Suomi24 virkkeet -korpus 2001–2017, Korp-versio 1.2<br/><a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskustelut vuosilta 2001–2017 (1.1.2001–31.12.2017).<br/>Aineistossa näkyy kaikkien keskustelujen sisältö enintään kappaletasolla.<br/>Aineisto on jaettu osakorpuksiin vuosittain.<br/>Tutkijat voivat myös ladata käyttöönsä <a href='http://urn.fi/urn:nbn:fi:lb-2019010801' target='_blank' title='Kuvailutiedot'>koko Suomi24 2001–2017 -aineiston</a> Kielipankin <a href='http://urn.fi/urn:nbn:fi:lb-2019010802' target='_blank'>latauspalvelusta</a> (<a href='http://urn.fi/urn:nbn:fi:lb-20150304151' target='_blank'>lisenssi</a>).<br/><br/>(Tämä aineisto näkyi beetatestausvaiheessa Korpissa nimellä <i>Suomi24 virkkeet -korpus (2017H2)</i> ja aineiston ensimmäinen versio nimellä <i>Suomi24 2017H2</i>.)<br/><br/>2021-04-21: Aineistosta on nyt käytössä päivitetty versio 1.2, jonka kuhunkin virkkeeseen on lisätty virkkeen tunnetilaa (sentiment) ilmaiseva polaarisuustieto (positiivinen, neutraali, negatiivinen). Polaarisuustieto on tuotettu luokittimella, joka on opetettu <a href='https://arxiv.org/pdf/2012.02613.pdf' target='_blank'>FinnSentiment-aineistolla</a>.<br/><br/>2020-02-20: Aineistosta on nyt käytössä korjattu versio 1.1. Se sisältää aiemmasta versiosta vuosilta 2009–2012 ja 2014 puuttuneet kirjoittajan nimimerkkitiedot, ja kaikissa nimimerkeissä merkit <i>'</i>, <i>\"</i> ja <i>&amp;</i> näkyvät sellaisinaan, eivät <i>&amp;apos;</i>, <i>&amp;quot;</i> ja <i>&amp;amp;</i>. Lisäksi aineiston nimessä on korvattu <i>2017H2</i> vuosivälillä <i>2001–2017</i>.<br/><br/>2020-01-21: Aineiston dependenssijäsennykset ja -relaatiot on korjattu 2019-12-19. Myös sanakuva toimii periaatteessa, mutta aineiston koon vuoksi valitettavasti ei aina käytännössä. Selvitämme asiaa. Nimientunnistustiedot ovat toistaiseksi vain vanhemmassa Suomi24 2016H2 -aineistossa.</strong>",
+    description: "Suomi24 virkkeet -korpus 2001–2023, Korp-versio<br/><a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskustelut vuosilta 2001–2023 (1.1.2001–31.12.2023).<br/>Aineistossa näkyy kaikkien keskustelujen sisältö enintään kappaletasolla.<br/>Aineisto on jaettu osakorpuksiin vuosittain.<br/>Tutkijat voivat myös ladata käyttöönsä <a href='http://urn.fi/urn:nbn:fi:lb-2021101527' target='_blank' title='Kuvailutiedot'>koko Suomi24 2001–2020 -aineiston</a> Kielipankin <a href='http://urn.fi/urn:nbn:fi:lb-2021101528' target='_blank'>latauspalvelusta</a> (<a href='http://urn.fi/urn:nbn:fi:lb-20150304151' target='_blank'>lisenssi</a>).<br/><br/>Tämä kokoelma sisältää aineistot <a href='http://urn.fi/urn:nbn:fi:lb-2020021803' target='_blank' title='Kuvailutiedot'><i>Suomi24 virkkeet -korpus 2001–2017, Korp-versio 1.3</i></a>, <a href='http://urn.fi/urn:nbn:fi:lb-2021101521' target='_blank' title='Kuvailutiedot'><i>Suomi24 virkkeet -korpus 2018–2020, Korp-versio 1.1</i></a> ja  <a href='http://urn.fi/urn:nbn:fi:lb-2021101521' target='_blank' title='Kuvailutiedot'><i>Suomi24 virkkeet -korpus 2021–2023, Korp-versio</i></a>.<br/><br/>2025-03-28: Kokoelmaan on lisätty beetatestiversiona vuosien 2021–2023 keskustelut (<a href='http://urn.fi/urn:nbn:fi:lb-2024030601' target='_blank' title='Kuvailutiedot'><i>Suomi24 virkkeet -korpus 2021–2023, Korp-versio</i></a>). Lisäksi koko aineistoon on merkitty FiNER 1.6 -nimientunnistimella tunnistetut nimet ja HeLI-OTS 2.0 -kielentunnistimella tunnistetut virkkeiden kielet.",
     contents: [
 	"s24_2001",
 	"s24_2002",
@@ -337,14 +336,17 @@ settings.corporafolders.cmc.suomi24_accruing = {
 	"s24_2018",
 	"s24_2019",
 	"s24_2020",
+        "s24_2021",
+        "s24_2022",
+        "s24_2023",
     ],
     info: {
-	urn: "urn:nbn:fi:lb-2021101526",
-	metadata_urn: "urn:nbn:fi:lb-2021101525",
+	urn: "urn:nbn:fi:lb-2024051602",
+	metadata_urn: "urn:nbn:fi:lb-2024051601",
 	licence: settings.licenceinfo.CC_BY_NC,
 	homepage_url: "http://keskustelu.suomi24.fi",
-	cite_id: "urn:nbn:fi:lb-2021101525",
-	shortname: "suomi24-2001-2020-korp",
+	// cite_id: "urn:nbn:fi:lb-2021101525",
+	shortname: "suomi24-2001-2023-korp",
     }
 };
 
@@ -16387,7 +16389,7 @@ sattrlist.s24_2001_2017_custom = {
     },
 };
 
-// Common settings for Suomi24 2001–2017 and 2018–2020
+// Common settings for Suomi24 2001–2017, 2018–2020, 2021–2023
 settings.templ.s24_base = {
     // {} is replaced with the year
     id: "s24_{}",
@@ -16447,7 +16449,6 @@ sattrlist.s24_2018_2020 = $.extend(
     {
         text_thread_closed: funcs.makeBoolAttr(
             "thread_closed", ["y", "n", ""]),
-        sentence_lang: sattrs.sentence_lang,
     }
 );
 
@@ -16478,6 +16479,44 @@ funcs.addCorpusAliases(
     "s24_20(0[1-9]|1[0-9]|20)",
     [
         "suomi24-2001-2020",
+    ]);
+
+
+// Suomi24 2021–2023
+
+sattrlist.s24_2021_2023 = $.extend(
+    {}, sattrlist.s24_2018_2020);
+sattrlist.s24_2021_2023.text_msg_id = sattrlist.s24_2021_2023.text_id;
+// delete sattrlist.s24_2021_2023["text_id"];
+
+settings.templ.s24_2021_2023 = $.extend(
+    {}, settings.templ.s24_base,
+    funcs.fillYearsVersion(settings.templ.s24_title_descr_shortname,
+                           2021, 2023),
+    {
+        urn: "urn:nbn:fi:lb-2024030602",
+        metadata_urn: "urn:nbn:fi:lb-2024030601",
+        structAttributes: sattrlist.s24_2021_2023,
+        status: "beta",
+    },
+);
+
+funcs.addCorpusSettings(
+    settings.templ.s24_2021_2023,
+    [2021, 2023],
+    settings.corporafolders.cmc.s24_accruing
+);
+
+funcs.addCorpusAliases(
+    "s24_202[1-3]",
+    [
+        "suomi24-2021-2023",
+    ]);
+
+funcs.addCorpusAliases(
+    "s24_20(0[1-9]|1[0-9]|2[0-3])",
+    [
+        "suomi24-2001-2023",
     ]);
 
 
