@@ -477,6 +477,7 @@ window.CorpusListing = class CorpusListing {
     getAttributeGroups(lang) {
         const words = this.getWordGroup(false)
         const attrs = this.getWordAttributeGroups(lang, "union")
+        this._adjustWordAttributeGroup(words, attrs)
         const sentAttrs = this.getStructAttributeGroups(lang, "union")
         return words.concat(attrs, sentAttrs)
     }
@@ -486,12 +487,30 @@ window.CorpusListing = class CorpusListing {
 
         const wordOp = settings.reduceWordAttributeSelector || "union"
         const attrs = this.getWordAttributeGroups(lang, wordOp)
+        this._adjustWordAttributeGroup(words, attrs)
 
         const structOp = settings.reduceStructAttributeSelector || "union"
         const sentAttrs = this.getStructAttributeGroups(lang, structOp)
 
         return words.concat(attrs, sentAttrs)
     }
+
+    // If word attribute group attrs contains "word", effectively move
+    // it (the first one only) to the word group words, to avoid
+    // duplicating "word" in both word and word attribute group. To
+    // preserve possible extra features in the attribute "word", it is
+    // moved to the word group and not simply removed from the word
+    // attribute group.
+    _adjustWordAttributeGroup(words, attrs) {
+        const word_attr_num = _.findIndex(attrs, obj => obj.value === "word")
+        if (word_attr_num !== -1) {
+            const word_attr = attrs[word_attr_num]
+            word_attr.group = "word"
+            words[0] = word_attr
+            attrs.splice(word_attr_num, 1)
+        }
+    }
+
 }
 
 // TODO never use this, remove when sure it is not used
