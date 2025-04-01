@@ -479,6 +479,7 @@
     "relogin_login": "Kirjaudu Korpiin",
     "relogin_login_postamble": "voidaksesi tehdä yrittämäsi haun",
 
+    "corpusinfo_descr_status_rc": "<strong>Huomaa</strong>, että korpus on julkaisuehdokas, joten siihen voi vielä tulla muutoksia.",
     "corpusinfo_descr_status_beta": "<strong>Huomaa</strong>, että korpus on beetatestivaiheessa, joten siihen voi tulla muutoksia ilman ilmoitusta.",
     "corpusinfo_descr_status_test": "<strong>Huomaa</strong>, että korpus on vielä testivaiheessa, joten siihen voi tulla merkittäviäkin muutoksia ilman ilmoitusta.",
 

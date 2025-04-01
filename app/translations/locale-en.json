@@ -23,6 +23,7 @@
 
     "corpselector_limited": "The corpus is protected; <a class=\"link\" href=\"https://lbr.csc.fi/\" target=\"_blank\">apply for access rights</a>.",
 
+    "corpusinfo_descr_status_rc": "<strong>Please note</strong> that the corpus is a release candidate, so it may still change.",
     "corpusinfo_descr_status_beta": "<strong>Please note</strong> that the corpus is in beta testing, so it may change without notice.",
     "corpusinfo_descr_status_test": "<strong>Please note</strong> that the corpus is still in the test stage, so it may change significantly without notice.",
 

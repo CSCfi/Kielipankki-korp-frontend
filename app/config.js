@@ -915,6 +915,7 @@ settings.augmentCorpusInfoProperties = {
         valueType: "stringlist",
         values: [
             "beta",
+            "rc",
             "test",
         ],
         localizeDescription: true,

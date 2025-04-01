@@ -23,6 +23,7 @@
 
     "corpselector_limited": "Korpusen är skyddad; <a class=\"link\" href=\"https://lbr.csc.fi/\" target=\"_blank\">ansök om åtkomsträttigheter</a>.",
 
+    "corpusinfo_descr_status_rc": "<strong>Observera</strong> att korpusen är en releasekandidat, så den kan fortfarande ändras.",
     "corpusinfo_descr_status_beta": "<strong>Observera</strong> att korpusen betatestas, så den kan ändras utan förvarning.",
     "corpusinfo_descr_status_test": "<strong>Observera</strong> att korpusen ännu testas, så den kan ändras betydligt utan förvarning.",
 
