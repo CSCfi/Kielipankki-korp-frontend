@@ -556,7 +556,7 @@ settings.corporafolders.other.studex = {
         licence: {
 	    name: "CLARIN RES",
 	    description: "CLARIN RES end-user licence",
-	    urn: "urn:nbn:fi:lb-2023051606", // license page must be updated
+	    urn: "urn:nbn:fi:lb-2023051606",
 	},
 	status: "beta"
     }
@@ -599,8 +599,8 @@ settings.corpora.studex_19_24 = {
     id: "studex_19_24",
     title: "Studex-19-24",
     description: "Studentexamensprovsvar i modersmål och litteratur (svenska). Provet i skrivkompetens våren 2019 - hösten 2024.<br/><b>Currently, this resource is only available for internal use within the research project.</b>",
-    urn: "urn:nbn:fi:lb-2025021206", // location urn must be updated
-    metadata_urn: "urn:nbn:fi:lb-2025021205", // metadata page must be created
+    urn: "urn:nbn:fi:lb-2025021202",
+    metadata_urn: "urn:nbn:fi:lb-2025021201",
     lbr_id: "urn:nbn:fi:lb-2023051605",
     cite_id: "studex-19-24",
     context: context.default,
