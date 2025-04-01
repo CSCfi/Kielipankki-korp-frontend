@@ -5594,17 +5594,28 @@ attrlist.ne = {
     ne_placename_source: attrs.ne_placename_source,
 };
 
-// Helper function for supporting nested (recursively embedded)
-// structural attributes: Return a copy of structural attribute
-// definitions in object structAttrs with each attribute struct_attr
-// copied to struct_attr1 ... struct_attrN, where N = maxLevel. (The
-// returned value also contains the original struct_attr.) The value
-// of property "label" of struct_attrK is struct_attr.label + "_" + K.
-funcs.nestStructAttrs = function (structAttrs, maxLevel) {
+// Helper function for supporting nested (recursively embedded or
+// explicitly numbered) structural attributes: Return a copy of
+// structural attribute definitions in object structAttrs with each
+// attribute struct_attr copied to struct_attr1 ... struct_attrN,
+// where N = maxLevel. Such attributes are produced by cwb-encode for
+// specification "-S struct:N+attr". (The returned value also contains
+// the original struct_attr.) If numberedStruct == true, use
+// explicitly numbered structures instead and copy to struct1_attr ...
+// structN_attr. The value of property "label" of struct_attrK is
+// struct_attr.label + "_" + K.
+funcs.nestStructAttrs = function (structAttrs, maxLevel,
+                                  numberedStruct = false) {
     let result = $.extend(true, {}, structAttrs);
     for (let level = 1; level <= maxLevel; level++) {
         for (let attr in structAttrs) {
-            let nestAttr = `${attr}${level}`;
+            let nestAttr;
+            if (numberedStruct) {
+                let [_, structName, attrName] = attr.match(/^(.+?)_(.+)$/);
+                nestAttr = `${structName}${level}_${attrName}`;
+            } else {
+                nestAttr = `${attr}${level}`;
+            }
             result[nestAttr] = $.extend(true, {}, result[attr]);
             result[nestAttr].label = `${result[attr].label}_${level}`;
         }
@@ -5652,11 +5663,10 @@ attrlist.finer2_pos2 = {
 
 // Attributes produced by vrt-finnish-nertag (*not* FiNER version 2,
 // but Finnish NER *tags* version 2): ne_* attributes, possibly nested
-// (recursively embedded) up to 2 levels, and nertag2, nertags2,
-// nerbio2
+// names as ne1_* and ne2_*, and nertag2, nertags2, nerbio2
 attrlist.finer2 = $.extend(
     {},
-    funcs.nestStructAttrs(attrlist.ne, 2),
+    funcs.nestStructAttrs(attrlist.ne, 2, true),
     attrlist.finer2_pos2
 );
 
