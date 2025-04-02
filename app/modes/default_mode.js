@@ -16498,7 +16498,7 @@ settings.templ.s24_2021_2023 = $.extend(
         urn: "urn:nbn:fi:lb-2024030602",
         metadata_urn: "urn:nbn:fi:lb-2024030601",
         structAttributes: sattrlist.s24_2021_2023,
-        status: "beta",
+        status: "rc",
     },
 );
 
