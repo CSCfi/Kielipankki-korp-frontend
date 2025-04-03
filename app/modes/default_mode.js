@@ -347,6 +347,7 @@ settings.corporafolders.cmc.suomi24_accruing = {
 	homepage_url: "http://keskustelu.suomi24.fi",
 	// cite_id: "urn:nbn:fi:lb-2021101525",
 	shortname: "suomi24-2001-2023-korp",
+        status: "rc",
     }
 };
 
@@ -16498,7 +16499,6 @@ settings.templ.s24_2021_2023 = $.extend(
         urn: "urn:nbn:fi:lb-2024030602",
         metadata_urn: "urn:nbn:fi:lb-2024030601",
         structAttributes: sattrlist.s24_2021_2023,
-        status: "rc",
     },
 );
 
