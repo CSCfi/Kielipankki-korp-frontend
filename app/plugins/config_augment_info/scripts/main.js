@@ -16,8 +16,12 @@
 //   only supported value is "stringlist": an array of string values
 //   or a string of values separated by commas or spaces
 // - values: an array of string supported values for property
+// - localizeTitle: if true, localize the title using translation key
+//   corpusinfo_title_<property>_<value> (this localization is not
+//   dynamic: the language is changed only when switching modes or
+//   reloading the Korp page)
 // - localizeDescription: if true, localize the description using
-//   translation key corpusinfo_descr_<property>_<value>
+//   translation key corpusinfo_descr_<property>_<value> (not dynamic)
 // - augmentTitle: function (title, value): add value to existing
 //   title (default: append value in parentheses)
 // - augmentDescription: function (description, value): add value to
@@ -47,8 +51,9 @@ class ConfigInfoAugmenter {
         // feature "corpusInfo", so that the properties have been
         // propagated from corpus folders to individual corpora.
         this.requiresFeatures = ["corpusInfo"]
-        // Localization function for description
+        // Localization function for title and description
         this._localize = {
+            title: (locKey) => util.getLocaleString(locKey),
             description: (locKey) => `<span rel="localize[$locKey]">${util.getLocaleString(locKey)}</span>`,
         }
     }
@@ -122,11 +127,11 @@ class ConfigInfoAugmenter {
                         // the value is not one of them
                         if (! propSpec.values ||
                                 propSpec.values.includes(value)) {
-                            target.title = propSpec.augmentTitle(
-                                target.title, value)
-                            target.description = this._augmentProp(
-                                target, "description", propSpec, propName,
-                                value)
+                            for (let targetProp of ["title", "description"]) {
+                                target[targetProp] = this._augmentProp(
+                                    target, targetProp, propSpec, propName,
+                                    value)
+                            }
                         }
                     }
                 }
