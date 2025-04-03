@@ -16421,7 +16421,7 @@ settings.templ.s24_title_descr_shortname = {
 settings.templ.s24_2001_2017 = $.extend(
     {}, settings.templ.s24_base,
     funcs.fillYearsVersion(settings.templ.s24_title_descr_shortname,
-                           2001, 2017, "1.2"),
+                           2001, 2017, "1.3"),
     {
         urn: "urn:nbn:fi:lb-2020021804",
         metadata_urn: "urn:nbn:fi:lb-2020021803",
@@ -16460,7 +16460,7 @@ sattrlist.s24_2018_2020 = $.extend(
 settings.templ.s24_2018_2020 = $.extend(
     {}, settings.templ.s24_base,
     funcs.fillYearsVersion(settings.templ.s24_title_descr_shortname,
-                           2018, 2020),
+                           2018, 2020, "1.1"),
     {
         urn: "urn:nbn:fi:lb-2021101522",
         metadata_urn: "urn:nbn:fi:lb-2021101521",
