@@ -479,8 +479,11 @@
     "relogin_login": "Kirjaudu Korpiin",
     "relogin_login_postamble": "voidaksesi tehdä yrittämäsi haun",
 
+    "corpusinfo_title_status_rc": "julkaisuehdokas",
     "corpusinfo_descr_status_rc": "<strong>Huomaa</strong>, että korpus on julkaisuehdokas, joten siihen voi vielä tulla muutoksia.",
+    "corpusinfo_title_status_beta": "beeta",
     "corpusinfo_descr_status_beta": "<strong>Huomaa</strong>, että korpus on beetatestivaiheessa, joten siihen voi tulla muutoksia ilman ilmoitusta.",
+    "corpusinfo_title_status_test": "testi",
     "corpusinfo_descr_status_test": "<strong>Huomaa</strong>, että korpus on vielä testivaiheessa, joten siihen voi tulla merkittäviäkin muutoksia ilman ilmoitusta.",
 
     "wordlist": "Sanalista",

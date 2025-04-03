@@ -918,6 +918,7 @@ settings.augmentCorpusInfoProperties = {
             "rc",
             "test",
         ],
+        localizeTitle: true,
         localizeDescription: true,
     },
 }
