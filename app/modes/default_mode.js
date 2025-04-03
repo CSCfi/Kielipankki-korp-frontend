@@ -16268,6 +16268,7 @@ settings.corpora.s24 = {
 
 sattrlist.s24_2001_2017 = {
     text_title: sattrs.title,
+    text_title_orig: sattrs.hidden,
     text_date: sattrs.date,
     text_time: sattrs.time,
     // text_datetime_approximated: funcs.makeBoolAttr(
@@ -16275,6 +16276,7 @@ sattrlist.s24_2001_2017 = {
     text_author: {
         label: "writer_nickname",
     },
+    text_author_orig: sattrs.hidden,
     text_author_logged_in: funcs.makeBoolAttr("user_logged_in"),
     text_author_nick_registered: funcs.makeBoolAttr("registered_nick",
                                                     ["y", "n", "?"]),
@@ -16282,6 +16284,7 @@ sattrlist.s24_2001_2017 = {
         label: "s24_topic_full",
         extendedComponent: "structServiceAutocomplete",
     },
+    text_topic_names_orig: sattrs.hidden,
     text_topic_name_top: {
         label: "s24_topic_main",
         opts: options.lite,
@@ -16293,17 +16296,15 @@ sattrlist.s24_2001_2017 = {
         hideSidebar: true,
         extendedComponent: "structServiceAutocomplete",
     },
-    // text_topic_names_set: {
-    //  label: "s24_topic_set",
-    //  type: "set",
-    //  opts: options.set,
-    // },
-    // text_topic_nums: {
-    //  label: "s24_topic_nums",
-    // },
-    // text_topic_nums_set: {
-    //  label: "s24_topic_nums_set",
-    // },
+    text_topic_names_set: {
+        label: "s24_topic_set",
+        type: "set",
+        hideSidebar: true,
+        opts: options.fullSet,
+        extendedComponent: "structServiceAutocomplete",
+    },
+    text_topic_nums: sattrs.hidden,
+    text_topic_nums_set: sattrs.hidden,
     text_topic_adultonly: funcs.makeBoolAttr("s24_topic_is_adultonly"),
     text_msg_type: {
         label: "message_type",
