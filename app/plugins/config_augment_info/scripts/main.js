@@ -47,6 +47,10 @@ class ConfigInfoAugmenter {
         // feature "corpusInfo", so that the properties have been
         // propagated from corpus folders to individual corpora.
         this.requiresFeatures = ["corpusInfo"]
+        // Localization function for description
+        this._localize = {
+            description: (locKey) => `<span rel="localize[$locKey]">${util.getLocaleString(locKey)}</span>`,
+        }
     }
 
     // Initialize by adding default augmentTitle and
@@ -120,19 +124,31 @@ class ConfigInfoAugmenter {
                                 propSpec.values.includes(value)) {
                             target.title = propSpec.augmentTitle(
                                 target.title, value)
-                            if (propSpec.localizeDescription) {
-                                let locKey =
-                                    `corpusinfo_descr_${propName}_${value}`
-                                value = `<span rel="localize[$locKey]">${util.getLocaleString(locKey)}</span>`
-                            }
-                            target.description = propSpec.augmentDescription(
-                                target.description, value)
+                            target.description = this._augmentProp(
+                                target, "description", propSpec, propName,
+                                value)
                         }
                     }
                 }
                 // TODO: Add support for boolean properties
             }
         }
+    }
+
+    // Return target[targetPropName] (title or description of corpus
+    // or folder cnfiguration) augmented as specified in propSpec for
+    // property propName with value.
+    _augmentProp (target, targetPropName, propSpec, propName, value) {
+        const targetPropNameCap =
+              targetPropName.replace(/^./, (x) => x.toUpperCase())
+        const targetPropNameShort = targetPropName.slice(0, 5)
+        if (propSpec["localize" + targetPropNameCap]) {
+            const locKey =
+                  `corpusinfo_${targetPropNameShort}_${propName}_${value}`
+            value = this._localize[targetPropName](locKey)
+        }
+        return propSpec["augment" + targetPropNameCap](target[targetPropName],
+                                                       value)
     }
 
 }
