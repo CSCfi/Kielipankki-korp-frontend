@@ -30,6 +30,9 @@
     "corpusinfo_title_status_test": "test",
     "corpusinfo_descr_status_test": "<strong>Observera</strong> att korpusen ännu testas, så den kan ändras betydligt utan förvarning.",
 
+    "corpus_group_page": "Resursgruppsida",
+    "corpus_shortname": "Kortnamn",
+
     "wordlist": "Ordlista",
     "selected_words": "Valda ord",
     "button_done": "Klart",
