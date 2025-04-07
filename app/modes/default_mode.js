@@ -352,9 +352,12 @@ settings.corporafolders.cmc.suomi24_accruing = {
 	metadata_urn: "urn:nbn:fi:lb-2024051601",
 	licence: settings.licenceinfo.suomi24,
 	homepage_url: "http://keskustelu.suomi24.fi",
-	// cite_id: "urn:nbn:fi:lb-2021101525",
 	shortname: "suomi24-2001-2023-korp",
         group_page_urn: "urn:nbn:fi:lb-2022011221",
+        iprholder: {
+            name: "City Digital",
+            url: "https://www.citydigital.fi/",
+        },
         status: "rc",
     }
 };
