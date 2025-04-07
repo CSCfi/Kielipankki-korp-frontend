@@ -310,6 +310,13 @@ funcs.addCorporaToFolder("cmc", [
     "ylilauta",
 ]);
 
+
+settings.licenceinfo.suomi24 = {
+    name: "CC BY-NC 4.0 (PUB)",
+    urn: "urn:nbn:fi:lb-2022021922",
+};
+
+
 settings.corporafolders.cmc.suomi24_accruing = {
     title: "Suomi24 2001–2023",
     // TODO: Change VRT download and metadata URN to point to the new
@@ -343,7 +350,7 @@ settings.corporafolders.cmc.suomi24_accruing = {
     info: {
 	urn: "urn:nbn:fi:lb-2024051602",
 	metadata_urn: "urn:nbn:fi:lb-2024051601",
-	licence: settings.licenceinfo.CC_BY_NC,
+	licence: settings.licenceinfo.suomi24,
 	homepage_url: "http://keskustelu.suomi24.fi",
 	// cite_id: "urn:nbn:fi:lb-2021101525",
 	shortname: "suomi24-2001-2023-korp",
@@ -369,7 +376,7 @@ settings.corporafolders.cmc.suomi24 = {
     info: {
         urn: "urn:nbn:fi:lb-2015120401",
         metadata_urn: "urn:nbn:fi:lb-2017021505",
-        licence: settings.licenceinfo.CC_BY_NC,
+	licence: settings.licenceinfo.suomi24,
         homepage_url: "http://keskustelu.suomi24.fi",
         cite_id: "Suomi24-korp-2016H2",
     }
@@ -16217,7 +16224,7 @@ settings.corpora.s24 = {
     id: "s24",
     urn: "urn:nbn:fi:lb-2015113001",
     metadata_urn: "urn:nbn:fi:lb-2016050901",
-    licence: settings.licenceinfo.CC_BY_NC,
+    licence: settings.licenceinfo.suomi24,
     homepage_url: "http://keskustelu.suomi24.fi",
     cite_id: "Suomi24-2001-2014-korp",
     within: within.sp,
