@@ -1,4 +1,21 @@
 
+<!-- Julkaisukäytännön päivitys: julkaisuehdokas 2025-04-08a -->
+
+Jatkossa Kielipankissa julkaistava uusi tai merkittävästi päivitetty
+aineisto on aluksi _julkaisuehdokas_ (_release candidate_), joka kuvaa
+aineiston tilaa paremmin kuin aiemmin käytetty _beetatestiversio_.
+Korpissa tämä on merkitty aineiston nimen perään sulkeissa, ja
+aineiston kuvauksessa on lisäteksti ”Huomaa, että korpus on
+julkaisuehdokas, joten siihen voi vielä tulla muutoksia”.
+
+Jos julkaisuehdokkaassa ei havaita korjaus- tai muutostarpeita
+tyypillisesti noin kahden viikon sisällä sen julkaisemisesta, siitä
+tulee sellaisenaan lopullinen julkaistu versio. Jos
+julkaisuehdokkaaseen tehdään muutoksia, niistä tiedotetaan ja
+aineistosta tulee uusi julkaisuehdokasversio, joka on
+julkaisuehdokkaana jälleen noin kaksi viikkoa.
+
+
 <!-- Uusia nuolenpääkirjoitusaineistoja (beta): Achemenet ja BALT 2025-03-18 -->
 
 Korpissa on nyt käytettävissä beetatestiversiona kaksi uutta

@@ -1,4 +1,22 @@
 
+<!-- Publishing convention update: release candidate 2025-04-08a -->
+
+In the future, a new or significantly updated language resource to be
+published in the Language Bank of Finland (Kielipankki) is first a
+_release candidate_, which is more descriptive than the previously
+used _beta test version_. In Korp, this status is suffixed in brackets
+to the corpus name, and the description of the corpus contains the
+additional text “Please note that the corpus is a release candidate,
+so it may still change”.
+
+If no needs for corrections or other changes to the release candidate
+are detected typically within approximately two weeks after publishing
+it, it will become the final published version as such. If the release
+candidate is changed, users are informed of the changes and a new
+release candidate version is published that will be as a release
+candidate again for approximately two weeks.
+
+
 <!-- New Cuneiform corpora (beta): Achemenet and BALT 2025-03-18 -->
 
 Two new Cuneiform corpora are now available in Korp as beta test
