@@ -1,3 +1,23 @@
+
+<!-- Uppdatering av publikationspraxis: releasekandidat 2025-04-07a -->
+
+I fortsättningen ska en ny eller betydligt uppdaterad språkresurs som
+publiceras i Språkbanken i Finland (Kielipankki) först vara en
+_releasekandidat_ (_release candidate_, _leveransversionkandidat_),
+som beskriver korpusens tillstånd bättre än _betatestversion_ som
+använts förr. I Korp är tillståndet märkt inom parentes efter
+korpusens namn, och korpusens beskrivning har tilläggstexten
+”Observera att korpusen är en releasekandidat, så den kan fortfarande
+ändras”.
+
+Om inga behov för korrigeringar eller andra ändringar till en
+releasekandidat märks typiskt inom ungefär två veckor efter dess
+publicering, releasekandidaten blir den slutliga publicerade version
+som den är. Om releasekandidaten ändras, Korps användare informeras om
+ändringarna och det publiceras en ny releasekandidatversion som är
+releasekandidat igen för ungefär två veckor.
+
+
 <!-- Nedlagda funktioner tagits bort eller ersatts 2024-12-28 -->
 
 Hamburgermenyn i det övre högra hörnet hade tidigare länkar till
