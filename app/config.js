@@ -405,6 +405,7 @@ settings.corpusExtraInfoItems = [
     "metadata",
     "cite",
     "infopage",
+    "group_page",
     "urn",
     "homepage",
     "iprholder",

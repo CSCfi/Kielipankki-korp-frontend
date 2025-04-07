@@ -30,6 +30,8 @@
     "corpusinfo_title_status_test": "test",
     "corpusinfo_descr_status_test": "<strong>Please note</strong> that the corpus is still in the test stage, so it may change significantly without notice.",
 
+    "corpus_group_page": "Resource group page",
+
     "wordlist": "Word list",
     "selected_words": "Selected words",
     "button_done": "Done",

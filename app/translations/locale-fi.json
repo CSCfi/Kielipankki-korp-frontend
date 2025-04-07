@@ -407,6 +407,7 @@
     "corpus_compiler": "Koostaja",
     "corpus_download": "Lataa aineisto",
     "corpus_cite": "Viittaa aineistoon",
+    "corpus_group_page": "Aineistoryhmäsivu",
 
     "no_geo_info": "Paikkatietoja ei saatavilla",
     "map_cluster": "Ryhmittele",
