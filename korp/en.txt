@@ -1,4 +1,36 @@
 
+<!-- Extended and updated corpus collection (release candidate): Suomi24 2001–2023 2025-04-08b -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2024051601" target="_blank"
+title="metadata">The Suomi24 Sentences Corpus 2001–2023, Korp
+version</a> is now available in Korp as a release candidate.
+
+The collection has been extended with the discussions of 2021–2023 (<a
+href="http://urn.fi/urn:nbn:fi:lb-2024030601" target="_blank"
+title="metadata">The Suomi24 Sentences Corpus 2021–2023, Korp
+version</a>), with over 15 million messages (texts) and nearly 474
+million tokens. Word pictures for these years will be available once
+the word picture data has been completely loaded to the database.
+
+In addition, the Suomi24 Sentences Corpora <a
+href="http://urn.fi/urn:nbn:fi:lb-2020021803" target="_blank"
+title="metadata">2001–2017</a> and <a
+href="http://urn.fi/urn:nbn:fi:lb-2021101521" target="_blank"
+title="metadata">2018–2020</a> have been updated with annotations of
+names recognized with <a href="http://urn.fi/urn:nbn:fi:lb-2024021401"
+target="_blank" title="metadata">FiNER 1.6</a> and languages of
+sentences identified with <a
+href="http://urn.fi/urn:nbn:fi:lb-2024040301" target="_blank"
+title="metadata">HeLI-OTS 2.0</a>. In addition, spurious spaces have
+been removed from topic names, titles and author nicknames in these
+corpora. Because of these additions and changes, the version numbers
+of the older parts have been incremented and the new versions are
+release candidates.
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2025040201"
+target="_blank">More details on the changes.</a>
+
+
 <!-- Publishing convention update: release candidate 2025-04-08a -->
 
 In the future, a new or significantly updated language resource to be

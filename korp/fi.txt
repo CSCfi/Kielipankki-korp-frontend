@@ -1,4 +1,36 @@
 
+<!-- Laajennettu ja päivitetty aineistokokoelma (julkaisuehdokas): Suomi24 2001–2023 2025-04-08b -->
+
+Korpissa on nyt käytettävissä julkaisuehdokasversiona <a
+href="http://urn.fi/urn:nbn:fi:lb-2024051601" target="_blank"
+title="kuvailutiedot">Suomi24 virkkeet -korpus 2001–2023,
+Korp-versio</a>.
+
+Kokoelmaan on lisätty uutena osana vuosien 2021–2023 keskustelut (<a
+href="http://urn.fi/urn:nbn:fi:lb-2024030601" target="_blank"
+title="kuvailutiedot">Suomi24 virkkeet -korpus 2021–2023,
+Korp-versio</a>), jossa on yhteensä yli 15 miljoonaa viestiä (tekstiä)
+ja lähes 474 miljoonaa sanetta. Näiden vuosien sanakuvat tulevat
+saataville, kun sanakuvadata on kokonaan ladattu tietokantaan.
+
+Lisäksi myös vuosien <a href="http://urn.fi/urn:nbn:fi:lb-2020021803"
+target="_blank">2001–2017</a> ja <a
+href="http://urn.fi/urn:nbn:fi:lb-2021101521"
+target="_blank">2018–2020</a> aineistoihin on merkitty <a
+href="http://urn.fi/urn:nbn:fi:lb-2024021401" target="_blank"
+title="kuvailutiedot">FiNER 1.6 -nimientunnistimella</a> tunnistetut
+nimet ja <a href="http://urn.fi/urn:nbn:fi:lb-2024040301"
+target="_blank" title="kuvailutiedot">HeLI-OTS 2.0
+-kielentunnistimella</a> tunnistetut virkkeiden kielet. Näissä
+aineistoissa on myös poistettu ylimääräisiä välilyöntejä aihealueista,
+otsikoista ja kirjoittajien nimimerkeistä. Näiden lisäysten ja
+muutosten vuoksi vanhempien osien versionumeroita on kasvatettu ja
+uudet versiot ovat julkaisuehdokkaita.
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2025040201"
+target="_blank">Tarkempia tietoja muutoksista</a> (englanniksi).
+
+
 <!-- Julkaisukäytännön päivitys: julkaisuehdokas 2025-04-08a -->
 
 Jatkossa Kielipankissa julkaistava uusi tai merkittävästi päivitetty
