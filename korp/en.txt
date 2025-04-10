@@ -1,5 +1,5 @@
 
-<!-- Extended and updated corpus collection (release candidate): Suomi24 2001–2023 2025-04-08b -->
+<!-- Extended and updated corpus collection (release candidate): Suomi24 2001–2023 2025-04-10b -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2024051601" target="_blank"
 title="metadata">The Suomi24 Sentences Corpus 2001–2023, Korp
