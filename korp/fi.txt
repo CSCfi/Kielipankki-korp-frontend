@@ -1,5 +1,5 @@
 
-<!-- Laajennettu ja päivitetty aineistokokoelma (julkaisuehdokas): Suomi24 2001–2023 2025-04-08b -->
+<!-- Laajennettu ja päivitetty aineistokokoelma (julkaisuehdokas): Suomi24 2001–2023 2025-04-10b -->
 
 Korpissa on nyt käytettävissä julkaisuehdokasversiona <a
 href="http://urn.fi/urn:nbn:fi:lb-2024051601" target="_blank"
