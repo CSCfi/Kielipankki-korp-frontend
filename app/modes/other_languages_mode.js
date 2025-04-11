@@ -559,7 +559,6 @@ settings.corporafolders.cuneiform.achemenet = {
 	    url: "http://www.achemenet.com/",
 	},
 	group_page_urn: "urn:nbn:fi:lb-2023062103",
-        status: "beta",
     }
 };
 
@@ -582,7 +581,6 @@ settings.corporafolders.cuneiform.balt = {
 	    url: "https://www.helsinki.fi/",
 	},
 	group_page_urn: "urn:nbn:fi:lb-2025031101",
-        status: "beta",
     },
 };
 
