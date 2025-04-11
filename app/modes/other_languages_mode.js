@@ -546,6 +546,7 @@ settings.corporafolders.cuneiform.achemenet = {
         "achemenet_yos7",
     ],
     info: {
+        shortname: "achemenet-2020-12-korp",
 	metadata_urn: "urn:nbn:fi:lb-2023062101",
 	urn: "urn:nbn:fi:lb-2023062102",
         licence: {
@@ -557,9 +558,7 @@ settings.corporafolders.cuneiform.achemenet = {
 	    name: "Achemenet-CNRS",
 	    url: "http://www.achemenet.com/",
 	},
-        // TODO: Uncomment when https://www.kielipankki.fi/corpora/achemenet/
-        // is available
-	// infopage_urn: "urn:nbn:fi:lb-2023062103",
+	group_page_urn: "urn:nbn:fi:lb-2023062103",
         status: "beta",
     }
 };
@@ -570,6 +569,7 @@ settings.corporafolders.cuneiform.balt = {
     description: "BALT: Babylonian Administrative and Legal Texts – Kielipankki version 2025-02, Korp<br/><br/>The corpus contains Babylonian cuneiform texts from the Neo-Babylonian, Persian, and Hellenistic periods (c. 626–93 BCE).<br/>More than half of the transliterated texts are legacy data of the late János Everling. The other texts have been transliterated and translated by Johannes Hackl, Bojana Janković, Michael Jursa, Yuval Levavi, Martina Schmidl and Caroline Waerzeggers.<br/>The texts have been automatically lemmatized at the <a href=\"https://www.helsinki.fi/en/researchgroups/ancient-near-eastern-empires\">Centre of Excellence in Ancient Near Eastern Empires</a> (University of Helsinki), funded by the Research Council of Finland.<br/><br/>More information about the corpus is available at <a href=\"https://doi.org/10.5281/zenodo.14186072\" target=\"_blank\">https://doi.org/10.5281/zenodo.14186072</a>.",
     // contents added later with funcs.addCorpusSettings
     info: {
+        shortname: "balt-2025-02-korp",
 	metadata_urn: "urn:nbn:fi:lb-2025022201",
 	urn: "urn:nbn:fi:lb-2025022609",
         licence: {
@@ -581,6 +581,7 @@ settings.corporafolders.cuneiform.balt = {
 	    name: "University of Helsinki",
 	    url: "https://www.helsinki.fi/",
 	},
+	group_page_urn: "urn:nbn:fi:lb-2025031101",
         status: "beta",
     },
 };
