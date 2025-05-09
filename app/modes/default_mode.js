@@ -15255,7 +15255,7 @@ settings.corpora.iijoki = {
     licenceType: "ACA",
     licence: {
         name: "CLARIN ACA +NC +DEP 2.1",
-        urn: "urn:nbn:fi:lb-2019102106"
+        urn: "urn:nbn:fi:lb-2019041401"
     },
     within: within.sp,
     context: context.sp,
