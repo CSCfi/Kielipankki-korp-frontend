@@ -356,7 +356,6 @@ settings.corporafolders.cmc.suomi24_accruing = {
             name: "City Digital",
             url: "https://www.citydigital.fi/",
         },
-        status: "rc",
     }
 };
 
