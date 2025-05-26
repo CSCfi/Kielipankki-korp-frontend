@@ -22,6 +22,21 @@ description:
       För frågor och kommentarer, kontakta <a href="mailto:sb-info@svenska.gu.se" class="whitespace-nowrap">sb-info@svenska.gu.se</a>.
     </p>
 
+logo:
+  korp: |
+    <img src="img/korp.svg" height="300" width="300" />
+  organization: |
+    <a
+        class="hidden min-[1150px]:flex h-20 shrink flex-col justify-end"
+        href="https://www.kielipankki.fi/"
+        target="_blank"
+    >
+        <img src="img/Kielipankki-logo-korp-2.png"
+             style="height: 100px; margin-bottom: 2px; margin-right: 10px;" />
+    </a>
+  chooser_right: |
+    <img src="img/Possu-korp.png" style="margin: 4px;" />
+
 auth_module:
   module: "basic_auth"
   options:
