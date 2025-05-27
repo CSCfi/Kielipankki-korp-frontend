@@ -1,0 +1,18 @@
+
+- title:
+    fin: Tuleva Korp-versio
+    eng: Future Korp version
+  body:
+    fin: |
+      Tämä on tuleva Korp-versio, joka pohjautuu <a
+      href="https://spraakbanken.gu.se/korp/" target="_blank">Språkbanken Textin
+      Korpin</a> ajantasaiseen versioon ja jota sovitetaan vähitellen <a
+      href="https://www.kielipankki.fi" target="_blank">Kielipankin</a>
+      käyttöön.
+    eng: |
+      This is a future Korp version that is based on the up-to-date version of
+      the <a href="https://spraakbanken.gu.se/korp/" target="_blank">Korp of
+      Språkbanken Text</a> and that is gradually being adapted to <a
+      href="https://www.kielipankki.fi/language-bank/"
+      target="_blank">Kielipankki (the Language Bank of Finland)</a>.
+  created: 2025-05-27
