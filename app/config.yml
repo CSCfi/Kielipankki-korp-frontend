@@ -99,7 +99,7 @@ matomo:
   production:
     site: 3
 
-news_url: https://raw.githubusercontent.com/spraakbanken/newsdesk/main/data/korp.yaml
+news_url: https://raw.githubusercontent.com/CSCfi/Kielipankki-korp-frontend/news/future/data/korp.yaml
 
 word_picture_tagset:
     # supported pos-tags
@@ -183,7 +183,7 @@ default_options:
   matches: '*='
   matches_not: '!*='
 
-korp_backend_url: 'https://ws.spraakbanken.gu.se/ws/korp/v8'
+korp_backend_url: "http://www.kielipankki.fi/future/korp/api8/"
 
 map_center:
   lat: 62.99515845212052
