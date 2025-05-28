@@ -91,13 +91,13 @@ statistics_search_default: false
 reduce_word_attribute_selector: intersection
 reduce_struct_attribute_selector: intersection
 
-matomo:
-  url: https://spraakbanken.gu.se/stats/
-  # Enable real reporting only on live sites
-  staging:
-    site: 3
-  production:
-    site: 3
+# matomo:
+#   url: https://spraakbanken.gu.se/stats/
+#   # Enable real reporting only on live sites
+#   staging:
+#     site: 3
+#   production:
+#     site: 3
 
 news_url: https://raw.githubusercontent.com/CSCfi/Kielipankki-korp-frontend/news/future/data/korp.yaml
 
