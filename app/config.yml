@@ -186,8 +186,8 @@ default_options:
 korp_backend_url: "http://www.kielipankki.fi/future/korp/api8/"
 
 map_center:
-  lat: 62.99515845212052
-  lng: 16.69921875
+  lat: 64.180708
+  lng: 25.803222
   zoom: 4
 
 common_struct_types:
