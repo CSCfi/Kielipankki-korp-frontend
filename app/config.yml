@@ -80,7 +80,7 @@ auth_module:
     default_value_remember: true
 
 autocomplete: true
-map_enabled: false
+map_enabled: true
 hits_per_page_values:
   - 25
   - 50
