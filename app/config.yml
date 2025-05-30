@@ -75,6 +75,11 @@ languages:
 frontpage:
   corpus_updates: true
 
+word_label:
+  fin: sana
+  swe: ord
+  eng: word
+
 group_statistics:
   - saldo
   - prefix
@@ -196,6 +201,7 @@ common_struct_types:
   date_interval:
     label: 
       eng: time interval
+      fin: aikaväli
       swe: tidsintervall
     hide_sidebar: 'true'
     hide_compare: 'true'
