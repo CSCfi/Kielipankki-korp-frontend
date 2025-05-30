@@ -1,25 +1,62 @@
 description:
-  eng: |
-    <p><strong>Korp</strong> is Språkbanken's word research platform.</p>
+  fin: |
+    <p><strong>Korp</strong> on <a href="https://www.kielipankki.fi"
+    target="_blank">Kielipankin</a> sanatutkimusalusta.</p>
     <p>
-      Search in large amounts of texts, including newspapers, novels and social media.
-      The text collections, <em>corpora</em>, are annotated for linguistic features and other attributes.
-      Please refer to the <a href="https://spraakbanken.gu.se/en/tools/korp/user-manual" target="_blank">User manual</a> for more information.
+      Korpissa voi hakea suurista tekstiaineistoista, jotka sisältävät
+      mm. sanomalehtiä, uutistekstejä, verkkokeskusteluja ja
+      murreaineistoja.
+      Näihin tekstikokoelmiin, <em>korpuksiin</em>, on annotoitu
+      kielellisiä ja muita piirteitä.
+      Katso lisätietoja
+      <a href="https://www.kielipankki.fi/tuki/korp/" target="_blank">Korpin käyttöohjeista</a>.
     </p>
     <p>
-      If you are using Korp in your work, please <a href="https://spraakbanken.gu.se/en/about/howtocite" target="_blank">cite us</a>.
-      For questions or comments, contact us at <a href="mailto:sb-info@svenska.gu.se" class="whitespace-nowrap">sb-info@svenska.gu.se</a>.
+      Jos käytät Korpia työssäsi,
+      <a href="https://spraakbanken.gu.se/en/about/howtocite#Korp" target="_blank">viittaa siihen</a>.
+      (Korp-ohjelmisto on kehitetty Göteborgin yliopiston Språkbanken
+      Textissä.)
+      Jos sinulla on kysymyksiä tai kommentteja, ota yhteyttä: <a href="mailto:fin-clarin@helsinki.fi" class="whitespace-nowrap">fin-clarin (ät) helsinki.fi</a>
+    </p>
+  eng: |
+    <p><strong>Korp</strong> is the word research platform in <a
+    href="https://www.kielipankki.fi/language-bank/"
+    target="_blank">Kielipankki (the Language Bank of
+    Finland)</a>.</p>
+    <p>
+      Search in large amounts of texts, including newspapers,
+      internet discussion forums and dialect resources.
+      The text collections, <em>corpora</em>, are annotated for
+      linguistic features and other attributes.
+      Please refer to the
+      <a href="https://www.kielipankki.fi/support/korp/" target="_blank">Korp user guide</a>
+      for more information.
+    </p>
+    <p>
+      If you are using Korp in your work, please
+      <a href="https://spraakbanken.gu.se/en/about/howtocite#Korp" target="_blank">cite it</a>.
+      (The Korp software has been developed in Språkbanken Text at the
+      University of Gothenburg.)
+      For questions or comments, contact us at
+      <a href="mailto:fin-clarin@helsinki.fi" class="whitespace-nowrap">fin-clarin (at) helsinki.fi</a>.
     </p>
   swe: |
-    <p><strong>Korp</strong> är Språkbankens ordforskningsplattform.</p>
+    <p><strong>Korp</strong> är ordforskningsplattform i <a
+    href="https://www.kielipankki.fi/sprakbanken/"
+    target="_blank">Kielipankki (Språkbanken i Finland)</a>.</p>
     <p>
-      Här kan du söka i stora mängder text från bland annat dagstidningar, skönlitteratur och sociala medier.
-      Textsamlingarna, <em>korpusarna</em>, är annoterade med språkliga och andra attribut.
-      Se gärna <a href="https://spraakbanken.gu.se/verktyg/korp/anvandarhandledning" target="_blank">Användarhandledningen</a> för mer information.
+      Här kan du söka i stora mängder text från bland annat
+      dagstidningar, diskussionsforum och dialektmaterial.
+      Textsamlingarna, <em>korpusarna</em>, är annoterade med
+      språkliga och andra attribut.
+      Se gärna <a href="https://www.kielipankki.fi/support/korp/" target="_blank">Användarhandledningen</a>
+      för mer information (på englelska).
     </p>
     <p>
-      Om du använder Korp i ditt arbete ber vi dig <a href="https://spraakbanken.gu.se/om/referera">referera till oss</a>.
-      För frågor och kommentarer, kontakta <a href="mailto:sb-info@svenska.gu.se" class="whitespace-nowrap">sb-info@svenska.gu.se</a>.
+      Om du använder Korp i ditt arbete ber vi dig
+      <a href="https://spraakbanken.gu.se/om/referera#Korp">referera till Korp</a>.
+      För frågor och kommentarer, kontakta
+      <a href="mailto:fin-clarin@helsinki.fi" class="whitespace-nowrap">fin-clarin (at) helsinki.fi</a>.
     </p>
 
 logo:
