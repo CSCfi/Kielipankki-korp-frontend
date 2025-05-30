@@ -63,12 +63,14 @@ hits_per_page_values:
 enable_backend_kwic_download: false
 enable_frontend_kwic_download: true
 
-default_language: swe
+default_language: fin
 languages:
-  - value: eng
-    label: English
+  - value: fin
+    label: Suomi
   - value: swe
     label: Svenska
+  - value: eng
+    label: English
 
 frontpage:
   corpus_updates: true
