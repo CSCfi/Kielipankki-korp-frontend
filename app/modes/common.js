@@ -3795,7 +3795,7 @@ attrs.msd_sv = {
 attrs.baseform_sv = {
     label: "baseform",
     type: "set",
-    opts: options.default,
+    opts: options.fullSet,
     extendedTemplate: "<input ng-model='model' >",
     order: 1
 };
