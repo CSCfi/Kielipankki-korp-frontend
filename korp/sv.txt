@@ -1,4 +1,13 @@
 
+<!-- Svenska korpusar: Sökning med grundform i utökad sökning åtgärdad 2025-06-09 -->
+
+Sökning med en grundform i utökad sökning fungerar nu även i svenska
+korpusar med grundformer. Tidigare gav sådana sökningar inga resultat.
+
+Vi beklagar det långvariga felet och tackar användaren som
+rapporterade det.
+
+
 <!-- Uppdatering av publikationspraxis: releasekandidat 2025-04-07a -->
 
 I fortsättningen ska en ny eller betydligt uppdaterad språkresurs som

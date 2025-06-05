@@ -1,4 +1,14 @@
 
+<!-- Ruotsinkieliset aineistot: Korjattu laajennetun haun perusmuotohaku 2025-06-09 -->
+
+Laajennetussa haussa haku sanan perusmuodolla toimii nyt myös
+ruotsinkielisille aineistoille, joissa on perusmuototieto. Aiemmin
+tällaiset haut eivät tuottaneet lainkaan tuloksia.
+
+Pahoittelemme pitkäaikaista vikaa ja kiitämme siitä ilmoittanutta
+käyttäjää.
+
+
 <!-- Laajennettu ja päivitetty aineistokokoelma (julkaisuehdokas): Suomi24 2001–2023 2025-04-10b -->
 
 Korpissa on nyt käytettävissä julkaisuehdokasversiona <a
