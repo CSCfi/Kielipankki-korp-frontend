@@ -14,7 +14,11 @@ settings["auth_module"] = {
 
 settings["corpus_info_link"] = {
     url_template: "https://spraakbanken.gu.se/mink/library/corpus/%s",
-    label: {swe: "Öppna i Mink", eng: "Open in Mink"}
+    label: {
+        fin: "Avaa Minkissä",
+        swe: "Öppna i Mink",
+        eng: "Open in Mink",
+    }
 }
 settings["frontpage"]["corpus_updates"] = false
 settings["korp_backend_url"] = "https://spraakbanken3.it.gu.se/korp"
@@ -43,21 +47,33 @@ settings["initialization_checks"] = async (s) => {
     const authenticationProxy = await import("@/components/auth/auth")
 
     const translations = {
-        readMore: { eng: "Read more about Mink", swe: "Läs mer om Mink" },
-        here: { eng: "here", swe: "här" },
+        readMore: {
+            fin: "Lue lisää Minkistä",
+            eng: "Read more about Mink",
+            swe: "Läs mer om Mink",
+        },
+        here: {
+            fin: "täältä",
+            eng: "here",
+            swe: "här"
+        },
         notAuthenticated: {
+            fin: "Tämä on Korpin Mink-osasto. Tätä osastoa voivat käyttää vain kirjautuneet käyttäjät, joilla on pääsy Minkiin.",
             eng: "This is the Mink mode in Korp. Only logged in users with access to Mink can use this mode.",
             swe: "Det här är Mink-läget i Korp. Bara inloggande användare kan använda det här läget.",
         },
         login: {
+            fin: "Haluatko kirjautua?",
             eng: "Do you want to log in?",
             swe: "Vill du logga in?",
         },
         noCorpora: {
+            fin: "Tämä on Korpin Mink-osasto. Sinulla ei ole aineistoja tutkittavana.",
             eng: "This is the Mink mode in Korp. You do not have any corpora to explore.",
             swe: "Det här är Mink-läget i Korp. Du har inga korpusar att undersöka.",
         },
         goTo: {
+            fin: "Jos haluat luoda omia aineistojasi, mene",
             eng: "If you want to create your own corpora, go to",
             swe: "Om du vill skapa dina egna korpusar, gå till",
         },
@@ -105,6 +121,20 @@ settings["initialization_checks"] = async (s) => {
 }
 
 settings["description"] = {
+    fin: html`<div class="mt-3">
+        <img src="${minkImgPath}" class="block h-32 my-5 mx-auto" />
+        <div class="text-lg">
+            <div class="mt-2">Tämä on Korpin Mink-osasto.</div>
+            <div class="mt-2">
+                Täällä voit hakea aineistoista, jotka olet vienyt ja
+                asentanut Minkin kautta. Kaikki aineistot tässä
+                osastossa ovat yksityisiä: vain sinä voit nähdä ne.
+            </div>
+            <div class="mt-2">Klikkaa yllä olevaa korpusvalikkoa
+            valitaksesi aineistoja.</div>
+            <div class="mt-2">Lue lisää Minkistä <a href="${minkLink}">täältä</a>.</div>
+        </div>
+    </div>`,
     swe: html`<div class="mt-3">
         <img src="${minkImgPath}" class="block h-32 my-5 mx-auto" />
         <div class="text-lg">
