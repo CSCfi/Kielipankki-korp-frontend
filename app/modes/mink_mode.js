@@ -6,14 +6,14 @@ const minkImgPath = require("custom/mink.svg")
 settings["auth_module"] = {
     module: "federated_auth",
     options: {
-        jwt_url: "https://sp.spraakbanken.gu.se/auth/jwt",
-        login_service: "https://sp.spraakbanken.gu.se/auth/login",
-        logout_service: "https://sp.spraakbanken.gu.se/Shibboleth.sso/Logout",
+        jwt_url: "https://www.kielipankki.fi/future/mink/auth/jwt",
+        login_service: "https://www.kielipankki.fi/future/mink/auth/login",
+        logout_service: "https://www.kielipankki.fi/future/mink/auth/logout",
     },
 }
 
 settings["corpus_info_link"] = {
-    url_template: "https://spraakbanken.gu.se/mink/library/corpus/%s",
+    url_template: "https://www.kielipankki.fi/future/mink/library/corpus/%s",
     label: {
         fin: "Avaa Minkissä",
         swe: "Öppna i Mink",
@@ -21,7 +21,7 @@ settings["corpus_info_link"] = {
     }
 }
 settings["frontpage"]["corpus_updates"] = false
-settings["korp_backend_url"] = "https://spraakbanken3.it.gu.se/korp"
+settings["korp_backend_url"] = "https://www.kielipankki.fi/future/korp/api8"
 settings["map_enabled"] = true
 
 settings["config_dependent_on_authentication"] = true
@@ -30,7 +30,7 @@ settings["get_corpus_ids"] = async () => {
     const auth = await import("@/components/auth/auth")
     if (!auth.isLoggedIn()) return undefined
     // Fetch user's corpus ids from Mink
-    const minkUrl = "https://spraakbanken2.it.gu.se/ws/mink"
+    const minkUrl = "https://www.kielipankki.fi/future/mink/api"
     const conf = {headers: auth.getAuthorizationHeader()}
     const response = await fetch(`${minkUrl}/list-korp-corpora`, conf)
     const data = await response.json()
@@ -39,7 +39,7 @@ settings["get_corpus_ids"] = async () => {
 
 let html = String.raw
 
-const minkLink = "https://spraakbanken.gu.se/mink/"
+const minkLink = "https://www.kielipankki.fi/future/mink/"
 
 settings["initialization_checks"] = async (s) => {
     // Import only when needed, because it depends on the auth_module setting defined here
