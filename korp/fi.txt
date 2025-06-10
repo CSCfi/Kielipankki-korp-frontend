@@ -1,5 +1,5 @@
 
-<!-- Ruotsinkieliset aineistot: Korjattu laajennetun haun perusmuotohaku 2025-06-09 -->
+<!-- Ruotsinkieliset aineistot: Korjattu laajennetun haun perusmuotohaku 2025-06-10 -->
 
 Laajennetussa haussa haku sanan perusmuodolla toimii nyt myös
 ruotsinkielisille aineistoille, joissa on perusmuototieto. Aiemmin

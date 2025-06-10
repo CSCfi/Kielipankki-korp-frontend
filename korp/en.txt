@@ -1,5 +1,5 @@
 
-<!-- Swedish corpora: Fixed searching with base form in extended search 2025-06-09 -->
+<!-- Swedish corpora: Fixed searching with base form in extended search 2025-06-10 -->
 
 Searching by the base form of a word in the extended search now works
 also for Swedish corpora with base form information. Previously, such
