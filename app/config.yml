@@ -75,9 +75,15 @@ logo:
     <img src="img/Possu-korp.png" style="margin: 4px;" />
 
 auth_module:
-  module: "basic_auth"
+  module: "federated_auth"
   options:
-    default_value_remember: true
+    jwt_url: "https://www.kielipankki.fi/future/mink/auth/jwt"
+    login_service: "https://www.kielipankki.fi/future/mink/auth/login"
+    logout_service: "https://www.kielipankki.fi/future/mink/auth/logout"
+  # module: "basic_auth"
+  # options:
+  #   default_value_remember: true
+
 
 autocomplete: true
 map_enabled: true
