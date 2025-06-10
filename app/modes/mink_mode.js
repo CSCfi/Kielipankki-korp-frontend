@@ -161,50 +161,50 @@ settings["description"] = {
     </div>`,
 }
 
-settings["frontpage"]["examples"] = [
-    {
-        label: {
-            swe: "Alla adjektiv",
-            eng: "All adjectives",
-        },
-        params: {
-            search: "cqp",
-            cqp: '[pos = "JJ"]',
-            search_tab: 1,
-        },
-    },
-    {
-        label: {
-            swe: "Fördelning över olika verb",
-            eng: "Distribution of different verbs",
-        },
-        params: {
-            search: "cqp",
-            cqp: '[pos = "VB"]',
-            search_tab: 1,
-            stats_reduce: "word,lemma",
-            result_tab: 2,
-        },
-    },
-    {
-        label: {
-            swe: 'Verb följt av "inte"',
-            eng: 'Verbs followed by "inte" ("not")',
-        },
-        params: {
-            search: "cqp",
-            cqp: '[pos = "VB"] [word = "inte" %c]',
-            search_tab: 1,
-        },
-    },
-    {
-        label: {
-            swe: 'Ordbild för "jobb"',
-            eng: 'Word picture for "jobb" ("work")',
-        },
-        params: {
-            search: "lemgram|jobb..nn.1",
-            result_tab: 3,
-        },
-    },
-  ]
+// settings["frontpage"]["examples"] = [
+//     {
+//         label: {
+//             swe: "Alla adjektiv",
+//             eng: "All adjectives",
+//         },
+//         params: {
+//             search: "cqp",
+//             cqp: '[pos = "JJ"]',
+//             search_tab: 1,
+//         },
+//     },
+//     {
+//         label: {
+//             swe: "Fördelning över olika verb",
+//             eng: "Distribution of different verbs",
+//         },
+//         params: {
+//             search: "cqp",
+//             cqp: '[pos = "VB"]',
+//             search_tab: 1,
+//             stats_reduce: "word,lemma",
+//             result_tab: 2,
+//         },
+//     },
+//     {
+//         label: {
+//             swe: 'Verb följt av "inte"',
+//             eng: 'Verbs followed by "inte" ("not")',
+//         },
+//         params: {
+//             search: "cqp",
+//             cqp: '[pos = "VB"] [word = "inte" %c]',
+//             search_tab: 1,
+//         },
+//     },
+//     {
+//         label: {
+//             swe: 'Ordbild för "jobb"',
+//             eng: 'Word picture for "jobb" ("work")',
+//         },
+//         params: {
+//             search: "lemgram|jobb..nn.1",
+//             result_tab: 3,
+//         },
+//     },
+//   ]
