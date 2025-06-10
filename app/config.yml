@@ -227,7 +227,7 @@ default_options:
   matches: '*='
   matches_not: '!*='
 
-korp_backend_url: "http://www.kielipankki.fi/future/korp/api8/"
+korp_backend_url: "https://www.kielipankki.fi/future/korp/api8/"
 
 map_center:
   lat: 64.180708
