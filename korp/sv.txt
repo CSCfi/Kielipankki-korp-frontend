@@ -1,5 +1,5 @@
 
-<!-- Svenska korpusar: Sökning med grundform i utökad sökning åtgärdad 2025-06-09 -->
+<!-- Svenska korpusar: Sökning med grundform i utökad sökning åtgärdad 2025-06-10 -->
 
 Sökning med en grundform i utökad sökning fungerar nu även i svenska
 korpusar med grundformer. Tidigare gav sådana sökningar inga resultat.
