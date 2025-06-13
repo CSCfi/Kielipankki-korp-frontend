@@ -58,6 +58,7 @@ export type AppSettings = {
         staging?: { url?: string; site?: number }
         production?: { url?: string; site?: number }
     }
+    menu?: MenuDef
     news_url?: string
     reduce_word_attribute_selector: "union" | "intersection"
     reduce_struct_attribute_selector: "union" | "intersection"
@@ -77,6 +78,10 @@ export type SearchExample = {
     hint?: LangString
     params: HashParams
 }
+
+export type MenuDef = MenuItem[]
+export type MenuItem = Record<string, MenuItemValue>
+export type MenuItemValue = string | Record<string, string> | Record<string, Record<string, string>>
 
 export type WordPictureDef = (WordPictureDefItem | "_")[]
 export type WordPictureDefItem = {
