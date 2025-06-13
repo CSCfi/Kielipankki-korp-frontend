@@ -14,6 +14,7 @@ import { StoreService } from "@/services/store"
 import { Labeled } from "@/i18n/types"
 import { Config } from "@/settings/config.types"
 import { AppSettings } from "@/settings/app-settings.types"
+import { MenuDef, MenuItem } from "@/settings/app-settings.types"
 
 type HeaderController = IController & {
     citeClick: () => void
@@ -34,6 +35,81 @@ const getLogo = (logoKey: keyof LogoConfig): string => addImgHash(settings["logo
 const korpLogoHtml: string = getLogo("korp") || html`<img src="${korpLogo}" height="300" width="300" />`
 const orgLogoHtml: string = getLogo("organization")
 const chooserRightLogoHtml: string = getLogo("chooser_right")
+
+// Allow overriding the main menu
+
+// Default menu (Språkbanken Text)
+const menu: string =
+    settings["menu"] !== undefined
+        ? makeMenuHtml(settings["menu"])
+        : html` <li>
+                  <a id="about" ng-click="$ctrl.citeClick()"> {{'about' | loc:$root.lang}} </a>
+              </li>
+              <li>
+                  <a href="https://spraakbanken.gu.se/verktyg/korp/användarhandledning" target="_blank">
+                      {{'docs' | loc:$root.lang}}
+                  </a>
+              </li>
+              <li id="korplink">
+                  <a href="/korp"> {{'korp' | loc:$root.lang}} </a>
+              </li>
+              <li id="korplablink">
+                  <a href="/korplabb"> {{'korp_lab' | loc:$root.lang}} </a>
+              </li>
+              <li>
+                  <a href="https://spraakbanken.gu.se/sparv" target="_blank"> {{'import_chain' | loc:$root.lang}} </a>
+              </li>`
+
+// Return HTML based on menu definition menuDef.
+// See doc/frontend_devel.md for documentation on the form of menuDef.
+function makeMenuHtml(menuDef: MenuDef): string {
+    // Convert attrObj object with attribute names and values to an
+    // array of strings 'name="value"'.
+    function makeAttrs(attrObj: Record<string, string>): string[] {
+        return Object.entries(attrObj)
+            .filter((v) => v[0] != "item_id")
+            .map((v) => `${v[0]}="${v[1]}"`)
+    }
+
+    // Return an "a" element with attributes from array of strings
+    // attrs, with link text localized using translation key locKey
+    function makeLink(locKey: string, attrs: string[]): string {
+        return html`<a ${attrs.join(" ")}> {{'${locKey}' | loc:$root.lang}} </a>`
+    }
+
+    let itemsHtml: string[] = []
+    for (let menuItem of menuDef) {
+        let [locKey, val] = Object.entries(menuItem)[0]
+        let links: string[] = []
+        let itemId = ""
+        if (typeof val === "string") {
+            // Link attributes as a single string
+            links = [makeLink(locKey, [val])]
+        } else {
+            // Link attributes as separate properties
+            if (val.href === undefined || typeof val.href === "string") {
+                // Same href regardless of language
+                links.push(makeLink(locKey, makeAttrs(val as Record<string, string>)))
+            } else {
+                // Localized href
+                let locHrefs = { ...val.href }
+                for (let lang in locHrefs) {
+                    val.href = locHrefs[lang]
+                    val["ng-if"] = `$root.lang == '${lang}'`
+                    links.push(makeLink(locKey, makeAttrs(val as Record<string, string>)))
+                }
+            }
+            if (val.item_id) {
+                // List item id
+                itemId = ` id="${val.item_id}"`
+            }
+        }
+        itemsHtml.push(`<li${itemId}>
+${links.join("\n")}
+</li>`)
+    }
+    return itemsHtml.join("\n")
+}
 
 angular.module("korpApp").component("appHeader", {
     template: html`
@@ -75,25 +151,7 @@ angular.module("korpApp").component("appHeader", {
                             <i class="fa fa-lg fa-bars ml-2 align-middle text-indigo-600"></i>
                         </button>
                         <ul uib-dropdown-menu class="dropdown-menu-right">
-                            <li>
-                                <a id="about" ng-click="$ctrl.citeClick()"> {{'about' | loc:$root.lang}} </a>
-                            </li>
-                            <li>
-                                <a href="https://spraakbanken.gu.se/verktyg/korp/användarhandledning" target="_blank">
-                                    {{'docs' | loc:$root.lang}}
-                                </a>
-                            </li>
-                            <li id="korplink">
-                                <a href="/korp"> {{'korp' | loc:$root.lang}} </a>
-                            </li>
-                            <li id="korplablink">
-                                <a href="/korplabb"> {{'korp_lab' | loc:$root.lang}} </a>
-                            </li>
-                            <li>
-                                <a href="https://spraakbanken.gu.se/sparv" target="_blank">
-                                    {{'import_chain' | loc:$root.lang}}
-                                </a>
-                            </li>
+                            ${menu}
                         </ul>
                     </div>
                 </div>

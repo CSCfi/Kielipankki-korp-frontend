@@ -117,6 +117,25 @@ The first few settings are needed at initialization time, and thus must be speci
   - **chooser_right** - String. HTML content for a logo to the right of the corpus chooser: Default: empty.
     The HTML content can refer to image files in the `app/img/` directory of the configuration as `img/`_file_.
     If you wish to use the the [plain Korp logo](../app/img/korp.svg) (or other images in this repository) differently from the default, you should copy it to the configuration.
+- **menu** - Array of single-property objects. Specify site-specific main menu items, overriding those of Språkbanken. Default: Use Språkbanken’s menu.
+
+  The items in the array correspond to menu items. Each item is an object whose single key is the translation key to use for the link text of the menu item. The value is either the attributes of the `a` element as a single string or an object with attributes as separate properties; for example:
+    ```yaml
+    - loc_key1: 'href="https://..." target="_blank"'
+    - loc_key2:
+        href: https://...
+        target: _blank
+        item_id: item3
+    ```
+  In the latter format, the optional `item_id` specifies the value of the `id` attribute of the enclosing `li` element.
+
+  You can also localize the URL by using as the value of `href` an object with language codes as names and localized URLs as values:
+    ```yaml
+    - loc_key3:
+        href:
+          eng: https://.../en/...
+          swe: https://.../sv/...
+    ```
 - **auth_module** - String or object. See [Authentication](#authentication)
 - **autocomplete** - Boolean. See [auto completion menu](#auto-completion-menu)
 - **common_struct_types** - Object with attribute name as a key and attribute definition as value. Attributes
