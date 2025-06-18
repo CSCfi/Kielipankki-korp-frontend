@@ -8132,10 +8132,12 @@ funcs.addCorpusAliases = function (corpus_id_patt, aliases) {
 //      as the variable part of the corpus id);
 //   2. an array of strings treated as (the variable parts of) corpus
 //      ids;
-//   3. an array of arrays [id, title, description] with which to
-//      extend the template (if title is omitted, it is replaced with
-//      the id; if description is omitted, it is replaced with title
-//      if non-empty, otherwise with id); or
+//   3. an array of arrays [id, title, description, properties] with
+//      which to extend the template (if title is omitted, it is
+//      replaced with the id; if description is omitted, it is
+//      replaced with title if non-empty, otherwise with id; if
+//      properties is included, it must be an object with which to
+//      extend the template); or
 //   4. an array of two integers (typically years), which denote the
 //      start and end values (inclusive) for the variable parts of the
 //      ids (converted to strings).
@@ -8208,11 +8210,16 @@ funcs.addCorpusSettings = function (template, infolist, folder, id_templ) {
         for (let infoitem of infolist) {
             if (_.isArray(infoitem)) {
                 const id = infoitem[0];
-                add_info({
+                let info = {
                     id: id,
                     title: infoitem[1] || id,
                     description: infoitem[2] || infoitem[1] || id,
-                });
+                };
+                if (infoitem.length > 3) {
+                    // Add other properties
+                    $.extend(info, infoitem[3]);
+                }
+                add_info(info);
             } else {
                 add_info(infoitem);
             }
