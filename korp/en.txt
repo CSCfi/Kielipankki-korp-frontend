@@ -1,4 +1,21 @@
 
+<!-- New corpus version (release candidate): Oracc 2024 2025-06-19 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2024112901" target="_blank">Oracc
+2024 (Open Richly Annotated Cuneiform Corpus, Korp Version, November
+2024)</a> is now available in Korp as a release candidate alongside
+the previous versions (<a
+href="http://urn.fi/urn:nbn:fi:lb-2022031705" target="_blank">Oracc
+2021</a> and <a href="http://urn.fi/urn:nbn:fi:lb-2019060601"
+target="_blank">Oracc 2019</a>).
+
+Oracc 2024 contains several new subcorpora (Oracc projects), and many
+subcorpora contain more data than Oracc 2021. However, note that Oracc
+2024 does _not_ contain the subcorpora CTIJ, LaOCOST and RIAo present
+in Oracc 2021 and that some subcorpora contain _less_ data than their
+counterparts in Oracc 2021 or Oracc 2019.
+
+
 <!-- Swedish corpora: Fixed searching with base form in extended search 2025-06-10 -->
 
 Searching by the base form of a word in the extended search now works
