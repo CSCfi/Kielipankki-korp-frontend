@@ -440,6 +440,28 @@ settings.corporafolders.swahili.hcs2 = {
     },
 };
 
+settings.corporafolders.cuneiform.oracc2024 = {
+    title: "Oracc 2024",
+    description: "Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, November 2024<br/><br/>Open Richly Annotated Cuneiform Corpus (Oracc) brings together the work of several Assyriological projects to publish online editions of cuneiform texts. The Korp version of Oracc allows extensive searches on the texts and presents the results as a KWIC concordance list. Korp also offers statistical information and comparison of the search results. Downloading the query results is possible as well.<br/><br/>This version of Oracc in Korp contains almost all the data that were available on the <a href=\"http://oracc.museum.upenn.edu/\" target=\"_blank\">Oracc project website</a> in November 2024. The data have been extracted from the JSON files provided by Oracc. The additional features added by the Helsinki team in Oracc in Korp 2024 are automatic lemmatization and POS-tagging for previously unlemmatized texts (Aleksi Sahala), normalized divine names (Tero Alstola, Heidi Jauhiainen) and coordinates for tablet provenancies (Aleksi Sahala).<br/><br/>Oracc 2024 contains several new subcorpora (Oracc projects), and many subcorpora contain more data than Oracc 2021. However, note that Oracc 2024 does <em>not</em> contain the subcorpora CTIJ, LaOCOST and RIAo present in Oracc 2021 and that some subcorpora contain <em>less</em> data than their counterparts in Oracc 2021 or Oracc 2019.<br/><br/>A list of Oracc texts included in this Korp version is <a href=\"http://urn.fi/urn:nbn:fi:lb-2025061801\" target=\"_blank\">here</a> (the CDLI number and lemmatization status of each text in Oracc).",
+    info: {
+        metadata_urn: "urn:nbn:fi:lb-2024112901",
+        urn: "urn:nbn:fi:lb-2024113001",
+        licence: {
+            name: "CC BY-SA 4.0",
+            description: "Creative Commons Attribution-ShareAlike 4.0",
+            urn: "urn:nbn:fi:lb-2022091301",
+        },
+        iprholder: {
+            name: "Open Richly Annotated Cuneiform Corpus Project",
+            url: "http://oracc.museum.upenn.edu/doc/about/licensing/index.html",
+        },
+        // infopage_url: "https://www.kielipankki.fi/corpora/oracc/",
+        group_page_urn: "urn:nbn:fi:lb-2019111601",
+        shortname: "oracc-2024-11-korp",
+        status: "rc",
+    },
+};
+
 settings.corporafolders.cuneiform.oracc2021 = {
     title: "Oracc 2021",
     description: "Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, June 2021<br/><br/>Note that the subcorpora CAMS, CTIJ, DCCLT and HBTIN contain less data than their counterparts in <a href=\"http://urn.fi/urn:nbn:fi:lb-2019060601\" target=\"_blank\">Oracc, Korp version, May 2019</a>. This version is based on the JSON data that was available in <a href=\"http://oracc.museum.upenn.edu/\" target=\"_blank\">Oracc</a> in June 2021.<br/>A list of Oracc texts included in this Korp version is <a href=\"http://urn.fi/urn:nbn:fi:lb-2024092401\" target=\"_blank\">here</a> (the CDLI number and lemmatization status of each text in Oracc).",
@@ -2035,6 +2057,112 @@ let cuneiformStructAttrOrder = [
     "text_language",
     "text_empty",
 ];
+
+
+// Oracc 2024
+
+attrlist.oracc2024 = $.extend(true, {}, attrlist.oracc2021);
+sattrlist.oracc2024 = $.extend(true, {}, sattrlist.oracc2021);
+
+// Try to hide URL in "link to original"; why doesn't this work?
+attrlist.oracc2024.url.url_opts.hide_url = true;
+
+funcs.setAttrOrder(attrlist.oracc2024, cuneiformAttrOrder);
+funcs.setAttrOrder(sattrlist.oracc2024, cuneiformStructAttrOrder);
+
+settings.templ.oracc2024 = {
+    id: "oracc2024_{}",
+    title: "{} (Oracc 2024)",
+    description: "{}<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, November 2024",
+    context: context.sp,
+    within: within.sp,
+    attributes: attrlist.oracc2024,
+    structAttributes: sattrlist.oracc2024,
+};
+
+let oracc2024_subcorpora = [
+    ["adsd", "ADsD: Astronomical Diaries Digital", null,
+     { credits_url: "http://www.oracc.org/adsd/", }],
+    ["aemw", "AEMW: Akkadian in the Eastern Mediterranean World", null,
+     { credits_url: "http://www.oracc.org/aemw/", }],
+    ["akklove", "Akkadian Love Literature", null,
+     { credits_url: "http://www.oracc.org/akklove/participants/", }],
+    ["ario", "ARIo: Achaemenid Royal Inscriptions online", null,
+     { credits_url: "http://www.oracc.org/ario/abouttheproject/", }],
+    ["asbp", "AsbP: Ashurbanipal Library Project", null,
+     { credits_url: "http://www.oracc.org/asbp/Abouttheproject/Contributors/index.html", }],
+    ["atae", "ATAE: Archival Texts of the Assyrian Empire", null,
+     { credits_url: "http://www.oracc.org/atae/abouttheproject/", }],
+    ["babcity", "Corpus of Babylonian Texts Concerning the Urban Landscape", null,
+     { credits_url: "http://www.oracc.org/babcity/", }],
+    ["blms", "blms: Bilinguals in Late Mesopotamian Scholarship", null,
+     { credits_url: "http://www.oracc.org/blms/", }],
+    ["borsippa", "Archival Texts of the Priests of Borsippa", null,
+     { credits_url: "http://www.oracc.org/borsippa/Creditsandreuse/index.html", }],
+    ["btto", "BTTo: Babylonian Topographical Texts Online", null,
+     { credits_url: "http://www.oracc.org/btto/abouttheproject/", }],
+    ["cams", "CAMS: Corpus of Ancient Mesopotamian Scholarship", null,
+     { credits_url: "http://www.oracc.org/cams/", }],
+    ["caspo", "CASPo: Corpus of Akkadian Shuila-Prayers online", null,
+     { credits_url: "http://www.oracc.org/caspo/", }],
+    ["ccpo", "CCPo: Cuneiform Commentaries Project on Oracc", null,
+     { credits_url: "http://www.oracc.org/ccpo/", }],
+    ["ckst", "CKST: Corpus of Kassite Sumerian Texts", null,
+     { credits_url: "http://www.oracc.org/ckst/", }],
+    ["cmawro", "CMAwRo: Corpus of Mesopotamian Anti-witchcraft Rituals", null,
+     { credits_url: "http://www.oracc.org/cmawro/", }],
+    ["dcclt", "DCCLT: Digital Corpus of Cuneiform Lexical Texts", null,
+     { credits_url: "http://www.oracc.org/dcclt/aboutdcclt/", }],
+    ["dccmt", "DCCMT: Digital Corpus of Cuneiform Mathematical Texts", null,
+     { credits_url: "http://www.oracc.org/dccmt/", }],
+    ["dsst", "DSSt: Datenbank sumerischer Streitliteratur", null,
+     { credits_url: "http://www.oracc.org/dsst/staff/", }],
+    ["ecut", "eCUT: Electronic Corpus of Urartian Texts", null,
+     { credits_url: "http://www.oracc.org/ecut/abouttheproject/", }],
+    ["edlex", "EDLEX: Early Dynastic Lexical Texts", null,
+     { credits_url: "http://www.oracc.org/edlex/", }],
+    ["eisl", "eISL: A Corpus of First Millennium Emesal Liturgies", null,
+     { credits_url: "http://www.oracc.org/eisl/About/index.html", }],
+    ["epsd2", "EPSD2: Electronic Pennsylvania Sumerian Dictionary 2", null,
+     { credits_url: "http://www.oracc.org/epsd2/about/", }],
+    ["etcsri", "ETCSRI: Electronic Text Corpus of Sumerian Royal Inscriptions", null,
+     { credits_url: "http://www.oracc.org/etcsri/staff/", }],
+    ["glass", "Glass: Corpus of Glass Technological Texts", null,
+     { credits_url: "http://www.oracc.org/glass/", }],
+    ["hbtin", "HBTIN: Hellenistic Babylonia: Texts, Iconography, Names", null,
+     { credits_url: "http://www.oracc.org/hbtin/staff.html", }],
+    ["iraq", "IRAQ Journal", null,
+     { credits_url: "http://www.oracc.org/iraq/", }],
+    ["nere", "NERE: Near Eastern Royal Epics", null,
+     { credits_url: "http://www.oracc.org/nere/", }],
+    ["obel", "OBEL: Old Babylonian Emesal Liturgies", null,
+     { credits_url: "http://www.oracc.org/obel/", }],
+    ["obmc", "OBMC: Old Babylonian Model Contracts", null,
+     { credits_url: "http://www.oracc.org/obmc/aboutobmc/", }],
+    ["obta", "OBTA: Old Babylonian Tabular Accounts", null,
+     { credits_url: "http://www.oracc.org/obta/", }],
+    ["ribo", "RIBo: Royal Inscriptions of Babylonia online", null,
+     { credits_url: "http://www.oracc.org/ribo/abouttheproject/", }],
+    ["rimanum", "Rīm-Anum: The House of Prisoners", null,
+     { credits_url: "http://www.oracc.org/rimanum/", }],
+    ["rinap", "RINAP: Royal Inscriptions of the Neo-Assyrian Period", null,
+     { credits_url: "http://www.oracc.org/rinap/abouttheproject/", }],
+    ["saao", "SAAo: State Archives of Assyria Online", null,
+     { credits_url: "http://www.oracc.org/saao/abouttheproject/", }],
+    ["suhu", "Suhu: The Inscriptions of Suhu online", null,
+     { credits_url: "http://www.oracc.org/suhu/abouttheproject/", }],
+    ["urap", "URAP: Ur Regional Archaeology Project", null,
+     { credits_url: "http://www.oracc.org/urap/", }],
+];
+
+funcs.addCorpusSettings(
+    settings.templ.oracc2024, oracc2024_subcorpora,
+    settings.corporafolders.cuneiform.oracc2024);
+
+funcs.addCorpusAliases(
+    settings.corporafolders.cuneiform.oracc2024.contents.join(","),
+    ["oracc-2024", "oracc-2024-11", "oracc-korp-2024", "oracc-korp-2024-11"]);
+
 
 
 // ACHEMENET
