@@ -1,4 +1,22 @@
 
+<!-- Uusi aineistoversio (julkaisuehdokas): Oracc 2024 2025-06-19 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2024112901" target="_blank">Oracc
+2024 (Open Richly Annotated Cuneiform Corpus, Korp-versio, marraskuu
+2024)</a> on nyt käytettävissä Korpissa julkaisuehdokkaana aiempien
+versioiden rinnalla (<a href="http://urn.fi/urn:nbn:fi:lb-2022031705"
+target="_blank">Oracc 2021</a> ja <a
+href="http://urn.fi/urn:nbn:fi:lb-2019060601" target="_blank">Oracc
+2019</a>).
+
+Oracc 2024 sisältää useita uusia osakorpuksia (Oracc-projekteja), ja
+monet osakorpukset sisältävät enemmän dataa kuin Oracc 2021. Huomaa
+kuitenkin, että Oracc 2024 _ei_ sisällä osakorpuksia CTIJ, LaOCOST ja
+RIAo, jotka ovat Oracc 2021:ssä, ja että jotkin osakorpukset
+sisältävät _vähemmän_ dataa kuin niiden vastineet Oracc 2021:ssä tai
+Oracc 2019:ssä.
+
+
 <!-- Ruotsinkieliset aineistot: Korjattu laajennetun haun perusmuotohaku 2025-06-10 -->
 
 Laajennetussa haussa haku sanan perusmuodolla toimii nyt myös
