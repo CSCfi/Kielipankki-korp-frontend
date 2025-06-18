@@ -8133,8 +8133,9 @@ funcs.addCorpusAliases = function (corpus_id_patt, aliases) {
 //   2. an array of strings treated as (the variable parts of) corpus
 //      ids;
 //   3. an array of arrays [id, title, description] with which to
-//      extend the template (if title or description is omitted, they
-//      are replaced with the id); or
+//      extend the template (if title is omitted, it is replaced with
+//      the id; if description is omitted, it is replaced with title
+//      if non-empty, otherwise with id); or
 //   4. an array of two integers (typically years), which denote the
 //      start and end values (inclusive) for the variable parts of the
 //      ids (converted to strings).
@@ -8210,7 +8211,7 @@ funcs.addCorpusSettings = function (template, infolist, folder, id_templ) {
                 add_info({
                     id: id,
                     title: infoitem[1] || id,
-                    description: infoitem[2] || id,
+                    description: infoitem[2] || infoitem[1] || id,
                 });
             } else {
                 add_info(infoitem);
