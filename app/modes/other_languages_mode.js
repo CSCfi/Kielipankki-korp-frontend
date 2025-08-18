@@ -408,6 +408,22 @@ settings.corporafolders.uralic.erme_v2 = {
     ]
 };
 
+settings.corporafolders.uralic.erme_psla = {
+    title: "ERME PSLA",
+    description: "ERME: Erzya and Moksha Extended Corpora, Paragraph Segmentation, Low Annotation",
+    info: {
+      metadata_urn: "urn:nbn:fi:lb-2023021601",
+        licence: {
+            name: "CC BY (PUB)",
+            urn: "urn:nbn:fi:lb-2022020106",
+        }
+    },
+    contents: [
+        "erme_psla_mdf",
+        "erme_psla_myv",
+    ]
+};
+
 
 settings.corporafolders.uralic.sust = {
     title: "SUS-kenttätyö (näyte)",
@@ -3936,6 +3952,36 @@ settings.corpora.erme_v2_mdf = {
     context: context.sp,
     attributes: attrlist.ud2_fi,
     structAttributes: sattrlist.erme_v2,
+    unselected: true
+};
+
+settings.corpora.erme_psla_myv = {
+    id: "erme_psla_myv",
+    title: "ERME version PSLA: Ersä/Erzya",
+    description: "ERME version PSLA: Ersä/Erzya",
+    licence: {
+        name: "CC BY (PUB)",
+        urn: "urn:nbn:fi:lb-2022020106",
+    },
+    within: within.sp,
+    context: context.sp,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.erme_v3,
+    unselected: true
+};
+
+settings.corpora.erme_psla_mdf = {
+    id: "erme_psla_mdf",
+    title: "ERME version PSLA: Mokša/Moksha",
+    description: "ERME version PSLA: Mokša/Moksha",
+    licence: {
+        name:"CC BY (PUB)",
+        urn: "urn:nbn:fi:lb-2022020106",
+    },
+    within: within.sp,
+    context: context.sp,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.erme_v3,
     unselected: true
 };
 

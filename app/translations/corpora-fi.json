@@ -1057,6 +1057,8 @@
     "continues_from": "jatkuu numerosta",
     "continues_to": "jatkuu numerossa",
     "erme_id": "ERME-tunniste",
+    "bibliog_lat": "bibliografia (latinisoitu)",
+    "translated": "käännetty",
 
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }

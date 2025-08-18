@@ -879,6 +879,8 @@
     "continues_from": "continues from issue",
     "continues_to": "continues in issue",
     "erme_id": "ERME ID",
+    "bibliog_lat": "bibliography (Latinized)",
+    "translated": "translated",
 
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }
