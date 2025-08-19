@@ -401,10 +401,12 @@ settings.make_direct_LBR_URL = function (lbr_id) {
 // the link text to locale-??.json with the key "corpus_X".
 settings.corpusExtraInfoItems = [
     "credits",
+    "shortname",
     "subcorpus_of",
     "metadata",
     "cite",
     "infopage",
+    "group_page",
     "urn",
     "homepage",
     "iprholder",
@@ -420,6 +422,7 @@ settings.corpusExtraInfo = {
     infoPopup: settings.corpusExtraInfoItems,
     sidebar: [
         "credits",
+        "shortname",
         "subcorpus_of",
         "metadata",
         "cite",
@@ -555,6 +558,14 @@ settings.makeCorpusExtraInfoItem = {
                     ? `<strong>${html}</strong>`
                     : html)
         },
+    },
+    shortname: function (corpusObj, label) {
+        // Use corpusObj.shortname as the value, bypassing the default
+        // that tries to find a "urn" or "url" subproperty.
+        return {
+            label: label,
+            text: corpusObj.shortname,
+        };
     },
 };
 
@@ -915,8 +926,10 @@ settings.augmentCorpusInfoProperties = {
         valueType: "stringlist",
         values: [
             "beta",
+            "rc",
             "test",
         ],
+        localizeTitle: true,
         localizeDescription: true,
     },
 }

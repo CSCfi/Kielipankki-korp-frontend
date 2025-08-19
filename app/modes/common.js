@@ -3795,7 +3795,7 @@ attrs.msd_sv = {
 attrs.baseform_sv = {
     label: "baseform",
     type: "set",
-    opts: options.default,
+    opts: options.fullSet,
     extendedTemplate: "<input ng-model='model' >",
     order: 1
 };
@@ -5584,7 +5584,7 @@ attrlist.standard = {
     nertag: attrs.ner_tags
 };
 
-attrlist.finer = {
+attrlist.ne = {
     ne_name: attrs.ne_name,
     ne_ex: attrs.ne_ex,
     ne_type: attrs.ne_type_fi,
@@ -5592,29 +5592,83 @@ attrlist.finer = {
     ne_fulltype: attrs.ne_fulltype_fi,
     ne_placename: attrs.ne_placename,
     ne_placename_source: attrs.ne_placename_source,
-    nertag: attrs.ner_rawtag,
-    nerbio: attrs.ner_bio,
 };
 
-// Attributes produced by vrt-finnish-nertag (*not* FiNER version 2,
-// but Finnish NER *tags* version 2)
-attrlist.finer2 = {
+// Helper function for supporting nested (recursively embedded or
+// explicitly numbered) structural attributes: Return a copy of
+// structural attribute definitions in object structAttrs with each
+// attribute struct_attr copied to struct_attr1 ... struct_attrN,
+// where N = maxLevel. Such attributes are produced by cwb-encode for
+// specification "-S struct:N+attr". (The returned value also contains
+// the original struct_attr.) If numberedStruct == true, use
+// explicitly numbered structures instead and copy to struct1_attr ...
+// structN_attr. The value of property "label" of struct_attrK is
+// struct_attr.label + "_" + K.
+funcs.nestStructAttrs = function (structAttrs, maxLevel,
+                                  numberedStruct = false) {
+    let result = $.extend(true, {}, structAttrs);
+    for (let level = 1; level <= maxLevel; level++) {
+        for (let attr in structAttrs) {
+            let nestAttr;
+            if (numberedStruct) {
+                let [_, structName, attrName] = attr.match(/^(.+?)_(.+)$/);
+                nestAttr = `${structName}${level}_${attrName}`;
+            } else {
+                nestAttr = `${attr}${level}`;
+            }
+            result[nestAttr] = $.extend(true, {}, result[attr]);
+            result[nestAttr].label = `${result[attr].label}_${level}`;
+        }
+    }
+    return result;
+};
+
+attrlist.finer = $.extend(
+    {},
+    attrlist.ne,
+    {
+        nertag: attrs.ner_rawtag,
+        nerbio: attrs.ner_bio,
+    }
+);
+
+// FiNER positional attributes 2 with attribute names nertag, nertags,
+// nerbio (without suffix "2")
+attrlist.finer2_pos = {
+    // TODO: Implement better representations; in particular, how to
+    // localize the values
     nertag: {
         label: "ner_tag_max",
+        extendedComponent: "structServiceSelect",
     },
     nertags: {
         label: "ner_tags",
         type: "set",
-        opts: options.set,
-        // Hide the tags containing nesting information (a digit
-        // suffix) until it can be represented and searched for in a
-        // more user-friendly way (in Korp 9)
-        displayType: "hidden",
+        opts: options.fullSet,
+        extendedComponent: "structServiceAutocomplete",
     },
     nerbio: {
         label: "ner_bio",
+        extendedComponent: "structServiceSelect",
     },
 };
+
+// FiNER positional attributes 2 with attribute names nertag2,
+// nertags2, nerbio2
+attrlist.finer2_pos2 = {
+    nertag2: attrlist.finer2_pos.nertag,
+    nertags2: attrlist.finer2_pos.nertags,
+    nerbio2: attrlist.finer2_pos.nerbio,
+};
+
+// Attributes produced by vrt-finnish-nertag (*not* FiNER version 2,
+// but Finnish NER *tags* version 2): ne_* attributes, possibly nested
+// names as ne1_* and ne2_*, and nertag2, nertags2, nerbio2
+attrlist.finer2 = $.extend(
+    {},
+    funcs.nestStructAttrs(attrlist.ne, 2, true),
+    attrlist.finer2_pos2
+);
 
 
 attrlist.ud2_fi = {
@@ -8078,9 +8132,12 @@ funcs.addCorpusAliases = function (corpus_id_patt, aliases) {
 //      as the variable part of the corpus id);
 //   2. an array of strings treated as (the variable parts of) corpus
 //      ids;
-//   3. an array of arrays [id, title, description] with which to
-//      extend the template (if title or description is omitted, they
-//      are replaced with the id); or
+//   3. an array of arrays [id, title, description, properties] with
+//      which to extend the template (if title is omitted, it is
+//      replaced with the id; if description is omitted, it is
+//      replaced with title if non-empty, otherwise with id; if
+//      properties is included, it must be an object with which to
+//      extend the template); or
 //   4. an array of two integers (typically years), which denote the
 //      start and end values (inclusive) for the variable parts of the
 //      ids (converted to strings).
@@ -8094,57 +8151,77 @@ funcs.addCorpusAliases = function (corpus_id_patt, aliases) {
 // Occurrences of "{}" in the id, title, description of template are
 // replaced with the corresponding property value in the infolist
 // item, or if that is missing, the variable part of the id specified
-// in the infolist item.
+// in the infolist item. If the title or description in the infolist
+// item is an array of strings, the first "{}" is replaced with the
+// first item in the array, the second "{}" with the second item, and
+// so on, so that the last item replaces the possible remaining
+// occurrences of "{}".
 
 funcs.addCorpusSettings = function (template, infolist, folder, id_templ) {
-    var ids = [];
+    let ids = [];
     // Replace {} with the value in the infolist item in these
     // properties ("id" is treated separately):
-    var subst_props = ["title", "description"];
+    const subst_props = ["title", "description"];
     if (id_templ == null) {
         id_templ = (template.id != null ? template.id : "")
     }
 
-    var add_info = function (info) {
-        var info_is_string = (typeof info == "string");
-        var id_varpart = (info_is_string ? info : info.id);
-        var id = (id_templ.indexOf("{}") > -1
-                  ? id_templ.replace(/{}/g, id_varpart)
-                  : id_templ + id_varpart);
+    const add_info = function (info) {
+        const info_is_string = (typeof info == "string");
+        const id_varpart = (info_is_string ? info : info.id);
+        const id = (id_templ.indexOf("{}") > -1
+                    ? id_templ.replace(/{}/g, id_varpart)
+                    : id_templ + id_varpart);
         // Make a deep copy so that the resulting objects can be
         // safely modified independently of each other if necessary.
         settings.corpora[id] = $.extend(true, {}, template);
-        var config = settings.corpora[id];
+        let config = settings.corpora[id];
         if (! info_is_string) {
             $.extend(config, info);
         }
         config.id = id;
-        for (var j = 0; j < subst_props.length; j++) {
-            var propname = subst_props[j];
+        for (let propname of subst_props) {
             if (template[propname]) {
-                config[propname] = template[propname].replace(
-                    /{}/g,
-                    info_is_string ? id_varpart : info[propname] || id_varpart);
+                if (_.isArray(info[propname])) {
+                    // If info[propname] is an array, replace each
+                    // occurrence of {} by a separate item; the last
+                    // item replaces the all the remaining {}'s
+                    let val = template[propname];
+                    for (let item of info[propname].slice(0, -1)) {
+                        val = val.replace(/{}/, item);
+                    }
+                    config[propname] = val.replace(
+                        /{}/g, info[propname].slice(-1)[0]);
+                } else {
+                    config[propname] = template[propname].replace(
+                        /{}/g, info_is_string ? id_varpart : (info[propname]
+                                                              || id_varpart));
+                }
             }
         }
         ids.push(id);
     };
 
     if (infolist.length == 2 && Number.isInteger(infolist[0])) {
-        for (var id = infolist[0]; id <= infolist[1]; id++) {
+        for (let id = infolist[0]; id <= infolist[1]; id++) {
             add_info(id.toString());
         }
     } else {
-        for (var i = 0; i < infolist.length; i++) {
-            if (_.isArray(infolist[i])) {
-                var id = infolist[i][0];
-                add_info({
+        for (let infoitem of infolist) {
+            if (_.isArray(infoitem)) {
+                const id = infoitem[0];
+                let info = {
                     id: id,
-                    title: infolist[i][1] || id,
-                    description: infolist[i][2] || id,
-                });
+                    title: infoitem[1] || id,
+                    description: infoitem[2] || infoitem[1] || id,
+                };
+                if (infoitem.length > 3) {
+                    // Add other properties
+                    $.extend(info, infoitem[3]);
+                }
+                add_info(info);
             } else {
-                add_info(infolist[i]);
+                add_info(infoitem);
             }
         }
     }
@@ -8341,11 +8418,12 @@ funcs.setAttrOrder = function (attrstruct, attrnamelist) {
     if (typeof attrnamelist == "string") {
         attrnamelist = attrnamelist.split(/[ \t]+/);
     }
-    var attrnamecount = attrnamelist.length;
-    for (var i = 0; i < attrnamelist.length; i++) {
-        // The attribute with the smallest order value is shown first;
-        // this has been changed at some point.
-        attrstruct[attrnamelist[i]].order = i;
+    for (let [i, attrname] of attrnamelist.entries()) {
+        if (attrname in attrstruct) {
+            // The attribute with the smallest order value is shown first;
+            // this has been changed at some point.
+            attrstruct[attrname].order = i;
+        }
     }
 };
 
