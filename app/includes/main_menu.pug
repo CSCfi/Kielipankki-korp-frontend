@@ -26,22 +26,12 @@ li#korplink(class=locals.cls_mainmenu_li)
     class=locals.cls_mainmenu_a
     ng-href="{{makeKorpUrl('main')}}"
   ) {{'korp' | loc:lang}}
-li#korplablink(class=locals.cls_mainmenu_li)
-  a(
-    class=locals.cls_mainmenu_a
-    ng-href="{{makeKorpUrl('lab')}}"
-  ) {{'korp_lab' | loc:lang}}
-li#korpoldlink(class=locals.cls_mainmenu_li)
-  a(
-    class=locals.cls_mainmenu_a
-    ng-href="{{makeKorpUrl('old')}}"
-  ) {{'korp_old' | loc:lang}}
 li#import(class=locals.cls_mainmenu_li)
   a(
     class=locals.cls_mainmenu_a
-    href='https://www.kielipankki.fi/korp/cgi-bin/annlab/parse'
+    href='https://www.kielipankki.fi/tools/demo/cgi-bin/finparse.py'
     target='_blank'
-  ) {{'import_chain' | loc:lang}}
+  ) {{'parsing_demo' | loc:lang}}
 li(class=locals.cls_mainmenu_li)
   a(
     class=locals.cls_mainmenu_a

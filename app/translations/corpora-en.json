@@ -418,6 +418,7 @@
 
     "message_type": "message type",
     "message_is_completely_empty": "message is completely empty",
+    "message_id": "messasge id",
     "message_thread_id": "discussion thread id",
     "message_thread_start_timestamp": "discussion thread start timestamp",
     "comment_id": "comment id",
@@ -619,6 +620,21 @@
     "ne_name": "name",
     "ne_placename": "place name",
     "ne_placename_source": "place name information source",
+    "ne_expr_1": "named entity (level 2)",
+    "ne_type_1": "named entity type (level 2)",
+    "ne_subtype_1": "named entity subtype (level 2)",
+    "ne_fulltype_1": "named entity full type (level 2)",
+    "ne_name_1": "name (level 2)",
+    "ne_placename_1": "place name (level 2)",
+    "ne_placename_source_1": "place name information source (level 2)",
+    "ne_expr_2": "named entity (level 3)",
+    "ne_type_2": "named entity type (level 3)",
+    "ne_subtype_2": "named entity subtype (level 3)",
+    "ne_fulltype_2": "named entity full type (level 3)",
+    "ne_name_2": "name (level 3)",
+    "ne_placename_2": "place name (level 3)",
+    "ne_placename_source_2": "place name information source (level 3)",
+
     "ner_bio": "word position in a name",
 
     "transcription": "transcription",
@@ -707,10 +723,15 @@
     "oracc_subgenre": "subgenre",
     "oracc_period": "period",
     "oracc_standardized": "standardized",
+    "oracc_pos_subcategory": "part of speech subcategory",
     "oracc_textlang": "text languages",
     "oracc_lang": "language/dialect",
 
     "text__geo_provenience": "find location",
+
+    "cdli_link": "CDLI link",
+    "archive": "archive",
+    "text_is_empty": "text is empty",
 
     "main_section": "main section",
     "sections": "sections",
