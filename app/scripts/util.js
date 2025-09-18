@@ -778,21 +778,13 @@ util.setDownloadLinks = function (query_url, result_data) {
     // Settings of the corpora in the result, to be passed to the
     // download script
     const result_corpora_settings = {}
-    let i = 0
-    while (i < result_corpora.length) {
-        const corpus_ids = result_corpora[i].toLowerCase().split("|")
-        let j = 0
-        while (j < corpus_ids.length) {
-            const corpus_id = corpus_ids[j]
+    for (const result_corpus of result_corpora) {
+        for (const corpus_id of result_corpus.toLowerCase().split("|")) {
             result_corpora_settings[corpus_id] = settings.corpora[corpus_id]
-            j++
         }
-        i++
     }
     downloadLinksElem.append("<option value='init' rel='localize[download_kwic]'></option>")
-    i = 0
-    while (i < settings.downloadFormats.length) {
-        const format = settings.downloadFormats[i]
+    for (const format of settings.downloadFormats) {
         // NOTE: Using attribute rel="localize[...]" to localize the
         // title attribute requires a small change to
         // lib/jquery.localize.js. Without that, we could use
@@ -826,7 +818,6 @@ util.setDownloadLinks = function (query_url, result_data) {
             }
         }
         option.appendTo(downloadLinksElem).data("params", download_params)
-        i++
     }
     downloadLinksElem.off("change")
     downloadLinksElem
