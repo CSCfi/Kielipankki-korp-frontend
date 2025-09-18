@@ -458,7 +458,7 @@ settings.corporafolders.cuneiform.oracc2024 = {
         // infopage_url: "https://www.kielipankki.fi/corpora/oracc/",
         group_page_urn: "urn:nbn:fi:lb-2019111601",
         shortname: "oracc-2024-11-korp",
-        status: "rc",
+        status: "rc2",
     },
 };
 
