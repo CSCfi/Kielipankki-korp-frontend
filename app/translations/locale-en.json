@@ -25,6 +25,8 @@
 
     "corpusinfo_title_status_rc": "release candidate",
     "corpusinfo_descr_status_rc": "<strong>Please note</strong> that the corpus is a release candidate, so it may still change.",
+    "corpusinfo_title_status_rc2": "release candidate 2",
+    "corpusinfo_descr_status_rc2": "<strong>Please note</strong> that the corpus is a release candidate, so it may still change.",
     "corpusinfo_title_status_beta": "beta",
     "corpusinfo_descr_status_beta": "<strong>Please note</strong> that the corpus is in beta testing, so it may change without notice.",
     "corpusinfo_title_status_test": "test",

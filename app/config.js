@@ -927,6 +927,7 @@ settings.augmentCorpusInfoProperties = {
         values: [
             "beta",
             "rc",
+            "rc2",
             "test",
         ],
         localizeTitle: true,
