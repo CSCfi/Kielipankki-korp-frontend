@@ -766,6 +766,11 @@ util.setDownloadLinks = function (query_url, result_data) {
     // Corpora in the query result
     const result_corpora = _.uniq(_.map(result_data.kwic,
                                         (item) => item.corpus))
+    // Properties that may contain various metadata information in the
+    // corpus configuration, to be passed to the download script
+    const corpus_config_info_keys = [
+        "metadata", "licence", "homepage", "compiler",
+    ]
     // Settings of the corpora in the result, to be passed to the
     // download script
     const result_corpora_settings = {}
@@ -797,7 +802,7 @@ util.setDownloadLinks = function (query_url, result_data) {
             korp_url: window.location.href,
             korp_server_url: settings.korpBackendURL,
             corpus_config: JSON.stringify(result_corpora_settings),
-            corpus_config_info_keys: ["metadata", "licence", "homepage", "compiler"].join(","),
+            corpus_config_info_keys: corpus_config_info_keys.join(","),
             urn_resolver: settings.urnResolver,
         }
         if ("downloadFormatParams" in settings) {
