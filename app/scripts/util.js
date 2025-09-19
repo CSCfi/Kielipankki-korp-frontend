@@ -776,7 +776,12 @@ util.setDownloadLinks = function (query_url, result_data) {
     const result_corpora_settings = {}
     for (const result_corpus of result_corpora) {
         for (const corpus_id of result_corpus.toLowerCase().split("|")) {
-            result_corpora_settings[corpus_id] = settings.corpora[corpus_id]
+            // The logicalCorpus and attribute information are
+            // currently not used by the download script, so omit
+            // them to make the request data smaller
+            result_corpora_settings[corpus_id] = _.omitBy(
+                settings.corpora[corpus_id],
+                (_, key) => key == "logicalCorpus" || key.endsWith("ttributes"))
         }
     }
     downloadLinksElem.append("<option value='init' rel='localize[download_kwic]'></option>")
