@@ -761,20 +761,11 @@ util.setDownloadLinks = function (query_url, result_data) {
 
     downloadLinksElem.show()
 
-    // Get the number (index) of the corpus of the query result hit
-    // number hit_num in the corpus order information of the query
-    // result.
-    const get_corpus_num =
-          (hit_num) => result_data.corpus_order.indexOf(
-              result_data.kwic[hit_num].corpus.toUpperCase())
-
     c.log("setDownloadLinks data:", result_data)
     downloadLinksElem.empty()
     // Corpora in the query result
-    const result_corpora = result_data.corpus_order.slice(
-        get_corpus_num(0),
-        get_corpus_num(result_data.kwic.length - 1) + 1
-    )
+    const result_corpora = _.uniq(_.map(result_data.kwic,
+                                        (item) => item.corpus))
     // Settings of the corpora in the result, to be passed to the
     // download script
     const result_corpora_settings = {}
