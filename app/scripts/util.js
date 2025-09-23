@@ -810,6 +810,18 @@ util.setDownloadLinks = function (query_url, result_data) {
             corpus_config_info_keys: corpus_config_info_keys.join(","),
             urn_resolver: settings.urnResolver,
         }
+        // If the length of the JSONified query result is at most
+        // settings.downloadSendResultMaxSize characters, also send
+        // the query result to avoid re-performing the query
+        const query_result = JSON.stringify(result_data)
+        if (query_result.length <= settings.downloadSendResultMaxSize) {
+            // Convert lower-cased corpus ids in KWIC hits back to
+            // uppercase, to get the same result as when not passing
+            // the query result
+            download_params.query_result = query_result.replaceAll(
+                /("corpus":")(.*?)"/g,
+                (_, p1, p2) => `${p1}${p2.toUpperCase()}"`)
+        }
         if ("downloadFormatParams" in settings) {
             if ("*" in settings.downloadFormatParams) {
                 $.extend(download_params, settings.downloadFormatParams["*"])

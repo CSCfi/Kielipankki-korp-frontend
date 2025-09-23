@@ -57,4 +57,14 @@ export function setDefaultConfigValues() {
         // languages but use the translation key immediately.
         settings.defaultTranslationLanguages = []
     }
+    if (! settings.downloadSendResultMaxSize) {
+        // The maximum query result size (as JSON characters, not
+        // URL-encoded) to send to the KWIC download script; for
+        // larger results, send only the query parameters for the
+        // download script to re-perform the query. By default, always
+        // do the latter. When sending the query result, an updated
+        // korp_download.cgi is needed to produce the same result as
+        // when sending the query parameters.
+        settings.downloadSendResultMaxSize = 0
+    }
 }
