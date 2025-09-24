@@ -271,6 +271,10 @@ settings.downloadFormatParamsPhysical = {
     },
 };
 
+// The maximum query result size (as JSON characters, not URL-encoded)
+// to send to the KWIC download script; for larger results, send the
+// query parameters for the download script to re-perform the query.
+settings.downloadSendResultMaxSize = 1000000;
 
 // Korp backend URL
 // Currently we, use the backend on the same site as the frontend
