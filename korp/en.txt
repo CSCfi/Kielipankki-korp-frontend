@@ -1,4 +1,14 @@
 
+<!-- Release candidate 2: Oracc 2024 2025-10-10 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2024112901" target="_blank">Oracc
+2024 (Open Richly Annotated Cuneiform Corpus, Korp Version, November
+2024)</a> has been updated to release candidate 2, in which the values
+of the part-of-speech attributes of the EPSD2 subcorpus have been made
+more consistent, and ampersands have been corrected in attributes
+_autolemma_ and _autopos_.
+
+
 <!-- New corpus version (release candidate): Oracc 2024 2025-06-19 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2024112901" target="_blank">Oracc
