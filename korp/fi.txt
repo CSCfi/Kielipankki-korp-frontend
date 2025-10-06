@@ -1,4 +1,13 @@
 
+<!-- Julkaisuehdokas 2: Oracc 2024 2025-10-10 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2024112901" target="_blank">Oracc
+2024 (Open Richly Annotated Cuneiform Corpus, Korp-versio, marraskuu
+2024)</a> on päivitetty julkaisuehdokasversioon 2, jossa
+EPSD2-osakorpuksen sanaluokkapiirteiden arvoja on yhtenäistetty, ja
+&-merkit on korjattu piirteiden _autolemma_ ja _autopos_ arvoissa.
+
+
 <!-- Uusi aineistoversio (julkaisuehdokas): Oracc 2024 2025-06-19 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2024112901" target="_blank">Oracc
