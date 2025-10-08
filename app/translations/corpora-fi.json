@@ -610,7 +610,6 @@
     "vks_sentence_type": "virkkeen tyyppi",
 
     "text_time": "kellonaika",
-    "text_id": "tunniste",
     "text_publicnick": "kirjoittaja",
     "text_author": "kirjailija",
     "text_producers": "tuottajat",
@@ -635,6 +634,7 @@
 
     "message_type": "viestin tyyppi",
     "message_is_completely_empty": "viesti on täysin tyhjä",
+    "message_id": "viestin tunniste",
     "message_thread_id": "keskusteluketjun tunniste",
     "message_thread_start_timestamp": "keskusteluketjun alkuaikaleima",
     "comment_id": "kommentin tunniste",
@@ -724,6 +724,21 @@
     "ne_name": "nimi",
     "ne_placename": "paikannimi",
     "ne_placename_source": "paikannimitiedon lähde",
+    "ne_expr_1": "nimen päätyyppi (2. taso)",
+    "ne_type_1": "nimen tyyppi (2. taso)",
+    "ne_subtype_1": "nimen alityyppi (2. taso)",
+    "ne_fulltype_1": "nimen koko tyyppi (2. taso)",
+    "ne_name_1": "nimi (2. taso)",
+    "ne_placename_1": "paikannimi (2. taso)",
+    "ne_placename_source_1": "paikannimitiedon lähde (2. taso)",
+    "ne_expr_2": "nimen päätyyppi (3. taso)",
+    "ne_type_2": "nimen tyyppi (3. taso)",
+    "ne_subtype_2": "nimen alityyppi (3. taso)",
+    "ne_fulltype_2": "nimen koko tyyppi (3. taso)",
+    "ne_name_2": "nimi (3. taso)",
+    "ne_placename_2": "paikannimi (3. taso)",
+    "ne_placename_source_2": "paikannimitiedon lähde (3. taso)",
+
     "ner_bio": "sanan sijainti nimessä",
 
     "murre_speaker": "puhuja",
@@ -891,6 +906,10 @@
     "oracc_lang": "kielimuoto",
 
     "text__geo_provenience": "löytöpaikka",
+
+    "cdli_link": "CDLI-linkki",
+    "archive": "arkisto",
+    "text_is_empty": "teksti on tyhjä",
 
     "main_section": "pääosasto",
     "sections": "osastot",

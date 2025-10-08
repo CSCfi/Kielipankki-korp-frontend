@@ -440,6 +440,28 @@ settings.corporafolders.swahili.hcs2 = {
     },
 };
 
+settings.corporafolders.cuneiform.oracc2024 = {
+    title: "Oracc 2024",
+    description: "Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, November 2024<br/><br/>Open Richly Annotated Cuneiform Corpus (Oracc) brings together the work of several Assyriological projects to publish online editions of cuneiform texts. The Korp version of Oracc allows extensive searches on the texts and presents the results as a KWIC concordance list. Korp also offers statistical information and comparison of the search results. Downloading the query results is possible as well.<br/><br/>This version of Oracc in Korp contains almost all the data that were available on the <a href=\"http://oracc.museum.upenn.edu/\" target=\"_blank\">Oracc project website</a> in November 2024. The data have been extracted from the JSON files provided by Oracc. The additional features added by the Helsinki team in Oracc in Korp 2024 are automatic lemmatization and POS-tagging for previously unlemmatized texts (Aleksi Sahala), normalized divine names (Tero Alstola, Heidi Jauhiainen) and coordinates for tablet provenancies (Aleksi Sahala).<br/><br/>Oracc 2024 contains several new subcorpora (Oracc projects), and many subcorpora contain more data than Oracc 2021. However, note that Oracc 2024 does <em>not</em> contain the subcorpora CTIJ, LaOCOST and RIAo present in Oracc 2021 and that some subcorpora contain <em>less</em> data than their counterparts in Oracc 2021 or Oracc 2019.<br/><br/>A list of Oracc texts included in this Korp version is <a href=\"http://urn.fi/urn:nbn:fi:lb-2025061801\" target=\"_blank\">here</a> (the CDLI number and lemmatization status of each text in Oracc).",
+    info: {
+        metadata_urn: "urn:nbn:fi:lb-2024112901",
+        urn: "urn:nbn:fi:lb-2024113001",
+        licence: {
+            name: "CC BY-SA 4.0",
+            description: "Creative Commons Attribution-ShareAlike 4.0",
+            urn: "urn:nbn:fi:lb-2022091301",
+        },
+        iprholder: {
+            name: "Open Richly Annotated Cuneiform Corpus Project",
+            url: "http://oracc.museum.upenn.edu/doc/about/licensing/index.html",
+        },
+        // infopage_url: "https://www.kielipankki.fi/corpora/oracc/",
+        group_page_urn: "urn:nbn:fi:lb-2019111601",
+        shortname: "oracc-2024-11-korp",
+        status: "rc",
+    },
+};
+
 settings.corporafolders.cuneiform.oracc2021 = {
     title: "Oracc 2021",
     description: "Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, June 2021<br/><br/>Note that the subcorpora CAMS, CTIJ, DCCLT and HBTIN contain less data than their counterparts in <a href=\"http://urn.fi/urn:nbn:fi:lb-2019060601\" target=\"_blank\">Oracc, Korp version, May 2019</a>. This version is based on the JSON data that was available in <a href=\"http://oracc.museum.upenn.edu/\" target=\"_blank\">Oracc</a> in June 2021.<br/>A list of Oracc texts included in this Korp version is <a href=\"http://urn.fi/urn:nbn:fi:lb-2024092401\" target=\"_blank\">here</a> (the CDLI number and lemmatization status of each text in Oracc).",
@@ -533,6 +555,56 @@ settings.corporafolders.cuneiform.oracc = {
 settings.corpusAliases["oracc-2019-05"] = "oracc_adsd,oracc_ario,oracc_blms,oracc_cams,oracc_caspo,oracc_ctij,oracc_dcclt,oracc_dccmt,oracc_ecut,oracc_etcsri,oracc_hbtin,oracc_obmc,oracc_riao,oracc_ribo,oracc_rimanum,oracc_rinap,oracc_saao,oracc_others";
 settings.corpusAliases.oracc_2019_05
     = settings.corpusAliases["oracc-2019-05"];
+
+
+settings.corporafolders.cuneiform.achemenet = {
+    title: "Achemenet",
+    description: "Achemenet Babylonian texts – Kielipankki version 2020-12, Korp<br/><br/><a href=\"http://www.achemenet.com/\" target=\"_blank\">The Achemenet project</a> provides transliterations and translations of documents written in the Achaemenid Persian Empire (550–330 BCE).<br/>The Korp version of Achemenet contains the Babylonian cuneiform texts available in Achemenet in December 2020.<br/>The texts have been automatically lemmatized at the <a href=\"https://www.helsinki.fi/en/researchgroups/ancient-near-eastern-empires\">Centre of Excellence in Ancient Near Eastern Empires</a> (University of Helsinki), funded by the Research Council of Finland.<br/><br/>More information about the corpus is available at <a href=\"https://doi.org/10.5281/zenodo.14223709\" target=\"_blank\">https://doi.org/10.5281/zenodo.14223709</a>.",
+    contents: [
+        "achemenet_ct55",
+        "achemenet_belremanni",
+        "achemenet_murashu",
+        "achemenet_strassmaier",
+        "achemenet_yos7",
+    ],
+    info: {
+        shortname: "achemenet-2020-12-korp",
+	metadata_urn: "urn:nbn:fi:lb-2023062101",
+	urn: "urn:nbn:fi:lb-2023062102",
+        licence: {
+            name: "CC BY 4.0",
+            description: "Creative Commons Attribution 4.0 International",
+            urn: "urn:nbn:fi:lb-2025020601",
+        },
+	iprholder: {
+	    name: "Achemenet-CNRS",
+	    url: "http://www.achemenet.com/",
+	},
+	group_page_urn: "urn:nbn:fi:lb-2023062103",
+    }
+};
+
+
+settings.corporafolders.cuneiform.balt = {
+    title: "BALT",
+    description: "BALT: Babylonian Administrative and Legal Texts – Kielipankki version 2025-02, Korp<br/><br/>The corpus contains Babylonian cuneiform texts from the Neo-Babylonian, Persian, and Hellenistic periods (c. 626–93 BCE).<br/>More than half of the transliterated texts are legacy data of the late János Everling. The other texts have been transliterated and translated by Johannes Hackl, Bojana Janković, Michael Jursa, Yuval Levavi, Martina Schmidl and Caroline Waerzeggers.<br/>The texts have been automatically lemmatized at the <a href=\"https://www.helsinki.fi/en/researchgroups/ancient-near-eastern-empires\">Centre of Excellence in Ancient Near Eastern Empires</a> (University of Helsinki), funded by the Research Council of Finland.<br/><br/>More information about the corpus is available at <a href=\"https://doi.org/10.5281/zenodo.14186072\" target=\"_blank\">https://doi.org/10.5281/zenodo.14186072</a>.",
+    // contents added later with funcs.addCorpusSettings
+    info: {
+        shortname: "balt-2025-02-korp",
+	metadata_urn: "urn:nbn:fi:lb-2025022201",
+	urn: "urn:nbn:fi:lb-2025022609",
+        licence: {
+            name: "CC BY 4.0",
+            description: "Creative Commons Attribution 4.0 International",
+            urn: "urn:nbn:fi:lb-2025022202",
+        },
+	iprholder: {
+	    name: "University of Helsinki",
+	    url: "https://www.helsinki.fi/",
+	},
+	group_page_urn: "urn:nbn:fi:lb-2025031101",
+    },
+};
 
 
 /* Helsinki Corpus */
@@ -1365,7 +1437,7 @@ attrlist.oracc2021 = {
         extendedComponent: "structServiceSelect",
     },
     url: {
-	label: "oracc_url",
+	label: "link_to_original",
 	type: "url",
         hideExtended: true,
         hideStatistics: true,
@@ -1945,6 +2017,326 @@ settings.corpora.oracc_saao = {
     attributes: attrlist.oracc,
     structAttributes: sattrlist.oracc
 };
+
+
+// Attribute orders in the sidebar for Cuneiform corpora (some
+// attributes are present only in some corpora)
+
+// Positional attributes
+let cuneiformAttrOrder = [
+    "lemma",
+    "normname",
+    "transcription",
+    "pos",
+    "oraccpos",
+    "msd",
+    "translation",
+    "sense",
+    "lang",
+    "autolemma",
+    "autopos",
+    "url",
+];
+
+// Structural attributes
+let cuneiformStructAttrOrder = [
+    "text_cdlinumber",
+    "text_cdlilink",
+    "text_primarypub",
+    "text_url",
+    "text_collection",
+    "text_museumno",
+    "text_accessionno",
+    "text_period",
+    "text_date",
+    "text_datebce",
+    "text_provenience",
+    "text_archive",
+    "text_genre",
+    "text_subgenre",
+    "text_language",
+    "text_empty",
+];
+
+
+// Oracc 2024
+
+attrlist.oracc2024 = $.extend(true, {}, attrlist.oracc2021);
+sattrlist.oracc2024 = $.extend(true, {}, sattrlist.oracc2021);
+
+// Try to hide URL in "link to original"; why doesn't this work?
+attrlist.oracc2024.url.url_opts.hide_url = true;
+
+funcs.setAttrOrder(attrlist.oracc2024, cuneiformAttrOrder);
+funcs.setAttrOrder(sattrlist.oracc2024, cuneiformStructAttrOrder);
+
+settings.templ.oracc2024 = {
+    id: "oracc2024_{}",
+    title: "{} (Oracc 2024)",
+    description: "{}<br/>Part of Oracc – Open Richly Annotated Cuneiform Corpus, Korp Version, November 2024",
+    context: context.sp,
+    within: within.sp,
+    attributes: attrlist.oracc2024,
+    structAttributes: sattrlist.oracc2024,
+};
+
+let oracc2024_subcorpora = [
+    ["adsd", "ADsD: Astronomical Diaries Digital", null,
+     { credits_url: "http://www.oracc.org/adsd/", }],
+    ["aemw", "AEMW: Akkadian in the Eastern Mediterranean World", null,
+     { credits_url: "http://www.oracc.org/aemw/", }],
+    ["akklove", "Akkadian Love Literature", null,
+     { credits_url: "http://www.oracc.org/akklove/participants/", }],
+    ["ario", "ARIo: Achaemenid Royal Inscriptions online", null,
+     { credits_url: "http://www.oracc.org/ario/abouttheproject/", }],
+    ["asbp", "AsbP: Ashurbanipal Library Project", null,
+     { credits_url: "http://www.oracc.org/asbp/Abouttheproject/Contributors/index.html", }],
+    ["atae", "ATAE: Archival Texts of the Assyrian Empire", null,
+     { credits_url: "http://www.oracc.org/atae/abouttheproject/", }],
+    ["babcity", "Corpus of Babylonian Texts Concerning the Urban Landscape", null,
+     { credits_url: "http://www.oracc.org/babcity/", }],
+    ["blms", "blms: Bilinguals in Late Mesopotamian Scholarship", null,
+     { credits_url: "http://www.oracc.org/blms/", }],
+    ["borsippa", "Archival Texts of the Priests of Borsippa", null,
+     { credits_url: "http://www.oracc.org/borsippa/Creditsandreuse/index.html", }],
+    ["btto", "BTTo: Babylonian Topographical Texts Online", null,
+     { credits_url: "http://www.oracc.org/btto/abouttheproject/", }],
+    ["cams", "CAMS: Corpus of Ancient Mesopotamian Scholarship", null,
+     { credits_url: "http://www.oracc.org/cams/", }],
+    ["caspo", "CASPo: Corpus of Akkadian Shuila-Prayers online", null,
+     { credits_url: "http://www.oracc.org/caspo/", }],
+    ["ccpo", "CCPo: Cuneiform Commentaries Project on Oracc", null,
+     { credits_url: "http://www.oracc.org/ccpo/", }],
+    ["ckst", "CKST: Corpus of Kassite Sumerian Texts", null,
+     { credits_url: "http://www.oracc.org/ckst/", }],
+    ["cmawro", "CMAwRo: Corpus of Mesopotamian Anti-witchcraft Rituals", null,
+     { credits_url: "http://www.oracc.org/cmawro/", }],
+    ["dcclt", "DCCLT: Digital Corpus of Cuneiform Lexical Texts", null,
+     { credits_url: "http://www.oracc.org/dcclt/aboutdcclt/", }],
+    ["dccmt", "DCCMT: Digital Corpus of Cuneiform Mathematical Texts", null,
+     { credits_url: "http://www.oracc.org/dccmt/", }],
+    ["dsst", "DSSt: Datenbank sumerischer Streitliteratur", null,
+     { credits_url: "http://www.oracc.org/dsst/staff/", }],
+    ["ecut", "eCUT: Electronic Corpus of Urartian Texts", null,
+     { credits_url: "http://www.oracc.org/ecut/abouttheproject/", }],
+    ["edlex", "EDLEX: Early Dynastic Lexical Texts", null,
+     { credits_url: "http://www.oracc.org/edlex/", }],
+    ["eisl", "eISL: A Corpus of First Millennium Emesal Liturgies", null,
+     { credits_url: "http://www.oracc.org/eisl/About/index.html", }],
+    ["epsd2", "EPSD2: Electronic Pennsylvania Sumerian Dictionary 2", null,
+     { credits_url: "http://www.oracc.org/epsd2/about/", }],
+    ["etcsri", "ETCSRI: Electronic Text Corpus of Sumerian Royal Inscriptions", null,
+     { credits_url: "http://www.oracc.org/etcsri/staff/", }],
+    ["glass", "Glass: Corpus of Glass Technological Texts", null,
+     { credits_url: "http://www.oracc.org/glass/", }],
+    ["hbtin", "HBTIN: Hellenistic Babylonia: Texts, Iconography, Names", null,
+     { credits_url: "http://www.oracc.org/hbtin/staff.html", }],
+    ["iraq", "IRAQ Journal", null,
+     { credits_url: "http://www.oracc.org/iraq/", }],
+    ["nere", "NERE: Near Eastern Royal Epics", null,
+     { credits_url: "http://www.oracc.org/nere/", }],
+    ["obel", "OBEL: Old Babylonian Emesal Liturgies", null,
+     { credits_url: "http://www.oracc.org/obel/", }],
+    ["obmc", "OBMC: Old Babylonian Model Contracts", null,
+     { credits_url: "http://www.oracc.org/obmc/aboutobmc/", }],
+    ["obta", "OBTA: Old Babylonian Tabular Accounts", null,
+     { credits_url: "http://www.oracc.org/obta/", }],
+    ["ribo", "RIBo: Royal Inscriptions of Babylonia online", null,
+     { credits_url: "http://www.oracc.org/ribo/abouttheproject/", }],
+    ["rimanum", "Rīm-Anum: The House of Prisoners", null,
+     { credits_url: "http://www.oracc.org/rimanum/", }],
+    ["rinap", "RINAP: Royal Inscriptions of the Neo-Assyrian Period", null,
+     { credits_url: "http://www.oracc.org/rinap/abouttheproject/", }],
+    ["saao", "SAAo: State Archives of Assyria Online", null,
+     { credits_url: "http://www.oracc.org/saao/abouttheproject/", }],
+    ["suhu", "Suhu: The Inscriptions of Suhu online", null,
+     { credits_url: "http://www.oracc.org/suhu/abouttheproject/", }],
+    ["urap", "URAP: Ur Regional Archaeology Project", null,
+     { credits_url: "http://www.oracc.org/urap/", }],
+];
+
+funcs.addCorpusSettings(
+    settings.templ.oracc2024, oracc2024_subcorpora,
+    settings.corporafolders.cuneiform.oracc2024);
+
+funcs.addCorpusAliases(
+    settings.corporafolders.cuneiform.oracc2024.contents.join(","),
+    ["oracc-2024", "oracc-2024-11", "oracc-korp-2024", "oracc-korp-2024-11"]);
+
+
+
+// ACHEMENET
+
+// No additional positional attributes in Achemenet compared with Oracc 2021
+attrlist.achemenet = $.extend(true, {}, attrlist.oracc2021);
+// Remove Oracc 2021 positional attributes not in Achemenet
+delete attrlist.achemenet.url;
+
+funcs.setAttrOrder(attrlist.achemenet, cuneiformAttrOrder);
+
+// Add structural attributes not in Oracc 2021
+sattrlist.achemenet = $.extend(
+    true, {}, sattrlist.oracc2021,
+    {
+        text_cdlilink: {
+            label: "cdli_link",
+            type: "url",
+            urlOpts: {
+                // inLinkSection: true,
+                hideUrl: true,
+                newWindow: true,
+            },
+            hideExtended: true,
+            hideStatistics: true,
+        },
+        text_url: {
+            label: "link_to_original",
+            type: "url",
+            urlOpts: {
+                // inLinkSection: true,
+                hideUrl: true,
+                newWindow: true,
+            },
+            hideExtended: true,
+            hideStatistics: true,
+        },
+        text_date: sattrs.date,
+        text_archive: {
+            label: "archive",
+            extendedComponent: "structServiceSelect",
+        },
+        text_empty: funcs.makeBoolAttr("text_is_empty"),
+        text_id: {
+            label: "text_id",
+            displayType: "hidden",
+        },
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+);
+// Remove Oracc 2021 structural attributes not in Achemenet
+for (let attr of [
+    "text_photo",
+    "text_copy",
+    "text_accessionno",
+    "text_excavation",
+    "text_collection",
+]) {
+    delete sattrlist.achemenet[attr];
+}
+
+funcs.setAttrOrder(sattrlist.achemenet, cuneiformStructAttrOrder);
+
+
+settings.corpora.achemenet_murashu = {
+    id: "achemenet_murashu",
+    title: "Murašû archive (Achemenet)",
+    description: "Murašû archive (Achemenet)<br/><br/>The texts are originally published in BE 8/1 (Clay 1908), BE 9 (Hilprecht and Clay 1898), BE 10 (Clay 1904), CTMMA III (Spar and von Dassow 2000), Entrepreneurs and Empire (Stolper 1985), Istanbul Murašû Texts (Donbaz and Stolper 1997), Joannès 1987, PBS 2/1 (Clay 1912), Stolper 2001, Stolper 2015, TuM 2/3 (Krückmann 1933), and UCP 9/3 (Lutz 1928). For full bibliographical references, see <a href=\"https://doi.org/10.5281/zenodo.14223709\" target=\"_blank\">https://doi.org/10.5281/zenodo.14223709</a>.",
+    context: context.sp,
+    within: within.sp,
+    attributes: attrlist.achemenet,
+    structAttributes: sattrlist.achemenet
+};
+
+settings.corpora.achemenet_yos7 = {
+    id: "achemenet_yos7",
+    title: "YOS 7 (Achemenet)",
+    description: "YOS 7 (Achemenet)<br/><br/>The texts are originally published in Tremayne, Arch. 1925. Records from Erech: Time of Cyrus and Cambyses (538–521 B. C.). Yale Oriental Series, Babylonian Texts 7. New Haven: Yale University Press; London: Milford, Oxford University Press.",
+    context: context.sp,
+    within: within.sp,
+    attributes: attrlist.achemenet,
+    structAttributes: sattrlist.achemenet
+};
+
+settings.corpora.achemenet_belremanni = {
+    id: "achemenet_belremanni",
+    title: "Jursa, Bēl-rēmanni (Achemenet)",
+    description: "Jursa, Das Archiv des Bēl-rēmanni (Achemenet)<br/><br/>The texts are originally published in Jursa, Michael. 1999. Das Archiv des Bēl-rēmanni. Uitgaven van het Nederlands Historisch-Archaeologisch Instituut te Istanbul 86. Istanbul: Nederlands Historisch-Archaeologisch Instituut.",
+    context: context.sp,
+    within: within.sp,
+    attributes: attrlist.achemenet,
+    structAttributes: sattrlist.achemenet
+};
+
+settings.corpora.achemenet_ct55 = {
+    id: "achemenet_ct55",
+    title: "CT 55 (Achemenet)",
+    description: "CT 55 (Achemenet)<br/><br/>The texts are originally published in Pinches, T. G. 1982. Neo-Babylonian and Achaemenid Economic Texts. Cuneiform Texts from Babylonian Tablets in the British Museum 55. London: Trustees of the British Museum.",
+    context: context.sp,
+    within: within.sp,
+    attributes: attrlist.achemenet,
+    structAttributes: sattrlist.achemenet
+};
+
+settings.corpora.achemenet_strassmaier = {
+    id: "achemenet_strassmaier",
+    title: "Strassmaier (Achemenet)",
+    description: "Strassmaier (Cyr, Camb, Dar) (Achemenet)<br/><br/>The texts were originally published by J. N. Strassmaier in Inschriften von Nabonidus, König von Babylon (Leipzig, 1889); Inschriften von Nabuchodonosor, König von Babylon (Leipzig 1889); Inschriften von Cambyses, König von Babylon (Leipzig, 1890); Inschriften von Cyrus, König von Babylon (Leipzig, 1890); and Inschriften von Darius, König von Babylon (Leipzig, 1892–1897).",
+    context: context.sp,
+    within: within.sp,
+    attributes: attrlist.achemenet,
+    structAttributes: sattrlist.achemenet
+};
+
+funcs.addCorpusAliases("achemenet_.*", ["achemenet"]);
+
+
+// BALT
+
+// Same positional attributes as in Achemenet
+attrlist.balt = attrlist.achemenet;
+
+// Add structural attributes not in Achemenet
+sattrlist.balt = $.extend(
+    true, {}, sattrlist.achemenet,
+    {
+        text_collection: sattrlist.oracc2021.text_collection,
+        text_accessionno: sattrlist.oracc2021.text_accessionno,
+    }
+);
+// Remove Achemenet structural attributes not in BALT
+for (let attr of [
+    "text_url",
+    "text_empty",
+]) {
+    delete sattrlist.balt[attr];
+}
+
+funcs.setAttrOrder(sattrlist.balt, cuneiformStructAttrOrder);
+
+
+settings.templ.balt = {
+    id: "balt_{}",
+    title: "{} (BALT)",
+    description: "{}<br/>(BALT: Babylonian Administrative and Legal Texts – Kielipankki version 2025-02, Korp)<br/><br/>{}",
+    context: context.sp,
+    within: within.sp,
+    attributes: attrlist.balt,
+    structAttributes: sattrlist.balt,
+};
+
+funcs.addCorpusSettings(
+    settings.templ.balt,
+    [
+        ["everling", "Everling",
+         ["Everling (AnOr 8, CT 49, GCCI 1 & 2, Nbk, TuM 2/3, UCP 9/1 & 9/3, VS 3, YOS 17)",
+          "The texts have been transliterated by János Everling. The corpus includes texts published in AnOr 8 (Pohl 1933), CT 49 (Kennedy 1968), GCCI 1-2 (Dougherty 1923, 1933), Nbk (Strassmaier 1889), TuM 2/3 (Krückmann 1933), UCP 9/1 (Lutz 1927), UCP 9/3 (Lutz 1928), UCP 9/12 (Lutz 1931), VS 3 (Ungnad 1907), and YOS 17 (Weisberg and Dougherty 1980). For full bibliographical references, see <a href=\"https://doi.org/10.5281/zenodo.14186072\">https://doi.org/10.5281/zenodo.14186072</a>."]],
+        ["hackl_briefdossier", "Hackl et al., Briefdossier des Šumu-ukīn",
+         ["Hackl, Jankovic & Jursa, Briefdossier des Šumu-ukīn (KASKAL 8)",
+          "The texts are originally published in Hackl, Johannes, Bojana Janković, and Michael Jursa. 2011. “Das Briefdossier des Šumu-ukīn.” KASKAL 8: 177–221."]],
+        ["hackl_privatbriefe", "Hackl et al., Spätbabylonische Privatbriefe",
+         ["Hackl, Jursa & Schmidl, Spätbabylonische Privatbriefe (AOAT 414/1)",
+          "The texts are originally published in Hackl, Johannes, Michael Jursa, and Martina Schmidl. 2014. Spätbabylonische Privatbriefe. With contributions by Klaus Wagensonner. Alter Orient und Altes Testament 414/1. Münster: Ugarit-Verlag."]],
+        ["levavi", "Levavi, Administrative Epistolography",
+         ["Levavi, Administrative Epistolography (Dubsar 3)",
+          "The texts are originally published in Levavi, Yuval. 2018. Administrative Epistolography in the Formative Phase of the Neo-Babylonian Empire. Dubsar 3. Münster: Zaphon."]],
+        ["waerzeggers", "Waerzeggers, Marduk-rēmanni",
+         ["Waerzeggers, Marduk-rēmanni (OLA 233)",
+          "The texts are originally published in Waerzeggers, Caroline. 2014. Marduk-rēmanni: Local Networks and Imperial Politics in Achaemenid Babylonia. Orientalia Lovaniensia Analecta 233. Leuven: Peeters."]],
+    ],
+    settings.corporafolders.cuneiform.balt
+);
+
+funcs.addCorpusAliases("balt_.*", ["balt"]);
 
 
 settings.corpora.ethesis_ru = {

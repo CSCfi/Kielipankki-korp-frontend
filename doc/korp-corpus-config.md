@@ -956,18 +956,21 @@ configuration:
 
 ### Corpus status
 
-**\[Korp 9\]** When a corpus is in the beta test stage or in an
-earlier testing stage, you should add the property `status` with the
-value `"beta"` or `"test"` to the corpus configuration or to the
-`info` object of the configuration of a corpus folder whose all
-corpora have the same status:
+**\[Korp 9\]** When a corpus is a release candidate (publicly
+available in the production Korp), in the beta test stage or in an
+earlier testing stage (in a Korp test instance), you should add the
+property `status` with the value `"rc"`, `"beta"` or `"test"`,
+respectively, to the corpus configuration or to the `info` object of
+the configuration of a corpus folder whose all corpora have the same
+status:
 
 ```javascript
-    status: "beta",
+    status: "rc",
 ```
 
-This appends the string “_(beta)_” or “_(test)_” to the corpus title
-and an appropriate localized disclaimer to the description.
+This appends the string “_(release candidate)_”, “_(beta)_” or
+“_(test)_” (appropriately localized) to the corpus title and an
+appropriate localized disclaimer to the description.
 
 
 <!--
