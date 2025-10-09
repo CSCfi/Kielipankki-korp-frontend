@@ -1,5 +1,5 @@
 
-<!-- Release candidate 2: Oracc 2024 2025-10-10 -->
+<!-- Release candidate 2: Oracc 2024 2025-10-09 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2024112901" target="_blank">Oracc
 2024 (Open Richly Annotated Cuneiform Corpus, Korp Version, November
