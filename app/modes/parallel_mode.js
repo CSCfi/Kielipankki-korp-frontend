@@ -7959,9 +7959,9 @@ funcs.addCorporaToFolder("other", "xmas_gospel_kpv");
 
 attrlist.digisvenska = {
     ref: attrs.ref,
-    lemma_stanza: attrs.baseform_sv,
-    lemma: attrs.saldo,
-    lemmacomp: attrs.baseform_compound,
+    lemma: attrs.baseform_sv,
+    lemma_stanza: attrs.baseform_stanza,
+    compwf: attrs.compwf,
     pos: attrs.pos,
     msd: attrs.msd,
     dephead: attrs.dephead,
