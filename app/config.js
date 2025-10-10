@@ -427,6 +427,7 @@ settings.corpusExtraInfo = {
         "metadata",
         "cite",
         "infopage",
+        "group_page",
         "urn",
         "download",
         "pid",
