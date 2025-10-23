@@ -427,6 +427,7 @@ settings.corpusExtraInfo = {
         "metadata",
         "cite",
         "infopage",
+        "group_page",
         "urn",
         "download",
         "pid",
@@ -927,6 +928,7 @@ settings.augmentCorpusInfoProperties = {
         values: [
             "beta",
             "rc",
+            "rc2",
             "test",
         ],
         localizeTitle: true,
