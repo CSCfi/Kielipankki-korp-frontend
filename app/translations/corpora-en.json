@@ -12,6 +12,7 @@
     "msd": "msd",
     "msd_ud1": "msd (UD1)",
     "baseform": "base form",
+    "baseform_stanza": "base form (unambiguous)",
     "baseform_ud1": "base form (UD1)",
     "lemgram": "lemgram",
     "dalin-lemgram": "dalin-lemgram",

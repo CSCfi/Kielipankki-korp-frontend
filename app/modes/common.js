@@ -3799,6 +3799,20 @@ attrs.baseform_sv = {
     extendedTemplate: "<input ng-model='model' >",
     order: 1
 };
+attrs.baseform_stanza = {
+    label: "baseform_stanza",
+    opts: options.default,
+};
+attrs.compwf = {
+    label: "compwf",
+    display: {
+        "expandList": {}
+    },
+    type: "set",
+    hideStatistics: true,
+    hideExtended: true,
+    hideCompare: true
+};
 attrs.lemgram = {
     label: "lemgram",
     type: "set",

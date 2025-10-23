@@ -14,6 +14,7 @@
     "msd": "msd",
     "msd_ud1": "msd (UD1)",
     "baseform": "grundform",
+    "baseform_stanza": "grundform (entydig)",
     "baseform_ud1": "grundform (UD1)",
     "lemgram": "lemgram",
     "dalin-lemgram": "dalin-lemgram",
