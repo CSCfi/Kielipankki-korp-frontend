@@ -1,6 +1,5 @@
-/** @format */
 import settings from "@/settings"
-import { getService } from "@/util";
+import { getService } from "@/angular-util";
 const minkImgPath = require("custom/mink.svg")
 
 settings["auth_module"] = {
@@ -27,7 +26,7 @@ settings["map_enabled"] = true
 settings["config_dependent_on_authentication"] = true
 
 settings["get_corpus_ids"] = async () => {
-    const auth = await import("@/components/auth/auth")
+    const {auth} = await import("@/auth/auth")
     if (!auth.isLoggedIn()) return undefined
     // Fetch user's corpus ids from Mink
     const minkUrl = "https://www.kielipankki.fi/future/mink/api"
@@ -41,10 +40,10 @@ let html = String.raw
 
 const minkLink = "https://www.kielipankki.fi/future/mink/"
 
-settings["initialization_checks"] = async (s) => {
+settings["initialization_checks"] = async () => {
     // Import only when needed, because it depends on the auth_module setting defined here
     const {default: statemachine} = await import("@/statemachine")
-    const authenticationProxy = await import("@/components/auth/auth")
+    const {auth} = await import("@/auth/auth")
 
     const translations = {
         readMore: {
@@ -81,7 +80,8 @@ settings["initialization_checks"] = async (s) => {
 
     function openModal(template) {
         const $uibModal = getService("$uibModal");
-        const scope = s.$new();
+        const $rootScope = getService("$rootScope")
+        const scope = $rootScope.$new();
         scope.translations = translations;
         return $uibModal.open({
             template,
@@ -91,7 +91,7 @@ settings["initialization_checks"] = async (s) => {
         });
     }
 
-    if (!authenticationProxy.isLoggedIn()) {
+    if (!auth.isLoggedIn()) {
         const modal = openModal(html`<div class="modal-body">
                 <div class="text-center my-5"><img src="${minkImgPath}" class="h-16" /></div>
                 <div class="my-3">{{translations.notAuthenticated | locObj:$root.lang}}</div>
@@ -105,7 +105,6 @@ settings["initialization_checks"] = async (s) => {
                 <button class="btn btn-primary" ng-click="$close()">{{'log_in' | loc:$root.lang}}</button>
             </div>`);
         modal.result.finally(() => {
-            s.waitForLogin = true;
             statemachine.send("LOGIN_NEEDED");
         });
         return true;

@@ -1,5 +1,3 @@
-import settings from "@/settings"
-
 export default {
     complemgramExtended: {
         template: `<autoc
@@ -42,12 +40,12 @@ export default {
     },
     msd: {
         template: `
-            <input ng-model="input" class="arg_value" escaper ng-model-options='{debounce : {default : 300, blur : 0}, updateOn: "default blur"}'>
+            <input ng-model="model" class="arg_value" ng-model-options='{debounce : {default : 300, blur : 0}, updateOn: "default blur"}'>
             <span ng-click="onIconClick()" class="fa fa-info-circle"></span>
         `,
         controller: ["$scope", "$uibModal", function($scope, $uibModal) {
             let modal = null
-            const msdHTML = settings.markup.msd
+            const msdHTML = require("custom/msd.html")
             const template = `
                 <div>
                     <div class="modal-header">
