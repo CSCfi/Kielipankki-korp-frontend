@@ -562,6 +562,7 @@
     "digisvenska_grade" : "studentbetyg",
     "digisvenska_score" : "totala studentprovspoäng",
     "digisvenska_score_value" : "uppgiftspoäng",
+    "corr": "korrektionsannotering",
 
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }

@@ -890,6 +890,7 @@
     "digisvenska_grade" : "grade",
     "digisvenska_score" : "total score",
     "digisvenska_score_value" : "assignment score",
+    "corr": "correction annotation",
 
     "studex_school": "school",
     "studex_round": "round",

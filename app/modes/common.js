@@ -3846,6 +3846,44 @@ attrs.saldo = {
     extendedTemplate: settings.senseAutoComplete,
     order: 3
 };
+attrs.corr = {
+    label: "corr",
+    opts: options.default,
+/*    dataset: {
+	"L-W": "L-W",
+	"M-Def": "M-Def",
+	"O": "O",
+	"M-Verb": "M-Verb",
+	"M-Gend": "M-Gend",
+	"S-FinV": "S-FinV",
+	"L-Der": "L-Der",
+	"M-F": "M-F",
+	"S-Adv": "S-Adv",
+	"M-Num": "M-Num",
+	"L-Ref": "L-Ref",
+	"S-M": "S-M",
+	"L-FL": "L-FL",
+	"P-M": "P-M",
+	"O-Comp": "O-Comp",
+	"C": "C",
+	"S-R": "S-R",
+	"S-Type": "S-Type",
+	"P-R": "P-R",
+	"M-Case": "M-Case",
+	"Com!": "Com!",
+	"S-Ext": "S-Ext",
+	"S-WO": "S-WO",
+	"M-Adj/adv": "M-Adj/adv",
+	"O-Cap": "O-Cap",
+	"S-Msubj": "S-Msubj",
+	"S-Comp": "S-Comp",
+	"S-Clause": "S-Clause",
+	"P-W": "P-W",
+	"S-Other": "S-Other",
+	"M-Other": "M-Other",
+	"P-Sent": "P-Sent",
+    }*/
+};
 attrs.dephead = {
     label: "dephead",
     displayType: "hidden"
