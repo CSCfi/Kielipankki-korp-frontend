@@ -438,8 +438,7 @@ attrlist.digisvenska = {
     msd: attrs.msd,
     dephead: attrs.dephead,
     deprel: attrs.deprel,
-    lex: attrs.lemgram,
-    corr: attrs.corr
+    lex: attrs.lemgram
 };
 
 sattrlist.digisvenska = {
