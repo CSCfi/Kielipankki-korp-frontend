@@ -3846,8 +3846,8 @@ attrs.saldo = {
     extendedTemplate: settings.senseAutoComplete,
     order: 3
 };
-attrs.corr = {
-    label: "corr",
+attrs.corr_annot = {
+    label: "correction_annotation",
     opts: options.default,
 /*    dataset: {
 	"L-W": "L-W",
@@ -3883,6 +3883,14 @@ attrs.corr = {
 	"M-Other": "M-Other",
 	"P-Sent": "P-Sent",
     }*/
+};
+attrs.orig_tokens = {
+    label: "original_tokens",
+    opts: options.default
+};
+attrs.par_tokens = {
+    label: "parallel_tokens",
+    opts: options.default
 };
 attrs.dephead = {
     label: "dephead",
