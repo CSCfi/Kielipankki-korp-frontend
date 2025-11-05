@@ -563,8 +563,8 @@
     "digisvenska_score" : "totala studentprovspoäng",
     "digisvenska_score_value" : "uppgiftspoäng",
     "correction_annotation": "korrektionsannotering",
-    "original_tokens" : "tokens",
-    "parallel_tokens" : "parallella tokens",
+    "original_expression" : "originalt uttryck",
+    "normalized_expression" : "normaliserat uttryck",
 
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }

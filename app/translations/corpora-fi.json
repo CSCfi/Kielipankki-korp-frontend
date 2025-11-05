@@ -1068,8 +1068,8 @@
     "digisvenska_score" : "kokonaispisteet",
     "digisvenska_score_value" : "tehtävän pisteet",
     "correction_annotation" : "korjausannotaatio",
-    "original_tokens" : "saneet",
-    "parallel_tokens" : "rinnakkaiset saneet",
+    "original_expression" : "alkuperäinen ilmaus",
+    "normalized_expression" : "normalisoitu ilmaus",
 
     "studex_school": "lukio",
     "studex_round": "kirjoitusten ajankohta",

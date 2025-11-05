@@ -3848,7 +3848,8 @@ attrs.saldo = {
 };
 attrs.corr_annot = {
     label: "correction_annotation",
-    opts: options.default,
+    extendedComponent: "structServiceSelect",
+    opts: options.lite,
 /*    dataset: {
 	"L-W": "L-W",
 	"M-Def": "M-Def",
@@ -3884,12 +3885,12 @@ attrs.corr_annot = {
 	"P-Sent": "P-Sent",
     }*/
 };
-attrs.orig_tokens = {
-    label: "original_tokens",
+attrs.orig_expr = {
+    label: "original_expression",
     opts: options.default
 };
-attrs.par_tokens = {
-    label: "parallel_tokens",
+attrs.norm_expr = {
+    label: "normalized_expression",
     opts: options.default
 };
 attrs.dephead = {

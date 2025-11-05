@@ -7968,8 +7968,8 @@ attrlist.digisvenska = {
     deprel: attrs.deprel,
     lex: attrs.lemgram,
     corr: attrs.corr_annot,
-    orig: attrs.orig_tokens,
-    par: attrs.par_tokens
+    orig: attrs.orig_expr,
+    norm: attrs.norm_expr
 };
 
 sattrlist.digisvenska = {
