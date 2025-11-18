@@ -16760,6 +16760,54 @@ funcs.ylenews_fi_make_title_descr_templ = function (type, descrExtra) {
 };
 
 
+// Function to add ylenews-fi corpora.
+//
+// Add corpora to settings.corporafolders.news.ylenews_fi[subfolder]
+// (where subfolder is "a" or "s"), with base template templBase and
+// years and PIDs filled from array partData. Each item in partData
+// describes a range of subcorpora (years) with the same metadata and
+// location PID. partData items are four-item arrays: [first year,
+// last year, metadata PID number, location PID number] (PID numbers
+// contain only the variable, numeric part of the PID).
+//
+// In addition, add a corpus alias for each part and a cumulative
+// alias from the first year of the first part to the last year of
+// each later part.
+
+funcs.ylenews_fi_addCorpora = function (subfolder, templBase, partData) {
+
+    // Add corpus alias for type ("a" or "s") and years y1...y2.
+    addAlias = function (type, y1, y2) {
+        let years = []
+        for (y = y1; y <= y2; y++) {
+            years.push((y - 2000).toString())
+        }
+        let yearsRe = years.join("|")
+        type = (type == "a" ? "" : "-" + type)
+        funcs.addCorpusAliases(`ylenews_fi_20(${yearsRe})_${subfolder}`,
+                               [`ylenews-fi-${y1}-${y2}-korp${type}`])
+    }
+
+    // Add corpus definitions and alias for each range of subcorpora
+    for (let partItem of partData) {
+        let [y1, y2, metaPidNum, locPidNum] = partItem
+        funcs.addCorpusSettings(
+            $.extend({}, funcs.fillYearsVersion(templBase, y1, y2),
+                     {
+                         metadata_urn: "urn:nbn:fi:lb-" + metaPidNum,
+                         urn: "urn:nbn:fi:lb-" + locPidNum,
+                     }),
+            [y1, y2],
+            settings.corporafolders.news.ylenews_fi[subfolder])
+        addAlias(subfolder, y1, y2)
+    }
+    // Add cumulative aliases
+    for (let last = 1; last < partData.length; last++) {
+        addAlias(subfolder, partData[0][0], partData[last][1])
+    }
+};
+
+
 // Partial template to be filled using funcs.fillYearsVersion
 settings.templ.ylenews_fi_a_base = $.extend(
     {},
@@ -16780,53 +16828,13 @@ settings.templ.ylenews_fi_a_base = $.extend(
     }
 );
 
-settings.templ.ylenews_fi_a_2011_2018 = $.extend(
-    {},
-    funcs.fillYearsVersion(settings.templ.ylenews_fi_a_base, 2011, 2018),
-    {
-        urn: "urn:nbn:fi:lb-2019121005",
-        metadata_urn: "urn:nbn:fi:lb-2019121003",
-    }
+funcs.ylenews_fi_addCorpora(
+    "a", settings.templ.ylenews_fi_a_base,
+    [
+        [2011, 2018, "2019121003", "2019121005"],
+        [2019, 2021, "2022031701", "2022031702"],
+    ]
 );
-
-settings.templ.ylenews_fi_a_2019_2021 = $.extend(
-    {},
-    funcs.fillYearsVersion(settings.templ.ylenews_fi_a_base, 2019, 2021),
-    {
-        urn: "urn:nbn:fi:lb-2022031702",
-        metadata_urn: "urn:nbn:fi:lb-2022031701",
-    }
-);
-
-
-funcs.addCorpusSettings(
-    settings.templ.ylenews_fi_a_2011_2018,
-    [2011, 2018],
-    settings.corporafolders.news.ylenews_fi.a);
-
-funcs.addCorpusSettings(
-    settings.templ.ylenews_fi_a_2019_2021,
-    [2019, 2021],
-    settings.corporafolders.news.ylenews_fi.a);
-
-
-funcs.addCorpusAliases(
-    "ylenews_fi_20(1[1-8])_a",
-    [
-        "ylenews-fi-2011-2018-korp",
-    ]);
-
-funcs.addCorpusAliases(
-    "ylenews_fi_20(19|2[0-1])_a",
-    [
-        "ylenews-fi-2019-2021-korp",
-    ]);
-
-funcs.addCorpusAliases(
-    "ylenews_fi_20(1[1-9]|2[01])_a",
-    [
-	"ylenews-fi-2011-2021-korp",
-    ]);
 
 
 // Partial template to be filled using funcs.fillYearsVersion
@@ -16849,53 +16857,13 @@ settings.templ.ylenews_fi_s_base = $.extend(
     }
 );
 
-settings.templ.ylenews_fi_s_2011_2018 = $.extend(
-    {},
-    funcs.fillYearsVersion(settings.templ.ylenews_fi_s_base, 2011, 2018),
-    {
-        urn: "urn:nbn:fi:lb-2019121006",
-        metadata_urn: "urn:nbn:fi:lb-2019121004",
-    }
+funcs.ylenews_fi_addCorpora(
+    "s", settings.templ.ylenews_fi_s_base,
+    [
+        [2011, 2018, "2019121004", "2019121006"],
+        [2019, 2021, "2022032201", "2022032202"],
+    ]
 );
-
-settings.templ.ylenews_fi_s_2019_2021 = $.extend(
-    {},
-    funcs.fillYearsVersion(settings.templ.ylenews_fi_s_base, 2019, 2021),
-    {
-        urn: "urn:nbn:fi:lb-2022032202",
-        metadata_urn: "urn:nbn:fi:lb-2022032201",
-    }
-);
-
-
-funcs.addCorpusSettings(
-    settings.templ.ylenews_fi_s_2011_2018,
-    [2011, 2018],
-    settings.corporafolders.news.ylenews_fi.s);
-
-funcs.addCorpusSettings(
-    settings.templ.ylenews_fi_s_2019_2021,
-    [2019, 2021],
-    settings.corporafolders.news.ylenews_fi.s);
-
-
-funcs.addCorpusAliases(
-    "ylenews_fi_20(1[1-8])_s",
-    [
-        "ylenews-fi-2011-2018-s-korp",
-    ]);
-
-funcs.addCorpusAliases(
-    "ylenews_fi_20(19|2[0-1])_s",
-    [
-        "ylenews-fi-2019-2021-s-korp",
-    ]);
-
-funcs.addCorpusAliases(
-    "ylenews_fi_20(1[1-9]|2[01])_s",
-    [
-	"ylenews-fi-2011-2021-s-korp",
-    ]);
 
 
 /* YLE Finnish Easy-to-read*/
