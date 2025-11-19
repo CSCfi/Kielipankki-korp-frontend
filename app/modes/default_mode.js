@@ -16763,18 +16763,23 @@ funcs.ylenews_fi_make_title_descr_templ = function (type, descrExtra) {
 // Function to add ylenews-fi corpora.
 //
 // Add corpora to settings.corporafolders.news.ylenews_fi[subfolder]
-// (where subfolder is "a" or "s"), with base template templBase and
+// (where subfolder is "a" or "s"), with title augmented with
+// titleFill and description with descrFill, context and within type
+// contextType, additional structural attributes in structExtra, and
 // years and PIDs filled from array partData. Each item in partData
 // describes a range of subcorpora (years) with the same metadata and
-// location PID. partData items are four-item arrays: [first year,
-// last year, metadata PID number, location PID number] (PID numbers
-// contain only the variable, numeric part of the PID).
+// location PID. partData items are four- or five-item arrays: [first
+// year, last year, metadata PID number, location PID number, (extra
+// properties)] (PID numbers contain only the variable, numeric part
+// of the PID; extra properties is an optional composite object that
+// is recursively merged to the corpus definition).
 //
 // In addition, add a corpus alias for each part and a cumulative
 // alias from the first year of the first part to the last year of
 // each later part.
 
-funcs.ylenews_fi_addCorpora = function (subfolder, templBase, partData) {
+funcs.ylenews_fi_addCorpora = function (subfolder, titleFill, descrFill,
+                                        contextType, structExtra, partData) {
 
     // Add corpus alias for type ("a" or "s") and years y1...y2.
     addAlias = function (type, y1, y2) {
@@ -16788,15 +16793,30 @@ funcs.ylenews_fi_addCorpora = function (subfolder, templBase, partData) {
                                [`ylenews-fi-${y1}-${y2}-korp${type}`])
     }
 
+    let templBase = $.extend(
+        {},
+        funcs.ylenews_fi_make_title_descr_templ(titleFill, descrFill),
+        // Base template for ylenews-fi corpora
+        {
+            id: "ylenews_fi_{}_" + subfolder,
+            context: context[contextType],
+            within: within[contextType],
+            attributes: attrlist.parsed_tdt,
+            structAttributes: $.extend(
+                true, {}, sattrlist.ylenews_fi_common, structExtra),
+            customAttributes: sattrlist.ylenews_fi_custom,
+        }
+    );
     // Add corpus definitions and alias for each range of subcorpora
     for (let partItem of partData) {
-        let [y1, y2, metaPidNum, locPidNum] = partItem
+        let [y1, y2, metaPidNum, locPidNum, extraProps] = partItem
         funcs.addCorpusSettings(
-            $.extend({}, funcs.fillYearsVersion(templBase, y1, y2),
+            $.extend(true, {}, funcs.fillYearsVersion(templBase, y1, y2),
                      {
                          metadata_urn: "urn:nbn:fi:lb-" + metaPidNum,
                          urn: "urn:nbn:fi:lb-" + locPidNum,
-                     }),
+                     },
+                     extraProps),
             [y1, y2],
             settings.corporafolders.news.ylenews_fi[subfolder])
         addAlias(subfolder, y1, y2)
@@ -16808,57 +16828,23 @@ funcs.ylenews_fi_addCorpora = function (subfolder, templBase, partData) {
 };
 
 
-// Partial template to be filled using funcs.fillYearsVersion
-settings.templ.ylenews_fi_a_base = $.extend(
-    {},
-    funcs.ylenews_fi_make_title_descr_templ(
-        "tutkijoille",
-        "Tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille."),
-    {
-        id: "ylenews_fi_{}_a",
-        context: context.sp,
-        within: within.sp,
-        attributes: attrlist.parsed_tdt,
-        structAttributes: $.extend(
-            {}, sattrlist.ylenews_fi_common,
-            {
-                paragraph_type: sattrs.ylenews_fi_paragraph_type,
-            }),
-        customAttributes: sattrlist.ylenews_fi_custom,
-    }
-);
 
 funcs.ylenews_fi_addCorpora(
-    "a", settings.templ.ylenews_fi_a_base,
+    "a", "tutkijoille",
+    "Tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille.",
+    "sp",
+    { paragraph_type: sattrs.ylenews_fi_paragraph_type, },
     [
         [2011, 2018, "2019121003", "2019121005"],
         [2019, 2021, "2022031701", "2022031702"],
     ]
 );
 
-
-// Partial template to be filled using funcs.fillYearsVersion
-settings.templ.ylenews_fi_s_base = $.extend(
-    {},
-    funcs.ylenews_fi_make_title_descr_templ(
-        "kaikille",
-        "Kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea."),
-    {
-        id: "ylenews_fi_{}_s",
-        context: context.default,
-        within: within.default,
-        attributes: attrlist.parsed_tdt,
-        structAttributes: $.extend(
-            {}, sattrlist.ylenews_fi_common,
-            {
-                sentence_paragraph_type: sattrs.ylenews_fi_paragraph_type,
-            }),
-        customAttributes: sattrlist.ylenews_fi_custom,
-    }
-);
-
 funcs.ylenews_fi_addCorpora(
-    "s", settings.templ.ylenews_fi_s_base,
+    "s", "kaikille",
+    "Kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea.",
+    "default",
+    { sentence_paragraph_type: sattrs.ylenews_fi_paragraph_type, },
     [
         [2011, 2018, "2019121004", "2019121006"],
         [2019, 2021, "2022032201", "2022032202"],
