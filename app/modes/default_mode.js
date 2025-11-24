@@ -955,11 +955,11 @@ settings.corporafolders.news.ylenews_fi.a = {
     info: {
         urn: "urn:nbn:fi:lb-2022032204",
         metadata_urn: "urn:nbn:fi:lb-2022032203",
+        group_page_urn: "urn:nbn:fi:lb-2021020901",
         licence: {
             name: "CLARIN ACA +NC 2.1",
             urn: "urn:nbn:fi:lb-2019121002",
         },
-        cite_id: "ylenews-fi-2011-2021-korp",
     }
 };
 
@@ -972,7 +972,7 @@ settings.corporafolders.news.ylenews_fi.s = {
         urn: "urn:nbn:fi:lb-2022032206",
         metadata_urn: "urn:nbn:fi:lb-2022032205",
         licence: settings.licenceinfo.CC_BY,
-        cite_id: "ylenews-fi-2011-2021-s-korp",
+        group_page_urn: "urn:nbn:fi:lb-2021020901",
     }
 };
 
