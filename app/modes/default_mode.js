@@ -16710,16 +16710,18 @@ sattrlist.ylenews_fi_common = {
 };
 
 
-// Custom attribute: links based on the values of text_id (the
-// original URLs have changed)
-sattrlist.ylenews_fi_custom = {
-    text_url_fixed: {
-        pattern: funcs.makeLinkPattern(
-            "show_original",
-            "https://yle.fi/a/<%= struct_attrs.text_id %>"),
-        customType: "struct",
-        urlOpts: sattrs.link_url_opts,
-    },
+funcs.ylenews_fi_makeCustomAttrs = function (idAttr = "id") {
+    return {
+        // Custom attribute: links based on the values of text_id (the
+        // original URLs have changed)
+        text_url_fixed: {
+            pattern: funcs.makeLinkPattern(
+                "show_original",
+                `https://yle.fi/a/<%= struct_attrs.text_${idAttr} %>`),
+            customType: "struct",
+            urlOpts: sattrs.link_url_opts,
+        },
+    }
 };
 
 
@@ -16804,7 +16806,7 @@ funcs.ylenews_fi_addCorpora = function (subfolder, titleFill, descrFill,
             attributes: attrlist.parsed_tdt,
             structAttributes: $.extend(
                 true, {}, sattrlist.ylenews_fi_common, structExtra),
-            customAttributes: sattrlist.ylenews_fi_custom,
+            customAttributes: funcs.ylenews_fi_makeCustomAttrs(),
         }
     );
     // Add corpus definitions and alias for each range of subcorpora
