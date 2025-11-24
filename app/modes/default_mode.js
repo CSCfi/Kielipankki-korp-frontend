@@ -948,13 +948,13 @@ settings.corporafolders.news.ylenews_fi = {
 };
 
 settings.corporafolders.news.ylenews_fi.a = {
-    title: "Ylen suomenkielinen uutisarkisto 2011–2021 (tutkijoille)",
-    description: "Ylen suomenkielinen uutisarkisto 2011–2021, Korp<br/>Tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Tämä kokoelma sisältää aineistot <a href='http://urn.fi/urn:nbn:fi:lb-2019121003' target='_blank' title='Kuvailutiedot'><i>Ylen suomenkielinen uutisarkisto 2011-2018, Korp</i></a> ja <a href='http://urn.fi/urn:nbn:fi:lb-2022031701' target='_blank' title='Kuvailutiedot'><i>Ylen suomenkielinen uutisarkisto 2019-2021, Korp</i></a>.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
+    title: "Ylen suomenkielinen uutisarkisto 2011–2024 (tutkijoille)",
+    description: "Ylen suomenkielinen uutisarkisto 2011–2024, Korp<br/>Tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Tämä kokoelma sisältää seuraavat aineistot: <ul><li><a href='http://urn.fi/urn:nbn:fi:lb-2019121003' target='_blank' title='Kuvailutiedot'><i>Ylen suomenkielinen uutisarkisto 2011–2018, Korp</i></a></li><li><a href='http://urn.fi/urn:nbn:fi:lb-2022031701' target='_blank' title='Kuvailutiedot'><i>Ylen suomenkielinen uutisarkisto 2019–2021, Korp</i></a></li><li><a href='http://urn.fi/urn:nbn:fi:lb-2025102201' target='_blank' title='Kuvailutiedot'><i>Ylen suomenkielinen uutisarkisto 2022–2024, Korp</i></a></li></ul>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
     // Contents are added later with funcs.addCorpusSettings
     contents: [],
     info: {
-        urn: "urn:nbn:fi:lb-2022032204",
-        metadata_urn: "urn:nbn:fi:lb-2022032203",
+        urn: "urn:nbn:fi:lb-2025112102",
+        metadata_urn: "urn:nbn:fi:lb-2025112101",
         group_page_urn: "urn:nbn:fi:lb-2021020901",
         licence: {
             name: "CLARIN ACA +NC 2.1",
@@ -964,13 +964,13 @@ settings.corporafolders.news.ylenews_fi.a = {
 };
 
 settings.corporafolders.news.ylenews_fi.s = {
-    title: "Ylen suomenkielinen uutisarkisto 2011–2021 (kaikille)",
-    description: "Ylen suomenkielinen uutisarkisto 2011–2021, sekoitettu, Korp<br/>Kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Tämä kokoelma sisältää aineistot <a href='http://urn.fi/urn:nbn:fi:lb-2019121004' target='_blank' title='Kuvailutiedot'><i>Ylen suomenkielinen uutisarkisto 2011-2018, sekoitettu, Korp</i></a> ja <a href='http://urn.fi/urn:nbn:fi:lb-2022032201' target='_blank' title='Kuvailutiedot'><i>Ylen suomenkielinen uutisarkisto 2019-2021, sekoitettu, Korp</i></a>.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
+    title: "Ylen suomenkielinen uutisarkisto 2011–2024 (kaikille)",
+    description: "Ylen suomenkielinen uutisarkisto 2011–2024, sekoitettu, Korp<br/>Kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Tämä kokoelma sisältää seuraavat aineistot: <ul><li><a href='http://urn.fi/urn:nbn:fi:lb-2019121004' target='_blank' title='Kuvailutiedot'><i>Ylen suomenkielinen uutisarkisto 2011–2018, sekoitettu, Korp</i></a></li><li><a href='http://urn.fi/urn:nbn:fi:lb-2022032201' target='_blank' title='Kuvailutiedot'><i>Ylen suomenkielinen uutisarkisto 2019–2021, sekoitettu, Korp</i></a></li><li><a href='http://urn.fi/urn:nbn:fi:lb-2025110403' target='_blank' title='Kuvailutiedot'><i>Ylen suomenkielinen uutisarkisto 2022–2024, sekoitettu, Korp</i></a></li></ul>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
     // Contents are added later with funcs.addCorpusSettings
     contents: [],
     info: {
-        urn: "urn:nbn:fi:lb-2022032206",
-        metadata_urn: "urn:nbn:fi:lb-2022032205",
+        urn: "urn:nbn:fi:lb-2025112104",
+        metadata_urn: "urn:nbn:fi:lb-2025112103",
         group_page_urn: "urn:nbn:fi:lb-2021020901",
         licence: {
             name: "CC BY 4.0 (PUB)",
@@ -16833,6 +16833,16 @@ funcs.ylenews_fi_addCorpora = function (subfolder, titleFill, descrFill,
 };
 
 
+// Differences in ylenews-fi-2022-2024 from earlier parts
+let ylenews_2022_2024_extra = {
+    status: "rc",
+    structAttributes: {
+        text_id_orig: {
+            label: "text_id_orig",
+        },
+    },
+    customAttributes: funcs.ylenews_fi_makeCustomAttrs("id_orig"),
+};
 
 funcs.ylenews_fi_addCorpora(
     "a", "tutkijoille",
@@ -16842,6 +16852,7 @@ funcs.ylenews_fi_addCorpora(
     [
         [2011, 2018, "2019121003", "2019121005"],
         [2019, 2021, "2022031701", "2022031702"],
+        [2022, 2024, "2025102201", "2022031702", ylenews_2022_2024_extra],
     ]
 );
 
@@ -16853,8 +16864,11 @@ funcs.ylenews_fi_addCorpora(
     [
         [2011, 2018, "2019121004", "2019121006"],
         [2019, 2021, "2022032201", "2022032202"],
+        [2022, 2024, "2025110403", "2025110404", ylenews_2022_2024_extra],
     ]
 );
+
+delete ylenews_2022_2024_extra;
 
 
 /* YLE Finnish Easy-to-read*/
