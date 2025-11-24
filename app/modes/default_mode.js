@@ -971,8 +971,11 @@ settings.corporafolders.news.ylenews_fi.s = {
     info: {
         urn: "urn:nbn:fi:lb-2022032206",
         metadata_urn: "urn:nbn:fi:lb-2022032205",
-        licence: settings.licenceinfo.CC_BY,
         group_page_urn: "urn:nbn:fi:lb-2021020901",
+        licence: {
+            name: "CC BY 4.0 (PUB)",
+            urn: "urn:nbn:fi:lb-2022082901",
+        },
     }
 };
 
