@@ -1,4 +1,15 @@
 
+<!-- Extended corpus (release candidate): Yle Finnish News Archive 2022–2024 2025-12-08 -->
+
+The *Yle Finnish News Archive* corpus has been extended with news from
+2022–2024 (<a href="http://urn.fi/urn:nbn:fi:lb-2025102201"
+target="_blank">Yle Finnish News Archive 2022–2024, Korp</a> and <a
+href="http://urn.fi/urn:nbn:fi:lb-2025110403" target="_blank">Yle
+Finnish News Archive 2022–2024, scrambled, Korp</a>), so the whole
+collection now covers the years 2011–2024. **Please note** that the
+extension is a release candidate, so it may still change.
+
+
 <!-- Release candidate 2: Oracc 2024 2025-10-09 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2024112901" target="_blank">Oracc

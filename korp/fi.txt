@@ -1,4 +1,16 @@
 
+<!-- Laajennettu aineisto (julkaisuehdokas): Ylen suomenkielinen uutisarkisto 2022–2024 2025-12-08 -->
+
+*Ylen suomenkielistä uutisarkistoa* on laajennettu vuosien 2022–2024
+uutisilla (<a href="http://urn.fi/urn:nbn:fi:lb-2025102201"
+target="_blank">Ylen suomenkielinen uutisarkisto 2022–2024, Korp</a>
+ja <a href="http://urn.fi/urn:nbn:fi:lb-2025110403"
+target="_blank">Ylen suomenkielinen uutisarkisto 2022–2024,
+sekoitettu, Korp</a>), joten koko aineisto kattaa nyt vuodet
+2011–2024. **Huomaa**, että laajennusosa on julkaisuehdokas, joten
+siihen voi vielä tulla muutoksia.
+
+
 <!-- Julkaisuehdokas 2: Oracc 2024 2025-10-09 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2024112901" target="_blank">Oracc
