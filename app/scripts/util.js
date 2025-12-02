@@ -761,38 +761,31 @@ util.setDownloadLinks = function (query_url, result_data) {
 
     downloadLinksElem.show()
 
-    // Get the number (index) of the corpus of the query result hit
-    // number hit_num in the corpus order information of the query
-    // result.
-    const get_corpus_num =
-          (hit_num) => result_data.corpus_order.indexOf(
-              result_data.kwic[hit_num].corpus.toUpperCase())
-
     c.log("setDownloadLinks data:", result_data)
     downloadLinksElem.empty()
     // Corpora in the query result
-    const result_corpora = result_data.corpus_order.slice(
-        get_corpus_num(0),
-        get_corpus_num(result_data.kwic.length - 1) + 1
-    )
+    const result_corpora = _.uniq(_.map(result_data.kwic,
+                                        (item) => item.corpus))
+    // Properties that may contain various metadata information in the
+    // corpus configuration, to be passed to the download script
+    const corpus_config_info_keys = [
+        "metadata", "licence", "homepage", "compiler",
+    ]
     // Settings of the corpora in the result, to be passed to the
     // download script
     const result_corpora_settings = {}
-    let i = 0
-    while (i < result_corpora.length) {
-        const corpus_ids = result_corpora[i].toLowerCase().split("|")
-        let j = 0
-        while (j < corpus_ids.length) {
-            const corpus_id = corpus_ids[j]
-            result_corpora_settings[corpus_id] = settings.corpora[corpus_id]
-            j++
+    for (const result_corpus of result_corpora) {
+        for (const corpus_id of result_corpus.toLowerCase().split("|")) {
+            // The logicalCorpus and attribute information are
+            // currently not used by the download script, so omit
+            // them to make the request data smaller
+            result_corpora_settings[corpus_id] = _.omitBy(
+                settings.corpora[corpus_id],
+                (_, key) => key == "logicalCorpus" || key.endsWith("ttributes"))
         }
-        i++
     }
     downloadLinksElem.append("<option value='init' rel='localize[download_kwic]'></option>")
-    i = 0
-    while (i < settings.downloadFormats.length) {
-        const format = settings.downloadFormats[i]
+    for (const format of settings.downloadFormats) {
         // NOTE: Using attribute rel="localize[...]" to localize the
         // title attribute requires a small change to
         // lib/jquery.localize.js. Without that, we could use
@@ -814,8 +807,20 @@ util.setDownloadLinks = function (query_url, result_data) {
             korp_url: window.location.href,
             korp_server_url: settings.korpBackendURL,
             corpus_config: JSON.stringify(result_corpora_settings),
-            corpus_config_info_keys: ["metadata", "licence", "homepage", "compiler"].join(","),
+            corpus_config_info_keys: corpus_config_info_keys.join(","),
             urn_resolver: settings.urnResolver,
+        }
+        // If the length of the JSONified query result is at most
+        // settings.downloadSendResultMaxSize characters, also send
+        // the query result to avoid re-performing the query
+        const query_result = JSON.stringify(result_data)
+        if (query_result.length <= settings.downloadSendResultMaxSize) {
+            // Convert lower-cased corpus ids in KWIC hits back to
+            // uppercase, to get the same result as when not passing
+            // the query result
+            download_params.query_result = query_result.replaceAll(
+                /("corpus":")(.*?)"/g,
+                (_, p1, p2) => `${p1}${p2.toUpperCase()}"`)
         }
         if ("downloadFormatParams" in settings) {
             if ("*" in settings.downloadFormatParams) {
@@ -826,7 +831,6 @@ util.setDownloadLinks = function (query_url, result_data) {
             }
         }
         option.appendTo(downloadLinksElem).data("params", download_params)
-        i++
     }
     downloadLinksElem.off("change")
     downloadLinksElem
