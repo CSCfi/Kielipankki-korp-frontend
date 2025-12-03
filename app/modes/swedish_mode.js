@@ -431,9 +431,9 @@ funcs.addCorporaToFolder("learner", "studentsvenska");
 
 attrlist.digisvenska = {
     ref: attrs.ref,
-    lemma: attrs.baseform_sv,
-    lemma_stanza: attrs.baseform_stanza,
-    compwf: attrs.compwf,
+    lemma_stanza: attrs.baseform_sv,
+    lemma: attrs.saldo,
+    lemmacomp: attrs.baseform_compound,
     pos: attrs.pos,
     msd: attrs.msd,
     dephead: attrs.dephead,
