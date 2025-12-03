@@ -565,6 +565,7 @@
     "speaker_descr": "puhujan kuvaus",
 
     "text_id": "tekstin tunniste",
+    "text_id_orig": "tekstin tunniste (alkuperäinen)",
     "text_number": "tekstin numero",
     "text_type": "tekstin tyyppi",
     "text_genre": "tekstilaji",
