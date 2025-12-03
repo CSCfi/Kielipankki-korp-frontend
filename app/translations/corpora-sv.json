@@ -253,6 +253,7 @@
     "text__geo_parish": "ort",
 
     "text_id": "textidentifierare",
+    "text_id_orig": "textidentifierare (original)",
     "text_type": "texttyp",
     "text_genre": "genre",
     "text_period": "textperiod",
