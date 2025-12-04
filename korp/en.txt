@@ -1,5 +1,5 @@
 
-<!-- Extended corpus (release candidate): Yle Finnish News Archive 2022–2024 2025-12-08 -->
+<!-- Extended corpus (release candidate): Yle Finnish News Archive 2022–2024 2025-12-04 -->
 
 The *Yle Finnish News Archive* corpus has been extended with news from
 2022–2024 (<a href="http://urn.fi/urn:nbn:fi:lb-2025102201"

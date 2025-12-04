@@ -1,5 +1,5 @@
 
-<!-- Laajennettu aineisto (julkaisuehdokas): Ylen suomenkielinen uutisarkisto 2022–2024 2025-12-08 -->
+<!-- Laajennettu aineisto (julkaisuehdokas): Ylen suomenkielinen uutisarkisto 2022–2024 2025-12-04 -->
 
 *Ylen suomenkielistä uutisarkistoa* on laajennettu vuosien 2022–2024
 uutisilla (<a href="http://urn.fi/urn:nbn:fi:lb-2025102201"
