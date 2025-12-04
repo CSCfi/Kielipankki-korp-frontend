@@ -557,8 +557,7 @@ settings.corporafolders.other.studex = {
 	    name: "CLARIN RES",
 	    description: "CLARIN RES end-user licence",
 	    urn: "urn:nbn:fi:lb-2023051606",
-	},
-	status: "beta"
+	}
     }
 };
 
