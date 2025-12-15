@@ -7,7 +7,10 @@ const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
 
 module.exports = merge(common, {
     plugins: [
-        new CompressionPlugin({}),
+        new CompressionPlugin({
+            algorithm: 'gzip',
+            filename: '[path][base].gz',
+        }),
         new BundleAnalyzerPlugin({
             // creates a report.html in the dist folder.
             analyzerMode: "static",
