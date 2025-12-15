@@ -487,5 +487,6 @@ module.exports = {
         filename: "[name].js",
         path: path.resolve(__dirname, "dist"),
         globalObject: "this",
+        hashFunction: "xxhash64",
     },
 }
