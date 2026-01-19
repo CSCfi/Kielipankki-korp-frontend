@@ -10,6 +10,7 @@
     "msd": "morfologinen analyysi",
     "msd_ud1": "morfologinen analyysi (UD1)",
     "baseform": "perusmuoto",
+    "baseform_stanza": "perusmuoto (yksikäsitteinen)",
     "baseform_ud1": "perusmuoto (UD1)",
     "lemgram": "lemgrammi",
     "dephead": "pääsanan numero",
@@ -40,6 +41,7 @@
     "baseform_compound": "perusmuoto (yhdyssanarajat)",
     "baseform_compound_ud1": "perusmuoto (yhdyssanarajat) (UD1)",
     "lemmacomp": "perusmuoto (yhdyssanarajat)",
+    "compwf": "yhdyssanarajat",
     "pos_orig": "sanaluokka (siivoamaton)",
     "func": "lauseenjäsen",
 

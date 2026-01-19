@@ -523,9 +523,9 @@ funcs.addCorporaToFolder("learner", "digisvenska");
 
 attrlist.studex = {
     ref: attrs.ref,
-    lemma: attrs.saldo,
-    lemma_stanza: attrs.baseform_sv,
-    lemmacomp: attrs.baseform_compound,
+    lemma: attrs.baseform_sv,
+    lemma_stanza: attrs.baseform_stanza,
+    compwf: attrs.compwf,
     pos: attrs.pos,
     msd: attrs.msd,
     dephead: attrs.dephead,
@@ -557,8 +557,7 @@ settings.corporafolders.other.studex = {
 	    name: "CLARIN RES",
 	    description: "CLARIN RES end-user licence",
 	    urn: "urn:nbn:fi:lb-2023051606",
-	},
-	status: "beta"
+	}
     }
 };
 
