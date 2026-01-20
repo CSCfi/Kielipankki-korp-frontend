@@ -855,6 +855,18 @@ util.searchHash = function (type, value) {
 }
 
 let added_corpora_ids = []
+
+// Helper to get protection type label for corpus chooser
+function getProtectionLabel(corpusObj) {
+    const protectedValue = (corpusObj.info?.Protected || "").toLowerCase()
+    if (protectedValue === "aca") {
+        return " [ACA]"
+    } else if (protectedValue === "res") {
+        return " [RES]"
+    }
+    return ""
+}
+
 util.loadCorporaFolderRecursive = function (first_level, folder) {
     let outHTML
     if (first_level) {
@@ -882,10 +894,12 @@ util.loadCorporaFolderRecursive = function (first_level, folder) {
         // Corpora
         if (folder["contents"] && folder["contents"].length > 0) {
             $.each(folder.contents, function (key, value) {
+                const corpusObj = settings.corpora[value]
                 // Let plugins filter the corpus title
-                const corpusTitle = plugins.callFilters(
+                let corpusTitle = plugins.callFilters(
                     "formatCorpusChooserCorpusTitle",
-                    settings.corpora[value]["title"], settings.corpora[value])
+                    corpusObj["title"], corpusObj)
+                corpusTitle += getProtectionLabel(corpusObj)
                 outHTML += `<li id="${value}">${corpusTitle}</li>`
                 added_corpora_ids.push(value)
             })
@@ -906,10 +920,12 @@ util.loadCorporaFolderRecursive = function (first_level, folder) {
             }
 
             // Add it anyway:
+            const corpusObj = settings.corpora[val]
             // Let plugins filter the corpus title
-            const corpusTitle = plugins.callFilters(
+            let corpusTitle = plugins.callFilters(
                 "formatCorpusChooserCorpusTitle",
-                settings.corpora[val]["title"], settings.corpora[val])
+                corpusObj["title"], corpusObj)
+            corpusTitle += getProtectionLabel(corpusObj)
             outHTML += `<li id='${val}'>${corpusTitle}</li>`
         }
     }
