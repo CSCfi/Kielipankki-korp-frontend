@@ -35,7 +35,7 @@ export type CorpusInfoInfo = {
     FirstDate?: `${number}-${number}-${number} ${number}:${number}:${number}` | ""
     LastDate?: string
     Updated?: `${number}-${number}-${number}`
-    Protected?: "true" | "false" | ""
+    Protected?: "true" | "false" | "ACA" | "RES" | ""
     DateResolution?: string
     KorpModes?: string
 }
