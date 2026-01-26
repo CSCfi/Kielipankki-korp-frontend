@@ -16835,7 +16835,6 @@ funcs.ylenews_fi_addCorpora = function (subfolder, titleFill, descrFill,
 
 // Differences in ylenews-fi-2022-2024 from earlier parts
 let ylenews_2022_2024_extra = {
-    status: "rc",
     structAttributes: {
         text_id_orig: {
             label: "text_id_orig",
