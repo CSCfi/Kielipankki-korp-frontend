@@ -7,6 +7,9 @@ import { loginStatusComponent } from "@/components/auth/fed_login_status"
 import settings from "@/settings"
 import { AuthModule } from "./auth.types"
 
+console.log("=== FED_AUTH MODULE LOADED - NEW VERSION WITH ACA SUPPORT ===")
+
+
 type Options = {
     jwt_url: string
     login_service: string
