@@ -38,10 +38,13 @@ const options = settings.auth_module.options as Options
 
 const authModule: AuthModule = {
     init: async () => {
+        console.log("=== FED_AUTH: init called ===")
         const response = await fetch(options.jwt_url, {
             headers: { accept: "text/plain" },
             credentials: "include",
         })
+        console.log("=== FED_AUTH: JWT fetch response status:", response.status, "===")
+
 
         if (!response.ok) {
             if (response.status == 401) {
