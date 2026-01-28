@@ -58,10 +58,14 @@ const authModule: AuthModule = {
         const { name, email, scope, levels, ACA, ACA_Fi } = jwtPayload
         const username = name || email
 
+        console.log("=== JWT Payload ===", jwtPayload)
+        console.log("ACA:", ACA, "ACA_Fi:", ACA_Fi)
+
         // Get list of protected corpora to check their license types
         const infoResponse = await fetch(`${settings.korp_backend_url}/info`)
         const info = await infoResponse.json()
         const protectedCorpora: string[] = info.protected_corpora || []
+        console.log("=== Protected corpora ===", protectedCorpora)
 
         // Fetch corpus info for protected corpora to get their License fields
         let corpusLicenses: Record<string, string> = {}
@@ -70,12 +74,14 @@ const authModule: AuthModule = {
                 `${settings.korp_backend_url}/corpus_info?corpus=${protectedCorpora.join(",")}`
             )
             const corpusInfo = await corpusInfoResponse.json()
+            console.log("=== Corpus info ===", corpusInfo)
 
             // Build map of corpus -> license type
             for (const [corpusId, data] of Object.entries(corpusInfo.corpora || {}) as [string, any][]) {
                 const license = data.info?.License || ""
                 corpusLicenses[corpusId.toUpperCase()] = license
             }
+            console.log("=== Corpus licenses ===", corpusLicenses)
         }
 
         // Build credentials based on license requirements
@@ -90,12 +96,15 @@ const authModule: AuthModule = {
             if (license === "ACA") {
                 // ACA license requires ACA flag in JWT
                 hasAccess = ACA === true
+                console.log(`Corpus ${corpusUpper}: License=ACA, ACA=${ACA}, hasAccess=${hasAccess}`)
             } else if (license === "ACA-Fi") {
                 // ACA-Fi license requires ACA_Fi flag in JWT
                 hasAccess = ACA_Fi === true
+                console.log(`Corpus ${corpusUpper}: License=ACA-Fi, ACA_Fi=${ACA_Fi}, hasAccess=${hasAccess}`)
             } else {
                 // RES license or no license field requires explicit grant in scope.corpora
                 hasAccess = (scope.corpora?.[corpusId] || 0) >= levels["READ"]
+                console.log(`Corpus ${corpusUpper}: License=${license || '(none)'}, in scope.corpora=${corpusId in (scope.corpora || {})}, hasAccess=${hasAccess}`)
             }
 
             if (hasAccess) {
@@ -103,6 +112,7 @@ const authModule: AuthModule = {
             }
         }
 
+        console.log("=== Final credentials ===", credentials)
         state = { jwt, username, credentials }
 
         return true
