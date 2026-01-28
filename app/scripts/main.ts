@@ -1,3 +1,5 @@
+console.log("=== KORP MAIN.TS LOADING - TEST VERSION ===")
+
 import angular from "angular"
 import settings from "@/settings"
 import { fetchInitialData } from "@/data_init"
@@ -9,6 +11,8 @@ import korpFail from "../img/korp_fail.svg"
 import { findAuthModule } from "@/auth/init"
 import { initAuth, setAuthModule } from "@/auth/auth"
 import { createMaintenanceNewsElement } from "./services/maintenance-news"
+
+console.log("=== KORP MAIN.TS IMPORTS COMPLETE ===")
 
 const createSplashScreen = () => {
     const splash = document.getElementById("preload")
@@ -67,12 +71,17 @@ function errorModal(message: any) {
 }
 
 createSplashScreen()
+console.log("=== KORP: Starting async initialization ===")
 ;(async () => {
+    console.log("=== KORP: Finding auth module ===")
     // Identify authentication module
     const authModule = findAuthModule()
+    console.log("=== KORP: Auth module found:", authModule, "===")
     setAuthModule(authModule)
     // Check if user is logged in
+    console.log("=== KORP: Calling initAuth() ===")
     const authPromise = initAuth()
+    console.log("=== KORP: initAuth() called, waiting... ===")
     // Fetch everything that only needs to be check once
     await fetchInitialData(authPromise)
     // Now wait for login to resolve
