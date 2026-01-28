@@ -121,6 +121,13 @@ const authModule: AuthModule = {
         }
 
         console.log("=== Final credentials ===", credentials)
+
+        // Set limited_access on corpus objects based on backend's protected_corpora list
+        for (const corpusId of Object.keys(settings.corpora)) {
+            const isProtected = protectedCorpora.includes(corpusId.toUpperCase())
+            settings.corpora[corpusId].limited_access = isProtected
+        }
+
         state = { jwt, username, credentials }
 
         return true
