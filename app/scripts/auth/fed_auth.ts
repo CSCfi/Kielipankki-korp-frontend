@@ -22,6 +22,7 @@ type State = {
     credentials: string[]
     jwt: string
     username: string
+    protectedCorpora: string[]
 }
 
 type JwtPayload = {
@@ -44,12 +45,18 @@ const options = settings.auth_module.options as Options
 const authModule: AuthModule = {
     init: async () => {
         console.log("=== FED_AUTH: init called ===")
+
+        // Fetch protected corpora list (needed even for non-logged-in users to show lock icons)
+        const infoResponse = await fetch(`${settings.korp_backend_url}/info`)
+        const info = await infoResponse.json()
+        const protectedCorpora: string[] = info.protected_corpora || []
+        console.log("=== Protected corpora ===", protectedCorpora)
+
         const response = await fetch(options.jwt_url, {
             headers: { accept: "text/plain" },
             credentials: "include",
         })
         console.log("=== FED_AUTH: JWT fetch response status:", response.status, "===")
-
 
         if (!response.ok) {
             if (response.status == 401) {
@@ -57,6 +64,8 @@ const authModule: AuthModule = {
             } else {
                 console.warn(`An error has occured: ${response.status}`)
             }
+            // Store protected corpora list even for non-logged-in users
+            state = { jwt: "", username: "", credentials: [], protectedCorpora }
             return false
         }
 
@@ -69,13 +78,8 @@ const authModule: AuthModule = {
         console.log("=== JWT Payload ===", jwtPayload)
         console.log("ACA:", ACA, "ACA_Fi:", ACA_Fi)
 
-        // Get list of protected corpora to check their license types
-        const infoResponse = await fetch(`${settings.korp_backend_url}/info`)
-        const info = await infoResponse.json()
-        const protectedCorpora: string[] = info.protected_corpora || []
-        console.log("=== Protected corpora ===", protectedCorpora)
-
         // Fetch corpus info for protected corpora to get their License fields
+        // (protectedCorpora was already fetched at the top)
         let corpusLicenses: Record<string, string> = {}
         if (protectedCorpora.length > 0) {
             const corpusInfoResponse = await fetch(
@@ -122,13 +126,7 @@ const authModule: AuthModule = {
 
         console.log("=== Final credentials ===", credentials)
 
-        // Set limited_access on corpus objects based on backend's protected_corpora list
-        for (const corpusId of Object.keys(settings.corpora)) {
-            const isProtected = protectedCorpora.includes(corpusId.toUpperCase())
-            settings.corpora[corpusId].limited_access = isProtected
-        }
-
-        state = { jwt, username, credentials }
+        state = { jwt, username, credentials, protectedCorpora }
 
         return true
     },
@@ -146,6 +144,7 @@ const authModule: AuthModule = {
     getAuthorizationHeader: (): Record<string, string> => (state ? { Authorization: `Bearer ${state.jwt}` } : {}),
     hasCredential: (corpusId) => (state?.credentials || []).includes(corpusId),
     getCredentials: () => state?.credentials || [],
+    getProtectedCorpora: () => state?.protectedCorpora || [],
     getUsername: () => state!.username,
     isLoggedIn: () => !!state,
 }

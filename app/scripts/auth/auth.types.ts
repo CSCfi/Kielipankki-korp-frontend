@@ -18,6 +18,8 @@ export type AuthModule = {
     hasCredential: (corpusId: string) => boolean
     /** Get corpus ids the user has access to */
     getCredentials: () => string[]
+    /** Get list of protected corpus ids (uppercase) from backend */
+    getProtectedCorpora: () => string[]
     getUsername: () => string
     isLoggedIn: () => boolean
 }
