@@ -17,6 +17,7 @@ type State = {
     credentials: string[]
     jwt: string
     username: string
+    protectedCorpora: string[]
 }
 
 type JwtPayload = {
@@ -38,6 +39,11 @@ const options = settings.auth_module.options as Options
 
 const authModule: AuthModule = {
     init: async () => {
+        // Fetch protected corpora list (needed even for non-logged-in users to show lock icons)
+        const infoResponse = await fetch(`${settings.korp_backend_url}/info`)
+        const info = await infoResponse.json()
+        const protectedCorpora: string[] = info.protected_corpora || []
+
         const response = await fetch(options.jwt_url, {
             headers: { accept: "text/plain" },
             credentials: "include",
@@ -49,6 +55,8 @@ const authModule: AuthModule = {
             } else {
                 console.warn(`An error has occured: ${response.status}`)
             }
+            // Store protected corpora list even for non-logged-in users
+            state = { jwt: "", username: "", credentials: [], protectedCorpora }
             return false
         }
 
@@ -57,11 +65,6 @@ const authModule: AuthModule = {
         const jwtPayload: JwtPayload = JSON.parse(atob(jwt.split(".")[1]))
         const { name, email, scope, levels, ACA, ACA_Fi } = jwtPayload
         const username = name || email
-
-        // Get list of protected corpora to check their license types
-        const infoResponse = await fetch(`${settings.korp_backend_url}/info`)
-        const info = await infoResponse.json()
-        const protectedCorpora: string[] = info.protected_corpora || []
 
         // Fetch corpus info for protected corpora to get their License fields
         let corpusLicenses: Record<string, string> = {}
@@ -103,7 +106,7 @@ const authModule: AuthModule = {
             }
         }
 
-        state = { jwt, username, credentials }
+        state = { jwt, username, credentials, protectedCorpora }
 
         return true
     },
@@ -121,6 +124,7 @@ const authModule: AuthModule = {
     getAuthorizationHeader: (): Record<string, string> => (state ? { Authorization: `Bearer ${state.jwt}` } : {}),
     hasCredential: (corpusId) => (state?.credentials || []).includes(corpusId),
     getCredentials: () => state?.credentials || [],
+    getProtectedCorpora: () => state?.protectedCorpora || [],
     getUsername: () => state!.username,
     isLoggedIn: () => !!state,
 }

@@ -37,6 +37,7 @@ const authModule: AuthModule = {
     getAuthorizationHeader: (): Record<string, string> => (creds ? { Authorization: `Basic ${creds.auth}` } : {}),
     hasCredential: (corpusId) => creds?.credentials?.includes(corpusId.toUpperCase()) || false,
     getCredentials: () => creds?.credentials || [],
+    getProtectedCorpora: () => [], // basic_auth doesn't use backend's protected list
     getUsername: () => creds!.name,
     isLoggedIn: () => !!creds,
 }
