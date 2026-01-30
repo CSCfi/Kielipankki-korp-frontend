@@ -24,7 +24,7 @@ type JwtPayload = {
     name?: string
     email: string
     ACA?: boolean
-    ACA_Fi?: boolean
+    "ACA-Fi"?: boolean
     scope: {
         corpora?: Record<string, number>
     }
@@ -63,7 +63,7 @@ const authModule: AuthModule = {
         const jwt = await response.text()
 
         const jwtPayload: JwtPayload = JSON.parse(atob(jwt.split(".")[1]))
-        const { name, email, scope, levels, ACA, ACA_Fi } = jwtPayload
+        const { name, email, scope, levels, ACA, "ACA-Fi": acaFi } = jwtPayload
         const username = name || email
 
         // Fetch corpus info for protected corpora to get their License fields
@@ -94,8 +94,8 @@ const authModule: AuthModule = {
                 // ACA license requires ACA flag in JWT
                 hasAccess = ACA === true
             } else if (license === "ACA-Fi") {
-                // ACA-Fi license requires ACA_Fi flag in JWT
-                hasAccess = ACA_Fi === true
+                // ACA-Fi license requires ACA-Fi flag in JWT
+                hasAccess = acaFi === true
             } else {
                 // RES license or no license field requires explicit grant in scope.corpora
                 hasAccess = (scope.corpora?.[corpusId] || 0) >= levels["READ"]
