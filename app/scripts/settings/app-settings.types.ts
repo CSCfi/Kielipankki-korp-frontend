@@ -43,12 +43,6 @@ export type AppSettings = {
     iso_languages: Record<string, string>
     korp_backend_url: string
     languages: Labeled[]
-    /**
-     * Licensing mode for corpus access control display.
-     * - "språkbanken" (default): No license labels shown in UI
-     * - "kielipankki": Show [ACA], [ACA-Fi], [RES] labels based on License field
-     */
-    licensing_mode?: "språkbanken" | "kielipankki"
     logo?: {
         korp?: string
         organization?: string

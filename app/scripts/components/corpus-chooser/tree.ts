@@ -16,7 +16,6 @@ type CcTreeController = IController & {
     indent: number
     sortedFolders: ChooserFolderSub[]
     sortedCorpora: CorpusTransformed[]
-    showLicenseLabels: boolean
     toggleFolderVisibility: (folder: ChooserFolderSub) => void
     toggleFolderSelection: ($event: MouseEvent, folder: ChooserFolderSub) => void
     showInfo: ($event: MouseEvent, folder: ChooserFolderSub) => void
@@ -78,9 +77,7 @@ angular.module("korpApp").component("ccTree", {
 
                 <label class="px-1 flex-1">
                     {{ corpus.title | locObj:$root.lang }}
-                    <span ng-if="$ctrl.showLicenseLabels && corpus.info.License === 'ACA'">[ACA]</span>
-                    <span ng-if="$ctrl.showLicenseLabels && corpus.info.License === 'ACA-Fi'">[ACA-Fi]</span>
-                    <span ng-if="$ctrl.showLicenseLabels && corpus.info.License === 'RES'">[RES]</span>
+                    <span ng-if="!corpus.userHasAccess && corpus.info.License">[{{ corpus.info.License }}]</span>
                 </label>
                 <i ng-if="corpus['limited_access'] && corpus.userHasAccess" class="fa-solid fa-unlock mx-1 my-1"></i>
                 <i
@@ -109,7 +106,6 @@ angular.module("korpApp").component("ccTree", {
                 }
                 $ctrl.sortedCorpora = sort($ctrl.node.corpora)
                 $ctrl.sortedFolders = sort($ctrl.node.subFolders)
-                $ctrl.showLicenseLabels = settings["licensing_mode"] === "kielipankki"
             }
 
             $ctrl.toggleFolderVisibility = (folder) => {
