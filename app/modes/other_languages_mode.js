@@ -412,7 +412,7 @@ settings.corporafolders.uralic.erme_psla = {
     title: "ERME PSLA",
     description: "ERME: Erzya and Moksha Extended Corpora, Paragraph Segmentation, Low Annotation",
     info: {
-      metadata_urn: "urn:nbn:fi:lb-2023021601",
+      metadata_urn: "urn:nbn:fi:lb-2025121601",
         licence: {
             name: "CC BY (PUB)",
             urn: "urn:nbn:fi:lb-2022020106",
