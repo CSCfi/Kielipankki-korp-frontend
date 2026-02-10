@@ -177,9 +177,8 @@ export const updateLimitedAccess = (node: ChooserFolder, credentials: string[] =
         }
     }
     for (const corpus of node.corpora) {
-        // Set limited_access based on whether corpus is in protected list
-        const corpusLimitedAccess = protectedCorpora.includes(corpus.id.toUpperCase())
-        corpus["limited_access"] = corpusLimitedAccess
+        // Set limited_access based on whether corpus is in protected list or it has limited_access config
+        const corpusLimitedAccess =  corpus["limited_access"] || protectedCorpora.includes(corpus.id.toUpperCase())
         corpus.userHasAccess = !corpusLimitedAccess || credentials.includes(corpus.id.toUpperCase())
         if (corpus.userHasAccess) {
             limitedAccess = false
