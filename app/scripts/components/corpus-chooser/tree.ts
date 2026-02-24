@@ -106,6 +106,16 @@ angular.module("korpApp").component("ccTree", {
                 }
                 $ctrl.sortedCorpora = sort($ctrl.node.corpora)
                 $ctrl.sortedFolders = sort($ctrl.node.subFolders)
+
+                // DEBUG: Log corpus access and license info
+                console.log('=== Corpus Chooser Tree Debug ===')
+                $ctrl.sortedCorpora.forEach((corpus) => {
+                    console.log(`Corpus: ${corpus.id}`)
+                    console.log(`  userHasAccess: ${corpus.userHasAccess}`)
+                    console.log(`  info.License: ${corpus.info?.License}`)
+                    console.log(`  info.Protected: ${corpus.info?.Protected}`)
+                    console.log(`  limited_access: ${corpus['limited_access']}`)
+                })
             }
 
             $ctrl.toggleFolderVisibility = (folder) => {
