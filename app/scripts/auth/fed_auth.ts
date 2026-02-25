@@ -65,10 +65,6 @@ const authModule: AuthModule = {
         const { name, email, scope, levels, userClasses = [] } = jwtPayload
         const username = name || email
 
-        console.log("[AUTH DEBUG] JWT payload:", jwtPayload)
-        console.log("[AUTH DEBUG] scope.corpora:", scope.corpora)
-        console.log("[AUTH DEBUG] userClasses:", userClasses)
-
         // Fetch corpus info for protected corpora to get their License fields
         let corpusLicenses: Record<string, string> = {}
         if (protectedCorpora.length > 0) {
@@ -96,7 +92,6 @@ const authModule: AuthModule = {
             if (license) {
                 // If corpus has a License field, check if user has that class
                 hasAccess = userClasses.includes(license)
-                console.log(`[AUTH DEBUG] Corpus ${corpusId}: License=${license}, hasAccess=${hasAccess}`)
             } else {
                 // No License field: RES or mink corpus - requires explicit grant in scope.corpora
                 // Case-insensitive lookup: corpusId is UPPERCASE, normalize scope keys to match
@@ -104,16 +99,12 @@ const authModule: AuthModule = {
                     ([key, _]) => key.toUpperCase() === corpusId
                 )?.[1] || 0
                 hasAccess = permissionLevel >= levels["READ"]
-                console.log(`[AUTH DEBUG] Corpus ${corpusId}: No license, checking scope.corpora`)
-                console.log(`[AUTH DEBUG]   Permission level found: ${permissionLevel}, READ level: ${levels["READ"]}, hasAccess=${hasAccess}`)
             }
 
             if (hasAccess) {
                 credentials.push(corpusUpper)
             }
         }
-
-        console.log("[AUTH DEBUG] Final credentials:", credentials)
 
         state = { jwt, username, credentials, protectedCorpora }
 
