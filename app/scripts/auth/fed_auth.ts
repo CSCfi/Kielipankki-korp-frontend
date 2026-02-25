@@ -94,7 +94,11 @@ const authModule: AuthModule = {
                 hasAccess = userClasses.includes(license)
             } else {
                 // No License field: RES or mink corpus - requires explicit grant in scope.corpora
-                hasAccess = (scope.corpora?.[corpusId] || 0) >= levels["READ"]
+                // Case-insensitive lookup: corpusId is UPPERCASE, normalize scope keys to match
+                const permissionLevel = Object.entries(scope.corpora || {}).find(
+                    ([key, _]) => key.toUpperCase() === corpusId
+                )?.[1] || 0
+                hasAccess = permissionLevel >= levels["READ"]
             }
 
             if (hasAccess) {
