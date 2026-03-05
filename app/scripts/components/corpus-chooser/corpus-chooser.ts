@@ -206,7 +206,7 @@ angular.module("korpApp").component("corpusChooser", {
 
             $ctrl.updateLimitedAccess = function () {
                 if ($ctrl.root) {
-                    updateLimitedAccess($ctrl.root, auth.getCredentials(), auth.getProtectedCorpora())
+                    updateLimitedAccess($ctrl.root, auth.getCredentials())
                 }
             }
 

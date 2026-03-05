@@ -167,11 +167,11 @@ export const getAllCorporaInFolders = (lastLevel: Record<string, Folder>, folder
  * userHasAccess differs from limited_access, since we might
  * want to show that a corpus is restricted AND unlock it for a user
  */
-export const updateLimitedAccess = (node: ChooserFolder, credentials: string[] = [], protectedCorpora: string[] = []): boolean => {
+export const updateLimitedAccess = (node: ChooserFolder, credentials: string[] = []): boolean => {
     let limitedAccess = true
     for (const folder of node.subFolders) {
         // every folder and corpora should be limited for parent folder to be limited
-        const folderLimitedAccess = updateLimitedAccess(folder, credentials, protectedCorpora)
+        const folderLimitedAccess = updateLimitedAccess(folder, credentials)
         if (!folderLimitedAccess) {
             limitedAccess = false
         }
@@ -179,10 +179,9 @@ export const updateLimitedAccess = (node: ChooserFolder, credentials: string[] =
     for (const corpus of node.corpora) {
         // Set limited_access based on any source that indicates protection
         const corpusLimitedAccess =
-            corpus["limited_access"] ||                           // Frontend config
-            corpus.info?.Protected === "true" ||                  // .info file Protected field
-            corpus.info?.License !== undefined ||                 // Has any license requirement in .info
-            protectedCorpora.includes(corpus.id.toUpperCase())    // Backend API endpoint
+              corpus["limited_access"] ||                // Frontend config - derived from /corpus_config via yaml in backend config file if there is no frontend config file (modes/<mode>_corpus_config.json)
+              corpus.info?.Protected === "true" ||       // .info file Protected field
+              corpus.info?.License !== undefined         // Has any license requirement in .info
         corpus.userHasAccess = !corpusLimitedAccess || credentials.includes(corpus.id.toUpperCase())
         if (corpus.userHasAccess) {
             limitedAccess = false
