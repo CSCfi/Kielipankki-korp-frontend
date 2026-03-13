@@ -36,6 +36,7 @@ export type CorpusInfoInfo = {
     LastDate?: string
     Updated?: `${number}-${number}-${number}`
     Protected?: "true" | "false" | ""
+    License?: string
     DateResolution?: string
     KorpModes?: string
 }

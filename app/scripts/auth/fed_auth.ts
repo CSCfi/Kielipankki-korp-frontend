@@ -17,11 +17,13 @@ type State = {
     credentials: string[]
     jwt: string
     username: string
+    protectedCorpora: string[]
 }
 
 type JwtPayload = {
     name?: string
     email: string
+    userClasses?: string[]
     scope: {
         corpora?: Record<string, number>
     }
@@ -36,6 +38,11 @@ const options = settings.auth_module.options as Options
 
 const authModule: AuthModule = {
     init: async () => {
+        // Fetch protected corpora list (needed even for non-logged-in users to show lock icons)
+        const infoResponse = await fetch(`${settings.korp_backend_url}/info`)
+        const info = await infoResponse.json()
+        const protectedCorpora: string[] = info.protected_corpora || []
+
         const response = await fetch(options.jwt_url, {
             headers: { accept: "text/plain" },
             credentials: "include",
@@ -47,20 +54,59 @@ const authModule: AuthModule = {
             } else {
                 console.warn(`An error has occured: ${response.status}`)
             }
+            // Store protected corpora list even for non-logged-in users
+            state = { jwt: "", username: "", credentials: [], protectedCorpora }
             return false
         }
 
         const jwt = await response.text()
 
         const jwtPayload: JwtPayload = JSON.parse(atob(jwt.split(".")[1]))
-        const { name, email, scope, levels } = jwtPayload
+        const { name, email, scope, levels, userClasses = [] } = jwtPayload
         const username = name || email
 
-        const credentials = Object.keys(scope.corpora || {})
-            .filter((id) => (scope.corpora?.[id] || 0) >= levels["READ"])
-            .map((id) => id.toUpperCase())
+        // Fetch corpus info for protected corpora to get their License fields
+        let corpusLicenses: Record<string, string> = {}
+        if (protectedCorpora.length > 0) {
+            const corpusInfoResponse = await fetch(
+                `${settings.korp_backend_url}/corpus_info?corpus=${protectedCorpora.join(",")}`
+            )
+            const corpusInfo = await corpusInfoResponse.json()
 
-        state = { jwt, username, credentials }
+            // Build map of corpus -> license type
+            for (const [corpusId, data] of Object.entries(corpusInfo.corpora || {}) as [string, any][]) {
+                const license = data.info?.License || ""
+                corpusLicenses[corpusId.toUpperCase()] = license
+            }
+        }
+
+        // Build credentials based on license requirements
+        const credentials: string[] = []
+
+        for (const corpusId of protectedCorpora) {
+            const corpusUpper = corpusId.toUpperCase()
+            const license = corpusLicenses[corpusUpper] || ""
+
+            let hasAccess = false
+
+            if (license) {
+                // If corpus has a License field, check if user has that class
+                hasAccess = userClasses.includes(license)
+            } else {
+                // No License field: RES or mink corpus - requires explicit grant in scope.corpora
+                // Case-insensitive lookup: corpusId is UPPERCASE, normalize scope keys to match
+                const permissionLevel = Object.entries(scope.corpora || {}).find(
+                    ([key, _]) => key.toUpperCase() === corpusId
+                )?.[1] || 0
+                hasAccess = permissionLevel >= levels["READ"]
+            }
+
+            if (hasAccess) {
+                credentials.push(corpusUpper)
+            }
+        }
+
+        state = { jwt, username, credentials, protectedCorpora }
 
         return true
     },
@@ -78,6 +124,7 @@ const authModule: AuthModule = {
     getAuthorizationHeader: (): Record<string, string> => (state ? { Authorization: `Bearer ${state.jwt}` } : {}),
     hasCredential: (corpusId) => (state?.credentials || []).includes(corpusId),
     getCredentials: () => state?.credentials || [],
+    getProtectedCorpora: () => state?.protectedCorpora || [],
     getUsername: () => state!.username,
     isLoggedIn: () => !!state,
 }

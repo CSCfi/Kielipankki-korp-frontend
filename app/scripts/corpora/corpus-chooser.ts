@@ -177,7 +177,12 @@ export const updateLimitedAccess = (node: ChooserFolder, credentials: string[] =
         }
     }
     for (const corpus of node.corpora) {
-        corpus.userHasAccess = !corpus["limited_access"] || credentials.includes(corpus.id.toUpperCase())
+        // Set limited_access based on any source that indicates protection
+        const corpusLimitedAccess =
+              corpus["limited_access"] ||                // Frontend config - derived from /corpus_config via yaml in backend config file if there is no frontend config file (modes/<mode>_corpus_config.json)
+              corpus.info?.Protected === "true" ||       // .info file Protected field
+              corpus.info?.License !== undefined         // Has any license requirement in .info
+        corpus.userHasAccess = !corpusLimitedAccess || credentials.includes(corpus.id.toUpperCase())
         if (corpus.userHasAccess) {
             limitedAccess = false
         }

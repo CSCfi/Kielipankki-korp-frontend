@@ -75,7 +75,10 @@ angular.module("korpApp").component("ccTree", {
                 <input ng-if="corpus.userHasAccess" type="checkbox" ng-checked="corpus.selected" class="mx-1" />
                 <i ng-if="!corpus.userHasAccess" class="fa-solid fa-lock m-1"></i>
 
-                <label class="px-1 flex-1"> {{ corpus.title | locObj:$root.lang }} </label>
+                <label class="px-1 flex-1">
+                    {{ corpus.title | locObj:$root.lang }}
+                    <span ng-if="!corpus.userHasAccess && corpus.info.License">[{{ corpus.info.License }}]</span>
+                </label>
                 <i ng-if="corpus['limited_access'] && corpus.userHasAccess" class="fa-solid fa-unlock mx-1 my-1"></i>
                 <i
                     ng-click="$ctrl.showInfo($event, corpus)"

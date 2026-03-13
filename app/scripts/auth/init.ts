@@ -28,6 +28,7 @@ const dummyAuth: AuthModule = {
     getAuthorizationHeader: () => ({}),
     hasCredential: () => false,
     getCredentials: () => [],
+    getProtectedCorpora: () => [],
     getUsername: () => "",
     isLoggedIn: () => false,
 }
