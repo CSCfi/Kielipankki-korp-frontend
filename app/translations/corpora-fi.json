@@ -985,6 +985,42 @@
     "pabivus_chapter": "luku",
     "pabivus_verse": "jae",
 
+    "ekk-2022": "viro (2022)",
+    "fin-1932-1938": "suomi (1932-1938)",
+    "hun-2021": "unkari (2021)",
+    "kca-2013-2018": "hanti (2013-2018)", // <- kca-2013, kca-2017, kca-2018
+    "koi-1996": "komipermjakki (1996)",
+    "koi-2019": "komipermjakki (2019)",
+    "kpv-1995-1997": "komisyrjääni (1995-1997)", // <- kpv-1995, kpv-1997
+    "kpv-2008": "komisyrjääni (2008)",
+    "krl-2011": "vienankarjala (2011)",
+    "krl-2020-2023": "vienankarjala (2020-2023)",
+    "liv-1942": "liivi (1942)",
+    "mdf-1901": "mokša (1901)",
+    "mdf-1995": "mokša (1995)",
+    "mdf-2016": "mokša (2016)",
+    "mdf-2020-2022": "mokša (2020-2022)",
+    "mhr-1994-1995": "niittymari (1994-1995)",
+    "mhr-2007": "niittymari (2007)",
+    "mns-2000-2016": "mansi (2000-2016)", // mns-2003
+    "mrj-2014": "vuorimari (2014)",
+    "myv-1821-1827": "ersä (1821-1827)",
+    "myv-1910": "ersä (1910)",
+    "myv-1995-1998": "ersä (1995-1998)", // <- myv-1995, myv-1996, myv-1998
+    "myv-2006": "ersä (2006)",
+    "myv-2011-2020": "ersä (2011-2020)", // <- myv-2020, myv-2011
+    "olo-1993-1997": "livvinkarjala (1993-1997)",
+    "olo-2003": "livvinkarjala (2003)",
+    "olo-2006-2020": "livvinkarjala (2006-2020)",
+    "rus-1876": "venäjä (1876)",
+    "udm-1997": "udmurtti (1997)",
+    "udm-2013": "udmurtti (2013)",
+    "udm-2016": "udmurtti (2016)",
+    "ukr-2022": "udmurtti (2022)",
+    "vep-1992-1998": "vepsä (1992-1998)",
+    "vep-2006": "vepsä (2006)",
+    "vep-2012-2023": "vepsä (2012-2023)", // vep-2013
+
     "koi-2019": "komipermjakki (2019)",
     "kpv-2008": "komisyrjääni (2008)",
     "krl-2011": "vienankarjala (2011)",

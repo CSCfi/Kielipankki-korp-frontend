@@ -7480,6 +7480,47 @@ var pabivus_corpora =
      "pabivus_udm_1997",
      "pabivus_vep_2013"];
 
+var pabivus_v2_corpora =
+    ["pabivus_ekk_2022",
+     "pabivus_fin_1932_1938",
+     "pabivus_hun_2021",
+     "pabivus_kca_2013_2018",
+     "pabivus_koi_1996",
+     "pabivus_koi_2019",
+     "pabivus_kpv_1995_1997",
+     "pabivus_kpv_2008",
+     "pabivus_krl_2011",
+     "pabivus_krl_2020_2023",
+     "pabivus_liv_1942",
+     "pabivus_mdf_1901",
+     "pabivus_mdf_1995",
+     "pabivus_mdf_2016",
+     "pabivus_mdf_2020_2022",
+     "pabivus_mhr_1994_1995",
+     "pabivus_mhr_2007",
+     "pabivus_mns_2000_2016",
+     "pabivus_mrj_2014",
+     "pabivus_myv_1821_1827",
+     "pabivus_myv_1910",
+     "pabivus_myv_1995_1998",
+     "pabivus_myv_2006",
+     "pabivus_myv_2011_2020",
+     "pabivus_olo_1993_1997",
+     "pabivus_olo_2003",
+     "pabivus_olo_2006_2020",
+     "pabivus_rus_1876",
+     "pabivus_udm_1997",
+     "pabivus_udm_2013",
+     "pabivus_udm_2016",
+     "pabivus_ukr_2022",
+     "pabivus_vep_1992_1998",
+     "pabivus_vep_2006",
+     "pabivus_vep_2012_2023"];
+
+// est, hun, kca, rus, ukr: word ref
+// fin: word ref lemma pos xpos msd dephead deprel
+// the rest: word ref lemma pos xpos msd dephead deprel deps misc
+
 // return all corpora except the one defined as argument
 function pabivus_linked_corpora(corpus) {
     var retval = [];
@@ -7738,6 +7779,22 @@ funcs.extendCorpusSettings(settings.corpusinfo.pabivus_fin_1938,
                            pabivus_corpora);
 
 funcs.addCorporaToFolder("other", "pabivus_fin_1938");
+
+settings.corpora.pabivus_fin_1932_1938 = {
+    id: "pabivus_fin_1932_1938",
+    title: "Pabivus (ekk-fin-hun-kca-koi-kpv-krl-liv-mdf-mhr-mns-mrj-myv-olo-rus-udm-ukr-vep)",
+    description: "Parallel Bible verses for Uralic languages, version 2<br/>The corpus contains the 27 books of the New Testament in ... languages: Finnish (fin), Komi-Permyak (koi), Komi-Zyrian (kpv), North Karelian (krl), Moksha (mdf), Erzya (myv), Livvi-Karelian (olo), Udmurt (udm) ... and Veps (vep) as well as ... and Russian (rus). It also contains some books of the Bible in Mansi (mns) ... and Khanty (kca).<br/>Some books have more than one translation available in the same language. The translation year is shown for each subcorpus. The Finnish translation is from 1932-1938.",
+    lang: "fin",
+    linkedTo: pabivus_linked_corpora("pabivus_fin_1932_1938"),
+};
+
+pabivus_add_common_info(settings.corpora.pabivus_fin_1932_1938, "UD");
+settings.corpora.pabivus_fin_1932_1938.hide = false;
+
+funcs.extendCorpusSettings(settings.corpusinfo.pabivus_fin_1932_1938,
+                           pabivus_corpora);
+
+funcs.addCorporaToFolder("other", "pabivus_fin_1932_1938");
 
 
  // Christmas Gospel text-to-speech in four Uralic languages
