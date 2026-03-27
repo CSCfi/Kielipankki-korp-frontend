@@ -7436,12 +7436,9 @@ attrs.pos_pabivus = {
     },
 };
 
+// est, hun, kca, rus, ukr
 attrlist.pabivus = {
-    ref: attrs.ref,
-    lemma: attrs.baseform,
-    lemmacomp: attrs.baseform_compound,
-    pos: attrs.pos_pabivus,
-    msd: attrs.msd
+    ref: attrs.ref
 };
 
 sattrlist.pabivus = {
@@ -7454,33 +7451,6 @@ sattrlist.pabivus = {
 };
 
 var pabivus_corpora =
-    ["pabivus_fin_1938",
-     "pabivus_kca_2013",
-     "pabivus_kca_2017",
-     "pabivus_kca_2018",
-     "pabivus_koi_1996",
-     "pabivus_koi_2019",
-     "pabivus_kpv_1995",
-     "pabivus_kpv_1997",
-     "pabivus_kpv_2008",
-     "pabivus_krl_2011",
-     "pabivus_mdf_1995",
-     "pabivus_mdf_2016",
-     "pabivus_mns_2000",
-     "pabivus_myv_1821",
-     "pabivus_myv_1910",
-     "pabivus_myv_1995",
-     "pabivus_myv_1996",
-     "pabivus_myv_1998",
-     "pabivus_myv_2006",
-     "pabivus_myv_2011",
-     "pabivus_myv_2020",
-     "pabivus_olo_2003",
-     "pabivus_rus_1876",
-     "pabivus_udm_1997",
-     "pabivus_vep_2013"];
-
-var pabivus_v2_corpora =
     ["pabivus_ekk_2022",
      "pabivus_fin_1932_1938",
      "pabivus_hun_2021",
@@ -7545,245 +7515,319 @@ function pabivus_add_common_info(corpus, attrs = "") {
 	corpus["attributes"] = attrlist.ud2_fi;
     }
     corpus.licence = settings.licenceinfo.CC_BY_NC;
-    corpus.metadata_urn = "urn:nbn:fi:lb-2020021121";
+    corpus.metadata_urn = "urn:nbn:fi:lb-2024043001";
 };
 
-settings.corpora.pabivus_udm_1997 = {
-    id: "pabivus_udm_1997",
-    title: "Pabivus: Udmurt (1997)",
-    description: "Parallel Bible verses for Uralic languages: Udmurt",
-    lang: "udm-1997", // year 1997 translation
-    linkedTo: pabivus_linked_corpora("pabivus_udm_1997"),
+settings.corpora.pabivus_ekk_2022 = {
+    id: "pabivus_ekk_2022",
+    title: "Pabivus: Estonian (2022)",
+    description: "Parallel Bible verses for Uralic languages: Estonian",
+    lang: "ekk-2022",
+    linkedTo: pabivus_linked_corpora("pabivus_ekk_2022"),
 };
-pabivus_add_common_info(settings.corpora.pabivus_udm_1997);
+pabivus_add_common_info(settings.corpora.pabivus_ekk_2022, "_");
 
-settings.corpora.pabivus_olo_2003 = {
-    id: "pabivus_olo_2003",
-    title: "Pabivus: Livvi-Karelian (2003)",
-    description: "Parallel Bible verses for Uralic languages: Livvi-Karelian",
-    lang: "olo-2003", // year 2003 translation
-    linkedTo: pabivus_linked_corpora("pabivus_olo_2003"),
+settings.corpora.pabivus_hun_2021 = {
+    id: "pabivus_hun_2021",
+    title: "Pabivus: Hungarian (2021)",
+    description: "Parallel Bible verses for Uralic languages: Hungarian",
+    lang: "hun-2021",
+    linkedTo: pabivus_linked_corpora("pabivus_hun_2021"),
 };
-pabivus_add_common_info(settings.corpora.pabivus_olo_2003);
+pabivus_add_common_info(settings.corpora.pabivus_hun_2021, "_");
 
-settings.corpora.pabivus_myv_2006 = {
-    id: "pabivus_myv_2006",
-    title: "Pabivus: Erzya (2006)",
-    description: "Parallel Bible verses for Uralic languages: Erzya",
-    lang: "myv-2006", // year 2006 translation (some books available from 1996, 1998, 1995, 1910 and 1821)
-    linkedTo: pabivus_linked_corpora("pabivus_myv_2006"),
+settings.corpora.pabivus_kca_2013_2018 = {
+    id: "pabivus_kca_2013_2018",
+    title: "Pabivus: Khanty (2013-2018)",
+    description: "Parallel Bible verses for Uralic languages: Khanty",
+    lang: "kca-2013-2018",
+    linkedTo: pabivus_linked_corpora("pabivus_kca_2013_2018"),
 };
-pabivus_add_common_info(settings.corpora.pabivus_myv_2006, "UD");
-
-settings.corpora.pabivus_myv_1995 = {
-    id: "pabivus_myv_1995",
-    title: "Pabivus: Erzya (1995)",
-    description: "Parallel Bible verses for Uralic languages: Erzya",
-    lang: "myv-1995", // year 1996 translation
-    linkedTo: pabivus_linked_corpora("pabivus_myv_1995"),
-};
-pabivus_add_common_info(settings.corpora.pabivus_myv_1995, "UD");
-
-settings.corpora.pabivus_myv_1996 = {
-    id: "pabivus_myv_1996",
-    title: "Pabivus: Erzya (1996)",
-    description: "Parallel Bible verses for Uralic languages: Erzya",
-    lang: "myv-1996", // year 1996 translation
-    linkedTo: pabivus_linked_corpora("pabivus_myv_1996"),
-};
-pabivus_add_common_info(settings.corpora.pabivus_myv_1996, "UD");
-
-settings.corpora.pabivus_myv_1998 = {
-    id: "pabivus_myv_1998",
-    title: "Pabivus: Erzya (1998)",
-    description: "Parallel Bible verses for Uralic languages: Erzya",
-    lang: "myv-1998", // year 1996 translation
-    linkedTo: pabivus_linked_corpora("pabivus_myv_1998"),
-};
-pabivus_add_common_info(settings.corpora.pabivus_myv_1998, "UD");
-
-settings.corpora.pabivus_myv_2011 = {
-    id: "pabivus_myv_2011",
-    title: "Pabivus: Erzya (2011)",
-    description: "Parallel Bible verses for Uralic languages: Erzya",
-    lang: "myv-2011", // year 2011 translation
-    linkedTo: pabivus_linked_corpora("pabivus_myv_2011"),
-};
-pabivus_add_common_info(settings.corpora.pabivus_myv_2011, "UD");
-
-settings.corpora.pabivus_myv_2020 = {
-    id: "pabivus_myv_2020",
-    title: "Pabivus: Erzya (2020)",
-    description: "Parallel Bible verses for Uralic languages: Erzya",
-    lang: "myv-2020", // year 2020 translation
-    linkedTo: pabivus_linked_corpora("pabivus_myv_2020"),
-};
-pabivus_add_common_info(settings.corpora.pabivus_myv_2020, "UD");
-
-settings.corpora.pabivus_myv_1910 = {
-    id: "pabivus_myv_1910",
-    title: "Pabivus: Erzya (1910)",
-    description: "Parallel Bible verses for Uralic languages: Erzya",
-    lang: "myv-1910", // year 1996 translation
-    linkedTo: pabivus_linked_corpora("pabivus_myv_1910"),
-};
-pabivus_add_common_info(settings.corpora.pabivus_myv_1910, "UD");
-
-settings.corpora.pabivus_myv_1821 = {
-    id: "pabivus_myv_1821",
-    title: "Pabivus: Erzya (1821)",
-    description: "Parallel Bible verses for Uralic languages: Erzya",
-    lang: "myv-1821", // year 1996 translation
-    linkedTo: pabivus_linked_corpora("pabivus_myv_1821"),
-};
-pabivus_add_common_info(settings.corpora.pabivus_myv_1821, "UD");
-
-settings.corpora.pabivus_mdf_2016 = {
-    id: "pabivus_mdf_2016",
-    title: "Pabivus: Moksha (2016)",
-    description: "Parallel Bible verses for Uralic languages: Moksha",
-    lang: "mdf-2016", // year 2016 translation (some books available from 1995)
-    linkedTo: pabivus_linked_corpora("pabivus_mdf_2016"),
-};
-pabivus_add_common_info(settings.corpora.pabivus_mdf_2016, "UD");
-
-settings.corpora.pabivus_mdf_1995 = {
-    id: "pabivus_mdf_1995",
-    title: "Pabivus: Moksha (1995)",
-    description: "Parallel Bible verses for Uralic languages: Moksha",
-    lang: "mdf-1995", // year 1995 translation
-    linkedTo: pabivus_linked_corpora("pabivus_mdf_1995"),
-};
-pabivus_add_common_info(settings.corpora.pabivus_mdf_1995, "UD");
-
-settings.corpora.pabivus_krl_2011 = {
-    id: "pabivus_krl_2011",
-    title: "Pabivus: North Karelian (2011)",
-    description: "Parallel Bible verses for Uralic languages: North Karelian",
-    lang: "krl-2011", // year 2011 translation
-    linkedTo: pabivus_linked_corpora("pabivus_krl_2011"),
-};
-pabivus_add_common_info(settings.corpora.pabivus_krl_2011);
-
-settings.corpora.pabivus_kpv_2008 = {
-    id: "pabivus_kpv_2008",
-    title: "Pabivus: Komi-Zyrian (2008)",
-    description: "Parallel Bible verses for Uralic languages: Komi-Zyrian",
-    lang: "kpv-2008", // year 2008 translation (some books avaiable from 1995 and 1997)
-    linkedTo: pabivus_linked_corpora("pabivus_kpv_2008"),
-};
-pabivus_add_common_info(settings.corpora.pabivus_kpv_2008);
-
-settings.corpora.pabivus_kpv_1995 = {
-    id: "pabivus_kpv_1995",
-    title: "Pabivus: Komi-Zyrian (1995)",
-    description: "Parallel Bible verses for Uralic languages: Komi-Zyrian",
-    lang: "kpv-1995", // year 1995 translation
-    linkedTo: pabivus_linked_corpora("pabivus_kpv_1995"),
-};
-pabivus_add_common_info(settings.corpora.pabivus_kpv_1995);
-
-settings.corpora.pabivus_kpv_1997 = {
-    id: "pabivus_kpv_1997",
-    title: "Pabivus: Komi-Zyrian (1997)",
-    description: "Parallel Bible verses for Uralic languages: Komi-Zyrian",
-    lang: "kpv-1997", // year 1997 translation
-    linkedTo: pabivus_linked_corpora("pabivus_kpv_1997"),
-};
-pabivus_add_common_info(settings.corpora.pabivus_kpv_1997);
-
-settings.corpora.pabivus_koi_2019 = {
-    id: "pabivus_koi_2019",
-    title: "Pabivus: Komi-Permyak (2019)",
-    description: "Parallel Bible verses for Uralic languages: Komi-Permyak",
-    lang: "koi-2019", // year 2019 translation (some books available from 1996)
-    linkedTo: pabivus_linked_corpora("pabivus_koi_2019"),
-};
-pabivus_add_common_info(settings.corpora.pabivus_koi_2019);
+pabivus_add_common_info(settings.corpora.pabivus_kca_2013_2018, "_");
 
 settings.corpora.pabivus_koi_1996 = {
     id: "pabivus_koi_1996",
     title: "Pabivus: Komi-Permyak (1996)",
     description: "Parallel Bible verses for Uralic languages: Komi-Permyak",
-    lang: "koi-1996", // year 1996 translation
+    lang: "koi-1996",
     linkedTo: pabivus_linked_corpora("pabivus_koi_1996"),
 };
-pabivus_add_common_info(settings.corpora.pabivus_koi_1996);
+pabivus_add_common_info(settings.corpora.pabivus_koi_1996, "UD");
+
+settings.corpora.pabivus_koi_2019 = {
+    id: "pabivus_koi_2019",
+    title: "Pabivus: Komi-Permyak (2019)",
+    description: "Parallel Bible verses for Uralic languages: Komi-Permyak",
+    lang: "koi-2019",
+    linkedTo: pabivus_linked_corpora("pabivus_koi_2019"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_koi_2019, "UD");
+
+settings.corpora.pabivus_kpv_1995_1997 = {
+    id: "pabivus_kpv_1995_1997",
+    title: "Pabivus: Komi-Zyrian (1995-1997)",
+    description: "Parallel Bible verses for Uralic languages: Komi-Zyrian",
+    lang: "kpv-1995-1997",
+    linkedTo: pabivus_linked_corpora("pabivus_kpv_1995_1997"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_kpv_1995_1997, "UD");
+
+settings.corpora.pabivus_kpv_2008 = {
+    id: "pabivus_kpv_2008",
+    title: "Pabivus: Komi-Zyrian (2008)",
+    description: "Parallel Bible verses for Uralic languages: Komi-Zyrian",
+    lang: "kpv-2008",
+    linkedTo: pabivus_linked_corpora("pabivus_kpv_2008"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_kpv_2008, "UD");
+
+settings.corpora.pabivus_krl_Karelian = {
+    id: "pabivus_krl_Karelian",
+    title: "Pabivus: North (2011)",
+    description: "Parallel Bible verses for Uralic languages: North",
+    lang: "krl-2011",
+    linkedTo: pabivus_linked_corpora("pabivus_krl_Karelian"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_krl_Karelian, "2011");
+
+settings.corpora.pabivus_krl_Karelian = {
+    id: "pabivus_krl_Karelian",
+    title: "Pabivus: North (2020-2023)",
+    description: "Parallel Bible verses for Uralic languages: North",
+    lang: "krl-2020-2023",
+    linkedTo: pabivus_linked_corpora("pabivus_krl_Karelian"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_krl_Karelian, "2020_2023");
+
+settings.corpora.pabivus_liv_1942 = {
+    id: "pabivus_liv_1942",
+    title: "Pabivus: Livonian (1942)",
+    description: "Parallel Bible verses for Uralic languages: Livonian",
+    lang: "liv-1942",
+    linkedTo: pabivus_linked_corpora("pabivus_liv_1942"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_liv_1942, "UD");
+
+settings.corpora.pabivus_mdf_1901 = {
+    id: "pabivus_mdf_1901",
+    title: "Pabivus: Moksha (1901)",
+    description: "Parallel Bible verses for Uralic languages: Moksha",
+    lang: "mdf-1901",
+    linkedTo: pabivus_linked_corpora("pabivus_mdf_1901"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_mdf_1901, "UD");
+
+settings.corpora.pabivus_mdf_1995 = {
+    id: "pabivus_mdf_1995",
+    title: "Pabivus: Moksha (1995)",
+    description: "Parallel Bible verses for Uralic languages: Moksha",
+    lang: "mdf-1995",
+    linkedTo: pabivus_linked_corpora("pabivus_mdf_1995"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_mdf_1995, "UD");
+
+settings.corpora.pabivus_mdf_2016 = {
+    id: "pabivus_mdf_2016",
+    title: "Pabivus: Moksha (2016)",
+    description: "Parallel Bible verses for Uralic languages: Moksha",
+    lang: "mdf-2016",
+    linkedTo: pabivus_linked_corpora("pabivus_mdf_2016"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_mdf_2016, "UD");
+
+settings.corpora.pabivus_mdf_2020_2022 = {
+    id: "pabivus_mdf_2020_2022",
+    title: "Pabivus: Moksha (2020-2022)",
+    description: "Parallel Bible verses for Uralic languages: Moksha",
+    lang: "mdf-2020-2022",
+    linkedTo: pabivus_linked_corpora("pabivus_mdf_2020_2022"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_mdf_2020_2022, "UD");
+
+settings.corpora.pabivus_mhr_Mari = {
+    id: "pabivus_mhr_Mari",
+    title: "Pabivus: Meadow (1994-1995)",
+    description: "Parallel Bible verses for Uralic languages: Meadow",
+    lang: "mhr-1994-1995",
+    linkedTo: pabivus_linked_corpora("pabivus_mhr_Mari"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_mhr_Mari, "1994_1995");
+
+settings.corpora.pabivus_mhr_Mari = {
+    id: "pabivus_mhr_Mari",
+    title: "Pabivus: Meadow (2007)",
+    description: "Parallel Bible verses for Uralic languages: Meadow",
+    lang: "mhr-2007",
+    linkedTo: pabivus_linked_corpora("pabivus_mhr_Mari"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_mhr_Mari, "2007");
+
+settings.corpora.pabivus_mns_2000_2016 = {
+    id: "pabivus_mns_2000_2016",
+    title: "Pabivus: Mansi (2000-2016)",
+    description: "Parallel Bible verses for Uralic languages: Mansi",
+    lang: "mns-2000-2016",
+    linkedTo: pabivus_linked_corpora("pabivus_mns_2000_2016"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_mns_2000_2016, "UD");
+
+settings.corpora.pabivus_mrj_Mari = {
+    id: "pabivus_mrj_Mari",
+    title: "Pabivus: Hill (2014)",
+    description: "Parallel Bible verses for Uralic languages: Hill",
+    lang: "mrj-2014",
+    linkedTo: pabivus_linked_corpora("pabivus_mrj_Mari"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_mrj_Mari, "2014");
+
+settings.corpora.pabivus_myv_1821_1827 = {
+    id: "pabivus_myv_1821_1827",
+    title: "Pabivus: Erzya (1821-1827)",
+    description: "Parallel Bible verses for Uralic languages: Erzya",
+    lang: "myv-1821-1827",
+    linkedTo: pabivus_linked_corpora("pabivus_myv_1821_1827"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_myv_1821_1827, "UD");
+
+settings.corpora.pabivus_myv_1910 = {
+    id: "pabivus_myv_1910",
+    title: "Pabivus: Erzya (1910)",
+    description: "Parallel Bible verses for Uralic languages: Erzya",
+    lang: "myv-1910",
+    linkedTo: pabivus_linked_corpora("pabivus_myv_1910"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_myv_1910, "UD");
+
+settings.corpora.pabivus_myv_1995_1998 = {
+    id: "pabivus_myv_1995_1998",
+    title: "Pabivus: Erzya (1995-1998)",
+    description: "Parallel Bible verses for Uralic languages: Erzya",
+    lang: "myv-1995-1998",
+    linkedTo: pabivus_linked_corpora("pabivus_myv_1995_1998"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_myv_1995_1998, "UD");
+
+settings.corpora.pabivus_myv_2006 = {
+    id: "pabivus_myv_2006",
+    title: "Pabivus: Erzya (2006)",
+    description: "Parallel Bible verses for Uralic languages: Erzya",
+    lang: "myv-2006",
+    linkedTo: pabivus_linked_corpora("pabivus_myv_2006"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_myv_2006, "UD");
+
+settings.corpora.pabivus_myv_2011_2020 = {
+    id: "pabivus_myv_2011_2020",
+    title: "Pabivus: Erzya (2011-2020)",
+    description: "Parallel Bible verses for Uralic languages: Erzya",
+    lang: "myv-2011-2020",
+    linkedTo: pabivus_linked_corpora("pabivus_myv_2011_2020"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_myv_2011_2020, "UD");
+
+settings.corpora.pabivus_olo_1993_1997 = {
+    id: "pabivus_olo_1993_1997",
+    title: "Pabivus: Livvi-Karelian (1993-1997)",
+    description: "Parallel Bible verses for Uralic languages: Livvi-Karelian",
+    lang: "olo-1993-1997",
+    linkedTo: pabivus_linked_corpora("pabivus_olo_1993_1997"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_olo_1993_1997, "UD");
+
+settings.corpora.pabivus_olo_2003 = {
+    id: "pabivus_olo_2003",
+    title: "Pabivus: Livvi-Karelian (2003)",
+    description: "Parallel Bible verses for Uralic languages: Livvi-Karelian",
+    lang: "olo-2003",
+    linkedTo: pabivus_linked_corpora("pabivus_olo_2003"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_olo_2003, "UD");
+
+settings.corpora.pabivus_olo_2006_2020 = {
+    id: "pabivus_olo_2006_2020",
+    title: "Pabivus: Livvi-Karelian (2006-2020)",
+    description: "Parallel Bible verses for Uralic languages: Livvi-Karelian",
+    lang: "olo-2006-2020",
+    linkedTo: pabivus_linked_corpora("pabivus_olo_2006_2020"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_olo_2006_2020, "UD");
 
 settings.corpora.pabivus_rus_1876 = {
     id: "pabivus_rus_1876",
     title: "Pabivus: Russian (1876)",
     description: "Parallel Bible verses for Uralic languages: Russian",
-    lang: "rus-1876", // year 1876 translation
+    lang: "rus-1876",
     linkedTo: pabivus_linked_corpora("pabivus_rus_1876"),
 };
-pabivus_add_common_info(settings.corpora.pabivus_rus_1876);
+pabivus_add_common_info(settings.corpora.pabivus_rus_1876, "_");
 
-settings.corpora.pabivus_vep_2013 = {
-    id: "pabivus_vep_2013",
-    title: "Pabivus: Veps (2013)",
+settings.corpora.pabivus_udm_1997 = {
+    id: "pabivus_udm_1997",
+    title: "Pabivus: Udmurt (1997)",
+    description: "Parallel Bible verses for Uralic languages: Udmurt",
+    lang: "udm-1997",
+    linkedTo: pabivus_linked_corpora("pabivus_udm_1997"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_udm_1997, "UD");
+
+settings.corpora.pabivus_udm_2013 = {
+    id: "pabivus_udm_2013",
+    title: "Pabivus: Udmurt (2013)",
+    description: "Parallel Bible verses for Uralic languages: Udmurt",
+    lang: "udm-2013",
+    linkedTo: pabivus_linked_corpora("pabivus_udm_2013"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_udm_2013, "UD");
+
+settings.corpora.pabivus_udm_2016 = {
+    id: "pabivus_udm_2016",
+    title: "Pabivus: Udmurt (2016)",
+    description: "Parallel Bible verses for Uralic languages: Udmurt",
+    lang: "udm-2016",
+    linkedTo: pabivus_linked_corpora("pabivus_udm_2016"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_udm_2016, "UD");
+
+settings.corpora.pabivus_ukr_2022 = {
+    id: "pabivus_ukr_2022",
+    title: "Pabivus: Udmurt (2022)",
+    description: "Parallel Bible verses for Uralic languages: Udmurt",
+    lang: "ukr-2022",
+    linkedTo: pabivus_linked_corpora("pabivus_ukr_2022"),
+};
+pabivus_add_common_info(settings.corpora.pabivus_ukr_2022, "_");
+
+settings.corpora.pabivus_vep_1992_1998 = {
+    id: "pabivus_vep_1992_1998",
+    title: "Pabivus: Veps (1992-1998)",
     description: "Parallel Bible verses for Uralic languages: Veps",
-    lang: "vep-2013", // year 2013 translation
-    linkedTo: pabivus_linked_corpora("pabivus_vep_2013"),
+    lang: "vep-1992-1998",
+    linkedTo: pabivus_linked_corpora("pabivus_vep_1992_1998"),
 };
-pabivus_add_common_info(settings.corpora.pabivus_vep_2013);
+pabivus_add_common_info(settings.corpora.pabivus_vep_1992_1998, "UD");
 
-settings.corpora.pabivus_kca_2013 = {
-    id: "pabivus_kca_2013",
-    title: "Pabivus: Khanty (2013)",
-    description: "Parallel Bible verses for Uralic languages: Khanty",
-    lang: "kca-2013", // year 2013 translation
-    linkedTo: pabivus_linked_corpora("pabivus_kca_2013"),
+settings.corpora.pabivus_vep_2006 = {
+    id: "pabivus_vep_2006",
+    title: "Pabivus: Veps (2006)",
+    description: "Parallel Bible verses for Uralic languages: Veps",
+    lang: "vep-2006",
+    linkedTo: pabivus_linked_corpora("pabivus_vep_2006"),
 };
-pabivus_add_common_info(settings.corpora.pabivus_kca_2013);
+pabivus_add_common_info(settings.corpora.pabivus_vep_2006, "UD");
 
-settings.corpora.pabivus_kca_2017 = {
-    id: "pabivus_kca_2017",
-    title: "Pabivus: Khanty (2017)",
-    description: "Parallel Bible verses for Uralic languages: Khanty",
-    lang: "kca-2017", // year 2017 translation
-    linkedTo: pabivus_linked_corpora("pabivus_kca_2017"),
+settings.corpora.pabivus_vep_2012_2023 = {
+    id: "pabivus_vep_2012_2023",
+    title: "Pabivus: Veps (2012-2023)",
+    description: "Parallel Bible verses for Uralic languages: Veps",
+    lang: "vep-2012-2023",
+    linkedTo: pabivus_linked_corpora("pabivus_vep_2012_2023"),
 };
-pabivus_add_common_info(settings.corpora.pabivus_kca_2017);
-
-settings.corpora.pabivus_kca_2018 = {
-    id: "pabivus_kca_2018",
-    title: "Pabivus: Khanty (2018)",
-    description: "Parallel Bible verses for Uralic languages: Khanty",
-    lang: "kca-2018", // year 2018 translation
-    linkedTo: pabivus_linked_corpora("pabivus_kca_2018"),
-};
-pabivus_add_common_info(settings.corpora.pabivus_kca_2018);
-
-settings.corpora.pabivus_mns_2000 = {
-    id: "pabivus_mns_2000",
-    title: "Pabivus: Mansi (2000)",
-    description: "Parallel Bible verses for Uralic languages: Mansi",
-    lang: "mns-2000", // year 2000 translation
-    linkedTo: pabivus_linked_corpora("pabivus_mns_2000"),
-};
-pabivus_add_common_info(settings.corpora.pabivus_mns_2000);
-
-settings.corpora.pabivus_fin_1938 = {
-    id: "pabivus_fin_1938",
-    title: "Pabivus (fin–kca-koi–kpv–krl–mdf–mns-myv–olo–udm–vep-rus)",
-    description: "Parallel Bible verses for Uralic languages<br/>The corpus contains the 27 books of the New Testament in ten languages: Finnish (fin), Komi-Permyak (koi), Komi-Zyrian (kpv), North Karelian (krl), Moksha (mdf), Erzya (myv), Livvi-Karelian (olo), Udmurt (udm) and Veps (vep) as well as Russian (rus). It also contains some books of the Bible in Mansi (mns) and Khanty (kca).<br/>Some books have more than one translation available in the same language. The translation year is shown for each subcorpus. The Finnish translation is from 1938.",
-    lang: "fin",
-    linkedTo: pabivus_linked_corpora("pabivus_fin_1938"),
-};
-
-pabivus_add_common_info(settings.corpora.pabivus_fin_1938, "UD");
-settings.corpora.pabivus_fin_1938.hide = false;
-
-funcs.extendCorpusSettings(settings.corpusinfo.pabivus_fin_1938,
-                           pabivus_corpora);
-
-funcs.addCorporaToFolder("other", "pabivus_fin_1938");
+pabivus_add_common_info(settings.corpora.pabivus_vep_2012_2023, "UD");
 
 settings.corpora.pabivus_fin_1932_1938 = {
     id: "pabivus_fin_1932_1938",
     title: "Pabivus (ekk-fin-hun-kca-koi-kpv-krl-liv-mdf-mhr-mns-mrj-myv-olo-rus-udm-ukr-vep)",
-    description: "Parallel Bible verses for Uralic languages, version 2<br/>The corpus contains the 27 books of the New Testament in ... languages: Finnish (fin), Komi-Permyak (koi), Komi-Zyrian (kpv), North Karelian (krl), Moksha (mdf), Erzya (myv), Livvi-Karelian (olo), Udmurt (udm) ... and Veps (vep) as well as ... and Russian (rus). It also contains some books of the Bible in Mansi (mns) ... and Khanty (kca).<br/>Some books have more than one translation available in the same language. The translation year is shown for each subcorpus. The Finnish translation is from 1932-1938.",
+    description: "Parallel Bible Verses for Uralic Studies, version 2<br/>The corpus contains Biblical verses (historical and contemporate, 1821–2023) from Erzya (myv), Moksha (mdf); Olonets-Karelian (Livvi) (olo), Dvina-Karelian (North Karelian Proper) (krl), Livonian (liv), Veps (vep); Khanty (kca), Mansi (mns); Komi-Permyak (koi), Komi-Zyrian (kpv), Udmurt (udm); Meadow & Eastern Mari (mhr) and Hill Mari (mrj). Finnish, Estonian, Hungarian as well as Russian and Ukrainian translations are also included.<br/>Some books have more than one translation available in the same language. The translation year is shown for each subcorpus. The Finnish translation is from 1932-1938.",
     lang: "fin",
     linkedTo: pabivus_linked_corpora("pabivus_fin_1932_1938"),
 };
