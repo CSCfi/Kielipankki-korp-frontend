@@ -7443,10 +7443,10 @@ attrlist.pabivus = {
 
 sattrlist.pabivus = {
     //text_lang : { label: "" },
-    text_id : { label: "text_id" },
+    text_id_1 : { label: "text_id" },
     text_iso_lang : { label: "iso_639_code" },
-    chapter_id : { label: "pabivus_chapter" },
-    sentence_id : { label: "pabivus_verse" }
+    //chapter_id : { label: "pabivus_chapter" },
+    sentence_id_1 : { label: "pabivus_verse" }
     //sentence_text : { label: "text" }
 };
 
