@@ -7790,8 +7790,8 @@ pabivus_add_common_info(settings.corpora.pabivus_udm_2016, "UD");
 
 settings.corpora.pabivus_ukr_2022 = {
     id: "pabivus_ukr_2022",
-    title: "Pabivus: Udmurt (2022)",
-    description: "Parallel Bible verses for Uralic languages: Udmurt",
+    title: "Pabivus: Ukranian (2022)",
+    description: "Parallel Bible verses for Uralic languages: Ukranian",
     lang: "ukr-2022",
     linkedTo: pabivus_linked_corpora("pabivus_ukr_2022"),
 };
