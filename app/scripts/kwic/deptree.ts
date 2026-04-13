@@ -27,7 +27,7 @@ export function drawBratTree(words: Token[], to_div: string, hover_fun: HoverFun
     const added_rel: string[] = []
 
     const add_word = function (word: Token, start: number, stop: number) {
-        const pos: string = word.pos
+        const pos: string = word.upos || word.pos
         const ref: string = word.ref
         const dephead: string = word.dephead
         const deprel: string = word.deprel
