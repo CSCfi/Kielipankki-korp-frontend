@@ -158,6 +158,24 @@ module.exports = {
                 {
                     from: korpConfigDir + "/translations/*",
                     to: "translations/[name].[fullhash][ext]",
+                    transform: {
+                        transformer(content, absoluteFrom) {
+                            // Merge config repo locale files into base locale files
+                            // so site-specific overrides don't replace the full translation set
+                            const name = path.basename(absoluteFrom)
+                            if (name.startsWith("locale-") && name.endsWith(".json")) {
+                                const basePath = path.resolve(__dirname, "app/translations", name)
+                                try {
+                                    const base = JSON.parse(require("fs").readFileSync(basePath, "utf8"))
+                                    const overrides = JSON.parse(content.toString())
+                                    return JSON.stringify({ ...base, ...overrides })
+                                } catch (e) {
+                                    // If base file doesn't exist, just use the config file as-is
+                                }
+                            }
+                            return content
+                        },
+                    },
                 },
                 {
                     // Copy images in the configuration, adding a hash
