@@ -152,30 +152,26 @@ module.exports = {
                     to: "markup",
                 },
                 {
+                    // Base UI locale files — merge any same-named override from the config repo on top.
                     from: "app/translations/locale-*.json",
                     to: "translations/[name].[fullhash][ext]",
+                    transform(content, absoluteFrom) {
+                        const name = path.basename(absoluteFrom)
+                        const overridePath = path.resolve(korpConfigDir, "translations", name)
+                        const fs = require("fs")
+                        if (fs.existsSync(overridePath)) {
+                            const base = JSON.parse(content.toString())
+                            const overrides = JSON.parse(fs.readFileSync(overridePath, "utf8"))
+                            return JSON.stringify({ ...base, ...overrides })
+                        }
+                        return content
+                    },
                 },
                 {
-                    from: korpConfigDir + "/translations/*",
+                    // Other config-repo translation files (corpora-*.json, angular-locale_*.js).
+                    from: korpConfigDir + "/translations/!(locale-*.json)",
                     to: "translations/[name].[fullhash][ext]",
-                    transform: {
-                        transformer(content, absoluteFrom) {
-                            // Merge config repo locale files into base locale files
-                            // so site-specific overrides don't replace the full translation set
-                            const name = path.basename(absoluteFrom)
-                            if (name.startsWith("locale-") && name.endsWith(".json")) {
-                                const basePath = path.resolve(__dirname, "app/translations", name)
-                                try {
-                                    const base = JSON.parse(require("fs").readFileSync(basePath, "utf8"))
-                                    const overrides = JSON.parse(content.toString())
-                                    return JSON.stringify({ ...base, ...overrides })
-                                } catch (e) {
-                                    // If base file doesn't exist, just use the config file as-is
-                                }
-                            }
-                            return content
-                        },
-                    },
+                    noErrorOnMissing: true,
                 },
                 {
                     // Copy images in the configuration, adding a hash
