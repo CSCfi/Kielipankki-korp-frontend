@@ -65,13 +65,18 @@ angular.module("korpApp").component("depTree", {
                             }
 
                             $timeout(() => {
-                                drawBratTree($ctrl.tokens, "magic_secret_id", (msg) => {
-                                    const [type, val] = Object.entries(msg)[0]
+                                drawBratTree($ctrl.tokens, "magic_secret_id", (kind, val) => {
+                                    const attrName =
+                                        kind === "pos"
+                                            ? $ctrl.corpus.attributes.upos
+                                                ? "upos"
+                                                : "pos"
+                                            : "deprel"
+                                    const attr = $ctrl.corpus.attributes[attrName]
+                                    if (!attr) return
                                     $scope.$apply((s: ModalScope) => {
-                                        const attr = $ctrl.corpus.attributes[type]
-                                        if (!attr) return
                                         s.label = attr.label
-                                        s.value = attr.translation![val]
+                                        s.value = attr.translation?.[val] as LangString
                                     })
                                 })
                             }, 0)

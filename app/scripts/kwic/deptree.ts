@@ -16,7 +16,8 @@ type BratType = {
     args?: { role: string; targets: any[] }[]
 }
 
-type HoverFunction = (data: Record<string, string>) => void
+type HoverKind = "pos" | "deprel"
+type HoverFunction = (kind: HoverKind, value: string) => void
 
 export function drawBratTree(words: Token[], to_div: string, hover_fun: HoverFunction): void {
     const entity_types: BratType[] = []
@@ -88,14 +89,14 @@ export function drawBratTree(words: Token[], to_div: string, hover_fun: HoverFun
         .children()
         .each(function () {
             const g = $(this)
-            const deprel = g.find("text").data("arc-role")
-            g.hover(() => hover_fun({ deprel }))
+            const deprel = g.find("text").attr("data-arc-role")
+            g.hover(() => hover_fun("deprel", deprel))
         })
     div.find("g.span text").each(function () {
         const pos = $(this).text()
         $(this)
             .parent()
-            .hover(() => hover_fun({ pos }))
+            .hover(() => hover_fun("pos", pos))
     })
 }
 
