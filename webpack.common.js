@@ -171,6 +171,18 @@ module.exports = {
                     },
                 },
                 {
+                    // Config-repo locale files with no frontend base (e.g. locale-fin.json).
+                    // Same-named files are already handled by the merge transform above.
+                    from: korpConfigDir + "/translations/locale-*.json",
+                    to: "translations/[name].[fullhash][ext]",
+                    noErrorOnMissing: true,
+                    filter(resourcePath) {
+                        const name = path.basename(resourcePath)
+                        const basePath = path.resolve(__dirname, "app/translations", name)
+                        return !require("fs").existsSync(basePath)
+                    },
+                },
+                {
                     // Other config-repo translation files (corpora-*.json, angular-locale_*.js).
                     from: korpConfigDir + "/translations/!(locale-*.json)",
                     to: "translations/[name].[fullhash][ext]",
