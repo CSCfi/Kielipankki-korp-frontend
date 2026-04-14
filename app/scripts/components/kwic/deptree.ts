@@ -68,8 +68,10 @@ angular.module("korpApp").component("depTree", {
                                 drawBratTree($ctrl.tokens, "magic_secret_id", (msg) => {
                                     const [type, val] = Object.entries(msg)[0]
                                     $scope.$apply((s: ModalScope) => {
-                                        s.label = $ctrl.corpus.attributes[type].label
-                                        s.value = $ctrl.corpus.attributes[type].translation![val]
+                                        const attr = $ctrl.corpus.attributes[type]
+                                        if (!attr) return
+                                        s.label = attr.label
+                                        s.value = attr.translation![val]
                                     })
                                 })
                             }, 0)
