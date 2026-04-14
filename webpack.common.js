@@ -159,9 +159,12 @@ module.exports = {
                         const name = path.basename(absoluteFrom)
                         const overridePath = path.resolve(korpConfigDir, "translations", name)
                         const fs = require("fs")
-                        if (fs.existsSync(overridePath)) {
+                        const exists = fs.existsSync(overridePath)
+                        console.log(`[locale-merge] base=${absoluteFrom} override=${overridePath} exists=${exists}`)
+                        if (exists) {
                             const base = JSON.parse(content.toString())
                             const overrides = JSON.parse(fs.readFileSync(overridePath, "utf8"))
+                            console.log(`[locale-merge] merged ${name}: ${Object.keys(base).length} base + ${Object.keys(overrides).length} overrides`)
                             return JSON.stringify({ ...base, ...overrides })
                         }
                         return content
