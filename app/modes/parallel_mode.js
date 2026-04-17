@@ -7581,23 +7581,23 @@ settings.corpora.pabivus_kpv_2008 = {
 };
 pabivus_add_common_info(settings.corpora.pabivus_kpv_2008, "UD");
 
-settings.corpora.pabivus_krl_Karelian = {
-    id: "pabivus_krl_Karelian",
-    title: "Pabivus: North (2011)",
-    description: "Parallel Bible verses for Uralic languages: North",
+settings.corpora.pabivus_krl_2011 = {
+    id: "pabivus_krl_2011",
+    title: "Pabivus: North Karelian (2011)",
+    description: "Parallel Bible verses for Uralic languages: North Karelian",
     lang: "krl-2011",
-    linkedTo: pabivus_linked_corpora("pabivus_krl_Karelian"),
+    linkedTo: pabivus_linked_corpora("pabivus_krl_2011"),
 };
-pabivus_add_common_info(settings.corpora.pabivus_krl_Karelian, "2011");
+pabivus_add_common_info(settings.corpora.pabivus_krl_2011, "UD");
 
-settings.corpora.pabivus_krl_Karelian = {
-    id: "pabivus_krl_Karelian",
-    title: "Pabivus: North (2020-2023)",
-    description: "Parallel Bible verses for Uralic languages: North",
+settings.corpora.pabivus_krl_2020_2023 = {
+    id: "pabivus_krl_2020_2023",
+    title: "Pabivus: North Karelian (2020-2023)",
+    description: "Parallel Bible verses for Uralic languages: North Karelian",
     lang: "krl-2020-2023",
-    linkedTo: pabivus_linked_corpora("pabivus_krl_Karelian"),
+    linkedTo: pabivus_linked_corpora("pabivus_krl_2020_2023"),
 };
-pabivus_add_common_info(settings.corpora.pabivus_krl_Karelian, "2020_2023");
+pabivus_add_common_info(settings.corpora.pabivus_krl_2020_2023, "UD");
 
 settings.corpora.pabivus_liv_1942 = {
     id: "pabivus_liv_1942",
@@ -7644,23 +7644,23 @@ settings.corpora.pabivus_mdf_2020_2022 = {
 };
 pabivus_add_common_info(settings.corpora.pabivus_mdf_2020_2022, "UD");
 
-settings.corpora.pabivus_mhr_Mari = {
-    id: "pabivus_mhr_Mari",
-    title: "Pabivus: Meadow (1994-1995)",
-    description: "Parallel Bible verses for Uralic languages: Meadow",
+settings.corpora.pabivus_mhr_1994_1995 = {
+    id: "pabivus_mhr_1994_1995",
+    title: "Pabivus: Meadow Mari (1994-1995)",
+    description: "Parallel Bible verses for Uralic languages: Meadow Mari",
     lang: "mhr-1994-1995",
-    linkedTo: pabivus_linked_corpora("pabivus_mhr_Mari"),
+    linkedTo: pabivus_linked_corpora("pabivus_mhr_1994_1995"),
 };
-pabivus_add_common_info(settings.corpora.pabivus_mhr_Mari, "1994_1995");
+pabivus_add_common_info(settings.corpora.pabivus_mhr_1994_1995, "UD");
 
-settings.corpora.pabivus_mhr_Mari = {
-    id: "pabivus_mhr_Mari",
-    title: "Pabivus: Meadow (2007)",
-    description: "Parallel Bible verses for Uralic languages: Meadow",
+settings.corpora.pabivus_mhr_2007 = {
+    id: "pabivus_mhr_2007",
+    title: "Pabivus: Meadow Mari (2007)",
+    description: "Parallel Bible verses for Uralic languages: Meadow Mari",
     lang: "mhr-2007",
-    linkedTo: pabivus_linked_corpora("pabivus_mhr_Mari"),
+    linkedTo: pabivus_linked_corpora("pabivus_mhr_2007"),
 };
-pabivus_add_common_info(settings.corpora.pabivus_mhr_Mari, "2007");
+pabivus_add_common_info(settings.corpora.pabivus_mhr_2007, "UD");
 
 settings.corpora.pabivus_mns_2000_2016 = {
     id: "pabivus_mns_2000_2016",
@@ -7671,14 +7671,14 @@ settings.corpora.pabivus_mns_2000_2016 = {
 };
 pabivus_add_common_info(settings.corpora.pabivus_mns_2000_2016, "UD");
 
-settings.corpora.pabivus_mrj_Mari = {
-    id: "pabivus_mrj_Mari",
-    title: "Pabivus: Hill (2014)",
-    description: "Parallel Bible verses for Uralic languages: Hill",
+settings.corpora.pabivus_mrj_2014 = {
+    id: "pabivus_mrj_2014",
+    title: "Pabivus: Hill Mari (2014)",
+    description: "Parallel Bible verses for Uralic languages: Hill Mari",
     lang: "mrj-2014",
-    linkedTo: pabivus_linked_corpora("pabivus_mrj_Mari"),
+    linkedTo: pabivus_linked_corpora("pabivus_mrj_2014"),
 };
-pabivus_add_common_info(settings.corpora.pabivus_mrj_Mari, "2014");
+pabivus_add_common_info(settings.corpora.pabivus_mrj_2014, "UD");
 
 settings.corpora.pabivus_myv_1821_1827 = {
     id: "pabivus_myv_1821_1827",
