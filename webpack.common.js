@@ -152,12 +152,45 @@ module.exports = {
                     to: "markup",
                 },
                 {
+                    // Base UI locale files — merge any same-named override from the config repo on top.
                     from: "app/translations/locale-*.json",
                     to: "translations/[name].[fullhash][ext]",
+                    transform: {
+                        transformer(content, absoluteFrom) {
+                            const name = path.basename(absoluteFrom)
+                            const overridePath = path.resolve(korpConfigDir, "translations", name)
+                            const fs = require("fs")
+                            const exists = fs.existsSync(overridePath)
+                            console.log(`[locale-merge] base=${absoluteFrom} override=${overridePath} exists=${exists}`)
+                            if (exists) {
+                                const base = JSON.parse(content.toString())
+                                const overrides = JSON.parse(fs.readFileSync(overridePath, "utf8"))
+                                const merged = JSON.stringify({ ...base, ...overrides }, null, 2)
+                                console.log(`[locale-merge] merged ${name}: ${Object.keys(base).length} base + ${Object.keys(overrides).length} overrides = ${merged.length} bytes`)
+                                return Buffer.from(merged)
+                            }
+                            return content
+                        },
+                        cache: false,
+                    },
                 },
                 {
-                    from: korpConfigDir + "/translations/*",
+                    // Config-repo locale files with no frontend base (e.g. locale-fin.json).
+                    // Same-named files are already handled by the merge transform above.
+                    from: korpConfigDir + "/translations/locale-*.json",
                     to: "translations/[name].[fullhash][ext]",
+                    noErrorOnMissing: true,
+                    filter(resourcePath) {
+                        const name = path.basename(resourcePath)
+                        const basePath = path.resolve(__dirname, "app/translations", name)
+                        return !require("fs").existsSync(basePath)
+                    },
+                },
+                {
+                    // Other config-repo translation files (corpora-*.json, angular-locale_*.js).
+                    from: korpConfigDir + "/translations/!(locale-*.json)",
+                    to: "translations/[name].[fullhash][ext]",
+                    noErrorOnMissing: true,
                 },
                 {
                     // Copy images in the configuration, adding a hash

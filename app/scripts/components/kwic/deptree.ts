@@ -1,5 +1,7 @@
 import angular, { IController, IScope, ITimeoutService, ui } from "angular"
 import { html } from "@/util"
+import { locAttribute } from "@/i18n"
+import { StoreService } from "@/services/store.types"
 import { CorpusTransformed } from "@/settings/config-transformed.types"
 import { Token } from "@/backend/types"
 import { LangString } from "@/i18n/types"
@@ -41,7 +43,8 @@ angular.module("korpApp").component("depTree", {
     },
     controller: [
         "$uibModal",
-        function ($uibModal: ui.bootstrap.IModalService) {
+        "store",
+        function ($uibModal: ui.bootstrap.IModalService, store: StoreService) {
             let $ctrl = this as DeptreeController
 
             $ctrl.$onInit = async () => {
@@ -51,7 +54,7 @@ angular.module("korpApp").component("depTree", {
                 type ModalScope = IScope & {
                     clickX: () => void
                     label: LangString
-                    value: LangString
+                    value: string
                 }
 
                 const modal = $uibModal.open({
@@ -65,11 +68,18 @@ angular.module("korpApp").component("depTree", {
                             }
 
                             $timeout(() => {
-                                drawBratTree($ctrl.tokens, "magic_secret_id", (msg) => {
-                                    const [type, val] = Object.entries(msg)[0]
+                                drawBratTree($ctrl.tokens, "magic_secret_id", (kind, val) => {
+                                    const attrName =
+                                        kind === "pos"
+                                            ? $ctrl.corpus.attributes.upos
+                                                ? "upos"
+                                                : "pos"
+                                            : "deprel"
+                                    const attr = $ctrl.corpus.attributes[attrName]
+                                    if (!attr) return
                                     $scope.$apply((s: ModalScope) => {
-                                        s.label = $ctrl.corpus.attributes[type].label
-                                        s.value = $ctrl.corpus.attributes[type].translation![val]
+                                        s.label = attr.label
+                                        s.value = locAttribute(attr.translation, val, store.lang)
                                     })
                                 })
                             }, 0)

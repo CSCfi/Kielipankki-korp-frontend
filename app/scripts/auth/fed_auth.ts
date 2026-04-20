@@ -83,23 +83,40 @@ const authModule: AuthModule = {
         // Build credentials based on license requirements
         const credentials: string[] = []
 
+        console.log("[AUTH DEBUG] protectedCorpora:", protectedCorpora)
+        console.log("[AUTH DEBUG] corpusLicenses:", corpusLicenses)
+
         for (const corpusId of protectedCorpora) {
             const corpusUpper = corpusId.toUpperCase()
             const license = corpusLicenses[corpusUpper] || ""
 
             let hasAccess = false
+            let branch: string
+            let permissionLevel = 0
 
             if (license) {
                 // If corpus has a License field, check if user has that class
+                branch = "license"
                 hasAccess = userClasses.includes(license)
             } else {
                 // No License field: RES or mink corpus - requires explicit grant in scope.corpora
                 // Case-insensitive lookup: corpusId is UPPERCASE, normalize scope keys to match
-                const permissionLevel = Object.entries(scope.corpora || {}).find(
+                branch = "scope.corpora"
+                permissionLevel = Object.entries(scope.corpora || {}).find(
                     ([key, _]) => key.toUpperCase() === corpusId
                 )?.[1] || 0
                 hasAccess = permissionLevel >= levels["READ"]
             }
+
+            console.log("[AUTH DEBUG] corpus check:", {
+                corpusId,
+                corpusUpper,
+                license,
+                branch,
+                userClasses,
+                permissionLevel,
+                hasAccess,
+            })
 
             if (hasAccess) {
                 credentials.push(corpusUpper)
@@ -122,7 +139,16 @@ const authModule: AuthModule = {
     },
     logout: () => (window.location.href = options.logout_service),
     getAuthorizationHeader: (): Record<string, string> => (state ? { Authorization: `Bearer ${state.jwt}` } : {}),
-    hasCredential: (corpusId) => (state?.credentials || []).includes(corpusId),
+    hasCredential: (corpusId) => {
+        const result = (state?.credentials || []).includes(corpusId)
+        console.log("[AUTH DEBUG] hasCredential", {
+            corpusId,
+            result,
+            credentials: state?.credentials,
+            stateDefined: !!state,
+        })
+        return result
+    },
     getCredentials: () => state?.credentials || [],
     getProtectedCorpora: () => state?.protectedCorpora || [],
     getUsername: () => state!.username,
