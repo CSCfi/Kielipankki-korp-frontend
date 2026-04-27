@@ -4202,6 +4202,8 @@ sattrlist.erme_debug = {}
 
 sattrlist.erme_v3 = {
     text_author: { label: "text_author" },
+    text_bibliog: { label: "bibliography" },
+    text_bibliog_lat: { label: "bibliog_lat" },
     text_collector: { label: "entry_collector" },
     text_comment: { label: "comment" },
     text_content: { label: "content" },
