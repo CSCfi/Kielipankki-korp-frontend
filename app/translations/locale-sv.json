@@ -25,6 +25,8 @@
 
     "corpusinfo_title_status_rc": "releasekandidat",
     "corpusinfo_descr_status_rc": "<strong>Observera</strong> att korpusen är en releasekandidat, så den kan fortfarande ändras.",
+    "corpusinfo_title_status_rc2": "releasekandidat 2",
+    "corpusinfo_descr_status_rc2": "<strong>Observera</strong> att korpusen är en releasekandidat, så den kan fortfarande ändras.",
     "corpusinfo_title_status_beta": "beta",
     "corpusinfo_descr_status_beta": "<strong>Observera</strong> att korpusen betatestas, så den kan ändras utan förvarning.",
     "corpusinfo_title_status_test": "test",

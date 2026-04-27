@@ -14,6 +14,7 @@
     "msd": "msd",
     "msd_ud1": "msd (UD1)",
     "baseform": "grundform",
+    "baseform_stanza": "grundform (entydig)",
     "baseform_ud1": "grundform (UD1)",
     "lemgram": "lemgram",
     "dalin-lemgram": "dalin-lemgram",
@@ -252,6 +253,7 @@
     "text__geo_parish": "ort",
 
     "text_id": "textidentifierare",
+    "text_id_orig": "textidentifierare (original)",
     "text_type": "texttyp",
     "text_genre": "genre",
     "text_period": "textperiod",
