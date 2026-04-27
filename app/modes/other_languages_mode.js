@@ -4360,6 +4360,7 @@ settings.corpora.erme_psla_myv = {
     context: context.sp,
     attributes: attrlist.ud2_fi,
     structAttributes: sattrlist.erme_v3,
+    status: "rc",
     unselected: true
 };
 
@@ -4375,6 +4376,7 @@ settings.corpora.erme_psla_mdf = {
     context: context.sp,
     attributes: attrlist.ud2_fi,
     structAttributes: sattrlist.erme_v3,
+    status: "rc",
     unselected: true
 };
 
