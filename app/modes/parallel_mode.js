@@ -7516,6 +7516,9 @@ function pabivus_add_common_info(corpus, attrs = "") {
     }
     corpus.licence = settings.licenceinfo.CC_BY_NC;
     corpus.metadata_urn = "urn:nbn:fi:lb-2024043001";
+    corpus.shortname = "pabivus-v2-korp";
+    corpus.urn = "urn:nbn:fi:lb-2024043002";
+    corpus.group_page_urn = "urn:nbn:fi:lb-2023030902";
 };
 
 settings.corpora.pabivus_ekk_2022 = {
@@ -7826,8 +7829,8 @@ pabivus_add_common_info(settings.corpora.pabivus_vep_2012_2023, "UD");
 
 settings.corpora.pabivus_fin_1932_1938 = {
     id: "pabivus_fin_1932_1938",
-    title: "Pabivus (ekk-fin-hun-kca-koi-kpv-krl-liv-mdf-mhr-mns-mrj-myv-olo-rus-udm-ukr-vep)",
-    description: "Parallel Bible Verses for Uralic Studies, version 2<br/>The corpus contains Biblical verses (historical and contemporate, 1821–2023) from Erzya (myv), Moksha (mdf); Olonets-Karelian (Livvi) (olo), Dvina-Karelian (North Karelian Proper) (krl), Livonian (liv), Veps (vep); Khanty (kca), Mansi (mns); Komi-Permyak (koi), Komi-Zyrian (kpv), Udmurt (udm); Meadow & Eastern Mari (mhr) and Hill Mari (mrj). Finnish, Estonian, Hungarian as well as Russian and Ukrainian translations are also included.<br/>Some books have more than one translation available in the same language. The translation year is shown for each subcorpus. The Finnish translation is from 1932-1938.",
+    title: "Pabivus version 2 (ekk-fin-hun-kca-koi-kpv-krl-liv-mdf-mhr-mns-mrj-myv-olo-rus-udm-ukr-vep)",
+    description: "Parallel Bible Verses for Uralic Studies, version 2<br/>The corpus contains Biblical verses (historical and contemporary, 1821–2023) from Erzya (myv), Moksha (mdf); Olonets-Karelian (Livvi) (olo), Dvina-Karelian (North Karelian Proper) (krl), Livonian (liv), Veps (vep); Khanty (kca), Mansi (mns); Komi-Permyak (koi), Komi-Zyrian (kpv), Udmurt (udm); Meadow & Eastern Mari (mhr) and Hill Mari (mrj). Finnish, Estonian, Hungarian as well as Russian and Ukrainian translations are also included.<br/>Some books have more than one translation available in the same language. The translation year is shown for each subcorpus. The Finnish translation is from 1932-1938.",
     lang: "fin",
     linkedTo: pabivus_linked_corpora("pabivus_fin_1932_1938"),
 };
