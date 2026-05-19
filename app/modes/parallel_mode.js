@@ -7504,6 +7504,7 @@ var pabivus_common_corpus_info = {
     context: context.sp,
     attributes: attrlist.pabivus,
     structAttributes: sattrlist.pabivus,
+    status: "rc",
     hide: true
 };
 
