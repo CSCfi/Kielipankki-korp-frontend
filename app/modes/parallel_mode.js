@@ -7515,7 +7515,10 @@ function pabivus_add_common_info(corpus, attrs = "") {
     if (attrs == "UD") {
 	corpus["attributes"] = attrlist.ud2_fi;
     }
-    corpus.licence = settings.licenceinfo.CC_BY_NC;
+    corpus.licence = {
+        name: "CC-BY-NC / CC-BY-SA",
+        urn: "urn:nbn:fi:lb-2026052201",
+    };
     corpus.metadata_urn = "urn:nbn:fi:lb-2024043001";
     corpus.shortname = "pabivus-v2-korp";
     corpus.urn = "urn:nbn:fi:lb-2024043002";
