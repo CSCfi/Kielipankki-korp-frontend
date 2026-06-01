@@ -17,7 +17,6 @@ type State = {
     credentials: string[]
     jwt: string
     username: string
-    protectedCorpora: string[]
 }
 
 type JwtPayload = {
@@ -38,11 +37,6 @@ const options = settings.auth_module.options as Options
 
 const authModule: AuthModule = {
     init: async () => {
-        // Fetch protected corpora list (needed even for non-logged-in users to show lock icons)
-        const infoResponse = await fetch(`${settings.korp_backend_url}/info`)
-        const info = await infoResponse.json()
-        const protectedCorpora: string[] = info.protected_corpora || []
-
         const response = await fetch(options.jwt_url, {
             headers: { accept: "text/plain" },
             credentials: "include",
@@ -54,10 +48,14 @@ const authModule: AuthModule = {
             } else {
                 console.warn(`An error has occured: ${response.status}`)
             }
-            // Store protected corpora list even for non-logged-in users
-            state = { jwt: "", username: "", credentials: [], protectedCorpora }
+            state = undefined
             return false
         }
+
+        // Fetch the list of protected corpora, used below to determine which of them the user can access.
+        const infoResponse = await fetch(`${settings.korp_backend_url}/info`, { cache: "no-store" })
+        const info = await infoResponse.json()
+        const protectedCorpora: string[] = info.protected_corpora || []
 
         const jwt = await response.text()
 
@@ -83,47 +81,29 @@ const authModule: AuthModule = {
         // Build credentials based on license requirements
         const credentials: string[] = []
 
-        console.log("[AUTH DEBUG] protectedCorpora:", protectedCorpora)
-        console.log("[AUTH DEBUG] corpusLicenses:", corpusLicenses)
-
         for (const corpusId of protectedCorpora) {
             const corpusUpper = corpusId.toUpperCase()
             const license = corpusLicenses[corpusUpper] || ""
 
             let hasAccess = false
-            let branch: string
-            let permissionLevel = 0
-
             if (license) {
                 // If corpus has a License field, check if user has that class
-                branch = "license"
                 hasAccess = userClasses.includes(license)
             } else {
                 // No License field: RES or mink corpus - requires explicit grant in scope.corpora
                 // Case-insensitive lookup: corpusId is UPPERCASE, normalize scope keys to match
-                branch = "scope.corpora"
-                permissionLevel = Object.entries(scope.corpora || {}).find(
+                const permissionLevel = Object.entries(scope.corpora || {}).find(
                     ([key, _]) => key.toUpperCase() === corpusId
                 )?.[1] || 0
                 hasAccess = permissionLevel >= levels["READ"]
             }
-
-            console.log("[AUTH DEBUG] corpus check:", {
-                corpusId,
-                corpusUpper,
-                license,
-                branch,
-                userClasses,
-                permissionLevel,
-                hasAccess,
-            })
 
             if (hasAccess) {
                 credentials.push(corpusUpper)
             }
         }
 
-        state = { jwt, username, credentials, protectedCorpora }
+        state = { jwt, username, credentials }
 
         return true
     },
@@ -139,18 +119,8 @@ const authModule: AuthModule = {
     },
     logout: () => (window.location.href = options.logout_service),
     getAuthorizationHeader: (): Record<string, string> => (state ? { Authorization: `Bearer ${state.jwt}` } : {}),
-    hasCredential: (corpusId) => {
-        const result = (state?.credentials || []).includes(corpusId)
-        console.log("[AUTH DEBUG] hasCredential", {
-            corpusId,
-            result,
-            credentials: state?.credentials,
-            stateDefined: !!state,
-        })
-        return result
-    },
+    hasCredential: (corpusId) => (state?.credentials || []).includes(corpusId),
     getCredentials: () => state?.credentials || [],
-    getProtectedCorpora: () => state?.protectedCorpora || [],
     getUsername: () => state!.username,
     isLoggedIn: () => !!state,
 }
