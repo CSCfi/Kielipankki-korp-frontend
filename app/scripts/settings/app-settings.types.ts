@@ -14,6 +14,13 @@ export type AppSettings = {
     backendURLMaxLength: number
     common_struct_types?: Record<string, Attribute>
     config_dependent_on_authentication?: boolean
+    /**
+     * Redirect anonymous users to the login service before any config or corpora are
+     * loaded. Use for modes whose corpora are private (e.g. Mink), so that corpus
+     * names are never exposed to users who are not logged in. Default off: other
+     * modes still show non-protected corpora, and protected ones (locked), to anyone.
+     */
+    require_login?: boolean
     get_corpus_ids?: () => Promise<string[]>
     corpus_info_link?: {
         url_template: string
