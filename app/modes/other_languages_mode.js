@@ -424,6 +424,24 @@ settings.corporafolders.uralic.sust = {
     ]
 };
 
+settings.corporafolders.uralic.sus_texts = {
+    title: "SUS-tekstikokoelmat",
+    description: "Suomalais-Ugrilaisen Seuran tekstikokoelmat",
+    info: {
+	urn: "urn:nbn:fi:lb-2026060202",
+        metadata_urn: "urn:nbn:fi:lb-2026060201",
+        licence: {
+            name: "CC BY ?",
+            urn: "urn:nbn:fi:lb-2025112005",
+        },
+        cite_id: "sus-texts-korp",
+	group_page_urn: "urn:nbn:fi:lb-2025112003",
+        shortname: "sus-texts-korp",
+    },
+    contents: [
+        "sus_texts_koi",
+    ]
+};
 
 settings.corporafolders.swahili.hcs2 = {
     title: "Helsinki Corpus of Swahili 2.0 (HCS 2.0)",
@@ -2504,6 +2522,37 @@ sattrlist.sust_common = {
     },
 };
 
+sattrlist.sus_texts = {
+    // text
+    text_author: { label: "text_author", }, // author
+    text_birth_time: { label: "author_birthyear", }, // tekijän syntymävuosi
+    text_collector: { label: "entry_collector", }, // kerääjä
+    text_corrector: { label: "text_corrector", }, // text corrector
+    text_e_corrector: { label: "text_e_corrector", }, // text corrector (e)
+    text_genre_deu: { label: "genre_deu", }, // genre in German
+    text_genre_en: { label: "genre_en", }, // genre in English
+    text__geo_author_origin: { label: "text_author_geo", }, // author's place of birth
+    text_iso_lang: { label: "uralic_ud_text_iso_lang", }, // language
+    text_publication: { label: "publication_name", }, // publication name
+    text_publication_number: { label: "publication_number", }, // publication number
+    text_publication_place: { label: "publication_place", }, // place of publication
+    text_publisher: { label: "publisher", }, // publisher
+    text_sus_id: { label: "sus_id", }, // SUS ID
+    text_title_deu: { label: "title_deu", }, // title in German
+    // paragraph
+    paragraph_footnote_deu: { label: "footnote_deu", }, // footnote in German
+    paragraph_page_number_deu: { label: "page_number_deu", }, // page number (German)
+    paragraph_page_numbers_deu: { label: "page_numbers_deu", }, // page numbers (German)
+    paragraph_sus_id: { label: "sus_id", }, // SUS ID
+    paragraph_text_deu: { label: "text_deu", }, // text in German
+    // sentence
+    sentence_footnote_koi: { label: "footnote_koi", }, // footnote in Komi-Permyak
+    sentence_page_number: { label: "page_num", }, // page number
+    sentence_page_numbers: { label: "page_numbers", }, // page numbers
+    sentence_sus_id: { label: "sus_id", }, // SUS ID
+    sentence_text: { label: "text_norm", }, // normalized text
+    sentence_text_orig: { label: "uralic_ud_sentence_text_orig", }, // original text
+};
 
 attrlist.sust_common = {
     ref: attrs.ref,
@@ -2569,6 +2618,16 @@ settings.corpora.sust_kpv = {
     context: context.sp,
     attributes: attrlist.sust_tagged,
     structAttributes: sattrlist.sust_common
+};
+
+settings.corpora.sus_texts_koi = {
+    id: "sus_texts_koi",
+    title: "SUS-tekstikokoelmat: komipermjakki",
+    description: "Suomalais-Ugrilaisen Seuran tekstikokoelmat: komipermjakki",
+    within: within.sp,
+    context: context.sp,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.sus_texts
 };
 
 // TODO: check how attribute spaces should be shown
