@@ -122,7 +122,9 @@ const authModule: AuthModule = {
     hasCredential: (corpusId) => (state?.credentials || []).includes(corpusId),
     getCredentials: () => state?.credentials || [],
     getUsername: () => state!.username,
-    isLoggedIn: () => !!state,
+    // `state` is populated even on a 401 (it carries the protected-corpora list),
+    // so an actual login is signalled by the presence of a JWT.
+    isLoggedIn: () => !!state?.jwt,
 }
 
 export default authModule

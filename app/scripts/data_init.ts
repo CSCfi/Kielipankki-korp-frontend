@@ -10,6 +10,7 @@ import { Labeled, LocLangMap, LocMap } from "@/i18n/types"
 import { Attribute, Config, Corpus, CorpusParallel, CustomAttribute } from "@/settings/config.types"
 import { ConfigTransformed, CorpusTransformed } from "@/settings/config-transformed.types"
 import { korpRequest } from "@/backend/common"
+import { auth } from "@/auth/auth"
 import { getLocData } from "@/i18n/loc-data"
 import moment from "moment"
 import { getAllCorporaInFolders } from "./corpora/corpus-chooser"
@@ -141,8 +142,17 @@ export async function fetchInitialData(authDef: Promise<boolean>) {
     // Start fetching translation strings.
     getLocData()
 
-    if (settings.config_dependent_on_authentication) {
+    if (settings.config_dependent_on_authentication || settings.require_login) {
         await authDef
+    }
+
+    // Modes with private corpora (e.g. Mink) are for logged-in users only and must
+    // not expose anything — not even corpus names — to anonymous users. Redirect to
+    // login before the config (and thus the corpus names) is ever fetched.
+    if (settings.require_login && !auth.isLoggedIn()) {
+        auth.login()
+        // Hang until the login redirect navigates away, so private data is never loaded or rendered.
+        await new Promise<never>(() => {})
     }
 
     setDefaultConfigValues()
