@@ -116,7 +116,7 @@ const authModule: AuthModule = {
         // if we already tried to login, don't redirect again, to avoid infinite loops
         // if (document.referrer == "") {
         // }
-        window.location.href = `${options.login_service}?redirect=${window.location.href}`
+        window.location.href = `${options.login_service}?redirect=${encodeURIComponent(window.location.href)}`
     },
     logout: () => (window.location.href = options.logout_service),
     getAuthorizationHeader: (): Record<string, string> => (state ? { Authorization: `Bearer ${state.jwt}` } : {}),
