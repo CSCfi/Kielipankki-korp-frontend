@@ -40,6 +40,7 @@ const authModule: AuthModule = {
         const response = await fetch(options.jwt_url, {
             headers: { accept: "text/plain" },
             credentials: "include",
+            cache: "no-store",
         })
 
         if (!response.ok) {
