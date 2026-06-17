@@ -4223,8 +4223,6 @@ sattrlist.erme_v3 = {
     text_section: { label: "section" },
     text_title: { label: "title" },
     text_translator: { label: "translator" },
-    paragraph_erme_id: { label: "erme_id" },
-    sentence_erme_id: { label: "erme_id" },
     sentence_pg_no: { label: "page_num" },
     sentence_text: { label: "text" }
 };
