@@ -1,4 +1,51 @@
 
+<!-- Uusi aineistoversio (julkaisuehdokas): Kansalliskirjaston lehtikokoelman (KLK) ruotsinkieliset lehdet, versio 2 2026-07-15 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2023092926"
+target="_blank">Kansalliskirjaston sanoma- ja aikakauslehtikokoelman
+ruotsinkielinen osakorpus versio 2, Korp (klk-sv-v2-korp)</a> on nyt
+käytettävissä julkaisuehdokasversiona Korpissa.
+
+Aineisto sisältää <a href="https://digi.kansalliskirjasto.fi/etusivu?set_language=sv"
+target="_blank">Kansalliskirjaston lehtikokoelman</a> sanoma- ja
+aikakauslehtiä vuosilta 1771–2021. Aineisto on jaettu Korpin
+aineistovalikossa osakorpuksiin lehtien julkaisuvuosien mukaan, mutta
+peräkkäisiä vuosia, joilta on vähän materiaalia, on yhdistetty
+suuremmiksi osakorpuksiksi.
+
+**Huomaa**, että aineiston suuren koon vuoksi Korp-haut voivat olla
+hitaita, joten kannattaa ainakin ensin kokeilla hakuja pienehköllä
+osalla aineistoa. Myös yksittäisten vuosien koossa on huomattavia
+eroja.
+
+Aineiston virkkeiden kieli on tunnistettu <a
+href="http://urn.fi/urn:nbn:fi:lb-2022092201"
+target="_blank">HeLI-OTS-kielentunnistimella</a>. Aineisto sisältää ne
+tekstit (lehden sivut), joilla vähintään yksi virke on tunnistettu
+ruotsiksi, seuraavista lähdeaineistoista: <a
+href="http://urn.fi/urn:nbn:fi:lb-2016050301"
+target="_blank">Kansalliskirjaston lehtikokoelman ruotsinkielinen
+osakorpus (versio 1)</a>; <a
+href="http://urn.fi/urn:nbn:fi:lb-2016050302"
+target="_blank">Kansalliskirjaston lehtikokoelman suomenkielinen
+osakorpus (versio 1)</a>; sekä Kansalliskirjaston vuoden 2013 jälkeen
+tuottama aineisto, jota ei ole aiemmin ollut saatavilla Kielipankissa
+(esim. aineisto vuosilta 1949–2021).
+
+Aineistossa olevat linkit sivun kuviin ja PDF-tiedostoihin vievät <a
+href="https://digi.kansalliskirjasto.fi/"
+target="_blank">Kansalliskirjaston digitaalisten aineistojen
+verkkosivuille</a>. Useimmille vuotta 1939 uudemmille lehdille sivun
+kuvien ja PDF-tiedostojen käyttö on sallittu vain
+tutkimustarkoituksiin ja edellyttää kirjautumista ja
+käyttölupalomakkeen täyttämistä Kansalliskirjaston palvelussa.
+
+Palaute aineistosta on tervetullutta joko <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html"
+target="_blank">palautelomakkeen</a> kautta tai sähköpostitse
+osoitteella `fin-clarin (ät) helsinki.fi`.
+
+
 <!-- Laajennettu aineisto (julkaisuehdokas): Ylen suomenkielinen uutisarkisto 2022–2024 2025-12-04 -->
 
 *Ylen suomenkielistä uutisarkistoa* on laajennettu vuosien 2022–2024

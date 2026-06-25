@@ -1,4 +1,53 @@
 
+<!-- Ny korpus (releasekandidat): Nationalbibliotekets Klassikerbiblioteks svenskspråkiga delkorpus 2026-07-15 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2023092926"
+target="_blank">Svenskspråkiga tidningar och tidskrifter i
+Nationalbibliotekets digitala samlingar, version 2, Korp
+(klk-sv-v2-korp)</a> är nu tillgänglig i Korp som en releasekandidat.
+
+Korpusen innehåller tidningar och tidskrifter från åren 1771–2021 från
+<a href="https://digi.kansalliskirjasto.fi/etusivu?set_language=sv"
+target="_blank">Nationalbibliotekets digitala samlingar</a>. Korpusen
+är uppdelat i delkorpusar enligt tidningarnas utgivningsår men
+konsekutiva åren med relativt litet material har sammanförts till
+större delkorpusar.
+
+**Observera** att på grund av korpusens storlek kan sökningar i Korp
+vara långsamma, så det kan löna sig att åtminstone först prova
+sökningar på en mindre del av korpusen. Även storleken på enskilda
+delkorpusar varierar avsevärt.
+
+Språket i korpusens meningar har identifierats med <a
+href="http://urn.fi/urn:nbn:fi:lb-2022092201"
+target="_blank">HeLI-OTS-språkidentifieraren</a>. Korpusen innehåller
+de texter (tidningssidor) där minst en mening har identifierats som
+svenska, från följande källmaterial: <a
+href="http://urn.fi/urn:nbn:fi:lb-2016050301" target="_blank">den
+svenskspråkiga delkorpusen av Nationalbibliotekets tidningssamling
+(version 1)</a>; <a href="http://urn.fi/urn:nbn:fi:lb-2016050302"
+target="_blank">den finskspråkiga delkorpusen av Nationalbibliotekets
+tidningssamling (version 1)</a>; samt material som Nationalbiblioteket
+producerat efter 2013 och som tidigare inte funnits tillgängligt i
+Språkbanken (t ex material från åren 1949–2021).
+
+Observera också att korpusens annoteringar skiljer sig delvis från
+annoteringarna i den tidigare versionen.
+
+Länkarna i korpusen till sidbilder och PDF-filer leder till <a
+href="https://digi.kansalliskirjasto.fi/etusivu?set_language=sv"
+target="_blank">Nationalbibliotekets digitala samlingar</a>. För de
+flesta tidningar nyare än 1939 är användningen av sidbilder och
+PDF-filer tillåten endast i forskningssyfte och kräver inloggning samt
+ifyllande av en användningstillståndsblankett i Nationalbibliotekets
+tjänst.
+
+Feedback på korpusen är välkommen antingen via <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback_sv"
+target="_blank">feedbackformuläret</a> eller per e-post till
+`fin-clarin (at) helsinki.fi`.
+
+
 <!-- Svenska korpusar: Sökning med grundform i utökad sökning åtgärdad 2025-06-10 -->
 
 Sökning med en grundform i utökad sökning fungerar nu även i svenska

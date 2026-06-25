@@ -1,4 +1,52 @@
 
+<!-- New corpus version (release candidate): The Swedish Sub-corpus of the Newspaper and Periodical Corpus of the National Library of Finland, version 2 2026-07-15 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2023092926" target="_blank">The
+Swedish Sub-corpus of the Newspaper and Periodical Corpus of the
+National Library of Finland version 2, Korp (klk-sv-v2-korp)</a> is
+now available in Korp as a release candidate version.
+
+The corpus contains newspapers and periodicals of the <a
+href="https://digi.kansalliskirjasto.fi/etusivu?set_language=en"
+target="_blank">digital collections of the National Library of
+Finland</a> from the years 1771–2021. The corpus has been split into
+subcorpora by the year of publication, but consecutive years with
+relatively little material have been combined to larger subcorpora.
+
+**Please note** that Korp searches may be slow because of the large
+size of the corpus, so you should at least at first try searching from
+a small subset of the corpus. The size of individual years of the
+corpus also varies significantly.
+
+The language of the sentences of the corpus has been identified with
+the <a href="http://urn.fi/urn:nbn:fi:lb-2022092201"
+target="_blank">HeLI-OTS language identifier</a>. The corpus contains
+those texts (pages of publications) on which at least one sentence has
+been identified as Finnish from the following sources: <a
+href="http://urn.fi/urn:nbn:fi:lb-2016050301" target="_blank">The
+Swedish Sub-corpus of the Newspaper and Periodical Corpus of the
+National Library of Finland (version 1)</a>; <a
+href="http://urn.fi/urn:nbn:fi:lb-2016050302" target="_blank">The
+Finnish Sub-corpus of the Newspaper and Periodical Corpus of the
+National Library of Finland (version 1)</a>; and material produced by
+the National Library of Finland after 2013 that has not previously
+been available in the Language Bank of Finland (e.g., material from
+the years 1949–2021).
+
+The links in the corpus to page images and PDF files lead to the <a
+href="https://digi.kansalliskirjasto.fi/etusivu?set_language=en""
+target="_blank">digital collections of the National Library of
+Finland</a>. For most publications since 1940, page images and PDF
+files may only be used for research purposes, and accessing them
+requires logging in to the service of the National Library and
+submitting an application.
+
+Feedback on the corpus is welcome, either via the <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback"
+target="_blank">feedback form</a> or by email to `fin-clarin (at)
+helsinki.fi`.
+
+
 <!-- Extended corpus (release candidate): Yle Finnish News Archive 2022–2024 2025-12-04 -->
 
 The *Yle Finnish News Archive* corpus has been extended with news from
