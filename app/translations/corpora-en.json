@@ -49,6 +49,8 @@
     "major_pos": "part of speech (major)",
     "detailed_pos": "part of speech (detailed)",
 
+    "ud_features": "UD features",
+
     "url": "url",
     "referensnummer": "reference number",
 
@@ -90,6 +92,7 @@
     "author": "author",
     "writer": "writer",
     "title": "title",
+    "subtitle": "subtitle",
     "section": "section",
     "genre": "genre",
     "subgenre": "subgenre",
@@ -307,6 +310,8 @@
     "publication_date_2": "publication date",
     "publication_year": "publication year",
     "publication_place": "place of publication",
+    "publication_places": "publication places",
+    "publication_country": "publication country",
     "publication_name": "publication name",
     "publication_info": "publication information",
     "publication_place": "place of publication",
@@ -393,6 +398,11 @@
     "token_count": "token count",
     "image_url": "image URL",
     "parse_state": "parse state",
+
+    "nlf_metadata_date": "National Library metadata date",
+    "nlf_rights": "National Library rights information",
+    "nlf_status": "National Library status information",
+    "nlf_status_date": "National Library status date",
 
     "text_word_count": "text word count",
 

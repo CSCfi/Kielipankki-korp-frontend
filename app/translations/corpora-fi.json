@@ -52,6 +52,8 @@
     "major_pos": "sanaluokka (karkea)",
     "detailed_pos": "sanaluokka (yksityiskohtainen)",
 
+    "ud_features": "UD-piirteet",
+
     "year_from": "alkaen vuodesta",
     "year_to": "päättyen vuoteen",
 
@@ -69,6 +71,7 @@
     "author": "tekijä",
     "writer": "kirjoittaja",
     "title": "otsikko",
+    "subtitle": "alaotsikko",
     "section": "section",
     "genre": "tekstilaji",
     "subgenre": "tekstin alalaji",
@@ -393,6 +396,11 @@
     "image_url": "linkki kuvaan",
     "parse_state": "jäsennystila",
 
+    "nlf_metadata_date": "Kansalliskirjaston kuvailutietojen päiväys",
+    "nlf_rights": "Kansalliskirjaston käyttöoikeustieto",
+    "nlf_status": "Kansalliskirjaston tilatieto",
+    "nlf_status_date": "Kansalliskirjaston tilatiedon päiväys",
+
     "lemmie_corpus": "korpuksen tunniste Lemmiessä",
     "lemmie_text_id": "tekstin tunniste Lemmiessä",
     "access_rights_cat": "käyttöoikeusluokka",
@@ -577,6 +585,8 @@
     "publication_date_2": "julkaisupäivä",
     "publication_year": "julkaisuvuosi",
     "publication_place": "julkaisupaikka",
+    "publication_places": "julkaisupaikat",
+    "publication_country": "julkaisumaa",
     "publication_name": "julkaisun nimi",
     "publication_info": "julkaisutiedot",
     "publication_time": "julkaisuaika",

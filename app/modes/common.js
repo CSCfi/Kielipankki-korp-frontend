@@ -4115,6 +4115,10 @@ funcs.makeLinkPattern = function (label, url) {
     return `<a href="${url}" class="exturl sidebar_link" target="_blank"><span rel="localize[${label}]"></span></a>`
 }
 
+funcs.makeLink = function (label, url) {
+    return `<a href="${url}" class="exturl sidebar_link" target="_blank">${label}</a>`
+}
+
 
 // TODO: Replace the corpus- or annotation-specific translationKeys in
 // pos and deprel attributes with the generic pos_ and deprel_, so
@@ -5209,6 +5213,13 @@ attrs.ambiguous_msd = {
     label: "ambiguous_msd",
     type: "set",
     opts: options.set
+};
+
+attrs.ud_feats = {
+    label: "ud_features",
+    type: "set",
+    extendedComponent: "structServiceSelect",
+    opts: options.set,
 };
 
 var mulcold_pos_langs = ["fi", "ru", "en", "sv"];
