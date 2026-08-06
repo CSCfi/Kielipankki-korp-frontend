@@ -1,3 +1,4 @@
+import { DeptreeAttrMap } from "@/settings/config.types"
 import { Token } from "@/backend/types"
 import { Visualizer } from "@/../lib/brat/client/src/visualizer.js"
 import "@/../lib/brat/style-vis.css"
@@ -16,10 +17,9 @@ type BratType = {
     args?: { role: string; targets: any[] }[]
 }
 
-type HoverKind = "pos" | "deprel"
-type HoverFunction = (kind: HoverKind, value: string) => void
+type HoverFunction = (attrName: string, value: string) => void
 
-export function drawBratTree(words: Token[], to_div: string, hover_fun: HoverFunction): void {
+export function drawBratTree(words: Token[], to_div: string, attrMap: DeptreeAttrMap, hover_fun: HoverFunction): void {
     const entity_types: BratType[] = []
     const relation_types: BratType[] = []
     const entities: BratEntity[] = []
@@ -28,10 +28,10 @@ export function drawBratTree(words: Token[], to_div: string, hover_fun: HoverFun
     const added_rel: string[] = []
 
     const add_word = function (word: Token, start: number, stop: number) {
-        const pos: string = word.upos || word.pos
-        const ref: string = word.ref
-        const dephead: string = word.dephead
-        const deprel: string = word.deprel
+        const pos: string = word[attrMap.pos]
+        const ref: string = word[attrMap.ref]
+        const dephead: string = word[attrMap.head]
+        const deprel: string = word[attrMap.rel]
         if (!added_pos.includes(pos)) {
             added_pos.push(pos)
             entity_types.push(makeEntityFromPos(pos))
@@ -42,7 +42,7 @@ export function drawBratTree(words: Token[], to_div: string, hover_fun: HoverFun
         }
         const entity: BratEntity = ["T" + ref, pos, [[start, stop]]]
         entities.push(entity)
-        if (isNumber(dephead)) {
+        if (Number(dephead)) {
             const relation: BratRelation = [
                 "R" + ref,
                 deprel,
@@ -85,18 +85,22 @@ export function drawBratTree(words: Token[], to_div: string, hover_fun: HoverFun
 
     const div = $("#" + to_div)
 
+    // Attach hover handlers to relation arcs
     div.find("g.arcs")
         .children()
         .each(function () {
             const g = $(this)
-            const deprel = g.find("text").attr("data-arc-role")
-            g.hover(() => hover_fun("deprel", deprel))
+            // Use .attr, not .data, to get the string value without coercion
+            const rel = g.find("text").attr("data-arc-role") ?? ""
+            g.hover(() => hover_fun(attrMap.rel, rel))
         })
+
+    // Attach hover handlers to part-of-speech markers
     div.find("g.span text").each(function () {
         const pos = $(this).text()
         $(this)
             .parent()
-            .hover(() => hover_fun("pos", pos))
+            .hover(() => hover_fun(attrMap.pos, pos))
     })
 }
 
@@ -146,5 +150,3 @@ function makeRelationFromRel(r: string): BratType {
         ],
     }
 }
-
-const isNumber = (n: string) => !isNaN(Number(n))

@@ -1,8 +1,9 @@
 import settings from "korp_config"
 import { Settings } from "./settings.types"
-import { Attribute, MaybeConfigurable, MaybeWithOptions } from "./config.types"
+import { Attribute, DeptreeAttrMap, MaybeConfigurable, MaybeWithOptions } from "./config.types"
 import { isFunction } from "lodash"
 import { WordPictureDef } from "./app-settings.types"
+import { CorpusTransformed } from "./config-transformed.types"
 
 export default settings
 
@@ -15,7 +16,7 @@ declare global {
 if (process.env.ENVIRONMENT != "production") window.settings = settings
 
 /**
- * function to set default values if parameters have been left out of config.js
+ * function to set default values if parameters have been left out of config.yml
  */
 export function setDefaultConfigValues() {
     settings["hits_per_page_values"] ??= [25, 50, 75, 100]
@@ -60,6 +61,18 @@ export function getConfigurable<T>(
 }
 
 export const getDefaultWithin = () => Object.keys(settings["default_within"] || {})[0]
+
+/** Identify deptree attribute names */
+export function getDeptreeAttrMapping(corpus: CorpusTransformed): DeptreeAttrMap {
+    const defaultMapping: DeptreeAttrMap = {
+        ref: "ref",
+        // Prefer upos when the corpus has it (e.g. Mink/Sparv UD corpora)
+        pos: corpus.attributes.upos ? "upos" : "pos",
+        head: "dephead",
+        rel: "deprel",
+    }
+    return { ...defaultMapping, ...corpus.deptree?.attrs }
+}
 
 /** Convert Word picture config to use abbreviations for POS and relation, to match the data. */
 export function getWordPictureConfig(): Record<string, WordPictureDef[]> {

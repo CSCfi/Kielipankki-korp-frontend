@@ -51,7 +51,7 @@ export const sidebarDefaultComponent: SidebarComponent = {
             </a>
 
             <ul>
-                <li ng-repeat="item in valueArray">
+                <li ng-repeat="item in valueArray track by $index + item">
                     <span ng-if="!attrs['internal_search']" ng-bind-html="renderValue(item) | trust"></span>
                     <span
                         ng-if="attrs['internal_search']"
@@ -88,7 +88,7 @@ export const sidebarDefaultComponent: SidebarComponent = {
             /** Render a single value using attribute options. */
             $scope.renderValue = (value: string, key = $scope.key) => {
                 if ($scope.attrs.stringify) value = getStringifier($scope.attrs.stringify)(value)
-                if ($scope.attrs.translation) value = locAttribute($scope.attrs.translation, value, store.lang)
+                if ($scope.attrs.translation) value = locAttribute($scope.attrs, value, store.lang)
                 if ($scope.attrs.pattern)
                     value = template($scope.attrs.pattern)({
                         key,

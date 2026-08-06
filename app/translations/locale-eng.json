@@ -247,7 +247,8 @@
     "compare_save_header": "Save for comparison",
     "compare_name": "Name",
     "compare_save": "Save",
-
+    "compare_help_description": "Compare two search queries against each other to rank which values stand out in each search result. The ranking is based on a log-likelihood calculation.",
+    "compare_help_search": "Prepare by formulating each search query in one of the search tabs and pressing the arrow next to the search button to save it. Then open the Compare tab, select the two searches, and choose an attribute to compare.",
     "compare_distinctive": "Prominent in",
 
     "msd_long": "Morphosyntactic description",
@@ -337,7 +338,7 @@
     "add_filter_value": "Add",
 
     "repeat_error": "Error: Not possible to repeat from 0 for all tokens.",
-    "order_error": "Error: The \"in free order\" option requires multiple tokens, no repetition, no boundaries and no wildcards.",
+    "order_error": "Error: The \"in free order\" option requires multiple tokens, no repetition, boundaries or wildcards, and a single \"within\" element.",
     "order_help": "The \"in free order\" option is compatible with queries that have multiple tokens, no repetition, no boundaries and no wildcards.",
 
     "choose_value": "Choose a value",
@@ -349,18 +350,19 @@
     "go_to_start": "Go to start page",
 
     "stats_not_in_order_warn": "Statistics currently do not support the \"in free order\" search option.",
+    "stats_no_supported_corpora": "None of the selected corpora support all of the chosen attributes.",
+    "stats_unsupported_attr_help": "This attribute is not supported in the following corpora:",
+    "stats_unsupported_attr": "of chosen material does not support the attribute(s)",
+    "stats_unsupported_attr_excluded": "and therefore is not included in the result.",
 
     "read_in_korp": "Read this text in Korp",
     "add_token": "Add token",
 
     "free_order_chk": "free order",
     "free_order_chk_help": "The search words can occur in any order, and not necessarily in sequence.",
-    "prefix_chk": "initial part",
-    "prefix_chk_help": "Allow words that begin with the search words.",
-    "midfix_chk": "medial part",
-    "midfix_chk_help": "Allow words that contain the search words.",
-    "suffix_chk": "final part",
-    "suffix_chk_help": "Allow words that end with the search words.",
+    "prefix_help": "Allow words that begin with the search words.",
+    "midfix_help": "Allow words that contain the search words.",
+    "suffix_help": "Allow words that end with the search words.",
     "text_tab_header": "Reading mode",
 
     "not_compound_middle": "not medial part",
@@ -368,5 +370,6 @@
     "not_suffix": "do not end with",
     "compound_middle": "medial part",
     "prefix": "starts with",
+    "midfix": "contains",
     "suffix": "ends with"
 }

@@ -164,7 +164,7 @@ export const getAllCorporaInFolders = (lastLevel: Record<string, Folder>, folder
  * figures out if a folder is limited, which it is
  * if the user does not have access to any corpora in it.
  *
- * userHasAccess differs from limited_access, since we might
+ * userHasAccess differs from protected, since we might
  * want to show that a corpus is restricted AND unlock it for a user
  */
 export const updateLimitedAccess = (node: ChooserFolder, credentials: string[] = []): boolean => {
@@ -177,12 +177,9 @@ export const updateLimitedAccess = (node: ChooserFolder, credentials: string[] =
         }
     }
     for (const corpus of node.corpora) {
-        // Set limited_access based on any source that indicates protection
-        const corpusLimitedAccess =
-              corpus["limited_access"] ||                // Frontend config - derived from /corpus_config via yaml in backend config file if there is no frontend config file (modes/<mode>_corpus_config.json)
-              corpus.info?.Protected === "true" ||       // .info file Protected field
-              corpus.info?.License !== undefined         // Has any license requirement in .info
-        corpus.userHasAccess = !corpusLimitedAccess || credentials.includes(corpus.id.toUpperCase())
+        // corpus.protected covers all protection sources (config limited_access,
+        // .info Protected field, .info License requirement) — see data_init.ts
+        corpus.userHasAccess = !corpus.protected || credentials.includes(corpus.id.toUpperCase())
         if (corpus.userHasAccess) {
             limitedAccess = false
         }
@@ -198,9 +195,8 @@ export const updateLimitedAccess = (node: ChooserFolder, credentials: string[] =
 export const filterCorporaOnCredentials = (corporaIds: string[], credentials: string[]): string[] => {
     const selection: string[] = []
     for (const corpus of Object.values(settings.corpora)) {
-        const shouldSelect =
-            corporaIds.includes(corpus.id) &&
-            (!corpus["limited_access"] || credentials.includes(corpus.id.toUpperCase()))
+        const hasAccess = !corpus.protected || credentials.includes(corpus.id.toUpperCase())
+        const shouldSelect = corporaIds.includes(corpus.id) && hasAccess
         corpus.selected = shouldSelect
         if (shouldSelect) selection.push(corpus.id)
     }

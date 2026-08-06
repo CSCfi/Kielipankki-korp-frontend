@@ -6,7 +6,7 @@ import { CorpusSet } from "@/corpora/corpus-set"
 import { CorpusSetParallel } from "@/parallel/corpus-set-parallel"
 import { fromKeys } from "@/util"
 import { locAttribute } from "@/i18n"
-import { Labeled, LocLangMap, LocMap } from "@/i18n/types"
+import { Labeled } from "@/i18n/types"
 import { Attribute, Config, Corpus, CorpusParallel, CustomAttribute } from "@/settings/config.types"
 import { ConfigTransformed, CorpusTransformed } from "@/settings/config-transformed.types"
 import { korpRequest } from "@/backend/common"
@@ -35,13 +35,6 @@ async function getInfoData(corpusIds: string[]): Promise<InfoData> {
 }
 
 async function getConfig(): Promise<Config> {
-    // Load static corpus config if it exists.
-    try {
-        const corpusConfig = require(`modes/${currentMode}_corpus_config.json`) as Config
-        console.log(`Using static corpus config`)
-        return corpusConfig
-    } catch {}
-
     // The corpora to include are normally given by the mode config, but allow defining it elsewhere (used by Mink)
     const corpusIds = settings.get_corpus_ids ? await settings.get_corpus_ids() : undefined
 
@@ -83,7 +76,7 @@ function transformConfig(config: Config, infos: InfoData): ConfigTransformed {
         const [custom_attributes, _custom_attributes_order] = transformAttributes2<CustomAttribute>("custom_attributes")
 
         return {
-            ...omit(corpus, "pos_attributes"),
+            ...omit(corpus, ["pos_attributes", "limited_access"]),
             attributes,
             struct_attributes,
             custom_attributes,
@@ -94,6 +87,12 @@ function transformConfig(config: Config, infos: InfoData): ConfigTransformed {
             within: contextWithinFix(corpus["within"]),
             info: infos[corpus.id].info,
             private_struct_attributes: infos[corpus.id].private_struct_attributes,
+            // Protected if indicated by any source: frontend/corpus config,
+            // .info file Protected field, or any License requirement in .info
+            protected:
+                !!corpus.limited_access ||
+                infos[corpus.id].info["Protected"] === "true" ||
+                infos[corpus.id].info["License"] !== undefined,
         }
     }
 
@@ -180,15 +179,10 @@ export function getRecentCorpusUpdates(): CorpusTransformed[] {
 }
 
 /** Get the dataset options of an attribute. */
-export function getDatasetOptions(
-    dataset: Attribute["dataset"],
-    translation?: LocMap | LocLangMap,
-    lang?: string,
-    sort?: boolean,
-): [string, string][] {
-    dataset ??= []
+export function getDatasetOptions(attribute: Attribute, lang?: string, sort?: boolean): [string, string][] {
+    const dataset = attribute.dataset ?? []
     const options: [string, string][] = Array.isArray(dataset)
-        ? dataset.map((item) => [item, locAttribute(translation, item, lang)])
-        : Object.entries(dataset).map(([k, v]) => [k, locAttribute(translation, v, lang)])
+        ? dataset.map((item) => [item, locAttribute(attribute, item, lang)])
+        : Object.entries(dataset).map(([k, v]) => [k, locAttribute(attribute, v, lang)])
     return sort ? options.sort((a, b) => a[1].localeCompare(b[1], lang)) : options
 }
