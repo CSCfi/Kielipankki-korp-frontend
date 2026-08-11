@@ -408,6 +408,25 @@ settings.corporafolders.uralic.erme_v2 = {
     ]
 };
 
+settings.corporafolders.uralic.erme_psla = {
+    title: "ERME PSLA",
+    description: "ERME: Erzya and Moksha Extended Corpora, Paragraph Segmentation, Low Annotation",
+    info: {
+	metadata_urn: "urn:nbn:fi:lb-2025121601",
+	urn: "urn:nbn:fi:lb-2025121602",
+	group_page_urn: "urn:nbn:fi:lb-2022052001",
+	shortname: "erme-psla-v1-korp",
+        licence: {
+            name: "CC BY (PUB)",
+            urn: "urn:nbn:fi:lb-2022020106",
+        }
+    },
+    contents: [
+        "erme_psla_mdf",
+        "erme_psla_myv",
+    ]
+};
+
 
 settings.corporafolders.uralic.sust = {
     title: "SUS-kenttätyö (näyte)",
@@ -4183,6 +4202,30 @@ settings.corpusAliases.scotscorr = "scots_.*";
 attrlist.testerzya = {};
 sattrlist.erme_debug = {}
 
+sattrlist.erme_v3 = {
+    text_author: { label: "text_author" },
+    text_bibliog: { label: "bibliography" },
+    text_bibliog_lat: { label: "bibliog_lat" },
+    text_collector: { label: "entry_collector" },
+    text_comment: { label: "comment" },
+    text_content: { label: "content" },
+    text_continues_from: { label: "continues_from" },
+    text_continues_to: { label: "continues_to" },
+    text_corrector: { label: "text_corrector" },
+    text_e_corrector: { label: "text_e_corrector" },
+    text_erme_id: { label: "erme_id" },
+    text_genre: { label: "text_genre" },
+    text_has_parallel: { label: "has_parallel" },
+    text_iso_lang: { label: "uralic_ud_text_iso_lang" },
+    text_issue: { label: "text_issue" },
+    text_page_range: { label: "text_page_range" },
+    text_publication_name: { label: "publication_name" },
+    text_section: { label: "section" },
+    text_title: { label: "title" },
+    text_translator: { label: "translator" },
+    sentence_pg_no: { label: "page_num" },
+    sentence_text: { label: "text" }
+};
 
 sattrlist.erme_v2 = {
     text_iso_lang: { label: "uralic_ud_text_iso_lang" },
@@ -4303,6 +4346,38 @@ settings.corpora.erme_v2_mdf = {
     context: context.sp,
     attributes: attrlist.ud2_fi,
     structAttributes: sattrlist.erme_v2,
+    unselected: true
+};
+
+settings.corpora.erme_psla_myv = {
+    id: "erme_psla_myv",
+    title: "ERME version PSLA: Ersä/Erzya",
+    description: "ERME version PSLA: Ersä/Erzya",
+    licence: {
+        name: "CC BY (PUB)",
+        urn: "urn:nbn:fi:lb-2022020106",
+    },
+    within: within.sp,
+    context: context.sp,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.erme_v3,
+    status: "rc",
+    unselected: true
+};
+
+settings.corpora.erme_psla_mdf = {
+    id: "erme_psla_mdf",
+    title: "ERME version PSLA: Mokša/Moksha",
+    description: "ERME version PSLA: Mokša/Moksha",
+    licence: {
+        name:"CC BY (PUB)",
+        urn: "urn:nbn:fi:lb-2022020106",
+    },
+    within: within.sp,
+    context: context.sp,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.erme_v3,
+    status: "rc",
     unselected: true
 };
 
