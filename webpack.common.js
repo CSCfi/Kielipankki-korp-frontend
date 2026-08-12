@@ -148,10 +148,6 @@ module.exports = {
                     to: "translations/[name].[fullhash][ext]",
                 },
                 {
-                    from: "app/markup/msdtags.html",
-                    to: "markup",
-                },
-                {
                     // Base UI locale files — merge any same-named override from the config repo on top.
                     from: "app/translations/locale-*.json",
                     to: "translations/[name].[fullhash][ext]",

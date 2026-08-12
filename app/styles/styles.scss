@@ -1287,7 +1287,8 @@ slider {
     }
 }
 
-.slick-viewport .slick-cell-checkboxsel input {
+.slick-viewport input[type=checkbox] {
+    // Match the header cell padding
     margin-left: 6px;
 }
 
@@ -1686,13 +1687,14 @@ line.tick {
     }
 }
 .reduce-dropdown-menu {
-    width: 100%;
+    min-width: 100%;
     max-height: 400px;
     .selected {
         background: rgb(242, 247, 255);
     }
     .attribute {
         display: flex;
+        align-items: center;
         overflow-x: hidden;
         white-space: nowrap;
         cursor: pointer;
@@ -1704,9 +1706,6 @@ line.tick {
     .reduce-check {
         margin: 0px;
         margin-right: 4px;
-    }
-    .reduce-label {
-        flex-grow: 1;
     }
     ul {
         margin: 0;

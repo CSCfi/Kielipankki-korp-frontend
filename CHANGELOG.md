@@ -2,6 +2,79 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- Statistics result in parallel when grouping by partially supported attribute
+
+## [9.15.0] – 2026-05-12
+
+### Added
+
+- Show all attributes in grouping dropdown [#513](https://github.com/spraakbanken/korp-frontend/issues/513)
+- Show corpus name in tooltip of statistics table column heading
+
+### Fixed
+
+- Name attributes listed under both word and text attributes [#220](https://github.com/spraakbanken/korp-frontend/issues/220)
+- Change to "starts with", "contains", "ends with" [#516](https://github.com/spraakbanken/korp-frontend/issues/516)
+- Strip rank suffixes in extended search autocomplete [#518](https://github.com/spraakbanken/korp-frontend/issues/518)
+- HTML-escaped attribute values in trend diagram table
+- Reuse relative/absolute choice from statistics table in distribution pie chart
+
+## [9.14.4] – 2026-05-06
+
+### Fixed
+
+- Statistics example query gives no hits if some attribute value is empty [#500](https://github.com/spraakbanken/korp-frontend/issues/500), [#512](https://github.com/spraakbanken/korp-frontend/issues/512)
+- Inconsistent Word Picture results depending on sort param [#503](https://github.com/spraakbanken/korp-frontend/issues/503)
+- Word picture: show as empty if none of the results is supported [#510](https://github.com/spraakbanken/korp-frontend/issues/510)
+- `within` must be a simple structural element when used with free order queries [#511](https://github.com/spraakbanken/korp-frontend/issues/511)
+- Error in sidebar when a set attribute has duplicate elements [#515](https://github.com/spraakbanken/korp-frontend/issues/515)
+
+## [9.14.3] – 2026-03-09
+
+### Added
+
+- Comparison help text
+
+### Changed
+
+- Remove the corpus config `pivot` flag [#506](https://github.com/spraakbanken/korp-frontend/issues/506)
+- Use corpus info, not corpus config, to check if a corpus is protected [#507](https://github.com/spraakbanken/korp-frontend/issues/507)
+
+### Fixed
+
+- random_seed is lost when changing page [#504](https://github.com/spraakbanken/korp-frontend/issues/504)
+- Wrong parallel corpora used for query [#505](https://github.com/spraakbanken/korp-frontend/issues/505)
+- Statistics in parallel mode
+
+## [9.14.2] – 2026-02-10
+
+### Fixed
+
+- `locAttribute` handle missing attribute argument
+
+## [9.14.1] – 2026-02-10
+
+### Fixed
+
+- Dependency tree attribute translation
+
+## [9.14.0] – 2026-02-02
+
+### Added
+
+- Configurable attribute names for dependency tree [#499](https://github.com/spraakbanken/korp-frontend/issues/499)
+- Disable the dependency tree [#286](https://github.com/spraakbanken/korp-frontend/issues/286)
+
+### Fixed
+
+- Attribute selector in Compare tab broken [#501](https://github.com/spraakbanken/korp-frontend/issues/501)
+- "Group by" dropdown expands to fit content
+- Correct value in singleValue search widget
+
+## [9.13.0] – 2026-01-19
+
 ### Added
 
 - Download Word Picture results as CSV [#200](https://github.com/spraakbanken/korp-frontend/issues/200)
@@ -9,6 +82,7 @@
 ### Changed
 
 - Removed broken code for backend-based KWIC download
+- Upgrade to SlickGrid 5.x
 
 ### Fixed
 
@@ -19,6 +93,7 @@
 - Moved morphology labels in the lemgram autocomplete
 - Sort attributes alphabetically in Extended search
 - Hide future news items
+- Accept missing tag labels in dependency attributes (pos, deprel) in dep tree visualization
 
 ## [9.12.0] – 2025-10-29
 
@@ -594,6 +669,13 @@
 - Lots of bug fixes for the sidebar
 
 [unreleased]: https://github.com/spraakbanken/korp-frontend/compare/master...dev
+[9.15.0]: https://github.com/spraakbanken/korp-frontend/releases/tag/v9.15.0
+[9.14.4]: https://github.com/spraakbanken/korp-frontend/releases/tag/v9.14.4
+[9.14.3]: https://github.com/spraakbanken/korp-frontend/releases/tag/v9.14.3
+[9.14.2]: https://github.com/spraakbanken/korp-frontend/releases/tag/v9.14.2
+[9.14.1]: https://github.com/spraakbanken/korp-frontend/releases/tag/v9.14.1
+[9.14.0]: https://github.com/spraakbanken/korp-frontend/releases/tag/v9.14.0
+[9.13.0]: https://github.com/spraakbanken/korp-frontend/releases/tag/v9.13.0
 [9.12.0]: https://github.com/spraakbanken/korp-frontend/releases/tag/v9.12.0
 [9.11.4]: https://github.com/spraakbanken/korp-frontend/releases/tag/v9.11.4
 [9.11.3]: https://github.com/spraakbanken/korp-frontend/releases/tag/v9.11.3

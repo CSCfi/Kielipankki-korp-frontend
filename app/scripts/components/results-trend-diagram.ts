@@ -13,13 +13,15 @@ import { TrendTask } from "@/task/trend-task"
 import { TrendGraph } from "@/trend-diagram/graph"
 import { renderTable } from "@/trend-diagram/trend-table"
 import { CsvType, downloadCsvFile } from "@/csv"
+import { SlickGrid } from "slickgrid"
+import { percentage } from "@/i18n/util"
 
 type ResultsTrendDiagramController = IController & {
     loading: boolean
     setProgress: (loading: boolean, progress: number) => void
     task: TrendTask
     graph?: TrendGraph
-    time_grid: Slick.Grid<any>
+    time_grid: SlickGrid<any>
     hasEmptyIntervals?: boolean
     $result: JQLite
     error?: string
@@ -32,6 +34,7 @@ type ResultsTrendDiagramScope = IScope & {
     mode: "line" | "bar" | "table"
     nontime: number
     statsRelative: boolean
+    percentage: (value: unknown) => string
 }
 
 angular.module("korpApp").component("resultsTrendDiagram", {
@@ -87,8 +90,7 @@ angular.module("korpApp").component("resultsTrendDiagram", {
             </div>
 
             <div ng-if="nontime">
-                {{ 'non_time_before' | loc:$root.lang }} {{ nontime | number:2 }}% {{ 'non_time_after' | loc:$root.lang
-                }}
+                {{'non_time_before' | loc:$root.lang}} {{percentage(nontime)}} {{'non_time_after' | loc:$root.lang}}
             </div>
 
             <div class="legend" ng-show="isGraph && !$ctrl.loading">
@@ -146,7 +148,7 @@ angular.module("korpApp").component("resultsTrendDiagram", {
                 const [from, to] = interval
                 makeRequest(from, to)
 
-                $scope.nontime = $ctrl.task.corpusListing.getUndatedRatio() * 100
+                $scope.nontime = $ctrl.task.corpusListing.getUndatedRatio()
             }
 
             $ctrl.$onChanges = (changes) => {
@@ -180,6 +182,8 @@ angular.module("korpApp").component("resultsTrendDiagram", {
 
             $scope.$watch("statsRelative", () => (store.statsRelative = $scope.statsRelative))
 
+            $scope.percentage = percentage
+
             $ctrl.graphClickHandler = () => {
                 const target = $(".chart", $ctrl.$result)
                 const time = $(".detail .x_label > span", target).data("val")
@@ -190,7 +194,7 @@ angular.module("korpApp").component("resultsTrendDiagram", {
                     return
                 }
 
-                const timecqp = getTimeCqp(time, zoom, LEVELS.indexOf(zoom) < 3)
+                const timecqp = getTimeCqp(time, zoom)
                 const decodedCQP = decodeURIComponent(cqp)
 
                 const corpusIds = $ctrl.task.corpusListing.getIds()

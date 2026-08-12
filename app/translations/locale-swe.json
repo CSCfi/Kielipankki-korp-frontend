@@ -246,7 +246,8 @@
     "compare_save_header": "Spara för jämförelse",
     "compare_name": "Namn",
     "compare_save": "Spara",
-
+    "compare_help_description": "Jämförelsefunktionen ställer två sökfrågor mot varandra och rankar vilka värden som utmärker sig i respektive sökresultat. Rankningen sker utifrån en log-likelihood-beräkning.",
+    "compare_help_search": "Förbered genom att formulera varje sökfråga i en av sökflikarna och trycka på pilen vid sökknappen för att spara den. Öppna sedan jämförelsefliken, välj de två sökningarna och välj vilket attribut vars värden ska jämföras.",
     "compare_distinctive": "Utmärkande för",
 
     "msd_long": "Morfosyntaktisk beskrivning",
@@ -336,7 +337,7 @@
     "add_filter_value": "Lägg till",
 
     "repeat_error": "Fel: Det går inte att upprepa från 0 på alla token.",
-    "order_error": "Fel: Alternativet \"i fri följd\" fungerar bara om sökfrågan har flera tokens samt inga repetitioner, gränser eller tomma token.",
+    "order_error": "Fel: Alternativet \"i fri följd\" fungerar bara om sökfrågan har flera tokens, inga repetitioner, gränser eller tomma token samt ett enskilt element i \"inom\".",
     "order_help": "Alternativet \"i fri följd\" är kompatibelt med sökfrågor som har flera tokens samt inga repetitioner, gränser eller tomma token.",
 
     "choose_value": "Välj ett värde",
@@ -348,18 +349,19 @@
     "go_to_start": "Gå till startsidan",
 
     "stats_not_in_order_warn": "Statistiken stödjer för närvarande inte sökalternativet \"i fri följd\".",
+    "stats_no_supported_corpora": "Inga av de valda korpusarna stödjer alla valda attribut.",
+    "stats_unsupported_attr_help": "Detta attribut stöds inte i följande korpusar:",
+    "stats_unsupported_attr": "av det valda materialet saknar attribut",
+    "stats_unsupported_attr_excluded": "och ingår därför inte i sammanställningen.",
 
     "read_in_korp": "Läs i Korp",
     "add_token": "Lägg till token",
 
     "free_order_chk": "fri följd",
     "free_order_chk_help": "Sökorden får förekomma i obestämd ordning, och inte nödvändigtvis i följd.",
-    "prefix_chk": "förled",
-    "prefix_chk_help": "Tillåt ord som börjar med sökorden.",
-    "midfix_chk": "mellanled",
-    "midfix_chk_help": "Tillåt ord som innehåller sökorden.",
-    "suffix_chk": "efterled",
-    "suffix_chk_help": "Tillåt ord som slutar med sökorden.",
+    "prefix_help": "Tillåt ord som börjar med sökorden.",
+    "midfix_help": "Tillåt ord som innehåller sökorden.",
+    "suffix_help": "Tillåt ord som slutar med sökorden.",
     "text_tab_header": "Läsläge",
 
     "not_compound_middle": "inte mellanled",
@@ -367,5 +369,6 @@
     "not_suffix": "slutar inte med",
     "compound_middle": "mellanled",
     "prefix": "börjar med",
+    "midfix": "innehåller",
     "suffix": "slutar med"
 }

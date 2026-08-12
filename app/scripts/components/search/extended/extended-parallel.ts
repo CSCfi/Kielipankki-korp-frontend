@@ -7,7 +7,8 @@ import "./tokens"
 import { CorpusSetParallel } from "@/parallel/corpus-set-parallel"
 import { StoreService } from "@/services/store"
 import { getEnabledLangs, getParallelCqp, ParallelQuery } from "@/parallel/parallel-cqp"
-import { corpusSelection as corpusSelection_ } from "@/corpora/corpus_listing"
+import { corpusListing as corpusListing_, corpusSelection as corpusSelection_ } from "@/corpora/corpus_listing"
+import { isEqual } from "lodash"
 
 type ExtendedParallelController = IController & {
     langs: ParallelQuery[]
@@ -70,18 +71,25 @@ angular.module("korpApp").component("extendedParallel", {
         "store",
         function ($location: LocationService, $timeout: ITimeoutService, store: StoreService) {
             const corpusSelection = corpusSelection_ as CorpusSetParallel
+            const corpusListing = corpusListing_ as CorpusSetParallel
             const newLang = (lang = settings.start_lang!, cqp = "[]") => ({ lang, cqp, negate: false })
 
             const ctrl = this as ExtendedParallelController
             ctrl.langs = [newLang()]
 
+            store.watch("cqpParallel", () => {
+                // Make corpus listings aware of current query languages
+                const langs = Object.keys(store.cqpParallel)
+                corpusListing.setLangs(langs)
+                corpusSelection.setLangs(langs)
+            })
+
             // Restore search when set via URL
             store.watch("search", () => {
                 if (!store.search) return
                 // Restore input
-                ctrl.langs = store.parallel_corpora.length
-                    ? store.parallel_corpora.map((lang) => newLang(lang, store.cqpParallel[lang] || "[]"))
-                    : [newLang()]
+                const queries = Object.entries(store.cqpParallel)
+                ctrl.langs = queries.length ? queries.map(([lang, cqp]) => newLang(lang, cqp)) : [newLang()]
                 updateCqp()
                 commitSearch()
             })
@@ -105,20 +113,23 @@ angular.module("korpApp").component("extendedParallel", {
 
             ctrl.onLangChange = function () {
                 const currentLangList = ctrl.langs.map((lang) => lang.lang)
-                corpusSelection.setActiveLangs(currentLangList)
-                store.parallel_corpora = currentLangList
+                // Empty corpus selection results in empty language list, abort
+                if (!currentLangList[0]) return
             }
 
             ctrl.onSubmit = function () {
                 $location.replace()
                 store.search = `cqp|${store.extendedCqp}`
                 store.page = 0
-                commitSearch()
+                commitSearch(true)
             }
 
-            function commitSearch() {
-                matomoSend("trackEvent", "Search", "Submit search", "Extended")
-                store.activeSearch = { cqp: store.extendedCqp! }
+            function commitSearch(force = false) {
+                const newSearch = { cqp: store.extendedCqp! }
+                if (force || !isEqual(store.activeSearch, newSearch)) {
+                    matomoSend("trackEvent", "Search", "Submit search", "Extended")
+                    store.activeSearch = newSearch
+                }
             }
 
             ctrl.keydown = function ($event: KeyboardEvent) {

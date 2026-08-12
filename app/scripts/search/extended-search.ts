@@ -8,6 +8,7 @@ import { loc, locAttribute } from "@/i18n"
 export async function loadOptions(attr: AttributeOption, lang: string): Promise<string[][]> {
     const name = attr.name
     const split = attr.type === "set"
+    const ranked = attr.ranked
 
     // check which corpora support attributes
     const corpora = corpusSelection.corpora
@@ -16,9 +17,9 @@ export async function loadOptions(attr: AttributeOption, lang: string): Promise<
 
     if (!corpora.length) return []
 
-    const data = await getAttrValues(corpora, name, split)
+    const data = await getAttrValues(corpora, name, split, ranked)
 
     return uniq(data)
-        .map((item) => (item === "" ? ["", loc("empty", lang)] : [item, locAttribute(attr.translation, item, lang)]))
+        .map((item) => (item === "" ? ["", loc("empty", lang)] : [item, locAttribute(attr, item, lang)]))
         .sort((a, b) => a[1].localeCompare(b[1], lang))
 }

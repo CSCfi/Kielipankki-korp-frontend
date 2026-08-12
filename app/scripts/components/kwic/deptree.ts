@@ -1,10 +1,9 @@
 import angular, { IController, IScope, ITimeoutService, ui } from "angular"
 import { html } from "@/util"
-import { locAttribute } from "@/i18n"
-import { StoreService } from "@/services/store.types"
 import { CorpusTransformed } from "@/settings/config-transformed.types"
 import { Token } from "@/backend/types"
 import { LangString } from "@/i18n/types"
+import { getDeptreeAttrMapping } from "@/settings"
 
 type DeptreeController = IController & {
     tokens: Token[]
@@ -22,6 +21,7 @@ angular.module("korpApp").component("depTree", {
                 </div>
                 <div class="modal-body">
                     <div ng-if="label">{{label | locObj:$root.lang}}: {{value | locObj:$root.lang}}</div>
+                    <div ng-if="!label">&nbsp;</div>
                     <div id="magic_secret_id"></div>
                 </div>
             </script>
@@ -43,8 +43,7 @@ angular.module("korpApp").component("depTree", {
     },
     controller: [
         "$uibModal",
-        "store",
-        function ($uibModal: ui.bootstrap.IModalService, store: StoreService) {
+        function ($uibModal: ui.bootstrap.IModalService) {
             let $ctrl = this as DeptreeController
 
             $ctrl.$onInit = async () => {
@@ -54,7 +53,7 @@ angular.module("korpApp").component("depTree", {
                 type ModalScope = IScope & {
                     clickX: () => void
                     label: LangString
-                    value: string
+                    value: LangString
                 }
 
                 const modal = $uibModal.open({
@@ -63,26 +62,23 @@ angular.module("korpApp").component("depTree", {
                         "$scope",
                         "$timeout",
                         ($scope: ModalScope, $timeout: ITimeoutService) => {
+                            const attrMapping = getDeptreeAttrMapping($ctrl.corpus)
+
                             $scope.clickX = () => {
                                 modal.close()
                             }
 
+                            // Wait for target div to be present
                             $timeout(() => {
-                                drawBratTree($ctrl.tokens, "magic_secret_id", (kind, val) => {
-                                    const attrName =
-                                        kind === "pos"
-                                            ? $ctrl.corpus.attributes.upos
-                                                ? "upos"
-                                                : "pos"
-                                            : "deprel"
-                                    const attr = $ctrl.corpus.attributes[attrName]
-                                    if (!attr) return
-                                    $scope.$apply((s: ModalScope) => {
-                                        s.label = attr.label
-                                        s.value = locAttribute(attr.translation, val, store.lang)
+                                drawBratTree($ctrl.tokens, "magic_secret_id", attrMapping, (attrName, value) => {
+                                    const attribute = $ctrl.corpus.attributes[attrName]
+                                    if (!attribute) return
+                                    $scope.$apply(() => {
+                                        $scope.label = attribute.label || attrName
+                                        $scope.value = attribute.translation?.[value] || value
                                     })
                                 })
-                            }, 0)
+                            })
                         },
                     ],
                     size: "lg",

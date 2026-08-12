@@ -21,11 +21,14 @@ import { ExampleTask } from "@/task/example-task"
 import { MapTask } from "@/task/map-task"
 import { TrendTask } from "@/task/trend-task"
 import { CsvType, downloadCsvFile } from "@/csv"
+import { percentage } from "@/i18n/util"
 
 type StatisticsScope = IScope & {
     clipped: boolean
     downloadOption: CsvType | ""
+    percentage: (value: number) => string
     reduceOnChange: (data: { selected: string[]; insensitive: string[] }) => void
+    unsupportedAttributes: string
     statCurrentAttrs: AttributeOption[]
     statSelectedAttrs: string[]
     statInsensitiveAttrs: string[]
@@ -41,6 +44,8 @@ type StatisticsController = IController & {
     response: CountResponse
     rowCount: number
     searchParams: SearchParams
+    unsupportedRatio: number
+    unsupportedAttributes: AttributeOption[]
     warning?: string
     onGraphClick: () => void
     onUpdateSearch: () => void
@@ -174,8 +179,15 @@ angular.module("korpApp").component("statistics", {
                         </span>
                     </div>
                 </div>
-                <div ng-if="!$ctrl.loading" style="margin-bottom: 5px">
+                <div ng-if="!$ctrl.loading" class="my-2 flex flex-wrap items-baseline gap-x-4">
                     {{'total_rows' | loc:$root.lang}} {{$ctrl.data.length - 1 | prettyNumber:$root.lang}}
+
+                    <span ng-if="unsupportedAttributes">
+                        {{ percentage($ctrl.unsupportedRatio) }} {{ "stats_unsupported_attr" | loc:$root.lang }}
+                        <em>{{ unsupportedAttributes }}</em>
+                        {{ "stats_unsupported_attr_excluded" | loc:$root.lang }}
+                    </span>
+
                     <span ng-if="clipped">
                         {{'stats_clipped' | loc:$root.lang}}
                         <i
@@ -198,6 +210,8 @@ angular.module("korpApp").component("statistics", {
         response: "<",
         rowCount: "<",
         searchParams: "<",
+        unsupportedRatio: "<",
+        unsupportedAttributes: "<",
         warning: "<",
     },
     controller: [
@@ -254,7 +268,7 @@ angular.module("korpApp").component("statistics", {
                     grid = new StatisticsGrid(
                         $("#myGrid").get(0)!,
                         $ctrl.data,
-                        cl.map((corpus) => corpus.id.toUpperCase()),
+                        cl.stringify(true).split(","),
                         $ctrl.searchParams.reduceVals,
                         store,
                         showPieChart,
@@ -267,15 +281,20 @@ angular.module("korpApp").component("statistics", {
                     $ctrl.mapAttributes = getGeoAttributes(cl.corpora)
                 }
 
+                if ("unsupportedAttributes" in changeObj) {
+                    $scope.unsupportedAttributes = $ctrl.unsupportedAttributes
+                        .map((attr) => locObj(attr.label, store.lang))
+                        .join(", ")
+                }
+
                 if ("rowCount" in changeObj && $ctrl.rowCount) {
                     $scope.clipped = !!settings["statistics_limit"] && $ctrl.rowCount >= settings["statistics_limit"]
                 }
             }
 
-            store.watch("corpus", () => {
+            function updateAttributes() {
                 // Update list of attributes
-                const reduceLang = corpusSelection.getReduceLang()
-                $scope.statCurrentAttrs = corpusSelection.getAttributeGroupsStatistics(reduceLang)
+                $scope.statCurrentAttrs = corpusSelection.getAttributeGroupsStatistics()
 
                 // Deselect removed attributes, fall back to word
                 const names = $scope.statCurrentAttrs.map((option) => option.name)
@@ -285,7 +304,12 @@ angular.module("korpApp").component("statistics", {
 
                 const insensitiveAttrs = store.stats_reduce_insensitive
                 $scope.statInsensitiveAttrs = insensitiveAttrs ? insensitiveAttrs.split(",") : []
-            })
+            }
+
+            store.watch("corpus", updateAttributes)
+            store.watch("cqpParallel", updateAttributes)
+
+            $scope.percentage = percentage
 
             $scope.reduceOnChange = ({ selected, insensitive }) => {
                 if (selected) $scope.statSelectedAttrs = selected
@@ -316,9 +340,14 @@ angular.module("korpApp").component("statistics", {
                 if (!isTotalRow(row)) cqps.push(buildExampleCqp(row))
 
                 // Unless corpus is given, find which corpora had any hits (uppercase ids)
-                const corpora = corpusId ? [corpusId] : Object.keys(row.count).filter((id) => row.count[id][0] > 0)
+                const corpusIdsWithHits = corpusId
+                    ? [corpusId]
+                    : Object.keys(row.count).filter((id) => row.count[id][0] > 0)
+                const corpusIds = $ctrl.searchParams.originalCorpora
+                    .split(",")
+                    .filter((linkId) => corpusIdsWithHits.includes(linkId.split("|").shift()!))
 
-                const task = new ExampleTask(corpora, cqps, $ctrl.params.default_within, store.reading_mode)
+                const task = new ExampleTask(corpusIds, cqps, $ctrl.params.default_within, store.reading_mode)
                 $scope.$applyAsync(() => $rootScope.kwicTabs.push(task))
             }
 
@@ -373,7 +402,7 @@ angular.module("korpApp").component("statistics", {
             /** Create KWIC sub queries for selected table rows, as a list of `[cqp, label]` pairs. */
             function getSubqueries(): [string, string][] {
                 const rowIds = grid.getSelectedRows().sort()
-                const rows = rowIds.map(grid.getDataItem)
+                const rows = rowIds.map((i) => grid.getDataItem(i))
                 const pairs: [string, string][] = []
                 for (const row of rows) {
                     if (isTotalRow(row)) continue
