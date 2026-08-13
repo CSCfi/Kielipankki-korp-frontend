@@ -171,12 +171,17 @@ korpApp.run([
         /** Whether initial corpus selection is deferred because it depends on authentication. */
         let waitForLogin = false
 
+        const isDenied = (corpus?: CorpusTransformed) =>
+            corpus?.protected && !auth.hasCredential(corpus.id.toUpperCase())
+
+        // The store accepts corpus ids from unvalidated sources (the url hash, frontpage
+        // corpus-update links), so unauthorized corpora must be dropped again here, at the
+        // point where the store feeds the search selection.
+        const removeDenied = (ids: string[]) => ids.filter((id) => !isDenied(settings.corpora[id]))
+
         async function initializeCorpusSelection(ids: string[], skipLogin?: boolean): Promise<void> {
             // Resolve any folder ids to the contained corpus ids
             ids = ids.flatMap((id) => getAllCorporaInFolders(settings.folders, id))
-
-            const isDenied = (corpus?: CorpusTransformed) =>
-                corpus?.protected && !auth.hasCredential(corpus.id.toUpperCase())
 
             // If no id is given, use default
             if (!ids || ids.length == 0) {
@@ -251,12 +256,12 @@ korpApp.run([
             } else {
                 // Corpus selection OK
                 store.corpus = ids
-                corpusSelection.pickFrom(corpusListing, store.corpus)
+                corpusSelection.pickFrom(corpusListing, removeDenied(store.corpus))
 
                 // Sync corpus selection from store to global corpus listing
                 store.watch("corpus", () => {
                     // In parallel mode, the select function may also add hidden corpora.
-                    corpusSelection.pickFrom(corpusListing, store.corpus)
+                    corpusSelection.pickFrom(corpusListing, removeDenied(store.corpus))
                 })
             }
         }
