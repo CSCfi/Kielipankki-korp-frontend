@@ -44,6 +44,8 @@
     "ambiguous_pos": "flertydig ordklass",
     "ambiguous_msd": "flertydig msd",
 
+    "ud_features": "UD-kännetecken",
+
     "url": "url",
     "referensnummer": "referensnummer",
 
@@ -83,6 +85,7 @@
     "date": "datum",
     "author": "författare",
     "title": "titel",
+    "subtitle": "undertitel",
     "section": "avdelning",
     "genre": "genre",
     "article": "artikel",
@@ -263,6 +266,9 @@
     "publication_date_2": "publikationsdatum",
     "publication_time": "publikationstid",
 
+    "publication_places": "publikationsorter",
+    "publication_country": "publikationsland",
+
     "show_original": "Visa originaltext",
     "show_fulltext": "Visa heltext",
     "show_fulltext_context": "Visa kontext i heltext",
@@ -341,6 +347,11 @@
     "image_url": "länk till bilden",
     "parse_state": "parsningsstatus",
 
+    "nlf_metadata_date": "Nationalbibliotekets metadatadatum",
+    "nlf_rights": "Nationalbibliotekets rättighetsinformation",
+    "nlf_status": "Nationalbibliotekets statusinformation",
+    "nlf_status_date": "Nationalbibliotekets statusdatum",
+
     "paragraph_type": "styckets typ",
     "sentence_type": "meningens typ",
     "file_name": "filnamn",
@@ -397,6 +408,17 @@
 
     "ner_tags": "namnklassificering",
     "ner_tag_max": "namnklassificering (maximal)",
+
+    "ocr_word_confidence": "OCR-ordkonfidens",
+    "ocr_char_confidence": "OCR-teckenkonfidens",
+    "word_divided_into_lines": "ordet uppdelat i rader",
+    "vertical_position": "vertikal position",
+
+    "date_iso": "datum (ISO)",
+    "issue_date": "numrets datum",
+    "filename_orig": "originalt filnamn",
+    "filename_metadata": "metadatafilnamn",
+    "added_in_version": "tillagd i version",
 
     "ne_expr": "uttryck",
     "ne_type": "namntyp",

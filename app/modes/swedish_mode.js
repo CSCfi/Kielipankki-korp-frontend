@@ -155,6 +155,19 @@ settings.corporafolders.literary.fstc_literary = {
     info: fstc_info,
 };
 
+settings.corporafolders.news.klk_sv_v2 = {
+    title: "Nationalbibliotekets svenskspråkiga tidningar och tidskrifter, version 2",
+    description: "Svenskspråkiga tidningar och tidskrifter i Nationalbibliotekets digitala samlingar, version 2, Korp<br/><br/>Denna korpus innehåller tidningar och tidskrifter från <a href=\"https://digi.kansalliskirjasto.fi/etusivu?set_language=sv\" target=\"_blank\">Nationalbibliotekets digitala samlingar</a> från åren 1771–2021. Materialet innehåller mer än dubbelt så många ord som <a href=\"http://urn.fi/urn:nbn:fi:lb-2016050301\" target=\"_blank\">den tidigare versionen av korpusen</a>, som fortfarande är tillgänglig i Korp.<br/><br/>Fram till år 1911 har korpusen meningarna i ursprunglig ordning samt styckeskontext, medan meningarna från och med år 1912 har blandats inom varje text (tidningssida), och styckeskontext saknas.<br/><br/>Meningsspråket i korpusen har identifierats med språkindentifieraren <a href=\"http://urn.fi/urn:nbn:fi:lb-2022092201\" target=\"_blank\">HeLI-OTS</a>. Korpusen innehåller från följande källmaterial de texter (tidningssidor) där minst en mening har identifierats som svenska: <a href=\"http://urn.fi/urn:nbn:fi:lb-2016050301\" target=\"_blank\">den svenskspråkiga delkorpusen av Nationalbibliotekets tidningssamling (version 1)</a>; <a href=\"http://urn.fi/urn:nbn:fi:lb-2016050302\" target=\"_blank\">den finskspråkiga delkorpusen av Nationalbibliotekets tidningssamling (version 1)</a>; samt material som producerats av Nationalbiblioteket efter 2013 och som tidigare inte har varit tillgängligt i Språkbanken.<br/><br/><strong>Observera</strong> att korpusens annoteringar skiljer sig delvis från annoteringarna i den tidigare versionen. Konsekutiva åren med relativt litet material har sammanförts till större delkorpusar.<br/><br/>Länkarna till sidbilder och PDF-filer i korpusen leder till Nationalbibliotekets digitala samlingar. För de flesta tidningar som är nyare än 1939 är användningen av sidbilder och PDF-filer endast tillåten för forskningsändamål och förutsätter inloggning samt ifyllande av en användningstillståndsblankett i Nationalbibliotekets tjänst.",
+    info: {
+        urn: "urn:nbn:fi:lb-2023092927",
+        metadata_urn: "urn:nbn:fi:lb-2023092926",
+        licence: settings.licenceinfo.KLK_en,
+        shortname: "klk-sv-v2-korp",
+        group_page_urn: "urn:nbn:fi:lb-2021092404",
+        status: "rc",
+    }
+};
+
 settings.corporafolders.news.klk_sv = {
     title: "Nationalbibliotekets svenskspråkiga tidningar och tidskrifter",
     description: "Svenskspråkiga tidningar och tidskrifter i Nationalbibliotekets digitala samlingar, Kielipankki-version",
@@ -229,6 +242,241 @@ settings.corporafolders.other.fstc_other = {
     description: "Finlandssvensk textcorpus (UHLCS): myndighetstexter: delkorpus som var i Lemmie-servicen, morfosyntaktiskt analyserad med SWECG<br/><br/><strong>Observera</strong> att delkorpusar av FSTC finns också under <i>Litteraturkorpusar</i> och <i>Tidnings-, tidskrifts- och nyhetskorpusar</i>.",
     info: fstc_info,
 };
+
+
+// klk-sv-v2
+
+sattrlist.klk_sv_v2_extra = {
+    text_year: {
+        label: "year",
+    },
+    text_subtitle: {
+        label: "subtitle",
+    },
+    text_publisher: {
+        label: "publisher",
+    },
+    text_publ_places: {
+        label: "publication_places",
+        type: "set",
+        opts: options.fullSet,
+    },
+    text_publ_country: {
+        label: "publication_country",
+    },
+    text_nlf_metadata_date: {
+        label: "nlf_metadata_date",
+    },
+    text_nlf_rights: {
+        label: "nlf_rights",
+        translation: {
+            "CNE": {
+                en: funcs.makeLink("copyright not evaluated",
+                                   "http://rightsstatements.org/vocab/CNE/1.0/"),
+                fi: funcs.makeLink("tekijänoikeutta ei arvioitu",
+                                   "http://rightsstatements.org/vocab/CNE/1.0/"),
+                sv: funcs.makeLink("upphovsrätt ej bedömd",
+                                   "http://rightsstatements.org/vocab/CNE/1.0/"),
+            },
+            "InC": {
+                en: funcs.makeLink("in copyright",
+                                   "http://rightsstatements.org/vocab/InC/1.0/"),
+                fi: funcs.makeLink("tekijänoikeuden alainen",
+                                   "http://rightsstatements.org/vocab/InC/1.0/"),
+                sv: funcs.makeLink("upphovsrättsskyddad",
+                                   "http://rightsstatements.org/vocab/InC/1.0/"),
+            },
+            "PDM": {
+                en: funcs.makeLink("public domain",
+                                   "http://creativecommons.org/publicdomain/mark/1.0/"),
+                fi: funcs.makeLink("ei tekijänoikeutta",
+                                   "http://creativecommons.org/publicdomain/mark/1.0/"),
+                sv: funcs.makeLink("ingen upphovsrätt",
+                                   "http://creativecommons.org/publicdomain/mark/1.0/"),
+            },
+        },
+    },
+    text_nlf_status: {
+        label: "nlf_status",
+        translation: {
+            "active": {
+                en: "active",
+                fi: "aktiivinen",
+                sv: "aktiv",
+            },
+            "deleted": {
+                en: "deleted",
+                fi: "poistettu",
+                sv: "raderad",
+            },
+        },
+    },
+    text_nlf_status_date: {
+        label: "nlf_status_date",
+    },
+};
+
+sattrlist.klk_sv_v2 = $.extend(
+    {}, sattrlist.klk_v2,
+    sattrlist.klk_sv_v2_extra);
+sattrlist.klk_sv_v2_paragraphs = $.extend(
+    {}, sattrlist.klk_v2_paragraphs,
+    sattrlist.klk_sv_v2_extra);
+
+sattrlist.klk_sv_v2_custom = sattrlist.klk_pagelinks_custom;
+sattrlist.klk_sv_v2_paragraphs_custom = sattrlist.klk_pagelinks_custom;
+
+attrlist.klk_sv_v2 = {
+    pos: attrs.pos,
+    msd: attrs.msd,
+    lemma: attrs.baseform_sv,
+    lex: attrs.lemgram,
+    dephead: attrs.dephead,
+    deprel: attrs.deprel,
+    ufeats: attrs.ud_feats,
+    ref: attrs.ref,
+    hyph: {
+        label: "word_divided_into_lines",
+    },
+    ocr: {
+        label: "ocr_word_confidence",
+    },
+    cc: {
+        label: "ocr_char_confidence",
+    },
+    vpos: {
+        label: "vertical_position",
+    },
+};
+
+attrlist.klk_sv_v2_paragraphs = attrlist.klk_sv_v2;
+
+// The following undocumented code creates the corpus folders and
+// objects for klk-sv-v2. Some existing functions in common.js could
+// have been used, but they would probably have required
+// modifications.
+
+funcs.makeYearPairList = function (start, end) {
+    let result = []
+    for (let y = end; y >= start; y--) {
+        result.push([y.toString(), y.toString()])
+    }
+    // c.log("makeYearPairList", start, end, "->", result)
+    return result
+}
+
+funcs.makeDecadeSv = function (decade, years) {
+    // c.log("makeDecadeSv", decade, years)
+    let result = []
+    if (_.isArray(decade)) {
+        let [decade1, decade2] = decade
+        result.push([decade1.toString() + "_" + decade2.toString(),
+                     decade1.toString() + "–" + decade2.toString() + "-talen"])
+    } else {
+        result.push([decade.toString(), decade.toString() + "-talet"])
+    }
+    let corpora = []
+    for (let yrange of years) {
+        // c.log("yrange", yrange, yrange.length)
+        let year1 = yrange[0]
+        let year2 = yrange[1]
+        if (yrange.length == 3) {
+            corpora.push([year1.toString() + "_" + year2.toString(),
+                          year1.toString() + "–" + year2.toString()])
+        } else {
+            corpora.push(...funcs.makeYearPairList(year1, year2))
+        }
+    }
+    result.push(corpora)
+    // c.log("makeDecadeSv", decade, years, "->", result)
+    return result
+}
+
+funcs.makeDecadesSv = function (data) {
+    let result = []
+    for (let item of data) {
+        let decade, years
+        if (_.isArray(item)) {
+            [decade, years] = item
+            if (years == "combine") {
+                years = [[decade, decade + 9, "combine"]]
+            }
+        } else {
+            decade = item
+            years = [[decade, decade + 9]]
+        }
+        result.push(funcs.makeDecadeSv(decade, years))
+    }
+    // c.log("makeDecadesSv", data, "->", result)
+    return result
+}
+
+klk_sv_v2_hierarchy = funcs.makeDecadesSv(
+    [
+        [2020, [[2020, 2021]]],
+        [2010, [[2017, 2019],
+                [2010, 2016, "combine"]]],
+        [2000, "combine"],
+        1990,
+        1980,
+        [1970, "combine"],
+        [1960, "combine"],
+        [1950, "combine"],
+        1940,
+        1930,
+        1920,
+        1910,
+        1900,
+        1890,
+        1880,
+        1870,
+        [1860, [[1865, 1869, "combine"],
+                [1860, 1864, "combine"]]],
+        [1850, [[1855, 1859, "combine"],
+                [1850, 1854, "combine"]]],
+        [1840, "combine"],
+        [1830, "combine"],
+        [1820, "combine"],
+        [[1800, 1810], [[1800, 1819, "combine"]]],
+        [[1770, 1790], [[1771, 1799, "combine"]]],
+    ])
+
+for (let folderCorporaInfo of klk_sv_v2_hierarchy) {
+    let [folderInfo, corporaInfo] = folderCorporaInfo
+    let contents = []
+    for (corpusInfo of corporaInfo) {
+        let [corpusIdBase, corpusTitleBase] = corpusInfo
+        let corpusId = "klk_sv_v2_" + corpusIdBase
+        let hasParas = (corpusIdBase <= "1911")
+        let typeSuff = (hasParas ? "_paragraphs" : "")
+        let withinContext = (hasParas ? "sp" : "default")
+        let corpusObj = {
+            id: corpusId,
+            title: "Nationalbiblioteket svenska v2 " + corpusTitleBase,
+            description: "Nationalbiblioteket svenska v2 " + corpusTitleBase,
+            within: within[withinContext],
+            context: context[withinContext],
+            attributes: attrlist.klk_sv_v2,
+            structAttributes: sattrlist["klk_sv_v2" + typeSuff],
+            customAttributes: sattrlist["klk_sv_v2" + typeSuff + "_custom"],
+        }
+        settings.corpora[corpusId] = corpusObj
+        contents.push(corpusId)
+    }
+    let [folderId, folderTitleBase] = folderInfo
+    let folderObj = {
+        title: "KLK-sv-v2 " + folderTitleBase,
+        description: "Nationalbiblioteket svenska v2 " + folderTitleBase,
+        contents: contents,
+    }
+    settings.corporafolders.news.klk_sv_v2[folderId] = folderObj
+}
+
+// c.log("settings.corporafolders.news.klk_sv_v2:",
+//       settings.corporafolders.news.klk_sv_v2)
+// c.log("settings.corpora:", settings.corpora)
+
+funcs.addCorpusAliases("klk_sv_v2_[0-9_]+", "klk-sv-v2");
 
 
 // Generate settings.corpora and settings.corporafolders for the
