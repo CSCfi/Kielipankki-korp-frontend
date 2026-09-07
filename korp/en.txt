@@ -1,5 +1,5 @@
 
-<!-- New corpus version (release candidate): The Swedish Sub-corpus of the Newspaper and Periodical Corpus of the National Library of Finland, version 2 2026-07-15 -->
+<!-- New corpus version (release candidate): The Swedish Sub-corpus of the Newspaper and Periodical Corpus of the National Library of Finland, version 2 2026-09-07 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2023092926" target="_blank">The
 Swedish Sub-corpus of the Newspaper and Periodical Corpus of the

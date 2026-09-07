@@ -1,5 +1,5 @@
 
-<!-- Ny korpus (releasekandidat): Nationalbibliotekets Klassikerbiblioteks svenskspråkiga delkorpus 2026-07-15 -->
+<!-- Ny korpus (releasekandidat): Nationalbibliotekets Klassikerbiblioteks svenskspråkiga delkorpus 2026-09-07 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2023092926"
 target="_blank">Svenskspråkiga tidningar och tidskrifter i

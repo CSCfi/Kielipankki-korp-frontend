@@ -1,5 +1,5 @@
 
-<!-- Uusi aineistoversio (julkaisuehdokas): Kansalliskirjaston lehtikokoelman (KLK) ruotsinkieliset lehdet, versio 2 2026-07-15 -->
+<!-- Uusi aineistoversio (julkaisuehdokas): Kansalliskirjaston lehtikokoelman (KLK) ruotsinkieliset lehdet, versio 2 2026-09-07 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2023092926"
 target="_blank">Kansalliskirjaston sanoma- ja aikakauslehtikokoelman
