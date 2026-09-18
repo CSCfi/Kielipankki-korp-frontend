@@ -10251,7 +10251,7 @@ funcs.addCorpusSettings(
          "Käyttäytymistieteellinen tiedekunta (1996, 2000–2016)"],
         ["valt", "Valtiotieteellinen",
          "Valtiotieteellinen tiedekunta (1999–2016)"],
-        ["oik", "Oikeustieteellinen",
+        ["ot", "Oikeustieteellinen",
          "Oikeustieteellinen tiedekunta (2001, 2004–2010, 2012, 2014–2016)"],
         ["hum", "Humanistinen", "Humanistinen tiedekunta (2000–2016)"],
         ["bio", "Bio- ja ympäristötieteellinen",
