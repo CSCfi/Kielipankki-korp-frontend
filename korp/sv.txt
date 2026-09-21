@@ -1,3 +1,13 @@
+<!-- Åtgärdad synlighet för vissa delkorpusar: E-thesis, juridiska fakultetens doktorsavhandlingar, och klk-sv-v2 1820- och 1830-talen 2026-09-21 -->
+
+På grund av en felkonfiguration syntes en delkorpus av den finskspråkiga
+E-thesis-korpusen, gällande doktorsavhandlingar från juridiska fakulteten,
+tidigare inte i användargränssnittet. På samma sätt syntes inte
+utgåvekandidaten för Nationalbibliotekets svenskspråkiga delkorpus av
+tidnings- och tidskriftskorpusen, version 2, i användargränssnittet. Dessa
+felkonfigurationer har nu åtgärdats, och därför kan antalet träffar du får
+när du väljer alla delkorpusar ha ändrats. Du kan återskapa det tidigare
+beteendet exakt genom att avmarkera de nämnda korpusarna i dina sökningar.
 
 <!-- Ny korpus (releasekandidat): Nationalbibliotekets Klassikerbiblioteks svenskspråkiga delkorpus 2026-09-07 -->
 
