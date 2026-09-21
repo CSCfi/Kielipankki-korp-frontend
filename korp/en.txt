@@ -1,3 +1,14 @@
+<!-- Fixed visibility of some subcorpora: E-thesis Faculty of Law PhDs and klk-sv-v2 1820s and 1830s 2026-09-21 -->
+
+Due to a misconfiguration, a subcorpus of the Finnish-language E-thesis corpus,
+pertaining to PhD theses from the Faculty of Law, were previously not visible
+in the frontend. Similarly, two decades, the 1820s and the 1830s in the release
+candidate for The Swedish Sub-corpus of the Newspaper and Periodical Corpus
+of the National Library of Finland,
+version 2, was not visible in the frontend. These misconfigurations have now
+been corrected, and therefore the hit counts you get from selecting all the
+sub-corpora may have changed. You may exactly reproduce the previous behaviour
+by deselecting the aforementioned corpora from your searches.
 
 <!-- New corpus version (release candidate): The Swedish Sub-corpus of the Newspaper and Periodical Corpus of the National Library of Finland, version 2 2026-09-07 -->
 

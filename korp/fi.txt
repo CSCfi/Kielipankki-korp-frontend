@@ -1,3 +1,13 @@
+<!-- Joidenkin osakorpusten näkyvyys korjattu: E-thesiksen oikeustieteellisen tiedekunnan väitöskirjat & klk-sv-v2:n 1820- ja 1830-luvut 2026-09-21 -->
+
+Virheellisen konfiguraation vuoksi suomenkielisen E-thesis -korpuksen
+oikeustieteellisen tiedekunnan väitöskirjoja koskeva osakorpus,
+ei aiemmin näkynyt käyttöliittymässä. Vastaavasti Kansalliskirjaston sanoma- ja
+aikakauslehtikokoelman ruotsinkielisen osakorpuksen v2:n
+julkaisukandidaatti ei näkynyt käyttöliittymässä. Nämä virheelliset
+määritykset on nyt korjattu, minkä vuoksi kaikkien osakorpusten valitsemisesta
+saatavat osumamäärät ovat voineet muuttua. Voit toistaa aiemmin näkyneet
+tulokset jättämällä edellä mainitut korpukset valitsematta hauistasi.
 
 <!-- Uusi aineistoversio (julkaisuehdokas): Kansalliskirjaston lehtikokoelman (KLK) ruotsinkieliset lehdet, versio 2 2026-09-07 -->
 
