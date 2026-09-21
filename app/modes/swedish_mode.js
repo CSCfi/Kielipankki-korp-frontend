@@ -435,8 +435,7 @@ klk_sv_v2_hierarchy = funcs.makeDecadesSv(
         [1850, [[1855, 1859, "combine"],
                 [1850, 1854, "combine"]]],
         [1840, "combine"],
-        [1830, "combine"],
-        [1820, "combine"],
+        [[1820, 1830], [[1820, 1839, "combine"]]],
         [[1800, 1810], [[1800, 1819, "combine"]]],
         [[1770, 1790], [[1771, 1799, "combine"]]],
     ])
