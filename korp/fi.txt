@@ -1,3 +1,10 @@
+<!-- Uusi aineistoversio (julkaisuehdokas): Raamatun jakeita uralilaisille kielille (Pabivus), rinnakkaiskorpus, versio 2 2026-09-29 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2024043001"
+target="_blank">Raamatun jakeita uralilaisille kielille (Pabivus),
+rinnakkaiskorpus, versio 2, Korp (pabivus-v2-korp)</a> on nyt
+käytettävissä julkaisuehdokasversiona Korpissa.
+
 <!-- Joidenkin osakorpusten näkyvyys korjattu: E-thesiksen oikeustieteellisen tiedekunnan väitöskirjat & klk-sv-v2:n 1820- ja 1830-luvut 2026-09-21 -->
 
 Virheellisen konfiguraation vuoksi suomenkielisen E-thesis -korpuksen
