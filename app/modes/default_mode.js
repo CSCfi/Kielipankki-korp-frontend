@@ -15269,6 +15269,67 @@ settings.corpora.iijoki = {
     }
 };
 
+settings.corporafolders.literary.paatalo_v2 = {
+    title: "Oulun yliopiston Päätalo-kokoelma",
+    description: "Oulun yliopiston Päätalo-kokoelma, Kielipankki Korp -versio",
+    info: {
+        metadata_urn: "urn:nbn:fi:lb-2023110921",
+    },
+    contents: [
+        "paatalo_ihmisia",
+        "paatalo_koillismaa",
+    ]
+};
+
+settings.corpora.paatalo_ihmisia = {
+    id: "paatalo-ihmisia",
+    cite_id: "paatalo-ihmisia-korp",
+    urn: "urn:nbn:fi:lb-2026040902",
+    metadata_urn: "urn:nbn:fi:lb-2026040901",
+    lang: "fin",
+    title: "Ihmisiä telineillä, Oulun yliopiston Päätalo-kokoelma, Korp",
+    description: "Ihmisiä telineillä, Oulun yliopiston Päätalo-kokoelma, Korp-versio",
+    limitedAccess: true,
+    licenceType: "ACA",
+    licence: {
+        name: "CLARIN ACA +ID +BY +NC +NORED +DEP v2.2",
+        urn: "urn:nbn:fi:lb-2019102106"
+    },
+    within: within.sp,
+    context: context.sp,
+    attributes: attrlist.parsed_tdt_spaces_finer_pos,
+    structAttributes: {
+	text_title: { label: "work_title", order: 2 },
+	text_year: { label: "text_year", order: 1 },
+	chapter_title { label: "chapter_title" },
+	paragraph_type { label: "paragraph_type" },
+    }
+};
+
+settings.corpora.paatalo_koillismaa = {
+    id: "paatalo-koillismaa",
+    cite_id: "paatalo-koillismaa-korp",
+    urn: "urn:nbn:fi:lb-2026040904",
+    metadata_urn: "urn:nbn:fi:lb-2026040903",
+    lang: "fin",
+    title: "Koillismaa, Oulun yliopiston Päätalo-kokoelma, Korp",
+    description: "Koillismaa, Oulun yliopiston Päätalo-kokoelma, Korp-versio",
+    limitedAccess: true,
+    licenceType: "ACA",
+    licence: {
+        name: "CLARIN ACA +ID +BY +NC +NORED +DEP v2.2",
+        urn: "urn:nbn:fi:lb-2019102106"
+    },
+    within: within.sp,
+    context: context.sp,
+    attributes: attrlist.parsed_tdt_spaces_finer_pos,
+    structAttributes: {
+	text_title: { label: "work_title", order: 2 },
+	text_year: { label: "text_year", order: 1 },
+	chapter_title { label: "chapter_title" },
+	paragraph_type { label: "paragraph_type" },
+    }
+};
 
 // Generate a declaration for a custom structural attribute showing in
 // hh:mm:ss.xxx format the milliseconds value of an actual structural
