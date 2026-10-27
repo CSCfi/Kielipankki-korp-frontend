@@ -15301,8 +15301,8 @@ settings.corpora.paatalo_ihmisia = {
     structAttributes: {
 	text_title: { label: "work_title", order: 2 },
 	text_year: { label: "text_year", order: 1 },
-	chapter_title { label: "chapter_title" },
-	paragraph_type { label: "paragraph_type" },
+	chapter_title: { label: "chapter_title" },
+	paragraph_type: { label: "paragraph_type" },
     }
 };
 
@@ -15326,8 +15326,8 @@ settings.corpora.paatalo_koillismaa = {
     structAttributes: {
 	text_title: { label: "work_title", order: 2 },
 	text_year: { label: "text_year", order: 1 },
-	chapter_title { label: "chapter_title" },
-	paragraph_type { label: "paragraph_type" },
+	chapter_title: { label: "chapter_title" },
+	paragraph_type: { label: "paragraph_type" },
     }
 };
 
