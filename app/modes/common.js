@@ -6218,7 +6218,7 @@ attrlist.parsed_tdt_finer2 = $.extend(
     attrlist.finer2);
 
 // TDT + spaces + FiNER attributes (with pos)
-attrlist.parsed_tdt_spaces_finer_pos = $extend(
+attrlist.parsed_tdt_spaces_finer_pos = $.extend(
     true, {},
     attrlist.parsed_tdt_spaces,
     attrlist.finer2_pos);
