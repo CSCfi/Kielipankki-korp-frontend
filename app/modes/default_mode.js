@@ -210,7 +210,6 @@ funcs.addCorporaToFolder("literary", [
     "skvr",
     "parfin_2016_fi",
     "parrus_2016_fi",
-    "iijoki",
 ]);
 
 settings.corporafolders.literary.skk = {
@@ -15276,13 +15275,14 @@ settings.corporafolders.literary.paatalo_v2 = {
         metadata_urn: "urn:nbn:fi:lb-2023110921",
     },
     contents: [
+	"iijoki",
         "paatalo_ihmisia",
         "paatalo_koillismaa",
     ]
 };
 
 settings.corpora.paatalo_ihmisia = {
-    id: "paatalo-ihmisia",
+    id: "paatalo_ihmisia",
     cite_id: "paatalo-ihmisia-korp",
     urn: "urn:nbn:fi:lb-2026040902",
     metadata_urn: "urn:nbn:fi:lb-2026040901",
@@ -15307,7 +15307,7 @@ settings.corpora.paatalo_ihmisia = {
 };
 
 settings.corpora.paatalo_koillismaa = {
-    id: "paatalo-koillismaa",
+    id: "paatalo_koillismaa",
     cite_id: "paatalo-koillismaa-korp",
     urn: "urn:nbn:fi:lb-2026040904",
     metadata_urn: "urn:nbn:fi:lb-2026040903",
