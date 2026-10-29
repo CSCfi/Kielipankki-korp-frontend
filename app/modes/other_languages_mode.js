@@ -440,6 +440,7 @@ settings.corporafolders.uralic.sus_texts = {
     },
     contents: [
         "sus_texts_koi",
+	"sus_texts_kpv",
     ]
 };
 
@@ -2624,6 +2625,16 @@ settings.corpora.sus_texts_koi = {
     id: "sus_texts_koi",
     title: "SUS-tekstikokoelmat: komipermjakki",
     description: "Suomalais-Ugrilaisen Seuran tekstikokoelmat: komipermjakki",
+    within: within.sp,
+    context: context.sp,
+    attributes: attrlist.ud2_fi,
+    structAttributes: sattrlist.sus_texts
+};
+
+settings.corpora.sus_texts_kpv = {
+    id: "sus_texts_kpv",
+    title: "SUS-tekstikokoelmat: komisyrjääni",
+    description: "Suomalais-Ugrilaisen Seuran tekstikokoelmat: komisyrjääni",
     within: within.sp,
     context: context.sp,
     attributes: attrlist.ud2_fi,
