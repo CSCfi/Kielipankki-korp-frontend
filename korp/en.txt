@@ -1,3 +1,10 @@
+<!-- New corpus version (release candidate): ERME - Paragraph Segmentation Low Annotation, Korp 2026-11-02 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2025121601"
+target="_blank">ERME - Paragraph Segmentation Low Annotation, Korp
+(erme-psla-v1-korp)</a> is now
+available in Korp as a release candidate version.
+
 <!-- New corpus version (release candidate): Parallel Bible Verses for Uralic Studies (Pabivus), version 2 2026-09-29 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2024043001"

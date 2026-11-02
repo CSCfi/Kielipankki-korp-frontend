@@ -1,3 +1,10 @@
+<!-- Uusi aineistoversio (julkaisuehdokas): ERME - Paragraph Segmentation Low Annotation, Korp 2026-11-02 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2025121601"
+target="_blank"> ERME - Paragraph Segmentation Low Annotation, Korp
+(erme-psla-v1-korp)</a> on nyt
+käytettävissä julkaisuehdokasversiona Korpissa.
+
 <!-- Uusi aineistoversio (julkaisuehdokas): Raamatun jakeita uralilaisille kielille (Pabivus), rinnakkaiskorpus, versio 2 2026-09-29 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2024043001"
